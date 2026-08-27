@@ -909,3 +909,130 @@ a {
     font-size: var(--text-2xl);
   }
 }
+
+/* ===== Learn More Modal ===== */
+.ibo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+.ibo-modal-overlay[hidden] {
+  display: none;
+}
+.ibo-modal {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 8px;
+  max-width: 32rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: var(--space-8) var(--space-6) var(--space-6);
+}
+.ibo-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--color-navy);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-interactive);
+}
+.ibo-modal__close:hover {
+  background: #f3f4f6;
+}
+.ibo-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0 0 var(--space-3);
+}
+.ibo-modal__intro {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0 0 var(--space-6);
+}
+.ibo-field {
+  margin-bottom: var(--space-4);
+}
+.ibo-field__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+.ibo-field__input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  background: var(--color-white);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+.ibo-field__input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(169, 128, 74, 0.25);
+}
+.ibo-field__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230e2a48' stroke-width='2'%3e%3cpath d='M6 9l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+.ibo-field__error {
+  color: #991b1b;
+  background: #fee2e2;
+  border-radius: 6px;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  margin: 0 0 var(--space-4);
+}
+.ibo-modal__submit {
+  display: block;
+  width: 100%;
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: var(--space-4);
+  cursor: pointer;
+  transition: box-shadow var(--transition-interactive), opacity var(--transition-interactive);
+}
+.ibo-modal__submit:hover {
+  box-shadow: 0 4px 12px rgba(169, 128, 74, 0.4);
+}
+.ibo-modal__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

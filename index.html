@@ -23,10 +23,10 @@
         <a class="nav__link" href="#advisory">Advisory</a>
         <a class="nav__link" href="#mechanism">Approach</a>
         <a class="nav__link" href="#track-record">Track Record</a>
-        <a class="nav__link" href="#team">Team</a>
+        <a class="nav__link" href="/blog">Blog</a>
         <a class="nav__link" href="#contact">Contact</a>
       </div>
-      <a class="btn btn--outline nav__cta" href="#contact">Learn More</a>
+      <a class="btn btn--outline nav__cta" href="#" data-ibo-open-modal>Learn More</a>
       <button class="nav-toggle" aria-label="Open menu">☰</button>
     </nav>
   </div>
@@ -43,7 +43,7 @@
         <p>It&rsquo;s called an Independent Buyout (IBO) and lets you sell some or all of your ownership and gives you the liquidity and valuation of a Private Equity deal without the Private Equity. And without letting Private Equity take control.</p>
         <p><strong>And you can do it tax free.</strong></p>
       </div>
-      <a href="#contact" class="btn btn--primary hero__cta">Learn More</a>
+      <a href="#" class="btn btn--primary hero__cta" data-ibo-open-modal>Learn More</a>
     </div>
     <div class="hero__media">
       <img src="./assets/hero-dusk.jpg" alt="A climber standing on a mountain summit at dusk, overlooking a mist-filled valley" />
@@ -328,7 +328,7 @@
               <p>More than 25 years of experience building companies, executing M&amp;A transactions, partnering with private equity, and advising entrepreneurs. Led deals totaling $2B+. Built five companies from the ground up. Completed or advised on over 100 M&amp;A and sale transactions. Worked with founders navigating liquidity decisions in industries from technology to manufacturing to services.</p>
               <p>This isn&rsquo;t theoretical. It&rsquo;s born from seeing too many talented operators give up control to private equity, or pay taxes they could have deferred, simply because they didn&rsquo;t know another structure existed.</p>
             </div>
-            <a href="#contact" class="btn btn--outline founder__cta">Learn More</a>
+            <a href="#" class="btn btn--outline founder__cta" data-ibo-open-modal>Learn More</a>
           </div>
         </div>
         <div class="testimonial">
@@ -383,12 +383,72 @@
             <p style="color:rgba(255,255,255,0.85);">IBO Advisors works with a team of banks, lawyers, ESOP firms, and tax experts who understand the terrain of the global economy and have expertise to guide you in the process of selling some or all of your company without using a Private Equity firm.</p>
           </div>
           <p class="experts__closing" style="color:var(--color-gold-light);">Together they have done over 500 successful transactions over the last 25 years.</p>
+          <a href="#" class="btn btn--primary" data-ibo-open-modal>Learn More</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ================= FINAL CTA BANNER ================= -->
+  <section class="section cta-banner" style="background:var(--color-cream); text-align:center;">
+    <div class="container" style="display:flex; flex-direction:column; align-items:center; gap:var(--space-6);">
+      <h2 class="section-heading" style="max-width:100%;">Explore a Different Liquidity Path.</h2>
+      <a href="#" class="btn btn--primary" data-ibo-open-modal>Learn More</a>
+    </div>
+  </section>
+
 </main>
+
+<!-- ================= LEARN MORE MODAL ================= -->
+<div class="ibo-modal-overlay" id="ibo-modal-overlay" hidden>
+  <div class="ibo-modal" role="dialog" aria-modal="true" aria-labelledby="ibo-modal-title">
+    <button type="button" class="ibo-modal__close" id="ibo-modal-close" aria-label="Close">&times;</button>
+
+    <!-- Step 1: Qualify form -->
+    <div class="ibo-modal__step" id="ibo-modal-step-form">
+      <h3 class="ibo-modal__title" id="ibo-modal-title">Learn More about the IBO</h3>
+      <p class="ibo-modal__intro">A few details so we can route you to the right advisor and prepare before we speak. Everything is confidential.</p>
+      <form id="ibo-modal-form" novalidate>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-fullName">Owner name</label>
+          <input class="ibo-field__input" type="text" id="ibo-fullName" name="fullName" placeholder="James Carter" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-email">Email address</label>
+          <input class="ibo-field__input" type="email" id="ibo-email" name="email" placeholder="james@carterindustrial.com" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-cellNumber">Contact number</label>
+          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-company">Company</label>
+          <input class="ibo-field__input" type="text" id="ibo-company" name="company" placeholder="Carter Industrial" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-ebitdaBand">Approximate annual EBITDA</label>
+          <select class="ibo-field__input ibo-field__select" id="ibo-ebitdaBand" name="ebitdaBand" required>
+            <option value="" disabled selected>Select a range</option>
+            <option value="$0 - $3M" data-qualifies="false">$0 - $3M</option>
+            <option value="$3M - $5M" data-qualifies="true">$3M - $5M</option>
+            <option value="$5M - $10M" data-qualifies="true">$5M - $10M</option>
+            <option value="$10M - $20M" data-qualifies="true">$10M - $20M</option>
+            <option value="$20M+" data-qualifies="true">$20M+</option>
+          </select>
+        </div>
+        <p class="ibo-field__error" id="ibo-form-error" hidden></p>
+        <button type="submit" class="ibo-modal__submit" id="ibo-modal-submit">Continue to scheduling</button>
+      </form>
+    </div>
+
+    <!-- Step 2: Declined / below-threshold message -->
+    <div class="ibo-modal__step" id="ibo-modal-step-declined" hidden>
+      <h3 class="ibo-modal__title">Thank You</h3>
+      <p class="ibo-modal__intro">Thank you &mdash; we&rsquo;ve received your details. The Independent Buyout structure is built for companies above a certain scale, and based on what you&rsquo;ve shared it may not be the right fit today. We&rsquo;ll keep your information on file and reach out if that changes or if we can point you to a better-suited path.</p>
+      <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-modal-declined-close">Close</button>
+    </div>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
@@ -399,7 +459,7 @@
       <a href="#advisory">Advisory</a>
       <a href="#mechanism">Approach</a>
       <a href="#track-record">Track Record</a>
-      <a href="#team">Team</a>
+      <a href="/blog">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
     <p class="footer-copy">IBO Advisors. All rights reserved.</p>
@@ -407,5 +467,6 @@
 </footer>
 
 
+<script src="./modal.js"></script>
 </body>
 </html>
