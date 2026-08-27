@@ -25,8 +25,23 @@
 
   if (!overlay || !form) return;
 
+  // Fires all conversion events via the Google Ads global site tag
+  // (gtag.js) already loaded in <head> on every page.
+  function fireConversion(sendTo) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: sendTo });
+    }
+  }
+
+  // Time on Site 30s: fires once per page view, 30s after load.
+  setTimeout(function () {
+    fireConversion('AW-18411360561/KKztCMelj-gcELGinMtE');
+  }, 30000);
+
   function openModal(e) {
     if (e) e.preventDefault();
+    // Click to Learn More: fires every time a Learn More trigger opens the modal.
+    fireConversion('AW-18411360561/IM9lCM-9vOgcELGinMtE');
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
     stepForm.hidden = false;
@@ -119,6 +134,8 @@
       })
       .then(function () {
         if (qualifies) {
+          // Learn More Form - Qualified Lead
+          fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
           var url = new URL(HUBSPOT_MEETING_URL);
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
@@ -126,6 +143,8 @@
           url.searchParams.set('company', company);
           window.location.href = url.toString();
         } else {
+          // Learn More Form - Unqualified Lead
+          fireConversion('AW-18411360561/jK-oCMy9vOgcELGinMtE');
           stepForm.hidden = true;
           stepDeclined.hidden = false;
         }

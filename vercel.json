@@ -1,4 +1,7 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog/what-is-an-independent-buyout", "destination": "/blog", "permanent": true }
+  ]
 }
