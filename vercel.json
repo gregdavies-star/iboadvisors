@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/blog/what-is-an-independent-buyout", "destination": "/blog", "permanent": true }
+    { "source": "/blog/what-is-an-independent-buyout", "destination": "/blog", "permanent": true },
+    { "source": "/blog/independent-buyout-vs-private-equity", "destination": "/blog", "permanent": true }
   ]
 }
