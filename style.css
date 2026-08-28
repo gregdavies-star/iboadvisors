@@ -199,7 +199,7 @@ a {
   font-weight: 700;
   white-space: nowrap;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.35ch;
 }
 .logo__ibo {
@@ -207,6 +207,11 @@ a {
 }
 .logo__advisors {
   color: var(--color-navy);
+}
+.logo__mark {
+  height: clamp(1.8rem, 1.6rem + 1.2vw, 2.4rem);
+  width: auto;
+  display: block;
 }
 .nav {
   display: flex;
