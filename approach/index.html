@@ -197,8 +197,21 @@
           <input class="ibo-field__input" type="text" id="ibo-company" name="company" placeholder="Carter Industrial" required />
         </div>
         <div class="ibo-field">
+          <span class="ibo-field__label">Which best describes you?</span>
+          <div class="ibo-radio-group" role="radiogroup" aria-label="Which best describes you?">
+            <label class="ibo-radio">
+              <input type="radio" name="respondentRole" id="ibo-role-owner" value="CEO/Founder/Owner" required />
+              <span>I am a CEO/Founder/Owner of a company</span>
+            </label>
+            <label class="ibo-radio">
+              <input type="radio" name="respondentRole" id="ibo-role-advisor" value="Business Advisor" />
+              <span>I am a business advisor</span>
+            </label>
+          </div>
+        </div>
+        <div class="ibo-field" id="ibo-ebitda-wrap" hidden>
           <label class="ibo-field__label" for="ibo-ebitdaBand">Approximate annual EBITDA</label>
-          <select class="ibo-field__input ibo-field__select" id="ibo-ebitdaBand" name="ebitdaBand" required>
+          <select class="ibo-field__input ibo-field__select" id="ibo-ebitdaBand" name="ebitdaBand">
             <option value="" disabled selected>Select a range</option>
             <option value="$0 - $3M" data-qualifies="false">$0 - $3M</option>
             <option value="$3M - $5M" data-qualifies="true">$3M - $5M</option>

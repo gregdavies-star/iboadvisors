@@ -22,8 +22,28 @@
   var submitBtn = document.getElementById('ibo-modal-submit');
   var errorEl = document.getElementById('ibo-form-error');
   var ebitdaSelect = document.getElementById('ibo-ebitdaBand');
+  var ebitdaWrap = document.getElementById('ibo-ebitda-wrap');
+  var roleRadios = document.querySelectorAll('input[name="respondentRole"]');
 
   if (!overlay || !form) return;
+
+  // Toggle the EBITDA question: only owners/founders/CEOs answer it.
+  // Advisors skip straight to scheduling with no EBITDA gate.
+  function updateRoleUI() {
+    var selected = document.querySelector('input[name="respondentRole"]:checked');
+    var isOwner = !!selected && selected.value === 'CEO/Founder/Owner';
+    ebitdaWrap.hidden = !isOwner;
+    if (isOwner) {
+      ebitdaSelect.setAttribute('required', 'required');
+    } else {
+      ebitdaSelect.removeAttribute('required');
+      ebitdaSelect.value = '';
+    }
+  }
+
+  roleRadios.forEach(function (radio) {
+    radio.addEventListener('change', updateRoleUI);
+  });
 
   // Fires all conversion events via the Google Ads global site tag
   // (gtag.js) already loaded in <head> on every page.
@@ -48,6 +68,7 @@
     stepDeclined.hidden = true;
     form.reset();
     hideError();
+    updateRoleUI();
   }
 
   function closeModal() {
@@ -87,15 +108,27 @@
     var email = document.getElementById('ibo-email').value.trim();
     var cellNumber = document.getElementById('ibo-cellNumber').value.trim();
     var company = document.getElementById('ibo-company').value.trim();
+    var selectedRole = document.querySelector('input[name="respondentRole"]:checked');
+    var respondentRole = selectedRole ? selectedRole.value : '';
+    var isOwner = respondentRole === 'CEO/Founder/Owner';
     var ebitdaOption = ebitdaSelect.options[ebitdaSelect.selectedIndex];
     var ebitdaBand = ebitdaSelect.value;
 
-    if (!fullName || !email || !cellNumber || !company || !ebitdaBand) {
+    if (!fullName || !email || !cellNumber || !company || !respondentRole) {
       showError('Please fill in every field to continue.');
       return;
     }
 
-    var qualifies = ebitdaOption && ebitdaOption.getAttribute('data-qualifies') === 'true';
+    if (isOwner && !ebitdaBand) {
+      showError('Please fill in every field to continue.');
+      return;
+    }
+
+    // Advisors always qualify for scheduling; owners/founders/CEOs are
+    // gated by the EBITDA threshold selected above.
+    var qualifies = isOwner
+      ? (ebitdaOption && ebitdaOption.getAttribute('data-qualifies') === 'true')
+      : true;
 
     var nameParts = fullName.split(/\s+/);
     var firstName = nameParts.shift() || fullName;
@@ -112,6 +145,7 @@
         { name: 'phone', value: cellNumber },
         { name: 'company', value: company },
         { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
+        { name: 'respondent_role', value: respondentRole },
         { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
       ],
       context: {

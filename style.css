@@ -1011,6 +1011,40 @@ a {
   background-size: 1rem;
   padding-right: 2.5rem;
 }
+.ibo-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ibo-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.ibo-radio:hover {
+  border-color: var(--color-gold);
+  background: #fbf8f4;
+}
+.ibo-radio input[type="radio"] {
+  margin-top: 0.15rem;
+  accent-color: var(--color-gold);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.ibo-radio:has(input:checked) {
+  border-color: var(--color-gold);
+  background: #fbf8f4;
+  box-shadow: 0 0 0 2px rgba(169, 128, 74, 0.25);
+}
 .ibo-field__error {
   color: #991b1b;
   background: #fee2e2;
