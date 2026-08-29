@@ -268,7 +268,7 @@
   // set its notification recipient to michael@iboadvisors.com, and paste its
   // form GUID below. Until it's set the form fails closed with a note to email.
   var HUBSPOT_PORTAL_ID = '245308986';
-  var HUBSPOT_MESSAGE_FORM_GUID = 'YOUR_HUBSPOT_MESSAGE_FORM_GUID';
+  var HUBSPOT_MESSAGE_FORM_GUID = 'c16ecef7-48a5-4373-8410-beebb620d337';
   var CONTACT_EMAIL = 'michael@iboadvisors.com';
 
   var closeBtn = document.getElementById('ibo-contact-close');
