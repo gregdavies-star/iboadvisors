@@ -69,6 +69,8 @@
     form.reset();
     hideError();
     updateRoleUI();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Next';
   }
 
   function closeModal() {
@@ -188,7 +190,7 @@
       })
       .finally(function () {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Continue to scheduling';
+        submitBtn.textContent = 'Next';
       });
   });
 })();
