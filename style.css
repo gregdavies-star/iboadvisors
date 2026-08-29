@@ -779,9 +779,6 @@ a {
   flex-wrap: wrap;
   gap: var(--space-6);
 }
-.site-footer .logo__advisors {
-  color: var(--color-white);
-}
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
