@@ -192,3 +192,57 @@
       });
   });
 })();
+
+/* ==========================================================================
+   Mobile navigation toggle
+   The ☰ button is revealed by CSS at <=960px but was never wired to
+   anything, so mobile visitors had no navigation at all. This opens a
+   dropdown panel containing the nav links plus the "Learn More" CTA. The CTA
+   is moved into the links container while open so both share one panel, then
+   restored to its place in the bar on close/desktop.
+   ========================================================================== */
+(function () {
+  var nav = document.querySelector('.nav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.nav-toggle');
+  var links = nav.querySelector('.nav__links');
+  var cta = nav.querySelector('.nav__cta');
+  if (!toggle || !links) return;
+
+  if (!links.id) links.id = 'primary-nav';
+  toggle.setAttribute('aria-controls', links.id);
+  toggle.setAttribute('aria-expanded', 'false');
+
+  function open() {
+    if (cta) links.appendChild(cta);
+    nav.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+  }
+
+  function close() {
+    if (cta && cta.parentElement === links) nav.insertBefore(cta, toggle);
+    nav.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    if (nav.classList.contains('nav-open')) close();
+    else open();
+  });
+
+  // Tapping a link or the CTA closes the menu (CTA still opens the modal).
+  links.addEventListener('click', function (e) {
+    if (e.target.closest('a')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('nav-open')) close();
+  });
+
+  // Restore the desktop bar if the viewport grows past the breakpoint.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960 && nav.classList.contains('nav-open')) close();
+  });
+})();
