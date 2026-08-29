@@ -50,7 +50,7 @@
         <a class="nav__link" href="/#mechanism">Approach</a>
         <a class="nav__link" href="/#track-record">Track Record</a>
         <a class="nav__link nav__link--active" href="/blog">Blog</a>
-        <a class="nav__link" href="/#contact">Contact</a>
+        <a class="nav__link" href="#" data-ibo-open-contact>Contact</a>
       </div>
       <a class="btn btn--outline nav__cta" href="#" data-ibo-open-modal>Learn More</a>
       <button class="nav-toggle" aria-label="Open menu">☰</button>
@@ -220,6 +220,59 @@ IBO Advisors generally works with contractors doing $3 million or more in EBITDA
   </div>
 </div>
 
+
+<!-- ================= CONTACT MODAL ================= -->
+<div class="ibo-modal-overlay" id="ibo-contact-overlay" hidden>
+  <div class="ibo-modal" role="dialog" aria-modal="true" aria-labelledby="ibo-contact-title">
+    <button type="button" class="ibo-modal__close" id="ibo-contact-close" aria-label="Close">&times;</button>
+
+    <!-- Step 1: choose -->
+    <div class="ibo-modal__step" id="ibo-contact-step-choice">
+      <h3 class="ibo-modal__title" id="ibo-contact-title">Get in touch</h3>
+      <p class="ibo-modal__intro">How would you like to connect with the IBO Advisors team?</p>
+      <div class="ibo-choice">
+        <button type="button" class="ibo-choice__btn" id="ibo-contact-schedule" data-ibo-open-modal>
+          <span class="ibo-choice__title">Schedule a meeting</span>
+          <span class="ibo-choice__sub">Book a confidential call with an advisor.</span>
+        </button>
+        <button type="button" class="ibo-choice__btn" id="ibo-contact-message">
+          <span class="ibo-choice__title">Send the team a message</span>
+          <span class="ibo-choice__sub">Ask a question and we&rsquo;ll reply by email.</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: message form -->
+    <div class="ibo-modal__step" id="ibo-contact-step-message" hidden>
+      <h3 class="ibo-modal__title">Send us a message</h3>
+      <p class="ibo-modal__intro">Tell us a little about what you&rsquo;re looking for and we&rsquo;ll reply to your email.</p>
+      <form id="ibo-message-form" novalidate>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-name">Name</label>
+          <input class="ibo-field__input" type="text" id="ibo-msg-name" name="name" placeholder="James Carter" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-email">Email address</label>
+          <input class="ibo-field__input" type="email" id="ibo-msg-email" name="email" placeholder="james@carterindustrial.com" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-message">Message</label>
+          <textarea class="ibo-field__input ibo-field__textarea" id="ibo-msg-message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+        </div>
+        <p class="ibo-field__error" id="ibo-message-error" hidden></p>
+        <button type="submit" class="ibo-modal__submit" id="ibo-message-submit">Send message</button>
+      </form>
+    </div>
+
+    <!-- Step 3: sent -->
+    <div class="ibo-modal__step" id="ibo-contact-step-sent" hidden>
+      <h3 class="ibo-modal__title">Message sent</h3>
+      <p class="ibo-modal__intro">Thanks &mdash; your message is on its way to the IBO Advisors team. We&rsquo;ll reply to the email you provided.</p>
+      <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-contact-sent-close">Close</button>
+    </div>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <a href="/" class="logo" aria-label="IBO Advisors home">
@@ -230,7 +283,7 @@ IBO Advisors generally works with contractors doing $3 million or more in EBITDA
       <a href="/#mechanism">Approach</a>
       <a href="/#track-record">Track Record</a>
       <a href="/blog">Blog</a>
-      <a href="/#contact">Contact</a>
+      <a href="#" data-ibo-open-contact>Contact</a>
     </nav>
     <p class="footer-copy">IBO Advisors. All rights reserved.</p>
   </div>

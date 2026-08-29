@@ -1347,3 +1347,43 @@ a {
     margin-top: var(--space-2);
   }
 }
+
+/* ===== Contact modal — choice buttons + message textarea ===== */
+.ibo-choice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+.ibo-choice__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  text-align: left;
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.ibo-choice__btn:hover {
+  border-color: var(--color-gold);
+  background: var(--color-cream-soft);
+}
+.ibo-choice__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-navy);
+}
+.ibo-choice__sub {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.ibo-field__textarea {
+  resize: vertical;
+  min-height: 96px;
+  font-family: inherit;
+}
