@@ -1387,3 +1387,49 @@ a {
   min-height: 96px;
   font-family: inherit;
 }
+
+/* ===== Brand lockup (final CTA banner) ===== */
+.lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.lockup__mark {
+  width: clamp(84px, 13vw, 128px);
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+.lockup__word {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+}
+.lockup__sub {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-navy);
+  font-size: clamp(1rem, 2.4vw, 1.6rem);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+}
+.lockup__rule {
+  width: min(360px, 80%);
+  height: 1px;
+  background: var(--color-gold);
+  margin: var(--space-4) 0 var(--space-3);
+}
+.lockup__tag {
+  font-family: var(--font-display);
+  color: var(--color-navy);
+  font-size: clamp(1.05rem, 2.6vw, 1.55rem);
+  font-weight: 500;
+}
+.lockup__tag em {
+  font-style: normal;
+  color: var(--color-gold);
+}
