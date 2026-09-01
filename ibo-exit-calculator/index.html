@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Keep the Spread - PE Exit vs. Independent Buyout Calculator | IBO Advisors</title>
+<meta name="description" content="The private equity playbook: buy at 6x, lever it up, sell at 10x. Enter four numbers and see what a private equity exit and an Independent Buyout could each put in your pocket." />
+<link rel="canonical" href="https://www.iboadvisors.com/ibo-exit-calculator" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="IBO Advisors" />
+<meta property="og:title" content="Buy at 6x, lever it up, sell at 10x. You can run it on your own company." />
+<meta property="og:description" content="Enter four numbers and see, side by side, what a private equity exit and an Independent Buyout could each put in your pocket." />
+<meta property="og:url" content="https://www.iboadvisors.com/ibo-exit-calculator" />
+<meta property="og:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Buy at 6x, lever it up, sell at 10x. You can run it on your own company." />
+<meta name="twitter:description" content="Enter four numbers and see, side by side, what a private equity exit and an Independent Buyout could each put in your pocket." />
+<meta name="twitter:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<!-- Vaudit -->
+<script async src="https://pixel.vaudit.com/static/js/pixel.js"></script>
+<script>window.vauditTracker = window.vauditTracker ||
+{};window.vauditTracker['siteIdentifier'] = '1f19f6f1-7748-66ee-bc8d-77feb2d0bf32';
+</script>
+<!-- End Vaudit -->
+<style>
+/* ==========================================================================
+   Exit calculator landing page - page-scoped styles (xc-*).
+   Built on the global tokens in style.css; the hero mirrors the Meta ad
+   creative (navy ground, cream Playfair headline, gold italic kicker) so the
+   click-through feels continuous.
+   ========================================================================== */
+
+/* Slim landing header: logo + one CTA, no site navigation to leak to. */
+.xc-header .site-header__inner { height: 80px; }
+.xc-header__cta { font-size: var(--text-xs); letter-spacing: 0.08em; padding: var(--space-3) var(--space-6); }
+
+/* ---- Hero (ad match) ---- */
+.xc-hero {
+  position: relative; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, #10304f 0%, var(--color-navy) 45%, var(--color-navy-deep) 100%);
+  color: var(--color-cream);
+  padding: clamp(var(--space-16), 9vw, var(--space-32)) 0 clamp(var(--space-16), 8vw, var(--space-24));
+}
+.xc-hero__inner { max-width: 880px; }
+.xc-hero__rule { width: 96px; height: 2px; background: var(--color-gold); margin-bottom: var(--space-8); }
+.xc-hero__kicker {
+  font-family: var(--font-display); font-weight: 400; color: var(--color-cream);
+  font-size: var(--text-lg); margin-bottom: var(--space-3);
+}
+.xc-hero__title {
+  font-family: var(--font-display); font-weight: 500; color: var(--color-cream);
+  font-size: clamp(2.6rem, 1rem + 6vw, 5.4rem); line-height: 1.02; letter-spacing: -0.01em;
+}
+.xc-hero__spread {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  color: var(--color-gold-light); font-size: var(--text-xl); line-height: 1.25;
+  margin-top: var(--space-6); max-width: 30ch;
+}
+.xc-hero__lede {
+  color: rgba(243, 231, 219, 0.82); font-size: var(--text-base); max-width: 54ch;
+  margin-top: var(--space-8);
+}
+.xc-hero__actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-8); }
+.btn--gold { background: var(--color-gold); color: var(--color-white); border-color: var(--color-gold); }
+.btn--gold:hover { background: #93703f; border-color: #93703f; }
+.xc-hero__note { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(243, 231, 219, 0.6); }
+
+/* ---- Three doors strip ---- */
+.xc-doors { background: var(--color-cream); padding: clamp(var(--space-12), 6vw, var(--space-20)) 0; }
+.xc-doors__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-10); }
+.xc-door { background: var(--color-white); border: 1px solid var(--color-border); padding: var(--space-8); }
+.xc-door--ibo { border-top: 3px solid var(--color-gold); }
+.xc-door__label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
+.xc-door--ibo .xc-door__label { color: var(--color-gold); }
+.xc-door h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
+.xc-door p { font-size: var(--text-sm); }
+
+/* ---- Calculator ---- */
+.xc-calc { padding: clamp(var(--space-16), 7vw, var(--space-24)) 0; }
+.xc-card {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  padding: clamp(var(--space-6), 4vw, var(--space-10)); max-width: 900px; margin-inline: auto;
+}
+.xc-card + .xc-card { margin-top: var(--space-8); }
+.xc-card__head { margin-bottom: var(--space-8); }
+.xc-card__head h2 { font-size: var(--text-xl); margin-top: var(--space-3); max-width: 24ch; }
+.xc-card__head p { margin-top: var(--space-3); max-width: 58ch; }
+.xc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5) var(--space-6); }
+.xc-field--wide { grid-column: 1 / -1; }
+.xc-help { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-1); }
+.xc-input-wrap { position: relative; }
+.xc-input-wrap .ibo-field__input { padding-right: 3rem; }
+.xc-input-suffix {
+  position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+  font-size: var(--text-sm); font-weight: 700; color: var(--color-text-faint); pointer-events: none;
+}
+
+/* Edit button + tooltip */
+.xc-actions { margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+.xc-actions__note { font-size: var(--text-xs); color: var(--color-text-faint); flex-basis: 100%; }
+.xc-tip { position: relative; display: inline-flex; }
+.xc-tip::after {
+  content: attr(data-tip);
+  position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%) translateY(4px);
+  background: var(--color-navy); color: var(--color-cream); font-size: var(--text-xs); font-weight: 400;
+  letter-spacing: 0; text-transform: none; white-space: nowrap; padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm); box-shadow: 0 8px 20px rgba(9, 29, 51, 0.25);
+  opacity: 0; pointer-events: none; transition: opacity 160ms ease, transform 160ms ease; z-index: 5;
+}
+.xc-tip::before {
+  content: ''; position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: var(--color-navy);
+  opacity: 0; transition: opacity 160ms ease; z-index: 5;
+}
+.xc-tip:hover::after, .xc-tip:focus-within::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+.xc-tip:hover::before, .xc-tip:focus-within::before { opacity: 1; }
+.xc-edit {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--text-sm); font-weight: 700; color: var(--color-navy);
+  padding: var(--space-3) var(--space-5); border: 1px solid var(--color-border); border-radius: 2px;
+  background: var(--color-white);
+}
+.xc-edit:hover, .xc-edit[aria-expanded="true"] { border-color: var(--color-gold); color: var(--color-gold); background: var(--color-cream-soft); }
+.xc-edit svg { width: 16px; height: 16px; }
+
+/* Advanced assumptions panel */
+.xc-advanced { margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px dashed var(--color-border); }
+.xc-advanced[hidden] { display: none; }
+.xc-advanced__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-5); }
+.xc-advanced__head h3 { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-gold); }
+.xc-advanced__reset { font-size: var(--text-xs); font-weight: 700; color: var(--color-text-faint); text-decoration: underline; text-underline-offset: 3px; }
+.xc-advanced__reset:hover { color: var(--color-navy); }
+.xc-advanced__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5) var(--space-6); }
+
+/* ---- Results ---- */
+.xc-results[hidden] { display: none; }
+.xc-band { background: var(--color-navy); color: var(--color-white); border: none; }
+.xc-band .eyebrow { color: var(--color-gold-light); }
+.xc-band h2 { color: var(--color-white); font-size: var(--text-xl); margin-top: var(--space-3); }
+.xc-band__lede { color: rgba(243, 231, 219, 0.85); margin-top: var(--space-3); max-width: 60ch; }
+.xc-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); }
+.xc-time { border-top: 1px solid rgba(243, 231, 219, 0.22); padding-top: var(--space-4); }
+.xc-time__label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-tan); }
+.xc-time__value { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; color: var(--color-gold-light); line-height: 1.1; margin-top: var(--space-2); font-variant-numeric: tabular-nums; }
+.xc-time__sub { font-size: var(--text-sm); color: rgba(243, 231, 219, 0.8); margin-top: var(--space-1); }
+.xc-band__basis { font-size: var(--text-xs); color: rgba(243, 231, 219, 0.62); margin-top: var(--space-8); max-width: 70ch; }
+
+.xc-compare-wrap { max-width: 900px; margin-inline: auto; margin-top: var(--space-8); }
+.xc-compare-wrap .money-compare { margin-top: 0; }
+.xc-lines { list-style: none; padding: 0; margin: 0; }
+.xc-lines li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--color-border); font-size: var(--text-sm); color: var(--color-text-muted); }
+.xc-lines li:first-child { border-top: none; }
+.xc-lines li span:last-child { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-navy); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.xc-lines .is-neg span:last-child { color: #c0392b; }
+.xc-lines .is-pos span:last-child { color: #3a8a5c; }
+.xc-lines .is-muted span:last-child { color: var(--color-text-faint); font-weight: 400; }
+.xc-lines small { display: block; font-size: var(--text-xs); color: var(--color-text-faint); margin-top: 2px; }
+
+.xc-verdict { max-width: 900px; margin: var(--space-8) auto 0; background: var(--color-cream); border-left: 3px solid var(--color-gold); padding: clamp(var(--space-6), 4vw, var(--space-8)); }
+.xc-verdict h2 { font-size: var(--text-xl); max-width: 24ch; }
+.xc-verdict p { margin-top: var(--space-3); max-width: 62ch; }
+.xc-verdict__actions { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6); }
+
+/* ---- Bottom CTA ---- */
+.xc-cta[hidden] { display: none; }
+.xc-cta--book { background: var(--color-navy); color: var(--color-white); padding: clamp(var(--space-16), 7vw, var(--space-24)) 0; }
+.xc-cta--book .eyebrow { color: var(--color-gold-light); }
+.xc-cta--book h2 { color: var(--color-white); font-size: var(--text-2xl); margin-top: var(--space-4); max-width: 20ch; }
+.xc-cta--book p { color: rgba(243, 231, 219, 0.85); }
+.xc-cta__grid { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(300px, 460px); gap: clamp(var(--space-10), 6vw, var(--space-20)); align-items: start; }
+.xc-cta__points { list-style: none; padding: 0; margin: var(--space-6) 0 0; }
+.xc-cta__points li { position: relative; padding-left: var(--space-6); margin-bottom: var(--space-3); color: rgba(243, 231, 219, 0.85); font-size: var(--text-base); }
+.xc-cta__points li::before { content: '\2713'; position: absolute; left: 0; color: var(--color-gold-light); font-weight: 700; }
+.xc-book { background: var(--color-white); border-radius: var(--radius-lg); padding: clamp(var(--space-6), 4vw, var(--space-8)); color: var(--color-text); }
+.xc-book h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.xc-book > p { font-size: var(--text-sm); margin-bottom: var(--space-5); }
+.xc-book .ibo-modal__submit { margin-top: var(--space-2); }
+
+.xc-cta--wait { background: var(--color-cream); padding: clamp(var(--space-16), 7vw, var(--space-24)) 0; }
+.xc-cta--wait .xc-cta__inner { max-width: 760px; }
+.xc-cta--wait h2 { font-size: var(--text-2xl); margin-top: var(--space-4); max-width: 20ch; }
+.xc-cta--wait p { margin-top: var(--space-4); max-width: 60ch; }
+.xc-cta--wait .xc-verdict__actions { margin-top: var(--space-8); }
+
+/* Calculating overlay (same pattern as the valuation calculator) */
+.xc-calc-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(14, 42, 72, 0.55); backdrop-filter: blur(3px); }
+.xc-calc-overlay[hidden] { display: none; }
+.xc-calc-modal { background: var(--color-navy); color: var(--color-white); border-radius: var(--radius-lg); padding: var(--space-10) var(--space-8); width: min(420px, calc(100vw - 2 * var(--space-5))); text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+.xc-calc-dial { display: block; margin: 0 auto var(--space-5); }
+.xc-calc-arc { stroke-dasharray: 220; animation: xc-arc-sweep 1.5s ease-in-out infinite alternate; }
+.xc-calc-needle { transform-origin: 90px 90px; animation: xc-needle-sweep 1.5s ease-in-out infinite alternate; }
+@keyframes xc-arc-sweep { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 30; } }
+@keyframes xc-needle-sweep { from { transform: rotate(-66deg); } to { transform: rotate(66deg); } }
+.xc-calc-title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.xc-calc-step { min-height: 1.6em; font-size: var(--text-sm); color: var(--color-cream); opacity: 0.92; margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .xc-calc-arc, .xc-calc-needle { animation: none; }
+  .xc-calc-arc { stroke-dashoffset: 30; }
+  .xc-calc-needle { transform: rotate(30deg); }
+}
+
+/* Legal */
+.xc-legal { padding: var(--space-10) 0 var(--space-16); }
+.xc-legal__box { max-width: 900px; margin-inline: auto; border-top: 1px solid var(--color-border); padding-top: var(--space-6); }
+.xc-legal h2 { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
+.xc-legal p { font-size: var(--text-xs); color: var(--color-text-faint); line-height: 1.7; margin: 0 0 var(--space-3); }
+.xc-legal p:last-child { margin-bottom: 0; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .xc-doors__grid { grid-template-columns: 1fr; }
+  .xc-advanced__grid { grid-template-columns: 1fr 1fr; }
+  .xc-cta__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .xc-grid { grid-template-columns: 1fr; }
+  .xc-advanced__grid { grid-template-columns: 1fr; }
+  .xc-timeline { grid-template-columns: 1fr; }
+  /* Anchor the tooltip to the button's right edge so it can never push the
+     page wider than the viewport (an invisible tooltip still counts toward
+     scrollable overflow). */
+  .xc-tip::after { white-space: normal; width: max-content; max-width: min(220px, calc(100vw - 3rem)); text-align: center; left: auto; right: 0; transform: translateY(4px); }
+  .xc-tip:hover::after, .xc-tip:focus-within::after { transform: none; }
+  .xc-tip::before { left: auto; right: 24px; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header xc-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors" /></picture>
+    </a>
+    <a class="btn btn--outline xc-header__cta" href="#calculator">Run the numbers</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO - continuous with the ad creative ================= -->
+  <section class="xc-hero">
+    <div class="container">
+      <div class="xc-hero__inner">
+        <div class="xc-hero__rule" aria-hidden="true"></div>
+        <p class="xc-hero__kicker">The private equity playbook:</p>
+        <h1 class="xc-hero__title">buy at 6x,<br />lever it up,<br />sell at 10x.</h1>
+        <p class="xc-hero__spread">You can run it on your own company &ndash; and keep the spread.</p>
+        <p class="xc-hero__lede">Private equity doesn&rsquo;t create that spread. Your company does. An Independent Buyout (IBO) runs the same leveraged transaction on your own business &ndash; without the sponsor, the earnout, or the capital gains bill. Tell us a couple of things and we&rsquo;ll tell you if an IBO might be a better exit path than a PE sale.</p>
+        <div class="xc-hero__actions">
+          <a href="#calculator" class="btn btn--gold">See what you&rsquo;d keep</a>
+          <span class="xc-hero__note">Four inputs &middot; 60 seconds &middot; no email required</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE THIRD OPTION ================= -->
+  <section class="xc-doors">
+    <div class="container">
+      <div class="eyebrow-block" style="max-width: 62ch;">
+        <p class="eyebrow">The third door</p>
+        <h2 class="section-heading section-heading--wide">Not private equity. Not a strategic. An Independent Buyout.</h2>
+      </div>
+      <div class="xc-doors__grid">
+        <div class="xc-door">
+          <p class="xc-door__label">Door one</p>
+          <h3>Sell to a strategic</h3>
+          <p>A competitor pays for what they can absorb. Your brand, team, and independence usually don&rsquo;t survive the integration.</p>
+        </div>
+        <div class="xc-door">
+          <p class="xc-door__label">Door two</p>
+          <h3>Sell to private equity</h3>
+          <p>They buy at today&rsquo;s multiple with your company&rsquo;s own borrowing capacity, hold back part of the price as an earnout, roll a slice of your equity forward at their risk, and keep most of the upside when they sell at a higher multiple.</p>
+        </div>
+        <div class="xc-door xc-door--ibo">
+          <p class="xc-door__label">Door three</p>
+          <h3>Run the playbook yourself</h3>
+          <p>An IBO finances the buyout of your own shares at a full valuation, with no sponsor on the board, no earnout, capital gains that can be deferred or eliminated, and the future upside staying with you and your team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULATOR ================= -->
+  <section class="xc-calc" id="calculator">
+    <div class="container">
+
+      <form class="xc-card" id="xc-form" novalidate aria-label="Exit comparison inputs">
+        <div class="xc-card__head">
+          <p class="eyebrow">Tell us a couple of things</p>
+          <h2>Four numbers. Two exits. One honest comparison.</h2>
+          <p>We&rsquo;ll project your company forward, then show what a private equity sale and an Independent Buyout could each put in your pocket over the same six years.</p>
+        </div>
+
+        <div class="xc-grid">
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="xc-revenue">Annual revenue</label>
+            <input class="ibo-field__input" type="text" inputmode="numeric" id="xc-revenue" placeholder="$20,000,000" autocomplete="off" required />
+          </div>
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="xc-ebitda">Annual EBITDA (profit)</label>
+            <input class="ibo-field__input" type="text" inputmode="numeric" id="xc-ebitda" placeholder="$5,000,000" autocomplete="off" required />
+            <p class="xc-help">Earnings before interest, taxes, depreciation, and amortization.</p>
+          </div>
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="xc-industry">Industry</label>
+            <select class="ibo-field__input ibo-field__select" id="xc-industry" required>
+              <option value="" disabled selected>Select your industry</option>
+            </select>
+            <p class="xc-help">Sets the EBITDA multiple a buyer would pay today.</p>
+          </div>
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="xc-growth">Expected annual growth rate</label>
+            <div class="xc-input-wrap">
+              <input class="ibo-field__input" type="number" inputmode="decimal" id="xc-growth" value="5" min="-50" max="100" step="0.5" required />
+              <span class="xc-input-suffix" aria-hidden="true">%</span>
+            </div>
+            <p class="xc-help">EBITDA growth per year, compounded over six years.</p>
+          </div>
+        </div>
+
+        <!-- Advanced assumptions - revealed by the Edit button -->
+        <div class="xc-advanced" id="xc-advanced" hidden>
+          <div class="xc-advanced__head">
+            <h3>Your specifics</h3>
+            <a href="#" class="xc-advanced__reset" id="xc-reset">Reset to defaults</a>
+          </div>
+          <div class="xc-advanced__grid">
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-multiple">EBITDA multiple</label>
+              <div class="xc-input-wrap">
+                <input class="ibo-field__input" type="number" inputmode="decimal" id="xc-multiple" min="1" max="30" step="0.1" placeholder="Auto" />
+                <span class="xc-input-suffix" aria-hidden="true">x</span>
+              </div>
+              <p class="xc-help" id="xc-multiple-help">Leave blank to use your industry&rsquo;s current multiple.</p>
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-earnout">PE earnout held back</label>
+              <div class="xc-input-wrap">
+                <input class="ibo-field__input" type="number" inputmode="decimal" id="xc-earnout" value="20" min="0" max="100" step="1" />
+                <span class="xc-input-suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="xc-help">Share of the price tied to future targets.</p>
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-rollover">PE rollover equity</label>
+              <div class="xc-input-wrap">
+                <input class="ibo-field__input" type="number" inputmode="decimal" id="xc-rollover" value="25" min="0" max="100" step="1" />
+                <span class="xc-input-suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="xc-help">Share of the price reinvested alongside the sponsor.</p>
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-tax">Tax rate on PE proceeds</label>
+              <div class="xc-input-wrap">
+                <input class="ibo-field__input" type="number" inputmode="decimal" id="xc-tax" value="30" min="0" max="60" step="1" />
+                <span class="xc-input-suffix" aria-hidden="true">%</span>
+              </div>
+              <p class="xc-help">Federal + state capital gains. Varies by state.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="ibo-field__error" id="xc-form-error" hidden></p>
+        <div class="xc-actions">
+          <button type="submit" class="btn btn--primary" id="xc-calculate">Compare my exits</button>
+          <span class="xc-tip" data-tip="Have more specific details to share?">
+            <button type="button" class="xc-edit" id="xc-edit" aria-expanded="false" aria-controls="xc-advanced">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              Edit
+            </button>
+          </span>
+          <p class="xc-actions__note">Instant estimate. Runs entirely in your browser &ndash; nothing is stored and no email is required to see your comparison.</p>
+        </div>
+      </form>
+
+      <!-- ================= RESULTS ================= -->
+      <div class="xc-results" id="xc-results" hidden>
+
+        <div class="xc-card xc-band" aria-live="polite">
+          <p class="eyebrow">Your company, projected</p>
+          <h2>Here&rsquo;s the value you&rsquo;re building.</h2>
+          <p class="xc-band__lede" id="xc-band-lede"></p>
+          <div class="xc-timeline">
+            <div class="xc-time">
+              <p class="xc-time__label">Today</p>
+              <p class="xc-time__value" id="xc-v0">&mdash;</p>
+              <p class="xc-time__sub"><span id="xc-e0">&mdash;</span> EBITDA</p>
+            </div>
+            <div class="xc-time">
+              <p class="xc-time__label">In 3 years</p>
+              <p class="xc-time__value" id="xc-v3">&mdash;</p>
+              <p class="xc-time__sub"><span id="xc-e3">&mdash;</span> EBITDA</p>
+            </div>
+            <div class="xc-time">
+              <p class="xc-time__label">In 6 years</p>
+              <p class="xc-time__value" id="xc-v6">&mdash;</p>
+              <p class="xc-time__sub"><span id="xc-e6">&mdash;</span> EBITDA</p>
+            </div>
+          </div>
+          <p class="xc-band__basis" id="xc-basis"></p>
+        </div>
+
+        <div class="xc-compare-wrap">
+          <div class="money-compare">
+            <div class="money-card money-card--pe">
+              <div class="money-card__header">Private Equity Sale</div>
+              <div class="money-card__body">
+                <div class="money-card__total">
+                  <p class="money-card__label">Valuation today</p>
+                  <p class="money-card__value" id="xc-pe-val">&mdash;</p>
+                </div>
+                <hr class="money-card__divider" />
+                <ul class="xc-lines">
+                  <li class="is-neg"><span>Held back for earnout<small id="xc-pe-earnout-note"></small></span><span id="xc-pe-heldback">&mdash;</span></li>
+                  <li class="is-pos"><span>Earnout you&rsquo;re statistically paid<small id="xc-pe-chance-note"></small></span><span id="xc-pe-earnout-paid">&mdash;</span></li>
+                  <li class="is-neg"><span>Rolled into the sponsor&rsquo;s deal<small id="xc-pe-rollover-note"></small></span><span id="xc-pe-rollover">&mdash;</span></li>
+                  <li class="is-pos"><span>Rollover paid out at the second sale<small>If the sponsor exits in year 6</small></span><span id="xc-pe-rollover-payout">&mdash;</span></li>
+                  <li class="is-neg"><span>Taxes<small id="xc-pe-tax-note"></small></span><span id="xc-pe-taxes">&mdash;</span></li>
+                </ul>
+                <div class="money-card__net">
+                  <p class="money-card__net-label">What you keep</p>
+                  <p class="money-card__net-value" id="xc-pe-total">&mdash;</p>
+                </div>
+              </div>
+            </div>
+            <div class="money-card money-card--ibo">
+              <div class="money-card__header">Independent Buyout (IBO)</div>
+              <div class="money-card__body">
+                <div class="money-card__total">
+                  <p class="money-card__label">Valuation today</p>
+                  <p class="money-card__value" id="xc-ibo-val">&mdash;</p>
+                </div>
+                <hr class="money-card__divider" />
+                <ul class="xc-lines">
+                  <li class="is-muted"><span>Earnout<small>None. You&rsquo;re paid at a full valuation.</small></span><span>n/a</span></li>
+                  <li class="is-pos"><span>Upside from warrants<small>15% of the year-6 valuation</small></span><span id="xc-ibo-warrants">&mdash;</span></li>
+                  <li class="is-pos"><span>Upside from appreciating valuation<small>You&rsquo;re paid as the company grows, not only today</small></span><span id="xc-ibo-appreciation">&mdash;</span></li>
+                  <li class="is-muted"><span>Rollover at a sponsor&rsquo;s risk<small>None. The company stays yours.</small></span><span>n/a</span></li>
+                  <li class="is-pos"><span>Taxes<small>Capital gains deferred or eliminated</small></span><span id="xc-ibo-taxes">$0</span></li>
+                </ul>
+                <div class="money-card__net money-card__net--dark">
+                  <p class="money-card__net-label">What you keep</p>
+                  <p class="money-card__net-value" id="xc-ibo-total">&mdash;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="xc-verdict">
+          <p class="eyebrow">The spread</p>
+          <h2 id="xc-verdict-title">&mdash;</h2>
+          <p id="xc-verdict-body"></p>
+          <div class="xc-verdict__actions">
+            <a href="#xc-cta" class="btn btn--primary" id="xc-verdict-cta">See your next step</a>
+            <span class="xc-tip" data-tip="Have more specific details to share?">
+              <button type="button" class="xc-edit" id="xc-edit-2" aria-controls="xc-advanced">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                Edit
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="xc-calc-overlay" id="xc-calc-overlay" role="dialog" aria-modal="true" aria-label="Comparing your exits" hidden>
+        <div class="xc-calc-modal">
+          <svg class="xc-calc-dial" width="180" height="112" viewBox="0 0 180 112" aria-hidden="true">
+            <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="rgba(205,172,124,0.22)" stroke-width="8" stroke-linecap="round" />
+            <path class="xc-calc-arc" d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="#cdac7c" stroke-width="8" stroke-linecap="round" />
+            <line x1="32.9" y1="71.5" x2="25.3" y2="69.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="54.7" y1="41.5" x2="50.0" y2="35.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="90" y1="30" x2="90" y2="22" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="125.3" y1="41.5" x2="130.0" y2="35.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="147.1" y1="71.5" x2="154.7" y2="69.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line class="xc-calc-needle" x1="90" y1="90" x2="90" y2="38" stroke="#f3e7db" stroke-width="3" stroke-linecap="round" />
+            <circle cx="90" cy="90" r="7" fill="#cdac7c" />
+          </svg>
+          <p class="xc-calc-title">Comparing your exits</p>
+          <p class="xc-calc-step" id="xc-calc-step" aria-live="polite">Applying your industry multiple&hellip;</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= BOTTOM CTA: qualified (EBITDA >= $3M) ================= -->
+  <section class="xc-cta xc-cta--book" id="xc-cta-book" hidden>
+    <div class="container">
+      <div class="xc-cta__grid">
+        <div>
+          <p class="eyebrow">Your next step</p>
+          <h2>Your company is in the range where an IBO works. Let&rsquo;s talk.</h2>
+          <p style="margin-top: var(--space-4); max-width: 54ch;" id="xc-book-lede">At your EBITDA the Independent Buyout is a genuine alternative to a private equity sale. A confidential call walks through the structure on your actual numbers &ndash; and whether it&rsquo;s the better path for you.</p>
+          <ul class="xc-cta__points">
+            <li>A 30-minute confidential conversation, no commitment</li>
+            <li>The IBO structure modeled on your company, not an example</li>
+            <li>Backed by a team with 500+ transactions and $5B in owner payouts</li>
+          </ul>
+        </div>
+        <div class="xc-book">
+          <h3>Book a meeting</h3>
+          <p>Tell us where to send the invite and pick a time that works.</p>
+          <form id="xc-book-form" novalidate>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-lead-name">Owner name</label>
+              <input class="ibo-field__input" type="text" id="xc-lead-name" placeholder="James Carter" autocomplete="name" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-lead-email">Email address</label>
+              <input class="ibo-field__input" type="email" id="xc-lead-email" placeholder="james@carterindustrial.com" autocomplete="email" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-lead-phone">Contact number</label>
+              <input class="ibo-field__input" type="tel" id="xc-lead-phone" placeholder="(555) 123-4567" autocomplete="tel" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-lead-company">Company</label>
+              <input class="ibo-field__input" type="text" id="xc-lead-company" placeholder="Carter Industrial" autocomplete="organization" required />
+            </div>
+            <p class="ibo-field__error" id="xc-book-error" hidden></p>
+            <button type="submit" class="ibo-modal__submit" id="xc-book-submit">Book a meeting</button>
+            <p class="xc-help" style="margin-top: var(--space-3);">You&rsquo;ll go straight to the calendar. Everything is confidential and we never share your information.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOTTOM CTA: under $3M EBITDA ================= -->
+  <section class="xc-cta xc-cta--wait" id="xc-cta-wait" hidden>
+    <div class="container">
+      <div class="xc-cta__inner">
+        <p class="eyebrow">Thank you</p>
+        <h2>Keep going &ndash; and let us know when you reach $3M.</h2>
+        <p id="xc-wait-body">The Independent Buyout structure is built on a company&rsquo;s own borrowing capacity, and the economics start to work at roughly $3M in annual EBITDA. You&rsquo;re not there yet &ndash; but the playbook above is exactly the reason to keep building. When you cross $3M, come back and run the numbers again. We&rsquo;ll be here.</p>
+        <div class="xc-verdict__actions">
+          <a href="/business-valuation-calculator" class="btn btn--primary">See what your company is worth today</a>
+          <a href="/blog/exit-planning-for-business-owners" class="btn btn--outline">Read the exit planning guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="xc-legal">
+    <div class="container">
+      <div class="xc-legal__box">
+        <h2>Disclaimer</h2>
+        <p>This is an estimate. The comparison applies generalized assumptions about earnouts, rollover equity, warrant participation, valuation appreciation, and tax treatment to the figures you enter. Taxes vary by state and by structure; warrant benefit and appreciation will differ by company; capital gains treatment under an Independent Buyout depends on your specific facts and should be confirmed with your own tax advisor.</p>
+        <p>The information and estimates generated by this tool are provided solely for general informational and illustrative purposes and do not constitute an appraisal, formal valuation, fairness opinion, offer, solicitation, recommendation, or legal, tax, accounting, investment, financial, or other professional advice. No representation or warranty is made regarding the accuracy or applicability of any result. Use of this tool does not create an advisory, fiduciary, professional, or client relationship, and use is at the user&rsquo;s sole risk.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors" /></picture>
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+    </nav>
+    <p class="footer-copy">IBO Advisors. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/ibo-exit-calculator/exit.js" defer></script>
+</body>
+</html>
