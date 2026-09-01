@@ -1,6 +1,8 @@
 /* ==========================================================================
    IBO Advisors — PE exit vs. Independent Buyout comparison
-   Landing page for the "buy at 6x, lever it up, sell at 10x" Meta ad.
+   /ibo-exit — landing page for the "buy at 6x, lever it up, sell at 10x"
+   Meta ad. Standalone by design: separate from the SEO-facing
+   /business-valuation-calculator, not indexed, no site navigation.
 
    Fully client-side. The math mirrors the "Comparison Public Equity vs IBO"
    worksheet line for line:
@@ -427,7 +429,10 @@
   }
 
   /* ------------------------------------------------------------------
-     Book a meeting → HubSpot → scheduler (qualified leads only)
+     Lead capture → HubSpot. Both forms post to the same form the site's
+     qualify modal uses, so leads land in one pipeline: qualified leads go
+     on to the scheduler, under-$3M leads are tagged ibo_qualified=False
+     and shown a thank-you.
      ------------------------------------------------------------------ */
   function ebitdaBandFor(ebitda) {
     if (ebitda >= 20000000) return '$20M+';
@@ -437,6 +442,31 @@
     return 'Less than $3M';
   }
 
+  function submitLead(fields) {
+    return fetch(
+      'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: fields,
+          context: { pageUri: window.location.href, pageName: document.title }
+        })
+      }
+    ).then(function (res) {
+      if (!res.ok) throw new Error('Submission failed');
+      return res.json().catch(function () { return {}; });
+    });
+  }
+
+  function splitName(fullName) {
+    var parts = fullName.split(/\s+/);
+    return { first: parts.shift() || fullName, last: parts.join(' ') };
+  }
+
+  var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  /* ---- Book a meeting (EBITDA >= $3M) ---- */
   var bookForm = $('xc-book-form');
   bookForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -451,12 +481,11 @@
     function fail(msg) { errorEl.textContent = msg; errorEl.hidden = false; }
 
     if (!fullName || !email || !phone || !company) return fail('Please fill in every field to book a meeting.');
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return fail('That email address doesn’t look right — please double-check it.');
+    if (!EMAIL_RE.test(email)) return fail('That email address doesn’t look right — please double-check it.');
     if (!lastResult || !lastInputs) return fail('Please run the comparison first.');
 
-    var nameParts = fullName.split(/\s+/);
-    var firstName = nameParts.shift() || fullName;
-    var lastName = nameParts.join(' ');
+    var name = splitName(fullName);
+    var firstName = name.first, lastName = name.last;
     var band = ebitdaBandFor(lastInputs.ebitda);
     var qualifies = lastResult.qualifies;
 
@@ -464,56 +493,77 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Opening the calendar…';
 
-    var payload = {
-      fields: [
-        { name: 'firstname', value: firstName },
-        { name: 'lastname', value: lastName },
-        { name: 'email', value: email },
-        { name: 'phone', value: phone },
-        { name: 'company', value: company },
-        { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
-        { name: 'respondent_role', value: 'CEO/Founder/Owner' },
-        { name: 'what_is_your_approximate_annual_ebitda_profit', value: band }
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title
-      }
-    };
-
-    function goToScheduler() {
-      var url = new URL(HUBSPOT_MEETING_URL);
-      url.searchParams.set('firstName', firstName);
-      url.searchParams.set('lastName', lastName);
-      url.searchParams.set('email', email);
-      url.searchParams.set('company', company);
-      window.location.href = url.toString();
-    }
-
-    fetch(
-      'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }
-    )
-      .then(function (res) {
-        if (!res.ok) throw new Error('Submission failed');
-        return res.json().catch(function () { return {}; });
-      })
+    submitLead([
+      { name: 'firstname', value: firstName },
+      { name: 'lastname', value: lastName },
+      { name: 'email', value: email },
+      { name: 'phone', value: phone },
+      { name: 'company', value: company },
+      { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
+      { name: 'respondent_role', value: 'CEO/Founder/Owner' },
+      { name: 'what_is_your_approximate_annual_ebitda_profit', value: band }
+    ])
       .then(function () {
         // Same Google Ads conversion labels as the site's qualify modal.
         fireConversion(qualifies
           ? 'AW-18411360561/XH9KCMqlj-gcELGinMtE'
           : 'AW-18411360561/jK-oCMy9vOgcELGinMtE');
-        goToScheduler();
+        var url = new URL(HUBSPOT_MEETING_URL);
+        url.searchParams.set('firstName', firstName);
+        url.searchParams.set('lastName', lastName);
+        url.searchParams.set('email', email);
+        url.searchParams.set('company', company);
+        window.location.href = url.toString();
       })
       .catch(function () {
         errorEl.textContent = 'Something went wrong submitting your details. Please try again.';
         errorEl.hidden = false;
         submitBtn.disabled = false;
         submitBtn.textContent = 'Book a meeting';
+      });
+  });
+
+  /* ---- Stay in touch (EBITDA < $3M) ---- */
+  var touchForm = $('xc-touch-form');
+  touchForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var errorEl = $('xc-touch-error');
+    errorEl.hidden = true;
+
+    var fullName = $('xc-touch-name').value.trim();
+    var email = $('xc-touch-email').value.trim();
+    var company = $('xc-touch-company').value.trim();
+
+    function fail(msg) { errorEl.textContent = msg; errorEl.hidden = false; }
+
+    if (!fullName || !email || !company) return fail('Please fill in every field so we know who to check in with.');
+    if (!EMAIL_RE.test(email)) return fail('That email address doesn’t look right — please double-check it.');
+    if (!lastInputs) return fail('Please run the comparison first.');
+
+    var name = splitName(fullName);
+    var submitBtn = $('xc-touch-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Saving…';
+
+    submitLead([
+      { name: 'firstname', value: name.first },
+      { name: 'lastname', value: name.last },
+      { name: 'email', value: email },
+      { name: 'company', value: company },
+      { name: 'ibo_qualified', value: 'False' },
+      { name: 'respondent_role', value: 'CEO/Founder/Owner' },
+      { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBandFor(lastInputs.ebitda) }
+    ])
+      .then(function () {
+        // Learn More Form - Unqualified Lead (same label the qualify modal fires).
+        fireConversion('AW-18411360561/jK-oCMy9vOgcELGinMtE');
+        touchForm.hidden = true;
+        $('xc-touch-done').hidden = false;
+      })
+      .catch(function () {
+        fail('Something went wrong saving your details. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Keep me in the loop';
       });
   });
 })();

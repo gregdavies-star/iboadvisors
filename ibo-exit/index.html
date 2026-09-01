@@ -6,12 +6,13 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
 <title>Keep the Spread - PE Exit vs. Independent Buyout Calculator | IBO Advisors</title>
 <meta name="description" content="The private equity playbook: buy at 6x, lever it up, sell at 10x. Enter four numbers and see what a private equity exit and an Independent Buyout could each put in your pocket." />
-<link rel="canonical" href="https://www.iboadvisors.com/ibo-exit-calculator" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.iboadvisors.com/ibo-exit" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="IBO Advisors" />
 <meta property="og:title" content="Buy at 6x, lever it up, sell at 10x. You can run it on your own company." />
 <meta property="og:description" content="Enter four numbers and see, side by side, what a private equity exit and an Independent Buyout could each put in your pocket." />
-<meta property="og:url" content="https://www.iboadvisors.com/ibo-exit-calculator" />
+<meta property="og:url" content="https://www.iboadvisors.com/ibo-exit" />
 <meta property="og:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Buy at 6x, lever it up, sell at 10x. You can run it on your own company." />
@@ -39,7 +40,9 @@
 <!-- End Vaudit -->
 <style>
 /* ==========================================================================
-   Exit calculator landing page - page-scoped styles (xc-*).
+   /ibo-exit ad landing page - page-scoped styles (xc-*).
+   Standalone: no site nav, no cross-links, noindex. Separate from the
+   SEO-facing /business-valuation-calculator by design.
    Built on the global tokens in style.css; the hero mirrors the Meta ad
    creative (navy ground, cream Playfair headline, gold italic kicker) so the
    click-through feels continuous.
@@ -192,10 +195,12 @@
 .xc-book .ibo-modal__submit { margin-top: var(--space-2); }
 
 .xc-cta--wait { background: var(--color-cream); padding: clamp(var(--space-16), 7vw, var(--space-24)) 0; }
-.xc-cta--wait .xc-cta__inner { max-width: 760px; }
 .xc-cta--wait h2 { font-size: var(--text-2xl); margin-top: var(--space-4); max-width: 20ch; }
-.xc-cta--wait p { margin-top: var(--space-4); max-width: 60ch; }
-.xc-cta--wait .xc-verdict__actions { margin-top: var(--space-8); }
+.xc-cta--wait > .container > .xc-cta__grid > div:first-child > p { margin-top: var(--space-4); max-width: 54ch; }
+.xc-book--wait { border: 1px solid var(--color-border); }
+.xc-touch-done[hidden] { display: none; }
+.xc-touch-done { border-top: 1px solid var(--color-border); padding-top: var(--space-5); }
+.xc-touch-done p { font-size: var(--text-sm); margin: 0; }
 
 /* Calculating overlay (same pattern as the valuation calculator) */
 .xc-calc-overlay { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; background: rgba(14, 42, 72, 0.55); backdrop-filter: blur(3px); }
@@ -547,13 +552,35 @@
   <!-- ================= BOTTOM CTA: under $3M EBITDA ================= -->
   <section class="xc-cta xc-cta--wait" id="xc-cta-wait" hidden>
     <div class="container">
-      <div class="xc-cta__inner">
-        <p class="eyebrow">Thank you</p>
-        <h2>Keep going &ndash; and let us know when you reach $3M.</h2>
-        <p id="xc-wait-body">The Independent Buyout structure is built on a company&rsquo;s own borrowing capacity, and the economics start to work at roughly $3M in annual EBITDA. You&rsquo;re not there yet &ndash; but the playbook above is exactly the reason to keep building. When you cross $3M, come back and run the numbers again. We&rsquo;ll be here.</p>
-        <div class="xc-verdict__actions">
-          <a href="/business-valuation-calculator" class="btn btn--primary">See what your company is worth today</a>
-          <a href="/blog/exit-planning-for-business-owners" class="btn btn--outline">Read the exit planning guide</a>
+      <div class="xc-cta__grid">
+        <div>
+          <p class="eyebrow">Thank you</p>
+          <h2>Keep going &ndash; and let us know when you reach $3M.</h2>
+          <p id="xc-wait-body">The Independent Buyout structure is built on a company&rsquo;s own borrowing capacity, and the economics start to work at roughly $3M in annual EBITDA. You&rsquo;re not there yet &ndash; but the playbook above is exactly the reason to keep building. When you cross $3M, come back and run the numbers again. We&rsquo;ll be here.</p>
+        </div>
+        <div class="xc-book xc-book--wait">
+          <h3>Stay in touch</h3>
+          <p>Leave your details and we&rsquo;ll check in as you grow &ndash; and reach out the moment an IBO makes sense for you. No newsletter, no spam.</p>
+          <form id="xc-touch-form" novalidate>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-touch-name">Owner name</label>
+              <input class="ibo-field__input" type="text" id="xc-touch-name" placeholder="James Carter" autocomplete="name" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-touch-email">Email address</label>
+              <input class="ibo-field__input" type="email" id="xc-touch-email" placeholder="james@carterindustrial.com" autocomplete="email" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="xc-touch-company">Company</label>
+              <input class="ibo-field__input" type="text" id="xc-touch-company" placeholder="Carter Industrial" autocomplete="organization" required />
+            </div>
+            <p class="ibo-field__error" id="xc-touch-error" hidden></p>
+            <button type="submit" class="ibo-modal__submit" id="xc-touch-submit">Keep me in the loop</button>
+          </form>
+          <div class="xc-touch-done" id="xc-touch-done" hidden>
+            <h3>You&rsquo;re on the list.</h3>
+            <p>Thanks &ndash; we&rsquo;ll be in touch as you grow. Keep building, and come back to run the numbers again when you cross $3M.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -576,17 +603,10 @@
     <a href="/" class="logo" aria-label="IBO Advisors home">
       <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors" /></picture>
     </a>
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="/#advisory">Advisory</a>
-      <a href="/#mechanism">Approach</a>
-      <a href="/#track-record">Track Record</a>
-      <a href="/blog">Blog</a>
-      <a href="/business-valuation-calculator">Valuation Calculator</a>
-    </nav>
     <p class="footer-copy">IBO Advisors. All rights reserved.</p>
   </div>
 </footer>
 
-<script src="/ibo-exit-calculator/exit.js" defer></script>
+<script src="/ibo-exit/exit.js" defer></script>
 </body>
 </html>
