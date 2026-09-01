@@ -554,14 +554,27 @@
       body((i + 1) + '.  ' + item, { after: 6 });
     });
     y += 14;
+    // Scheduling is offered only to qualified leads — same $3M adjusted-EBITDA
+    // band (SDE discounted) the email gate uses for ibo_qualified.
+    var qualifies = ebitdaBandFor(r.adjProfit, inp.mode) !== 'Less than $3M';
     doc.setFillColor(NAVY[0], NAVY[1], NAVY[2]);
-    doc.rect(MARGIN, y - 16, PAGE_W - MARGIN * 2, 108, 'F');
+    doc.rect(MARGIN, y - 16, PAGE_W - MARGIN * 2, qualifies ? 150 : 108, 'F');
     doc.setFont('times', 'bold'); doc.setFontSize(15); doc.setTextColor(205, 172, 124);
     doc.text('Talk it through with an advisor', MARGIN + 20, y + 10);
     doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(CREAM[0], CREAM[1], CREAM[2]);
-    doc.text(doc.splitTextToSize('IBO Advisors has guided 450+ ownership transitions representing over $5B in owner payouts. A confidential conversation costs nothing and commits you to nothing.', PAGE_W - MARGIN * 2 - 40), MARGIN + 20, y + 30);
-    doc.setTextColor(205, 172, 124);
-    doc.text('www.iboadvisors.com  ·  ' + HUBSPOT_MEETING_URL.replace('https://', ''), MARGIN + 20, y + 76);
+    doc.text(doc.splitTextToSize('IBO Advisors has guided 500+ ownership transitions representing over $5B in owner payouts. A confidential conversation costs nothing and commits you to nothing.', PAGE_W - MARGIN * 2 - 40), MARGIN + 20, y + 30);
+    if (qualifies) {
+      doc.text(doc.splitTextToSize('Talk to Michael @ IBOAdvisors to talk through your options in more detail.', PAGE_W - MARGIN * 2 - 40), MARGIN + 20, y + 70);
+      var btnX = MARGIN + 20, btnY = y + 86, btnW = 160, btnH = 30;
+      doc.setFillColor(GOLD[0], GOLD[1], GOLD[2]);
+      doc.roundedRect(btnX, btnY, btnW, btnH, 4, 4, 'F');
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(255, 255, 255);
+      doc.text('Schedule a call', btnX + btnW / 2, btnY + 19, { align: 'center' });
+      doc.link(btnX, btnY, btnW, btnH, { url: HUBSPOT_MEETING_URL });
+    } else {
+      doc.setTextColor(205, 172, 124);
+      doc.textWithLink('www.iboadvisors.com', MARGIN + 20, y + 76, { url: 'https://www.iboadvisors.com' });
+    }
 
     doc.save('IBO-Advisors-Valuation-Analysis.pdf');
   }
