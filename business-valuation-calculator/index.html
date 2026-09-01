@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Business Valuation Calculator - What Is Your Company Worth? | IBO Advisors</title>
+<meta name="description" content="Free business valuation calculator for owners. Get an instant EBITDA-multiple valuation range for your industry, see what's raising or lowering your number, and download a detailed PDF analysis." />
+<link rel="canonical" href="https://www.iboadvisors.com/business-valuation-calculator" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="IBO Advisors" />
+<meta property="og:title" content="Business Valuation Calculator - What Is Your Company Worth?" />
+<meta property="og:description" content="Get an instant valuation range built on real lower-middle-market EBITDA multiples for your industry - plus a detailed PDF analysis of what drives your number." />
+<meta property="og:url" content="https://www.iboadvisors.com/business-valuation-calculator" />
+<meta property="og:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Business Valuation Calculator - What Is Your Company Worth?" />
+<meta name="twitter:description" content="Get an instant valuation range built on real lower-middle-market EBITDA multiples for your industry - plus a detailed PDF analysis of what drives your number." />
+<meta name="twitter:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<!-- Vaudit -->
+<script async src="https://pixel.vaudit.com/static/js/pixel.js"></script>
+<script>window.vauditTracker = window.vauditTracker ||
+{};window.vauditTracker['siteIdentifier'] = '1f19f6f1-7748-66ee-bc8d-77feb2d0bf32';
+</script>
+<!-- End Vaudit -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Business Valuation Calculator",
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "provider": { "@type": "Organization", "name": "IBO Advisors", "url": "https://www.iboadvisors.com" },
+      "description": "Free calculator that estimates what a private company is worth using lower-middle-market EBITDA multiples by industry, adjusted for size, growth, recurring revenue, customer concentration, and owner dependence."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is my business valuation calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The calculator starts with the EBITDA multiple range that lower-middle-market buyers currently pay in your industry, then adjusts it for company size, growth trend, recurring revenue, customer concentration, and how dependent the business is on its owner. Your adjusted EBITDA (reported EBITDA plus normalizing add-backs) multiplied by that adjusted range produces the low, midpoint, and high estimates." },
+          "url": "https://www.iboadvisors.com/business-valuation-calculator"
+        },
+        {
+          "@type": "Question",
+          "name": "What is a typical EBITDA multiple for a private business?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most lower-middle-market businesses sell for roughly 4x to 8x EBITDA. Businesses under about $2M in earnings typically trade lower on a multiple of seller's discretionary earnings, while companies above $3M EBITDA in attractive industries can command high-single-digit multiples. Industry, growth, recurring revenue, and customer concentration move the number significantly in both directions." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this a formal valuation?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It is a market-based estimate built on published transaction multiples, intended to give an owner a realistic starting range. A formal valuation or a real market process considers quality of earnings, working capital, deal structure, and buyer competition, all of which can move the final number." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are add-backs and why do they matter?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Add-backs are expenses a buyer would not inherit, such as above-market owner compensation, one-time costs, and personal expenses run through the business. They are added to reported EBITDA to produce adjusted EBITDA, the number the multiple is actually applied to, so legitimate add-backs increase the valuation dollar for dollar times the multiple." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* ==========================================================================
+   Valuation calculator - page-scoped styles.
+   Uses the global tokens from style.css; nothing here leaks outside .vc-*.
+   ========================================================================== */
+.vc-hero { background: var(--color-cream-soft); padding: var(--space-16) 0 var(--space-12); }
+.vc-hero .container--narrow { max-width: 860px; }
+.vc-eyebrow {
+  font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--color-gold); margin-bottom: var(--space-3);
+}
+.vc-title { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1.12; margin-bottom: var(--space-4); }
+.vc-lede { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 46ch; }
+
+.vc-shell { padding: var(--space-10) 0 var(--space-20); }
+.vc-card {
+  background: var(--color-white); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: clamp(var(--space-6), 4vw, var(--space-10));
+  max-width: 860px; margin-inline: auto;
+}
+.vc-card + .vc-card { margin-top: var(--space-8); }
+.vc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5) var(--space-6); }
+@media (max-width: 640px) { .vc-grid { grid-template-columns: 1fr; } }
+.vc-field--wide { grid-column: 1 / -1; }
+.vc-help { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-1); }
+.vc-toggle { display: flex; gap: var(--space-2); margin-top: var(--space-2); }
+.vc-toggle button {
+  flex: 1; padding: var(--space-2) var(--space-3); font-family: var(--font-body);
+  font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.04em;
+  border: 1px solid var(--color-border); background: var(--color-white);
+  color: var(--color-text-muted); border-radius: var(--radius-sm); cursor: pointer;
+}
+.vc-toggle button[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+.vc-addbacks-summary {
+  cursor: pointer; font-weight: 700; font-size: var(--text-sm); color: var(--color-navy);
+  padding: var(--space-2) 0; list-style: none;
+}
+.vc-addbacks-summary::before { content: "+ "; color: var(--color-gold); }
+details[open] .vc-addbacks-summary::before { content: "\2212 "; }
+.vc-addbacks-summary::-webkit-details-marker { display: none; }
+.vc-addbacks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); padding-top: var(--space-3); }
+@media (max-width: 640px) { .vc-addbacks-grid { grid-template-columns: 1fr; } }
+.vc-actions { margin-top: var(--space-8); display: flex; align-items: center; gap: var(--space-5); flex-wrap: wrap; }
+.vc-disclaimer { font-size: var(--text-xs); color: var(--color-text-faint); max-width: 44ch; }
+
+/* Results */
+.vc-results[hidden] { display: none; }
+.vc-results-band { background: var(--color-navy); color: var(--color-white); border: none; }
+.vc-results-band .vc-eyebrow { color: var(--color-gold-light); }
+.vc-range { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+.vc-range__item { min-width: 130px; }
+.vc-range__label { font-size: var(--text-xs); letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-tan); margin-bottom: var(--space-1); }
+.vc-range__value { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; font-variant-numeric: tabular-nums; }
+.vc-range__item--mid .vc-range__value { font-size: var(--text-2xl); color: var(--color-gold-light); }
+.vc-meter { position: relative; height: 10px; border-radius: 999px; margin: var(--space-6) 0 var(--space-2);
+  background: linear-gradient(90deg, rgba(205,172,124,0.25), rgba(205,172,124,0.9)); }
+.vc-meter__marker {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 22px; height: 22px; border-radius: 50%; background: var(--color-white);
+  border: 5px solid var(--color-gold); box-sizing: border-box;
+}
+.vc-basis { font-size: var(--text-sm); color: var(--color-cream); opacity: 0.92; margin-top: var(--space-4); max-width: 62ch; }
+.vc-drivers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-top: var(--space-6); }
+@media (max-width: 640px) { .vc-drivers { grid-template-columns: 1fr; } }
+.vc-driver-col h3 { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: var(--space-2); }
+.vc-driver-col--up h3 { color: var(--color-gold-light); }
+.vc-driver-col--down h3 { color: var(--color-tan); }
+.vc-driver-col ul { list-style: none; padding: 0; margin: 0; font-size: var(--text-sm); }
+.vc-driver-col li { padding: var(--space-2) 0; border-top: 1px solid rgba(243,231,219,0.16); }
+
+/* Gate */
+.vc-gate__flag { display: flex; gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-6); }
+.vc-gate h2 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
+.vc-gate__list { margin: var(--space-4) 0 var(--space-6); padding-left: 1.2em; color: var(--color-text-muted); font-size: var(--text-sm); }
+.vc-gate__list li { margin-bottom: var(--space-2); }
+.vc-gate form { max-width: 520px; }
+.vc-success[hidden] { display: none; }
+.vc-success { text-align: left; }
+.vc-success h2 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-3); }
+
+/* Supporting content */
+.vc-content { max-width: 760px; margin-inline: auto; padding: var(--space-4) 0 var(--space-16); }
+.vc-content h2 { font-family: var(--font-display); font-size: var(--text-xl); margin: var(--space-10) 0 var(--space-4); }
+.vc-content p, .vc-content li { color: var(--color-text-muted); }
+.vc-content p { margin-bottom: var(--space-4); }
+.vc-content ul { padding-left: 1.2em; margin-bottom: var(--space-4); }
+.vc-content a { color: var(--color-navy); font-weight: 700; }
+.vc-faq dt { font-weight: 700; color: var(--color-text); margin-top: var(--space-5); }
+.vc-faq dd { margin: var(--space-2) 0 0; color: var(--color-text-muted); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/#advisory">Advisory</a>
+        <a class="nav__link" href="/#mechanism">Approach</a>
+        <a class="nav__link" href="/#track-record">Track Record</a>
+        <a class="nav__link" href="/blog">Blog</a>
+        <a class="nav__link" href="#" data-ibo-open-contact>Contact</a>
+      </div>
+      <a class="btn btn--outline nav__cta" href="#" data-ibo-open-modal>Learn More</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="vc-hero">
+    <div class="container container--narrow">
+      <p class="vc-eyebrow">Free valuation calculator</p>
+      <h1 class="vc-title">What is your business <em>actually</em> worth?</h1>
+      <p class="vc-lede">Get an instant valuation range built on the EBITDA multiples buyers are paying in your industry right now &mdash; and see exactly what&rsquo;s raising or lowering your number. No email required to see your range.</p>
+    </div>
+  </section>
+
+  <section class="vc-shell">
+    <div class="container">
+
+      <!-- ============ Inputs ============ -->
+      <form class="vc-card" id="vc-form" novalidate aria-label="Business valuation inputs">
+        <div class="vc-grid">
+          <div class="ibo-field vc-field--wide">
+            <label class="ibo-field__label" for="vc-industry">Industry</label>
+            <select class="ibo-field__input ibo-field__select" id="vc-industry" required>
+              <option value="" disabled selected>Select your industry</option>
+            </select>
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-revenue">Annual revenue</label>
+            <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-revenue" placeholder="$12,000,000" required />
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-profit">Annual <span id="vc-profit-label">EBITDA</span> (profit)</label>
+            <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-profit" placeholder="$3,000,000" required />
+            <div class="vc-toggle" role="group" aria-label="Profit measure">
+              <button type="button" id="vc-mode-ebitda" aria-pressed="true">EBITDA</button>
+              <button type="button" id="vc-mode-sde" aria-pressed="false">SDE (owner earnings)</button>
+            </div>
+            <p class="vc-help">Under ~$1.5M in profit? Most buyers price on SDE &mdash; your profit plus your own salary and benefits.</p>
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-growth">Revenue trend, last 3 years</label>
+            <select class="ibo-field__input ibo-field__select" id="vc-growth">
+              <option value="declining">Declining</option>
+              <option value="flat" selected>Roughly flat</option>
+              <option value="moderate">Growing 5&ndash;15% a year</option>
+              <option value="strong">Growing 15%+ a year</option>
+            </select>
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-recurring">Recurring or repeat revenue</label>
+            <select class="ibo-field__input ibo-field__select" id="vc-recurring">
+              <option value="low" selected>Under 20% of revenue</option>
+              <option value="medium">20&ndash;50% of revenue</option>
+              <option value="high">Over 50% of revenue</option>
+            </select>
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-concentration">Largest customer</label>
+            <select class="ibo-field__input ibo-field__select" id="vc-concentration">
+              <option value="low" selected>Under 10% of revenue</option>
+              <option value="medium">10&ndash;25% of revenue</option>
+              <option value="high">Over 25% of revenue</option>
+            </select>
+          </div>
+
+          <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-dependence">How dependent is the business on you?</label>
+            <select class="ibo-field__input ibo-field__select" id="vc-dependence">
+              <option value="low">Runs without me day to day</option>
+              <option value="medium" selected>Needs me weekly</option>
+              <option value="high">Depends on me daily</option>
+            </select>
+          </div>
+
+          <div class="vc-field--wide">
+            <details>
+              <summary class="vc-addbacks-summary">Add owner adjustments (add-backs) &mdash; these raise your number</summary>
+              <div class="vc-addbacks-grid">
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="vc-ab-comp">Owner pay above market rate</label>
+                  <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-ab-comp" placeholder="$0" />
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="vc-ab-onetime">One-time expenses this year</label>
+                  <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-ab-onetime" placeholder="$0" />
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="vc-ab-personal">Personal expenses in the business</label>
+                  <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-ab-personal" placeholder="$0" />
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <p class="ibo-field__error" id="vc-form-error" hidden></p>
+        <div class="vc-actions">
+          <button type="submit" class="btn btn--primary" id="vc-calculate">Calculate my valuation</button>
+          <p class="vc-disclaimer">Instant estimate. Nothing is stored and no email is required to see your range.</p>
+        </div>
+      </form>
+
+      <!-- ============ Results (ungated) ============ -->
+      <div class="vc-results" id="vc-results" hidden>
+        <div class="vc-card vc-results-band" aria-live="polite">
+          <p class="vc-eyebrow">Your estimated market value</p>
+          <div class="vc-range">
+            <div class="vc-range__item">
+              <p class="vc-range__label">Conservative</p>
+              <p class="vc-range__value" id="vc-out-low">&mdash;</p>
+            </div>
+            <div class="vc-range__item vc-range__item--mid">
+              <p class="vc-range__label">Midpoint</p>
+              <p class="vc-range__value" id="vc-out-mid">&mdash;</p>
+            </div>
+            <div class="vc-range__item">
+              <p class="vc-range__label">Strong process</p>
+              <p class="vc-range__value" id="vc-out-high">&mdash;</p>
+            </div>
+          </div>
+          <div class="vc-meter" aria-hidden="true"><div class="vc-meter__marker" id="vc-meter-marker" style="left:50%"></div></div>
+          <p class="vc-basis" id="vc-out-basis"></p>
+          <div class="vc-drivers">
+            <div class="vc-driver-col vc-driver-col--up">
+              <h3>Working in your favor</h3>
+              <ul id="vc-out-up"></ul>
+            </div>
+            <div class="vc-driver-col vc-driver-col--down">
+              <h3>Holding your number down</h3>
+              <ul id="vc-out-down"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ PDF gate ============ -->
+        <div class="vc-card vc-gate" id="vc-gate">
+          <h2>Get the full valuation analysis (PDF)</h2>
+          <p>The free report shows the work behind your number &mdash; and what most owners never see until they&rsquo;re deep in a deal:</p>
+          <ul class="vc-gate__list">
+            <li>Your <strong>adjusted EBITDA build-up</strong>, the number buyers actually apply a multiple to</li>
+            <li>The <strong>multiple math</strong>: your industry&rsquo;s benchmark range and every adjustment applied to it</li>
+            <li>A <strong>value-driver scorecard</strong> with the specific moves that raise each rating</li>
+            <li>What you&rsquo;d likely <strong>keep after fees and taxes</strong> under a strategic sale, a private equity sale, and an Independent Buyout</li>
+            <li>A <strong>12&ndash;24 month preparation checklist</strong> if a sale may be in your future</li>
+          </ul>
+          <form id="vc-gate-form" novalidate>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="vc-lead-name">Full name</label>
+              <input class="ibo-field__input" type="text" id="vc-lead-name" placeholder="James Carter" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="vc-lead-email">Email address</label>
+              <input class="ibo-field__input" type="email" id="vc-lead-email" placeholder="james@carterindustrial.com" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="vc-lead-phone">Contact number</label>
+              <input class="ibo-field__input" type="tel" id="vc-lead-phone" placeholder="(555) 123-4567" required />
+            </div>
+            <div class="ibo-field">
+              <label class="ibo-field__label" for="vc-lead-company">Company</label>
+              <input class="ibo-field__input" type="text" id="vc-lead-company" placeholder="Carter Industrial" required />
+            </div>
+            <p class="ibo-field__error" id="vc-gate-error" hidden></p>
+            <button type="submit" class="btn btn--primary" id="vc-gate-submit">Email me the full analysis</button>
+            <p class="vc-help" style="margin-top: var(--space-3);">Your PDF downloads immediately. We&rsquo;ll follow up by email &mdash; no spam, and we never share your information.</p>
+          </form>
+        </div>
+
+        <div class="vc-card vc-success" id="vc-success" hidden>
+          <h2>Your analysis is ready</h2>
+          <p>Your PDF should have downloaded automatically. If it didn&rsquo;t, <a href="#" id="vc-redownload">download it again here</a>.</p>
+          <p id="vc-success-qualified" hidden style="margin-top: var(--space-4);">Based on your numbers, your company is in the range where the Independent Buyout is a genuine alternative to a private equity sale &mdash; the full comparison is on page 5 of your report. If you&rsquo;d like to walk through it with an advisor, <a id="vc-meeting-link" href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">schedule a confidential call</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Supporting content ============ -->
+  <section class="container">
+    <div class="vc-content">
+      <h2>How this calculator works</h2>
+      <p>Private companies are priced as a multiple of earnings. For most businesses above roughly $1.5M in profit, that means a multiple of <strong>EBITDA</strong> &mdash; earnings before interest, taxes, depreciation, and amortization. Smaller companies usually trade on <strong>SDE</strong> (seller&rsquo;s discretionary earnings), which adds the owner&rsquo;s salary and benefits back to profit.</p>
+      <p>This calculator starts with the multiple range that lower-middle-market buyers are currently paying in your industry &mdash; drawn from published transaction data across market reports such as the IBBA Market Pulse and GF Data &mdash; and then adjusts it the way a buyer would:</p>
+      <ul>
+        <li><strong>Size.</strong> Larger earnings command higher multiples. A $10M-EBITDA company routinely trades 2+ turns above a $2M-EBITDA company in the same industry.</li>
+        <li><strong>Growth.</strong> Buyers pay for the future, not the past. Sustained 15%+ growth adds real multiple; decline subtracts more than growth adds.</li>
+        <li><strong>Recurring revenue.</strong> Contracted and repeat revenue is the single most reliable multiple-expander across industries.</li>
+        <li><strong>Customer concentration.</strong> A customer above 25% of revenue is the most common reason deals re-price in diligence.</li>
+        <li><strong>Owner dependence.</strong> A business that runs without its owner is worth more than one that is its owner.</li>
+      </ul>
+      <p>Your adjusted EBITDA &mdash; reported profit plus legitimate add-backs &mdash; multiplied by the adjusted range produces your estimate. It is a market-based starting point, not a formal valuation: a real process with competing buyers, clean quality of earnings, and the right deal structure moves the final number, sometimes substantially.</p>
+
+      <h2>Worth more than you think &mdash; or less than you need?</h2>
+      <p>Either way, the multiple is only half the story. The structure of the deal decides what you actually keep &mdash; and who controls the company afterward. Before you talk to any buyer, it&rsquo;s worth understanding <a href="/blog/how-pe-firms-value-a-company">how private equity firms value a company</a>, <a href="/blog/ibo-vs-pe-numbers-comparison">how an Independent Buyout compares to a PE sale on the same numbers</a>, and <a href="/blog/business-exit-planning-every-option">every real exit option on the table</a>. If you&rsquo;re earlier in the process, start with our <a href="/blog/exit-planning-for-business-owners">step-by-step exit planning guide</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <dl class="vc-faq">
+        <dt>How accurate is this estimate?</dt>
+        <dd>It reflects the multiple ranges real buyers are paying for companies like yours, so it&rsquo;s a realistic starting range &mdash; but it can&rsquo;t see your customer contracts, margins by line, or the quality of your books. Treat it as the beginning of the conversation, not an appraisal or an offer.</dd>
+        <dt>Do you store my financial inputs?</dt>
+        <dd>The instant estimate runs entirely in your browser and nothing is stored. If you request the PDF, we receive your contact details and the summary figures in your report so an advisor can follow up intelligently.</dd>
+        <dt>Why do buyers use EBITDA instead of revenue?</dt>
+        <dd>Because debt service and returns are paid out of cash flow, not revenue. Two companies with identical revenue can be worth wildly different amounts depending on what falls to the bottom line &mdash; which is also why legitimate add-backs matter so much.</dd>
+        <dt>What if my company is worth enough to retire on &mdash; but I don&rsquo;t want to sell to private equity?</dt>
+        <dd>That&rsquo;s the exact situation the <a href="/#mechanism">Independent Buyout</a> exists for: liquidity and valuation comparable to a PE deal, without handing control of the company to an outside sponsor.</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= QUALIFY MODAL (shared with all pages) ================= -->
+<div class="ibo-modal-overlay" id="ibo-modal-overlay" hidden>
+  <div class="ibo-modal" role="dialog" aria-modal="true" aria-labelledby="ibo-modal-title">
+    <button type="button" class="ibo-modal__close" id="ibo-modal-close" aria-label="Close">&times;</button>
+
+    <div class="ibo-modal__step" id="ibo-modal-step-form">
+      <h3 class="ibo-modal__title" id="ibo-modal-title">Let&rsquo;s see if the IBO is a fit</h3>
+      <p class="ibo-modal__intro">A few quick details and we&rsquo;ll get you to the right next step.</p>
+      <form id="ibo-modal-form" novalidate>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-fullName">Full name</label>
+          <input class="ibo-field__input" type="text" id="ibo-fullName" name="fullName" placeholder="James Carter" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-email">Email address</label>
+          <input class="ibo-field__input" type="email" id="ibo-email" name="email" placeholder="james@carterindustrial.com" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-cellNumber">Contact number</label>
+          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-company">Company</label>
+          <input class="ibo-field__input" type="text" id="ibo-company" name="company" placeholder="Carter Industrial" required />
+        </div>
+        <div class="ibo-field">
+          <span class="ibo-field__label">Which best describes you?</span>
+          <div class="ibo-radio-group" role="radiogroup" aria-label="Which best describes you?">
+            <label class="ibo-radio">
+              <input type="radio" name="respondentRole" id="ibo-role-owner" value="CEO/Founder/Owner" required />
+              <span>I am a CEO/Founder/Owner of a company</span>
+            </label>
+            <label class="ibo-radio">
+              <input type="radio" name="respondentRole" id="ibo-role-advisor" value="Business Advisor" />
+              <span>I am a business advisor</span>
+            </label>
+          </div>
+        </div>
+        <div class="ibo-field" id="ibo-ebitda-wrap" hidden>
+          <label class="ibo-field__label" for="ibo-ebitdaBand">Approximate annual EBITDA (Profit)</label>
+          <select class="ibo-field__input ibo-field__select" id="ibo-ebitdaBand" name="ebitdaBand">
+            <option value="" disabled selected>Select a range</option>
+            <option value="Less than $3M" data-qualifies="false">Less than $3M</option>
+            <option value="$3M - $5M" data-qualifies="true">$3M - $5M</option>
+            <option value="$5M - $10M" data-qualifies="true">$5M - $10M</option>
+            <option value="$10M - $20M" data-qualifies="true">$10M - $20M</option>
+            <option value="$20M+" data-qualifies="true">$20M+</option>
+          </select>
+        </div>
+        <p class="ibo-field__error" id="ibo-form-error" hidden></p>
+        <button type="submit" class="ibo-modal__submit" id="ibo-modal-submit">Next</button>
+      </form>
+    </div>
+
+    <div class="ibo-modal__step" id="ibo-modal-step-declined" hidden>
+      <h3 class="ibo-modal__title">Thank You</h3>
+      <p class="ibo-modal__intro">Thank you - we&rsquo;ve received your details. The Independent Buyout structure is built for companies above a certain scale, and based on what you&rsquo;ve shared it may not be the right fit today. We&rsquo;ll keep your information on file and reach out if that changes or if we can point you to a better-suited path.</p>
+      <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-modal-declined-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT MODAL ================= -->
+<div class="ibo-modal-overlay" id="ibo-contact-overlay" hidden>
+  <div class="ibo-modal" role="dialog" aria-modal="true" aria-labelledby="ibo-contact-title">
+    <button type="button" class="ibo-modal__close" id="ibo-contact-close" aria-label="Close">&times;</button>
+
+    <div class="ibo-modal__step" id="ibo-contact-step-choice">
+      <h3 class="ibo-modal__title" id="ibo-contact-title">Get in touch</h3>
+      <p class="ibo-modal__intro">How would you like to connect with the IBO Advisors team?</p>
+      <div class="ibo-choice">
+        <button type="button" class="ibo-choice__btn" id="ibo-contact-schedule" data-ibo-open-modal>
+          <span class="ibo-choice__title">Schedule a meeting</span>
+          <span class="ibo-choice__sub">Book a confidential call with an advisor.</span>
+        </button>
+        <button type="button" class="ibo-choice__btn" id="ibo-contact-message">
+          <span class="ibo-choice__title">Send the team a message</span>
+          <span class="ibo-choice__sub">Ask a question and we&rsquo;ll reply by email.</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="ibo-modal__step" id="ibo-contact-step-message" hidden>
+      <h3 class="ibo-modal__title">Send us a message</h3>
+      <p class="ibo-modal__intro">Tell us a little about what you&rsquo;re looking for and we&rsquo;ll reply to your email.</p>
+      <form id="ibo-message-form" novalidate>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-name">Name</label>
+          <input class="ibo-field__input" type="text" id="ibo-msg-name" name="name" placeholder="James Carter" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-email">Email address</label>
+          <input class="ibo-field__input" type="email" id="ibo-msg-email" name="email" placeholder="james@carterindustrial.com" required />
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-msg-message">Message</label>
+          <textarea class="ibo-field__input ibo-field__textarea" id="ibo-msg-message" name="message" rows="4" placeholder="How can we help?" required></textarea>
+        </div>
+        <p class="ibo-field__error" id="ibo-message-error" hidden></p>
+        <button type="submit" class="ibo-modal__submit" id="ibo-message-submit">Send message</button>
+      </form>
+    </div>
+
+    <div class="ibo-modal__step" id="ibo-contact-step-sent" hidden>
+      <h3 class="ibo-modal__title">Message sent</h3>
+      <p class="ibo-modal__intro">Thanks &mdash; your message is on its way to the IBO Advisors team. We&rsquo;ll reply to the email you provided.</p>
+      <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-contact-sent-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+      <a href="#" data-ibo-open-contact>Contact</a>
+    </nav>
+    <p class="footer-copy">IBO Advisors. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/business-valuation-calculator/jspdf.umd.min.js" defer></script>
+<script src="/modal.js" defer></script>
+<script src="/business-valuation-calculator/calculator.js" defer></script>
+</body>
+</html>

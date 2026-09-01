@@ -11,6 +11,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.iboadvisors.com/business-valuation-calculator</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.iboadvisors.com/blog/how-pe-firms-value-a-company</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
