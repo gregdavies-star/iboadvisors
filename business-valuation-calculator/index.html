@@ -160,6 +160,38 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
 .vc-success { text-align: left; }
 .vc-success h2 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-3); }
 
+/* Calculating overlay */
+.vc-calc-overlay {
+  position: fixed; inset: 0; z-index: 300;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(14, 42, 72, 0.55); backdrop-filter: blur(3px);
+}
+.vc-calc-overlay[hidden] { display: none; }
+.vc-calc-modal {
+  background: var(--color-navy); color: var(--color-white);
+  border-radius: var(--radius-lg); padding: var(--space-10) var(--space-8);
+  width: min(420px, calc(100vw - 2 * var(--space-5)));
+  text-align: center; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.vc-calc-dial { display: block; margin: 0 auto var(--space-5); }
+.vc-calc-arc {
+  stroke-dasharray: 220;
+  animation: vc-arc-sweep 1.5s ease-in-out infinite alternate;
+}
+.vc-calc-needle {
+  transform-origin: 90px 90px;
+  animation: vc-needle-sweep 1.5s ease-in-out infinite alternate;
+}
+@keyframes vc-arc-sweep { from { stroke-dashoffset: 200; } to { stroke-dashoffset: 30; } }
+@keyframes vc-needle-sweep { from { transform: rotate(-66deg); } to { transform: rotate(66deg); } }
+.vc-calc-title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.vc-calc-step { min-height: 1.6em; font-size: var(--text-sm); color: var(--color-cream); opacity: 0.92; margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .vc-calc-arc, .vc-calc-needle { animation: none; }
+  .vc-calc-arc { stroke-dashoffset: 30; }
+  .vc-calc-needle { transform: rotate(30deg); }
+}
+
 /* Supporting content */
 .vc-content { max-width: 760px; margin-inline: auto; padding: var(--space-4) 0 var(--space-16); }
 .vc-content h2 { font-family: var(--font-display); font-size: var(--text-xl); margin: var(--space-10) 0 var(--space-4); }
@@ -364,6 +396,24 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
           <h2>Your analysis is ready</h2>
           <p>Your PDF should have downloaded automatically. If it didn&rsquo;t, <a href="#" id="vc-redownload">download it again here</a>.</p>
           <p id="vc-success-qualified" hidden style="margin-top: var(--space-4);">Based on your numbers, your company is in the range where the Independent Buyout is a genuine alternative to a private equity sale &mdash; the full comparison is on page 5 of your report. If you&rsquo;d like to walk through it with an advisor, <a id="vc-meeting-link" href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">schedule a confidential call</a>.</p>
+        </div>
+      </div>
+
+      <div class="vc-calc-overlay" id="vc-calc-overlay" role="dialog" aria-modal="true" aria-label="Calculating your valuation" hidden>
+        <div class="vc-calc-modal">
+          <svg class="vc-calc-dial" width="180" height="112" viewBox="0 0 180 112" aria-hidden="true">
+            <path d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="rgba(205,172,124,0.22)" stroke-width="8" stroke-linecap="round" />
+            <path class="vc-calc-arc" d="M 20 90 A 70 70 0 0 1 160 90" fill="none" stroke="#cdac7c" stroke-width="8" stroke-linecap="round" />
+            <line x1="32.9" y1="71.5" x2="25.3" y2="69.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="54.7" y1="41.5" x2="50.0" y2="35.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="90" y1="30" x2="90" y2="22" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="125.3" y1="41.5" x2="130.0" y2="35.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line x1="147.1" y1="71.5" x2="154.7" y2="69.0" stroke="rgba(243,231,219,0.5)" stroke-width="2" />
+            <line class="vc-calc-needle" x1="90" y1="90" x2="90" y2="38" stroke="#f3e7db" stroke-width="3" stroke-linecap="round" />
+            <circle cx="90" cy="90" r="7" fill="#cdac7c" />
+          </svg>
+          <p class="vc-calc-title">Calculating your valuation</p>
+          <p class="vc-calc-step" id="vc-calc-step" aria-live="polite">Applying current industry multiples&hellip;</p>
         </div>
       </div>
 

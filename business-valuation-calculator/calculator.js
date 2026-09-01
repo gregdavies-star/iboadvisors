@@ -193,6 +193,41 @@
   var lastInputs = null;
   var lastResult = null;
 
+  /* Calculating overlay: a 3-second staged reveal between submit and the
+     estimate, cycling one status line per second. */
+  var CALC_STEPS = [
+    'Applying current industry multiples…',
+    'Adjusting for size and growth…',
+    'Pricing revenue quality and transition risk…'
+  ];
+  var calcTimers = [];
+
+  function showCalculating(done) {
+    var overlay = $('vc-calc-overlay');
+    var stepEl = $('vc-calc-step');
+    var calcBtn = $('vc-calculate');
+    if (!overlay) { done(); return; }
+
+    calcTimers.forEach(clearTimeout);
+    calcTimers = [];
+    calcBtn.disabled = true;
+    stepEl.textContent = CALC_STEPS[0];
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+
+    for (var i = 1; i < CALC_STEPS.length; i++) {
+      (function (idx) {
+        calcTimers.push(setTimeout(function () { stepEl.textContent = CALC_STEPS[idx]; }, idx * 1000));
+      })(i);
+    }
+    calcTimers.push(setTimeout(function () {
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+      calcBtn.disabled = false;
+      done();
+    }, 3000));
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var errorEl = $('vc-form-error');
@@ -230,7 +265,8 @@
 
     lastInputs = inputs;
     lastResult = computeValuation(inputs);
-    renderResults(lastResult);
+    $('vc-results').hidden = true;
+    showCalculating(function () { renderResults(lastResult); });
   });
 
   function renderResults(r) {
