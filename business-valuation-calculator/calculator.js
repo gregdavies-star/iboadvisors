@@ -51,10 +51,6 @@
     { min: 0,        factor: 0.60, label: 'Main Street-size earnings trade at Main Street multiples' }
   ];
 
-  // SDE overstates transferable earnings relative to EBITDA, so SDE
-  // multiples run lower than EBITDA multiples for the same business.
-  var SDE_FACTOR = 0.85;
-
   var DRIVERS = {
     growth: {
       declining: { f: 0.85, down: 'Declining revenue — buyers price decline more harshly than they reward growth' },
@@ -141,9 +137,8 @@
     if (sizeTier.factor > 1) ups.push(sizeTier.label);
     if (sizeTier.factor < 1 && sizeTier.label) downs.push(sizeTier.label);
 
-    var modeFactor = inputs.mode === 'sde' ? SDE_FACTOR : 1;
-    var loMult = Math.max(1.5, industry.lo * sizeTier.factor * driverFactor * modeFactor);
-    var hiMult = Math.min(15, industry.hi * sizeTier.factor * driverFactor * modeFactor);
+    var loMult = Math.max(1.5, industry.lo * sizeTier.factor * driverFactor);
+    var hiMult = Math.min(15, industry.hi * sizeTier.factor * driverFactor);
     var midMult = (loMult + hiMult) / 2;
 
     return {
@@ -179,16 +174,6 @@
   ['vc-revenue', 'vc-profit', 'vc-ab-comp', 'vc-ab-onetime', 'vc-ab-personal'].forEach(function (id) {
     wireMoneyInput($(id));
   });
-
-  var mode = 'ebitda';
-  function setMode(next) {
-    mode = next;
-    $('vc-mode-ebitda').setAttribute('aria-pressed', String(next === 'ebitda'));
-    $('vc-mode-sde').setAttribute('aria-pressed', String(next === 'sde'));
-    $('vc-profit-label').textContent = next === 'sde' ? 'SDE' : 'EBITDA';
-  }
-  $('vc-mode-ebitda').addEventListener('click', function () { setMode('ebitda'); });
-  $('vc-mode-sde').addEventListener('click', function () { setMode('sde'); });
 
   var lastInputs = null;
   var lastResult = null;
@@ -237,7 +222,6 @@
       industryId: industrySelect.value,
       revenue: parseMoney($('vc-revenue').value),
       profit: parseMoney($('vc-profit').value),
-      mode: mode,
       growth: $('vc-growth').value,
       recurring: $('vc-recurring').value,
       concentration: $('vc-concentration').value,
@@ -253,7 +237,7 @@
       return;
     }
     if (inputs.profit <= 0) {
-      errorEl.textContent = 'Please enter your annual ' + (mode === 'sde' ? 'SDE' : 'EBITDA') + ' — the estimate is built on it.';
+      errorEl.textContent = 'Please enter your annual EBITDA — the estimate is built on it.';
       errorEl.hidden = false;
       return;
     }
@@ -277,11 +261,11 @@
     // Marker position: where the midpoint multiple sits within the
     // industry's unadjusted range, clamped to the bar.
     var span = (r.industry.hi - r.industry.lo) || 1;
-    var pos = ((r.midMult / (lastInputs.mode === 'sde' ? SDE_FACTOR : 1)) - r.industry.lo) / span;
+    var pos = (r.midMult - r.industry.lo) / span;
     pos = Math.max(0.04, Math.min(0.96, pos));
     $('vc-meter-marker').style.left = (pos * 100).toFixed(1) + '%';
 
-    var profitWord = lastInputs.mode === 'sde' ? 'SDE' : 'EBITDA';
+    var profitWord = 'EBITDA';
     $('vc-out-basis').textContent =
       'Based on ' + fmtMoney(r.adjProfit) + ' adjusted ' + profitWord +
       (r.addbacks > 0 ? ' (including ' + fmtMoney(r.addbacks) + ' of add-backs)' : '') +
@@ -311,14 +295,11 @@
   /* ------------------------------------------------------------------
      Email gate → HubSpot → PDF
      ------------------------------------------------------------------ */
-  function ebitdaBandFor(adjProfit, mode) {
-    // Only EBITDA-mode figures map to the qualify bands; SDE overstates
-    // earnings, so SDE leads are banded conservatively.
-    var effective = mode === 'sde' ? adjProfit * 0.75 : adjProfit;
-    if (effective >= 20000000) return '$20M+';
-    if (effective >= 10000000) return '$10M - $20M';
-    if (effective >= 5000000) return '$5M - $10M';
-    if (effective >= 3000000) return '$3M - $5M';
+  function ebitdaBandFor(adjProfit) {
+    if (adjProfit >= 20000000) return '$20M+';
+    if (adjProfit >= 10000000) return '$10M - $20M';
+    if (adjProfit >= 5000000) return '$5M - $10M';
+    if (adjProfit >= 3000000) return '$3M - $5M';
     return 'Less than $3M';
   }
 
@@ -352,7 +333,7 @@
     var nameParts = fullName.split(/\s+/);
     var firstName = nameParts.shift() || fullName;
     var lastName = nameParts.join(' ');
-    var band = ebitdaBandFor(lastResult.adjProfit, lastInputs.mode);
+    var band = ebitdaBandFor(lastResult.adjProfit);
     var qualifies = band !== 'Less than $3M';
 
     var submitBtn = $('vc-gate-submit');
@@ -444,7 +425,7 @@
     var doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter' });
     var r = lastResult;
     var inp = lastInputs;
-    var profitWord = inp.mode === 'sde' ? 'SDE' : 'EBITDA';
+    var profitWord = 'EBITDA';
     var today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     var y;
 
@@ -548,7 +529,6 @@
     tableRow('Industry benchmark (' + r.industry.label + ')', fmtMult(r.industry.lo) + ' – ' + fmtMult(r.industry.hi), { bold: true });
     tableRow('Size factor (adjusted earnings of ' + fmtMoney(r.adjProfit) + ')', '× ' + r.sizeTier.factor.toFixed(2));
     tableRow('Growth / revenue quality / concentration / transition risk', '× ' + r.driverFactor.toFixed(2));
-    if (inp.mode === 'sde') tableRow('SDE basis (multiples run below EBITDA multiples)', '× ' + SDE_FACTOR.toFixed(2));
     tableRow('Your applied multiple range', fmtMult(r.loMult) + ' – ' + fmtMult(r.hiMult), { bold: true, fill: true });
     y += 10;
     body('Where you land inside your range is not fixed. The conservative end assumes a single unprepared buyer conversation; the strong end assumes competing offers, clean earnings, and an organized process. The spread between the two ends of your range is ' + fmtMoneyFull(r.high - r.low) + ' — preparation, not luck, decides who captures it.');
@@ -574,8 +554,8 @@
     tableRow('   …plus rollover equity at risk until the sponsor’s exit', fmtMoneyFull(price * 0.30));
     tableRow('Independent Buyout — net proceeds with capital gains deferred', fmtMoneyFull(iboNet), { bold: true, fill: true });
     y += 10;
-    body('The Independent Buyout line assumes the seller qualifies for capital gains deferral under the structure’s tax provisions, which depends on your specific facts — confirm with your own tax advisor. The comparison is illustrative, but the shape of it is the point: in a conventional sale the tax and the rollover risk are certain; in an IBO, deferral and control retention are structural features, not concessions you negotiate for.', { size: 9.5 });
-    body('Just as important as the number: after a strategic sale the company is absorbed; after a PE sale the sponsor controls the board and the exit clock; after an IBO, leadership keeps decision-making authority and the company stays independent.', { size: 9.5 });
+    body('The Independent Buyout line assumes the seller qualifies for capital gains deferral under the structure’s tax provisions, which depends on your specific facts — confirm with your own tax advisor. The comparison is illustrative, but the shape of it is the point: in a conventional sale the tax and the rollover risk are certain; in an IBO, deferral and leadership retention are structural features, not concessions you negotiate for.', { size: 9.5 });
+    body('Just as important as the number: after a strategic sale the company is absorbed; after a PE sale the sponsor runs the board and the exit clock; after an IBO, leadership keeps decision-making authority and the company stays independent.', { size: 9.5 });
 
     /* ---- Page 6: preparation + next step ---- */
     newPage('Page 6 of 6');
@@ -591,8 +571,8 @@
     });
     y += 14;
     // Scheduling is offered only to qualified leads — same $3M adjusted-EBITDA
-    // band (SDE discounted) the email gate uses for ibo_qualified.
-    var qualifies = ebitdaBandFor(r.adjProfit, inp.mode) !== 'Less than $3M';
+    // band the email gate uses for ibo_qualified.
+    var qualifies = ebitdaBandFor(r.adjProfit) !== 'Less than $3M';
     doc.setFillColor(NAVY[0], NAVY[1], NAVY[2]);
     doc.rect(MARGIN, y - 16, PAGE_W - MARGIN * 2, qualifies ? 150 : 108, 'F');
     doc.setFont('times', 'bold'); doc.setFontSize(15); doc.setTextColor(205, 172, 124);

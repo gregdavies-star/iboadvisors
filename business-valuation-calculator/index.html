@@ -105,14 +105,6 @@
 @media (max-width: 640px) { .vc-grid { grid-template-columns: 1fr; } }
 .vc-field--wide { grid-column: 1 / -1; }
 .vc-help { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-1); }
-.vc-toggle { display: flex; gap: var(--space-2); margin-top: var(--space-2); }
-.vc-toggle button {
-  flex: 1; padding: var(--space-2) var(--space-3); font-family: var(--font-body);
-  font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.04em;
-  border: 1px solid var(--color-border); background: var(--color-white);
-  color: var(--color-text-muted); border-radius: var(--radius-sm); cursor: pointer;
-}
-.vc-toggle button[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
 .vc-addbacks-summary {
   cursor: pointer; font-weight: 700; font-size: var(--text-sm); color: var(--color-navy);
   padding: var(--space-2) 0; list-style: none;
@@ -201,6 +193,17 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
 .vc-content a { color: var(--color-navy); font-weight: 700; }
 .vc-faq dt { font-weight: 700; color: var(--color-text); margin-top: var(--space-5); }
 .vc-faq dd { margin: var(--space-2) 0 0; color: var(--color-text-muted); }
+
+/* Legal disclaimer */
+.vc-legal { padding: var(--space-10) 0 var(--space-16); }
+.vc-legal .container--narrow { max-width: 860px; }
+.vc-legal__box { border-top: 1px solid var(--color-border); padding-top: var(--space-6); }
+.vc-legal h2 {
+  font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3);
+}
+.vc-legal p { font-size: var(--text-xs); color: var(--color-text-faint); line-height: 1.7; margin: 0 0 var(--space-3); }
+.vc-legal p:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -252,13 +255,9 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
           </div>
 
           <div class="ibo-field">
-            <label class="ibo-field__label" for="vc-profit">Annual <span id="vc-profit-label">EBITDA</span> (profit)</label>
+            <label class="ibo-field__label" for="vc-profit">Annual EBITDA (profit)</label>
             <input class="ibo-field__input" type="text" inputmode="numeric" id="vc-profit" placeholder="$3,000,000" required />
-            <div class="vc-toggle" role="group" aria-label="Profit measure">
-              <button type="button" id="vc-mode-ebitda" aria-pressed="true">EBITDA</button>
-              <button type="button" id="vc-mode-sde" aria-pressed="false">SDE (owner earnings)</button>
-            </div>
-            <p class="vc-help">Under ~$1.5M in profit? Most buyers price on SDE &mdash; your profit plus your own salary and benefits.</p>
+            <p class="vc-help">Earnings before interest, taxes, depreciation, and amortization &mdash; profit before financing and one-time items.</p>
           </div>
 
           <div class="ibo-field">
@@ -424,7 +423,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
   <section class="container">
     <div class="vc-content">
       <h2>How this calculator works</h2>
-      <p>Private companies are priced as a multiple of earnings. For most businesses above roughly $1.5M in profit, that means a multiple of <strong>EBITDA</strong> &mdash; earnings before interest, taxes, depreciation, and amortization. Smaller companies usually trade on <strong>SDE</strong> (seller&rsquo;s discretionary earnings), which adds the owner&rsquo;s salary and benefits back to profit.</p>
+      <p>Private companies are priced as a multiple of earnings. For established businesses that means a multiple of <strong>EBITDA</strong> &mdash; earnings before interest, taxes, depreciation, and amortization.</p>
       <p>This calculator starts with the multiple range that lower-middle-market buyers are currently paying in your industry &mdash; drawn from published transaction data across market reports such as the IBBA Market Pulse and GF Data &mdash; and then adjusts it the way a buyer would:</p>
       <ul>
         <li><strong>Size.</strong> Larger earnings command higher multiples. A $10M-EBITDA company routinely trades 2+ turns above a $2M-EBITDA company in the same industry.</li>
@@ -436,7 +435,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
       <p>Your adjusted EBITDA &mdash; reported profit plus legitimate add-backs &mdash; multiplied by the adjusted range produces your estimate. It is a market-based starting point, not a formal valuation: a real process with competing buyers, clean quality of earnings, and the right deal structure moves the final number, sometimes substantially.</p>
 
       <h2>Worth more than you think &mdash; or less than you need?</h2>
-      <p>Either way, the multiple is only half the story. The structure of the deal decides what you actually keep &mdash; and who controls the company afterward. Before you talk to any buyer, it&rsquo;s worth understanding <a href="/blog/how-pe-firms-value-a-company">how private equity firms value a company</a>, <a href="/blog/ibo-vs-pe-numbers-comparison">how an Independent Buyout compares to a PE sale on the same numbers</a>, and <a href="/blog/business-exit-planning-every-option">every real exit option on the table</a>. If you&rsquo;re earlier in the process, start with our <a href="/blog/exit-planning-for-business-owners">step-by-step exit planning guide</a>.</p>
+      <p>Either way, the multiple is only half the story. The structure of the deal decides what you actually keep &mdash; and who leads the company afterward. Before you talk to any buyer, it&rsquo;s worth understanding <a href="/blog/how-pe-firms-value-a-company">how private equity firms value a company</a>, <a href="/blog/ibo-vs-pe-numbers-comparison">how an Independent Buyout compares to a PE sale on the same numbers</a>, and <a href="/blog/business-exit-planning-every-option">every real exit option on the table</a>. If you&rsquo;re earlier in the process, start with our <a href="/blog/exit-planning-for-business-owners">step-by-step exit planning guide</a>.</p>
 
       <h2>Frequently asked questions</h2>
       <dl class="vc-faq">
@@ -447,8 +446,19 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
         <dt>Why do buyers use EBITDA instead of revenue?</dt>
         <dd>Because debt service and returns are paid out of cash flow, not revenue. Two companies with identical revenue can be worth wildly different amounts depending on what falls to the bottom line &mdash; which is also why legitimate add-backs matter so much.</dd>
         <dt>What if my company is worth enough to retire on &mdash; but I don&rsquo;t want to sell to private equity?</dt>
-        <dd>That&rsquo;s the exact situation the <a href="/#mechanism">Independent Buyout</a> exists for: liquidity and valuation comparable to a PE deal, without handing control of the company to an outside sponsor.</dd>
+        <dd>That&rsquo;s the exact situation the <a href="/#mechanism">Independent Buyout</a> exists for: liquidity and valuation comparable to a PE deal, without handing leadership of the company to an outside sponsor.</dd>
       </dl>
+    </div>
+  </section>
+
+  <section class="vc-legal">
+    <div class="container container--narrow">
+      <div class="vc-legal__box">
+        <h2>Disclaimer</h2>
+        <p>The information and estimates generated by this tool are provided solely for general informational and illustrative purposes. Results are based on information supplied by the user and generalized assumptions that have not been independently verified. They do not constitute an appraisal, formal valuation, fairness opinion, offer, solicitation, recommendation, or legal, tax, accounting, investment, financial, or other professional advice.</p>
+        <p>No representation or warranty, express or implied, is made regarding the accuracy, completeness, reasonableness, or applicability of any information or result. Actual value, transaction terms, financing availability, tax treatment, and other outcomes may differ materially based on additional information, due diligence, market conditions, negotiations, and the conclusions of independent professionals.</p>
+        <p>No decision should be made or withheld in reliance on this tool. Users should consult their own qualified legal, tax, accounting, financial, and valuation advisors. Use of this tool does not create an advisory, fiduciary, professional, or client relationship. Use is at the user&rsquo;s sole risk, and, to the fullest extent permitted by law, the provider disclaims liability for any loss arising from or related to its use.</p>
+      </div>
     </div>
   </section>
 
