@@ -129,7 +129,12 @@
 .xc-band__basis { font-size: var(--text-xs); color: rgba(243, 231, 219, 0.62); margin-top: var(--space-8); max-width: 70ch; }
 
 .xc-compare-wrap { max-width: 900px; margin-inline: auto; margin-top: var(--space-8); }
-.xc-compare-wrap .money-compare { margin-top: 0; }
+.xc-compare-wrap .money-compare { margin-top: 0; align-items: stretch; }
+/* Both cards stretch to the same height and the line-item list absorbs the
+   slack, so the two "What you keep" boxes sit on exactly the same line. */
+.xc-compare-wrap .money-card { display: flex; flex-direction: column; }
+.xc-compare-wrap .money-card__body { flex: 1; display: flex; flex-direction: column; }
+.xc-compare-wrap .xc-lines { flex: 1; }
 .xc-lines { list-style: none; padding: 0; margin: 0; }
 .xc-lines li { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); padding: var(--space-3) 0; border-top: 1px solid var(--color-border); font-size: var(--text-sm); color: var(--color-text-muted); }
 .xc-lines li:first-child { border-top: none; }
@@ -395,12 +400,6 @@
           <p id="xc-verdict-body"></p>
           <div class="xc-verdict__actions">
             <a href="#xc-cta" class="btn btn--primary" id="xc-verdict-cta">See your next step</a>
-            <span class="xc-tip" data-tip="Have more specific details to share?">
-              <button type="button" class="xc-edit" id="xc-edit-2" aria-controls="xc-advanced">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                Edit
-              </button>
-            </span>
           </div>
         </div>
       </div>
