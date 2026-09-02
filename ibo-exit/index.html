@@ -43,66 +43,31 @@
    /ibo-exit ad landing page - page-scoped styles (xc-*).
    Standalone: no site nav, no cross-links, noindex. Separate from the
    SEO-facing /business-valuation-calculator by design.
-   Built on the global tokens in style.css; the hero mirrors the Meta ad
-   creative (navy ground, cream Playfair headline, gold italic kicker) so the
-   click-through feels continuous.
+   Built on the global tokens in style.css. No hero: the visitor just saw
+   the ad, so the page opens with a one-line reinforcement and the inputs.
    ========================================================================== */
 
-/* Slim landing header: logo + one CTA, no site navigation to leak to. */
+/* Slim landing header: logo only, no site navigation to leak to. */
 .xc-header .site-header__inner { height: 80px; }
-.xc-header__cta { font-size: var(--text-xs); letter-spacing: 0.08em; padding: var(--space-3) var(--space-6); }
 
-/* ---- Hero (ad match) ---- */
-.xc-hero {
-  position: relative; overflow: hidden;
-  background: radial-gradient(120% 90% at 50% 0%, #10304f 0%, var(--color-navy) 45%, var(--color-navy-deep) 100%);
-  color: var(--color-cream);
-  padding: clamp(var(--space-16), 9vw, var(--space-32)) 0 clamp(var(--space-16), 8vw, var(--space-24));
+/* ---- Intro: reinforce the click, then straight into the inputs ---- */
+.xc-intro { max-width: 900px; margin: 0 auto var(--space-8); }
+.xc-intro__title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: var(--text-2xl); line-height: 1.1; margin-top: var(--space-4); max-width: 22ch;
 }
-.xc-hero__inner { max-width: 880px; }
-.xc-hero__rule { width: 96px; height: 2px; background: var(--color-gold); margin-bottom: var(--space-8); }
-.xc-hero__kicker {
-  font-family: var(--font-display); font-weight: 400; color: var(--color-cream);
-  font-size: var(--text-lg); margin-bottom: var(--space-3);
-}
-.xc-hero__title {
-  font-family: var(--font-display); font-weight: 500; color: var(--color-cream);
-  font-size: clamp(2.6rem, 1rem + 6vw, 5.4rem); line-height: 1.02; letter-spacing: -0.01em;
-}
-.xc-hero__spread {
-  font-family: var(--font-display); font-style: italic; font-weight: 400;
-  color: var(--color-gold-light); font-size: var(--text-xl); line-height: 1.25;
-  margin-top: var(--space-6); max-width: 30ch;
-}
-.xc-hero__lede {
-  color: rgba(243, 231, 219, 0.82); font-size: var(--text-base); max-width: 54ch;
-  margin-top: var(--space-8);
-}
-.xc-hero__actions { display: flex; align-items: center; gap: var(--space-6); flex-wrap: wrap; margin-top: var(--space-8); }
+.xc-intro__title em { font-style: italic; font-weight: 500; color: var(--color-gold); }
+.xc-intro__lede { margin-top: var(--space-5); max-width: 66ch; font-size: var(--text-base); }
 .btn--gold { background: var(--color-gold); color: var(--color-white); border-color: var(--color-gold); }
 .btn--gold:hover { background: #93703f; border-color: #93703f; }
-.xc-hero__note { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: rgba(243, 231, 219, 0.6); }
-
-/* ---- Three doors strip ---- */
-.xc-doors { background: var(--color-cream); padding: clamp(var(--space-12), 6vw, var(--space-20)) 0; }
-.xc-doors__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-10); }
-.xc-door { background: var(--color-white); border: 1px solid var(--color-border); padding: var(--space-8); }
-.xc-door--ibo { border-top: 3px solid var(--color-gold); }
-.xc-door__label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-3); }
-.xc-door--ibo .xc-door__label { color: var(--color-gold); }
-.xc-door h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
-.xc-door p { font-size: var(--text-sm); }
 
 /* ---- Calculator ---- */
-.xc-calc { padding: clamp(var(--space-16), 7vw, var(--space-24)) 0; }
+.xc-calc { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0 clamp(var(--space-16), 7vw, var(--space-24)); }
 .xc-card {
   background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
   padding: clamp(var(--space-6), 4vw, var(--space-10)); max-width: 900px; margin-inline: auto;
 }
 .xc-card + .xc-card { margin-top: var(--space-8); }
-.xc-card__head { margin-bottom: var(--space-8); }
-.xc-card__head h2 { font-size: var(--text-xl); margin-top: var(--space-3); max-width: 24ch; }
-.xc-card__head p { margin-top: var(--space-3); max-width: 58ch; }
 .xc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5) var(--space-6); }
 .xc-field--wide { grid-column: 1 / -1; }
 .xc-help { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-1); }
@@ -228,7 +193,6 @@
 
 /* Responsive */
 @media (max-width: 960px) {
-  .xc-doors__grid { grid-template-columns: 1fr; }
   .xc-advanced__grid { grid-template-columns: 1fr 1fr; }
   .xc-cta__grid { grid-template-columns: 1fr; }
 }
@@ -252,66 +216,22 @@
     <a href="/" class="logo" aria-label="IBO Advisors home">
       <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors" /></picture>
     </a>
-    <a class="btn btn--outline xc-header__cta" href="#calculator">Run the numbers</a>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ================= HERO - continuous with the ad creative ================= -->
-  <section class="xc-hero">
-    <div class="container">
-      <div class="xc-hero__inner">
-        <div class="xc-hero__rule" aria-hidden="true"></div>
-        <p class="xc-hero__kicker">The private equity playbook:</p>
-        <h1 class="xc-hero__title">buy at 6x,<br />lever it up,<br />sell at 10x.</h1>
-        <p class="xc-hero__spread">You can run it on your own company &ndash; and keep the spread.</p>
-        <p class="xc-hero__lede">Private equity doesn&rsquo;t create that spread. Your company does. An Independent Buyout (IBO) runs the same leveraged transaction on your own business &ndash; without the sponsor, the earnout, or the capital gains bill. Tell us a couple of things and we&rsquo;ll tell you if an IBO might be a better exit path than a PE sale.</p>
-        <div class="xc-hero__actions">
-          <a href="#calculator" class="btn btn--gold">See what you&rsquo;d keep</a>
-          <span class="xc-hero__note">Four inputs &middot; 60 seconds &middot; no email required</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= THE THIRD OPTION ================= -->
-  <section class="xc-doors">
-    <div class="container">
-      <div class="eyebrow-block" style="max-width: 62ch;">
-        <p class="eyebrow">The third door</p>
-        <h2 class="section-heading section-heading--wide">Not private equity. Not a strategic. An Independent Buyout.</h2>
-      </div>
-      <div class="xc-doors__grid">
-        <div class="xc-door">
-          <p class="xc-door__label">Door one</p>
-          <h3>Sell to a strategic</h3>
-          <p>A competitor pays for what they can absorb. Your brand, team, and independence usually don&rsquo;t survive the integration.</p>
-        </div>
-        <div class="xc-door">
-          <p class="xc-door__label">Door two</p>
-          <h3>Sell to private equity</h3>
-          <p>They buy at today&rsquo;s multiple with your company&rsquo;s own borrowing capacity, hold back part of the price as an earnout, roll a slice of your equity forward at their risk, and keep most of the upside when they sell at a higher multiple.</p>
-        </div>
-        <div class="xc-door xc-door--ibo">
-          <p class="xc-door__label">Door three</p>
-          <h3>Run the playbook yourself</h3>
-          <p>An IBO finances the buyout of your own shares at a full valuation, with no sponsor on the board, no earnout, capital gains that can be deferred or eliminated, and the future upside staying with you and your team.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= CALCULATOR ================= -->
   <section class="xc-calc" id="calculator">
     <div class="container">
 
+      <div class="xc-intro">
+        <p class="eyebrow">Good call</p>
+        <h1 class="xc-intro__title">The spread is real. Here&rsquo;s what it&rsquo;s worth on <em>your</em> company.</h1>
+        <p class="xc-intro__lede">Private equity&rsquo;s entire model is buying your company at today&rsquo;s multiple and selling it at tomorrow&rsquo;s. Most owners never see that math until they&rsquo;re across the table from a buyer. Four numbers and you&rsquo;ll see it now: what a PE exit and an Independent Buyout each put in your pocket over the same six years.</p>
+      </div>
+
       <form class="xc-card" id="xc-form" novalidate aria-label="Exit comparison inputs">
-        <div class="xc-card__head">
-          <p class="eyebrow">Tell us a couple of things</p>
-          <h2>Four numbers. Two exits. One honest comparison.</h2>
-          <p>We&rsquo;ll project your company forward, then show what a private equity sale and an Independent Buyout could each put in your pocket over the same six years.</p>
-        </div>
 
         <div class="xc-grid">
           <div class="ibo-field">
