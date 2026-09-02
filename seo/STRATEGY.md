@@ -24,7 +24,17 @@ Recommended structure (pillar → cluster), built incrementally:
 | `/business-valuation-calculator` (exists) + `/ebitda-multiples-by-industry` (new) | how PE values a company, industry M&A posts, adjusted EBITDA, QoE |
 | `/industries/<x>` (start with the three we have posts for) | restaurant, healthcare services, government contractors → then HVAC, dental/DSO, IT services, manufacturing, construction, logistics |
 
-Also: **index `/track-record`** (it is the strongest E-E-A-T asset on the site and is currently `noindex, nofollow` - decide whether that was deliberate), and add an **author page** for Michael Chasen (bio, credentials, deal history, LinkedIn) that every post's byline links to. Google's reviewer guidelines weight "who wrote this" heavily for financial topics (YMYL).
+`/approach` and `/track-record` stay `noindex` - deliberate, for legal reasons (see the constraint below). Add an **author page** for Michael Chasen (bio, background, LinkedIn; no transaction specifics) that every post's byline links to. Google's reviewer guidelines weight "who wrote this" heavily for financial topics (YMYL).
+
+### Constraint: no deal data, ever
+
+IBO Advisors cannot discuss its own transactions for roughly ten years after signing. Nothing on the site or in any post references our deals, clients, counts, sizes, timelines, or outcomes beyond the firm-level lines already on the homepage. The daily job enforces this as a hard rule (`DAILY_PROMPT.md`). It changes surprisingly little: every competitor is under NDAs too, and what ranks in this niche is judgment and mechanism, not case studies. Specificity comes from:
+
+- **Worked hypotheticals** - a $50M company at 7x with 60% debt, the rollover waterfall, the after-tax difference between structures. Arithmetic on a made-up company is not confidential.
+- **Public record, read by someone who knows what he is looking at** - PE firms' filings, public buyers' 8-Ks and proxies, bankruptcy dockets of PE-owned companies, litigation over earnouts and rollover equity. A monthly "Reading the filings" column is the richest untouched vein in the category.
+- **Pattern content** - "the five clauses sellers regret", "what a PE term sheet actually says, line by line". Drawn from a career, attributed to no transaction.
+- **Tools** - the valuation calculator and its siblings (LBO debt load, rollover waterfall, net proceeds after tax). Tools need no deal data and are the most reliable link magnets in finance.
+- **Original survey data** - an annual owner exit-intentions survey run through CPA and wealth-advisor partners is proprietary and ours to publish.
 
 ## 3. Content engine
 
