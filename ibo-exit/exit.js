@@ -205,7 +205,6 @@
 
   var advanced = $('xc-advanced');
   var editBtn = $('xc-edit');
-  var editBtn2 = $('xc-edit-2');
   var multipleInput = $('xc-multiple');
   var multipleHelp = $('xc-multiple-help');
 
@@ -224,15 +223,6 @@
   }
 
   editBtn.addEventListener('click', toggleAdvanced);
-
-  // The Edit button in the results scrolls back up with the panel open.
-  editBtn2.addEventListener('click', function () {
-    setAdvanced(true);
-    refreshMultipleHint();
-    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    var first = advanced.querySelector('input');
-    if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 450);
-  });
 
   $('xc-reset').addEventListener('click', function (e) {
     e.preventDefault();
