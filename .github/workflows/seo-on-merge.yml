@@ -20,6 +20,10 @@ permissions:
 jobs:
   verify-and-submit:
     runs-on: ubuntu-latest
+    # Secrets are mapped to env here because the `secrets` context cannot be used in a step's `if`.
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,9 +58,7 @@ jobs:
           access_token_scopes: https://www.googleapis.com/auth/webmasters
 
       - name: Submit sitemap to Search Console
-        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || env.GSC_SERVICE_ACCOUNT_JSON != '' }}
         env:
           GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
-          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
         run: node scripts/gsc.mjs submit-sitemap
