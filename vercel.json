@@ -2,6 +2,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "iboadvisors.com" }],
+      "destination": "https://www.iboadvisors.com/:path*",
+      "permanent": true
+    },
+    { "source": "/meet", "destination": "https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo", "permanent": false },
     { "source": "/blog/what-is-an-independent-buyout", "destination": "/blog", "permanent": true },
     { "source": "/blog/independent-buyout-vs-private-equity", "destination": "/blog", "permanent": true }
   ]

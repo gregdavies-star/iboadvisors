@@ -1,0 +1,168 @@
+{
+  "_readme": "Keyword map the daily SEO job works from. Clusters are ordered by priority. `covered` maps a keyword to the URL that targets it; the job publishes new posts for the highest-priority uncovered keyword whose intent we can serve. Refresh volumes/KD from Ahrefs (seo/data/ahrefs-latest.json) - the numbers here are planning estimates, not measurements.",
+  "audience": "Founders/owners of US private companies doing $3M-$30M EBITDA, 50-70 years old, weighing a sale, recapitalization, or succession; plus their CPAs, wealth advisors, and M&A attorneys.",
+  "clusters": [
+    {
+      "name": "Category: Independent Buyout",
+      "priority": 1,
+      "intent": "commercial - own the category we are creating",
+      "hub": "/",
+      "keywords": [
+        "independent buyout",
+        "what is an independent buyout",
+        "independent buyout vs private equity",
+        "IBO buyout",
+        "sell business without private equity",
+        "private equity alternative for business owners",
+        "alternatives to selling to private equity"
+      ],
+      "covered": {
+        "independent buyout vs private equity": "/blog/ibo-vs-pe-numbers-comparison"
+      }
+    },
+    {
+      "name": "Owner exit options",
+      "priority": 2,
+      "intent": "informational, high-value - owner deciding how to exit",
+      "hub": "/blog/business-exit-planning-every-option",
+      "keywords": [
+        "exit planning for business owners",
+        "business exit strategy options",
+        "how to sell a business to private equity",
+        "selling to private equity pros and cons",
+        "what happens after private equity buys your company",
+        "management buyout vs private equity",
+        "how to sell a business but keep control",
+        "partial sale of business",
+        "sell a portion of my business",
+        "how to take money off the table without selling"
+      ],
+      "covered": {
+        "exit planning for business owners": "/blog/exit-planning-for-business-owners",
+        "business exit strategy options": "/blog/business-exit-planning-every-option"
+      }
+    },
+    {
+      "name": "Recapitalization & deal structures",
+      "priority": 3,
+      "intent": "informational - owner researching a specific structure",
+      "hub": "/blog/minority-recapitalization-explained",
+      "keywords": [
+        "minority recapitalization",
+        "majority recapitalization",
+        "leveraged recapitalization",
+        "recapitalization vs sale",
+        "rollover equity",
+        "second bite of the apple private equity",
+        "management buyout financing",
+        "how is a leveraged buyout financed",
+        "seller financing in a business sale",
+        "earnout in business sale",
+        "dividend recapitalization explained"
+      ],
+      "covered": {
+        "minority recapitalization": "/blog/minority-recapitalization-explained",
+        "rollover equity": "/blog/rollover-equity-second-bite-explained",
+        "second bite of the apple private equity": "/blog/rollover-equity-second-bite-explained",
+        "management buyout financing": "/blog/management-buyout-financing",
+        "how is a leveraged buyout financed": "/blog/how-private-equity-actually-finances-a-buyout"
+      }
+    },
+    {
+      "name": "Valuation",
+      "priority": 4,
+      "intent": "informational + tool - feeds the calculator",
+      "hub": "/business-valuation-calculator",
+      "keywords": [
+        "business valuation calculator",
+        "how to value a business based on EBITDA",
+        "EBITDA multiples by industry",
+        "how private equity values a company",
+        "what multiple of EBITDA is my business worth",
+        "lower middle market valuation multiples",
+        "adjusted EBITDA add-backs",
+        "SDE vs EBITDA",
+        "quality of earnings report"
+      ],
+      "covered": {
+        "business valuation calculator": "/business-valuation-calculator",
+        "how private equity values a company": "/blog/how-pe-firms-value-a-company"
+      }
+    },
+    {
+      "name": "PE control & terms (fear/objection content)",
+      "priority": 5,
+      "intent": "informational - owner worried about losing control",
+      "hub": "/blog/minority-pe-stake-board-control-veto-rights",
+      "keywords": [
+        "private equity minority stake control",
+        "veto rights private equity",
+        "what private equity does after acquisition",
+        "private equity management fees portfolio company",
+        "private equity holding period",
+        "private equity and founder CEO replacement",
+        "private equity debt on acquired company"
+      ],
+      "covered": {
+        "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
+        "veto rights private equity": "/blog/minority-pe-stake-board-control-veto-rights"
+      }
+    },
+    {
+      "name": "Succession & family business",
+      "priority": 6,
+      "intent": "informational",
+      "hub": "/blog/family-business-succession-planning",
+      "keywords": [
+        "family business succession planning",
+        "selling family business to management",
+        "business succession without selling",
+        "employee buyout of company",
+        "ESOP vs selling to private equity",
+        "ESOP alternatives"
+      ],
+      "covered": {
+        "family business succession planning": "/blog/family-business-succession-planning"
+      }
+    },
+    {
+      "name": "Industry M&A",
+      "priority": 7,
+      "intent": "commercial - '[industry] M&A', '[industry] valuation multiples'",
+      "hub": "/blog",
+      "keywords": [
+        "restaurant M&A",
+        "healthcare services M&A",
+        "government contractor M&A",
+        "HVAC company valuation multiples",
+        "dental practice private equity",
+        "IT services company valuation",
+        "manufacturing company EBITDA multiples",
+        "construction company valuation multiples",
+        "logistics company M&A",
+        "SaaS private equity buyout founder"
+      ],
+      "covered": {
+        "restaurant M&A": "/blog/restaurant-ma",
+        "healthcare services M&A": "/blog/healthcare-services-ma",
+        "government contractor M&A": "/blog/ibo-government-contractors"
+      }
+    },
+    {
+      "name": "Choosing an advisor",
+      "priority": 8,
+      "intent": "commercial - bottom of funnel",
+      "hub": "/blog/choosing-an-ma-advisory-firm",
+      "keywords": [
+        "M&A advisory firm for small business",
+        "investment banker vs business broker",
+        "M&A advisor fees",
+        "sell side advisor lower middle market",
+        "how to choose an M&A advisor"
+      ],
+      "covered": {
+        "how to choose an M&A advisor": "/blog/choosing-an-ma-advisory-firm"
+      }
+    }
+  ]
+}

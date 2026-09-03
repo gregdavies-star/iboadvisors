@@ -1,0 +1,115 @@
+# Daily SEO job: pulls Search Console (and Ahrefs, if configured), audits every page, then lets
+# Claude Code act on the data per seo/DAILY_PROMPT.md and opens a PR for review. Nothing merges
+# on its own - a human reviews the PR (turn on auto-merge later if the PRs are consistently good).
+#
+# Secrets to add (Settings > Secrets and variables > Actions):
+#   ANTHROPIC_API_KEY          required
+#   AHREFS_API_KEY             optional
+#   GSC_SERVICE_ACCOUNT_JSON   only if your Google org allows service-account keys
+# Variables:
+#   GCP_WORKLOAD_IDENTITY_PROVIDER  keyless Google auth (preferred), e.g.
+#       projects/123456789/locations/global/workloadIdentityPools/github/providers/github
+#   GCP_SERVICE_ACCOUNT             e.g. gsc-daily@iboadvisors-seo.iam.gserviceaccount.com
+#   GSC_PROPERTY                    optional, default sc-domain:iboadvisors.com
+#   SEO_MODEL                       optional
+name: SEO daily
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # 07:00 US Eastern (11:00 UTC) - after GSC's overnight data refresh
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Optional extra instruction for this run (e.g. 'only refresh titles', 'write a post on X')"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: seo-daily
+  cancel-in-progress: false
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Authenticate to Google (keyless, Workload Identity Federation)
+        id: gauth
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}
+        continue-on-error: true
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters
+
+      - name: Pull Search Console data (28d vs prior 28d)
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        continue-on-error: true
+        env:
+          GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
+        run: |
+          node scripts/gsc.mjs pull --days 28
+          node scripts/gsc.mjs inspect
+
+      - name: Pull Ahrefs data
+        if: ${{ secrets.AHREFS_API_KEY != '' }}
+        continue-on-error: true
+        env:
+          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+        run: node scripts/ahrefs.mjs pull
+
+      - name: Baseline audit
+        run: node scripts/seo-audit.mjs || true
+
+      - name: Run the SEO agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Read seo/DAILY_PROMPT.md and carry it out in full. Today's date is ${{ github.run_started_at }}.
+            ${{ github.event.inputs.task && format('Operator instruction for this run: {0}', github.event.inputs.task) || '' }}
+          claude_args: |
+            --model ${{ vars.SEO_MODEL || 'claude-opus-5' }}
+            --max-turns 120
+            --allowedTools "Read,Write,Edit,MultiEdit,Glob,Grep,WebSearch,WebFetch,Bash(node scripts/*),Bash(npm run *),Bash(git log*),Bash(git diff*),Bash(git status*),Bash(ls *),Bash(wc *)"
+
+      - name: Regenerate derived files and re-audit
+        # The agent is told to leave the audit clean; if it didn't, the PR still opens and the
+        # audit output in seo/data/last-run.md shows the reviewer what is wrong.
+        continue-on-error: true
+        run: |
+          node scripts/ensure-jsonld.mjs
+          node scripts/build-sitemap.mjs
+          node scripts/seo-audit.mjs
+
+      - name: Open a pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: seo/daily
+          branch-suffix: timestamp
+          base: main
+          commit-message: "seo: daily optimization run"
+          title: "SEO daily: ${{ github.run_started_at }}"
+          body-path: seo/data/last-run.md
+          labels: seo, automated
+          delete-branch: true
+          # The sitemap is (re)submitted to Search Console by seo-on-merge.yml once this is merged
+          # and Vercel has deployed it.

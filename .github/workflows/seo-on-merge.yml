@@ -1,0 +1,62 @@
+# After anything SEO-relevant lands on main: verify the derived files are current, wait for
+# Vercel to deploy, then (re)submit the sitemap to Search Console so Google fetches the new
+# <lastmod> values and any new URLs promptly.
+name: SEO on merge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "sitemap.xml"
+      - "robots.txt"
+      - "vercel.json"
+      - "scripts/**"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  verify-and-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Derived files are current
+        run: |
+          node scripts/build-sitemap.mjs --check
+          node scripts/ensure-jsonld.mjs --check
+
+      - name: Wait for the live sitemap to match this commit
+        run: |
+          for i in $(seq 1 20); do
+            if diff <(curl -fsS https://www.iboadvisors.com/sitemap.xml) sitemap.xml >/dev/null 2>&1; then
+              echo "live sitemap matches"; exit 0
+            fi
+            echo "waiting for Vercel deploy ($i)"; sleep 30
+          done
+          echo "live sitemap still differs after 10 minutes - submitting anyway"
+
+      - name: Authenticate to Google (keyless, Workload Identity Federation)
+        id: gauth
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters
+
+      - name: Submit sitemap to Search Console
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
+        run: node scripts/gsc.mjs submit-sitemap

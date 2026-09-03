@@ -1,0 +1,505 @@
+{
+  "generatedAt": "2026-09-03T19:39:55.009Z",
+  "pages": [
+    {
+      "url": "https://www.iboadvisors.com/",
+      "title": "IBO Advisors - A Private Equity outcome without the Private Equity.",
+      "titleLength": 67,
+      "description": "It's called an Independent Buyout (IBO) and lets you sell some or all of your ownership and gives you the liquidity and valuation of a Private Equity deal without the Private Equity.",
+      "descriptionLength": 182,
+      "h1": "A Private Equity outcome without the Private Equity.",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 2,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 67 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 182 chars (aim 120-155)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog",
+      "title": "Insights | IBO Advisors",
+      "titleLength": 23,
+      "description": "Exit planning, M&A, and Independent Buyout guides from IBO Advisors - written for owners with $3M+ in EBITDA weighing their options before a sale.",
+      "descriptionLength": 146,
+      "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 16,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 23 chars (short - add the primary keyword)"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
+      "title": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession) | IBO Advisors",
+      "titleLength": 90,
+      "description": "Every real business exit option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with pros, cons, and a comparison table.",
+      "descriptionLength": 161,
+      "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
+      "words": 1501,
+      "date": "2025-12-20",
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 90 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 161 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
+      "title": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA | IBO Advisors",
+      "titleLength": 78,
+      "description": "How to choose an M&A advisory firm at $3M+ in EBITDA - track record, fee structure, conflicts of interest, red flags, and the questions to ask before signing.",
+      "descriptionLength": 158,
+      "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
+      "words": 1672,
+      "date": "2025-10-04",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 78 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
+      "title": "Exit Planning for Business Owners: A Step-by-Step Guide | IBO Advisors",
+      "titleLength": 70,
+      "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
+      "descriptionLength": 152,
+      "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
+      "words": 1506,
+      "date": "2025-11-21",
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 70 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+      "title": "Family Business Succession Planning: Options Beyond Selling to a Stranger | IBO Advisors",
+      "titleLength": 88,
+      "description": "A guide to family business succession planning - successor timelines, common pitfalls, and what to do when there's no family successor but you still want to avoid selling to private equity.",
+      "descriptionLength": 189,
+      "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
+      "words": 1430,
+      "date": "2026-05-05",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 88 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 189 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
+      "title": "Healthcare Services M&A: What Owners Should Know Before Selling | IBO Advisors",
+      "titleLength": 78,
+      "description": "Healthcare services M&A is consolidating fast, but private equity roll-ups bring regulatory and control tradeoffs owners should weigh before signing a term sheet.",
+      "descriptionLength": 162,
+      "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
+      "words": 1561,
+      "date": "2026-06-17",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 78 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 162 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
+      "title": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself) | IBO Advisors",
+      "titleLength": 103,
+      "description": "How private equity firms actually value a company - EBITDA multiples, add-backs, quality of earnings, and comps - so you can run the same playbook before any sale.",
+      "descriptionLength": 163,
+      "h1": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself)",
+      "words": 1591,
+      "date": "2025-09-15",
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 103 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 163 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
+      "title": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How. | IBO Advisors",
+      "titleLength": 91,
+      "description": "Private equity firms fund most of a buyout with debt placed on the company being acquired, not their own cash. Here's how the mechanics actually work, and what it means for the seller.",
+      "descriptionLength": 184,
+      "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
+      "words": 1247,
+      "date": "2026-08-24",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 91 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 184 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/ibo-government-contractors",
+      "title": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable | IBO Advisors",
+      "titleLength": 126,
+      "description": "Cost-plus government contracts reimburse allowable costs, which can make transitioning a GovCon business to employee ownership cheaper than a typical commercial deal.",
+      "descriptionLength": 166,
+      "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
+      "words": 1506,
+      "date": "2026-07-01",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 126 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 166 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
+      "title": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See | IBO Advisors",
+      "titleLength": 105,
+      "description": "A side-by-side numbers comparison of what an owner might walk away with after a private equity sale vs. an Independent Buyout, using a $10M EBITDA illustrative example.",
+      "descriptionLength": 168,
+      "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
+      "words": 1465,
+      "date": "2026-04-09",
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 105 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 168 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/management-buyout-financing",
+      "title": "Management Buyout Financing: How Owners and Management Teams Fund an MBO | IBO Advisors",
+      "titleLength": 87,
+      "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
+      "descriptionLength": 146,
+      "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
+      "words": 1324,
+      "date": "2026-04-24",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 87 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
+      "title": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment | IBO Advisors",
+      "titleLength": 99,
+      "description": "A private equity firm holding a minority stake still typically retains veto rights over financing, acquisitions, and a future sale. Here's the actual list of what those rights usually cover.",
+      "descriptionLength": 190,
+      "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
+      "words": 1204,
+      "date": "2026-08-15",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 99 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 190 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
+      "title": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control | IBO Advisors",
+      "titleLength": 122,
+      "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
+      "descriptionLength": 144,
+      "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
+      "words": 1221,
+      "date": "2026-02-25",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 122 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/restaurant-ma",
+      "title": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer | IBO Advisors",
+      "titleLength": 96,
+      "description": "A guide to restaurant M&A ownership transition options for multi-unit operators who want a real exit or liquidity event without handing their restaurant group to a private equity roll-up.",
+      "descriptionLength": 187,
+      "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
+      "words": 1532,
+      "date": "2026-05-20",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 96 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 187 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
+      "title": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity | IBO Advisors",
+      "titleLength": 93,
+      "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
+      "descriptionLength": 158,
+      "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
+      "words": 1359,
+      "date": "2026-07-06",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 93 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
+      "title": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors | IBO Advisors",
+      "titleLength": 90,
+      "description": "Most owners are shown two exit paths - sell to private equity, or sell to a strategic buyer - because those are the only two deals the people in the room get paid to close. There's a third option.",
+      "descriptionLength": 196,
+      "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
+      "words": 1110,
+      "date": "2026-07-14",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 1,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 90 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 196 chars (aim 120-155)"
+        },
+        {
+          "level": "WARN",
+          "message": "only 0 contextual link(s) to other posts (aim 3+)"
+        },
+        {
+          "level": "WARN",
+          "message": "hero image has empty alt text"
+        }
+      ]
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "title": "Business Valuation Calculator - What Is Your Company Worth? | IBO Advisors",
+      "titleLength": 74,
+      "description": "Free business valuation calculator for owners. Get an instant EBITDA-multiple valuation range for your industry, see what's raising or lowering your number, and download a detailed PDF analysis.",
+      "descriptionLength": 194,
+      "h1": "What is your business actually worth?",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 5,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 74 chars (aim 50-60; Google truncates ~60)"
+        },
+        {
+          "level": "WARN",
+          "message": "meta description 194 chars (aim 120-155)"
+        }
+      ]
+    }
+  ],
+  "noindexed": [
+    "/approach",
+    "/ibo-exit",
+    "/ibo-exit2",
+    "/track-record"
+  ],
+  "errorCount": 0,
+  "warningCount": 60
+}
