@@ -37,6 +37,11 @@ jobs:
   seo:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    # Secrets are mapped to env here because the `secrets` context cannot be used in a step's `if`.
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
+      GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,6 +50,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - id: today
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
 
       - name: Authenticate to Google (keyless, Workload Identity Federation)
         id: gauth
@@ -58,21 +66,17 @@ jobs:
           access_token_scopes: https://www.googleapis.com/auth/webmasters
 
       - name: Pull Search Console data (28d vs prior 28d)
-        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || env.GSC_SERVICE_ACCOUNT_JSON != '' }}
         continue-on-error: true
         env:
           GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
-          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-          GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
         run: |
           node scripts/gsc.mjs pull --days 28
           node scripts/gsc.mjs inspect
 
       - name: Pull Ahrefs data
-        if: ${{ secrets.AHREFS_API_KEY != '' }}
+        if: ${{ env.AHREFS_API_KEY != '' }}
         continue-on-error: true
-        env:
-          AHREFS_API_KEY: ${{ secrets.AHREFS_API_KEY }}
         run: node scripts/ahrefs.mjs pull
 
       - name: Baseline audit
@@ -84,7 +88,7 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
-            Read seo/DAILY_PROMPT.md and carry it out in full. Today's date is ${{ github.run_started_at }}.
+            Read seo/DAILY_PROMPT.md and carry it out in full. Today's date is ${{ steps.today.outputs.date }}.
             ${{ github.event.inputs.task && format('Operator instruction for this run: {0}', github.event.inputs.task) || '' }}
           claude_args: |
             --model ${{ vars.SEO_MODEL || 'claude-opus-5' }}
@@ -107,7 +111,7 @@ jobs:
           branch-suffix: timestamp
           base: main
           commit-message: "seo: daily optimization run"
-          title: "SEO daily: ${{ github.run_started_at }}"
+          title: "SEO daily: ${{ steps.today.outputs.date }}"
           body-path: seo/data/last-run.md
           labels: seo, automated
           delete-branch: true
