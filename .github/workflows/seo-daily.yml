@@ -4,9 +4,14 @@
 #
 # Secrets to add (Settings > Secrets and variables > Actions):
 #   ANTHROPIC_API_KEY          required
-#   GSC_SERVICE_ACCOUNT_JSON   Google service-account key JSON, added as a user on the GSC property
 #   AHREFS_API_KEY             optional
-# Variables (optional): GSC_PROPERTY (default sc-domain:iboadvisors.com), SEO_MODEL
+#   GSC_SERVICE_ACCOUNT_JSON   only if your Google org allows service-account keys
+# Variables:
+#   GCP_WORKLOAD_IDENTITY_PROVIDER  keyless Google auth (preferred), e.g.
+#       projects/123456789/locations/global/workloadIdentityPools/github/providers/github
+#   GCP_SERVICE_ACCOUNT             e.g. gsc-daily@iboadvisors-seo.iam.gserviceaccount.com
+#   GSC_PROPERTY                    optional, default sc-domain:iboadvisors.com
+#   SEO_MODEL                       optional
 name: SEO daily
 
 on:
@@ -41,10 +46,22 @@ jobs:
         with:
           node-version: 22
 
+      - name: Authenticate to Google (keyless, Workload Identity Federation)
+        id: gauth
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}
+        continue-on-error: true
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters
+
       - name: Pull Search Console data (28d vs prior 28d)
-        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
         continue-on-error: true
         env:
+          GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
         run: |

@@ -5,11 +5,14 @@
 //   node scripts/gsc.mjs pull [--days 28]      # trailing window vs the prior window -> seo/data/gsc-latest.json
 //   node scripts/gsc.mjs inspect               # URL Inspection for every sitemap URL -> seo/data/gsc-coverage.json
 //
-// Env:
-//   GSC_SERVICE_ACCOUNT_JSON  contents of the service-account key file (add the SA email as a
-//                             user on the Search Console property first - "Full" permission)
+// Env (one of the first two):
+//   GSC_ACCESS_TOKEN          an OAuth access token with the webmasters scope - what
+//                             google-github-actions/auth emits under Workload Identity Federation
+//                             (keyless; use this when your org blocks service-account keys)
+//   GSC_SERVICE_ACCOUNT_JSON  contents of a service-account key file (only if your org allows keys)
 //   GSC_PROPERTY              default "sc-domain:iboadvisors.com" (use the URL-prefix form
 //                             "https://www.iboadvisors.com/" if you verified that instead)
+// Either way, add the service account's email as an Owner on the Search Console property.
 import { createSign } from "node:crypto";
 import { mkdirSync, writeFileSync, appendFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -25,8 +28,9 @@ const arg = (name, def) => {
 };
 
 async function accessToken() {
+  if (process.env.GSC_ACCESS_TOKEN) return process.env.GSC_ACCESS_TOKEN;
   const raw = process.env.GSC_SERVICE_ACCOUNT_JSON;
-  if (!raw) throw new Error("GSC_SERVICE_ACCOUNT_JSON is not set");
+  if (!raw) throw new Error("set GSC_ACCESS_TOKEN (Workload Identity Federation) or GSC_SERVICE_ACCOUNT_JSON");
   const sa = JSON.parse(raw);
   const now = Math.floor(Date.now() / 1000);
   const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");

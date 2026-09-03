@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   verify-and-submit:
@@ -42,9 +43,20 @@ jobs:
           done
           echo "live sitemap still differs after 10 minutes - submitting anyway"
 
+      - name: Authenticate to Google (keyless, Workload Identity Federation)
+        id: gauth
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' }}
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCP_SERVICE_ACCOUNT }}
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/webmasters
+
       - name: Submit sitemap to Search Console
-        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER != '' || secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
         env:
+          GSC_ACCESS_TOKEN: ${{ steps.gauth.outputs.access_token }}
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_PROPERTY: ${{ vars.GSC_PROPERTY }}
         run: node scripts/gsc.mjs submit-sitemap

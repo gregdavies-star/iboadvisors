@@ -26,7 +26,7 @@ npm run seo:jsonld      # insert/refresh JSON-LD structured data on every indexa
 npm run seo:audit       # on-page audit (titles, descriptions, canonicals, links, word counts)
 npm run seo:check       # CI form of the above - fails if derived files are stale or the audit has errors
 npm run seo:new-post -- --slug <slug> --title "..." --description "..." --image <asset>   # scaffold a post
-npm run gsc:submit      # (re)submit the sitemap to Search Console   (needs GSC_SERVICE_ACCOUNT_JSON)
+npm run gsc:submit      # (re)submit the sitemap to Search Console   (needs GSC_ACCESS_TOKEN or GSC_SERVICE_ACCOUNT_JSON)
 npm run gsc:pull        # trailing 28d vs prior 28d -> seo/data/gsc-latest.json
 npm run gsc:inspect     # URL Inspection for every sitemap URL -> seo/data/gsc-coverage.json
 npm run ahrefs:pull     # Ahrefs metrics/keywords/backlinks -> seo/data/ahrefs-latest.json (needs AHREFS_API_KEY)
