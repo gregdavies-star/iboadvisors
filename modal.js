@@ -47,6 +47,11 @@
 
   // Fires all conversion events via the Google Ads global site tag
   // (gtag.js) already loaded in <head> on every page.
+  // GA4 event helper (the Google Ads conversion helper below is separate).
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
   function fireConversion(sendTo) {
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', { send_to: sendTo });
@@ -169,6 +174,11 @@
         return res.json().catch(function () { return {}; });
       })
       .then(function () {
+        track('modal_submit', {
+          ebitda_band: isOwner ? ebitdaBand : 'advisor',
+          respondent_role: respondentRole,
+          qualified: qualifies ? 'yes' : 'no'
+        });
         if (qualifies) {
           // Learn More Form - Qualified Lead
           fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
@@ -373,4 +383,20 @@
         });
     });
   }
+})();
+
+/* ==========================================================================
+   GA4: schedule_click - any click on a link to the scheduling page
+   ========================================================================== */
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var isScheduler = href.indexOf('meetings-na2.hubspot.com') !== -1 || href === '/meet' || href.indexOf('iboadvisors.com/meet') !== -1;
+    if (!isScheduler) return;
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'schedule_click', { link_url: href, page_path: window.location.pathname });
+    }
+  }, true);
 })();
