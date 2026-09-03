@@ -109,6 +109,11 @@
     });
   }
 
+  // GA4 event helper (the Google Ads conversion helper below is separate).
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
   function fireConversion(sendTo) {
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', { send_to: sendTo });
@@ -285,6 +290,8 @@
     fill('vc-out-up', r.ups, 'Nothing stands out yet — the full report shows which drivers add the most.');
     fill('vc-out-down', r.downs, 'No major red flags from what you’ve entered.');
 
+    track('calculator_complete', { industry: r.industry.label, ebitda_band: ebitdaBandFor(r.adjProfit) });
+
     var results = $('vc-results');
     results.hidden = false;
     $('vc-gate').hidden = false;
@@ -372,6 +379,7 @@
       .then(function () {
         // Same conversion labels as the qualify modal so valuation leads
         // feed the existing Google Ads conversion actions.
+        track('calculator_report_request', { ebitda_band: band, qualified: qualifies ? 'yes' : 'no' });
         fireConversion(qualifies
           ? 'AW-18411360561/XH9KCMqlj-gcELGinMtE'
           : 'AW-18411360561/jK-oCMy9vOgcELGinMtE');
