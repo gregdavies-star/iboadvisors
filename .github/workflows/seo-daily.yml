@@ -83,6 +83,9 @@ jobs:
         run: node scripts/seo-audit.mjs || true
 
       - name: Run the SEO agent
+        # continue-on-error so that whatever the agent produced still reaches the PR step even if
+        # the action reports a failure (e.g. it exceeded max-turns after finishing its work).
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -92,8 +95,15 @@ jobs:
             ${{ github.event.inputs.task && format('Operator instruction for this run: {0}', github.event.inputs.task) || '' }}
           claude_args: |
             --model ${{ vars.SEO_MODEL || 'claude-opus-5' }}
-            --max-turns 120
-            --allowedTools "Read,Write,Edit,MultiEdit,Glob,Grep,WebSearch,WebFetch,Bash(node scripts/*),Bash(npm run *),Bash(git log*),Bash(git diff*),Bash(git status*),Bash(ls *),Bash(wc *)"
+            --max-turns 250
+            --allowedTools "Read,Write,Edit,MultiEdit,Glob,Grep,WebSearch,WebFetch,Bash(node *),Bash(npm run *),Bash(git log*),Bash(git diff*),Bash(git status*),Bash(git show*),Bash(ls *),Bash(wc *),Bash(cat *),Bash(head *),Bash(tail *),Bash(grep *),Bash(find *),Bash(date *),Bash(mkdir *),Bash(curl *)"
+
+      - name: Ensure the run report exists
+        # The PR step reads seo/data/last-run.md; if the agent never wrote it, say so in the PR.
+        run: |
+          if [ ! -s seo/data/last-run.md ]; then
+            printf '# SEO daily - no report written\n\nThe agent step ended without writing seo/data/last-run.md. Review the workflow log before merging.\n' > seo/data/last-run.md
+          fi
 
       - name: Regenerate derived files and re-audit
         # The agent is told to leave the audit clean; if it didn't, the PR still opens and the
