@@ -1,45 +1,44 @@
 {
-  "generatedAt": "2026-09-08T13:44:53.302Z",
+  "generatedAt": "2026-09-08T15:07:44.815Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
-      "title": "IBO Advisors - A Private Equity outcome without the Private Equity.",
-      "titleLength": 67,
-      "description": "It's called an Independent Buyout (IBO) and lets you sell some or all of your ownership and gives you the liquidity and valuation of a Private Equity deal without the Private Equity.",
-      "descriptionLength": 182,
+      "title": "Independent Buyout (IBO) Advisors | No Private Equity",
+      "titleLength": 53,
+      "description": "What is an IBO? An Independent Buyout gives $3M+ EBITDA owners the liquidity and valuation of a private equity deal, without the private equity firm.",
+      "descriptionLength": 149,
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 2,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 67 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 182 chars (aim 120-155)"
-        }
-      ]
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog",
-      "title": "Insights | IBO Advisors",
-      "titleLength": 23,
+      "title": "Exit Planning & M&A Insights for Owners | IBO Advisors",
+      "titleLength": 54,
       "description": "Exit planning, M&A, and Independent Buyout guides from IBO Advisors - written for owners with $3M+ in EBITDA weighing their options before a sale.",
       "descriptionLength": 146,
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 18,
-      "outboundInternalLinks": 17,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 23 chars (short - add the primary keyword)"
-        }
-      ]
+      "inboundInternalLinks": 19,
+      "outboundInternalLinks": 18,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
+      "title": "7 Alternatives to Selling to Private Equity | IBO Advisors",
+      "titleLength": 58,
+      "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
+      "descriptionLength": 142,
+      "h1": "7 Alternatives to Selling to Private Equity",
+      "words": 2043,
+      "date": "2026-09-08",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 14,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
@@ -50,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1586,
       "date": "2025-12-20",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 8,
       "issues": [
         {
@@ -72,7 +71,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1672,
       "date": "2025-10-04",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -116,7 +115,7 @@
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 1430,
       "date": "2026-05-05",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -176,7 +175,7 @@
       "h1": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself)",
       "words": 1683,
       "date": "2025-09-15",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -191,33 +190,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
-      "title": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How. | IBO Advisors",
-      "titleLength": 91,
-      "description": "Private equity firms fund most of a buyout with debt placed on the company being acquired, not their own cash. Here's how the mechanics actually work, and what it means for the seller.",
-      "descriptionLength": 184,
+      "title": "How Private Equity Finances a Buyout | IBO Advisors",
+      "titleLength": 51,
+      "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
+      "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1247,
-      "date": "2026-08-24",
-      "inboundInternalLinks": 5,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 91 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 184 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "words": 1688,
+      "date": "2026-09-08",
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 6,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-government-contractors",
@@ -258,7 +240,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 8,
       "issues": [
         {
@@ -280,7 +262,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -293,7 +275,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1324,
       "date": "2026-04-24",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -312,59 +294,29 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
-      "title": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment | IBO Advisors",
-      "titleLength": 99,
-      "description": "A private equity firm holding a minority stake still typically retains veto rights over financing, acquisitions, and a future sale. Here's the actual list of what those rights usually cover.",
-      "descriptionLength": 190,
+      "title": "Minority Stake, Majority Say: PE Veto Rights | IBO Advisors",
+      "titleLength": 59,
+      "description": "A private equity firm holding a minority stake still keeps veto rights over financing, acquisitions, and a future sale. Here is the actual list.",
+      "descriptionLength": 144,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 1204,
-      "date": "2026-08-15",
-      "inboundInternalLinks": 5,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 99 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 190 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "words": 1656,
+      "date": "2026-09-08",
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 6,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
-      "title": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control | IBO Advisors",
-      "titleLength": 122,
+      "title": "Minority Recapitalization Explained | IBO Advisors",
+      "titleLength": 50,
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1221,
-      "date": "2026-02-25",
-      "inboundInternalLinks": 2,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 122 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "words": 1646,
+      "date": "2026-09-08",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 6,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
@@ -405,7 +357,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1359,
       "date": "2026-07-06",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -431,7 +383,7 @@
       "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
       "words": 1110,
       "date": "2026-07-14",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -461,7 +413,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -482,5 +434,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 52
+  "warningCount": 38
 }
