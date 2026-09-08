@@ -1,6 +1,9 @@
-# After anything SEO-relevant lands on main: verify the derived files are current, wait for
-# Vercel to deploy, then (re)submit the sitemap to Search Console so Google fetches the new
-# <lastmod> values and any new URLs promptly.
+# After anything SEO-relevant lands on main: regenerate the derived files (sitemap <lastmod> and
+# JSON-LD), commit them back if they changed, wait for Vercel to deploy, then (re)submit the
+# sitemap to Search Console so Google fetches the new <lastmod> values and any new URLs promptly.
+#
+# The regenerate-and-commit step is what keeps <lastmod> honest: any commit that touches a page
+# moves its git date, so a pure "is the sitemap current?" check would fail after every merge.
 name: SEO on merge
 
 on:
@@ -14,7 +17,7 @@ on:
       - "scripts/**"
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 jobs:
@@ -32,10 +35,20 @@ jobs:
         with:
           node-version: 22
 
-      - name: Derived files are current
+      - name: Regenerate derived files and commit them if they changed
         run: |
-          node scripts/build-sitemap.mjs --check
-          node scripts/ensure-jsonld.mjs --check
+          node scripts/build-sitemap.mjs
+          node scripts/ensure-jsonld.mjs
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            # [skip ci] keeps this push from re-triggering workflows; Vercel still deploys it.
+            git commit -m "seo: refresh sitemap lastmod and JSON-LD [skip ci]"
+            git push origin HEAD:main
+          else
+            echo "derived files already current"
+          fi
 
       - name: Wait for the live sitemap to match this commit
         run: |
