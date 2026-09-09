@@ -4,12 +4,39 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "iboadvisors.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "iboadvisors.com"
+        }
+      ],
       "destination": "https://www.iboadvisors.com/:path*",
       "permanent": true
     },
-    { "source": "/meet", "destination": "https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo", "permanent": false },
-    { "source": "/blog/what-is-an-independent-buyout", "destination": "/blog", "permanent": true },
-    { "source": "/blog/independent-buyout-vs-private-equity", "destination": "/blog", "permanent": true }
+    {
+      "source": "/meet",
+      "destination": "https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo",
+      "permanent": false
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/independent-buyout-ibo",
+      "destination": "/blog/independent-buyout-explained",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-an-independent-buyout",
+      "destination": "/blog/independent-buyout-explained",
+      "permanent": true
+    },
+    {
+      "source": "/blog/independent-buyout-vs-private-equity",
+      "destination": "/blog/ibo-vs-pe-numbers-comparison",
+      "permanent": true
+    }
   ]
 }
