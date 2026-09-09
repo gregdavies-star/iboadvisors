@@ -1,23 +1,23 @@
 {
   "property": "sc-domain:iboadvisors.com",
-  "pulledAt": "2026-09-08T14:50:20.113Z",
+  "pulledAt": "2026-09-09T14:56:54.765Z",
   "window": {
     "days": 28,
     "current": [
-      "2026-08-09",
-      "2026-09-05"
+      "2026-08-10",
+      "2026-09-06"
     ],
     "previous": [
-      "2026-07-12",
-      "2026-08-08"
+      "2026-07-13",
+      "2026-08-09"
     ]
   },
   "totals": {
     "current": {
-      "clicks": 9,
-      "impressions": 253,
+      "clicks": 10,
+      "impressions": 281,
       "ctr": 0.0356,
-      "position": 9.8
+      "position": 9.6
     },
     "previous": null
   },
@@ -31,42 +31,42 @@
       "prev": null
     },
     {
-      "clicks": 2,
-      "impressions": 157,
-      "ctr": 0.0127,
-      "position": 9.4,
+      "clicks": 3,
+      "impressions": 185,
+      "ctr": 0.0162,
+      "position": 9.2,
       "page": "https://www.iboadvisors.com/",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 12,
       "ctr": 0,
-      "position": 3.9,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#advisory",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 12,
       "ctr": 0,
-      "position": 3.9,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#mechanism",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 12,
       "ctr": 0,
-      "position": 3.9,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#track-record",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 12,
       "ctr": 0,
-      "position": 3.9,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/blog",
       "prev": null
     }
@@ -74,15 +74,15 @@
   "queries": [
     {
       "clicks": 3,
-      "impressions": 7,
-      "ctr": 0.4286,
+      "impressions": 8,
+      "ctr": 0.375,
       "position": 1.1,
       "query": "ibo advisors",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 65,
+      "impressions": 71,
       "ctr": 0,
       "position": 9,
       "query": "\"shareholder capital\" business consultant",
@@ -106,9 +106,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 3,
+      "position": 3.5,
       "query": "ib advisors",
       "prev": null
     },
@@ -130,9 +130,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 23,
+      "position": 25,
       "query": "ibo consulting",
       "prev": null
     },
@@ -178,9 +178,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 13.5,
+      "position": 14,
       "query": "ibosir",
       "prev": null
     },
@@ -214,6 +214,14 @@
       "ctr": 0,
       "position": 2.8,
       "query": "independent buyout (ibo)",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 36,
+      "query": "que es un ibo",
       "prev": null
     },
     {
@@ -292,9 +300,9 @@
     },
     {
       "clicks": 1,
-      "impressions": 3,
-      "ctr": 0.3333,
-      "position": 1.7,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 1.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo advisors"
     },
@@ -436,17 +444,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 48,
+      "impressions": 54,
       "ctr": 0,
-      "position": 9.2,
+      "position": 9.1,
       "page": "https://www.iboadvisors.com/",
       "query": "\"shareholder capital\" business consultant"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 3,
+      "position": 3.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ib advisors"
     },
@@ -460,6 +468,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ibo consulting"
+    },
+    {
+      "clicks": 0,
       "impressions": 4,
       "ctr": 0,
       "position": 5.5,
@@ -468,7 +484,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
       "position": 15,
       "page": "https://www.iboadvisors.com/",
@@ -489,6 +505,14 @@
       "position": 3,
       "page": "https://www.iboadvisors.com/",
       "query": "independent buyout (ibo)"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 36,
+      "page": "https://www.iboadvisors.com/",
+      "query": "que es un ibo"
     },
     {
       "clicks": 0,
@@ -548,9 +572,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 1.5,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#advisory",
       "query": "ibo advisors"
     },
@@ -564,9 +588,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 1.5,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#mechanism",
       "query": "ibo advisors"
     },
@@ -580,9 +604,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 1.5,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#track-record",
       "query": "ibo advisors"
     },
@@ -596,9 +620,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 1.5,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/blog",
       "query": "ibo advisors"
     },
@@ -615,9 +639,9 @@
     "strikingDistance": [
       {
         "clicks": 0,
-        "impressions": 48,
+        "impressions": 54,
         "ctr": 0,
-        "position": 9.2,
+        "position": 9.1,
         "page": "https://www.iboadvisors.com/",
         "query": "\"shareholder capital\" business consultant"
       },
@@ -632,10 +656,10 @@
     ],
     "lowCtr": [
       {
-        "clicks": 2,
-        "impressions": 157,
-        "ctr": 0.0127,
-        "position": 9.4,
+        "clicks": 3,
+        "impressions": 185,
+        "ctr": 0.0162,
+        "position": 9.2,
         "page": "https://www.iboadvisors.com/",
         "expectedCtr": 0.03
       }
@@ -651,8 +675,8 @@
           },
           {
             "page": "https://www.iboadvisors.com/",
-            "impressions": 48,
-            "position": 9.2
+            "impressions": 54,
+            "position": 9.1
           }
         ]
       }
