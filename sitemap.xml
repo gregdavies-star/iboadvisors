@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.iboadvisors.com/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/blog</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/business-valuation-calculator</loc>
@@ -21,16 +21,24 @@
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://www.iboadvisors.com/blog/independent-buyout-explained</loc>
-    <lastmod>2026-09-05</lastmod>
+    <loc>https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity</loc>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights</loc>
-    <lastmod>2026-08-15</lastmod>
+    <lastmod>2026-09-08</lastmod>
+  </url>
+  <url>
+    <loc>https://www.iboadvisors.com/blog/minority-recapitalization-explained</loc>
+    <lastmod>2026-09-08</lastmod>
+  </url>
+  <url>
+    <loc>https://www.iboadvisors.com/blog/independent-buyout-explained</loc>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation</loc>
@@ -59,10 +67,6 @@
   <url>
     <loc>https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison</loc>
     <lastmod>2026-04-09</lastmod>
-  </url>
-  <url>
-    <loc>https://www.iboadvisors.com/blog/minority-recapitalization-explained</loc>
-    <lastmod>2026-02-25</lastmod>
   </url>
   <url>
     <loc>https://www.iboadvisors.com/blog/business-exit-planning-every-option</loc>
