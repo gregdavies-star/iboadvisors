@@ -48,6 +48,9 @@ function graphFor(page) {
 
   if (isBlogPost(page)) {
     const date = postDate(html);
+    // The page only carries an "Updated" line, so refreshing a post would otherwise reset its
+    // publication date too. Keep the datePublished already written into the page, if there is one.
+    const published = html.match(/"datePublished": "(\d{4}-\d{2}-\d{2})"/)?.[1] || date;
     const name = postAuthor(html) || "Michael Chasen";
     return [
       organization,
@@ -61,7 +64,7 @@ function graphFor(page) {
         image: postImage(html) || `${ORIGIN}/assets/hero-dusk.jpg`,
         author: { "@id": AUTHOR_ID },
         publisher: { "@id": ORG_ID },
-        datePublished: date,
+        datePublished: published,
         dateModified: date,
         wordCount: wordCount(html),
         inLanguage: "en-US",
