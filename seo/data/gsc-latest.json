@@ -1,72 +1,72 @@
 {
   "property": "sc-domain:iboadvisors.com",
-  "pulledAt": "2026-09-05T13:37:40.476Z",
+  "pulledAt": "2026-09-09T14:56:54.765Z",
   "window": {
     "days": 28,
     "current": [
-      "2026-08-06",
-      "2026-09-02"
+      "2026-08-10",
+      "2026-09-06"
     ],
     "previous": [
-      "2026-07-09",
-      "2026-08-05"
+      "2026-07-13",
+      "2026-08-09"
     ]
   },
   "totals": {
     "current": {
-      "clicks": 7,
-      "impressions": 145,
-      "ctr": 0.0483,
-      "position": 9.9
+      "clicks": 10,
+      "impressions": 281,
+      "ctr": 0.0356,
+      "position": 9.6
     },
     "previous": null
   },
   "pages": [
     {
-      "clicks": 5,
-      "impressions": 95,
-      "ctr": 0.0526,
-      "position": 10.2,
+      "clicks": 7,
+      "impressions": 106,
+      "ctr": 0.066,
+      "position": 9.6,
       "page": "https://iboadvisors.com/",
       "prev": null
     },
     {
-      "clicks": 2,
-      "impressions": 56,
-      "ctr": 0.0357,
-      "position": 8.6,
+      "clicks": 3,
+      "impressions": 185,
+      "ctr": 0.0162,
+      "position": 9.2,
       "page": "https://www.iboadvisors.com/",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 12,
       "ctr": 0,
-      "position": 2.4,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#advisory",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 12,
       "ctr": 0,
-      "position": 2.4,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#mechanism",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 12,
       "ctr": 0,
-      "position": 2.4,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/#track-record",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 12,
       "ctr": 0,
-      "position": 2.4,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/blog",
       "prev": null
     }
@@ -74,17 +74,17 @@
   "queries": [
     {
       "clicks": 3,
-      "impressions": 6,
-      "ctr": 0.5,
-      "position": 1.2,
+      "impressions": 8,
+      "ctr": 0.375,
+      "position": 1.1,
       "query": "ibo advisors",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 34,
+      "impressions": 71,
       "ctr": 0,
-      "position": 8.7,
+      "position": 9,
       "query": "\"shareholder capital\" business consultant",
       "prev": null
     },
@@ -106,9 +106,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 3,
+      "position": 3.5,
       "query": "ib advisors",
       "prev": null
     },
@@ -122,25 +122,25 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 4,
+      "position": 10.3,
       "query": "ibo company",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 23,
+      "position": 25,
       "query": "ibo consulting",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 11,
       "ctr": 0,
-      "position": 5.7,
+      "position": 5.6,
       "query": "ibo finance",
       "prev": null
     },
@@ -174,6 +174,14 @@
       "ctr": 0,
       "position": 7,
       "query": "ibo llc",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 14,
+      "query": "ibosir",
       "prev": null
     },
     {
@@ -212,24 +220,48 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 36,
+      "query": "que es un ibo",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 10,
       "query": "what is a ibo",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 23,
       "ctr": 0,
-      "position": 9.8,
+      "position": 9.7,
       "query": "what is an ibo",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 9.5,
+      "position": 9.3,
+      "query": "what is an ibo in business",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.6,
       "query": "what is an ibo?",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6,
+      "query": "what is an independent buyout",
       "prev": null
     },
     {
@@ -242,26 +274,34 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 7,
       "ctr": 0,
-      "position": 10,
+      "position": 8.9,
       "query": "whats an ibo",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "query": "yes",
       "prev": null
     }
   ],
   "pageQueries": [
     {
       "clicks": 2,
-      "impressions": 6,
-      "ctr": 0.3333,
+      "impressions": 7,
+      "ctr": 0.2857,
       "position": 1.3,
       "page": "https://iboadvisors.com/",
       "query": "ibo advisors"
     },
     {
       "clicks": 1,
-      "impressions": 2,
-      "ctr": 0.5,
+      "impressions": 4,
+      "ctr": 0.25,
       "position": 1.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo advisors"
@@ -350,6 +390,14 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 12,
+      "page": "https://iboadvisors.com/",
+      "query": "ibosir"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 56,
       "page": "https://iboadvisors.com/",
       "query": "independent business owners"
@@ -396,7 +444,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 54,
       "ctr": 0,
       "position": 9.1,
       "page": "https://www.iboadvisors.com/",
@@ -404,19 +452,43 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 3,
+      "position": 3.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ib advisors"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 4,
+      "position": 10.3,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo company"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ibo consulting"
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.5,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ibo finance"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ibosir"
     },
     {
       "clicks": 0,
@@ -438,21 +510,37 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 36,
+      "page": "https://www.iboadvisors.com/",
+      "query": "que es un ibo"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 10,
       "page": "https://www.iboadvisors.com/",
       "query": "what is a ibo"
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 21,
       "ctr": 0,
-      "position": 9.5,
+      "position": 9.7,
       "page": "https://www.iboadvisors.com/",
       "query": "what is an ibo"
     },
     {
       "clicks": 0,
       "impressions": 3,
+      "ctr": 0,
+      "position": 9.3,
+      "page": "https://www.iboadvisors.com/",
+      "query": "what is an ibo in business"
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
       "ctr": 0,
       "position": 10,
       "page": "https://www.iboadvisors.com/",
@@ -462,15 +550,31 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 10,
+      "position": 6,
+      "page": "https://www.iboadvisors.com/",
+      "query": "what is an independent buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 8.9,
       "page": "https://www.iboadvisors.com/",
       "query": "whats an ibo"
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 1.5,
+      "position": 1,
+      "page": "https://www.iboadvisors.com/",
+      "query": "yes"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#advisory",
       "query": "ibo advisors"
     },
@@ -478,7 +582,15 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 1.5,
+      "position": 6,
+      "page": "https://www.iboadvisors.com/#advisory",
+      "query": "what is an independent buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#mechanism",
       "query": "ibo advisors"
     },
@@ -486,7 +598,15 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 1.5,
+      "position": 6,
+      "page": "https://www.iboadvisors.com/#mechanism",
+      "query": "what is an independent buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/#track-record",
       "query": "ibo advisors"
     },
@@ -494,14 +614,56 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 1.5,
+      "position": 6,
+      "page": "https://www.iboadvisors.com/#track-record",
+      "query": "what is an independent buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1.7,
       "page": "https://www.iboadvisors.com/blog",
       "query": "ibo advisors"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "what is an independent buyout"
     }
   ],
   "opportunities": {
-    "strikingDistance": [],
-    "lowCtr": [],
+    "strikingDistance": [
+      {
+        "clicks": 0,
+        "impressions": 54,
+        "ctr": 0,
+        "position": 9.1,
+        "page": "https://www.iboadvisors.com/",
+        "query": "\"shareholder capital\" business consultant"
+      },
+      {
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "position": 9.7,
+        "page": "https://www.iboadvisors.com/",
+        "query": "what is an ibo"
+      }
+    ],
+    "lowCtr": [
+      {
+        "clicks": 3,
+        "impressions": 185,
+        "ctr": 0.0162,
+        "position": 9.2,
+        "page": "https://www.iboadvisors.com/",
+        "expectedCtr": 0.03
+      }
+    ],
     "cannibalization": [
       {
         "query": "\"shareholder capital\" business consultant",
@@ -513,7 +675,7 @@
           },
           {
             "page": "https://www.iboadvisors.com/",
-            "impressions": 17,
+            "impressions": 54,
             "position": 9.1
           }
         ]

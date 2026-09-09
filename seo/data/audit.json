@@ -1,27 +1,18 @@
 {
-  "generatedAt": "2026-09-08T13:44:53.302Z",
+  "generatedAt": "2026-09-09T15:13:56.246Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
-      "title": "IBO Advisors - A Private Equity outcome without the Private Equity.",
-      "titleLength": 67,
-      "description": "It's called an Independent Buyout (IBO) and lets you sell some or all of your ownership and gives you the liquidity and valuation of a Private Equity deal without the Private Equity.",
-      "descriptionLength": 182,
+      "title": "Independent Buyout (IBO): Sell Without Private Equity",
+      "titleLength": 53,
+      "description": "An Independent Buyout (IBO) gives owners of $3M+ EBITDA companies private-equity-level liquidity and valuation - without selling to private equity.",
+      "descriptionLength": 147,
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 2,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 67 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 182 chars (aim 120-155)"
-        }
-      ]
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog",
@@ -32,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 18,
-      "outboundInternalLinks": 17,
+      "inboundInternalLinks": 19,
+      "outboundInternalLinks": 18,
       "issues": [
         {
           "level": "WARN",
@@ -50,7 +41,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1586,
       "date": "2025-12-20",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 8,
       "issues": [
         {
@@ -96,10 +87,10 @@
       "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
       "descriptionLength": 152,
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
-      "words": 1564,
+      "words": 1565,
       "date": "2025-11-21",
       "inboundInternalLinks": 2,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
       "issues": [
         {
           "level": "WARN",
@@ -114,10 +105,10 @@
       "description": "A guide to family business succession planning - successor timelines, common pitfalls, and what to do when there's no family successor but you still want to avoid selling to private equity.",
       "descriptionLength": 189,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 1430,
-      "date": "2026-05-05",
-      "inboundInternalLinks": 2,
-      "outboundInternalLinks": 1,
+      "words": 1879,
+      "date": "2026-09-09",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 5,
       "issues": [
         {
           "level": "WARN",
@@ -126,14 +117,6 @@
         {
           "level": "WARN",
           "message": "meta description 189 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
         }
       ]
     },
@@ -176,7 +159,7 @@
       "h1": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself)",
       "words": 1683,
       "date": "2025-09-15",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -198,7 +181,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 1247,
       "date": "2026-08-24",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -258,7 +241,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 8,
       "issues": [
         {
@@ -278,10 +261,10 @@
       "description": "An Independent Buyout (IBO) is a leveraged sale to a trust owned by your own employees - private-equity-style liquidity, without a private equity firm.",
       "descriptionLength": 151,
       "h1": "What Is an Independent Buyout (IBO)?",
-      "words": 1775,
+      "words": 1802,
       "date": "2026-09-05",
-      "inboundInternalLinks": 3,
-      "outboundInternalLinks": 10,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -293,7 +276,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1324,
       "date": "2026-04-24",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -319,7 +302,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1204,
       "date": "2026-08-15",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -405,7 +388,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1359,
       "date": "2026-07-06",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -453,6 +436,24 @@
       ]
     },
     {
+      "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "title": "What Happens After Private Equity Buys Your Company | IBO Advisors",
+      "titleLength": 66,
+      "description": "Board control, a 100-day plan, monitoring fees, add-on deals, and a hold that now runs six years - what changes after a PE firm buys your company.",
+      "descriptionLength": 146,
+      "h1": "What Happens After Private Equity Buys Your Company",
+      "words": 1969,
+      "date": "2026-09-09",
+      "inboundInternalLinks": 1,
+      "outboundInternalLinks": 9,
+      "issues": [
+        {
+          "level": "WARN",
+          "message": "title 66 chars (aim 50-60; Google truncates ~60)"
+        }
+      ]
+    },
+    {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "title": "Business Valuation Calculator - What Is Your Company Worth? | IBO Advisors",
       "titleLength": 74,
@@ -461,7 +462,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -482,5 +483,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 52
+  "warningCount": 49
 }

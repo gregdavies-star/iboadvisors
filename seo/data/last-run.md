@@ -1,33 +1,41 @@
-# Daily SEO run - 2026-09-05
+# Daily SEO run - 2026-09-09
 
-First run with GSC data. The bottleneck isn't titles or CTR - Google has indexed exactly one URL: **16 of 18 sitemap URLs are "Discovered - currently not indexed" or "URL unknown to Google"**, and all 16 blog posts had **zero contextual links to another post**. Today went at that, plus the priority-1 keyword we already get impressions for and have no page for.
+**17 of 19 sitemap URLs are now "Submitted and indexed"**, up from 1 four days ago.
+So today went at the homepage's CTR gap and the two URLs still outside the index.
+Audit clean: 0 errors, warnings 52 → 49.
 
-## GSC totals (28d: 2026-08-06 to 2026-09-02)
+## GSC totals (28d: 2026-08-10 to 2026-09-06)
 
 | Metric | Current | Prior 28d |
 |---|---|---|
-| Clicks | 7 | no data |
-| Impressions | 145 | no data |
-| CTR | 4.83% | no data |
-| Position | 9.9 | no data |
+| Clicks | 10 | no data |
+| Impressions | 281 | no data |
+| CTR | 3.56% | no data |
+| Position | 9.6 | no data |
 
-Prior-window data is null on this pull, so rules 3, 4 and 6 had nothing to act on - `lowCtr`, `strikingDistance` and `decliners` are all empty.
+`totals.previous` is `null` again, so rule 6 (decliners) had nothing to compute.
 
 ## Changes
 
-- **New post `/blog/independent-buyout-explained`** - "What Is an Independent Buyout (IBO)?", 1,775 words, 10 internal links, 3 inbound. Data point: 24 impressions this window across *what is an ibo / whats an ibo / what is ibo in business / independent buyout / independent buyout (ibo)*, all landing on the homepage at positions 5.8-10.5, with no page targeting them. Specificity comes from a made-up $8M EBITDA worked example plus four sources opened directly (26 U.S.C. §1042 via Cornell, NCEO, IRS NIIT, Capital Pad on hold periods). No firm or deal claims.
-- **Internal linking pass on 4 posts** (the cap): `business-exit-planning-every-option`, `exit-planning-for-business-owners`, `how-pe-firms-value-a-company`, `ibo-vs-pe-numbers-comparison`. Each went from 0 to 3-6 contextual links plus a calculator link, aimed at the three URLs Google has never crawled - `/business-valuation-calculator`, `/blog/how-private-equity-actually-finances-a-buyout`, `/blog/minority-pe-stake-board-control-veto-rights` - which now have 7, 5 and 5 inbound links.
-- **Hero alt text** filled on those 4 posts. Audit: 0 errors, warnings 60 → 52. No `Updated` dates bumped; every edit added well under 150 words.
+- **Homepage title + meta** - the only page clearing rule 3 (185 imp, CTR 1.62% vs 3.0% expected at pos 9.2). The old title held neither "independent buyout" nor "IBO", yet *what is an ibo* (21 imp, pos 9.7) and *independent buyout* (5, pos 5.8) land here. Now `Independent Buyout (IBO): Sell Without Private Equity` (53 chars) + a 147-char description answering that query. Brand suffix dropped from the title; `og:site_name` and JSON-LD carry it and *ibo advisors* sits at pos 1.1.
+- **`/blog/family-business-succession-planning`** - rule 2, "Discovered, currently not indexed", never crawled, 0 contextual links out. Added 450 words on how a family transfer actually gets funded (worked hypothetical, 26 USC §453). Words 1,430 → 1,879; out-links 0 → 4; inbound 2 → 5; hero alt filled; `Updated` bumped so sitemap `lastmod` prompts a recrawl.
+- **New post `/blog/what-happens-after-private-equity-buys-your-company`** - 1,969 words, 9 internal links, 6 sources each opened directly (SEC's 2015 $39M Blackstone monitoring-fee action; AlixPartners - 65% of firms see CEO turnover in the hold, 86% firm-driven; add-ons 72.9% of 2025 buyouts; 6.0-year median hold). Other numbers are an invented $8M-EBITDA/8.5x example. No firm or deal claims.
 
 ## Skipped
 
-- **Title/meta rewrites**: 17 of 19 pages exceed 60 chars, but no page clears rule 3's ≥100 impressions + CTR gap. Not guessing.
-- **Cannibalization**: the only entry is `iboadvisors.com/` vs `www.iboadvisors.com/` on *"shareholder capital" business consultant* (17 impressions each). Host duplication, not two pages - no on-page fix applies.
+- **Rule 4:** both striking-distance queries are the homepage (body copy off-limits), and `independent-buyout-explained` already targets *what is an ibo*.
+- **Rule 5:** the one entry is the apex-vs-www host split, not two pages.
+- **Title-length WARNs on 17 pages:** no CTR data justifies a rule-3 rewrite yet.
+- **Cluster-1's leftover keywords** share intent with the hub `/`, so the new post took the priority-2 keyword instead of manufacturing cannibalisation.
+
+## Coverage
+
+`/blog/how-pe-firms-value-a-company` ("Crawled, currently not indexed") was recrawled today at 03:47, after the 2026-09-05 link pass - left alone; inbound rose 5 → 7. Recheck next run.
 
 ## Needs a human
 
-1. **Verify the apex → www 301 is live.** `vercel.json` has it; GSC still splits impressions across both hosts.
-2. **`/blog/what-is-an-independent-buyout` is 301'd to `/blog` in `vercel.json`** - the exact-match slug for today's post, so I used `independent-buyout-explained`. If that redirect is a leftover, worth reclaiming.
-3. **Request indexing for `/business-valuation-calculator`** - unknown to Google despite 7 internal links.
-4. **Build the `/independent-buyout` pillar**; today's post is the cluster's draft centre.
-5. 12 posts still have 0 contextual links and empty alt text - three more runs at 4/day.
+1. **Apex → www 301 still isn't effective:** `iboadvisors.com/` took 106 imp / 7 clicks against `www`'s 185 / 3.
+2. **`ensure-jsonld.mjs` sets `datePublished` = `dateModified` = the `Updated` line**, so a refresh rewrites the publish date. Split them.
+3. **Request indexing** for the succession post and `how-pe-firms-value-a-company`.
+4. **Build the `/independent-buyout` pillar** - the homepage now targets the category term.
+5. 11 posts still have 0 contextual links and empty hero alt: three more runs at 4/day.
