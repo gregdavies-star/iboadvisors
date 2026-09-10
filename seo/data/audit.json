@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T19:39:00.323Z",
+  "generatedAt": "2026-09-10T14:55:26.864Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -36,7 +36,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2043,
       "date": "2026-09-08",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -108,33 +108,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "title": "Family Business Succession Planning: Options Beyond Selling to a Stranger | IBO Advisors",
-      "titleLength": 88,
-      "description": "A guide to family business succession planning - successor timelines, common pitfalls, and what to do when there's no family successor but you still want to avoid selling to private equity.",
-      "descriptionLength": 189,
+      "title": "Family Business Succession Planning | IBO Advisors",
+      "titleLength": 50,
+      "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
+      "descriptionLength": 135,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 1430,
-      "date": "2026-05-05",
-      "inboundInternalLinks": 3,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 88 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 189 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "words": 1884,
+      "date": "2026-09-10",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 10,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
@@ -168,25 +151,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
-      "title": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself) | IBO Advisors",
-      "titleLength": 103,
-      "description": "How private equity firms actually value a company - EBITDA multiples, add-backs, quality of earnings, and comps - so you can run the same playbook before any sale.",
-      "descriptionLength": 163,
-      "h1": "How Do Private Equity Firms Value a Company? (And How to Use the Same Playbook Yourself)",
-      "words": 1683,
-      "date": "2025-09-15",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 5,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 103 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 163 chars (aim 120-155)"
-        }
-      ]
+      "title": "How Private Equity Values a Company | IBO Advisors",
+      "titleLength": 50,
+      "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
+      "descriptionLength": 134,
+      "h1": "How Do Private Equity Firms Value a Company?",
+      "words": 2316,
+      "date": "2026-09-10",
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
@@ -197,7 +171,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 1688,
       "date": "2026-09-08",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -262,7 +236,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -275,7 +249,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1324,
       "date": "2026-04-24",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 1,
       "issues": [
         {
@@ -301,7 +275,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1656,
       "date": "2026-09-08",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -314,7 +288,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1646,
       "date": "2026-09-08",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -350,59 +324,29 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
-      "title": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity | IBO Advisors",
-      "titleLength": 93,
+      "title": "Rollover Equity and the Second Bite | IBO Advisors",
+      "titleLength": 50,
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1359,
+      "words": 1463,
       "date": "2026-07-06",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 93 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
-      "title": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors | IBO Advisors",
-      "titleLength": 90,
-      "description": "Most owners are shown two exit paths - sell to private equity, or sell to a strategic buyer - because those are the only two deals the people in the room get paid to close. There's a third option.",
-      "descriptionLength": 196,
+      "title": "The Owner Exit Conversation Is Broken | IBO Advisors",
+      "titleLength": 52,
+      "description": "Owners get shown two exit paths - private equity or a strategic buyer - because those are the only two deals the room gets paid to close.",
+      "descriptionLength": 137,
       "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
-      "words": 1110,
+      "words": 1182,
       "date": "2026-07-14",
       "inboundInternalLinks": 3,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 90 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 196 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "outboundInternalLinks": 8,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
@@ -413,7 +357,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -434,5 +378,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 38
+  "warningCount": 25
 }
