@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-08T14:52:27.705Z",
+  "inspectedAt": "2026-09-10T14:45:01.468Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -12,10 +12,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-09T19:36:58Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
@@ -27,7 +29,7 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
+      "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "NEUTRAL",
       "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
@@ -35,52 +37,84 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T21:57:40Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T21:36:19Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T20:53:35Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T20:16:53Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/independent-buyout-explained",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T20:32:00Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T21:14:56Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-government-contractors",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T19:20:22Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/ibo-government-contractors",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T18:55:08Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/healthcare-services-ma",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T15:58:10Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/restaurant-ma",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -91,10 +125,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/management-buyout-financing",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T19:45:29Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-financing",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
@@ -104,13 +140,6 @@
       "googleCanonical": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
@@ -132,16 +161,19 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-08T20:06:08Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "coverageState": "Crawled - currently not indexed",
+      "lastCrawlTime": "2026-09-09T03:47:39Z",
+      "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     }
   ]

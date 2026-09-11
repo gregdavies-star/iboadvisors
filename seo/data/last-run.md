@@ -1,37 +1,33 @@
-# Daily SEO run - 2026-09-08
+# Daily SEO run — 2026-09-10
 
-The 09-05 linking pass worked: all four posts it touched are now **"Submitted and indexed"**, as is the calculator. Today repeats it on the next three uncrawled posts, with real content added rather than just links.
+17 of 20 sitemap URLs now PASS, up from 2 on 09-05. Today targeted the three that don't, plus the internal-link deficit causing them. No new post (2 already in the trailing 7 days); `lowCtr` and `decliners` were empty.
 
-## GSC totals (28d: 2026-08-09 to 2026-09-05)
+| 28d to 2026-09-07 | Clicks | Impressions | CTR | Position |
+|---|---|---|---|---|
+| Current | 10 | 307 | 3.26% | 11.8 |
+| Prior 28d | — | — | — | — |
 
-| Metric | Current | Prior 28d |
-|---|---|---|
-| Clicks | 9 | no data |
-| Impressions | 253 | no data |
-| CTR | 3.56% | no data |
-| Position | 9.8 | no data |
+GSC returned `previous: null` — no prior window yet. `history.jsonl` shows impressions 145 → 253 → 307 across the last three runs.
 
-Prior-window data is still null, so rule 6 (decliners) had nothing to act on.
+## Changes (4 content pages — the cap)
 
-## Changes (4 content pages - the cap - plus the new post)
+- **`how-pe-firms-value-a-company`** — the only URL at *"Crawled – currently not indexed"* (crawled 09-09: quality, not discovery, is the blocker). Added +630 words: a "Step 5" on the enterprise-value-to-cash bridge (cash-free/debt-free, working capital peg, escrow, fees) with a worked $28M hypothetical, two FAQ entries, and two newly opened sources. Title 103→50, meta 163→134. Now 2,316 words.
+- **`family-business-succession-planning`** — *"Discovered – not indexed"*, 1,430 words, 0 links out. Added a 450-word section on how a family handover is funded (gift vs. seller note vs. minority recap) with a worked $23M-equity hypothetical, plus 7 links. Title 88→50, meta 189→134, hero alt. Now 1,884 words.
+- **`rollover-equity-second-bite-explained`** — 7 inbound, PASS, 0 links out. Added 5 links + calculator; title 93→50, hero alt.
+- **`the-broken-owner-exit-conversation`** — 0 links out. Added 6 links + calculator; title 90→52, meta 196→137, hero alt.
 
-- **`/` title + meta** - the only `lowCtr` entry: 157 impressions, 1.27% CTR against a 3.0% expectation at position 9.4. The title now leads with the category term (53 chars) and the description opens with "What is an IBO?", the striking-distance query at position 9.7. Body copy untouched.
-- **Three not-indexed posts strengthened** (rule 2, not just resubmitted): `minority-recapitalization-explained` 1,221 → 1,646 words, `minority-pe-stake-board-control-veto-rights` 1,204 → 1,656, `how-private-equity-actually-finances-a-buyout` 1,247 → 1,688. Each gained a 425-450 word section built on real arithmetic - a worked 30% recap, the negotiable levers in a consent list, a $42M LBO stack - plus 5 contextual links, alt text, and a title cut from 91-122 chars to 50-59.
-- **New post `/blog/alternatives-to-selling-to-private-equity`** - 2,043 words, 14 internal links, 4 inbound, covering three uncovered priority-1 keywords. Every number is a labelled hypothetical or a source opened this run (SBA, NCEO, Cornell §1042, Citi Wealth, Stanford GSB, GF Data). No firm or deal claims.
-- **`/blog` title** lengthened (was 23 chars, no keyword); it is also not indexed.
-- **`scripts/ensure-jsonld.mjs`** - bumping a post's `Updated` line also reset its `datePublished`, so refreshed posts claimed today as their publication date. Now preserved; the three posts are back to 2026-02-25, 08-15, 08-24.
+`alternatives-to-selling-to-private-equity` gained inbound links 4→8 and succession 3→5, all from PASS pages. Audit: 0 errors, warnings 38→25.
 
-Audit: 0 errors, warnings 52 → 38.
+## Flagged (hard rule)
+
+Two pre-existing firm claims removed: `the-broken-owner-exit-conversation` opened with *"sold one for $1.8 billion"* (a transaction size, not a homepage claim), and `how-pe-firms-value-a-company` with *"100+ deals"* (non-verbatim restatement of the homepage line). A grep for the banned patterns found nothing else; the untouched posts still deserve a human read.
 
 ## Skipped
 
-- **Striking distance**: both queries land on `/`, whose body copy is off-limits. `what is an ibo` is now served by the 09-05 post and today's meta.
-- **Cannibalization**: still only apex vs `www.` - host duplication, no on-page fix.
-- 8 posts still have 0 contextual links - two more runs at 4/day.
+Both `strikingDistance` queries rank the **homepage**, whose body copy is off-limits; the page that should own *"what is an ibo"* (`independent-buyout-explained`) is in cool-down until 09-19. `alternatives-to-selling-to-private-equity` is 2 days old at 2,043 words — it needs time, not edits, so it got links instead.
 
 ## Needs a human
 
-1. **Confirm the apex → www 301 is live.** It is in `vercel.json`, but GSC still splits impressions (106 vs 157).
-2. **Request indexing** for the three refreshed posts and `/blog`.
-3. Is `"shareholder capital" business consultant` (65 impressions, our largest non-brand query) a real audience or one persistent searcher?
-4. **Build the `/independent-buyout` pillar** - the cluster has three posts and no hub.
+1. **Apex/www still splits signals.** `iboadvisors.com/` drew 7 clicks / 106 impressions alongside www's 3 / 211 — the sole `cannibalization` entry. The 301 is in `vercel.json`, so either it isn't firing or Google hasn't dropped the old host; please check `curl -I https://iboadvisors.com/` against production.
+2. `"shareholder capital" business consultant` — 71 impressions, pos 9, 0 clicks, almost certainly one researcher on a quoted search. It distorts the totals; don't rank-chase it.
+3. Still 0 links out, long titles, empty hero alts on `choosing-an-ma-advisory-firm`, `healthcare-services-ma`, `ibo-government-contractors`, `management-buyout-financing`, `restaurant-ma`.
