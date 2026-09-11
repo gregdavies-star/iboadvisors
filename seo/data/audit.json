@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T14:55:26.864Z",
+  "generatedAt": "2026-09-11T14:54:00.019Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -36,7 +36,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2043,
       "date": "2026-09-08",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -47,10 +47,10 @@
       "description": "Every real business exit option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with pros, cons, and a comparison table.",
       "descriptionLength": 161,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1586,
+      "words": 1656,
       "date": "2025-12-20",
-      "inboundInternalLinks": 5,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 11,
       "issues": [
         {
           "level": "WARN",
@@ -69,22 +69,14 @@
       "description": "How to choose an M&A advisory firm at $3M+ in EBITDA - track record, fee structure, conflicts of interest, red flags, and the questions to ask before signing.",
       "descriptionLength": 158,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1672,
+      "words": 1726,
       "date": "2025-10-04",
       "inboundInternalLinks": 3,
-      "outboundInternalLinks": 1,
+      "outboundInternalLinks": 6,
       "issues": [
         {
           "level": "WARN",
           "message": "title 78 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
         }
       ]
     },
@@ -126,10 +118,10 @@
       "description": "Healthcare services M&A is consolidating fast, but private equity roll-ups bring regulatory and control tradeoffs owners should weigh before signing a term sheet.",
       "descriptionLength": 162,
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
-      "words": 1561,
+      "words": 1664,
       "date": "2026-06-17",
-      "inboundInternalLinks": 1,
-      "outboundInternalLinks": 1,
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 8,
       "issues": [
         {
           "level": "WARN",
@@ -138,14 +130,6 @@
         {
           "level": "WARN",
           "message": "meta description 162 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
         }
       ]
     },
@@ -158,7 +142,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2316,
       "date": "2026-09-10",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -171,39 +155,22 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 1688,
       "date": "2026-09-08",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 6,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-government-contractors",
-      "title": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable | IBO Advisors",
-      "titleLength": 126,
-      "description": "Cost-plus government contracts reimburse allowable costs, which can make transitioning a GovCon business to employee ownership cheaper than a typical commercial deal.",
-      "descriptionLength": 166,
+      "title": "Government Contractor M&A and Cost-Plus Exits | IBO Advisors",
+      "titleLength": 60,
+      "description": "How government contractor M&A really works, and why cost-plus contracts can make an employee-led buyout cheaper to finance than a private equity sale.",
+      "descriptionLength": 150,
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
-      "words": 1506,
+      "words": 1537,
       "date": "2026-07-01",
-      "inboundInternalLinks": 1,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 126 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 166 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 6,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
@@ -236,7 +203,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -247,22 +214,14 @@
       "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
       "descriptionLength": 146,
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
-      "words": 1324,
+      "words": 1384,
       "date": "2026-04-24",
-      "inboundInternalLinks": 5,
-      "outboundInternalLinks": 1,
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 5,
       "issues": [
         {
           "level": "WARN",
           "message": "title 87 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
         }
       ]
     },
@@ -275,7 +234,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1656,
       "date": "2026-09-08",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -294,33 +253,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
-      "title": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer | IBO Advisors",
-      "titleLength": 96,
-      "description": "A guide to restaurant M&A ownership transition options for multi-unit operators who want a real exit or liquidity event without handing their restaurant group to a private equity roll-up.",
-      "descriptionLength": 187,
+      "title": "Restaurant M&A: Alternatives to a PE Roll-Up | IBO Advisors",
+      "titleLength": 59,
+      "description": "What multi-unit restaurant groups are worth, what a PE roll-up asks of you, and the ownership transition option that keeps your operators in charge.",
+      "descriptionLength": 148,
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
-      "words": 1532,
+      "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 1,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 96 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 187 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
@@ -331,7 +273,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1463,
       "date": "2026-07-06",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -357,7 +299,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -378,5 +320,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 25
+  "warningCount": 11
 }
