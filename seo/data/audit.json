@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T14:02:40.511Z",
+  "generatedAt": "2026-09-12T14:14:51.176Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -36,7 +36,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2043,
       "date": "2026-09-08",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -47,10 +47,10 @@
       "description": "Every real business exit option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with pros, cons, and a comparison table.",
       "descriptionLength": 161,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1586,
+      "words": 1656,
       "date": "2025-12-20",
       "inboundInternalLinks": 6,
-      "outboundInternalLinks": 8,
+      "outboundInternalLinks": 11,
       "issues": [
         {
           "level": "WARN",
@@ -69,7 +69,7 @@
       "description": "How to choose an M&A advisor at $3M+ in EBITDA: track record, fee structure, conflicts of interest, and the questions to ask before signing.",
       "descriptionLength": 140,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1767,
+      "words": 1774,
       "date": "2025-10-04",
       "inboundInternalLinks": 3,
       "outboundInternalLinks": 7,
@@ -115,7 +115,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 1,
+      "inboundInternalLinks": 2,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -128,7 +128,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2316,
       "date": "2026-09-10",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -141,7 +141,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 1688,
       "date": "2026-09-08",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -154,7 +154,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 1,
+      "inboundInternalLinks": 2,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -189,7 +189,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -234,33 +234,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
-      "title": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer | IBO Advisors",
-      "titleLength": 96,
-      "description": "A guide to restaurant M&A ownership transition options for multi-unit operators who want a real exit or liquidity event without handing their restaurant group to a private equity roll-up.",
-      "descriptionLength": 187,
+      "title": "Restaurant M&A: Alternatives to a PE Roll-Up | IBO Advisors",
+      "titleLength": 59,
+      "description": "What multi-unit restaurant groups are worth, what a PE roll-up asks of you, and the ownership transition option that keeps your operators in charge.",
+      "descriptionLength": 148,
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
-      "words": 1532,
+      "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 1,
-      "outboundInternalLinks": 1,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 96 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 187 chars (aim 120-155)"
-        },
-        {
-          "level": "WARN",
-          "message": "only 0 contextual link(s) to other posts (aim 3+)"
-        },
-        {
-          "level": "WARN",
-          "message": "hero image has empty alt text"
-        }
-      ]
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
@@ -271,7 +254,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1463,
       "date": "2026-07-06",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -282,7 +265,7 @@
       "description": "Owners get shown two exit paths - private equity or a strategic buyer - because those are the only two deals the room gets paid to close.",
       "descriptionLength": 137,
       "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
-      "words": 1182,
+      "words": 1197,
       "date": "2026-07-14",
       "inboundInternalLinks": 4,
       "outboundInternalLinks": 8,
@@ -310,7 +293,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -331,5 +314,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 11
+  "warningCount": 7
 }
