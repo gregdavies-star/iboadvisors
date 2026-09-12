@@ -31,6 +31,38 @@
   var HUBSPOT_PORTAL_ID = '245308986';
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
   var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
+
+  // Tracking helpers: shared window.iboTracking from /modal.js when that
+  // script is on the page, otherwise an equivalent local fallback. hutk is the
+  // HubSpot visitor cookie (set by the tracking script in <head>) that lets
+  // HubSpot attribute the Forms API submission to the visitor's real source.
+  var tracking = window.iboTracking || (function () {
+    function hutk() {
+      var m = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+    function utmParams() {
+      var out = {};
+      try {
+        new URLSearchParams(window.location.search).forEach(function (v, k) {
+          if (/^utm_/i.test(k) && v) out[k] = v;
+        });
+      } catch (e) {}
+      return out;
+    }
+    function withUtms(url) {
+      var params = utmParams();
+      Object.keys(params).forEach(function (k) { url.searchParams.set(k, params[k]); });
+      return url;
+    }
+    function formContext() {
+      var ctx = { pageUri: window.location.href, pageName: document.title };
+      var token = hutk();
+      if (token) ctx.hutk = token;
+      return ctx;
+    }
+    return { hutk: hutk, utmParams: utmParams, withUtms: withUtms, formContext: formContext };
+  })();
   var QUALIFY_EBITDA = 3000000;
 
   /* Worksheet constants that aren't exposed as inputs. */
@@ -445,7 +477,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           fields: fields,
-          context: { pageUri: window.location.href, pageName: document.title }
+          context: tracking.formContext()
         })
       }
     ).then(function (res) {
@@ -504,7 +536,7 @@
         fireConversion(qualifies
           ? 'AW-18411360561/XH9KCMqlj-gcELGinMtE'
           : 'AW-18411360561/jK-oCMy9vOgcELGinMtE');
-        var url = new URL(HUBSPOT_MEETING_URL);
+        var url = tracking.withUtms(new URL(HUBSPOT_MEETING_URL));
         url.searchParams.set('firstName', firstName);
         url.searchParams.set('lastName', lastName);
         url.searchParams.set('email', email);

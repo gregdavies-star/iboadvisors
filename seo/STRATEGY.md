@@ -52,7 +52,7 @@ Done in this change set:
 - `sitemap.xml` regenerated from disk with real `<lastmod>` (Google ignores `changefreq`/`priority`; `lastmod` is what triggers recrawls) - `scripts/build-sitemap.mjs`.
 - `Organization` / `Person` / `WebSite` / `BlogPosting` / `BreadcrumbList` / `Blog` JSON-LD on every indexable page - `scripts/ensure-jsonld.mjs`.
 - Apex `iboadvisors.com` → `www` 301 (both hosts were serving 200, splitting signals) - `vercel.json`.
-- `/meet` (linked from every post, was a 404) now redirects to the HubSpot scheduling page.
+- `/meet` (linked from every post, was a 404) now redirects to the homepage with `?learn-more=1`, which auto-opens the EBITDA-gated Learn More form; only qualified leads reach the HubSpot scheduler.
 - Audit that fails on missing canonical / multiple H1 / orphan pages - `scripts/seo-audit.mjs`.
 
 Still to do (needs your accounts):
