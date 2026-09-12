@@ -1,6 +1,49 @@
 /* ==========================================================================
+   Shared tracking helpers (window.iboTracking)
+   - hutk(): the HubSpot visitor cookie set by the tracking script in <head>.
+     Passing it in a Forms API submission's context ties the new contact to
+     the visitor's session, so HubSpot attributes the lead to the real source
+     (e.g. Paid Social / LinkedIn / lead-gen) instead of "Offline Sources".
+   - utmParams(): utm_* pairs from the current page URL.
+   - withUtms(url): copies those utm_* pairs onto another URL (used when
+     handing a qualified lead to the HubSpot meeting scheduler, so the meeting
+     booking carries the same campaign attribution as the form submission).
+   - formContext(): the `context` object for a Forms API submission.
+   ========================================================================== */
+(function () {
+  function hutk() {
+    var m = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function utmParams() {
+    var out = {};
+    try {
+      new URLSearchParams(window.location.search).forEach(function (v, k) {
+        if (/^utm_/i.test(k) && v) out[k] = v;
+      });
+    } catch (e) {}
+    return out;
+  }
+  function withUtms(url) {
+    var params = utmParams();
+    Object.keys(params).forEach(function (k) { url.searchParams.set(k, params[k]); });
+    return url;
+  }
+  function formContext() {
+    var ctx = { pageUri: window.location.href, pageName: document.title };
+    var token = hutk();
+    if (token) ctx.hutk = token;
+    return ctx;
+  }
+  window.iboTracking = { hutk: hutk, utmParams: utmParams, withUtms: withUtms, formContext: formContext };
+})();
+
+/* ==========================================================================
    IBO Advisors — "Learn More" qualify modal
-   Opens on any [data-ibo-open-modal] trigger, submits to the HubSpot Forms
+   Opens on any [data-ibo-open-modal] trigger, or automatically on page load
+   when the URL carries ?learn-more=1 (the destination paid ads should use so
+   visitors land in the qualify flow, never on an ungated scheduler). Submits
+   to the HubSpot Forms
    API, and routes qualified leads (EBITDA >= $3M) to the HubSpot meeting
    scheduler. Leads under $3M EBITDA see an in-modal thank-you message
    instead of a scheduler, matching the qualification logic used on the
@@ -63,10 +106,14 @@
     fireConversion('AW-18411360561/KKztCMelj-gcELGinMtE');
   }, 30000);
 
-  function openModal(e) {
+  function openModal(e, auto) {
     if (e) e.preventDefault();
-    // Click to Learn More: fires every time a Learn More trigger opens the modal.
-    fireConversion('AW-18411360561/IM9lCM-9vOgcELGinMtE');
+    if (auto) {
+      track('learn_more_autoopen', { page_path: window.location.pathname });
+    } else {
+      // Click to Learn More: fires every time a Learn More trigger opens the modal.
+      fireConversion('AW-18411360561/IM9lCM-9vOgcELGinMtE');
+    }
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
     stepForm.hidden = false;
@@ -95,8 +142,16 @@
 
   // Wire up every CTA that should open the modal.
   document.querySelectorAll('[data-ibo-open-modal]').forEach(function (el) {
-    el.addEventListener('click', openModal);
+    el.addEventListener('click', function (e) { openModal(e, false); });
   });
+
+  // Auto-open from the URL: https://www.iboadvisors.com/?learn-more=1&utm_...
+  // The utm_* params stay on the page URL so they reach GA4, the HubSpot
+  // form submission (pageUri + hutk) and the scheduler redirect below.
+  try {
+    var qs = new URLSearchParams(window.location.search);
+    if (qs.has('learn-more') && qs.get('learn-more') !== '0') openModal(null, true);
+  } catch (err) {}
 
   closeBtn.addEventListener('click', closeModal);
   declinedCloseBtn.addEventListener('click', closeModal);
@@ -155,10 +210,7 @@
         { name: 'respondent_role', value: respondentRole },
         { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
       ],
-      context: {
-        pageUri: window.location.href,
-        pageName: document.title
-      }
+      context: window.iboTracking.formContext()
     };
 
     fetch(
@@ -182,7 +234,7 @@
         if (qualifies) {
           // Learn More Form - Qualified Lead
           fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
-          var url = new URL(HUBSPOT_MEETING_URL);
+          var url = window.iboTracking.withUtms(new URL(HUBSPOT_MEETING_URL));
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
@@ -365,7 +417,7 @@
               { name: 'email', value: email },
               { name: 'message', value: message }
             ],
-            context: { pageUri: window.location.href, pageName: document.title }
+            context: window.iboTracking.formContext()
           })
         }
       )
