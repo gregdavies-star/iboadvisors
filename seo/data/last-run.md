@@ -1,33 +1,37 @@
-# Daily SEO run — 2026-09-10
+# Daily SEO run — 2026-09-12
 
-17 of 20 sitemap URLs now PASS, up from 2 on 09-05. Today targeted the three that don't, plus the internal-link deficit causing them. No new post (2 already in the trailing 7 days); `lowCtr` and `decliners` were empty.
+Cleared four of the five posts flagged as orphaned on 09-10 (four is the cap) and published the priority-2 post the keyword map has been missing. `lowCtr` and `decliners` were empty; both `strikingDistance` queries rank the homepage, whose body copy is off-limits. Audit warnings 25 → 11, 0 errors.
 
-| 28d to 2026-09-07 | Clicks | Impressions | CTR | Position |
+| 28d to 2026-09-09 | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 10 | 307 | 3.26% | 11.8 |
+| Current | 16 | 527 | 3.04% | 16.2 |
 | Prior 28d | — | — | — | — |
 
-GSC returned `previous: null` — no prior window yet. `history.jsonl` shows impressions 145 → 253 → 307 across the last three runs.
+GSC still returns `previous: null`. Per `history.jsonl`, impressions have run 145 → 253 → 307 → 527 and pages with impressions 6 → 22 over four runs.
+
+## New post
+
+**`/blog/what-happens-after-private-equity-buys-your-company`** — 2,050 words, on an uncovered priority-2 keyword STRATEGY.md names as intercept demand. Covers the 100-day plan, debt service on a made-up $6M-EBITDA company, CEO turnover, the consent list, monitoring fees, add-ons, hold length, and a hypothetical rollover waterfall. Every citation was opened first, led by two SEC releases on accelerated monitoring fees (Blackstone 2015, American Infrastructure Funds 2023) and NBER WP 26371. Nine internal links out, including all three unindexed URLs.
 
 ## Changes (4 content pages — the cap)
 
-- **`how-pe-firms-value-a-company`** — the only URL at *"Crawled – currently not indexed"* (crawled 09-09: quality, not discovery, is the blocker). Added +630 words: a "Step 5" on the enterprise-value-to-cash bridge (cash-free/debt-free, working capital peg, escrow, fees) with a worked $28M hypothetical, two FAQ entries, and two newly opened sources. Title 103→50, meta 163→134. Now 2,316 words.
-- **`family-business-succession-planning`** — *"Discovered – not indexed"*, 1,430 words, 0 links out. Added a 450-word section on how a family handover is funded (gift vs. seller note vs. minority recap) with a worked $23M-equity hypothetical, plus 7 links. Title 88→50, meta 189→134, hero alt. Now 1,884 words.
-- **`rollover-equity-second-bite-explained`** — 7 inbound, PASS, 0 links out. Added 5 links + calculator; title 93→50, hero alt.
-- **`the-broken-owner-exit-conversation`** — 0 links out. Added 6 links + calculator; title 90→52, meta 196→137, hero alt.
+Each had 0 contextual links out, an over-length title, and an empty hero alt.
 
-`alternatives-to-selling-to-private-equity` gained inbound links 4→8 and succession 3→5, all from PASS pages. Audit: 0 errors, warnings 38→25.
+- **`choosing-an-ma-advisory-firm`** — 6 links + calculator; title 78→58, meta 158→140.
+- **`healthcare-services-ma`** — 6 links + calculator; title 78→56, meta 162→146.
+- **`ibo-government-contractors`** — 5 links + calculator; title 126→60 (the longest on the site), meta 166→142.
+- **`management-buyout-financing`** — 6 links + calculator; title 87→52; 1,324→1,437 words.
 
 ## Flagged (hard rule)
 
-Two pre-existing firm claims removed: `the-broken-owner-exit-conversation` opened with *"sold one for $1.8 billion"* (a transaction size, not a homepage claim), and `how-pe-firms-value-a-company` with *"100+ deals"* (non-verbatim restatement of the homepage line). A grep for the banned patterns found nothing else; the untouched posts still deserve a human read.
+`choosing-an-ma-advisory-firm` opened with *"selling a company for $1.8 billion… 60 deals… more than 100 transactions"*. Removed; the judgment behind it kept as general knowledge. A grep for the banned patterns now returns nothing across all HTML.
 
 ## Skipped
 
-Both `strikingDistance` queries rank the **homepage**, whose body copy is off-limits; the page that should own *"what is an ibo"* (`independent-buyout-explained`) is in cool-down until 09-19. `alternatives-to-selling-to-private-equity` is 2 days old at 2,043 words — it needs time, not edits, so it got links instead.
+Three URLs remain unindexed — `alternatives-to-selling-to-private-equity` and `family-business-succession-planning` (*Discovered*), `how-pe-firms-value-a-company` (*Crawled*). All were touched 09-08/09-10 and are inside the 14-day cool-down, so they got inbound links from PASS pages instead. `restaurant-ma` is the last orphan; it leads next run.
 
 ## Needs a human
 
-1. **Apex/www still splits signals.** `iboadvisors.com/` drew 7 clicks / 106 impressions alongside www's 3 / 211 — the sole `cannibalization` entry. The 301 is in `vercel.json`, so either it isn't firing or Google hasn't dropped the old host; please check `curl -I https://iboadvisors.com/` against production.
-2. `"shareholder capital" business consultant` — 71 impressions, pos 9, 0 clicks, almost certainly one researcher on a quoted search. It distorts the totals; don't rank-chase it.
-3. Still 0 links out, long titles, empty hero alts on `choosing-an-ma-advisory-firm`, `healthcare-services-ma`, `ibo-government-contractors`, `management-buyout-financing`, `restaurant-ma`.
+1. **Apex/www.** `iboadvisors.com` still sits beside `www` in the sole `cannibalization` entry, but that data predates the apex 301 (commit `19a6f1c`). Check `curl -I https://iboadvisors.com/` on production; if it 301s, this clears on recrawl.
+2. `"shareholder capital" business consultant` — 54 impressions at position 9.1, 0 clicks. It inflates the totals; don't rank-chase it.
+3. `/business-valuation-calculator` — title 74, meta 194, 19 inbound links. Rule 3 allows a rewrite only on a `lowCtr` entry and it has none; approve one and next run takes it.

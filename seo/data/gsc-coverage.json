@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-10T14:45:01.468Z",
+  "inspectedAt": "2026-09-12T13:50:56.854Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -27,6 +27,21 @@
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "lastCrawlTime": "2026-09-09T03:47:39Z",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
@@ -117,13 +132,6 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
-    },
-    {
       "url": "https://www.iboadvisors.com/blog/management-buyout-financing",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
@@ -167,14 +175,6 @@
       "googleCanonical": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
-      "verdict": "NEUTRAL",
-      "coverageState": "Crawled - currently not indexed",
-      "lastCrawlTime": "2026-09-09T03:47:39Z",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     }
   ]
 }
