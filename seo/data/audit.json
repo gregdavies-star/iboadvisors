@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T15:17:35.111Z",
+  "generatedAt": "2026-09-12T14:14:51.176Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 19,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 20,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -36,7 +36,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2043,
       "date": "2026-09-08",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1656,
       "date": "2025-12-20",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 11,
       "issues": [
         {
@@ -64,21 +64,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
-      "title": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA | IBO Advisors",
-      "titleLength": 78,
-      "description": "How to choose an M&A advisory firm at $3M+ in EBITDA - track record, fee structure, conflicts of interest, red flags, and the questions to ask before signing.",
-      "descriptionLength": 158,
+      "title": "How to Choose an M&A Advisor at $3M+ EBITDA | IBO Advisors",
+      "titleLength": 58,
+      "description": "How to choose an M&A advisor at $3M+ in EBITDA: track record, fee structure, conflicts of interest, and the questions to ask before signing.",
+      "descriptionLength": 140,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1726,
+      "words": 1774,
       "date": "2025-10-04",
       "inboundInternalLinks": 3,
-      "outboundInternalLinks": 6,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 78 chars (aim 50-60; Google truncates ~60)"
-        }
-      ]
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
@@ -107,31 +102,22 @@
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 1884,
       "date": "2026-09-10",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 10,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
-      "title": "Healthcare Services M&A: What Owners Should Know Before Selling | IBO Advisors",
-      "titleLength": 78,
-      "description": "Healthcare services M&A is consolidating fast, but private equity roll-ups bring regulatory and control tradeoffs owners should weigh before signing a term sheet.",
-      "descriptionLength": 162,
+      "title": "Healthcare Services M&A: An Owner's Guide | IBO Advisors",
+      "titleLength": 56,
+      "description": "Healthcare services M&A is consolidating fast. What a private equity roll-up costs owners in control, and the third option brokers rarely mention.",
+      "descriptionLength": 146,
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
-      "words": 1664,
+      "words": 1637,
       "date": "2026-06-17",
       "inboundInternalLinks": 2,
       "outboundInternalLinks": 8,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 78 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 162 chars (aim 120-155)"
-        }
-      ]
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
@@ -142,7 +128,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2316,
       "date": "2026-09-10",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -155,21 +141,21 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 1688,
       "date": "2026-09-08",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 6,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-government-contractors",
-      "title": "Government Contractor M&A and Cost-Plus Exits | IBO Advisors",
+      "title": "Government Contractor M&A: The Cost-Plus Edge | IBO Advisors",
       "titleLength": 60,
-      "description": "How government contractor M&A really works, and why cost-plus contracts can make an employee-led buyout cheaper to finance than a private equity sale.",
-      "descriptionLength": 150,
+      "description": "Cost-plus contracts reimburse allowable costs, which can make moving a government contracting business into employee hands cheaper to finance.",
+      "descriptionLength": 142,
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
-      "words": 1537,
+      "words": 1600,
       "date": "2026-07-01",
       "inboundInternalLinks": 2,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
       "issues": []
     },
     {
@@ -209,21 +195,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/management-buyout-financing",
-      "title": "Management Buyout Financing: How Owners and Management Teams Fund an MBO | IBO Advisors",
-      "titleLength": 87,
+      "title": "Management Buyout Financing Explained | IBO Advisors",
+      "titleLength": 52,
       "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
       "descriptionLength": 146,
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
-      "words": 1384,
+      "words": 1437,
       "date": "2026-04-24",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 5,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 87 chars (aim 50-60; Google truncates ~60)"
-        }
-      ]
+      "inboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
@@ -286,8 +267,21 @@
       "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
       "words": 1197,
       "date": "2026-07-14",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 8,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "title": "What Happens After a Private Equity Buyout | IBO Advisors",
+      "titleLength": 57,
+      "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
+      "descriptionLength": 145,
+      "h1": "What Happens After Private Equity Buys Your Company",
+      "words": 2050,
+      "date": "2026-09-12",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -299,7 +293,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -320,5 +314,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 11
+  "warningCount": 7
 }
