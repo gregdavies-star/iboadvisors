@@ -1,66 +1,55 @@
-# Daily SEO run — 2026-09-11
+# Daily SEO run — 2026-09-13
 
-No new post today (cap: 2 published in the trailing 7 days, on 09-05 and 09-08). No striking-distance
-expansion was possible — both qualifying queries rank the homepage, whose body copy is off-limits. So
-the run went to the audit's largest remaining defect: five posts with **zero** root-relative links to
-other posts, and three industry posts with only one inbound link each. Audit: **25 warnings → 11, 0 errors.**
+One new post filling the highest-priority uncovered keyword, two truncated titles/metas rewritten, and
+links added to reach the site's only 0-inbound post. Audit: **11 warnings → 7, 0 errors.**
 
-## GSC totals (28d: 2026-08-12 → 09-08)
+## GSC totals (28d: 2026-08-14 → 09-10)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 12 | 350 | 3.43% | 13.3 |
+| Current | 17 | 738 | 2.30% | 16.4 |
 | Prior 28d | — | — | — | — |
 
-The prior window is `null` in `gsc-latest.json`, so **no week-over-week comparison, no decliner analysis,
-and no `lowCtr` list** were possible. Rules 3 and 6 could not be applied on data.
+`totals.previous` is `null` again, so **no `lowCtr` and no `decliners` lists exist**. Rules 3 and 6 could
+not be applied on data for the third run running.
 
 ## Changes
 
-**Internal linking (rule 8).** `healthcare-services-ma`, `restaurant-ma`, `ibo-government-contractors`,
-`management-buyout-financing`, `choosing-an-ma-advisory-firm` each carried the audit WARN "0 contextual
-link(s) to other posts". Added 4–6 in-prose links apiece to the PE-financing, rollover-equity, veto-rights,
-IBO-explainer and alternatives posts plus the calculator — inside existing sentences, no appended link lists.
+**New post (rule 7)** — one published in the trailing 7 days, so the cap allowed one.
+`/blog/how-to-sell-a-business-to-private-equity`, 1,980 words: first uncovered keyword in the priority-2
+cluster, and GSC shows ~33 impressions on adjacent process queries (`management buyout`, `management buyout
+funding`, `types of buyouts`) with nothing targeting the PE-sale process. Stage-by-stage timeline, then a
+$6M-EBITDA hypothetical walking $40.8M of headline enterprise value down to ~$28.6M of cash at close.
+12 internal links; four sources opened with WebFetch (PCE, Bain, GF Data via Capital Pad, SRS Acquiom).
 
-**Inbound links to the industry cluster.** `restaurant-ma`, `healthcare-services-ma` and
-`ibo-government-contractors` had exactly one inbound link each (the blog index). Added a sector paragraph
-to the PE-sale section of `business-exit-planning-every-option` linking all three. Each now has 2.
+**Titles/metas (2, the daily max)** — not from `lowCtr` (empty); audit WARNs where truncation is certain.
+`ibo-vs-pe-numbers-comparison` 105 → 52 chars, meta 168 → 139, now leading with its priority-1 keyword.
+`business-exit-planning-every-option` 90 → 60, meta 161 → 148.
 
-**Titles/metas (2, the daily max).** Not from `lowCtr` — that list is empty; these are audit WARNs where
-the title is certainly truncated in the SERP.
-- `/blog/ibo-government-contractors`: 126 → 60 chars, "government contractor M&A" moved to the front; meta 166 → 150.
-- `/blog/restaurant-ma`: 96 → 59 chars; meta 187 → 148.
-
-**Alt text.** Five hero images had `alt=""`. Fixed.
-
-No `Updated` date was bumped — nothing crossed the 150-word substance threshold.
+**Links** — `/blog/exit-planning-for-business-owners` had **zero** in-body inbound links and ranks at
+position 85.8 for its own exact-match query; linked from the cluster hub. The new post got two inbound
+links from indexed pages. No `Updated` date bumped.
 
 ## Considered and skipped
 
-- **Striking distance:** `"shareholder capital" business consultant` (54 impr, pos 9.1) and `what is an ibo`
-  (26 impr, pos 9.7) both rank `/`. Homepage body copy is off-limits, so no expansion.
-- **Cannibalization:** the same query splits apex (17 impr) / www (54 impr). Both are the homepage; the
-  apex→www 301 already shipped in 19a6f1c. Self-resolving, no page edits.
-- **Coverage rewrites:** `family-business-succession-planning` and `how-pe-firms-value-a-company` were both
-  strengthened on 09-10 and are inside the 14-day cool-down.
+- **Striking distance:** both qualifying queries (`"shareholder capital" business consultant`, pos 9.1;
+  `what is an ibo`, pos 9.8) rank `/`, whose body copy is off-limits.
+- **Cannibalization:** `what is an ibo` splits `/` (30 impr, 9.8) and `independent-buyout-explained`
+  (9 impr, 7.2). The explainer should win; the fix is a homepage link I can't make. The other splits are
+  apex vs www, self-resolving via the shipped 301.
+- **`independent-buyout-explained`:** the "IBO meaning" family is ~74 impressions at ~pos 9, our biggest
+  on-topic pool — but the post is inside its 14-day cool-down. **Expand after 09-19.**
 
-## Coverage (3 of 20 not PASS)
+## Coverage (3 of 20 not PASS, unchanged)
 
-| URL | State |
-|---|---|
-| `/blog/family-business-succession-planning` | Discovered — not indexed (expanded 09-10, never crawled) |
-| `/blog/how-pe-firms-value-a-company` | Crawled 09-09 — not indexed (expansion landed 09-10, after the crawl) |
-| `/blog/alternatives-to-selling-to-private-equity` | Discovered — not indexed (published 09-08; 11 inbound links, in sitemap) |
-
-All three are crawl lag, not on-page defects. Re-check next run before intervening.
+`family-business-succession-planning` and `alternatives-to-selling-to-private-equity`: Discovered, never
+crawled. `how-pe-firms-value-a-company`: crawled 09-09, before its 09-10 expansion. All three already have
+4–11 in-body inbound links and 1,884–2,316 words, so rule 2's remedy is spent. Crawl lag, not a page defect.
 
 ## For a human
 
-1. **`what is an ibo` ranks the homepage, not `/blog/independent-buyout-explained`.** The homepage links to
-   zero blog posts. A link from homepage body copy to the explainer (anchor: "what is an Independent Buyout")
-   would likely move the right page into that result. I can't edit homepage body copy.
-2. **Seven titles still exceed 60 chars** (`ibo-vs-pe-numbers-comparison` at 105, `business-exit-planning-every-option`
-   at 90, `management-buyout-financing` at 87). The 2/day cap means ~4 more runs to clear.
-3. **Flagged:** `/blog/choosing-an-ma-advisory-firm` opens with firm-level claims — "selling a company for
-   $1.8 billion", "60 deals", "more than 100 transactions". Pre-existing, so left untouched, but it sits close
-   to the no-deal-data rule and is worth a compliance read.
+1. **Homepage → blog link**, anchor "what is an Independent Buyout", to `/blog/independent-buyout-explained`.
+   Highest-value change available and outside my remit.
+2. **Calculator title (74) and meta (194 — longest on the site).** Only rule 3 licenses touching it.
+3. **Flagged, unchanged from 09-11:** `choosing-an-ma-advisory-firm` still carries "$1.8 billion", "60 deals",
+   "more than 100 transactions". Kept per "keep and flag"; needs a compliance read.
