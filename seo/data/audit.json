@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T14:14:51.176Z",
+  "generatedAt": "2026-09-13T15:29:47.098Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 20,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 21,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -36,31 +36,22 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2043,
       "date": "2026-09-08",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 14,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
-      "title": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession) | IBO Advisors",
-      "titleLength": 90,
-      "description": "Every real business exit option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with pros, cons, and a comparison table.",
-      "descriptionLength": 161,
+      "title": "Business Exit Strategy: Every Option Compared | IBO Advisors",
+      "titleLength": 60,
+      "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
+      "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1656,
+      "words": 1734,
       "date": "2025-12-20",
       "inboundInternalLinks": 6,
-      "outboundInternalLinks": 11,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 90 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 161 chars (aim 120-155)"
-        }
-      ]
+      "outboundInternalLinks": 13,
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
@@ -71,7 +62,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1774,
       "date": "2025-10-04",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -84,7 +75,7 @@
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
       "words": 1564,
       "date": "2025-11-21",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 6,
       "issues": [
         {
@@ -128,7 +119,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2316,
       "date": "2026-09-10",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -139,10 +130,23 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1688,
+      "words": 1722,
       "date": "2026-09-08",
-      "inboundInternalLinks": 14,
-      "outboundInternalLinks": 6,
+      "inboundInternalLinks": 15,
+      "outboundInternalLinks": 7,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
+      "title": "How to Sell a Business to Private Equity | IBO Advisors",
+      "titleLength": 55,
+      "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
+      "descriptionLength": 147,
+      "h1": "How to Sell a Business to Private Equity",
+      "words": 1980,
+      "date": "2026-09-13",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -160,25 +164,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
-      "title": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See | IBO Advisors",
-      "titleLength": 105,
-      "description": "A side-by-side numbers comparison of what an owner might walk away with after a private equity sale vs. an Independent Buyout, using a $10M EBITDA illustrative example.",
-      "descriptionLength": 168,
+      "title": "Independent Buyout vs. Private Equity | IBO Advisors",
+      "titleLength": 52,
+      "description": "Independent buyout vs. private equity, side by side on a $10M EBITDA example: cash at close, rollover, control, and who sets the exit date.",
+      "descriptionLength": 139,
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 8,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 105 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 168 chars (aim 120-155)"
-        }
-      ]
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
@@ -189,7 +184,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -215,7 +210,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1656,
       "date": "2026-09-08",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -228,7 +223,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1646,
       "date": "2026-09-08",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 6,
       "issues": []
     },
@@ -254,7 +249,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1463,
       "date": "2026-07-06",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -293,7 +288,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 5,
       "issues": [
         {
@@ -314,5 +309,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 7
+  "warningCount": 3
 }
