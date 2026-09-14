@@ -50,5 +50,8 @@ not a page defect.
    `/` absorbs ~48 impressions of IBO-definition demand at pos 9–10 and converts none; the explainer ranks
    better (7.1) on the same queries. Outside my remit.
 2. **Calculator title and meta** — needs sign-off to touch.
-3. **Flagged, unchanged:** `choosing-an-ma-advisory-firm` still carries "$1.8 billion", "60 deals",
-   "more than 100 transactions". Needs a compliance read.
+3. ~~**Flagged:** `choosing-an-ma-advisory-firm` still carries "$1.8 billion", "60 deals",
+   "more than 100 transactions".~~ **Stale — no action needed.** A human cut that line on 09-12; only
+   "I've sold a company for $1.8 billion" remains, and a site-wide grep for the banned phrasings returns
+   nothing. `DAILY_PROMPT.md` now tells the run to re-check a carried-forward flag against the page before
+   repeating it.
