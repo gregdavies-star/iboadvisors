@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T15:29:47.098Z",
+  "generatedAt": "2026-09-14T16:54:17.453Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,10 +34,10 @@
       "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
       "descriptionLength": 142,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2043,
+      "words": 2128,
       "date": "2026-09-08",
       "inboundInternalLinks": 14,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -68,8 +68,8 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
-      "title": "Exit Planning for Business Owners: A Step-by-Step Guide | IBO Advisors",
-      "titleLength": 70,
+      "title": "Exit Planning for Business Owners: 8 Steps | IBO Advisors",
+      "titleLength": 57,
       "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
       "descriptionLength": 152,
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
@@ -77,12 +77,7 @@
       "date": "2025-11-21",
       "inboundInternalLinks": 4,
       "outboundInternalLinks": 6,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 70 chars (aim 50-60; Google truncates ~60)"
-        }
-      ]
+      "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -106,7 +101,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -145,7 +140,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 1980,
       "date": "2026-09-13",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -158,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -177,10 +172,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
-      "title": "What Is an Independent Buyout (IBO)? | IBO Advisors",
-      "titleLength": 51,
-      "description": "An Independent Buyout (IBO) is a leveraged sale to a trust owned by your own employees - private-equity-style liquidity, without a private equity firm.",
-      "descriptionLength": 151,
+      "title": "What Is an IBO? Independent Buyout Explained | IBO Advisors",
+      "titleLength": 59,
+      "description": "An IBO is an Independent Buyout - a sale of your company to a trust for your own employees, financed like an LBO. What it pays, and who runs it after.",
+      "descriptionLength": 150,
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1775,
       "date": "2026-09-05",
@@ -236,7 +231,7 @@
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
       "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -273,10 +268,10 @@
       "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
       "descriptionLength": 145,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2050,
+      "words": 2090,
       "date": "2026-09-12",
       "inboundInternalLinks": 5,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -309,5 +304,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 3
+  "warningCount": 2
 }
