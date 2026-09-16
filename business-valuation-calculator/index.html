@@ -151,11 +151,8 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
 .vc-compare__lede { color: var(--color-text-muted); }
 .vc-compare .money-compare { margin-top: var(--space-6); }
 .vc-compare__note { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-5); }
-.vc-compare__callout {
-  margin-top: var(--space-4); padding: var(--space-4) var(--space-5);
-  background: var(--color-cream-soft); border-left: 3px solid var(--color-gold);
-  font-size: var(--text-sm); color: var(--color-text-muted);
-}
+.vc-compare__note + .vc-compare__note { margin-top: var(--space-2); }
+.vc-nowrap { white-space: nowrap; }
 
 /* Gate */
 .vc-gate__flag { display: flex; gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-6); }
@@ -392,7 +389,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
                     <p class="money-card__figure money-card__figure--neg" id="vc-cmp-pe-tax">&mdash;</p>
                   </div>
                   <div>
-                    <p class="money-card__label">Warrants &amp; Tax Benefits</p>
+                    <p class="money-card__label">Warrants &amp;<br /><span class="vc-nowrap">Tax Benefits</span></p>
                     <p class="money-card__figure" id="vc-cmp-pe-warrant">$0</p>
                   </div>
                 </div>
@@ -416,7 +413,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
                     <p class="money-card__figure money-card__figure--pos" id="vc-cmp-ibo-tax">$0</p>
                   </div>
                   <div>
-                    <p class="money-card__label">Warrants &amp; Tax Benefits &amp; Upside</p>
+                    <p class="money-card__label">Warrants &amp;<br /><span class="vc-nowrap">Tax Benefits &amp; Upside</span></p>
                     <p class="money-card__figure money-card__figure--pos" id="vc-cmp-ibo-uplift">&mdash;</p>
                   </div>
                 </div>
@@ -427,8 +424,8 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
               </div>
             </div>
           </div>
-          <p class="vc-compare__note">Taxes shown are an estimate of combined federal and state capital gains at 30%.</p>
-          <div class="vc-compare__callout">The IBO figures assume your projected growth rate is attained and today&rsquo;s multiple holds.</div>
+          <p class="vc-compare__note">Taxes shown are an estimate of the combined capital gains and state taxes at 30%.</p>
+          <p class="vc-compare__note">The IBO figures assume your projected growth rate is attained and today&rsquo;s multiple holds.</p>
         </div>
 
         <!-- ============ PDF gate ============ -->
