@@ -145,6 +145,18 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
 .vc-driver-col ul { list-style: none; padding: 0; margin: 0; font-size: var(--text-sm); }
 .vc-driver-col li { padding: var(--space-2) 0; border-top: 1px solid rgba(243,231,219,0.16); }
 
+/* PE vs IBO outcome comparison */
+.vc-compare[hidden] { display: none; }
+.vc-compare h2 { font-family: var(--font-display); font-size: var(--text-xl); line-height: 1.2; margin-bottom: var(--space-3); }
+.vc-compare__lede { color: var(--color-text-muted); }
+.vc-compare .money-compare { margin-top: var(--space-6); }
+.vc-compare__note { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-5); }
+.vc-compare__callout {
+  margin-top: var(--space-4); padding: var(--space-4) var(--space-5);
+  background: var(--color-cream-soft); border-left: 3px solid var(--color-gold);
+  font-size: var(--text-sm); color: var(--color-text-muted);
+}
+
 /* Gate */
 .vc-gate__flag { display: flex; gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-6); }
 .vc-gate h2 { font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2); }
@@ -278,6 +290,12 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
           </div>
 
           <div class="ibo-field">
+            <label class="ibo-field__label" for="vc-growth-rate">Projected annual revenue growth %</label>
+            <input class="ibo-field__input" type="text" inputmode="decimal" id="vc-growth-rate" placeholder="10" required />
+            <p class="vc-help">Used to project future EBITDA in the ownership comparison below.</p>
+          </div>
+
+          <div class="ibo-field">
             <label class="ibo-field__label" for="vc-recurring">Recurring or repeat revenue</label>
             <select class="ibo-field__input ibo-field__select" id="vc-recurring">
               <option value="low" selected>Under 20% of revenue</option>
@@ -364,6 +382,65 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
           </div>
         </div>
 
+        <!-- ============ PE sale vs IBO outcome ============ -->
+        <div class="vc-card vc-compare" id="vc-compare" hidden>
+          <p class="vc-eyebrow">The difference, in dollars</p>
+          <h2 id="vc-compare-headline">&mdash;</h2>
+          <p class="vc-compare__lede">Same company, same value &mdash; two very different outcomes.</p>
+          <div class="money-compare">
+            <div class="money-card money-card--pe">
+              <div class="money-card__header">Private Equity Sale</div>
+              <div class="money-card__body">
+                <div class="money-card__total">
+                  <p class="money-card__label">Total Company Value</p>
+                  <p class="money-card__value" id="vc-cmp-pe-value">&mdash;</p>
+                </div>
+                <hr class="money-card__divider" />
+                <div class="money-card__row">
+                  <div>
+                    <p class="money-card__label">Taxes</p>
+                    <p class="money-card__figure money-card__figure--neg" id="vc-cmp-pe-tax">&mdash;</p>
+                  </div>
+                  <div>
+                    <p class="money-card__label">Warrants &amp; Tax Benefits</p>
+                    <p class="money-card__figure" id="vc-cmp-pe-warrant">$0</p>
+                  </div>
+                </div>
+                <div class="money-card__net">
+                  <p class="money-card__net-label">Net Cash Proceeds</p>
+                  <p class="money-card__net-value" id="vc-cmp-pe-net">&mdash;</p>
+                </div>
+              </div>
+            </div>
+            <div class="money-card money-card--ibo">
+              <div class="money-card__header">IBO Sale</div>
+              <div class="money-card__body">
+                <div class="money-card__total">
+                  <p class="money-card__label">Total Company Value</p>
+                  <p class="money-card__value" id="vc-cmp-ibo-value">&mdash;</p>
+                </div>
+                <hr class="money-card__divider" />
+                <div class="money-card__row">
+                  <div>
+                    <p class="money-card__label">Taxes</p>
+                    <p class="money-card__figure money-card__figure--pos" id="vc-cmp-ibo-tax">$0</p>
+                  </div>
+                  <div>
+                    <p class="money-card__label">Warrants &amp; Tax Benefits &amp; Upside</p>
+                    <p class="money-card__figure money-card__figure--pos" id="vc-cmp-ibo-uplift">&mdash;</p>
+                  </div>
+                </div>
+                <div class="money-card__net money-card__net--dark">
+                  <p class="money-card__net-label">Net Cash Proceeds</p>
+                  <p class="money-card__net-value" id="vc-cmp-ibo-net">&mdash;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="vc-compare__note">Taxes shown are an estimate of combined federal and state capital gains at 30%.</p>
+          <div class="vc-compare__callout">The IBO figures assume your projected growth rate is attained and today&rsquo;s multiple holds.</div>
+        </div>
+
         <!-- ============ PDF gate ============ -->
         <div class="vc-card vc-gate" id="vc-gate">
           <h2>Get the full valuation analysis (PDF)</h2>
@@ -372,7 +449,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
             <li>Your <strong>adjusted EBITDA build-up</strong>, the number buyers actually apply a multiple to</li>
             <li>The <strong>multiple math</strong>: your industry&rsquo;s benchmark range and every adjustment applied to it</li>
             <li>A <strong>value-driver scorecard</strong> with the specific moves that raise each rating</li>
-            <li>What you&rsquo;d likely <strong>keep after fees and taxes</strong> under a strategic sale, a private equity sale, and an Independent Buyout</li>
+            <li>What you&rsquo;d likely <strong>keep after taxes</strong> in a private equity sale versus an Independent Buyout</li>
             <li>A <strong>12&ndash;24 month preparation checklist</strong> if a sale may be in your future</li>
           </ul>
           <form id="vc-gate-form" novalidate>
@@ -401,7 +478,7 @@ details[open] .vc-addbacks-summary::before { content: "\2212 "; }
         <div class="vc-card vc-success" id="vc-success" hidden>
           <h2>Your analysis is ready</h2>
           <p>Your PDF should have downloaded automatically. If it didn&rsquo;t, <a href="#" id="vc-redownload">download it again here</a>.</p>
-          <p id="vc-success-qualified" hidden style="margin-top: var(--space-4);">Based on your numbers, your company is in the range where the Independent Buyout is a genuine alternative to a private equity sale &mdash; the full comparison is on page 5 of your report. If you&rsquo;d like to walk through it with an advisor, <a id="vc-meeting-link" href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">schedule a confidential call</a>.</p>
+          <p id="vc-success-qualified" hidden style="margin-top: var(--space-4);">Based on your numbers, your company is in the range where the Independent Buyout is a genuine alternative to a private equity sale &mdash; the full private equity vs. IBO comparison is in your report. If you&rsquo;d like to walk through it with an advisor, <a id="vc-meeting-link" href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">schedule a confidential call</a>.</p>
         </div>
       </div>
 

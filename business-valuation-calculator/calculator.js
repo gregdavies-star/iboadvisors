@@ -133,6 +133,9 @@
 
   function fmtMult(n) { return n.toFixed(1) + 'x'; }
 
+  // Growth rate (a fraction) as a display percentage: 0.105 -> "10.5%".
+  function fmtPct(n) { return (Math.round(n * 1000) / 10) + '%'; }
+
   // Live-format money inputs as the user types.
   function wireMoneyInput(input) {
     input.addEventListener('blur', function () {
@@ -195,6 +198,51 @@
   }
 
   /* ------------------------------------------------------------------
+     Ownership-outcome comparison: a private equity sale against an
+     Independent Buyout, both starting from the same midpoint value.
+     The tranche timing and percentages below are internal only — they
+     are never shown on the page or in the PDF.
+     ------------------------------------------------------------------ */
+  var IBO_T1_SHARE = 0.30;
+  var IBO_T2_SHARE = 0.40;
+  var IBO_T2_YEARS = 3;
+  var IBO_T3_SHARE = 0.40;
+  var IBO_T3_YEARS = 6;
+  var IBO_T3_EQUITY_SHARE = 0.30;
+  var IBO_T3_WARRANT_SHARE = 0.10;
+  var PE_TAX_RATE = 0.30;
+
+  function computeIbo(result, growthRate) {
+    var V = result.mid;
+    var g = growthRate;
+    var f3 = Math.pow(1 + g, IBO_T2_YEARS);
+    var f6 = Math.pow(1 + g, IBO_T3_YEARS);
+
+    var tranche1 = IBO_T1_SHARE * V;
+    var tranche2 = IBO_T2_SHARE * V * f3;
+    var tranche3 = IBO_T3_SHARE * V * f6;
+    var iboTotal = tranche1 + tranche2 + tranche3;
+    var peTax = PE_TAX_RATE * V;
+    var peNet = V - peTax;
+
+    return {
+      value: V,
+      growthRate: g,
+      tranche1: tranche1,
+      tranche2: tranche2,
+      tranche3: tranche3,
+      iboTotal: iboTotal,
+      peTax: peTax,
+      peNet: peNet,
+      iboUplift: iboTotal - V,
+      growthUplift: tranche2 + IBO_T3_EQUITY_SHARE * V * f6 - peNet,
+      warrantValue: IBO_T3_WARRANT_SHARE * V * f6,
+      advantage: iboTotal - peNet,
+      show: g >= 0
+    };
+  }
+
+  /* ------------------------------------------------------------------
      UI wiring
      ------------------------------------------------------------------ */
   var form = $('vc-form');
@@ -214,6 +262,7 @@
 
   var lastInputs = null;
   var lastResult = null;
+  var lastIbo = null;
 
   /* Calculating overlay: a 3-second staged reveal between submit and the
      estimate, cycling one status line per second. */
@@ -255,11 +304,16 @@
     var errorEl = $('vc-form-error');
     errorEl.hidden = true;
 
+    // Projected growth drives only the ownership comparison; the trend
+    // dropdown above still drives the valuation multiple.
+    var growthPct = parseFloat(String($('vc-growth-rate').value).replace(/[%\s]/g, ''));
+
     var inputs = {
       industryId: industrySelect.value,
       revenue: parseMoney($('vc-revenue').value),
       profit: parseMoney($('vc-profit').value),
       growth: $('vc-growth').value,
+      growthRate: growthPct / 100,
       recurring: $('vc-recurring').value,
       concentration: $('vc-concentration').value,
       dependence: $('vc-dependence').value,
@@ -280,6 +334,16 @@
     }
     if (inputs.revenue > 0 && inputs.profit + inputs.abComp + inputs.abOnetime + inputs.abPersonal > inputs.revenue) {
       errorEl.textContent = 'Profit plus add-backs is higher than revenue — please double-check the numbers.';
+      errorEl.hidden = false;
+      return;
+    }
+    if (!isFinite(growthPct)) {
+      errorEl.textContent = 'Please enter your projected annual revenue growth as a percentage (for example 10).';
+      errorEl.hidden = false;
+      return;
+    }
+    if (growthPct > 100) {
+      errorEl.textContent = 'Growth above 100% a year looks like a typo — please double-check it.';
       errorEl.hidden = false;
       return;
     }
@@ -322,7 +386,26 @@
     fill('vc-out-up', r.ups, 'Nothing stands out yet — the full report shows which drivers add the most.');
     fill('vc-out-down', r.downs, 'No major red flags from what you’ve entered.');
 
-    track('calculator_complete', { industry: r.industry.label, ebitda_band: ebitdaBandFor(r.adjProfit) });
+    // Ownership comparison — rebuilt from scratch on every calculation.
+    var ibo = computeIbo(r, lastInputs.growthRate);
+    lastIbo = ibo;
+    $('vc-compare-headline').textContent =
+      'On a ' + fmtMoney(ibo.value) + ' sale, an IBO could mean ' + fmtMoney(ibo.advantage) + ' more in your pocket.';
+    $('vc-cmp-pe-value').textContent = fmtMoney(ibo.value);
+    $('vc-cmp-pe-tax').textContent = '-' + fmtMoney(ibo.peTax);
+    $('vc-cmp-pe-warrant').textContent = fmtMoney(0);
+    $('vc-cmp-pe-net').textContent = fmtMoney(ibo.peNet);
+    $('vc-cmp-ibo-value').textContent = fmtMoney(ibo.value);
+    $('vc-cmp-ibo-tax').textContent = fmtMoney(0);
+    $('vc-cmp-ibo-uplift').textContent = '+' + fmtMoney(ibo.iboUplift);
+    $('vc-cmp-ibo-net').textContent = fmtMoney(ibo.iboTotal);
+    $('vc-compare').hidden = !ibo.show;
+
+    track('calculator_complete', {
+      industry: r.industry.label,
+      ebitda_band: ebitdaBandFor(r.adjProfit),
+      growth_rate_pct: Math.round(lastInputs.growthRate * 1000) / 10
+    });
 
     var results = $('vc-results');
     results.hidden = false;
@@ -463,6 +546,8 @@
     var r = lastResult;
     var inp = lastInputs;
     var profitWord = 'EBITDA';
+    var ibo = lastIbo || computeIbo(r, inp.growthRate);
+    var totalPages = ibo.show ? 6 : 5;
     var today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     var y;
 
@@ -501,6 +586,26 @@
       y += h;
     }
 
+    // Two-value variant of tableRow: label left, private equity figure
+    // right-aligned in the middle column, IBO figure at the right edge.
+    function tableRow3(label, peValue, iboValue, opts) {
+      opts = opts || {};
+      var h = 24;
+      var midX = PAGE_W - MARGIN - 8 - 150;
+      if (opts.fill) {
+        doc.setFillColor(CREAM[0], CREAM[1], CREAM[2]);
+        doc.rect(MARGIN, y - 15, PAGE_W - MARGIN * 2, h, 'F');
+      }
+      doc.setFont('helvetica', opts.bold ? 'bold' : 'normal'); doc.setFontSize(10.5);
+      doc.setTextColor(NAVY[0], NAVY[1], NAVY[2]);
+      doc.text(label, MARGIN + 8, y);
+      doc.text(peValue, midX, y, { align: 'right' });
+      doc.text(iboValue, PAGE_W - MARGIN - 8, y, { align: 'right' });
+      doc.setDrawColor(NAVY[0], NAVY[1], NAVY[2]); doc.setLineWidth(0.4);
+      doc.line(MARGIN, y + 9, PAGE_W - MARGIN, y + 9);
+      y += h;
+    }
+
     function footer(pageLabel) {
       doc.setFont('helvetica', 'normal'); doc.setFontSize(8);
       doc.setTextColor(MUTED[0], MUTED[1], MUTED[2]);
@@ -508,10 +613,14 @@
       doc.text(pageLabel, PAGE_W - MARGIN, PAGE_H - 36, { align: 'right' });
     }
 
-    function newPage(pageLabel) {
+    // The ownership-comparison page is dropped when growth is negative,
+    // so page labels are counted rather than hardcoded. The cover is page 1.
+    var pageNum = 1;
+    function newPage() {
       doc.addPage();
+      pageNum += 1;
       y = MARGIN + 24;
-      footer(pageLabel);
+      footer('Page ' + pageNum + ' of ' + totalPages);
     }
 
     /* ---- Page 1: cover ---- */
@@ -532,7 +641,7 @@
     doc.text(doc.splitTextToSize('This report is a market-based estimate generated from the figures you provided and published lower-middle-market transaction multiples. It is not a formal valuation, an appraisal, an offer, or tax or legal advice.', PAGE_W - MARGIN * 2), MARGIN, PAGE_H - 110);
 
     /* ---- Page 2: executive summary ---- */
-    newPage('Page 2 of 6');
+    newPage();
     heading('Executive summary');
     body('Estimated market value of ' + company + ': ' + fmtMoneyFull(r.low) + ' to ' + fmtMoneyFull(r.high) + ', with a midpoint of ' + fmtMoneyFull(r.mid) + '.', { bold: true, size: 12, color: NAVY });
     body('The estimate applies a ' + fmtMult(r.loMult) + '–' + fmtMult(r.hiMult) + ' multiple to your adjusted ' + profitWord + ' of ' + fmtMoneyFull(r.adjProfit) + '. That multiple starts from the current ' + r.industry.label + ' benchmark of ' + fmtMult(r.industry.lo) + '–' + fmtMult(r.industry.hi) + ' EBITDA for lower-middle-market transactions and is adjusted for company size, growth trend, revenue quality, customer concentration, and owner dependence — the same levers a real buyer prices.');
@@ -546,7 +655,7 @@
     (r.downs.length ? r.downs : ['No major discount drivers from the inputs provided.']).forEach(function (d) { body('•  ' + d, { after: 2 }); });
 
     /* ---- Page 3: adjusted EBITDA build-up ---- */
-    newPage('Page 3 of 6');
+    newPage();
     heading('Adjusted ' + profitWord + ' build-up');
     body('Buyers do not apply a multiple to the profit on your tax return. They apply it to adjusted ' + profitWord + ': reported earnings plus the expenses a new owner would not inherit. Every dollar of defensible add-back is worth that dollar times your multiple.');
     y += 6;
@@ -559,7 +668,7 @@
     body('In a real process these add-backs must survive a quality-of-earnings review, so document each one now: employment-market comp data for the salary adjustment, invoices for one-time items, and a clean ledger for personal expenses. Undocumented add-backs are the first thing a buyer strikes — and each struck dollar costs you its multiple.');
 
     /* ---- Page 4: the multiple math ---- */
-    newPage('Page 4 of 6');
+    newPage();
     heading('How your multiple was built');
     body('Every factor below moves the ' + r.industry.label + ' benchmark range of ' + fmtMult(r.industry.lo) + '–' + fmtMult(r.industry.hi) + ' EBITDA up or down. This is the same arithmetic a financial buyer runs before their first offer.');
     y += 6;
@@ -570,32 +679,27 @@
     y += 10;
     body('Where you land inside your range is not fixed. The conservative end assumes a single unprepared buyer conversation; the strong end assumes competing offers, clean earnings, and an organized process. The spread between the two ends of your range is ' + fmtMoneyFull(r.high - r.low) + ' — preparation, not luck, decides who captures it.');
 
-    /* ---- Page 5: what you'd keep ---- */
-    newPage('Page 5 of 6');
-    heading('What you would actually keep');
-    var price = r.mid;
-    var feeRate = 0.03, taxRate = 0.288, basisRate = 0.10;
-    var gain = price * (1 - basisRate);
-    // Strategic sale: all cash, fees + full capital gains today.
-    var stratNet = price - price * feeRate - gain * taxRate;
-    // PE sale: 70% cash today, 30% rolled (untaxed now, at risk until the
-    // sponsor's exit); tax and fees hit the cash portion.
-    var peCash = price * 0.70;
-    var peNetToday = peCash - price * feeRate - (peCash * (1 - basisRate)) * taxRate;
-    // IBO: full valuation; a qualifying seller can defer capital gains.
-    var iboNet = price - price * feeRate;
-    body('Headline price is not what lands in your account. Using your midpoint value of ' + fmtMoneyFull(price) + ' and illustrative assumptions (3% transaction costs, 28.8% combined federal capital gains + NIIT, 10% basis, before state tax), the three main paths compare like this:');
-    y += 6;
-    tableRow('Strategic or full cash sale — net after fees and capital gains', fmtMoneyFull(stratNet), { bold: true });
-    tableRow('Private equity sale — cash in hand today (70% cash / 30% rolled)', fmtMoneyFull(peNetToday));
-    tableRow('   …plus rollover equity at risk until the sponsor’s exit', fmtMoneyFull(price * 0.30));
-    tableRow('Independent Buyout — net proceeds with capital gains deferred', fmtMoneyFull(iboNet), { bold: true, fill: true });
-    y += 10;
-    body('The Independent Buyout line assumes the seller qualifies for capital gains deferral under the structure’s tax provisions, which depends on your specific facts — confirm with your own tax advisor. The comparison is illustrative, but the shape of it is the point: in a conventional sale the tax and the rollover risk are certain; in an IBO, deferral and leadership retention are structural features, not concessions you negotiate for.', { size: 9.5 });
-    body('Just as important as the number: after a strategic sale the company is absorbed; after a PE sale the sponsor runs the board and the exit clock; after an IBO, leadership keeps decision-making authority and the company stays independent.', { size: 9.5 });
+    /* ---- Private equity sale vs. Independent Buyout (omitted when growth is negative) ---- */
+    if (ibo.show) {
+      newPage();
+      heading('Private equity sale vs. Independent Buyout');
+      body('Using your midpoint value of ' + fmtMoneyFull(ibo.value) + ', here is how the two most common ownership transitions compare for you personally. Both start from the same company value; they end in very different places.');
+      y += 6;
+      tableRow3('', 'Private equity', 'Independent Buyout', { bold: true, fill: true });
+      tableRow3('Total company value', fmtMoneyFull(ibo.value), fmtMoneyFull(ibo.value));
+      tableRow3('Estimated taxes (30%)', '-' + fmtMoneyFull(ibo.peTax), '$0');
+      tableRow3('Value from EBITDA growth', '$0', fmtMoneyFull(ibo.growthUplift));
+      tableRow3('Value from warrant coverage', '$0', fmtMoneyFull(ibo.warrantValue));
+      tableRow3('Net cash to you', fmtMoneyFull(ibo.peNet), fmtMoneyFull(ibo.iboTotal), { bold: true, fill: true });
+      y += 10;
+      body('Difference in your pocket: ' + fmtMoneyFull(ibo.advantage) + '.', { bold: true, size: 12, color: NAVY });
+      body('These IBO figures assume your projected growth rate of ' + fmtPct(ibo.growthRate) + ' is attained and today’s multiple holds.', { bold: true });
+      body('The Independent Buyout figures assume the seller qualifies for capital gains deferral under the structure’s tax provisions, which depends on your specific facts — confirm with your own tax advisor. The comparison is illustrative, but the shape of it is the point: in a conventional sale the tax is certain and the growth from here belongs to the buyer; in an IBO, deferral and continued participation in that growth are structural features, not concessions you negotiate for.', { size: 9.5 });
+      body('Just as important as the number: after a PE sale the sponsor runs the board and the exit clock; after an IBO, leadership keeps decision-making authority and the company stays independent.', { size: 9.5 });
+    }
 
-    /* ---- Page 6: preparation + next step ---- */
-    newPage('Page 6 of 6');
+    /* ---- Preparation + next step ---- */
+    newPage();
     heading('The 12–24 month preparation checklist');
     [
       'Move the business off you: document processes, elevate a second layer of leadership, and make at least one key customer relationship someone else’s.',
