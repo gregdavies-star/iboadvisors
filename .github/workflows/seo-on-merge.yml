@@ -39,15 +39,23 @@ jobs:
         run: |
           node scripts/build-sitemap.mjs
           node scripts/ensure-jsonld.mjs
+          # The audit runs last so it reads the final HTML, and its exit code is held back to
+          # after the commit: audit.json must be refreshed even on a run that reports errors,
+          # because the daily job reads it to choose what to work on.
+          node scripts/seo-audit.mjs || AUDIT_FAILED=1
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
             # [skip ci] keeps this push from re-triggering workflows; Vercel still deploys it.
-            git commit -m "seo: refresh sitemap lastmod and JSON-LD [skip ci]"
+            git commit -m "seo: refresh sitemap lastmod, JSON-LD and audit [skip ci]"
             git push origin HEAD:main
           else
             echo "derived files already current"
+          fi
+          if [ -n "$AUDIT_FAILED" ]; then
+            echo "::error::seo-audit reported errors on main - see the audit output above"
+            exit 1
           fi
 
       - name: Wait for the live sitemap to match this commit

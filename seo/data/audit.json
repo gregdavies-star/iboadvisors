@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T15:31:38.030Z",
+  "generatedAt": "2026-09-16T13:15:05.186Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,10 +34,10 @@
       "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
       "descriptionLength": 142,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2043,
+      "words": 2128,
       "date": "2026-09-08",
       "inboundInternalLinks": 14,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -140,7 +140,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2018,
       "date": "2026-09-13",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -153,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -231,7 +231,7 @@
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
       "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
       "descriptionLength": 145,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2050,
+      "words": 2090,
       "date": "2026-09-12",
       "inboundInternalLinks": 5,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
