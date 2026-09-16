@@ -19,6 +19,8 @@ Michael Chasen's own career before IBO Advisors is public record and is not an I
 
 Leave published copy in place unless it plainly names an IBO Advisors transaction, client, deal count, or result. When a sentence looks borderline, keep it and raise it under "Flagged" in `seo/data/last-run.md` so a human decides. Removing first and flagging second has already cost approved copy once.
 
+Before repeating a flag that an earlier run raised, open the page and confirm the wording is still there. `/blog/choosing-an-ma-advisory-firm` opened with "$1.8 billion... 60 deals... more than 100 transactions"; on 2026-09-12 a human cut it to "I've sold a company for $1.8 billion" and the deal counts are gone. That flag has since been repeated twice against copy that no longer exists. A stale flag sends someone to review a problem that is already fixed, so drop a flag once the page no longer matches it.
+
 Permitted sources of specificity, in order of preference: worked hypotheticals with explicit made-up numbers; public record (SEC filings, court dockets, bankruptcy filings, published data sets) cited by link; published third-party research cited by link; the site's existing pages; the calculator's own methodology.
 
 ## Inputs (read all that exist)
