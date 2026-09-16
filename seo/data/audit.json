@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T19:12:38.406Z",
+  "generatedAt": "2026-09-16T19:14:55.366Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -11,7 +11,7 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 21,
-      "outboundInternalLinks": 2,
+      "outboundInternalLinks": 1,
       "issues": []
     },
     {
@@ -283,7 +283,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 5,
       "issues": [
         {
