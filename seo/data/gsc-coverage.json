@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-15T15:24:05.113Z",
+  "inspectedAt": "2026-09-16T15:16:28.414Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -49,17 +49,18 @@
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
-      "verdict": "NEUTRAL",
-      "coverageState": "Crawled - currently not indexed",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-09-09T03:47:39Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
@@ -110,7 +111,7 @@
       "url": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T20:32:00Z",
+      "lastCrawlTime": "2026-09-16T06:25:18Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -119,7 +120,7 @@
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T21:14:56Z",
+      "lastCrawlTime": "2026-09-16T12:40:19Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
