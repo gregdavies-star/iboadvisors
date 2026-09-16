@@ -212,6 +212,16 @@
   var IBO_T3_WARRANT_SHARE = 0.10;
   var PE_TAX_RATE = 0.30;
 
+  // The single growth input drives both the multiple (via the DRIVERS.growth
+  // bucket) and the projection below. NaN falls through to 'strong', so the
+  // submit handler must validate the number before calling this.
+  function growthBucket(pct) {
+    if (pct < 0) return 'declining';
+    if (pct < 5) return 'flat';
+    if (pct < 15) return 'moderate';
+    return 'strong';
+  }
+
   function computeIbo(result, growthRate) {
     var V = result.mid;
     var g = growthRate;
@@ -304,15 +314,15 @@
     var errorEl = $('vc-form-error');
     errorEl.hidden = true;
 
-    // Projected growth drives only the ownership comparison; the trend
-    // dropdown above still drives the valuation multiple.
+    // One growth number drives both the valuation multiple (bucketed into the
+    // DRIVERS.growth factor) and the ownership comparison below.
     var growthPct = parseFloat(String($('vc-growth-rate').value).replace(/[%\s]/g, ''));
 
     var inputs = {
       industryId: industrySelect.value,
       revenue: parseMoney($('vc-revenue').value),
       profit: parseMoney($('vc-profit').value),
-      growth: $('vc-growth').value,
+      growth: growthBucket(growthPct),
       growthRate: growthPct / 100,
       recurring: $('vc-recurring').value,
       concentration: $('vc-concentration').value,
