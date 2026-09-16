@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T13:15:05.186Z",
+  "generatedAt": "2026-09-16T19:11:49.482Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -75,7 +75,7 @@
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
       "words": 1586,
       "date": "2025-11-21",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -88,7 +88,7 @@
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 1884,
       "date": "2026-09-10",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1722,
+      "words": 1811,
       "date": "2026-09-08",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 7,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -203,10 +203,10 @@
       "description": "A private equity firm holding a minority stake still keeps veto rights over financing, acquisitions, and a future sale. Here is the actual list.",
       "descriptionLength": 144,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 1656,
+      "words": 1761,
       "date": "2026-09-08",
       "inboundInternalLinks": 14,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -216,10 +216,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1646,
+      "words": 1679,
       "date": "2026-09-08",
       "inboundInternalLinks": 7,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
       "issues": []
     },
     {
