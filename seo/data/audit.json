@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T16:54:17.453Z",
+  "generatedAt": "2026-09-15T15:31:38.030Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,10 +34,10 @@
       "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
       "descriptionLength": 142,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2128,
+      "words": 2043,
       "date": "2026-09-08",
       "inboundInternalLinks": 14,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -73,10 +73,10 @@
       "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
       "descriptionLength": 152,
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
-      "words": 1564,
+      "words": 1586,
       "date": "2025-11-21",
       "inboundInternalLinks": 4,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
       "issues": []
     },
     {
@@ -88,7 +88,7 @@
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 1884,
       "date": "2026-09-10",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -101,7 +101,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 2,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -138,10 +138,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 1980,
+      "words": 2018,
       "date": "2026-09-13",
-      "inboundInternalLinks": 4,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -153,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 2,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -174,13 +174,13 @@
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "title": "What Is an IBO? Independent Buyout Explained | IBO Advisors",
       "titleLength": 59,
-      "description": "An IBO is an Independent Buyout - a sale of your company to a trust for your own employees, financed like an LBO. What it pays, and who runs it after.",
-      "descriptionLength": 150,
+      "description": "IBO stands for Independent Buyout: a leveraged sale to a trust owned by your employees, at private-equity pricing, with no fund on your cap table.",
+      "descriptionLength": 146,
       "h1": "What Is an Independent Buyout (IBO)?",
-      "words": 1775,
+      "words": 1814,
       "date": "2026-09-05",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 10,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -231,7 +231,7 @@
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
       "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 2,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
       "descriptionLength": 145,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2090,
+      "words": 2050,
       "date": "2026-09-12",
       "inboundInternalLinks": 5,
-      "outboundInternalLinks": 12,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {

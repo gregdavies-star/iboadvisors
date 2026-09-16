@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-14T16:45:48.292Z",
+  "inspectedAt": "2026-09-15T15:24:05.113Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -49,7 +49,7 @@
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
