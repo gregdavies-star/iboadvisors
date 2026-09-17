@@ -18,6 +18,10 @@
 <meta name="twitter:title" content="Buy at 6x, lever it up, sell at 10x. You can run it on your own company." />
 <meta name="twitter:description" content="Enter four numbers and see, side by side, what a private equity exit and an Independent Buyout could each put in your pocket." />
 <meta name="twitter:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
 <script>
@@ -33,14 +37,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/base.css" />
 <link rel="stylesheet" href="/style.css" />
-<!-- Vaudit -->
-<script async src="https://pixel.vaudit.com/static/js/pixel.js"></script>
-<script>window.vauditTracker = window.vauditTracker ||
-{};window.vauditTracker['siteIdentifier'] = '1f19f6f1-7748-66ee-bc8d-77feb2d0bf32';
-</script>
-<!-- End Vaudit -->
-<!-- IDPixel -->
-<script src="https://cdn.idpixel.app/v1/idp-analytics-6a7b58e4b22d8971ebdc12d0.min.js" defer></script>
 <style>
 /* ==========================================================================
    /ibo-exit ad landing page - page-scoped styles (xc-*).
@@ -529,7 +525,7 @@
     <a href="/" class="logo" aria-label="IBO Advisors home">
       <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors" /></picture>
     </a>
-    <p class="footer-copy">IBO Advisors. All rights reserved.</p>
+    <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
   </div>
 </footer>
 
