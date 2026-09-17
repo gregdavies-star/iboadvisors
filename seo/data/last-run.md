@@ -1,44 +1,37 @@
-# Daily SEO run — 2026-09-16
+# Daily SEO run — 2026-09-17
 
-An internal-links-only day. Every rule that would have produced a title, meta or expansion edit is inside its cool-down, so the run spent its budget on the one uncapped lever: **`/blog/exit-planning-for-business-owners` ranks 85.3 for its own exact-match keyword** with 24 impressions and had just 2 in-body inbound links. Audit: 0 errors, 2 pre-existing warnings. Coverage improved — 21 of 22 sitemap URLs now PASS.
+Coverage day: the only non-PASS sitemap URL moved from "unknown to Google" back to "Discovered - currently not indexed", so rule 2 took the budget. Every title, meta and expansion rule is in cool-down; the rest of the run was internal links. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
 
-## GSC totals — 28 days (2026-08-17 → 09-13)
+## GSC totals — 28 days (2026-08-18 → 09-14)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 21 | 1,161 | 1.81% | 18.3 |
+| Current | 24 | 1,299 | 1.85% | 18.2 |
 | Prior 28d | — | — | — | — |
 
-`totals.previous` is still `null` and every page row has `prev: null`, so **rule 6 (decliners) could not be run** for the fifth day running. `opportunities.decliners` is empty by construction, not by measurement.
+`totals.previous` is null for the sixth run — not a bug: the property holds no data before 2026-08-18, where the current window starts. It fills a day at a time, so **rule 6 gives false decliners until ~2026-10-15**.
 
-## Changes — 3 pages, links only
+## Changes — 3 pages
 
-| Donor page | Data point |
-|---|---|
-| `/blog/minority-pe-stake-board-control-veto-rights` | Joint-fewest outbound in-body post links (4) while being the #2 page by impressions (131 @ 9.8). Added links to the exit-planning guide and to the succession page. |
-| `/blog/how-private-equity-actually-finances-a-buyout` | Most internal authority on the blog (15 inbound), indexed. Link placed where the page already argues the capital stack is set before exclusivity. |
-| `/blog/minority-recapitalization-explained` | Joint-fewest outbound links (4), 51 impr @ 11.5. Link placed in the bullet that already raises a 5-10 year runway to a full exit. |
+**`/blog/family-business-succession-planning`** — expand. Only non-PASS URL; 1,884 → 2,542 words. New section on the 2026 estate/gift numbers — $15,000,000 basic exclusion (from $13,990,000), $19,000 gift exclusion, 40% top rate, § 6166's ten-installment deferral — applied to the invented $23M-equity company already in the post. Every figure opened on IRS.gov and Cornell LII, added to Sources. Links out to `/blog/choosing-an-ma-advisory-firm` and `/blog/the-broken-owner-exit-conversation`, each at 3 in-body inbound.
 
-Exit-planning in-body inbound links: 2 → 5. No `Updated` dates bumped (each edit is under 150 words).
+**`/blog/how-pe-firms-value-a-company`** — link. `/blog/restaurant-ma` (45 impr @ 7.0) and `/blog/healthcare-services-ma` (14 @ 12.4) sat at 3 inbound; donor has 15 and already covers sector multiple spread.
 
-## Coverage
+**`/blog/minority-pe-stake-board-control-veto-rights`** — link. `/blog/how-to-sell-a-business-to-private-equity` sat at 3 inbound on a priority-2 keyword; donor is the #2 page by impressions (157 @ 10). Neither donor edit reached 150 words, so no `Updated` bump.
 
-- `/blog/how-pe-firms-value-a-company` flipped to **PASS / Submitted and indexed** — the 09-10 expansion worked; no further action.
-- `/blog/family-business-succession-planning` is the only non-PASS URL, and its state moved *backwards*, from "Discovered - currently not indexed" to **"URL is unknown to Google"**. Verified today: live 200, in `sitemap.xml`, canonical correct, no `noindex`, 11 inbound internal links, 1,884 words. Nothing left to fix on-page — this is crawl budget. Added an 11th inbound link and otherwise left it alone.
+## Skipped
 
-## Skipped, deliberately
-
-- **Rule 3 (lowCtr)** — both rows are in cool-down: `/blog/independent-buyout-explained` (157 impr, CTR 1.27% vs 3.0% expected) had title+meta rewritten 09-15; `/blog/minority-pe-stake-board-control-veto-rights` (131 impr, 0 clicks) on 09-08. Eligible 10-13 and 10-06.
-- **Rule 4 (striking distance)** — all 3 rows are the homepage or `/blog/independent-buyout-explained`. Homepage body copy is barred; the post is inside its 14-day content cool-down. Eligible 09-19.
-- **Rule 7 (new post)** — cap met: 2 posts in the trailing 7 days (09-12, 09-13).
-- **`/business-valuation-calculator`** — title 74 / meta 194 chars (the site's only 2 warnings), but it is not in `lowCtr`, so rule 3 does not authorize the edit. Carried forward.
+- **Rule 3** — IBO explainer (159 impr, 1.26% vs 3.0%) rewritten 09-15, eligible 10-13; veto-rights post (157 impr, 0 clicks) 09-08, eligible 10-06.
+- **Rule 4** — all 3 rows are the homepage (body barred) or the IBO explainer, in cool-down and already the direct answer.
+- **Rule 5** — 2 of 3 rows are apex/www twins predating the 308.
+- **Rule 7** — cap met: 2 posts in the trailing 7 days.
 
 ## Needs a human
 
-1. **Homepage vs. the IBO post for "what is an ibo"** (homepage 30 impr @ 9.8; post 26 @ 7.0) — repeated from 09-15 and still live. The homepage has **only two outbound internal links** (`/blog`, `/business-valuation-calculator`) and none to `/blog/independent-buyout-explained`. Both fixes are homepage body/title changes I am barred from making.
-2. **Authorize the calculator title/meta rewrite** (74 → ≤60 chars, 194 → ≤155). It is a money page at position 47-72 for ~12 "business valuation calculator" variants, ~85 impressions, 0 clicks.
-3. **Apex/www cannibalization is confirmed resolved** — re-verified today: `iboadvisors.com/` and its calculator both return **308** to `www`. Two of the three cannibalization rows are apex twins inside a window that ends the day the redirect shipped. Dropping this flag.
+1. **Authorize the calculator title/meta rewrite** (74 → ≤60; 194 → ≤155) — the only warnings left and the biggest gap: ~115 impressions across ~30 "business valuation calculator" variants at positions 55-82, 1 click. Rule 3 does not fire. Third ask.
+2. **Request indexing** for the succession post — on-page is complete (2,542 words, 11 inbound, indexable); "Discovered" means uncrawled.
+3. **"what is an ibo"** — the explainer (26 impr @ 7.0) should beat the homepage (32 @ 9.7), but the homepage has one outbound internal link, none to it. Barred.
 
 ## Flagged
 
-Nothing. A site-wide grep for the banned deal phrasings returns zero matches, and no source or instruction asked for deal specifics this run.
+Nothing. Grep for the banned phrasings returns zero matches. `/blog/choosing-an-ma-advisory-firm` re-checked: deal counts gone, approved "$1.8 billion" line intact — that flag stays dropped.
