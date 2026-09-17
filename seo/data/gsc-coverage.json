@@ -1,21 +1,12 @@
 {
-  "inspectedAt": "2026-09-16T15:16:28.414Z",
+  "inspectedAt": "2026-09-17T15:25:16.024Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-14T00:28:41Z",
+      "lastCrawlTime": "2026-09-16T21:59:20Z",
       "googleCanonical": "https://www.iboadvisors.com/",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-09T19:36:58Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -25,6 +16,15 @@
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-09-08T07:51:48Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-09T19:36:58Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -49,7 +49,7 @@
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -102,7 +102,7 @@
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T20:16:53Z",
+      "lastCrawlTime": "2026-09-16T15:10:17Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
