@@ -18,6 +18,10 @@
 <meta name="twitter:description" content="How IBO Advisors collects, uses, shares, and protects the information you provide through iboadvisors.com, including your privacy choices and rights." />
 <meta name="twitter:image" content="https://www.iboadvisors.com/assets/hero-dusk.jpg" />
 <meta name="robots" content="noindex, follow" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
 <script>
@@ -162,7 +166,7 @@
         <ul>
           <li><strong>Opt out of marketing</strong> using any of the methods in Section 7.</li>
           <li><strong>Control cookies</strong> through your browser settings, and use the platform&#8209;specific opt&#8209;outs listed in Section 2.</li>
-          <li><strong>Send a Global Privacy Control signal.</strong> If your browser or extension transmits a Global Privacy Control (GPC) signal, we treat it as a request to opt out of the sale and sharing of personal information for that browser.</li>
+          <li><strong>Send a Global Privacy Control signal.</strong> If your browser or extension transmits a Global Privacy Control (GPC) signal, we treat it as a request to opt out of the sale and sharing of personal information for that browser, and we act on it automatically &mdash; you do not need to contact us. Specifically: our visitor identification and marketing attribution tags (IDPixel and Vaudit) are not loaded at all for your visit, and we instruct Google not to use your data for advertising personalization. Our first&#8209;party analytics and the HubSpot code that connects a form you choose to submit back to the page you submitted it from continue to operate, because neither involves selling or sharing your information. Sending a GPC signal does not stop you from using the Site, does not prevent you from contacting us, and does not stop us from responding to an inquiry you submit.</li>
           <li><strong>Ask us to stop.</strong> Email <a href="mailto:privacy@iboadvisors.com">privacy@iboadvisors.com</a> and ask us to opt you out of visitor identification, advertising, or marketing, or to delete what we hold. We will honor the request regardless of which state you live in.</li>
         </ul>
 
