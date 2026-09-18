@@ -31,8 +31,10 @@
     }
     return {
       hutk: hutk,
+      attribution: function () { return null; },
       utmParams: function () { return {}; },
       utmFields: function () { return []; },
+      meetingFields: function () { return []; },
       withUtms: function (url) { return url; },
       formContext: formContext,
       submitForm: function (portalId, formGuid, fields) {

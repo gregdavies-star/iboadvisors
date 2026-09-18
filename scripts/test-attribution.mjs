@@ -85,7 +85,7 @@ async function fillModal(page) {
   await page.click('#ibo-modal-submit');
 }
 
-const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_content=carousel_a&utm_term=exit%20planning&li_fat_id=abc123';
+const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_content=carousel_a&utm_term=exit%20planning&utm_ad_id=ad_789&li_fat_id=abc123';
 
 /* ---- 1. Modal on the landing page itself ---- */
 {
@@ -95,7 +95,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('modal on landing page sends utm fields', f.utm_source === 'linkedin' && f.utm_medium === 'paid_social' && f.utm_campaign === 'ibo_q3' && f.utm_content === 'carousel_a' && f.utm_term === 'exit planning', JSON.stringify(f));
+  check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && f.ibo_form_ad_id === 'ad_789' && f.ibo_form_platform_id === 'abc123' && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
   check('modal redirects to scheduler with utms', page.url().includes('utm_source=linkedin') && page.url().includes('li_fat_id=abc123'), page.url().slice(0, 130));
   await ctx.close();
 }
@@ -110,7 +110,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('utms survive navigation to another page', f.utm_source === 'linkedin' && f.utm_campaign === 'ibo_q3', JSON.stringify(f));
+  check('utms survive navigation to another page', f.ibo_form_source === 'linkedin' && f.ibo_form_campaign === 'ibo_q3', JSON.stringify(f));
   check('scheduler url carries utms after navigation', page.url().includes('utm_source=linkedin'), page.url().slice(0, 130));
   await ctx.close();
 }
@@ -132,7 +132,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.click('#xc-book-submit');
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('/ibo-exit book form sends utm fields', f.utm_source === 'linkedin' && f.utm_campaign === 'ibo_q3', JSON.stringify(f));
+  check('/ibo-exit book form sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_campaign === 'ibo_q3', JSON.stringify(f));
   await ctx.close();
 }
 
@@ -152,7 +152,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.click('#xc-touch-submit');
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('/ibo-exit2 stay-in-touch form sends utm fields', f.utm_source === 'linkedin' && f.utm_campaign === 'ibo_q3', JSON.stringify(f));
+  check('/ibo-exit2 stay-in-touch form sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_campaign === 'ibo_q3', JSON.stringify(f));
   await ctx.close();
 }
 
@@ -174,7 +174,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.click('#vc-gate-submit');
   await page.waitForTimeout(800);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('calculator gate sends utm fields', f.utm_source === 'linkedin' && f.utm_campaign === 'ibo_q3', JSON.stringify(f));
+  check('calculator gate sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_campaign === 'ibo_q3', JSON.stringify(f));
   await ctx.close();
 }
 
@@ -191,7 +191,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.click('#ibo-message-submit');
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('contact message form sends utm fields', f.utm_source === 'linkedin', JSON.stringify(f));
+  check('contact message form sends utm fields', f.ibo_form_source === 'linkedin', JSON.stringify(f));
   await ctx.close();
 }
 
@@ -202,8 +202,8 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await ctx.route('**://api.hsforms.com/**', async (route) => {
     const body = JSON.parse(route.request().postData() || '{}');
     attempts.push(body.fields.map((f) => f.name));
-    const hasUtm = body.fields.some((f) => f.name.startsWith('utm_'));
-    if (hasUtm) return route.fulfill({ status: 400, contentType: 'application/json', body: '{"status":"error","message":"Field utm_source does not exist"}' });
+    const hasUtm = body.fields.some((f) => f.name.startsWith('ibo_form_'));
+    if (hasUtm) return route.fulfill({ status: 400, contentType: 'application/json', body: '{"status":"error","message":"Field ibo_form_source does not exist"}' });
     return route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
@@ -213,7 +213,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.goto(`${BASE}/?${UTM}`);
   await fillModal(page);
   await page.waitForTimeout(800);
-  check('fail-soft: retries without utm fields on 400', attempts.length === 2 && attempts[0].some((n) => n === 'utm_source') && !attempts[1].some((n) => n.startsWith('utm_')), JSON.stringify(attempts));
+  check('fail-soft: retries without utm fields on 400', attempts.length === 2 && attempts[0].some((n) => n === 'ibo_form_source') && !attempts[1].some((n) => n.startsWith('ibo_form_')), JSON.stringify(attempts));
   check('fail-soft: lead still converts to scheduler', page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 80));
   await ctx.close();
 }
@@ -226,7 +226,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('direct visit sends no utm fields', submissions.length === 1 && !Object.keys(f).some((k) => k.startsWith('utm_')), JSON.stringify(Object.keys(f)));
+  check('direct visit sends no attribution fields', submissions.length === 1 && !Object.keys(f).some((k) => k.startsWith('ibo_form_')), JSON.stringify(Object.keys(f)));
   await ctx.close();
 }
 
@@ -242,7 +242,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('submission carries last touch', f.utm_campaign === 'second', JSON.stringify(f));
+  check('submission carries last touch', f.ibo_form_campaign === 'second', JSON.stringify(f));
   await ctx.close();
 }
 
@@ -258,7 +258,61 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('cookie fallback when localStorage throws', f.utm_source === 'linkedin', JSON.stringify(f));
+  check('cookie fallback when localStorage throws', f.ibo_form_source === 'linkedin', JSON.stringify(f));
+  await ctx.close();
+}
+
+/* ---- 11. the scheduler URL carries the IBO Meeting * set, joined by uuid ---- */
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+  await page.goto(`${BASE}/approach`);
+  await fillModal(page);
+  await page.waitForTimeout(600);
+  const f = submissions.length ? fieldMap(submissions[0]) : {};
+  const q = new URL(page.url()).searchParams;
+  check('scheduler url carries ibo_meeting_* params',
+    q.get('ibo_meeting_source') === 'linkedin' && q.get('ibo_meeting_medium') === 'paid_social' &&
+    q.get('ibo_meeting_campaign') === 'ibo_q3' && q.get('ibo_meeting_content') === 'carousel_a' &&
+    q.get('ibo_meeting_ad_id') === 'ad_789' && q.get('ibo_meeting_platform_id') === 'abc123' &&
+    !!q.get('ibo_meeting_landing_url') && /^\d+$/.test(q.get('ibo_meeting_timestamp') || ''),
+    [...q].filter(([k]) => k.startsWith('ibo_meeting_')).map(([k, v]) => `${k}=${v}`).join(' '));
+  check('scheduler url still carries raw utm_* for HubSpot built-ins',
+    q.get('utm_source') === 'linkedin' && q.get('utm_campaign') === 'ibo_q3' && q.get('utm_term') === 'exit planning');
+  check('form uuid and meeting uuid match (joinable)',
+    !!f.ibo_form_uuid && f.ibo_form_uuid === q.get('ibo_meeting_uuid'),
+    `${f.ibo_form_uuid} vs ${q.get('ibo_meeting_uuid')}`);
+  await ctx.close();
+}
+
+/* ---- 12. IBO Form Timestamp is midnight-UTC epoch ms (HubSpot date type) ---- */
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+  await fillModal(page);
+  await page.waitForTimeout(600);
+  const ts = Number(fieldMap(submissions[0]).ibo_form_timestamp);
+  const d = new Date(ts);
+  check('timestamp is midnight UTC epoch ms',
+    Number.isInteger(ts) && d.getUTCHours() === 0 && d.getUTCMinutes() === 0 &&
+    d.getUTCSeconds() === 0 && d.getUTCMilliseconds() === 0,
+    `${ts} -> ${d.toISOString()}`);
+  await ctx.close();
+}
+
+/* ---- 13. utm_term has no IBO property: captured, carried, never submitted ---- */
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+  await fillModal(page);
+  await page.waitForTimeout(600);
+  const names = submissions[0].body.fields.map((f) => f.name);
+  check('utm_term is not submitted (no IBO Form Term property)',
+    !names.some((n) => n.includes('term')), names.filter((n) => n.startsWith('ibo_')).join(','));
+  check('utm_term still reaches the scheduler', new URL(page.url()).searchParams.get('utm_term') === 'exit planning');
   await ctx.close();
 }
 

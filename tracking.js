@@ -23,10 +23,13 @@
        a LinkedIn ad today and a Meta ad next week has both recorded; the
        HubSpot fields carry last touch, which is the campaign that produced
        the conversion.
-     - Maps those values onto HubSpot contact properties for the Forms API,
-       and submits with a fail-soft retry (see submitForm below).
-     - Copies the params onto the meeting scheduler URL so the booking
-       carries the same campaign as the form submission.
+     - Writes last touch to the IBO Form * contact properties on every form
+       submission, through the Forms API, with a fail-soft retry (see
+       submitForm below).
+     - Puts the same values on the meeting scheduler URL, as raw utm_* params
+       and as the parallel IBO Meeting * properties, so the booking carries
+       the campaign that produced it. Both sets share one IBO * UUID, so a
+       form submission and the meeting it led to can be joined.
 
    Privacy: utm_* params and the stored blob are first-party campaign
    attribution — the same category as the HubSpot form attribution that
@@ -41,33 +44,63 @@
   /* ------------------------------------------------------------------
      HubSpot field mapping — THE ONE THING TO KEEP IN SYNC.
 
-     Keys are URL parameters, values are the *internal name* of the HubSpot
-     contact property they are written to. Each property must exist on the
-     contact object AND be present as a field on every HubSpot form this site
-     submits to (HUBSPOT_FORM_GUID in modal.js / exit.js / calculator.js, and
-     the message form in modal.js), or HubSpot rejects the field.
+     Keys are this module's normalised attribution slots (see attribution()
+     below), values are the *internal name* of the HubSpot contact property
+     each one is written to. Every property here must exist on the contact
+     object AND be present as a field on each HubSpot form the site submits to
+     (HUBSPOT_FORM_GUID in modal.js / exit.js / calculator.js, and the message
+     form in modal.js), or HubSpot rejects the field.
 
-     Setting a value to null (or removing the entry) stops that parameter
-     being sent while still capturing and persisting it — use that for a
-     parameter that has no HubSpot property yet.
+     Setting a slot to null stops it being sent while it is still captured and
+     persisted — which is what `term` is: the portal has no "IBO Form Term"
+     property, so utm_term is collected and carried to the scheduler but has
+     nowhere to land on the contact. Create one and name it here if wanted.
 
-     hs_google_click_id / hs_facebook_click_id / hs_linkedin_click_id exist in
-     the portal but are HubSpot-managed and not writable through a form, which
-     is why the click IDs below are captured but not mapped. Map them to
-     writable custom properties here if they are ever wanted on the contact.
+     The two families are parallel by design. IBO Form * records the campaign
+     that produced the form submission; IBO Meeting * records the campaign on
+     the meeting booking that follows it, and is populated from the query
+     string this module puts on the scheduler URL (see schedulerUrl). uuid is
+     the same value in both, so a form submission and the meeting it led to
+     can be joined.
      ------------------------------------------------------------------ */
   var HUBSPOT_FIELDS = {
-    utm_source: 'utm_source',
-    utm_medium: 'utm_medium',
-    utm_campaign: 'utm_campaign',
-    utm_term: 'utm_term',
-    utm_content: 'utm_content'
+    source: 'ibo_form_source',
+    medium: 'ibo_form_medium',
+    campaign: 'ibo_form_campaign',
+    content: 'ibo_form_content',
+    term: null,                          // no "IBO Form Term" property exists
+    ad_id: 'ibo_form_ad_id',
+    platform_id: 'ibo_form_platform_id',
+    uuid: 'ibo_form_uuid',
+    landing_url: 'ibo_form_landing_url',
+    timestamp: 'ibo_form_timestamp'
   };
+
+  var MEETING_FIELDS = {
+    source: 'ibo_meeting_source',
+    medium: 'ibo_meeting_medium',
+    campaign: 'ibo_meeting_campaign',
+    content: 'ibo_meeting_content',
+    ad_id: 'ibo_meeting_ad_id',
+    platform_id: 'ibo_meeting_platform_id',
+    uuid: 'ibo_meeting_uuid',
+    landing_url: 'ibo_meeting_landing_url',
+    timestamp: 'ibo_meeting_timestamp'
+  };
+
+  // Properties HubSpot stores as a date rather than text. A HubSpot date
+  // property takes a UNIX timestamp in milliseconds at *midnight UTC*; a full
+  // ISO datetime is rejected, so toHubSpotDate below floors it.
+  var DATE_SLOTS = { timestamp: true };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
-  // The identifiers the ad platforms append in place of, or alongside, utm_*.
-  // Captured and carried to the scheduler; not written to HubSpot by default.
+  // The ad/creative identifier, in the spellings the platforms' dynamic
+  // macros produce. First one present wins.
+  var AD_ID_KEYS = ['utm_ad_id', 'ad_id', 'utm_id'];
+
+  // The identifiers the ad platforms stamp on a click, in place of or
+  // alongside utm_*. First one present becomes platform_id.
   var CLICK_ID_KEYS = [
     'gclid', 'wbraid', 'gbraid',   // Google Ads
     'fbclid',                      // Meta (Facebook / Instagram)
@@ -79,7 +112,7 @@
     'rdt_cid'                      // Reddit
   ];
 
-  var TRACKED_KEYS = UTM_KEYS.concat(CLICK_ID_KEYS);
+  var TRACKED_KEYS = UTM_KEYS.concat(AD_ID_KEYS, CLICK_ID_KEYS);
 
   var STORAGE_KEY = 'ibo_attribution';
   var COOKIE_NAME = 'ibo_attribution';
@@ -120,8 +153,8 @@
 
   // Trim to something a HubSpot single-line text property will accept, and
   // strip control characters rather than pass them through to the CRM.
-  function clean(value) {
-    return String(value).replace(/[\x00-\x1f\x7f]/g, '').trim().slice(0, 255);
+  function clean(value, limit) {
+    return String(value).replace(/[\x00-\x1f\x7f]/g, '').trim().slice(0, limit || 255);
   }
 
   function paramsFromUrl() {
@@ -144,11 +177,35 @@
     return true;
   }
 
+  // One id per campaign touch, written to IBO Form UUID on the submission and
+  // to IBO Meeting UUID on the booking that follows, so the two rows join.
+  function newUuid() {
+    try {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+        return window.crypto.randomUUID();
+      }
+      if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+        var bytes = new Uint8Array(16);
+        window.crypto.getRandomValues(bytes);
+        bytes[6] = (bytes[6] & 0x0f) | 0x40;
+        bytes[8] = (bytes[8] & 0x3f) | 0x80;
+        var hex = [];
+        for (var i = 0; i < 16; i++) hex.push((bytes[i] + 0x100).toString(16).slice(1));
+        return hex.slice(0, 4).join('') + '-' + hex.slice(4, 6).join('') + '-' +
+          hex.slice(6, 8).join('') + '-' + hex.slice(8, 10).join('') + '-' + hex.slice(10).join('');
+      }
+    } catch (e) {}
+    return 'ibo-' + Date.now().toString(16) + '-' + Math.random().toString(16).slice(2, 10);
+  }
+
   function touchFrom(params) {
     return {
       params: params,
-      landing_page: window.location.origin + window.location.pathname,
-      referrer: document.referrer ? clean(document.referrer) : '',
+      uuid: newUuid(),
+      // The full landing URL, query string included — that is where the
+      // campaign params were, so it is the row that explains the rest.
+      landing_url: clean(window.location.href, 1000),
+      referrer: document.referrer ? clean(document.referrer, 1000) : '',
       timestamp: new Date().toISOString()
     };
   }
@@ -160,23 +217,92 @@
   // converting.
   var store = readStore() || {};
   var current = paramsFromUrl();
+  var currentTouch = null;
 
   if (!isEmpty(current)) {
-    var touch = touchFrom(current);
-    store.last = touch;
-    if (!store.first) store.first = touch;
+    currentTouch = touchFrom(current);
+    store.last = currentTouch;
+    if (!store.first) store.first = currentTouch;
     writeStore(store);
   }
 
   function lastTouch() { return store.last || null; }
   function firstTouch() { return store.first || null; }
 
-  // The campaign params that should be attached to a conversion: whatever is
-  // on this URL right now, else the stored last touch.
+  // The touch a conversion should be attributed to: this page load if it
+  // carries campaign params, else the stored last touch.
+  function activeTouch() {
+    return currentTouch || lastTouch();
+  }
+
+  // The raw campaign params for that touch.
   function utmParams() {
-    if (!isEmpty(current)) return current;
-    var last = lastTouch();
-    return last && last.params ? last.params : {};
+    var touch = activeTouch();
+    return touch && touch.params ? touch.params : {};
+  }
+
+  function firstPresent(params, keys) {
+    for (var i = 0; i < keys.length; i++) {
+      if (params[keys[i]]) return params[keys[i]];
+    }
+    return '';
+  }
+
+  /* The touch flattened into the slots the HubSpot properties expect.
+
+     source / medium / campaign / content / term come straight from the
+     matching utm_* param. ad_id is the creative identifier an ad platform's
+     dynamic macro appends (utm_ad_id, ad_id or utm_id). platform_id is the
+     click identifier the platform itself stamps on the click — gclid for
+     Google, fbclid for Meta, li_fat_id for LinkedIn, and so on — which is
+     what ties a lead back to a specific click in the ad platform's reporting.
+     uuid, landing_url and timestamp come from the touch itself. */
+  function attribution() {
+    var touch = activeTouch();
+    if (!touch) return null;
+    var p = touch.params || {};
+    return {
+      source: p.utm_source || '',
+      medium: p.utm_medium || '',
+      campaign: p.utm_campaign || '',
+      content: p.utm_content || '',
+      term: p.utm_term || '',
+      ad_id: firstPresent(p, AD_ID_KEYS),
+      platform_id: firstPresent(p, CLICK_ID_KEYS),
+      uuid: touch.uuid || '',
+      landing_url: touch.landing_url || '',
+      timestamp: touch.timestamp || ''
+    };
+  }
+
+  // HubSpot date properties take epoch milliseconds at midnight UTC. Anything
+  // with a time component is rejected, so floor the day.
+  function toHubSpotDate(iso) {
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    return String(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+  }
+
+  // Flatten the attribution onto a {slot: property} map, as {name, value}
+  // entries. Empty slots and unmapped slots are left out entirely rather than
+  // written as blanks, so a direct visit never overwrites a contact's
+  // existing campaign data with nothing.
+  function fieldsFor(mapping) {
+    var attr = attribution();
+    var fields = [];
+    if (!attr) return fields;
+    Object.keys(mapping).forEach(function (slot) {
+      var property = mapping[slot];
+      if (!property) return;
+      var value = attr[slot];
+      if (!value) return;
+      if (DATE_SLOTS[slot]) {
+        value = toHubSpotDate(value);
+        if (!value) return;
+      }
+      fields.push({ name: property, value: value });
+    });
+    return fields;
   }
 
   /* ---- HubSpot ---- */
@@ -193,15 +319,9 @@
     return ctx;
   }
 
-  // The utm_* params as HubSpot Forms API field entries.
+  // The attribution as HubSpot Forms API field entries (the IBO Form * set).
   function utmFields() {
-    var params = utmParams();
-    var fields = [];
-    Object.keys(HUBSPOT_FIELDS).forEach(function (key) {
-      var property = HUBSPOT_FIELDS[key];
-      if (property && params[key]) fields.push({ name: property, value: params[key] });
-    });
-    return fields;
+    return fieldsFor(HUBSPOT_FIELDS);
   }
 
   /* Submit to the HubSpot Forms API with the campaign fields attached.
@@ -240,20 +360,35 @@
 
   /* ---- Scheduler hand-off ---- */
 
-  // Copy the campaign params onto the HubSpot meeting scheduler URL so the
-  // booking is attributed to the same campaign as the form submission
-  // (HubSpot reads them into the "… of last booking in meetings tool"
-  // properties). Stored params are used when the current URL has none.
+  /* Put the attribution on the HubSpot meeting scheduler URL so the booking
+     carries the same campaign as the form submission that produced it.
+
+     Two things ride along, because HubSpot populates them by two different
+     mechanisms:
+       - the raw utm_* params, which HubSpot reads into its own built-in
+         "… of last booking in meetings tool" properties with no configuration;
+       - the ibo_meeting_* params, which prefill the matching custom questions
+         on the scheduling page. Those only land if the property has been added
+         as a field on the meeting's booking form in HubSpot — a param with no
+         matching field is ignored, so this is safe either way.
+
+     Stored params are used when the current URL has none, which is the normal
+     case by the time someone reaches the scheduler. */
   function withUtms(url) {
     var params = utmParams();
     Object.keys(params).forEach(function (key) { url.searchParams.set(key, params[key]); });
+    fieldsFor(MEETING_FIELDS).forEach(function (field) {
+      url.searchParams.set(field.name, field.value);
+    });
     return url;
   }
 
   window.iboTracking = {
     hutk: hutk,
+    attribution: attribution,
     utmParams: utmParams,
     utmFields: utmFields,
+    meetingFields: function () { return fieldsFor(MEETING_FIELDS); },
     firstTouch: firstTouch,
     lastTouch: lastTouch,
     withUtms: withUtms,

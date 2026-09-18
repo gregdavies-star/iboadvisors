@@ -22,8 +22,10 @@
   }
   window.iboTracking = {
     hutk: hutk,
+    attribution: function () { return null; },
     utmParams: function () { return {}; },
     utmFields: function () { return []; },
+    meetingFields: function () { return []; },
     firstTouch: function () { return null; },
     lastTouch: function () { return null; },
     withUtms: function (url) { return url; },
