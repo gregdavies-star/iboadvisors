@@ -1,33 +1,18 @@
 /* ==========================================================================
-   Shared tracking helpers (window.iboTracking)
-   - hutk(): the HubSpot visitor cookie set by the tracking script in <head>.
-     Passing it in a Forms API submission's context ties the new contact to
-     the visitor's session, so HubSpot attributes the lead to the real source
-     (e.g. Paid Social / LinkedIn / lead-gen) instead of "Offline Sources".
-   - utmParams(): utm_* pairs from the current page URL.
-   - withUtms(url): copies those utm_* pairs onto another URL (used when
-     handing a qualified lead to the HubSpot meeting scheduler, so the meeting
-     booking carries the same campaign attribution as the form submission).
-   - formContext(): the `context` object for a Forms API submission.
+   Shared tracking helpers live in /tracking.js (window.iboTracking), which
+   every page loads ahead of this file. It captures and persists the visitor's
+   utm_* params and ad click IDs, attaches them to HubSpot Forms API
+   submissions, and copies them onto the meeting scheduler URL.
+
+   iboFallbackTracking below is the no-op-ish stand-in used only if
+   /tracking.js failed to load: leads still reach HubSpot with pageUri + hutk,
+   just without campaign fields. Never let a tracking failure cost a lead.
    ========================================================================== */
 (function () {
+  if (window.iboTracking) return;
   function hutk() {
     var m = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
     return m ? decodeURIComponent(m[1]) : '';
-  }
-  function utmParams() {
-    var out = {};
-    try {
-      new URLSearchParams(window.location.search).forEach(function (v, k) {
-        if (/^utm_/i.test(k) && v) out[k] = v;
-      });
-    } catch (e) {}
-    return out;
-  }
-  function withUtms(url) {
-    var params = utmParams();
-    Object.keys(params).forEach(function (k) { url.searchParams.set(k, params[k]); });
-    return url;
   }
   function formContext() {
     var ctx = { pageUri: window.location.href, pageName: document.title };
@@ -35,7 +20,30 @@
     if (token) ctx.hutk = token;
     return ctx;
   }
-  window.iboTracking = { hutk: hutk, utmParams: utmParams, withUtms: withUtms, formContext: formContext };
+  window.iboTracking = {
+    hutk: hutk,
+    attribution: function () { return null; },
+    utmParams: function () { return {}; },
+    utmFields: function () { return []; },
+    meetingFields: function () { return []; },
+    firstTouch: function () { return null; },
+    lastTouch: function () { return null; },
+    withUtms: function (url) { return url; },
+    formContext: formContext,
+    submitForm: function (portalId, formGuid, fields) {
+      return fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: fields, context: formContext() })
+        }
+      ).then(function (res) {
+        if (!res.ok) throw new Error('Submission failed');
+        return res.json().catch(function () { return {}; });
+      });
+    }
+  };
 })();
 
 /* ==========================================================================
@@ -199,32 +207,22 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Checking…';
 
-    var payload = {
-      fields: [
-        { name: 'firstname', value: firstName },
-        { name: 'lastname', value: lastName },
-        { name: 'email', value: email },
-        { name: 'phone', value: cellNumber },
-        { name: 'company', value: company },
-        { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
-        { name: 'respondent_role', value: respondentRole },
-        { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
-      ],
-      context: window.iboTracking.formContext()
-    };
-
-    fetch(
-      'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }
-    )
-      .then(function (res) {
-        if (!res.ok) throw new Error('Submission failed');
-        return res.json().catch(function () { return {}; });
-      })
+    // submitForm attaches the visitor's captured utm_* fields on top of these.
+    window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, [
+      { name: 'firstname', value: firstName },
+      { name: 'lastname', value: lastName },
+      { name: 'email', value: email },
+      { name: 'phone', value: cellNumber },
+      { name: 'company', value: company },
+      { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
+      // `role`, not `respondent_role`: the latter is not a property in the
+      // portal, so HubSpot silently ignored it and no answer to this question
+      // was ever stored. `role` is an enumeration whose options must include
+      // "CEO/Founder/Owner" and "Business Advisor" verbatim; until they are
+      // added, submitForm's retry drops this field and keeps the lead.
+      { name: 'role', value: respondentRole },
+      { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
+    ])
       .then(function () {
         track('modal_submit', {
           ebitda_band: isOwner ? ebitdaBand : 'advisor',
@@ -404,27 +402,12 @@
       var firstName = nameParts.shift() || name;
       var lastName = nameParts.join(' ');
 
-      fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/' +
-          HUBSPOT_PORTAL_ID + '/' + HUBSPOT_MESSAGE_FORM_GUID,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: firstName },
-              { name: 'lastname', value: lastName },
-              { name: 'email', value: email },
-              { name: 'message', value: message }
-            ],
-            context: window.iboTracking.formContext()
-          })
-        }
-      )
-        .then(function (res) {
-          if (!res.ok) throw new Error('Submission failed');
-          return res.json().catch(function () { return {}; });
-        })
+      window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_MESSAGE_FORM_GUID, [
+        { name: 'firstname', value: firstName },
+        { name: 'lastname', value: lastName },
+        { name: 'email', value: email },
+        { name: 'message', value: message }
+      ])
         .then(function () { show('sent'); })
         .catch(function () {
           showError('Something went wrong sending your message. Please email ' + CONTACT_EMAIL + '.');
