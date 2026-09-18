@@ -215,7 +215,12 @@
       { name: 'phone', value: cellNumber },
       { name: 'company', value: company },
       { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
-      { name: 'respondent_role', value: respondentRole },
+      // `role`, not `respondent_role`: the latter is not a property in the
+      // portal, so HubSpot silently ignored it and no answer to this question
+      // was ever stored. `role` is an enumeration whose options must include
+      // "CEO/Founder/Owner" and "Business Advisor" verbatim; until they are
+      // added, submitForm's retry drops this field and keeps the lead.
+      { name: 'role', value: respondentRole },
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
     ])
       .then(function () {

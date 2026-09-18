@@ -213,7 +213,12 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.goto(`${BASE}/?${UTM}`);
   await fillModal(page);
   await page.waitForTimeout(800);
-  check('fail-soft: retries without utm fields on 400', attempts.length === 2 && attempts[0].some((n) => n === 'ibo_form_source') && !attempts[1].some((n) => n.startsWith('ibo_form_')), JSON.stringify(attempts));
+  check('fail-soft: falls all the way back to identity fields when every attribution field is rejected',
+    attempts.length === 3 &&
+    attempts[0].some((n) => n === 'ibo_form_source') &&
+    !attempts[2].some((n) => n.startsWith('ibo_form_')) &&
+    attempts[2].includes('email'),
+    JSON.stringify(attempts.map((a) => a.length)));
   check('fail-soft: lead still converts to scheduler', page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 80));
   await ctx.close();
 }
@@ -370,6 +375,156 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('ad_id stays empty when only a shortener referrer is available',
     viaReferrer.ad_id === '' && !viaReferrer.referrer.includes('ibo-q3-carousel'),
     JSON.stringify(viaReferrer));
+  await ctx.close();
+}
+
+
+/* ---- 16. the two HubSpot field bugs: role, and the EBITDA band value ---- */
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+
+  // The qualify modal sends `role`, not the non-existent `respondent_role`.
+  await page.goto(`${BASE}/?${UTM}`);
+  await fillModal(page);
+  await page.waitForTimeout(600);
+  const owner = fieldMap(submissions[0]);
+  check('modal sends role (not respondent_role)',
+    owner.role === 'CEO/Founder/Owner' && !('respondent_role' in owner),
+    `role=${owner.role}`);
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // An advisor answer must reach HubSpot too - it was being dropped entirely.
+  await page.goto(`${BASE}/`);
+  await page.click('[data-ibo-open-modal]');
+  await page.fill('#ibo-fullName', 'Ada Lovelace');
+  await page.fill('#ibo-email', 'ada@example.com');
+  await page.fill('#ibo-cellNumber', '555-0100');
+  await page.fill('#ibo-company', 'Analytical Engines');
+  await page.check('input[name="respondentRole"][value="Business Advisor"]');
+  await page.click('#ibo-modal-submit');
+  await page.waitForTimeout(600);
+  const advisor = fieldMap(submissions[0]);
+  check('modal sends the advisor answer', advisor.role === 'Business Advisor', `role=${advisor.role}`);
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // Under $3M must submit "$0 - $3M" - the option the HubSpot property has.
+  // "Less than $3M" was not one, so every such submission was rejected.
+  await page.goto(`${BASE}/`);
+  await page.click('[data-ibo-open-modal]');
+  await page.fill('#ibo-fullName', 'Ada Lovelace');
+  await page.fill('#ibo-email', 'ada@example.com');
+  await page.fill('#ibo-cellNumber', '555-0100');
+  await page.fill('#ibo-company', 'Analytical Engines');
+  await page.check('input[name="respondentRole"][value="CEO/Founder/Owner"]');
+  await page.selectOption('#ibo-ebitdaBand', { label: 'Less than $3M' });
+  await page.click('#ibo-modal-submit');
+  await page.waitForTimeout(600);
+  const f = fieldMap(submissions[0]);
+  check('modal submits $0 - $3M for the under-$3M band',
+    f.what_is_your_approximate_annual_ebitda_profit === '$0 - $3M' && f.ibo_qualified === 'False',
+    f.what_is_your_approximate_annual_ebitda_profit);
+  check('the option still reads "Less than $3M" to the visitor',
+    (await page.evaluate(() => {
+      const o = [...document.getElementById('ibo-ebitdaBand').options].find((x) => x.value === '$0 - $3M');
+      return o && o.textContent.trim();
+    })) === 'Less than $3M');
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // /ibo-exit and the calculator derive the band; they must agree.
+  await page.goto(`${BASE}/ibo-exit`);
+  await page.selectOption('#xc-industry', { index: 1 });
+  await page.fill('#xc-revenue', '6000000');
+  await page.fill('#xc-ebitda', '1500000');
+  await page.click('#xc-form button[type="submit"]');
+  await page.waitForTimeout(400);
+  await page.fill('#xc-touch-name', 'Ada Lovelace');
+  await page.fill('#xc-touch-email', 'ada@example.com');
+  await page.fill('#xc-touch-company', 'Analytical Engines');
+  await page.click('#xc-touch-submit');
+  await page.waitForTimeout(600);
+  const f = fieldMap(submissions[0]);
+  check('/ibo-exit derives $0 - $3M below the threshold',
+    f.what_is_your_approximate_annual_ebitda_profit === '$0 - $3M',
+    f.what_is_your_approximate_annual_ebitda_profit);
+  await ctx.close();
+}
+
+/* ---- 17. a rejected field never costs the lead ---- */
+{
+  const ctx = await browser.newContext();
+  const attempts = [];
+  // HubSpot rejects one named field; everything else must still land.
+  await ctx.route('**://api.hsforms.com/**', async (route) => {
+    const body = JSON.parse(route.request().postData() || '{}');
+    const names = body.fields.map((f) => f.name);
+    attempts.push(names);
+    if (names.includes('role')) {
+      return route.fulfill({ status: 400, contentType: 'application/json',
+        body: '{"status":"error","message":"Error in \'fields.role\'. \'Business Advisor\' is not one of the allowed options"}' });
+    }
+    return route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
+  });
+  await ctx.route('**meetings-na2.hubspot.com**', (r) =>
+    r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+    await ctx.route(pat, (r) => r.abort());
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+  await fillModal(page);
+  await page.waitForTimeout(800);
+  const second = attempts[1] || [];
+  check('a blamed field is dropped, the rest of the payload survives',
+    attempts.length === 2 && !second.includes('role') &&
+    second.includes('email') && second.includes('ibo_form_source') &&
+    second.includes('what_is_your_approximate_annual_ebitda_profit'),
+    JSON.stringify(second));
+  check('the lead still converts after a field is dropped',
+    page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 70));
+  await ctx.close();
+}
+
+{
+  const ctx = await browser.newContext();
+  const attempts = [];
+  // An error that blames nothing droppable: fall back to identity only.
+  await ctx.route('**://api.hsforms.com/**', async (route) => {
+    const names = JSON.parse(route.request().postData() || '{}').fields.map((f) => f.name);
+    attempts.push(names);
+    if (names.length > 5) {
+      return route.fulfill({ status: 400, contentType: 'application/json',
+        body: '{"status":"error","message":"something went wrong"}' });
+    }
+    return route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
+  });
+  await ctx.route('**meetings-na2.hubspot.com**', (r) =>
+    r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+    await ctx.route(pat, (r) => r.abort());
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+  await fillModal(page);
+  await page.waitForTimeout(800);
+  const second = attempts[1] || [];
+  check('an unattributable 400 falls back to the identity fields',
+    attempts.length === 2 && second.every((n) =>
+      ['firstname', 'lastname', 'email', 'phone', 'company', 'message'].includes(n)) &&
+    second.includes('email'),
+    JSON.stringify(second));
+  check('the lead still converts on the identity-only retry',
+    page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 70));
   await ctx.close();
 }
 

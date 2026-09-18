@@ -52,9 +52,10 @@
      form in modal.js), or HubSpot rejects the field.
 
      Setting a slot to null stops it being sent while it is still captured and
-     persisted — which is what `term` is: the portal has no "IBO Form Term"
-     property, so utm_term is collected and carried to the scheduler but has
-     nowhere to land on the contact. Create one and name it here if wanted.
+     persisted — which is what `term` is. utm_term is deliberately not stored
+     on the contact: keyword-level data is not used here, so no "IBO Form Term"
+     property exists. It is still collected and carried to the scheduler, so
+     naming a property here is all it would take to start storing it.
 
      The two families are parallel by design. IBO Form * records the campaign
      that produced the form submission; IBO Meeting * records the campaign on
@@ -405,19 +406,36 @@
     return fieldsFor(HUBSPOT_FIELDS);
   }
 
+  /* The fields that identify the lead. These are never dropped to salvage a
+     submission — without them there is nothing worth saving, and a failure
+     naming one of them is a real failure the calling form should report.
+     Everything else (attribution, qualification, the survey answers) is
+     enrichment, and enrichment is never worth losing a lead over. */
+  var IDENTITY_FIELDS = {
+    firstname: true, lastname: true, email: true, phone: true,
+    company: true, message: true
+  };
+
   /* Submit to the HubSpot Forms API with the campaign fields attached.
 
-     Fail-soft by design: HubSpot rejects an entire submission with a 400 if
-     any field name is not on the form, so a mapping in HUBSPOT_FIELDS that
-     has not been added to the form yet would otherwise drop the lead itself.
-     On a 400 with campaign fields attached we retry once with the original
-     fields only — attribution is lost for that submission, the lead is not.
-     A failure that is not about our extra fields still rejects, so the
-     calling form keeps showing its own error message. */
+     Fail-soft by design. HubSpot rejects the *entire* submission with a 400
+     over any one bad field — a name that is not on the form, or a value that
+     is not one of an enumeration's options — so a single stale mapping here
+     would otherwise drop the lead along with it. That is not hypothetical:
+     the site spent months sending an EBITDA band that was not a valid option,
+     and every one of those submissions was rejected.
+
+     So on a 400 we retry once, keeping the identity fields and dropping the
+     enrichment. HubSpot names the offending field in its error body, so the
+     usual case drops only that one and everything else still lands; when the
+     error cannot be attributed to a specific field, all enrichment goes, on
+     the principle that a lead with no attribution beats no lead. A failure
+     that survives the retry is reported to the caller, so the form still
+     shows its own error message. */
   function submitForm(portalId, formGuid, fields, options) {
     var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid;
     var context = (options && options.context) || formContext();
-    var extras = utmFields();
+    var all = fields.concat(utmFields());
 
     function post(body) {
       return fetch(url, {
@@ -427,16 +445,50 @@
       });
     }
 
-    return post(fields.concat(extras)).then(function (res) {
-      if (res.ok) return res.json().catch(function () { return {}; });
-      if (res.status === 400 && extras.length) {
-        return post(fields).then(function (retry) {
-          if (!retry.ok) throw new Error('Submission failed');
-          return retry.json().catch(function () { return {}; });
+    // Which droppable fields the error body names. Matched against the raw
+    // text rather than a parsed shape, so this keeps working whichever of
+    // HubSpot's error formats comes back.
+    function blamedBy(text) {
+      if (!text) return [];
+      return all.filter(function (field) {
+        return !IDENTITY_FIELDS[field.name] && text.indexOf(field.name) !== -1;
+      }).map(function (field) { return field.name; });
+    }
+
+    var identityOnly = all.filter(function (field) { return IDENTITY_FIELDS[field.name]; });
+
+    function sameFields(a, b) {
+      if (a.length !== b.length) return false;
+      for (var i = 0; i < a.length; i++) { if (a[i].name !== b[i].name) return false; }
+      return true;
+    }
+
+    /* Try a payload; on a 400, try a smaller one, three requests at the most:
+       everything, then everything minus whatever the error blamed, then the
+       identity fields alone.
+
+       That last rung matters. HubSpot's error often names only the first
+       offending field, so dropping that one and stopping would still lose the
+       lead whenever several fields are bad at once — which is precisely the
+       state before a new batch of properties has been added to the form. */
+    function attempt(body, triesLeft) {
+      var last = triesLeft <= 1 || sameFields(body, identityOnly);
+      return post(body).then(function (res) {
+        if (res.ok) return res.json().catch(function () { return {}; });
+        if (res.status !== 400 || last) throw new Error('Submission failed');
+        return res.text().catch(function () { return ''; }).then(function (text) {
+          var blamed = blamedBy(text);
+          var next = blamed.length && triesLeft > 2
+            ? body.filter(function (field) { return blamed.indexOf(field.name) === -1; })
+            : identityOnly;
+          // Nothing left to drop — the next try would just repeat this one.
+          if (sameFields(next, body)) throw new Error('Submission failed');
+          return attempt(next, triesLeft - 1);
         });
-      }
-      throw new Error('Submission failed');
-    });
+      });
+    }
+
+    return attempt(all, 3);
   }
 
   /* ---- Scheduler hand-off ---- */

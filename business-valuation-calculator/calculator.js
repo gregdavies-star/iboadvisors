@@ -12,6 +12,13 @@
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
   var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
 
+  // The EBITDA band below the $3M qualifying threshold. This must be spelled
+  // exactly as the HubSpot property's option is: the site sent "Less than $3M"
+  // for months, which is not one of that enumeration's options, so HubSpot
+  // rejected every under-$3M submission outright and those leads were lost.
+  // The select on the page shows "Less than $3M" and submits this value.
+  var UNQUALIFIED_BAND = '$0 - $3M';
+
   // Tracking helpers: shared window.iboTracking from /tracking.js, which this
   // page loads ahead of this file. It carries the visitor's captured utm_*
   // params into the form submission and onto the scheduler URL. The local
@@ -441,7 +448,7 @@
     if (adjProfit >= 10000000) return '$10M - $20M';
     if (adjProfit >= 5000000) return '$5M - $10M';
     if (adjProfit >= 3000000) return '$3M - $5M';
-    return 'Less than $3M';
+    return UNQUALIFIED_BAND;
   }
 
   var gateForm = $('vc-gate-form');
@@ -475,7 +482,7 @@
     var firstName = nameParts.shift() || fullName;
     var lastName = nameParts.join(' ');
     var band = ebitdaBandFor(lastResult.adjProfit);
-    var qualifies = band !== 'Less than $3M';
+    var qualifies = band !== UNQUALIFIED_BAND;
 
     var submitBtn = $('vc-gate-submit');
     submitBtn.disabled = true;
@@ -489,7 +496,7 @@
       { name: 'phone', value: phone },
       { name: 'company', value: company },
       { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
-      { name: 'respondent_role', value: 'CEO/Founder/Owner' },
+      { name: 'role', value: 'CEO/Founder/Owner' },
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: band }
     ])
       .then(function () {
@@ -717,7 +724,7 @@
     y += 14;
     // Scheduling is offered only to qualified leads — same $3M adjusted-EBITDA
     // band the email gate uses for ibo_qualified.
-    var qualifies = ebitdaBandFor(r.adjProfit) !== 'Less than $3M';
+    var qualifies = ebitdaBandFor(r.adjProfit) !== UNQUALIFIED_BAND;
     doc.setFillColor(NAVY[0], NAVY[1], NAVY[2]);
     doc.rect(MARGIN, y - 16, PAGE_W - MARGIN * 2, qualifies ? 150 : 108, 'F');
     doc.setFont('times', 'bold'); doc.setFontSize(15); doc.setTextColor(205, 172, 124);
