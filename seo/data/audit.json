@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T20:26:05.512Z",
+  "generatedAt": "2026-09-18T14:55:37.444Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1734,
       "date": "2025-12-20",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -112,10 +112,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2345,
+      "words": 2371,
       "date": "2026-09-10",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -125,10 +125,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1811,
+      "words": 1863,
       "date": "2026-09-08",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 8,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -140,7 +140,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2018,
       "date": "2026-09-13",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -153,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -198,10 +198,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
-      "title": "Minority Stake, Majority Say: PE Veto Rights | IBO Advisors",
+      "title": "Private Equity Minority Stake: The Veto List | IBO Advisors",
       "titleLength": 59,
-      "description": "A private equity firm holding a minority stake still keeps veto rights over financing, acquisitions, and a future sale. Here is the actual list.",
-      "descriptionLength": 144,
+      "description": "A minority stake in private equity is rarely a minority say. The sponsor keeps veto rights over debt, acquisitions, hiring, and when you sell.",
+      "descriptionLength": 142,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1789,
       "date": "2026-09-08",
@@ -268,10 +268,10 @@
       "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
       "descriptionLength": 145,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2090,
+      "words": 2130,
       "date": "2026-09-12",
       "inboundInternalLinks": 5,
-      "outboundInternalLinks": 12,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
