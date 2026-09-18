@@ -95,22 +95,73 @@
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
-  // The ad/creative identifier, in the spellings the platforms' dynamic
-  // macros produce. First one present wins.
-  var AD_ID_KEYS = ['utm_ad_id', 'ad_id', 'utm_id'];
+  /* IBO Form Ad ID holds the shortened link the visitor clicked — one short
+     link per ad, so the field says which ad produced the lead.
+
+     The short link has to name itself in its own destination URL. There is no
+     way to recover it afterwards: a shortener redirects with a 301, which
+     drops the short URL from the address bar, and the referrer is no help
+     either — the default referrer policy sends only the origin across an
+     origin boundary, so document.referrer reads "https://bit.ly/" with the
+     slug already stripped. That identifies the shortener, not the ad, so it
+     is deliberately not used.
+
+     So: give each short link a destination that carries its own slug in one
+     of these params. First one present wins.
+
+         https://bit.ly/ibo-q3-carousel
+           -> https://www.iboadvisors.com/?utm_source=linkedin&...&sl=ibo-q3-carousel
+
+     Add the param you actually use to this list if it is not one of these. */
+  var AD_ID_KEYS = ['sl', 'short_link', 'shortlink', 'utm_ad_id', 'ad_id', 'utm_id'];
+
+  /* IBO Form Platform ID holds the normalised name of the platform the click
+     came from — "linkedin", "meta", "google" — not a raw identifier, so the
+     field groups cleanly in HubSpot reports however the ad URLs were tagged.
+
+     Resolved in order: the utm_source spelling, then the click ID the platform
+     stamped on the URL, then the referring domain. A visitor from a LinkedIn
+     ad reads "linkedin" whether the ad tagged utm_source=linkedin, li, or
+     nothing at all. */
+  var PLATFORM_BY_SOURCE = {
+    linkedin: 'linkedin', 'linked-in': 'linkedin', li: 'linkedin', lnkd: 'linkedin',
+    facebook: 'meta', fb: 'meta', instagram: 'meta', ig: 'meta', meta: 'meta',
+    google: 'google', adwords: 'google', googleads: 'google', 'google-ads': 'google', youtube: 'google',
+    bing: 'microsoft', microsoft: 'microsoft', msn: 'microsoft',
+    tiktok: 'tiktok',
+    twitter: 'x', x: 'x',
+    reddit: 'reddit',
+    pinterest: 'pinterest',
+    email: 'email', newsletter: 'email'
+  };
 
   // The identifiers the ad platforms stamp on a click, in place of or
-  // alongside utm_*. First one present becomes platform_id.
-  var CLICK_ID_KEYS = [
-    'gclid', 'wbraid', 'gbraid',   // Google Ads
-    'fbclid',                      // Meta (Facebook / Instagram)
-    'li_fat_id',                   // LinkedIn
-    'msclkid',                     // Microsoft Ads
-    'ttclid',                      // TikTok
-    'twclid',                      // X / Twitter
-    'epik',                        // Pinterest
-    'rdt_cid'                      // Reddit
+  // alongside utm_*. Each one also identifies the platform it came from.
+  var CLICK_ID_PLATFORMS = [
+    { key: 'gclid', platform: 'google' },
+    { key: 'wbraid', platform: 'google' },
+    { key: 'gbraid', platform: 'google' },
+    { key: 'fbclid', platform: 'meta' },
+    { key: 'li_fat_id', platform: 'linkedin' },
+    { key: 'msclkid', platform: 'microsoft' },
+    { key: 'ttclid', platform: 'tiktok' },
+    { key: 'twclid', platform: 'x' },
+    { key: 'epik', platform: 'pinterest' },
+    { key: 'rdt_cid', platform: 'reddit' }
   ];
+
+  var PLATFORM_BY_REFERRER = {
+    'linkedin.com': 'linkedin', 'lnkd.in': 'linkedin',
+    'facebook.com': 'meta', 'instagram.com': 'meta', 'fb.com': 'meta',
+    'google.com': 'google', 'youtube.com': 'google',
+    'bing.com': 'microsoft',
+    'tiktok.com': 'tiktok',
+    'twitter.com': 'x', 'x.com': 'x', 't.co': 'x',
+    'reddit.com': 'reddit',
+    'pinterest.com': 'pinterest'
+  };
+
+  var CLICK_ID_KEYS = CLICK_ID_PLATFORMS.map(function (c) { return c.key; });
 
   var TRACKED_KEYS = UTM_KEYS.concat(AD_ID_KEYS, CLICK_ID_KEYS);
 
@@ -248,15 +299,45 @@
     return '';
   }
 
+  // The host of a referrer URL, without "www.". '' when there isn't one.
+  function referrerHost(referrer) {
+    if (!referrer) return '';
+    try {
+      return new URL(referrer).hostname.replace(/^www\./, '').toLowerCase();
+    } catch (e) {
+      return '';
+    }
+  }
+
+  // The short link the visitor clicked, from the param its destination
+  // carries. See AD_ID_KEYS for why there is no referrer fallback.
+  function adIdFor(params) {
+    return firstPresent(params, AD_ID_KEYS);
+  }
+
+  // The platform the click came from, normalised: utm_source spelling first,
+  // then the click ID the platform stamped, then the referring domain.
+  function platformFor(params, referrer) {
+    var source = (params.utm_source || '').toLowerCase().replace(/[\s_]+/g, '');
+    if (PLATFORM_BY_SOURCE[source]) return PLATFORM_BY_SOURCE[source];
+
+    for (var i = 0; i < CLICK_ID_PLATFORMS.length; i++) {
+      if (params[CLICK_ID_PLATFORMS[i].key]) return CLICK_ID_PLATFORMS[i].platform;
+    }
+
+    var host = referrerHost(referrer);
+    if (PLATFORM_BY_REFERRER[host]) return PLATFORM_BY_REFERRER[host];
+    // A source we have no mapping for is still better than nothing.
+    return params.utm_source ? clean(params.utm_source).toLowerCase() : '';
+  }
+
   /* The touch flattened into the slots the HubSpot properties expect.
 
      source / medium / campaign / content / term come straight from the
-     matching utm_* param. ad_id is the creative identifier an ad platform's
-     dynamic macro appends (utm_ad_id, ad_id or utm_id). platform_id is the
-     click identifier the platform itself stamps on the click — gclid for
-     Google, fbclid for Meta, li_fat_id for LinkedIn, and so on — which is
-     what ties a lead back to a specific click in the ad platform's reporting.
-     uuid, landing_url and timestamp come from the touch itself. */
+     matching utm_* param. ad_id is the short link that brought the visitor
+     and platform_id the normalised platform name — see AD_ID_KEYS and
+     PLATFORM_BY_SOURCE above for how each is resolved. uuid, landing_url and
+     timestamp come from the touch itself. */
   function attribution() {
     var touch = activeTouch();
     if (!touch) return null;
@@ -267,8 +348,8 @@
       campaign: p.utm_campaign || '',
       content: p.utm_content || '',
       term: p.utm_term || '',
-      ad_id: firstPresent(p, AD_ID_KEYS),
-      platform_id: firstPresent(p, CLICK_ID_KEYS),
+      ad_id: adIdFor(p),
+      platform_id: platformFor(p, touch.referrer),
       uuid: touch.uuid || '',
       landing_url: touch.landing_url || '',
       timestamp: touch.timestamp || ''

@@ -85,7 +85,7 @@ async function fillModal(page) {
   await page.click('#ibo-modal-submit');
 }
 
-const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_content=carousel_a&utm_term=exit%20planning&utm_ad_id=ad_789&li_fat_id=abc123';
+const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_content=carousel_a&utm_term=exit%20planning&sl=ibo-q3-carousel&li_fat_id=abc123';
 
 /* ---- 1. Modal on the landing page itself ---- */
 {
@@ -95,7 +95,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && f.ibo_form_ad_id === 'ad_789' && f.ibo_form_platform_id === 'abc123' && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
+  check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && f.ibo_form_ad_id === 'ibo-q3-carousel' && f.ibo_form_platform_id === 'linkedin' && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
   check('modal redirects to scheduler with utms', page.url().includes('utm_source=linkedin') && page.url().includes('li_fat_id=abc123'), page.url().slice(0, 130));
   await ctx.close();
 }
@@ -275,7 +275,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('scheduler url carries ibo_meeting_* params',
     q.get('ibo_meeting_source') === 'linkedin' && q.get('ibo_meeting_medium') === 'paid_social' &&
     q.get('ibo_meeting_campaign') === 'ibo_q3' && q.get('ibo_meeting_content') === 'carousel_a' &&
-    q.get('ibo_meeting_ad_id') === 'ad_789' && q.get('ibo_meeting_platform_id') === 'abc123' &&
+    q.get('ibo_meeting_ad_id') === 'ibo-q3-carousel' && q.get('ibo_meeting_platform_id') === 'linkedin' &&
     !!q.get('ibo_meeting_landing_url') && /^\d+$/.test(q.get('ibo_meeting_timestamp') || ''),
     [...q].filter(([k]) => k.startsWith('ibo_meeting_')).map(([k, v]) => `${k}=${v}`).join(' '));
   check('scheduler url still carries raw utm_* for HubSpot built-ins',
@@ -313,6 +313,63 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('utm_term is not submitted (no IBO Form Term property)',
     !names.some((n) => n.includes('term')), names.filter((n) => n.startsWith('ibo_')).join(','));
   check('utm_term still reaches the scheduler', new URL(page.url()).searchParams.get('utm_term') === 'exit planning');
+  await ctx.close();
+}
+
+/* ---- 14. platform_id normalises however the ad tagged utm_source ---- */
+{
+  const { ctx } = await newCtx();
+  const page = await ctx.newPage();
+  const cases = [
+    ['utm_source=LinkedIn&utm_campaign=a', 'linkedin', 'utm_source spelling, mixed case'],
+    ['utm_source=li&utm_campaign=a', 'linkedin', 'utm_source abbreviation'],
+    ['utm_source=fb&utm_campaign=a', 'meta', 'facebook abbreviation -> meta'],
+    ['utm_source=instagram&utm_campaign=a', 'meta', 'instagram -> meta'],
+    ['utm_source=adwords&utm_campaign=a', 'google', 'adwords -> google'],
+    ['utm_campaign=a&li_fat_id=xyz', 'linkedin', 'click id, no utm_source'],
+    ['utm_campaign=a&fbclid=xyz', 'meta', 'fbclid, no utm_source'],
+    ['utm_campaign=a&gclid=xyz', 'google', 'gclid, no utm_source'],
+    ['utm_source=some_newsletter_tool&utm_campaign=a', 'some_newsletter_tool', 'unmapped source falls through to itself']
+  ];
+  let ok = true;
+  const seen = [];
+  for (const [qs, expected, why] of cases) {
+    await page.goto(`${BASE}/?${qs}`);
+    const got = await page.evaluate(() => window.iboTracking.attribution().platform_id);
+    seen.push(`${why}: ${got}`);
+    if (got !== expected) { ok = false; seen[seen.length - 1] += ` (expected ${expected})`; }
+  }
+  check('platform_id normalises across taggings', ok, seen.join(' | '));
+  await ctx.close();
+}
+
+/* ---- 15. ad_id: short-link param, and the referrer fallback ---- */
+{
+  const { ctx } = await newCtx();
+  const page = await ctx.newPage();
+
+  for (const key of ['sl', 'short_link', 'utm_ad_id', 'ad_id']) {
+    await page.goto(`${BASE}/?utm_source=linkedin&${key}=ibo-q3-carousel`);
+    const got = await page.evaluate(() => window.iboTracking.attribution().ad_id);
+    check(`ad_id read from ?${key}`, got === 'ibo-q3-carousel', got);
+  }
+
+  // A shortener cannot be recovered from the referrer: the default referrer
+  // policy strips the path at an origin boundary, so document.referrer reads
+  // "https://bit.ly/" with the slug gone. Ad ID must stay empty rather than
+  // record the shortener's bare origin.
+  await ctx.route('**://bit.ly/**', (r) =>
+    r.fulfill({ status: 200, contentType: 'text/html',
+      body: `<html><body><a id="go" href="${BASE}/?utm_source=linkedin&utm_campaign=ibo_q3">go</a></body></html>` }));
+  await page.goto('https://bit.ly/ibo-q3-carousel');
+  await Promise.all([page.waitForURL(`${BASE}/**`), page.click('#go')]);
+  const viaReferrer = await page.evaluate(() => ({
+    ad_id: window.iboTracking.attribution().ad_id,
+    referrer: document.referrer
+  }));
+  check('ad_id stays empty when only a shortener referrer is available',
+    viaReferrer.ad_id === '' && !viaReferrer.referrer.includes('ibo-q3-carousel'),
+    JSON.stringify(viaReferrer));
   await ctx.close();
 }
 
