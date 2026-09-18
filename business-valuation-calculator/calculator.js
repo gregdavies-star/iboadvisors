@@ -12,28 +12,16 @@
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
   var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
 
-  // Tracking helpers: shared window.iboTracking from /modal.js when that
-  // script is on the page, otherwise an equivalent local fallback. hutk is the
-  // HubSpot visitor cookie (set by the tracking script in <head>) that lets
-  // HubSpot attribute the Forms API submission to the visitor's real source.
+  // Tracking helpers: shared window.iboTracking from /tracking.js, which this
+  // page loads ahead of this file. It carries the visitor's captured utm_*
+  // params into the form submission and onto the scheduler URL. The local
+  // fallback keeps lead capture working if /tracking.js failed to load —
+  // without campaign fields, but hutk (the HubSpot visitor cookie) still lets
+  // HubSpot attribute the submission to the visitor's session.
   var tracking = window.iboTracking || (function () {
     function hutk() {
       var m = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
       return m ? decodeURIComponent(m[1]) : '';
-    }
-    function utmParams() {
-      var out = {};
-      try {
-        new URLSearchParams(window.location.search).forEach(function (v, k) {
-          if (/^utm_/i.test(k) && v) out[k] = v;
-        });
-      } catch (e) {}
-      return out;
-    }
-    function withUtms(url) {
-      var params = utmParams();
-      Object.keys(params).forEach(function (k) { url.searchParams.set(k, params[k]); });
-      return url;
     }
     function formContext() {
       var ctx = { pageUri: window.location.href, pageName: document.title };
@@ -41,7 +29,26 @@
       if (token) ctx.hutk = token;
       return ctx;
     }
-    return { hutk: hutk, utmParams: utmParams, withUtms: withUtms, formContext: formContext };
+    return {
+      hutk: hutk,
+      utmParams: function () { return {}; },
+      utmFields: function () { return []; },
+      withUtms: function (url) { return url; },
+      formContext: formContext,
+      submitForm: function (portalId, formGuid, fields) {
+        return fetch(
+          'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fields: fields, context: formContext() })
+          }
+        ).then(function (res) {
+          if (!res.ok) throw new Error('Submission failed');
+          return res.json().catch(function () { return {}; });
+        });
+      }
+    };
   })();
 
   /* ------------------------------------------------------------------
@@ -472,32 +479,17 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Preparing your report…';
 
-    var payload = {
-      fields: [
-        { name: 'firstname', value: firstName },
-        { name: 'lastname', value: lastName },
-        { name: 'email', value: email },
-        { name: 'phone', value: phone },
-        { name: 'company', value: company },
-        { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
-        { name: 'respondent_role', value: 'CEO/Founder/Owner' },
-        { name: 'what_is_your_approximate_annual_ebitda_profit', value: band }
-      ],
-      context: tracking.formContext()
-    };
-
-    fetch(
-      'https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }
-    )
-      .then(function (res) {
-        if (!res.ok) throw new Error('Submission failed');
-        return res.json().catch(function () { return {}; });
-      })
+    // submitForm attaches the visitor's captured utm_* fields on top of these.
+    tracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, [
+      { name: 'firstname', value: firstName },
+      { name: 'lastname', value: lastName },
+      { name: 'email', value: email },
+      { name: 'phone', value: phone },
+      { name: 'company', value: company },
+      { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
+      { name: 'respondent_role', value: 'CEO/Founder/Owner' },
+      { name: 'what_is_your_approximate_annual_ebitda_profit', value: band }
+    ])
       .then(function () {
         // Same conversion labels as the qualify modal so valuation leads
         // feed the existing Google Ads conversion actions.
