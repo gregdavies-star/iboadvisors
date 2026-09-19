@@ -1,32 +1,32 @@
 {
   "property": "sc-domain:iboadvisors.com",
-  "pulledAt": "2026-09-17T15:22:51.823Z",
+  "pulledAt": "2026-09-19T14:04:43.889Z",
   "window": {
     "days": 28,
     "current": [
-      "2026-08-18",
-      "2026-09-14"
+      "2026-08-20",
+      "2026-09-16"
     ],
     "previous": [
-      "2026-07-21",
-      "2026-08-17"
+      "2026-07-23",
+      "2026-08-19"
     ]
   },
   "totals": {
     "current": {
-      "clicks": 24,
-      "impressions": 1299,
-      "ctr": 0.0185,
-      "position": 18.2
+      "clicks": 31,
+      "impressions": 1695,
+      "ctr": 0.0183,
+      "position": 17.7
     },
     "previous": null
   },
   "pages": [
     {
-      "clicks": 14,
-      "impressions": 370,
-      "ctr": 0.0378,
-      "position": 10.8,
+      "clicks": 20,
+      "impressions": 503,
+      "ctr": 0.0398,
+      "position": 9.4,
       "page": "https://www.iboadvisors.com/",
       "prev": null
     },
@@ -40,18 +40,26 @@
     },
     {
       "clicks": 2,
-      "impressions": 159,
-      "ctr": 0.0126,
-      "position": 5.8,
+      "impressions": 175,
+      "ctr": 0.0114,
+      "position": 5.7,
       "page": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "prev": null
     },
     {
       "clicks": 1,
-      "impressions": 196,
-      "ctr": 0.0051,
-      "position": 46.5,
+      "impressions": 270,
+      "ctr": 0.0037,
+      "position": 45.1,
       "page": "https://iboadvisors.com/business-valuation-calculator",
+      "prev": null
+    },
+    {
+      "clicks": 1,
+      "impressions": 47,
+      "ctr": 0.0213,
+      "position": 10.6,
+      "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "prev": null
     },
     {
@@ -80,65 +88,57 @@
     },
     {
       "clicks": 0,
-      "impressions": 83,
+      "impressions": 133,
       "ctr": 0,
-      "position": 16,
+      "position": 13.3,
       "page": "https://www.iboadvisors.com/blog",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 5,
       "ctr": 0,
-      "position": 6.1,
-      "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 4,
-      "ctr": 0,
-      "position": 7.5,
+      "position": 6.2,
       "page": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 4.7,
+      "position": 8,
       "page": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 42,
-      "ctr": 0,
-      "position": 65.2,
-      "page": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 14,
-      "ctr": 0,
-      "position": 12.4,
-      "page": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "prev": null
     },
     {
       "clicks": 0,
       "impressions": 44,
       "ctr": 0,
-      "position": 5.5,
+      "position": 63.7,
+      "page": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 17.6,
+      "page": "https://www.iboadvisors.com/blog/healthcare-services-ma",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 71,
+      "ctr": 0,
+      "position": 6.4,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 42,
       "ctr": 0,
-      "position": 8.8,
+      "position": 14,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "prev": null
     },
@@ -152,33 +152,33 @@
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 17,
       "ctr": 0,
-      "position": 5.8,
+      "position": 8.1,
       "page": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 66,
+      "impressions": 69,
       "ctr": 0,
-      "position": 24.9,
+      "position": 24.5,
       "page": "https://www.iboadvisors.com/blog/management-buyout-financing",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 157,
+      "impressions": 164,
       "ctr": 0,
-      "position": 10,
+      "position": 10.4,
       "page": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 53,
+      "impressions": 55,
       "ctr": 0,
-      "position": 11.3,
+      "position": 11.1,
       "page": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "prev": null
     },
@@ -192,44 +192,60 @@
     },
     {
       "clicks": 0,
-      "impressions": 24,
+      "impressions": 37,
       "ctr": 0,
-      "position": 5.5,
+      "position": 8.9,
       "page": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 14,
       "ctr": 0,
-      "position": 5.1,
+      "position": 9.5,
       "page": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 1,
       "ctr": 0,
-      "position": 6.1,
+      "position": 1,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-a-private-equity-buyout",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 95,
+      "ctr": 0,
+      "position": 11.9,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 29,
       "ctr": 0,
-      "position": 6.3,
+      "position": 8.3,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "prev": null
     }
   ],
   "queries": [
     {
-      "clicks": 12,
-      "impressions": 23,
-      "ctr": 0.5217,
+      "clicks": 15,
+      "impressions": 29,
+      "ctr": 0.5172,
       "position": 1,
       "query": "ibo advisors",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5,
+      "query": "\"search funds keep offering a proven path to ownership\"",
       "prev": null
     },
     {
@@ -238,6 +254,14 @@
       "ctr": 0,
       "position": 9,
       "query": "\"shareholder capital\" business consultant",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 66,
+      "query": "basic business valuation calculator",
       "prev": null
     },
     {
@@ -300,7 +324,15 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 67,
+      "position": 50,
+      "query": "broken deal costs",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 65.5,
       "query": "business appraisal calculator",
       "prev": null
     },
@@ -330,9 +362,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 50,
+      "impressions": 62,
       "ctr": 0,
-      "position": 71.4,
+      "position": 70.5,
       "query": "business valuation calculator",
       "prev": null
     },
@@ -362,10 +394,26 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 8,
       "ctr": 0,
-      "position": 73,
+      "position": 71.1,
       "query": "business value calculator",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70,
+      "query": "business value estimator",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25,
+      "query": "buy out private equity",
       "prev": null
     },
     {
@@ -378,33 +426,49 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 11,
       "ctr": 0,
-      "position": 21,
+      "position": 25.4,
       "query": "buyout private equity",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 4,
       "ctr": 0,
-      "position": 62,
+      "position": 62.8,
       "query": "calculate company valuation online",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 1,
       "ctr": 0,
-      "position": 71,
-      "query": "calculator for business valuation",
+      "position": 82,
+      "query": "calculate company value",
       "prev": null
     },
     {
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 55,
+      "position": 85,
+      "query": "calculate value of company",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 69.7,
+      "query": "calculator for business valuation",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62,
       "query": "company valuation calculator",
       "prev": null
     },
@@ -426,6 +490,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 86,
+      "query": "equity rollover body shop sale",
+      "prev": null
+    },
+    {
+      "clicks": 0,
       "impressions": 2,
       "ctr": 0,
       "position": 81.5,
@@ -438,6 +510,14 @@
       "ctr": 0,
       "position": 75,
       "query": "estimate business value calculator",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "query": "evaluate the private equity company permira on how to sell company to private equity",
       "prev": null
     },
     {
@@ -490,9 +570,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 76.4,
+      "position": 75.5,
       "query": "how much can i sell my business for calculator",
       "prev": null
     },
@@ -530,9 +610,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 38.5,
+      "position": 37,
       "query": "ib advisory",
       "prev": null
     },
@@ -546,17 +626,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 25,
+      "position": 26.3,
       "query": "ibo consulting",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 19,
       "ctr": 0,
-      "position": 5.8,
+      "position": 5.7,
       "query": "ibo finance",
       "prev": null
     },
@@ -586,9 +666,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 16.8,
+      "position": 17,
       "query": "ibo investing",
       "prev": null
     },
@@ -610,17 +690,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 5.5,
+      "position": 6.3,
       "query": "ibo meaning business",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 14,
+      "impressions": 17,
       "ctr": 0,
-      "position": 9,
+      "position": 10.5,
       "query": "ibo meaning in business",
       "prev": null
     },
@@ -658,17 +738,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 14,
       "ctr": 0,
-      "position": 5.9,
+      "position": 6,
       "query": "independent buyout",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 8,
       "ctr": 0,
-      "position": 2.3,
+      "position": 2.1,
       "query": "independent buyout (ibo)",
       "prev": null
     },
@@ -850,9 +930,33 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 4,
       "ctr": 0,
-      "position": 73.6,
+      "position": 28,
+      "query": "pe buyout",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 20.7,
+      "query": "private equity buyout",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28,
+      "query": "private equity buyouts",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 73.9,
       "query": "private equity minority investments",
       "prev": null
     },
@@ -862,6 +966,14 @@
       "ctr": 0,
       "position": 36,
       "query": "que es un ibo",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72,
+      "query": "quick company valuation",
       "prev": null
     },
     {
@@ -924,7 +1036,31 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 26,
+      "position": 66,
+      "query": "sell-side m&a infusion services",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34,
+      "query": "selling business to pe",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30.5,
+      "query": "selling private equity",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 28.3,
       "query": "selling to private equity",
       "prev": null
     },
@@ -932,15 +1068,23 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 74,
+      "position": 32,
+      "query": "selling your business to private equity",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 72.7,
       "query": "simple business valuation calculator",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 72,
+      "position": 70,
       "query": "simple business value calculator",
       "prev": null
     },
@@ -962,17 +1106,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 72,
+      "position": 70.6,
       "query": "valuation business calculator",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 10,
       "ctr": 0,
-      "position": 75,
+      "position": 73.1,
       "query": "valuation calculator business",
       "prev": null
     },
@@ -986,10 +1130,18 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "ctr": 0,
-      "position": 67.9,
+      "position": 66.9,
       "query": "valuation of business calculator",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "query": "valuation of the company",
       "prev": null
     },
     {
@@ -1028,6 +1180,14 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
+      "position": 10,
+      "query": "what are the best alternatives to a global buyout private equity fund?",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
       "position": 47,
       "query": "what are the best examples of buyout strategies for diversified businesses?",
       "prev": null
@@ -1042,9 +1202,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 8,
+      "position": 12.5,
       "query": "what happens when private equity buys a company",
       "prev": null
     },
@@ -1054,6 +1214,14 @@
       "ctr": 0,
       "position": 8,
       "query": "what is a ibo",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 26,
+      "query": "what is a private equity buyout",
       "prev": null
     },
     {
@@ -1074,9 +1242,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "ctr": 0,
-      "position": 7.8,
+      "position": 8.3,
       "query": "what is an ibo in business",
       "prev": null
     },
@@ -1090,9 +1258,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 6.5,
+      "position": 6.6,
       "query": "what is an independent buyout",
       "prev": null
     },
@@ -1139,9 +1307,9 @@
   ],
   "pageQueries": [
     {
-      "clicks": 10,
-      "impressions": 19,
-      "ctr": 0.5263,
+      "clicks": 13,
+      "impressions": 25,
+      "ctr": 0.52,
       "position": 1.1,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo advisors"
@@ -1294,7 +1462,15 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 67,
+      "position": 66,
+      "page": "https://iboadvisors.com/business-valuation-calculator",
+      "query": "basic business valuation calculator"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 65.5,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "business appraisal calculator"
     },
@@ -1308,9 +1484,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 50,
+      "impressions": 62,
       "ctr": 0,
-      "position": 71.4,
+      "position": 70.5,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "business valuation calculator"
     },
@@ -1340,9 +1516,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 8,
       "ctr": 0,
-      "position": 73,
+      "position": 71.1,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "business value calculator"
     },
@@ -1350,23 +1526,47 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 62,
+      "position": 70,
+      "page": "https://iboadvisors.com/business-valuation-calculator",
+      "query": "business value estimator"
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 62.8,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "calculate company valuation online"
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 1,
       "ctr": 0,
-      "position": 71,
+      "position": 82,
       "page": "https://iboadvisors.com/business-valuation-calculator",
-      "query": "calculator for business valuation"
+      "query": "calculate company value"
     },
     {
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 55,
+      "position": 85,
+      "page": "https://iboadvisors.com/business-valuation-calculator",
+      "query": "calculate value of company"
+    },
+    {
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 69.7,
+      "page": "https://iboadvisors.com/business-valuation-calculator",
+      "query": "calculator for business valuation"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "company valuation calculator"
     },
@@ -1412,9 +1612,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 76.4,
+      "position": 75.5,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "how much can i sell my business for calculator"
     },
@@ -1444,7 +1644,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
       "position": 2.4,
       "page": "https://iboadvisors.com/business-valuation-calculator",
@@ -1468,17 +1668,25 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 74,
+      "position": 72,
+      "page": "https://iboadvisors.com/business-valuation-calculator",
+      "query": "quick company valuation"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 72.7,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "simple business valuation calculator"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 72,
+      "position": 70,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "simple business value calculator"
     },
@@ -1492,17 +1700,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 72,
+      "position": 70.6,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "valuation business calculator"
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 10,
       "ctr": 0,
-      "position": 75,
+      "position": 73.1,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "valuation calculator business"
     },
@@ -1516,9 +1724,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "ctr": 0,
-      "position": 67.9,
+      "position": 66.9,
       "page": "https://iboadvisors.com/business-valuation-calculator",
       "query": "valuation of business calculator"
     },
@@ -1620,9 +1828,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 41,
+      "position": 37.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ib advisory"
     },
@@ -1636,17 +1844,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 27,
+      "position": 28,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo consulting"
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 12,
       "ctr": 0,
-      "position": 5.9,
+      "position": 5.7,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo finance"
     },
@@ -1668,9 +1876,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 16.3,
+      "position": 16.6,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo investing"
     },
@@ -1692,9 +1900,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 10.3,
+      "position": 8,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ibo meaning business"
+    },
+    {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 11,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo meaning in business"
     },
@@ -1724,17 +1940,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "ctr": 0,
-      "position": 6,
+      "position": 6.3,
       "page": "https://www.iboadvisors.com/",
       "query": "independent buyout"
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 2,
+      "position": 1.8,
       "page": "https://www.iboadvisors.com/",
       "query": "independent buyout (ibo)"
     },
@@ -1772,9 +1988,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 7,
       "ctr": 0,
-      "position": 9.5,
+      "position": 9.6,
       "page": "https://www.iboadvisors.com/",
       "query": "what is an ibo in business"
     },
@@ -1788,9 +2004,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 6.5,
+      "position": 6.6,
       "page": "https://www.iboadvisors.com/",
       "query": "what is an independent buyout"
     },
@@ -1862,25 +2078,49 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 50,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "broken deal costs"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 30,
       "page": "https://www.iboadvisors.com/blog",
       "query": "full potential plan"
     },
     {
       "clicks": 0,
-      "impressions": 16,
+      "impressions": 22,
       "ctr": 0,
-      "position": 2.3,
+      "position": 2.1,
       "page": "https://www.iboadvisors.com/blog",
       "query": "ibo advisors"
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 11,
+      "position": 29,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "ibo meaning in business"
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.5,
       "page": "https://www.iboadvisors.com/blog",
       "query": "independent buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "independent buyout (ibo)"
     },
     {
       "clicks": 0,
@@ -1980,11 +2220,27 @@
     },
     {
       "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5,
+      "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
+      "query": "\"search funds keep offering a proven path to ownership\""
+    },
+    {
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
       "position": 1,
       "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "query": "ibo advisors"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10,
+      "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
+      "query": "what are the best alternatives to a global buyout private equity fund?"
     },
     {
       "clicks": 0,
@@ -2030,13 +2286,21 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 66,
+      "page": "https://www.iboadvisors.com/blog/healthcare-services-ma",
+      "query": "sell-side m&a infusion services"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 52,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "query": "buyout financings"
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 7,
       "ctr": 0,
       "position": 1.7,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
@@ -2052,7 +2316,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
+      "query": "evaluate the private equity company permira on how to sell company to private equity"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
       "ctr": 0,
       "position": 1,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
@@ -2062,9 +2334,33 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 26,
+      "position": 34,
+      "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
+      "query": "selling business to pe"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30.5,
+      "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
+      "query": "selling private equity"
+    },
+    {
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 28.3,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "query": "selling to private equity"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 32,
+      "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
+      "query": "selling your business to private equity"
     },
     {
       "clicks": 0,
@@ -2308,9 +2604,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 9,
       "ctr": 0,
-      "position": 73.6,
+      "position": 73.9,
       "page": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
       "query": "private equity minority investments"
     },
@@ -2374,21 +2670,37 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 86,
+      "page": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
+      "query": "equity rollover body shop sale"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 5,
       "page": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "query": "ibo advisors"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 21,
+      "position": 25,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "buy out private equity"
+    },
+    {
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 25.4,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "query": "buyout private equity"
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
       "position": 2,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
@@ -2396,11 +2708,51 @@
     },
     {
       "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 28,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "pe buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 20.7,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "private equity buyout"
+    },
+    {
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 8,
+      "position": 28,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "private equity buyouts"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "query": "what happens when private equity buys a company"
+    },
+    {
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 26,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "what is a private equity buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
+      "query": "what is an independent buyout"
     },
     {
       "clicks": 0,
@@ -2409,6 +2761,14 @@
       "position": 6,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "ibo advisors"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "page": "https://www.iboadvisors.com/business-valuation-calculator",
+      "query": "valuation of the company"
     }
   ],
   "opportunities": {
@@ -2441,19 +2801,27 @@
     "lowCtr": [
       {
         "clicks": 2,
-        "impressions": 159,
-        "ctr": 0.0126,
-        "position": 5.8,
+        "impressions": 175,
+        "ctr": 0.0114,
+        "position": 5.7,
         "page": "https://www.iboadvisors.com/blog/independent-buyout-explained",
         "expectedCtr": 0.03
       },
       {
         "clicks": 0,
-        "impressions": 157,
+        "impressions": 164,
         "ctr": 0,
-        "position": 10,
+        "position": 10.4,
         "page": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
-        "expectedCtr": 0.03
+        "expectedCtr": 0.01
+      },
+      {
+        "clicks": 0,
+        "impressions": 133,
+        "ctr": 0,
+        "position": 13.3,
+        "page": "https://www.iboadvisors.com/blog",
+        "expectedCtr": 0.01
       }
     ],
     "cannibalization": [
@@ -2462,7 +2830,7 @@
         "pages": [
           {
             "page": "https://www.iboadvisors.com/",
-            "impressions": 19,
+            "impressions": 25,
             "position": 1.1
           },
           {
@@ -2472,7 +2840,7 @@
           },
           {
             "page": "https://iboadvisors.com/business-valuation-calculator",
-            "impressions": 9,
+            "impressions": 10,
             "position": 2.4
           },
           {
@@ -2492,8 +2860,8 @@
           },
           {
             "page": "https://www.iboadvisors.com/blog",
-            "impressions": 16,
-            "position": 2.3
+            "impressions": 22,
+            "position": 2.1
           },
           {
             "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
@@ -2507,12 +2875,12 @@
           },
           {
             "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
-            "impressions": 6,
+            "impressions": 7,
             "position": 1.7
           },
           {
             "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
-            "impressions": 2,
+            "impressions": 3,
             "position": 1
           },
           {
@@ -2537,7 +2905,7 @@
           },
           {
             "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
-            "impressions": 3,
+            "impressions": 4,
             "position": 2
           },
           {

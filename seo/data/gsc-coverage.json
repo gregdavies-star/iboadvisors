@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-17T15:25:16.024Z",
+  "inspectedAt": "2026-09-19T14:07:06.194Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -11,15 +11,6 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T07:51:48Z",
-      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/blog",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
@@ -27,6 +18,22 @@
       "googleCanonical": "https://www.iboadvisors.com/blog",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-18T09:43:06Z",
+      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
@@ -41,17 +48,10 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-14T00:47:27Z",
+      "lastCrawlTime": "2026-09-18T11:54:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
@@ -66,7 +66,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-13T23:29:01Z",
+      "lastCrawlTime": "2026-09-18T14:24:00Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -75,7 +75,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T21:57:40Z",
+      "lastCrawlTime": "2026-09-17T15:05:49Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -93,7 +93,7 @@
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-13T19:50:14Z",
+      "lastCrawlTime": "2026-09-18T09:24:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -174,7 +174,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T12:55:27Z",
+      "lastCrawlTime": "2026-09-18T04:24:02Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -192,7 +192,7 @@
       "url": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T20:06:08Z",
+      "lastCrawlTime": "2026-09-18T06:54:02Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
