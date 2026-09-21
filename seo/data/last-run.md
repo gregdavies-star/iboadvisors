@@ -1,37 +1,41 @@
-# Daily SEO run — 2026-09-17
+# Daily SEO run — 2026-09-19
 
-Coverage day: the only non-PASS sitemap URL moved from "unknown to Google" back to "Discovered - currently not indexed", so rule 2 took the budget. Every title, meta and expansion rule is in cool-down; the rest of the run was internal links. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
+New-post day: the trailing-7-day cap had room for one, and the largest uncovered demand in GSC is the management-buyout family — 49 impressions at positions 28-30 against a single page. Every title, meta and expansion rule is in cool-down. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
 
-## GSC totals — 28 days (2026-08-18 → 09-14)
+## GSC totals — 28 days (2026-08-20 → 09-16)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 24 | 1,299 | 1.85% | 18.2 |
+| Current | 31 | 1,695 | 1.83% | 17.7 |
 | Prior 28d | — | — | — | — |
 
-`totals.previous` is null for the sixth run — not a bug: the property holds no data before 2026-08-18, where the current window starts. It fills a day at a time, so **rule 6 gives false decliners until ~2026-10-15**.
+`totals.previous` is still null — no data before 2026-08-18 — so **rule 6 is unusable until ~2026-10-15**; `decliners` is empty for that reason.
 
-## Changes — 3 pages
+## Changes
 
-**`/blog/family-business-succession-planning`** — expand. Only non-PASS URL; 1,884 → 2,542 words. New section on the 2026 estate/gift numbers — $15,000,000 basic exclusion (from $13,990,000), $19,000 gift exclusion, 40% top rate, § 6166's ten-installment deferral — applied to the invented $23M-equity company already in the post. Every figure opened on IRS.gov and Cornell LII, added to Sources. Links out to `/blog/choosing-an-ma-advisory-firm` and `/blog/the-broken-owner-exit-conversation`, each at 3 in-body inbound.
+**`/blog/management-buyout-vs-private-equity`** — new post, 1,920 words plus two tables. Uncovered priority-2 keyword; "management buyout" (15 impr @ 28.6), "management buyout financing" (13 @ 29.5) and variants are served today only by `/blog/management-buyout-financing`. Built on an invented $6M-EBITDA company: a 5.0x MBO against a 6.8x sponsor deal turns a $10.8M headline gap into a $13.1M gap in cash at closing. Every figure comes from a source opened with WebFetch (CT Acquisitions, GF Data via CapitalPad, Bain, Chambers, Goodwin, Cornell LII). 13 outbound internal links incl. the calculator.
 
-**`/blog/how-pe-firms-value-a-company`** — link. `/blog/restaurant-ma` (45 impr @ 7.0) and `/blog/healthcare-services-ma` (14 @ 12.4) sat at 3 inbound; donor has 15 and already covers sector multiple spread.
+**4 link edits**, all donors for the new post, all under 150 words so no `Updated` bumps: `/blog/management-buyout-financing` (69 impr), `/blog/how-to-sell-a-business-to-private-equity` (42), `/blog/exit-planning-for-business-owners` (44), `/blog/business-exit-planning-every-option`.
 
-**`/blog/minority-pe-stake-board-control-veto-rights`** — link. `/blog/how-to-sell-a-business-to-private-equity` sat at 3 inbound on a priority-2 keyword; donor is the #2 page by impressions (157 @ 10). Neither donor edit reached 150 words, so no `Updated` bump.
+**`seo/keywords.json`** — "what happens after private equity buys your company" has had a page since 09-12 but was never marked `covered`, so rule 7 could have re-picked it. Fixed, plus the new keyword.
 
 ## Skipped
 
-- **Rule 3** — IBO explainer (159 impr, 1.26% vs 3.0%) rewritten 09-15, eligible 10-13; veto-rights post (157 impr, 0 clicks) 09-08, eligible 10-06.
-- **Rule 4** — all 3 rows are the homepage (body barred) or the IBO explainer, in cool-down and already the direct answer.
+- **Rule 3** — all 3 `lowCtr` rows in cool-down: IBO explainer (175 impr, 1.14%) rewritten 09-15; veto-rights (164, 0 clicks) and `/blog` both 09-08.
+- **Rule 4** — 2 rows are the homepage (body barred); the third is the IBO explainer, edited 09-15 and already the direct answer.
 - **Rule 5** — 2 of 3 rows are apex/www twins predating the 308.
-- **Rule 7** — cap met: 2 posts in the trailing 7 days.
+- **Rule 7** — "selling to private equity pros and cons" ranks higher in `keywords.json` but draws no impressions, and two pages already target the head term.
+
+## Coverage
+
+`/blog/family-business-succession-planning` is the only non-PASS URL, still "Discovered - currently not indexed". On-page remedies are exhausted (2,542 words, 12 inbound, indexable) — it needs a manual index request.
 
 ## Needs a human
 
-1. **Authorize the calculator title/meta rewrite** (74 → ≤60; 194 → ≤155) — the only warnings left and the biggest gap: ~115 impressions across ~30 "business valuation calculator" variants at positions 55-82, 1 click. Rule 3 does not fire. Third ask.
-2. **Request indexing** for the succession post — on-page is complete (2,542 words, 11 inbound, indexable); "Discovered" means uncrawled.
-3. **"what is an ibo"** — the explainer (26 impr @ 7.0) should beat the homepage (32 @ 9.7), but the homepage has one outbound internal link, none to it. Barred.
+1. **Authorize the calculator title/meta rewrite** (74 → ≤60; 194 → ≤155): ~115 impressions across ~30 variants at positions 55-82, 1 click. Rule 3 does not fire. Fourth ask.
+2. **Request indexing** for the succession post.
+3. **"what is an ibo"** (60 impr @ 8.5) — the explainer (26 @ 7.0) should outrank the homepage (32 @ 9.7), but the homepage links to it nowhere and that is barred body copy.
 
 ## Flagged
 
-Nothing. Grep for the banned phrasings returns zero matches. `/blog/choosing-an-ma-advisory-firm` re-checked: deal counts gone, approved "$1.8 billion" line intact — that flag stays dropped.
+Nothing; the banned-phrasing grep returns zero matches site-wide.
