@@ -58,6 +58,11 @@
       "source": "/blog/independent-buyout-vs-private-equity",
       "destination": "/blog/ibo-vs-pe-numbers-comparison",
       "permanent": true
+    },
+    {
+      "source": "/blog/what-happens-after-a-private-equity-buyout",
+      "destination": "/blog/what-happens-after-private-equity-buys-your-company",
+      "permanent": true
     }
   ]
 }

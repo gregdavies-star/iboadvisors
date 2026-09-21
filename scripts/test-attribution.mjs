@@ -95,7 +95,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await fillModal(page);
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
-  check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && f.ibo_form_ad_id === 'ibo-q3-carousel' && f.ibo_form_platform_id === 'linkedin' && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
+  check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && !('ibo_form_ad_id' in f) && !('ibo_form_platform_id' in f) && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
   check('modal redirects to scheduler with utms', page.url().includes('utm_source=linkedin') && page.url().includes('li_fat_id=abc123'), page.url().slice(0, 130));
   await ctx.close();
 }
@@ -280,7 +280,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('scheduler url carries ibo_meeting_* params',
     q.get('ibo_meeting_source') === 'linkedin' && q.get('ibo_meeting_medium') === 'paid_social' &&
     q.get('ibo_meeting_campaign') === 'ibo_q3' && q.get('ibo_meeting_content') === 'carousel_a' &&
-    q.get('ibo_meeting_ad_id') === 'ibo-q3-carousel' && q.get('ibo_meeting_platform_id') === 'linkedin' &&
+    q.get('ibo_meeting_ad_id') === null && q.get('ibo_meeting_platform_id') === null &&
     !!q.get('ibo_meeting_landing_url') && /^\d+$/.test(q.get('ibo_meeting_timestamp') || ''),
     [...q].filter(([k]) => k.startsWith('ibo_meeting_')).map(([k, v]) => `${k}=${v}`).join(' '));
   check('scheduler url still carries raw utm_* for HubSpot built-ins',
@@ -525,6 +525,46 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     JSON.stringify(second));
   check('the lead still converts on the identity-only retry',
     page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 70));
+  await ctx.close();
+}
+
+/* ---- 18. ad_id / platform_id are resolved but never written to HubSpot ----
+   Those two properties belong to the LinkedIn lead-gen sync, which puts its
+   own numeric identifiers in them. The site must stay out of both columns
+   while still capturing the values for its own use. ---- */
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  await page.goto(`${BASE}/?${UTM}`);
+
+  // Still resolved and readable — only the HubSpot mapping is off.
+  const attr = await page.evaluate(() => window.iboTracking.attribution());
+  check('ad_id and platform_id are still resolved in attribution()',
+    attr.ad_id === 'ibo-q3-carousel' && attr.platform_id === 'linkedin',
+    `ad_id=${attr.ad_id} platform_id=${attr.platform_id}`);
+
+  await fillModal(page);
+  await page.waitForTimeout(600);
+  const names = submissions[0].body.fields.map((f) => f.name);
+  check('no ad_id / platform_id property is submitted',
+    !names.some((n) => n.endsWith('_ad_id') || n.endsWith('_platform_id')),
+    names.filter((n) => n.startsWith('ibo_')).join(','));
+
+  // The rest of the attribution is untouched by the change.
+  check('the other attribution fields still submit',
+    ['ibo_form_source', 'ibo_form_medium', 'ibo_form_campaign', 'ibo_form_content',
+     'ibo_form_uuid', 'ibo_form_landing_url', 'ibo_form_timestamp']
+      .every((n) => names.includes(n)));
+
+  const q = new URL(page.url()).searchParams;
+  check('scheduler url carries no ad_id / platform_id either',
+    q.get('ibo_meeting_ad_id') === null && q.get('ibo_meeting_platform_id') === null &&
+    q.get('ibo_meeting_source') === 'linkedin',
+    [...q].filter(([k]) => k.startsWith('ibo_meeting_')).map(([k]) => k).join(' '));
+
+  // The raw params still reach the scheduler, so nothing is lost upstream.
+  check('raw sl / click-id params still reach the scheduler',
+    q.get('sl') === 'ibo-q3-carousel' && q.get('li_fat_id') === 'abc123');
   await ctx.close();
 }
 
