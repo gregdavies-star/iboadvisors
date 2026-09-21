@@ -52,15 +52,29 @@
      form in modal.js), or HubSpot rejects the field.
 
      Setting a slot to null stops it being sent while it is still captured and
-     persisted — which is what `term` is. utm_term is deliberately not stored
-     on the contact: keyword-level data is not used here, so no "IBO Form Term"
-     property exists. It is still collected and carried to the scheduler, so
-     naming a property here is all it would take to start storing it.
+     persisted. Three slots are null, for two different reasons:
+
+       term          keyword-level data is not used here, so no "IBO Form Term"
+                     property was ever created.
+
+       ad_id         the * Ad ID and * Platform ID properties are owned by the
+       platform_id   LinkedIn lead-gen sync, which writes its own numeric ad
+                     and account identifiers into them (1563942664,
+                     1003601774). The site would write a short-link slug and a
+                     platform name into the same columns, which means neither
+                     source can be grouped or filtered on afterwards. The sync
+                     was there first and its values are self-consistent, so the
+                     site stays out of those two properties.
+
+     All three are still captured, persisted and carried to the scheduler, and
+     are readable through attribution() — naming a property here is all it
+     would take to start storing any of them. If the site ever needs its own
+     ad/platform columns, create separate properties rather than reusing these.
 
      The two families are parallel by design. IBO Form * records the campaign
      that produced the form submission; IBO Meeting * records the campaign on
      the meeting booking that follows it, and is populated from the query
-     string this module puts on the scheduler URL (see schedulerUrl). uuid is
+     string this module puts on the scheduler URL (see withUtms). uuid is
      the same value in both, so a form submission and the meeting it led to
      can be joined.
      ------------------------------------------------------------------ */
@@ -70,8 +84,8 @@
     campaign: 'ibo_form_campaign',
     content: 'ibo_form_content',
     term: null,                          // no "IBO Form Term" property exists
-    ad_id: 'ibo_form_ad_id',
-    platform_id: 'ibo_form_platform_id',
+    ad_id: null,                         // owned by the LinkedIn lead-gen sync
+    platform_id: null,                   // owned by the LinkedIn lead-gen sync
     uuid: 'ibo_form_uuid',
     landing_url: 'ibo_form_landing_url',
     timestamp: 'ibo_form_timestamp'
@@ -82,8 +96,8 @@
     medium: 'ibo_meeting_medium',
     campaign: 'ibo_meeting_campaign',
     content: 'ibo_meeting_content',
-    ad_id: 'ibo_meeting_ad_id',
-    platform_id: 'ibo_meeting_platform_id',
+    ad_id: null,                         // owned by the LinkedIn lead-gen sync
+    platform_id: null,                   // owned by the LinkedIn lead-gen sync
     uuid: 'ibo_meeting_uuid',
     landing_url: 'ibo_meeting_landing_url',
     timestamp: 'ibo_meeting_timestamp'
@@ -96,8 +110,14 @@
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
-  /* IBO Form Ad ID holds the shortened link the visitor clicked — one short
-     link per ad, so the field says which ad produced the lead.
+  /* The shortened link the visitor clicked — one short link per ad, so it
+     identifies which ad produced the lead.
+
+     NOT written to HubSpot: the * Ad ID properties belong to the LinkedIn
+     lead-gen sync (see HUBSPOT_FIELDS above). This is captured, persisted and
+     exposed through attribution() for whenever the site gets a column of its
+     own, and the resolution below is kept working so that switch stays a
+     one-line change.
 
      The short link has to name itself in its own destination URL. There is no
      way to recover it afterwards: a shortener redirects with a 301, which
@@ -116,9 +136,13 @@
      Add the param you actually use to this list if it is not one of these. */
   var AD_ID_KEYS = ['sl', 'short_link', 'shortlink', 'utm_ad_id', 'ad_id', 'utm_id'];
 
-  /* IBO Form Platform ID holds the normalised name of the platform the click
-     came from — "linkedin", "meta", "google" — not a raw identifier, so the
-     field groups cleanly in HubSpot reports however the ad URLs were tagged.
+  /* The normalised name of the platform the click came from — "linkedin",
+     "meta", "google" — rather than a raw identifier, so it would group
+     cleanly however the ad URLs happen to be tagged.
+
+     NOT written to HubSpot, for the same reason as ad_id above: the
+     * Platform ID properties belong to the LinkedIn lead-gen sync, which puts
+     numeric account IDs in them. Captured and exposed through attribution().
 
      Resolved in order: the utm_source spelling, then the click ID the platform
      stamped on the URL, then the referring domain. A visitor from a LinkedIn
