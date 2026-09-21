@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T16:54:41.534Z",
+  "generatedAt": "2026-09-21T16:55:11.925Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 22,
-      "outboundInternalLinks": 21,
+      "inboundInternalLinks": 23,
+      "outboundInternalLinks": 22,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
       "descriptionLength": 142,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2128,
+      "words": 2160,
       "date": "2026-09-08",
-      "inboundInternalLinks": 14,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 15,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1761,
       "date": "2025-12-20",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -75,7 +75,7 @@
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
       "words": 1614,
       "date": "2025-11-21",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -101,7 +101,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2371,
       "date": "2026-09-10",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1863,
+      "words": 1899,
       "date": "2026-09-08",
-      "inboundInternalLinks": 16,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -138,10 +138,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2051,
+      "words": 2080,
       "date": "2026-09-13",
-      "inboundInternalLinks": 6,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -153,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1814,
       "date": "2026-09-05",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1789,
       "date": "2026-09-08",
-      "inboundInternalLinks": 15,
+      "inboundInternalLinks": 16,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -231,7 +231,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1679,
       "date": "2026-09-08",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -257,8 +257,21 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1463,
       "date": "2026-07-06",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 7,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
+      "title": "Selling to Private Equity: Pros and Cons | IBO Advisors",
+      "titleLength": 55,
+      "description": "The pros and cons of selling to private equity at $3M+ EBITDA: the price and the scale premium, against debt, lost control and a seven-year hold.",
+      "descriptionLength": 145,
+      "h1": "Selling to Private Equity: Pros and Cons",
+      "words": 2172,
+      "date": "2026-09-20",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -276,15 +289,15 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
-      "title": "What Happens After a Private Equity Buyout | IBO Advisors",
-      "titleLength": 57,
-      "description": "What happens after private equity buys your company: the debt on your balance sheet, the 100-day plan, the board seats, the fees, the exit clock.",
-      "descriptionLength": 145,
+      "title": "Private Equity Buyout: What Happens Years 1-7 | IBO Advisors",
+      "titleLength": 60,
+      "description": "What happens after a private equity buyout, year by year: the debt on your balance sheet, the consent list, 65% CEO turnover, and a seven-year hold.",
+      "descriptionLength": 148,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2130,
+      "words": 2132,
       "date": "2026-09-12",
       "inboundInternalLinks": 6,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -296,7 +309,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 22,
       "outboundInternalLinks": 5,
       "issues": [
         {
