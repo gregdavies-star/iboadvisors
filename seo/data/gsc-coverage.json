@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-20T14:26:11.309Z",
+  "inspectedAt": "2026-09-21T16:45:40.880Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -23,7 +23,7 @@
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-18T09:43:06Z",
+      "lastCrawlTime": "2026-09-21T03:36:40Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

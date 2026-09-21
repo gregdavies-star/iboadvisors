@@ -1,38 +1,36 @@
-# Daily SEO run — 2026-09-20
+# Daily SEO run — 2026-09-21
 
-First run since 09-17, so the new-post cap had room: one post against the highest-priority uncovered keyword, plus the one title/meta rewrite out of cool-down. Everything else in rules 3-5 is still inside its window. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
+First run since 09-17, and the first with the new-post window open again (last post 09-13). Rules 3, 4 and 5 are all blocked — cool-downs, the homepage body bar, or the apex/www twins — so the budget went to one new post plus the three inbound links it needed. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
 
-## GSC totals — 28 days (2026-08-21 → 09-17)
+## GSC totals — 28 days (2026-08-22 → 09-18)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 36 | 1,817 | 1.98% | 17.4 |
+| Current | 40 | 1,923 | 2.08% | 17.3 |
 | Prior 28d | — | — | — | — |
 
-`totals.previous` is null for the seventh run: the property holds no data before 2026-08-18. **Rule 6 stays unusable until ~2026-10-15.**
+`totals.previous` is still null — the property holds no data before the current window starts, so **rule 6 produces no decliners until ~2026-10-15**. Clicks +67% and impressions +48% against the 09-14 pull, but that is window fill, not growth.
 
-## Changes — 4 pages + 1 new post
+## Changes — 1 new post, 3 link edits
 
-**`/blog/selling-to-private-equity-pros-and-cons`** — new post, 2,172 words (over the 2,000 guide; siblings run 1,814-2,128). Highest-priority uncovered keyword in `keywords.json`, with 16 impressions across "selling to private equity" variants at positions 28-31 and only the process post targeting them. A ledger with a number on each line, linking out rather than overlapping the process, alternatives and post-close posts. Five sources, all opened with WebFetch — GF Data's size premium via CapitalPad (6.7x at $3-5M EBITDA vs 8.3x above $10M), add-ons at 75.9% of Q2 2025 buyouts, NBER 26371, AlixPartners March 2026, the ~7-year hold — plus a worked hypothetical on an invented $5M EBITDA company. 13 internal links incl. the calculator.
+**`/blog/selling-to-private-equity-pros-and-cons`** — new post, 1,912 words. Highest-priority uncovered keyword in `keywords.json` (cluster 2). GSC already shows 16 impressions across `selling to private equity` (9 @ 28.6), `selling your business to private equity` (3 @ 31), `selling private equity` (3 @ 29.7) and `selling business to pe` (1 @ 34) with no page serving the evaluative intent — the existing posts cover process and post-close, not the decision. Differentiated by a worked after-tax ledger: a made-up $5M-EBITDA company at 7.0x becomes $19.23M in hand, 55% of the $35M headline. Every figure is public record or invented arithmetic; all 7 sources opened with WebFetch (GF Data Q3 2025, CapitalPad's GF Data size ladder, Bain PE Outlook 2026, SRS Acquiom deal terms via PE Professional, AlixPartners survey, IRS Topic 409, IRS NIIT). 14 internal links including the calculator.
 
-**`/blog/what-happens-after-private-equity-buys-your-company`** — title + meta. `lowCtr`: 118 impressions, 0 clicks at position 12.4, never rewritten since publishing 09-12. New tag leads with the query family it actually ranks for ("private equity buyout"/"pe buyout", 30 impr at 20-28).
+**`/blog/how-to-sell-a-business-to-private-equity`**, **`/blog/what-happens-after-private-equity-buys-your-company`**, **`/blog/alternatives-to-selling-to-private-equity`** — link. Three inbound links for the new post from the indexed pages that rank on the adjacent queries (61, 146 and 72 impressions). All three placed inside existing sentences; none reached 150 words, so no `Updated` bumps.
 
-**`/blog/how-to-sell-a-business-to-private-equity`**, **`/blog/how-private-equity-actually-finances-a-buyout`**, **`/blog/alternatives-to-selling-to-private-equity`** — link: inbound links for the new post from indexed pages at positions 17, 6.0 and 10.8. No edit reached 150 words, so no `Updated` bumps. Also added the missing `covered` entry for "what happens after private equity buys your company" — that page has existed since 09-12 and rule 7 could have re-published it.
+Bookkeeping: `what happens after private equity buys your company` was never added to `covered` after the 09-12 publish — fixed, so the job cannot re-publish it.
 
 ## Skipped
 
-- **Rule 3** — other lowCtr rows in cool-down: IBO explainer (177 impr, 1.13%) eligible 10-13; veto-rights (165) and `/blog` (140) eligible 10-06.
-- **Rule 4** — all three rows are the homepage (body barred) or the IBO explainer, edited 09-15 and already the direct answer.
-- **Rule 5** — two of three rows are apex/www twins predating the 308.
-- **Rule 2** — `/blog/family-business-succession-planning` is still the only non-PASS URL. At 2,542 words and 11 inbound links there is no on-page cause left, so no edit.
+- **Rule 3** — all 4 `lowCtr` rows blocked. IBO explainer rewritten 09-15 (eligible 10-13); veto-rights post and `/blog` 09-08 (eligible 10-06). The fourth, the post-buyout page, is a position problem, not a title one: its real queries (`private equity buyout`, `buyout private equity`) sit at 20-28, where no title earns clicks.
+- **Rule 4** — 2 of 3 rows are the homepage (body barred); the third is the IBO explainer, inside its 14-day content cool-down and already the direct answer.
+- **Rule 2** — `/blog/family-business-succession-planning` is still the only non-PASS URL ("Discovered — currently not indexed"). It is now the longest post on the site at 2,542 words with 12 inbound links; it was expanded 09-17, inside cool-down. Nothing on-page is left to fix — it has not been crawled.
 
 ## Needs a human
 
-1. **Calculator title/meta rewrite** (74 → ≤60; 194 → ≤155). Fourth ask; ~115 impressions across ~30 "business valuation calculator" variants at positions 55-82, 1 click. Rule 3 never fires because that traffic sits on the apex twin.
-2. **Request indexing** for the succession post — "Discovered" means uncrawled.
-3. **Add a buyout-terminology cluster to `keywords.json`:** "types of buyouts" (5 @ 48.8), "secondary buyout" variants (~8 @ 36-72), "what is a private equity buyout" (3 @ 26) land on `/blog` by accident.
-4. **"what is an ibo"** — the explainer (26 @ 7.0) should beat the homepage (34 @ 9.7); the fix is a homepage body link, which is barred. Third ask.
+1. **Authorize the calculator title/meta rewrite** (74 → ≤60 chars; 194 → ≤155). Fourth ask, and the largest single gap: 173 impressions across 38 valuation-calculator variants at an average position of 68, 0 clicks. Rule 3 never fires because the page has no CTR problem at that depth — but the metadata is the only lever the job is allowed to pull.
+2. **Request indexing** for the succession post in Search Console. On-page work is exhausted.
+3. **`what is an ibo`** (64 impressions, 0 clicks) — the explainer at position 7.0 should win over the homepage at 9.8, but the homepage carries one outbound internal link and none to it. Body copy is barred; a human adding that link is the whole fix.
 
 ## Flagged
 
-Nothing. Banned-phrasing grep returns zero matches site-wide, new post included. `/blog/choosing-an-ma-advisory-firm` re-checked: deal counts gone, approved "$1.8 billion" line intact, flag stays dropped.
+Nothing. The banned-phrasing grep returns zero matches across all HTML. `/blog/choosing-an-ma-advisory-firm` re-checked: deal counts gone, the approved "$1.8 billion" line intact — that flag stays dropped.
