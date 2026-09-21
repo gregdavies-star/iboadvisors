@@ -802,6 +802,18 @@ a {
   padding-top: var(--space-8);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
+/* Legal links sitting inline after the copyright notice. No font-size here on
+   purpose - inheriting from .footer-copy keeps them locked to the same size as
+   the line they sit on. */
+.footer-copy a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+.footer-copy a:hover {
+  color: var(--color-gold-light);
+  border-bottom-color: var(--color-gold-light);
+}
 
 /* Version switcher (utility, not part of the mirrored design) */
 .version-switch {

@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "description": "IBO Advisors static marketing site plus SEO tooling (no build step, no dependencies).",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "seo:sitemap": "node scripts/build-sitemap.mjs",
     "seo:jsonld": "node scripts/ensure-jsonld.mjs",
@@ -13,6 +15,7 @@
     "gsc:submit": "node scripts/gsc.mjs submit-sitemap",
     "gsc:pull": "node scripts/gsc.mjs pull",
     "gsc:inspect": "node scripts/gsc.mjs inspect",
-    "ahrefs:pull": "node scripts/ahrefs.mjs pull"
+    "ahrefs:pull": "node scripts/ahrefs.mjs pull",
+    "test:attribution": "node scripts/test-attribution.mjs"
   }
 }
