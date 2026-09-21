@@ -1,0 +1,35 @@
+# Structural check on every pull request, before anything can reach main.
+#
+# This is the gate that was missing. The repo's other two workflows run on a schedule and on push
+# to main, so nothing at all ran while a PR was open - which is how a merge that produced broken
+# HTML went green twice. Both times two branches inserted a blog card at the same spot, git
+# stitched the hunks and dropped the closing </div></a>, and the resulting page rendered as a
+# collapsed grid in production.
+#
+# Read-only and dependency-free, so it takes seconds and cannot alter the branch it is checking.
+name: HTML check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The checker's own tests run first. A structural checker that silently stops firing reads
+      # as a passing gate while catching nothing, which is worse than having no gate at all.
+      - name: Test the checker
+        run: node scripts/test-check-html.mjs
+
+      - name: Check every page is well-formed
+        run: node scripts/check-html.mjs

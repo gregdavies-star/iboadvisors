@@ -9,13 +9,15 @@
   "scripts": {
     "seo:sitemap": "node scripts/build-sitemap.mjs",
     "seo:jsonld": "node scripts/ensure-jsonld.mjs",
+    "seo:html": "node scripts/check-html.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",
-    "seo:check": "node scripts/build-sitemap.mjs --check && node scripts/ensure-jsonld.mjs --check && node scripts/seo-audit.mjs",
+    "seo:check": "node scripts/check-html.mjs && node scripts/build-sitemap.mjs --check && node scripts/ensure-jsonld.mjs --check && node scripts/seo-audit.mjs",
     "seo:new-post": "node scripts/new-post.mjs",
     "gsc:submit": "node scripts/gsc.mjs submit-sitemap",
     "gsc:pull": "node scripts/gsc.mjs pull",
     "gsc:inspect": "node scripts/gsc.mjs inspect",
     "ahrefs:pull": "node scripts/ahrefs.mjs pull",
-    "test:attribution": "node scripts/test-attribution.mjs"
+    "test:attribution": "node scripts/test-attribution.mjs",
+    "test:html": "node scripts/test-check-html.mjs"
   }
 }
