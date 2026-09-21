@@ -60,6 +60,7 @@ Daily caps: **at most 4 content pages edited** (not counting `blog/index.html`, 
 
 - Change a URL/slug, delete a page, change a canonical, or touch pages with `noindex` (`/approach`, `/track-record`).
 - Edit homepage or calculator body copy (title/meta/JSON-LD only, and only per rule 3).
+- Add a link to `/business-valuation-calculator` from the homepage, or recommend one. The owner removed those links deliberately on 2026-09-17: the calculator is there to earn search traffic, but a homepage visitor who clicks through to it is a visitor who did not book a meeting, and booking is what the homepage is for. Blog posts are the opposite case - link the calculator from them freely, as rules 7 and 8 already say.
 - Keyword-stuff, write filler, or use "In today's fast-paced world" style openers.
 - Mention IBO Advisors' deals, fees, clients, or results in any form (see the hard rule at the top).
 - Edit `style.css`, `base.css`, `modal.js`, or anything under `assets/`.
