@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T16:56:05.472Z",
+  "generatedAt": "2026-09-21T16:56:57.828Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -302,25 +302,16 @@
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "title": "Business Valuation Calculator - What Is Your Company Worth? | IBO Advisors",
-      "titleLength": 74,
-      "description": "Free business valuation calculator for owners. Get an instant EBITDA-multiple valuation range for your industry, see what's raising or lowering your number, and download a detailed PDF analysis.",
-      "descriptionLength": 194,
+      "title": "Free Business Valuation Calculator | IBO Advisors",
+      "titleLength": 49,
+      "description": "Free business valuation calculator. Get an EBITDA-multiple range for your industry, see what raises or lowers your number, and download the full analysis.",
+      "descriptionLength": 154,
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
       "inboundInternalLinks": 22,
       "outboundInternalLinks": 5,
-      "issues": [
-        {
-          "level": "WARN",
-          "message": "title 74 chars (aim 50-60; Google truncates ~60)"
-        },
-        {
-          "level": "WARN",
-          "message": "meta description 194 chars (aim 120-155)"
-        }
-      ]
+      "issues": []
     }
   ],
   "noindexed": [
@@ -331,5 +322,5 @@
     "/track-record"
   ],
   "errorCount": 0,
-  "warningCount": 2
+  "warningCount": 0
 }
