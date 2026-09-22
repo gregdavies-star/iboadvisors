@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-21T16:45:40.880Z",
+  "inspectedAt": "2026-09-22T15:21:06.863Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -25,6 +25,24 @@
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-09-21T03:36:40Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T22:46:24Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-21T21:49:25Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },

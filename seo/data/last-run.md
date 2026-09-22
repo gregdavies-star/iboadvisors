@@ -1,36 +1,42 @@
-# Daily SEO run — 2026-09-21
+# Daily SEO run — 2026-09-22
 
-First run since 09-17, and the first with the new-post window open again (last post 09-13). Rules 3, 4 and 5 are all blocked — cool-downs, the homepage body bar, or the apex/www twins — so the budget went to one new post plus the three inbound links it needed. Audit: 0 errors, 2 pre-existing warnings, both on the calculator.
+Rules 3, 4, 5 and 7 are all blocked: every `lowCtr` and `strikingDistance` row is inside a cool-down or on the homepage, and the new-post cap is full (09-19 and 09-21). The budget went to rule 8 — four inbound links for the four weakest-supported pages. Audit: 24 indexable pages, **0 errors, 0 warnings**.
 
-## GSC totals — 28 days (2026-08-22 → 09-18)
+## GSC totals — 28 days (2026-08-23 → 09-19)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 40 | 1,923 | 2.08% | 17.3 |
+| Current | 42 | 1,989 | 2.11% | 17.1 |
 | Prior 28d | — | — | — | — |
 
-`totals.previous` is still null — the property holds no data before the current window starts, so **rule 6 produces no decliners until ~2026-10-15**. Clicks +67% and impressions +48% against the 09-14 pull, but that is window fill, not growth.
+`totals.previous` is still null, so **rule 6 yields no decliners** yet (~2026-10-15).
 
-## Changes — 1 new post, 3 link edits
+## Changes — 4 link edits
 
-**`/blog/selling-to-private-equity-pros-and-cons`** — new post, 1,912 words. Highest-priority uncovered keyword in `keywords.json` (cluster 2). GSC already shows 16 impressions across `selling to private equity` (9 @ 28.6), `selling your business to private equity` (3 @ 31), `selling private equity` (3 @ 29.7) and `selling business to pe` (1 @ 34) with no page serving the evaluative intent — the existing posts cover process and post-close, not the decision. Differentiated by a worked after-tax ledger: a made-up $5M-EBITDA company at 7.0x becomes $19.23M in hand, 55% of the $35M headline. Every figure is public record or invented arithmetic; all 7 sources opened with WebFetch (GF Data Q3 2025, CapitalPad's GF Data size ladder, Bain PE Outlook 2026, SRS Acquiom deal terms via PE Professional, AlixPartners survey, IRS Topic 409, IRS NIIT). 14 internal links including the calculator.
+Each target sat at 4 in-body inbound links, the site floor. Donors picked for authority-per-link and a sentence that already made the point.
 
-**`/blog/how-to-sell-a-business-to-private-equity`**, **`/blog/what-happens-after-private-equity-buys-your-company`**, **`/blog/alternatives-to-selling-to-private-equity`** — link. Three inbound links for the new post from the indexed pages that rank on the adjacent queries (61, 146 and 72 impressions). All three placed inside existing sentences; none reached 150 words, so no `Updated` bumps.
+| Donor → target | Data point |
+|---|---|
+| `rollover-equity-second-bite-explained` → `selling-to-private-equity-pros-and-cons` | Donor 14 in / 5 out, best ratio on the blog; its paragraph ends on the headline-vs-cash gap. |
+| `choosing-an-ma-advisory-firm` → `management-buyout-vs-private-equity` | Target indexed (PASS) but **0 impressions**. Placed in the red-flag bullet that names an MBO. |
+| `how-private-equity-actually-finances-a-buyout` → `restaurant-ma` | Donor has the most internal authority (16 in). Target is the best industry post: 49 impr at 7.2. |
+| `minority-recapitalization-explained` → `healthcare-services-ma` | Donor 7 in / 5 out. Its add-on-acquisition bullet is the roll-up promise the target describes. |
 
-Bookkeeping: `what happens after private equity buys your company` was never added to `covered` after the 09-12 publish — fixed, so the job cannot re-publish it.
+All four sit inside existing sentences; none added 150 words, so no `Updated` bumps. `ibo-government-contractors` stays at 4 inbound — next in line, no natural donor left.
 
 ## Skipped
 
-- **Rule 3** — all 4 `lowCtr` rows blocked. IBO explainer rewritten 09-15 (eligible 10-13); veto-rights post and `/blog` 09-08 (eligible 10-06). The fourth, the post-buyout page, is a position problem, not a title one: its real queries (`private equity buyout`, `buyout private equity`) sit at 20-28, where no title earns clicks.
-- **Rule 4** — 2 of 3 rows are the homepage (body barred); the third is the IBO explainer, inside its 14-day content cool-down and already the direct answer.
-- **Rule 2** — `/blog/family-business-succession-planning` is still the only non-PASS URL ("Discovered — currently not indexed"). It is now the longest post on the site at 2,542 words with 12 inbound links; it was expanded 09-17, inside cool-down. Nothing on-page is left to fix — it has not been crawled.
+- **Rule 3** — all 3 rows in cool-down: IBO explainer (178 impr, rewritten 09-15), veto-rights post (169, 09-18), `/blog` (155, 09-08).
+- **Rule 4** — 2 of 3 rows are the homepage (body barred); the third is the IBO explainer, edited 09-15, inside the 14-day skip.
+- **Rule 5** — apex/www rows clear on recrawl (308 verified 09-15). `what is an ibo` needs a homepage body edit, which is barred.
 
 ## Needs a human
 
-1. **Authorize the calculator title/meta rewrite** (74 → ≤60 chars; 194 → ≤155). Fourth ask, and the largest single gap: 173 impressions across 38 valuation-calculator variants at an average position of 68, 0 clicks. Rule 3 never fires because the page has no CTR problem at that depth — but the metadata is the only lever the job is allowed to pull.
-2. **Request indexing** for the succession post in Search Console. On-page work is exhausted.
-3. **`what is an ibo`** (64 impressions, 0 clicks) — the explainer at position 7.0 should win over the homepage at 9.8, but the homepage carries one outbound internal link and none to it. Body copy is barred; a human adding that link is the whole fix.
+1. **Request indexing** for `/blog/family-business-succession-planning` — still the only non-PASS URL ("Discovered — currently not indexed", never crawled). At 2,542 words and 13 in-links, on-page work is exhausted.
+2. **`what is an ibo`** (64 impr, 0 clicks): the explainer at 7.0 should beat the homepage at 9.8, but the homepage links only `/blog` and `/privacy`. One human-added link is the fix.
+
+Dropped the 09-21 ask to authorize the calculator title/meta rewrite — it shipped 09-17 (49-char tag, 154-char description).
 
 ## Flagged
 
-Nothing. The banned-phrasing grep returns zero matches across all HTML. `/blog/choosing-an-ma-advisory-firm` re-checked: deal counts gone, the approved "$1.8 billion" line intact — that flag stays dropped.
+Nothing. Banned-phrasing scan: zero matches across all HTML. `/blog/choosing-an-ma-advisory-firm` re-checked — deal counts gone, the approved "$1.8 billion" line intact.
