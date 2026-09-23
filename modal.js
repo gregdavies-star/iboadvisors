@@ -50,12 +50,19 @@
    IBO Advisors — "Learn More" qualify modal
    Opens on any [data-ibo-open-modal] trigger, or automatically on page load
    when the URL carries ?learn-more=1 (the destination paid ads should use so
-   visitors land in the qualify flow, never on an ungated scheduler). Submits
-   to the HubSpot Forms
-   API, and routes qualified leads (EBITDA >= $3M) to the HubSpot meeting
-   scheduler. Leads under $3M EBITDA see an in-modal thank-you message
-   instead of a scheduler, matching the qualification logic used on the
-   live iboadvisors.com site.
+   visitors land in the qualify flow, never on an ungated scheduler).
+
+   The form asks for three required answers: Name, Email and "Which best
+   describes you?" (CEO/Founder/Owner or Business Advisor). Owners must also
+   pick an approximate annual EBITDA band, which is revealed only once they
+   choose that role: "Less than $3M" ($0 - $3M, does not qualify), "Between
+   $3M - $10M" ($3M - $10M) or "Over $10M" ($10M+). A phone number is
+   optional and is sent to HubSpot only when filled in. There is no company
+   field.
+
+   Submits to the HubSpot Forms API, then routes qualified leads (advisors,
+   and owners with EBITDA >= $3M) to the HubSpot meeting scheduler. Owners
+   under $3M EBITDA see an in-modal thank-you message instead of a scheduler.
    ========================================================================== */
 (function () {
   // HubSpot identifiers — same Portal ID / Form used by iboadvisors.com so
@@ -177,20 +184,19 @@
     var fullName = document.getElementById('ibo-fullName').value.trim();
     var email = document.getElementById('ibo-email').value.trim();
     var cellNumber = document.getElementById('ibo-cellNumber').value.trim();
-    var company = document.getElementById('ibo-company').value.trim();
     var selectedRole = document.querySelector('input[name="respondentRole"]:checked');
     var respondentRole = selectedRole ? selectedRole.value : '';
     var isOwner = respondentRole === 'CEO/Founder/Owner';
     var ebitdaOption = ebitdaSelect.options[ebitdaSelect.selectedIndex];
     var ebitdaBand = ebitdaSelect.value;
 
-    if (!fullName || !email || !cellNumber || !company || !respondentRole) {
-      showError('Please fill in every field to continue.');
+    if (!fullName || !email || !respondentRole) {
+      showError('Please fill in every required field to continue.');
       return;
     }
 
     if (isOwner && !ebitdaBand) {
-      showError('Please fill in every field to continue.');
+      showError('Please fill in every required field to continue.');
       return;
     }
 
@@ -207,13 +213,15 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Checking…';
 
-    // submitForm attaches the visitor's captured utm_* fields on top of these.
-    window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, [
+    var fields = [
       { name: 'firstname', value: firstName },
       { name: 'lastname', value: lastName },
-      { name: 'email', value: email },
-      { name: 'phone', value: cellNumber },
-      { name: 'company', value: company },
+      { name: 'email', value: email }
+    ];
+    // Phone is optional: only send it when the visitor filled it in, so a
+    // blank answer never overwrites a phone number HubSpot already has.
+    if (cellNumber) fields.push({ name: 'phone', value: cellNumber });
+    fields.push(
       { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
       // `role`, not `respondent_role`: the latter is not a property in the
       // portal, so HubSpot silently ignored it and no answer to this question
@@ -222,7 +230,10 @@
       // added, submitForm's retry drops this field and keeps the lead.
       { name: 'role', value: respondentRole },
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
-    ])
+    );
+
+    // submitForm attaches the visitor's captured utm_* fields on top of these.
+    window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, fields)
       .then(function () {
         track('modal_submit', {
           ebitda_band: isOwner ? ebitdaBand : 'advisor',
@@ -236,7 +247,6 @@
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
-          url.searchParams.set('company', company);
           window.location.href = url.toString();
         } else {
           // Learn More Form - Unqualified Lead

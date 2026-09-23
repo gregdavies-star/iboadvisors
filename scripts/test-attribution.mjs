@@ -79,9 +79,8 @@ async function fillModal(page) {
   await page.fill('#ibo-fullName', 'Ada Lovelace');
   await page.fill('#ibo-email', 'ada@example.com');
   await page.fill('#ibo-cellNumber', '555-0100');
-  await page.fill('#ibo-company', 'Analytical Engines');
   await page.check('input[name="respondentRole"][value="CEO/Founder/Owner"]');
-  await page.selectOption('#ibo-ebitdaBand', '$5M - $10M');
+  await page.selectOption('#ibo-ebitdaBand', '$3M - $10M');
   await page.click('#ibo-modal-submit');
 }
 
@@ -97,6 +96,8 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   const f = submissions.length ? fieldMap(submissions[0]) : {};
   check('modal on landing page sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_medium === 'paid_social' && f.ibo_form_campaign === 'ibo_q3' && f.ibo_form_content === 'carousel_a' && !('ibo_form_ad_id' in f) && !('ibo_form_platform_id' in f) && !!f.ibo_form_uuid && !!f.ibo_form_landing_url && /^\d+$/.test(f.ibo_form_timestamp || ''), JSON.stringify(f));
   check('modal redirects to scheduler with utms', page.url().includes('utm_source=linkedin') && page.url().includes('li_fat_id=abc123'), page.url().slice(0, 130));
+  check('modal sends the phone number when it is filled in', f.phone === '555-0100', `phone=${f.phone}`);
+  check('modal sends the $3M - $10M band and no company', f.what_is_your_approximate_annual_ebitda_profit === '$3M - $10M' && f.ibo_qualified === 'True' && !('company' in f), JSON.stringify(f));
   await ctx.close();
 }
 
@@ -133,6 +134,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.waitForTimeout(600);
   const f = submissions.length ? fieldMap(submissions[0]) : {};
   check('/ibo-exit book form sends utm fields', f.ibo_form_source === 'linkedin' && f.ibo_form_campaign === 'ibo_q3', JSON.stringify(f));
+  check('/ibo-exit derives $3M - $10M for $8M EBITDA', f.what_is_your_approximate_annual_ebitda_profit === '$3M - $10M', f.what_is_your_approximate_annual_ebitda_profit);
   await ctx.close();
 }
 
@@ -404,7 +406,6 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.fill('#ibo-fullName', 'Ada Lovelace');
   await page.fill('#ibo-email', 'ada@example.com');
   await page.fill('#ibo-cellNumber', '555-0100');
-  await page.fill('#ibo-company', 'Analytical Engines');
   await page.check('input[name="respondentRole"][value="Business Advisor"]');
   await page.click('#ibo-modal-submit');
   await page.waitForTimeout(600);
@@ -423,7 +424,6 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.fill('#ibo-fullName', 'Ada Lovelace');
   await page.fill('#ibo-email', 'ada@example.com');
   await page.fill('#ibo-cellNumber', '555-0100');
-  await page.fill('#ibo-company', 'Analytical Engines');
   await page.check('input[name="respondentRole"][value="CEO/Founder/Owner"]');
   await page.selectOption('#ibo-ebitdaBand', { label: 'Less than $3M' });
   await page.click('#ibo-modal-submit');
@@ -437,6 +437,32 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
       const o = [...document.getElementById('ibo-ebitdaBand').options].find((x) => x.value === '$0 - $3M');
       return o && o.textContent.trim();
     })) === 'Less than $3M');
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // Only Name, Email and the role are required; phone is optional and a
+  // blank phone is not sent. There is no company field any more.
+  await page.goto(`${BASE}/`);
+  await page.click('[data-ibo-open-modal]');
+  await page.fill('#ibo-fullName', 'Ada Lovelace');
+  await page.fill('#ibo-email', 'ada@example.com');
+  await page.check('input[name="respondentRole"][value="CEO/Founder/Owner"]');
+  await page.selectOption('#ibo-ebitdaBand', { label: 'Over $10M' });
+  await page.click('#ibo-modal-submit');
+  await page.waitForTimeout(600);
+  const f = submissions.length ? fieldMap(submissions[0]) : {};
+  check('modal submits $10M+ for "Over $10M" and qualifies',
+    f.what_is_your_approximate_annual_ebitda_profit === '$10M+' && f.ibo_qualified === 'True',
+    JSON.stringify(f));
+  check('a blank phone is not sent, and no company is sent',
+    submissions.length === 1 && !('phone' in f) && !('company' in f),
+    JSON.stringify(Object.keys(f)));
+  check('submits without a phone and redirects to the scheduler with no company param',
+    page.url().includes('meetings-na2.hubspot.com') && !page.url().includes('company='),
+    page.url().slice(0, 130));
   await ctx.close();
 }
 
@@ -458,6 +484,29 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   const f = fieldMap(submissions[0]);
   check('/ibo-exit derives $0 - $3M below the threshold',
     f.what_is_your_approximate_annual_ebitda_profit === '$0 - $3M',
+    f.what_is_your_approximate_annual_ebitda_profit);
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // $10M and above is the top band; the >= $3M path books via the book form.
+  await page.goto(`${BASE}/ibo-exit`);
+  await page.selectOption('#xc-industry', { index: 1 });
+  await page.fill('#xc-revenue', '40000000');
+  await page.fill('#xc-ebitda', '12000000');
+  await page.click('#xc-form button[type="submit"]');
+  await page.waitForTimeout(400);
+  await page.fill('#xc-lead-name', 'Ada Lovelace');
+  await page.fill('#xc-lead-email', 'ada@example.com');
+  await page.fill('#xc-lead-phone', '555-0100');
+  await page.fill('#xc-lead-company', 'Analytical Engines');
+  await page.click('#xc-book-submit');
+  await page.waitForTimeout(600);
+  const f = submissions.length ? fieldMap(submissions[0]) : {};
+  check('/ibo-exit derives $10M+ for $12M EBITDA',
+    f.what_is_your_approximate_annual_ebitda_profit === '$10M+',
     f.what_is_your_approximate_annual_ebitda_profit);
   await ctx.close();
 }

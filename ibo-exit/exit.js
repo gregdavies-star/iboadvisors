@@ -32,11 +32,16 @@
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
   var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
 
-  // The EBITDA band below the $3M qualifying threshold. This must be spelled
-  // exactly as the HubSpot property's option is: the site sent "Less than $3M"
-  // for months, which is not one of that enumeration's options, so HubSpot
-  // rejected every under-$3M submission outright and those leads were lost.
-  // The select on the page shows "Less than $3M" and submits this value.
+  // EBITDA bands sent as what_is_your_approximate_annual_ebitda_profit. That
+  // HubSpot property is an enumeration, and ebitdaBandFor below must return
+  // one of its options spelled exactly: '$0 - $3M', '$3M - $10M' or '$10M+'.
+  // A value that is not an option is never stored. Today HubSpot accepts the
+  // submission and silently drops the value (verified against the live form
+  // in Sept 2026); earlier it rejected the whole submission, which is how the
+  // site lost months of under-$3M leads while sending "Less than $3M". So the
+  // options must exist on the property before a new band ships. "Less than
+  // $3M" is only the visitor-facing label for this band; this is the value
+  // submitted for it, and the one that does not qualify for a meeting.
   var UNQUALIFIED_BAND = '$0 - $3M';
 
   // Tracking helpers: shared window.iboTracking from /tracking.js, which this
@@ -478,10 +483,8 @@
      and shown a thank-you.
      ------------------------------------------------------------------ */
   function ebitdaBandFor(ebitda) {
-    if (ebitda >= 20000000) return '$20M+';
-    if (ebitda >= 10000000) return '$10M - $20M';
-    if (ebitda >= 5000000) return '$5M - $10M';
-    if (ebitda >= 3000000) return '$3M - $5M';
+    if (ebitda >= 10000000) return '$10M+';
+    if (ebitda >= 3000000) return '$3M - $10M';
     return UNQUALIFIED_BAND;
   }
 
