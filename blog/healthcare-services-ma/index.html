@@ -275,6 +275,10 @@ It can be structured for tax-advantaged treatment for the seller, depending on t
           <input class="ibo-field__input" type="email" id="ibo-email" name="email" placeholder="james@carterindustrial.com" required />
         </div>
         <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-cellNumber">Phone number (optional)</label>
+          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" autocomplete="tel" />
+        </div>
+        <div class="ibo-field">
           <span class="ibo-field__label">Which best describes you?</span>
           <div class="ibo-radio-group" role="radiogroup" aria-label="Which best describes you?">
             <label class="ibo-radio">
@@ -295,10 +299,6 @@ It can be structured for tax-advantaged treatment for the seller, depending on t
             <option value="$3M - $10M" data-qualifies="true">Between $3M - $10M</option>
             <option value="$10M+" data-qualifies="true">Over $10M</option>
           </select>
-        </div>
-        <div class="ibo-field">
-          <label class="ibo-field__label" for="ibo-cellNumber">Phone number (optional)</label>
-          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" autocomplete="tel" />
         </div>
         <p class="ibo-field__error" id="ibo-form-error" hidden></p>
         <button type="submit" class="ibo-modal__submit" id="ibo-modal-submit">Next</button>
