@@ -300,20 +300,12 @@ It depends heavily on sector and size. Lower-middle-market deals averaged roughl
       <p class="ibo-modal__intro">Please provide us with a few details.  Everything is confidential.</p>
       <form id="ibo-modal-form" novalidate>
         <div class="ibo-field">
-          <label class="ibo-field__label" for="ibo-fullName">Owner name</label>
+          <label class="ibo-field__label" for="ibo-fullName">Full name</label>
           <input class="ibo-field__input" type="text" id="ibo-fullName" name="fullName" placeholder="James Carter" required />
         </div>
         <div class="ibo-field">
           <label class="ibo-field__label" for="ibo-email">Email address</label>
           <input class="ibo-field__input" type="email" id="ibo-email" name="email" placeholder="james@carterindustrial.com" required />
-        </div>
-        <div class="ibo-field">
-          <label class="ibo-field__label" for="ibo-cellNumber">Contact number</label>
-          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" required />
-        </div>
-        <div class="ibo-field">
-          <label class="ibo-field__label" for="ibo-company">Company</label>
-          <input class="ibo-field__input" type="text" id="ibo-company" name="company" placeholder="Carter Industrial" required />
         </div>
         <div class="ibo-field">
           <span class="ibo-field__label">Which best describes you?</span>
@@ -333,11 +325,13 @@ It depends heavily on sector and size. Lower-middle-market deals averaged roughl
           <select class="ibo-field__input ibo-field__select" id="ibo-ebitdaBand" name="ebitdaBand">
             <option value="" disabled selected>Select a range</option>
             <option value="$0 - $3M" data-qualifies="false">Less than $3M</option>
-            <option value="$3M - $5M" data-qualifies="true">$3M - $5M</option>
-            <option value="$5M - $10M" data-qualifies="true">$5M - $10M</option>
-            <option value="$10M - $20M" data-qualifies="true">$10M - $20M</option>
-            <option value="$20M+" data-qualifies="true">$20M+</option>
+            <option value="$3M - $10M" data-qualifies="true">Between $3M - $10M</option>
+            <option value="$10M+" data-qualifies="true">Over $10M</option>
           </select>
+        </div>
+        <div class="ibo-field">
+          <label class="ibo-field__label" for="ibo-cellNumber">Phone number (optional)</label>
+          <input class="ibo-field__input" type="tel" id="ibo-cellNumber" name="cellNumber" placeholder="(555) 123-4567" autocomplete="tel" />
         </div>
         <p class="ibo-field__error" id="ibo-form-error" hidden></p>
         <button type="submit" class="ibo-modal__submit" id="ibo-modal-submit">Next</button>
