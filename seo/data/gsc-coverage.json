@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-22T15:21:06.863Z",
+  "inspectedAt": "2026-09-23T15:17:17.558Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -23,7 +23,7 @@
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-21T03:36:40Z",
+      "lastCrawlTime": "2026-09-22T18:31:01Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -48,10 +48,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-23T13:16:12Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
@@ -66,7 +68,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-18T11:54:01Z",
+      "lastCrawlTime": "2026-09-22T23:48:44Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -84,7 +86,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-18T14:24:00Z",
+      "lastCrawlTime": "2026-09-23T02:18:43Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -192,7 +194,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-18T04:24:02Z",
+      "lastCrawlTime": "2026-09-22T21:18:43Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
