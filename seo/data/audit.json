@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T17:10:32.187Z",
+  "generatedAt": "2026-09-22T15:28:30.522Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -60,10 +60,10 @@
       "description": "How to choose an M&A advisor at $3M+ in EBITDA: track record, fee structure, conflicts of interest, and the questions to ask before signing.",
       "descriptionLength": 140,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1774,
+      "words": 1811,
       "date": "2025-10-04",
       "inboundInternalLinks": 6,
-      "outboundInternalLinks": 7,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
       "words": 1637,
       "date": "2026-06-17",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 1899,
+      "words": 1929,
       "date": "2026-09-08",
       "inboundInternalLinks": 17,
-      "outboundInternalLinks": 10,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -205,7 +205,7 @@
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
       "words": 2074,
       "date": "2026-09-19",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -229,10 +229,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1679,
+      "words": 1715,
       "date": "2026-09-08",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 7,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -244,7 +244,7 @@
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
       "words": 1593,
       "date": "2026-05-20",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -255,10 +255,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1463,
+      "words": 1507,
       "date": "2026-07-06",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 7,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -270,7 +270,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 15,
       "issues": []
     },
