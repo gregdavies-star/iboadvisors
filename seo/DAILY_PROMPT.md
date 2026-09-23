@@ -23,6 +23,21 @@ Before repeating a flag that an earlier run raised, open the page and confirm th
 
 Permitted sources of specificity, in order of preference: worked hypotheticals with explicit made-up numbers; public record (SEC filings, court dockets, bankruptcy filings, published data sets) cited by link; published third-party research cited by link; the site's existing pages; the calculator's own methodology.
 
+## Related domains IBO Advisors controls
+
+These are not competitors. Treat them as the same business when you read search data:
+
+- **`independentbuyout.com`** - owned by IBO Advisors. An exact-match domain carrying ~2,000 words on the IBO structure, ranking page one for "independent buyout" and "what is an ibo".
+- **`mboventures.com`** - owned by a partner in IBO Advisors, and being wound down once his remaining transactions close.
+- Michael Chasen's LinkedIn posts also rank on these queries.
+
+Two consequences for how you read the data:
+
+1. **A rival domain in a `cannibalization` row may be ours.** Check the list above before proposing anything that treats one of these as a competitor, and never recommend attacking or outranking them.
+2. **Zero clicks at a good position may not be a snippet problem.** When one of these domains outranks the page you are looking at, the click can land there instead, and Search Console for `iboadvisors.com` cannot see it. Say so in the report rather than diagnosing a title or meta fault you cannot evidence.
+
+`csgpartners.com` is a genuine third party and is not covered by this section.
+
 ## Inputs (read all that exist)
 
 | File | What it is |
