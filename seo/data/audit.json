@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T17:45:35.712Z",
+  "generatedAt": "2026-09-24T14:25:55.682Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -86,7 +86,7 @@
       "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
       "descriptionLength": 135,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 2542,
+      "words": 2544,
       "date": "2026-09-17",
       "inboundInternalLinks": 13,
       "outboundInternalLinks": 12,
@@ -112,7 +112,7 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2412,
+      "words": 2400,
       "date": "2026-09-10",
       "inboundInternalLinks": 17,
       "outboundInternalLinks": 11,
@@ -319,6 +319,7 @@
     "/ibo-exit",
     "/ibo-exit2",
     "/privacy",
+    "/terms",
     "/track-record"
   ],
   "errorCount": 0,
