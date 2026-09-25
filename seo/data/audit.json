@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T19:46:51.065Z",
+  "generatedAt": "2026-09-25T20:02:52.841Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,7 +23,7 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 22,
       "issues": []
     },
@@ -99,10 +99,10 @@
       "description": "Healthcare services M&A is consolidating fast. What a private equity roll-up costs owners in control, and the third option brokers rarely mention.",
       "descriptionLength": 146,
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
-      "words": 1678,
+      "words": 1704,
       "date": "2026-06-17",
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -112,10 +112,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2489,
+      "words": 2515,
       "date": "2026-09-10",
       "inboundInternalLinks": 18,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -151,10 +151,10 @@
       "description": "Cost-plus contracts reimburse allowable costs, which can make moving a government contracting business into employee hands cheaper to finance.",
       "descriptionLength": 142,
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
-      "words": 1600,
+      "words": 1612,
       "date": "2026-07-01",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 7,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -242,10 +242,10 @@
       "description": "What multi-unit restaurant groups are worth, what a PE roll-up asks of you, and the ownership transition option that keeps your operators in charge.",
       "descriptionLength": 148,
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
-      "words": 1628,
+      "words": 1651,
       "date": "2026-05-20",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 8,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -309,8 +309,8 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 23,
-      "outboundInternalLinks": 6,
+      "inboundInternalLinks": 26,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -322,8 +322,47 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 9,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/government-contractors",
+      "title": "Government Contractor Valuation Multiples | IBO Advisors",
+      "titleLength": 56,
+      "description": "GovCon multiples run 4.5x-7.5x. Why contract mix beats margin, what SBA recertification does to a sale, and the FAR rule that changes the arithmetic.",
+      "descriptionLength": 149,
+      "h1": "Government contractor valuation multiples",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 4,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/healthcare-services",
+      "title": "Healthcare Services Valuation Multiples | IBO Advisors",
+      "titleLength": 54,
+      "description": "Healthcare services multiples run 5.0x-8.5x, the widest band of any sector. What decides where a practice lands, and why the ownership structure matters.",
+      "descriptionLength": 153,
+      "h1": "Healthcare services valuation multiples",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 4,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "title": "Restaurant EBITDA Multiples & Valuation | IBO Advisors",
+      "titleLength": 54,
+      "description": "Restaurant EBITDA multiples run 3.0x-5.0x. What moves you inside the band, the EBITDA-vs-EBITDAR lease trap, and what your franchise agreement controls.",
+      "descriptionLength": 152,
+      "h1": "Restaurant EBITDA multiples",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 4,
       "issues": []
     }
   ],
