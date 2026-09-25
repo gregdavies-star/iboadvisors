@@ -45,6 +45,11 @@
       "permanent": true
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
       "source": "/independent-buyout-ibo",
       "destination": "/blog/independent-buyout-explained",
       "permanent": true
