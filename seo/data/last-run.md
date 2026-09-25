@@ -1,40 +1,40 @@
-# Daily SEO run — 2026-09-24
+# Daily SEO run — 2026-09-25
 
-Clicks up to **49 from 43**, impressions to **2,156**. Rules 1, 2 and 6 had nothing to act on (0 audit errors, 24/24 URLs PASS, `totals.previous` null); rules 3, 4, 5 and 7 are blocked. Budget went to rule 8, targeted on GSC position rather than on the inbound-link floor. Audit after: **0 errors, 0 warnings**.
+Rules 1–2 clean: 0 audit errors, 24/24 sitemap URLs PASS. Rules 3–7 all blocked — every `lowCtr` row is in its 28-day cool-down, every `strikingDistance` row is the homepage or already answered, and the new-post cap is full (09-19, 09-21). Budget went to rule 8: six links from four donors, lifting the in-body inbound floor from 5 to **6 across every post**.
 
-## GSC totals — 28 days (2026-08-25 → 09-21)
+## GSC totals — 28 days (2026-08-26 → 09-22)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 49 | 2,156 | 2.27% | 16.5 |
+| Current | 51 | 2,276 | 2.24% | 16.1 |
 | Prior 28d | — | — | — | — |
 
-`totals.previous` is null, so **rule 6 yields no decliners** until roughly 2026-10-15.
+`totals.previous` is still null, so **rule 6 yields no decliners** (~2026-10-15).
 
-## Changes — 4 link edits
+## Changes — 4 pages edited, 6 links added
 
 | Donor → target | Data point |
 |---|---|
-| `minority-pe-stake-veto-rights` → `management-buyout-financing` | Biggest page still on **page 3**: 72 impr at 28.6, 0 clicks. Donor passes best on the site, 15 inbound vs 7 out. |
-| `independent-buyout-explained` → `how-to-sell-a-business-to-private-equity` | Priority-2 keyword, 69 impr at 18.2, 6 inbound. Donor is the strongest blog page (184 impr at 5.7). |
-| `rollover-equity-second-bite` → `healthcare-services-ma` | Site floor (5 inbound), 18 impr at 16.7. Restates only the MSO point the target already sources. |
-| `family-business-succession-planning` → `management-buyout-vs-private-equity` | At the floor with **0 impressions** since publishing 09-19, despite PASS. |
+| `minority-pe-stake-veto-rights` → `restaurant-ma` **+** `healthcare-services-ma` | Both at the floor of 5 inbound (51 impr @ 7.2; 19 @ 16.1). Donor 15 in / 7 out; its capex-consent hypothetical is the mechanic both targets already source. |
+| `independent-buyout-explained` → `ibo-government-contractors` **+** `selling-to-pe-pros-and-cons` | Both at the floor of 5. Donor is the strongest indexed post (188 impr @ 5.6) and linked neither. |
+| `how-pe-firms-value-a-company` → `management-buyout-vs-private-equity` | Floor of 5, and **0 impressions** since publishing 09-19 despite PASS. |
+| `how-private-equity-finances-a-buyout` → `management-buyout-financing` | 73 impr at **23.6** — the biggest impression pool no rule reaches, since position >20 excludes it from `strikingDistance`. Donor 16 in / 10 out. |
 
-All four sit in existing prose, +38 to +50 words, so no `Updated` bumps.
+Each link restates only what its target already sources. No edit added 150 words: no `Updated` bumps, no `lastmod` change.
 
 ## Skipped
 
-- **Rule 3** — all three `lowCtr` rows in cool-down: IBO explainer (184 impr, 09-15), `/blog` (178, 09-08), veto rights (172, 09-18).
-- **Rule 4** — two rows are the homepage (body barred); the third is "what is an ibo" on the explainer, already answered in its H1.
-- **Rule 5** — two rows are apex-vs-www, i.e. the redirect. The third needs a homepage edit.
-- **Rule 7** — cap full: 2 posts in the trailing 7 days (09-19, 09-21).
+- **Rule 3** — all 3 rows in cool-down: IBO explainer (09-15), `/blog` (09-08), veto rights (09-18).
+- **Rule 4** — 3 of 4 rows are the homepage (body barred); the 4th is `what is an ibo` on the explainer, answered in its H1.
+- **Rule 5** — 2 of 3 rows are apex/www duplicates; the third needs a homepage body edit.
 
 ## Needs a human
 
-1. **Apex calculator is getting worse.** `iboadvisors.com/business-valuation-calculator` now holds **349 impressions at ~38** against 37 on the `www` copy, up from 186 a week ago. The 308 verified 09-15 has not consolidated; check GSC's duplicate/canonical report.
-2. **"what is an ibo" — probably not ours to fix.** Explainer 26 impr at 7.0, homepage 36 at 9.8, both 0 clicks. `independentbuyout.com` ranks page one here and is ours, so the click plausibly lands where GSC can't see it. Dropping the repeated homepage-link ask.
-3. **Watch the MBO pair.** `management-buyout-financing` (72 impr at 28.6) and `management-buyout-vs-private-equity` (0 impr) target one query family. If a cannibalization row appears, the financing post wins.
+1. **`what is an ibo`** — 64 impr, 0 clicks (explainer 26 @ 7.0, homepage 38 @ 9.8). `independentbuyout.com` also ranks page one here, so the click may land on our own domain where GSC cannot see it — **not** a snippet fault. In-remit fix remains one homepage link to the explainer.
+2. **Apex is still the indexed calculator** — 371 impr @ 36.1 against `www`'s 43 @ 10.6. The `vercel.json` 301 is correct (re-verified today), so this is consolidation lag; check GSC's duplicate/canonical report.
+3. **Stranded past page 2, no rule can fire:** `management buyout financing` (73 impr, 23.6), `exit planning for business owners` (44, 63.7).
+4. **`family-business-succession-planning`** — 2,542 words, 13 inbound, indexed, **zero impressions**. Targeting problem, not a link problem.
 
 ## Flagged
 
-Nothing. Banned-phrasing sweep across all HTML: 0 matches.
+Nothing. Banned-phrasing scan: 0 matches across 29 HTML files. The approved "$1.8 billion" line is intact in both places; the deal counts cut on 09-12 are still gone, so that flag stays dropped.
