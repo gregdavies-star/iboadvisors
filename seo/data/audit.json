@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T18:08:18.156Z",
+  "generatedAt": "2026-09-25T18:16:20.125Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,7 +23,7 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 22,
       "issues": []
     },
@@ -99,10 +99,10 @@
       "description": "Healthcare services M&A is consolidating fast. What a private equity roll-up costs owners in control, and the third option brokers rarely mention.",
       "descriptionLength": 146,
       "h1": "Healthcare Services M&A: What Owners Should Know Before Selling",
-      "words": 1637,
+      "words": 1678,
       "date": "2026-06-17",
-      "inboundInternalLinks": 8,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -112,10 +112,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2451,
+      "words": 2489,
       "date": "2026-09-10",
-      "inboundInternalLinks": 17,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 18,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -127,7 +127,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -153,7 +153,7 @@
       "h1": "Independent Buyouts for Government Contractors: Why Cost-Plus Contracts Make Employee Ownership More Affordable",
       "words": 1600,
       "date": "2026-07-01",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 7,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1978,
       "date": "2026-09-05",
-      "inboundInternalLinks": 15,
+      "inboundInternalLinks": 16,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -242,10 +242,10 @@
       "description": "What multi-unit restaurant groups are worth, what a PE roll-up asks of you, and the ownership transition option that keeps your operators in charge.",
       "descriptionLength": 148,
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
-      "words": 1593,
+      "words": 1628,
       "date": "2026-05-20",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -270,7 +270,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -309,8 +309,21 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 22,
-      "outboundInternalLinks": 5,
+      "inboundInternalLinks": 23,
+      "outboundInternalLinks": 6,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+      "title": "EBITDA Multiples by Industry (2026) | IBO Advisors",
+      "titleLength": 50,
+      "description": "EBITDA multiple ranges for 19 lower-middle-market industries, the size premium that moves them, and what raises or lowers your number inside the band.",
+      "descriptionLength": 150,
+      "h1": "EBITDA multiples by industry",
+      "words": null,
+      "date": null,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 9,
       "issues": []
     }
   ],
