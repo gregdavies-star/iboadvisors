@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T15:45:48.909Z",
+  "generatedAt": "2026-09-27T16:52:38.322Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,10 +34,10 @@
       "description": "Seven alternatives to selling to private equity, priced on one $6M EBITDA company: what each pays at close, what you keep, and who controls after.",
       "descriptionLength": 146,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2211,
+      "words": 2255,
       "date": "2026-09-08",
       "inboundInternalLinks": 16,
-      "outboundInternalLinks": 20,
+      "outboundInternalLinks": 21,
       "issues": []
     },
     {
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -216,10 +216,10 @@
       "description": "A minority stake in private equity is rarely a minority say. The sponsor keeps veto rights over debt, acquisitions, hiring, and when you sell.",
       "descriptionLength": 142,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2022,
+      "words": 2061,
       "date": "2026-09-08",
       "inboundInternalLinks": 17,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -229,10 +229,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1715,
+      "words": 1762,
       "date": "2026-09-08",
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 8,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -270,7 +270,7 @@
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -374,8 +374,8 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 4,
-      "outboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
+      "outboundInternalLinks": 5,
       "issues": []
     }
   ],
