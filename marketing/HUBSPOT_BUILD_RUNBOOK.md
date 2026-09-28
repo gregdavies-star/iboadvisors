@@ -161,3 +161,9 @@ Marketing > Email > "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) ques
 - No workflow has ever sent a marketing email from this portal, so there is nothing running to disable.
 - Two "Edmund" emails from May are published as automated emails (cannot be renamed by the connector). They are not attached to any workflow; leave them or unpublish from the UI (Actions > Unpublish) to be safe.
 - The one-to-one "IBO Email Sequence" from June was manual and is not running.
+
+## 9. Layout change (29 Sep) after Michael's review
+
+Michael's test sends looked like a marketing template: HubSpot's drag-and-drop editor wraps content in a centred 600px table, applied its default blue-grey text and teal links, and added 175% line spacing to every paragraph, which doubled the blank-line gaps. All 27 production drafts now use a single-column full-width layout, Arial 14px near-black text, standard blue underlined links, paragraph spacing matching a hand-written email, and a left-aligned 11px grey footer (the address and unsubscribe links are required by law on marketing email and cannot be removed). Rendering verified on A1.
+
+The 26 "TEST for Michael" copies were sent on 28 Sep and are therefore published and locked. To show Michael the new look, open any production email > Actions > Send test email > michael@iboadvisors.com. HubSpot prefixes the subject with [TEST] on that path; the template name is in the internal email name, not in the body.
