@@ -2,6 +2,16 @@
 
 What was built automatically, what is left to click through in HubSpot, and the exact settings for each remaining step. Companion to `DRIP_SEQUENCE_STRATEGY.md` and `DRIP_SEQUENCE_EMAILS.md`.
 
+## 0. Do this first: email authentication (test sends went to junk on 28 Sep)
+
+Verified by DNS lookup on 28 Sep: iboadvisors.com has no HubSpot DKIM records, an SPF record whose only include (`dc-aa8e722993._spfm.iboadvisors.com`) does not resolve, no DMARC record, and no Google DKIM. Mail is hosted on Google Workspace; DNS is at Cloudflare. Gmail therefore treats every HubSpot send as a spoof of your own domain and files it as spam. Fix before any send:
+
+1. HubSpot: Settings > Content > Domains & URLs > Connect a domain > Email sending > iboadvisors.com. Add the two CNAME records HubSpot shows (hs1-245308986._domainkey and hs2-245308986._domainkey) in Cloudflare with the proxy off, then Verify.
+2. Cloudflare: replace the SPF TXT on iboadvisors.com with `v=spf1 include:_spf.google.com include:<HubSpot include from the connect screen> ~all`.
+3. Cloudflare: add `_dmarc.iboadvisors.com TXT v=DMARC1; p=none; rua=mailto:dmarc@iboadvisors.com`. Tighten to `p=quarantine` after two clean weeks of reports.
+4. Google Workspace admin: turn on Gmail DKIM signing for the domain (Apps > Google Workspace > Gmail > Authenticate email).
+5. One hour later resend one test to Michael, open Show original in Gmail and confirm SPF PASS, DKIM PASS with domain iboadvisors.com, DMARC PASS. Michael should mark the earlier tests Not spam.
+
 ## 1. What is done (built through the HubSpot connector)
 
 - **26 automated nurture emails** created as drafts with Michael's 28 Sep copy, plain-text style, first-name personalisation, sender and reply-to set, subscription type "Marketing Information", and a per-email tagged scheduler link (`utm_campaign=<track>&utm_content=<email id>`) with the contact's name and email pre-filled. IDs in section 6.
