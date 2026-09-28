@@ -36,19 +36,19 @@ The connector cannot send email, so this is a click each. In HubSpot: Marketing 
 
 | List name | Filters |
 |---|---|
-| **Suppression - csgpartners.com (never email)** | Email ends with `csgpartners.com`. Add this list as an exclusion on every workflow's enrollment ("Contact is not a member of") and as a suppression list on the catch-up send. Today it holds one contact (already a non-marketing contact). |
-| **Nurture - Paid social owners, qualified** | Original source = Paid social AND `ibo_qualified` = True AND Date of last meeting booked in meetings tool is unknown AND Lifecycle stage is not Customer |
+| **Suppression - never nurture** | OR of: Email contains any of `@csgpartners.com`, `@iboadvisors.com`, `@roedgers.com`, `@hubspot.com`; **Latest meeting activity is known** (this one property covers scheduler bookings, calendar-synced meetings and meetings logged by hand, past and upcoming; "Date of last meeting booked in meetings tool" only covers the scheduler and misses about 470 contacts); Lifecycle stage is any of Customer, Evangelist; Lead status is any of Unqualified, Not Interested. Add this list as "Contact is not a member of" on every workflow enrollment and as the exclusion list on the catch-up send. As of 28 Sep it holds the 9 internal contacts plus 656 contacts with a meeting on record (96 of them paid-social). |
+| **Nurture - Paid social owners, qualified** | Original source = Paid social AND `ibo_qualified` = True AND Latest meeting activity is unknown AND not a member of "Suppression - never nurture" |
 | **Nurture - Paid social owners, $1M-$3M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$1m - $3m` OR `What is your approximate annual EBITDA (profit)?` is any of `$1M - $3M`) |
 | **Nurture - Paid social owners, under $1M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$500k - $1m`, `$0` OR `What is your approximate annual EBITDA (profit)?` is any of `$0 - $1M`) |
 | **Nurture - Advisers** | `Role` = Business Advisor (the site modal writes this; add the same question to the LinkedIn Lead Gen Form) |
-| **Nurture - Booked** | Date of last meeting booked in meetings tool is known |
+| **Nurture - Booked** | Latest meeting activity is known |
 
 ## 5. Workflows to build (Automation > Workflows > Contact-based)
 
 Common settings for every nurture workflow:
-- **Goal:** Date of last meeting booked in meetings tool **is known**.
+- **Goal:** Latest meeting activity **is known** (fires on any meeting, including calendar-synced and upcoming).
 - **Unenrollment triggers:** Lead status is any of Unqualified, Not Interested, Contact In a Year; Last marketing email reply date is known; Recent sales email replied date is known; Unsubscribed from all email = true.
-- **Suppression:** contact is not a member of "Suppression - csgpartners.com".
+- **Suppression:** contact is not a member of "Suppression - never nurture". Also add an unenrollment trigger: Latest meeting activity is known.
 - **Re-enrollment:** off (except W6, see below).
 - Scheduled emails use the delay action **"Delay until a day or time"** with Tuesday-Thursday, 7:30am, and "use contact's time zone" where the lead's time zone is known.
 
@@ -80,7 +80,7 @@ D1 -> 3 days -> D2 -> 7 days -> D3 -> 10 days -> D4 -> 25 days -> enroll in W6.
 - Delay until the first Tuesday, 7:30am.
 
 ### W7 - Track F, meeting booked
-- Enroll: Date of last meeting booked in meetings tool is known.
+- Enroll: Latest meeting activity is known (or Meeting start time is known via the Meetings activity filter).
 - Delay until 24 hours before the meeting start (use the meeting's start time property from the Meetings tool) -> F1. 
 - SMS at T-2h is not available (no SMS tool in this portal); skip until HubSpot SMS or Twilio is added.
 - If meeting outcome = No show: wait 30 minutes -> F3 -> 2 days -> F4 -> 5 days -> enroll in W1 at A7.
@@ -154,7 +154,7 @@ Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts
 
 ## 7. Catch-up send (this week)
 
-Marketing > Email > "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up)". Recipients are already attached (176 contacts; csgpartners.com excluded). Review and send. Then add the same 176 contacts to W1 starting at A2 (enroll manually from the list "Nurture - Paid social owners, qualified" with "skip A1" set, or clone W1 without the A1 step for this one enrollment).
+Marketing > Email > "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up)". Recipients are already attached (176 contacts; csgpartners.com excluded). Verified 28 Sep: none of the 176 has any meeting on record. Add "Suppression - never nurture" under "Don't send to" as a belt-and-braces exclusion, then Review and send. Then add the same 176 contacts to W1 starting at A2 (enroll manually from the list "Nurture - Paid social owners, qualified" with "skip A1" set, or clone W1 without the A1 step for this one enrollment).
 
 ## 8. Existing campaigns: current state and what to switch off
 
