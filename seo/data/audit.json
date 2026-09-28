@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T21:53:59.565Z",
+  "generatedAt": "2026-09-26T17:05:35.221Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
-      "outboundInternalLinks": 22,
+      "inboundInternalLinks": 28,
+      "outboundInternalLinks": 23,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
       "descriptionLength": 142,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2181,
+      "words": 2225,
       "date": "2026-09-08",
-      "inboundInternalLinks": 15,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 16,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1762,
       "date": "2025-12-20",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -127,7 +127,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1978,
       "date": "2026-09-05",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -216,10 +216,10 @@
       "description": "A minority stake in private equity is rarely a minority say. The sponsor keeps veto rights over debt, acquisitions, hiring, and when you sell.",
       "descriptionLength": 142,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 1946,
+      "words": 1985,
       "date": "2026-09-08",
-      "inboundInternalLinks": 16,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -229,10 +229,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1715,
+      "words": 1762,
       "date": "2026-09-08",
-      "inboundInternalLinks": 8,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -257,8 +257,21 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1596,
       "date": "2026-07-06",
-      "inboundInternalLinks": 15,
+      "inboundInternalLinks": 16,
       "outboundInternalLinks": 10,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/sell-part-of-your-business-keep-control",
+      "title": "Sell Part of Your Business and Keep Control | IBO Advisors",
+      "titleLength": 58,
+      "description": "How much of your business can you sell and still keep control? What the percentage actually decides, the four partial-sale routes, and what each pays.",
+      "descriptionLength": 150,
+      "h1": "Sell Part of Your Business and Keep Control",
+      "words": 1979,
+      "date": "2026-09-26",
+      "inboundInternalLinks": 2,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -309,7 +322,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 26,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -361,8 +374,8 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 4,
-      "outboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
+      "outboundInternalLinks": 5,
       "issues": []
     }
   ],
