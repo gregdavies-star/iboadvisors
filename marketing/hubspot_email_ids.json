@@ -161,9 +161,9 @@
       "name": "IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify)",
       "subject": "Has EBITDA crossed $3M?",
       "sender": "Edmund Breitling",
-      "marketing_email_object_id": 860704914138,
+      "marketing_email_object_id": 861120111300,
       "type": "AUTOMATED (workflow)",
-      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860704914138"
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861120111300"
     },
     {
       "key": "C1",
@@ -215,9 +215,9 @@
       "name": "IBO Nurture F1 - Tomorrow: three things to have handy",
       "subject": "Tomorrow: three things to have handy",
       "sender": "Edmund Breitling",
-      "marketing_email_object_id": 860644120293,
+      "marketing_email_object_id": 861123106525,
       "type": "AUTOMATED (workflow)",
-      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860644120293"
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861123106525"
     },
     {
       "key": "F3",
@@ -233,9 +233,9 @@
       "name": "IBO Nurture F4 - Still worth the 20 minutes?",
       "subject": "Still worth the 20 minutes?",
       "sender": "Edmund Breitling",
-      "marketing_email_object_id": 860699560694,
+      "marketing_email_object_id": 861122596600,
       "type": "AUTOMATED (workflow)",
-      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860699560694"
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861122596600"
     },
     {
       "key": "A1-Catchup",
@@ -495,5 +495,22 @@
   "published_legacy_not_renamable": [
     785085307634,
     785408857819
+  ],
+  "retired_do_not_use": [
+    {
+      "key": "B5",
+      "marketing_email_object_id": 860704914138,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    },
+    {
+      "key": "F1",
+      "marketing_email_object_id": 860644120293,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    },
+    {
+      "key": "F4",
+      "marketing_email_object_id": 860699560694,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    }
   ]
 }

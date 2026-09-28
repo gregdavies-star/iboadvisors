@@ -110,15 +110,15 @@ Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts
 | B2 | IBO Nurture B2 - The four levers that move EBITDA | 860703195883 |
 | B3 | IBO Nurture B3 - Exit planning, eight steps | 860750653125 |
 | B4 | IBO Nurture B4 - Other doors: MBO, minority recap | 860694432493 |
-| B5 | IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify) | 860704914138 |
+| B5 | IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify) | 861120111300 |
 | C1 | IBO Nurture C1 - Honest answer on fit (under $1M) | 860645492456 |
 | D1 | IBO Nurture D1 - Thanks, and a quick question (advisers) | 860706602689 |
 | D2 | IBO Nurture D2 - How to spot an IBO candidate in your book | 860659891926 |
 | D3 | IBO Nurture D3 - What we do for referring advisers | 860635590372 |
 | D4 | IBO Nurture D4 - Close the loop? (breakup) | 860701586150 |
-| F1 | IBO Nurture F1 - Tomorrow: three things to have handy | 860644120293 |
+| F1 | IBO Nurture F1 - Tomorrow: three things to have handy | 861123106525 |
 | F3 | IBO Nurture F3 - Missed you, grab another slot | 860759619306 |
-| F4 | IBO Nurture F4 - Still worth the 20 minutes? | 860699560694 |
+| F4 | IBO Nurture F4 - Still worth the 20 minutes? | 861122596600 |
 | A1-Catchup | IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up) | 860757857999 |
 
 ### Test copies for Michael (batch, recipient = michael@iboadvisors.com only)
@@ -177,3 +177,7 @@ A fresh, unsent test of A1 in the new layout exists as "TEST for Michael v2 - IB
 ## 10. Michael's second round of copy edits (29 Sep)
 
 Applied from his revised document to 12 production bodies: A1, A1b, A2, A3, A7, A8, B5, D2, D4, F1, F3, F4 (plus the matching "(IBO)" on the catch-up email). Fourteen bodies were unchanged: A4, A5, A6, L1, L2, L3, Q, B1, B2, B3, B4, C1, D1, D3. Two small edits were tidied rather than copied verbatim: the A8 addition was punctuated as one sentence ("...tax free, then let's chat."), and the D2 bullet kept the plural "Companies that want ... DON'T want" rather than the singular in the draft. The exact HTML now in HubSpot for every email is in `marketing/hubspot_email_content.json`.
+
+## 11. B5, F1 and F4 rebuilt (29 Sep)
+
+Those three had been created as batch emails instead of automated, and all three were published (sent) on the evening of 28 Sep during test sending: F1 and F4 to one recipient each, B5 to two. A sent batch email is locked and a batch email cannot be used in a workflow, so each was recreated as an automated email with the same name and Michael's latest copy. New IDs: B5 861120111300, F1 861123106525, F4 861122596600. The old three still show in Marketing > Email with a "Sent" status; ignore them when building W3 and W7 and pick the ones with the Automated type.
