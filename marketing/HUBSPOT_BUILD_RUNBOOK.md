@@ -75,9 +75,72 @@ D1 -> 3 days -> D2 -> 7 days -> D3 -> 10 days -> D4 -> 25 days -> enroll in W6.
 - SMS at T-2h is not available (no SMS tool in this portal); skip until HubSpot SMS or Twilio is added.
 - If meeting outcome = No show: wait 30 minutes -> F3 -> 2 days -> F4 -> 5 days -> enroll in W1 at A7.
 
-## 6. Email IDs (fill from HubSpot after the build)
+## 6. Email IDs
 
-See `marketing/hubspot_email_ids.json` in this folder once the build finishes; each entry has the internal name, the marketing email object ID and the editor URL.
+Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts in portal 245308986.
+
+### Production (automated, for workflows; A1-Catchup is a batch email)
+
+| Key | Internal name | Object ID |
+|---|---|---|
+| A1 | IBO Nurture A1 - Your Independent Buyout (IBO) question | 860702939871 |
+| A1b | IBO Nurture A1b - Your calendar link (abandoned scheduler) | 860669025996 |
+| A2 | IBO Nurture A2 - Most Owners/Founders Don't Know this Exists | 860757860060 |
+| A3 | IBO Nurture A3 - The $26M difference | 860757965554 |
+| A4 | IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken | 860704843490 |
+| A5 | IBO Nurture A5 - A note from Michael Chasen | 860699558620 |
+| A6 | IBO Nurture A6 - What PE hopes you never learn | 860637635289 |
+| A7 | IBO Nurture A7 - Three options, pick one | 860645689025 |
+| A8 | IBO Nurture A8 - Should I close your file? (breakup) | 860708443897 |
+| L1 | IBO Nurture L1 - The pros and cons, honestly | 860750506702 |
+| L2 | IBO Nurture L2 - How they'll value your company | 860710187760 |
+| L3 | IBO Nurture L3 - The second bite, explained | 860669137645 |
+| Q | IBO Nurture Q - Still the right time to talk? (quarterly re-ask) | 860640395972 |
+| B1 | IBO Nurture B1 - Honest answer on fit ($1M-$3M) | 860761459403 |
+| B2 | IBO Nurture B2 - The four levers that move EBITDA | 860703195883 |
+| B3 | IBO Nurture B3 - Exit planning, eight steps | 860750653125 |
+| B4 | IBO Nurture B4 - Other doors: MBO, minority recap | 860694432493 |
+| B5 | IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify) | 860704914138 |
+| C1 | IBO Nurture C1 - Honest answer on fit (under $1M) | 860645492456 |
+| D1 | IBO Nurture D1 - Thanks, and a quick question (advisers) | 860706602689 |
+| D2 | IBO Nurture D2 - How to spot an IBO candidate in your book | 860659891926 |
+| D3 | IBO Nurture D3 - What we do for referring advisers | 860635590372 |
+| D4 | IBO Nurture D4 - Close the loop? (breakup) | 860701586150 |
+| F1 | IBO Nurture F1 - Tomorrow: three things to have handy | 860644120293 |
+| F3 | IBO Nurture F3 - Missed you, grab another slot | 860759619306 |
+| F4 | IBO Nurture F4 - Still worth the 20 minutes? | 860699560694 |
+| A1-Catchup | IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up) | 860757857999 |
+
+### Test copies for Michael (batch, recipient = michael@iboadvisors.com only)
+
+| Key | Test email name | Object ID |
+|---|---|---|
+| A1 | TEST for Michael - IBO Nurture A1 - Your Independent Buyout (IBO) question | 860633460413 |
+| A1b | TEST for Michael - IBO Nurture A1b - Your calendar link (abandoned scheduler) | 860763082458 |
+| A2 | TEST for Michael - IBO Nurture A2 - Most Owners/Founders Don't Know this Exists | 860766335710 |
+| A3 | TEST for Michael - IBO Nurture A3 - The $26M difference | 860763294396 |
+| A4 | TEST for Michael - IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken | 860694435518 |
+| A5 | TEST for Michael - IBO Nurture A5 - A note from Michael Chasen | 860645693138 |
+| A6 | TEST for Michael - IBO Nurture A6 - What PE hopes you never learn | 860695584481 |
+| A7 | TEST for Michael - IBO Nurture A7 - Three options, pick one | 860753865447 |
+| A8 | TEST for Michael - IBO Nurture A8 - Should I close your file? (breakup) | 860657755869 |
+| L1 | TEST for Michael - IBO Nurture L1 - The pros and cons, honestly | 860663625450 |
+| L2 | TEST for Michael - IBO Nurture L2 - How they'll value your company | 860633460442 |
+| L3 | TEST for Michael - IBO Nurture L3 - The second bite, explained | 860657671906 |
+| Q | TEST for Michael - IBO Nurture Q - Still the right time to talk? (quarterly re-ask) | 860637641421 |
+| B1 | TEST for Michael - IBO Nurture B1 - Honest answer on fit ($1M-$3M) | 860669254365 |
+| B2 | TEST for Michael - IBO Nurture B2 - The four levers that move EBITDA | 860647060209 |
+| B3 | TEST for Michael - IBO Nurture B3 - Exit planning, eight steps | 860654840555 |
+| B4 | TEST for Michael - IBO Nurture B4 - Other doors: MBO, minority recap | 860763296455 |
+| B5 | TEST for Michael - IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify) | 860694437601 |
+| C1 | TEST for Michael - IBO Nurture C1 - Honest answer on fit (under $1M) | 860763081461 |
+| D1 | TEST for Michael - IBO Nurture D1 - Thanks, and a quick question (advisers) | 860695500514 |
+| D2 | TEST for Michael - IBO Nurture D2 - How to spot an IBO candidate in your book | 860633499328 |
+| D3 | TEST for Michael - IBO Nurture D3 - What we do for referring advisers | 860641584853 |
+| D4 | TEST for Michael - IBO Nurture D4 - Close the loop? (breakup) | 860779128510 |
+| F1 | TEST for Michael - IBO Nurture F1 - Tomorrow: three things to have handy | 860694324984 |
+| F3 | TEST for Michael - IBO Nurture F3 - Missed you, grab another slot | 860663737045 |
+| F4 | TEST for Michael - IBO Nurture F4 - Still worth the 20 minutes? | 860669141738 |
 
 ## 7. Catch-up send (this week)
 
