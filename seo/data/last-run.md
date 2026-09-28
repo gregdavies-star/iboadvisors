@@ -1,41 +1,41 @@
-# Daily SEO run — 2026-09-26
+# Daily SEO run — 2026-09-28
 
-Rule 1 clean (0 audit errors). Rule 2 had the only real problem: `/industries/restaurants` is the sole non-PASS sitemap URL, so it got a 420-word section plus two inbound links. Rules 3–6 are blocked by cool-downs, the homepage-body ban and missing prior-window data; the rest of the budget went to rule 7.
+One new post on majority recapitalization — the highest-priority uncovered keyword now that clusters 1 and 2 are fully covered. Four link edits: two to lift `/blog/sell-part-of-your-business-keep-control` off the site floor, two to seed the new post. No title/meta rewrites and no expansions: every candidate was inside a cool-down or blocked by the homepage rule.
 
-## GSC totals — 28 days (2026-08-27 → 09-23)
+## Search Console (28 days, 2026-08-29 → 2026-09-25)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 53 | 2,422 | 2.19% | 15.6 |
-| Prior 28d | — | — | — | — |
+| Current | 57 | 2,794 | 2.04% | 14.9 |
+| Prior 28 | — | — | — | — |
 
-`totals.previous` is still null, so **rule 6 yields no decliners** (~2026-10-15).
+The pull returned `previous: null`, so nothing here is a trend claim and **rule 6 (decliners) could not run**.
 
-## Changes — 4 pages edited, 1 new post
+## Changes
 
-| Change | Data point |
-|---|---|
-| **`/industries/restaurants`** — section on the four restaurant EBITDA normalizations, a worked bridge ($3.2M reported → $4.0M adjusted, invented group), plus one FAQ in body and JSON-LD | **"Discovered – currently not indexed"**, the only non-PASS URL of 28. Its two identical siblings are indexed, so this is weight, not a template fault. Pre-opening costs sourced to Texas Roadhouse's FY2025 10-K |
-| `alternatives-to-selling-to-pe` → restaurants page | 109 impr @ 10.2; its sector paragraph already names multi-unit restaurants |
-| `minority-pe-stake-veto-rights` → restaurants page | 178 impr @ 9.9; its capex-consent paragraph already turns on restaurant unit spending |
-| **New: `/blog/sell-part-of-your-business-keep-control`** — 1,979 words, 12 internal links, sourced to 8 Del. C. §141(a), §271(a) and IRC §1042 | The four highest-priority uncovered keywords, all cluster 2. Built on governance mechanics, not a route list, to stay clear of the minority-recap and alternatives posts |
-| `minority-recapitalization-explained` → the new post | Cluster-3 hub, 74 impr @ 9.8, closest topical match |
+| Page | Action | Why |
+|---|---|---|
+| `/blog/majority-recapitalization` | **New post** | Rule 7 (1 post in trailing 7d). Cluster-3, uncovered. Recap intent already lands here: "minority recapitalization" 10 impr @21.6, "minority recap" 6 @9.0, "majority recapitalization" 1 @35.0. 2,100 words, 13 internal links, 5 sources all opened with WebFetch. |
+| `/blog/rollover-equity-second-bite-explained` | Link | Rule 2. Target unknown to Google on 1 in-body inbound. Donor has the freshest crawl on the site (09-27), 17 in / 11 out. |
+| `/blog/what-happens-after-private-equity-buys-your-company` | Link | Rule 2. Second inbound for the same target; donor crawled 09-26. |
+| `/blog/minority-recapitalization-explained` | Link | Rule 8. Cluster-3 hub, 88 impr @9.4 — the minority/majority pairing. |
+| `/blog/business-exit-planning-every-option` | Link | Rule 8. Option 2 said "some or all of the company" and never named the "some" case. |
 
-`keywords.json` fixed: `EBITDA multiples by industry` had a live page but no `covered` entry, so rule 7 could have re-published it.
+Audit: 30 indexable pages, **0 errors, 0 warnings**. Sitemap 30 URLs.
 
 ## Skipped
 
-- **Rule 3** — all 3 `lowCtr` rows in cool-down: `/blog` (09-08), explainer (09-15), veto rights (09-18).
-- **Rule 4** — 3 of 4 rows are the homepage (body barred); the 4th is answered in the explainer's opening.
-- **Rule 5** — 3 of 4 rows are apex/`www` duplicates of our own domain.
+- **Rule 3.** All four low-CTR pages fail the 28-day cool-down: `/blog` (09-08), `independent-buyout-explained` (09-15), `minority-pe-stake…` (09-18), `alternatives-to-selling…` (title written at publication, 09-08).
+- **Rule 4.** Three of five striking-distance rows are the homepage (body copy off-limits). The fourth ("what is an ibo" on `independent-buyout-explained`, 26 impr @7.0) already answers the query in its title, meta and opening paragraph. The fifth is a quoted exact-phrase query.
+- **Rule 5.** All four cannibalization rows are ours: three apex-vs-`www` pairs the 301 already handles, plus "what is an ibo" splitting the homepage and the post — the only lever there is a homepage edit, which is barred.
 
-## Needs a human
+## Coverage
 
-1. **~94 impressions, 0 clicks, no page and no keyword entry:** `buyout private equity` (41 @ 26.4), `private equity buyout` (21 @ 20.5), `pe buyout` (13 @ 28.5). Absent from `keywords.json`, so no rule reaches it. Add to cluster 5.
-2. **Apex still outranks `www` on the calculator** — 391 impr @ 34.4 against 46 @ 10.1. The 301 is correct; consolidation lag.
-3. **`what is an ibo`** — 68 impr, 0 clicks; `independentbuyout.com` (ours) also ranks page one, so the click may land where GSC cannot see it.
-4. **Stranded past page 2:** `management buyout financing` (74 @ 23.3), `exit planning for business owners` (24 @ 85.3).
+- `/industries/restaurants` — still "Discovered, currently not indexed", and `lastCrawlTime` is **empty: Google has never fetched it**. It carries 7 inbound links against 4 for each indexed sibling and was expanded 420 words on 09-26. No on-page fix helps an uncrawled URL, so it got one more contextual link and no churn.
+- `/blog/sell-part-of-your-business-keep-control` — "unknown to Google", published 09-26. Normal lag, but it had 1 in-body inbound. Now 4.
 
-## Flagged
+## For a human
 
-Nothing. Banned-phrasing scan: 0 matches across 30 HTML files; all JSON-LD parses. The approved "$1.8 billion" line is intact in both places, so that flag stays dropped.
+1. `/industries/restaurants` likely needs a manual **Request Indexing** in Search Console; the job has done everything it can twice.
+2. Zero clicks on the IBO acronym cluster (~185 impressions, positions 5–11) is most likely `independentbuyout.com` taking the click — our domain, invisible to this property. Confirm there before treating it as a snippet fault.
+3. Nothing flagged under the no-deal-data rule.
