@@ -28,7 +28,7 @@ The connector cannot send email, so this is a click each. In HubSpot: Marketing 
 
 | Item | Why blocked | Fix |
 |---|---|---|
-| Create lists (suppression list, enrollment lists) | Connector lacks the `crm.lists.write` scope, even after reconnecting | Build the lists in section 4 by hand (10 minutes), or reinstall the HubSpot connector granting the Lists scope and I will create them |
+| Create lists (suppression list, enrollment lists) | Connector reports the Lists object as REQUIRES_REAUTHORIZATION (scopes `crm.lists.write`, `crm.segments.write`) | Disconnect and reconnect the HubSpot connector in Claude, accepting every permission on the HubSpot consent screen. Then say "build the lists" and they will be created through the connector. Same reauthorization unlocks the Campaign object (`marketing.campaigns.write`), which groups all 27 emails for reporting. |
 | Set marketing-contact status on the 40 paid-social contacts marked non-marketing | Connector lacks the `marketable-contacts-write` scope | Contacts > filter Marketing contact status = Non-marketing AND Original source = Paid social > select all > Actions > Set as marketing contacts |
 | Workflows | The connector has no workflow tool | Build per section 5 (about 60 minutes for all seven) |
 
@@ -36,7 +36,7 @@ The connector cannot send email, so this is a click each. In HubSpot: Marketing 
 
 | List name | Filters |
 |---|---|
-| **Suppression - never nurture** | OR of: Email contains any of `@csgpartners.com`, `@iboadvisors.com`, `@roedgers.com`, `@hubspot.com`; **Latest meeting activity is known** (this one property covers scheduler bookings, calendar-synced meetings and meetings logged by hand, past and upcoming; "Date of last meeting booked in meetings tool" only covers the scheduler and misses about 470 contacts); Lifecycle stage is any of Customer, Evangelist; Lead status is any of Unqualified, Not Interested. Add this list as "Contact is not a member of" on every workflow enrollment and as the exclusion list on the catch-up send. As of 28 Sep it holds the 9 internal contacts plus 656 contacts with a meeting on record (96 of them paid-social). |
+| **Suppression - never nurture** | OR of: Email contains any of `@csgpartners.com`, `@iboadvisors.com`, `@roedgers.com`, `@hubspot.com`; **Latest meeting activity is known** (this one property covers scheduler bookings, calendar-synced meetings and meetings logged by hand, past and upcoming; "Date of last meeting booked in meetings tool" only covers the scheduler and misses about 470 contacts); Lifecycle stage is any of Customer, Evangelist; Lead status is any of Unqualified, Not Interested. Add this list as "Contact is not a member of" on every workflow enrollment and as the exclusion list on the catch-up send. As of 28 Sep it holds the 9 internal contacts plus 227 contacts with a meeting on record. |
 | **Nurture - Paid social owners, qualified** | Original source = Paid social AND `ibo_qualified` = True AND Latest meeting activity is unknown AND not a member of "Suppression - never nurture" |
 | **Nurture - Paid social owners, $1M-$3M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$1m - $3m` OR `What is your approximate annual EBITDA (profit)?` is any of `$1M - $3M`) |
 | **Nurture - Paid social owners, under $1M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$500k - $1m`, `$0` OR `What is your approximate annual EBITDA (profit)?` is any of `$0 - $1M`) |
@@ -154,7 +154,7 @@ Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts
 
 ## 7. Catch-up send (this week)
 
-Marketing > Email > "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up)". Recipients are already attached (176 contacts; csgpartners.com excluded). Verified 28 Sep: none of the 176 has any meeting on record. Add "Suppression - never nurture" under "Don't send to" as a belt-and-braces exclusion, then Review and send. Then add the same 176 contacts to W1 starting at A2 (enroll manually from the list "Nurture - Paid social owners, qualified" with "skip A1" set, or clone W1 without the A1 step for this one enrollment).
+Marketing > Email > "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up)". Recipients are already attached (176 contacts; csgpartners.com excluded). Verified 28 Sep: none of the 176 has any meeting on record, and the email already carries a 231-contact exclusion (every contact with a meeting on record plus the 9 internal addresses) so it is safe to send even before the suppression list exists. Add "Suppression - never nurture" under "Don't send to" as well once the list is built, then Review and send. Then add the same 176 contacts to W1 starting at A2 (enroll manually from the list "Nurture - Paid social owners, qualified" with "skip A1" set, or clone W1 without the A1 step for this one enrollment).
 
 ## 8. Existing campaigns: current state and what to switch off
 
