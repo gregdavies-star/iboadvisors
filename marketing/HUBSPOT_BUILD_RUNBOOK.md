@@ -45,6 +45,10 @@ The connector cannot send email, so this is a click each. In HubSpot: Marketing 
 | 63 | **Nurture - Advisers** | Active | Role = Business Advisor AND not in 58/59 |
 
 No separate Booked list: W7 enrolls on "Latest meeting activity is known" directly. Campaign object **IBO Paid-Social Nurture Sep 2026** (id 861857269481) has all 27 emails attached. The catch-up email now carries lists 58 and 59 as exclusion lists in addition to the individual exclusions.
+### List 68 (added 29 Sep): "Suppression - replied or contact in a year"
+Dynamic: hs_email_last_reply_date is known OR hs_sales_email_last_replied is known OR hs_lead_status = BAD_TIMING.
+Used as a workflow suppression segment alongside 58 and 59, because the workflow editor has no free-form unenrollment criteria.
+
 ## 5. Workflows to build (Automation > Workflows > Contact-based)
 
 **Click-by-click build instructions are in `marketing/WORKFLOW_BUILD_GUIDE.md` (29 Sep). That guide supersedes the sketch below where they differ: the meeting track is split into W7 (F1 reminder) and W8 (no-show recovery, which sends A7/A8 itself because HubSpot cannot enroll part-way into W1).**

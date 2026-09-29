@@ -43,23 +43,24 @@ Two HubSpot rules found while building W6 (29 Sep):
    - Create task, Set property value (CRM)
 6. Settings tab (top of editor) for the common settings below.
 
-## Settings common to W1 to W6 (Settings tab)
+## Settings common to W1 to W6 (trigger box > Details > Settings tab)
 
-- Unenrollment and suppression > Suppression lists: add list 58 and list 59.
-- Unenrollment and suppression > Remove contacts when they meet criteria (OR group):
-  - Lead status is any of Unqualified, Not Interested, Contact In a Year
-  - Last marketing email reply date is known
-  - Recent sales email replied date is known
-  - Latest meeting activity is known
-- Goals: Latest meeting activity is known.
-- Re-enrollment: off (W6: on).
-- General > Timing: leave "run at any time". The Tue/Wed/Thu 7:30am rule is enforced by
-  "Delay until a day or time" actions inside the flow. Account time zone (Eastern).
+HubSpot's editor (as of 29 Sep) has no free-form unenrollment criteria; unenrollment is done
+with suppression lists and a goal. Click Details on the trigger box at the top of the canvas,
+then the Settings tab:
 
-W0, W7 and W8 do NOT use these settings; their own are listed with them.
+- Re-enroll: off (W6: on).
+- "Added to a suppression segment": ON, then pick three lists:
+  - 58 "Suppression - never nurture" (internal domains, CSG Partners, Michael's test addresses,
+    scheduler bookings, customers, Unqualified / Not Interested)
+  - 59 "Suppression - met Michael (static, 29 Sep 2026)"
+  - 68 "Suppression - replied or contact in a year" (replied to a marketing or sales email, or
+    lead status Contact In a Year; created 29 Sep for this purpose)
+- "Met a workflow goal": ON, goal criteria: Latest meeting activity is known.
+- "No longer meet eligibility conditions": leave as is.
+- Save.
 
-"Delay until a day or time" always means: days Tuesday, Wednesday, Thursday; time 7:30 AM.
-In W6 it is Tuesday only.
+The Settings item in the top menu bar (run windows, pause dates, auto turn-off) is not used.
 
 ## W6 - IBO Nurture W6 - Long tail monthly (build first)
 
