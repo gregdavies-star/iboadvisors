@@ -206,3 +206,37 @@ Order matters. "Me" = through the HubSpot connector from this session. "You" = i
 | 14 | Monitoring, first two weeks: sends, bounces, unsubscribes, spam reports, replies, meetings booked by utm_campaign | Me, on request or on a daily schedule | Anything above 0.3% spam or 2% unsubscribe on one email pauses that email. |
 
 Not in scope: F2 SMS (no SMS tool in the portal). Legacy: the two published Edmund emails from May are attached to nothing; leave them.
+
+## 13. Meeting-detection audit (29 Sep 2026): "Had Zoom Meeting" vs current approach
+
+Michael asked whether we should detect met/scheduled contacts with `had_zoom_meeting = Yes` and
+`engagements_last_meeting_booked < now`. Measured against the portal on 29 Sep 2026:
+
+| Signal | Contacts | Notes |
+|---|---|---|
+| Any meeting record associated to the contact (list 59 static + workflow "Latest meeting activity is known") | 227 | Broadest: covers scheduler, calendar sync, and manually logged meetings |
+| `engagements_last_meeting_booked` set (scheduler only; used in list 58) | 192 | 183 in the past, 9 in the future |
+| `had_zoom_meeting = Yes` | 143 | Manually maintained; stored value is `Yes`, not `true` |
+
+Overlap:
+
+| Check | Result |
+|---|---|
+| `had_zoom_meeting = Yes` but no meeting record | 26 (all OFFLINE / direct-traffic prospects, none paid social) |
+| `had_zoom_meeting = Yes` but no scheduler date | 42 |
+| Meeting record but `had_zoom_meeting` blank | 112 (half of everyone who met Michael) |
+| Scheduler date in the past but `had_zoom_meeting` blank | 82 |
+| Scheduler date in the FUTURE but `had_zoom_meeting` blank | 9 (a "date < now" rule would email these people days before their meeting) |
+| `had_zoom_meeting = Yes` in any send list (57, 60, 61, 62, 63) | 0 |
+| `had_zoom_meeting = Yes` already in suppression list 58 | 103 |
+| `had_zoom_meeting = Yes` already in suppression list 59 | 117 |
+
+Conclusion: the current approach (meeting record OR scheduler booking, past or future) is the more
+accurate one. `had_zoom_meeting` alone would miss 112 people who met Michael and 9 who have a
+meeting coming up. Every contact with `had_zoom_meeting = Yes` is already excluded from every send
+list, so no list change is required for go-live.
+
+Optional belt-and-braces (one-minute UI edit, Greg): open list 58 "Suppression - never nurture"
+and add one more OR condition: `Had Zoom Meeting is any of Yes`. This protects against a future
+contact that Michael marks Yes by hand without a meeting ever being logged in HubSpot. Lists 60-63
+inherit it automatically because they exclude members of 58.
