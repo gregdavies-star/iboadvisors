@@ -181,3 +181,26 @@ Applied from his revised document to 12 production bodies: A1, A1b, A2, A3, A7, 
 ## 11. B5, F1 and F4 rebuilt (29 Sep)
 
 Those three had been created as batch emails instead of automated, and all three were published (sent) on the evening of 28 Sep during test sending: F1 and F4 to one recipient each, B5 to two. All four deliveries went to Michael's own test addresses (mlchasen@gmail.com, mlchasen+1@gmail.com, michael@class.com); no prospect received anything. A sent batch email is locked and a batch email cannot be used in a workflow, so each was recreated as an automated email with the same name and Michael's latest copy. New IDs: B5 861120111300, F1 861123106525, F4 861122596600. The old three still show in Marketing > Email with a "Sent" status; ignore them when building W3 and W7 and pick the ones with the Automated type.
+
+## 12. Go-live checklist (29 Sep) - who does what
+
+Order matters. "Me" = through the HubSpot connector from this session. "You" = in the HubSpot UI.
+
+| # | Step | Owner | Notes |
+|---|---|---|---|
+| 1 | Reconnect the HubSpot connector in Claude, accepting every permission | You (2 min) | Unlocks lists, the campaign object and marketing-contact status for me. Skip it and steps 3, 4, 5 and 9 become yours. |
+| 2 | Check marketing-contact headroom: Settings > Account > Marketing contacts | You (1 min) | 40 more contacts become marketing in step 3; confirm the tier allows it. |
+| 3 | Set the 40 paid-social non-marketing contacts to marketing | Me after step 1, else you (section 3) | |
+| 4 | Build the suppression list and the five enrollment lists (section 4) | Me after step 1, else you (15 min) | |
+| 5 | Build a static list of the 176 catch-up contacts | Me after step 1, else you | Used in step 12 to enroll them at A2. |
+| 6 | Ad lead sync: Marketing > Ads > Settings > Lead syncing, turn on "create contacts as marketing contacts" for LinkedIn and Meta; confirm the Learn More website form does the same (Forms > form > Options) | You (5 min) | Without this, new signups arrive as non-marketing and receive nothing. |
+| 7 | Build workflows W0-W7 (section 5), all switched off; each uses the suppression list on enrollment, goal "Latest meeting activity is known", and the unenrollment triggers. In W1, wrap the A1 send in an if/then: "Has been sent email IBO Nurture A1-Catchup" = No | You (60 min) | Pick the Automated-type B5, F1, F4 (section 11). |
+| 8 | Dry run: create a test contact on a personal address with ibo_qualified = True, enroll it in W1 with the workflow on, confirm A1 lands in the inbox, first name and scheduler prefill correct, then unenroll and delete the contact | You (10 min) | I check the send registered and the headers pass authentication. |
+| 9 | Create the campaign object and attach all 27 emails for reporting | Me after step 1 | Optional but cheap. |
+| 10 | Catch-up send: open "IBO Nurture A1-Catchup", add "Suppression - never nurture" under Don't send to, confirm the count is 176, schedule for Wed 30 Sep 7:30am ET | You (3 min) | Exclusions for meetings, internal and Michael's test addresses are already on it. |
+| 11 | Switch on W1, W2, W3, W4, W5, W6, W7. Enroll existing: W1 No, W2 No, W3 Yes, W4 Yes, W5 Yes, W6 No, W7 No | You (5 min) | Existing $1M-$3M, under-$1M and adviser contacts start their slow tracks; qualified legacy owners are covered by the catch-up instead. |
+| 12 | Thursday 1 Oct: enroll the 176 catch-up contacts (list from step 5) in W1. The if/then from step 7 skips A1, so A2 goes out Tue 6 Oct 7:30am | You (2 min) | |
+| 13 | Switch on W0 last | You (1 min) | New paid-social signups now get A1 within a minute and Edmund gets the call task. |
+| 14 | Monitoring, first two weeks: sends, bounces, unsubscribes, spam reports, replies, meetings booked by utm_campaign | Me, on request or on a daily schedule | Anything above 0.3% spam or 2% unsubscribe on one email pauses that email. |
+
+Not in scope: F2 SMS (no SMS tool in the portal). Legacy: the two published Edmund emails from May are attached to nothing; leave them.
