@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T17:07:27.293Z",
+  "generatedAt": "2026-09-29T17:08:50.673Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -24,7 +24,7 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 30,
-      "outboundInternalLinks": 25,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Alternatives to selling to private equity, priced: seven routes to liquidity at $3M+ EBITDA, what each pays on a $6M EBITDA company, and who each fits.",
       "descriptionLength": 151,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2225,
+      "words": 2255,
       "date": "2026-09-08",
       "inboundInternalLinks": 17,
-      "outboundInternalLinks": 20,
+      "outboundInternalLinks": 21,
       "issues": []
     },
     {
@@ -47,10 +47,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1802,
+      "words": 1847,
       "date": "2025-12-20",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -127,7 +127,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -140,7 +140,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1471,
       "date": "2026-04-24",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -231,7 +231,7 @@
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
       "words": 2074,
       "date": "2026-09-19",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -242,10 +242,10 @@
       "description": "A minority stake in private equity is rarely a minority say. The sponsor keeps veto rights over debt, acquisitions, hiring, and when you sell.",
       "descriptionLength": 142,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 1985,
+      "words": 2061,
       "date": "2026-09-08",
       "inboundInternalLinks": 19,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -288,16 +288,16 @@
       "issues": []
     },
     {
-      "url": "https://www.iboadvisors.com/blog/sell-part-of-your-business-keep-control",
-      "title": "Sell Part of Your Business and Keep Control | IBO Advisors",
-      "titleLength": 58,
-      "description": "How much of your business can you sell and still keep control? What the percentage actually decides, the four partial-sale routes, and what each pays.",
-      "descriptionLength": 150,
-      "h1": "Sell Part of Your Business and Keep Control",
-      "words": 1979,
-      "date": "2026-09-26",
-      "inboundInternalLinks": 5,
-      "outboundInternalLinks": 11,
+      "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
+      "title": "How to Sell a Business but Keep Control | IBO Advisors",
+      "titleLength": 54,
+      "description": "Four ways a $3M+ EBITDA owner takes real cash off the table and still runs the company: minority recap, dividend recap, staged sale, Independent Buyout.",
+      "descriptionLength": 152,
+      "h1": "How to Sell a Business but Keep Control",
+      "words": 2079,
+      "date": "2026-09-27",
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -309,7 +309,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 15,
       "issues": []
     },
