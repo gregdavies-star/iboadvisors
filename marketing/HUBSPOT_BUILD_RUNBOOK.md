@@ -188,9 +188,9 @@ Order matters. "Me" = through the HubSpot connector from this session. "You" = i
 
 | # | Step | Owner | Notes |
 |---|---|---|---|
-| 1 | Reconnect the HubSpot connector in Claude, accepting every permission | You (2 min) | Unlocks lists, the campaign object and marketing-contact status for me. Skip it and steps 3, 4, 5 and 9 become yours. |
+| 1 | Reconnect the HubSpot connector in Claude and, on HubSpot's consent screen, explicitly tick Lists, Segments and Marketing campaigns (they are unticked by default). A lock icon on any of them means a HubSpot admin has to approve the scope for the app first under Settings > Integrations > Connected apps | You (2 min) | Unlocks lists, the campaign object and marketing-contact status for me. Skip it and steps 3, 4, 5 and 9 become yours. |
 | 2 | Check marketing-contact headroom: Settings > Account > Marketing contacts | You (1 min) | 40 more contacts become marketing in step 3; confirm the tier allows it. |
-| 3 | Set the 40 paid-social non-marketing contacts to marketing | Me after step 1, else you (section 3) | |
+| 3 | ~~Set the 40 paid-social non-marketing contacts to marketing~~ Not needed: all 40 already have a meeting on record, so the suppression list excludes them anyway | Nobody | Checked 29 Sep. |
 | 4 | Build the suppression list and the five enrollment lists (section 4) | Me after step 1, else you (15 min) | |
 | 5 | Build a static list of the 176 catch-up contacts | Me after step 1, else you | Used in step 12 to enroll them at A2. |
 | 6 | Ad lead sync: Marketing > Ads > Settings > Lead syncing, turn on "create contacts as marketing contacts" for LinkedIn and Meta; confirm the Learn More website form does the same (Forms > form > Options) | You (5 min) | Without this, new signups arrive as non-marketing and receive nothing. |
