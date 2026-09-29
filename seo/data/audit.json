@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T17:25:18.657Z",
+  "generatedAt": "2026-09-29T17:04:37.830Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
+      "inboundInternalLinks": 29,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,20 +23,20 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
-      "outboundInternalLinks": 23,
+      "inboundInternalLinks": 29,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
-      "title": "7 Alternatives to Selling to Private Equity | IBO Advisors",
-      "titleLength": 58,
-      "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
-      "descriptionLength": 142,
+      "title": "Alternatives to Selling to Private Equity: 7 Routes, Priced",
+      "titleLength": 59,
+      "description": "Alternatives to selling to private equity, priced: seven routes to liquidity at $3M+ EBITDA, what each pays on a $6M EBITDA company, and who each fits.",
+      "descriptionLength": 151,
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2225,
       "date": "2026-09-08",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 20,
       "issues": []
     },
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1762,
       "date": "2025-12-20",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -62,8 +62,21 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1811,
       "date": "2025-10-04",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 8,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
+      "title": "Earnout in a Business Sale: What It Pays | IBO Advisors",
+      "titleLength": 55,
+      "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
+      "descriptionLength": 147,
+      "h1": "Earnout in a Business Sale: What It Pays",
+      "words": 2113,
+      "date": "2026-09-29",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -114,7 +127,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -138,10 +151,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2074,
+      "words": 2097,
       "date": "2026-09-13",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -166,7 +179,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -179,7 +192,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1978,
       "date": "2026-09-05",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -218,7 +231,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1985,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -255,10 +268,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1596,
+      "words": 1628,
       "date": "2026-07-06",
-      "inboundInternalLinks": 16,
-      "outboundInternalLinks": 10,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -283,7 +296,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -307,10 +320,10 @@
       "description": "What happens after a private equity buyout, year by year: the debt on your balance sheet, the consent list, 65% CEO turnover, and a seven-year hold.",
       "descriptionLength": 148,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2132,
+      "words": 2189,
       "date": "2026-09-12",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 15,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -322,7 +335,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 9,
       "issues": []
     },
