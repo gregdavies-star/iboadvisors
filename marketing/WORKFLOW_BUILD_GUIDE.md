@@ -260,6 +260,11 @@ Own settings:
 
 ## After building
 
+- Every Send email action shows a red "Changes needed" while the emails are drafts. That is
+  expected: automated emails must be published ("Review and publish" in the email editor,
+  which sends nothing) before a workflow using them can be turned on. Do that after Michael
+  signs off (runbook step 4b), not now.
+
 - All nine show "Off" in the Workflows list. Do not turn any on yet.
 - Tell Claude; the dry run (step 4) uses W1.
 - Switch-on order at go-live (step 6 then 8): W6, W1, W2, W3 (enroll existing Yes),
