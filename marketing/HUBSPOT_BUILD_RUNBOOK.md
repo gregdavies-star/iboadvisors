@@ -32,23 +32,25 @@ The connector cannot send email, so this is a click each. In HubSpot: Marketing 
 | Set marketing-contact status on the 40 paid-social contacts marked non-marketing | Connector lacks the `marketable-contacts-write` scope | Contacts > filter Marketing contact status = Non-marketing AND Original source = Paid social > select all > Actions > Set as marketing contacts |
 | Workflows | The connector has no workflow tool | Build per section 5 (about 60 minutes for all seven) |
 
-## 4. Lists to create (Contacts > Lists > Create, Active list)
+## 4. Lists (built 29 Sep through the connector)
 
-| List name | Filters |
-|---|---|
-| **Suppression - never nurture** | OR of: Email contains any of `@csgpartners.com`, `@iboadvisors.com`, `@roedgers.com`, `@hubspot.com`, `mlchasen`, `michael@class.com` (Michael's personal test addresses); **Latest meeting activity is known** (this one property covers scheduler bookings, calendar-synced meetings and meetings logged by hand, past and upcoming; "Date of last meeting booked in meetings tool" only covers the scheduler and misses about 470 contacts); Lifecycle stage is any of Customer, Evangelist; Lead status is any of Unqualified, Not Interested. Add this list as "Contact is not a member of" on every workflow enrollment and as the exclusion list on the catch-up send. As of 28 Sep it holds the 9 internal contacts plus 227 contacts with a meeting on record. |
-| **Nurture - Paid social owners, qualified** | Original source = Paid social AND `ibo_qualified` = True AND Latest meeting activity is unknown AND not a member of "Suppression - never nurture" |
-| **Nurture - Paid social owners, $1M-$3M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$1m - $3m` OR `What is your approximate annual EBITDA (profit)?` is any of `$1M - $3M`) |
-| **Nurture - Paid social owners, under $1M** | Original source = Paid social AND (`What is your approximate annual EBITDA?` is any of `$500k - $1m`, `$0` OR `What is your approximate annual EBITDA (profit)?` is any of `$0 - $1M`) |
-| **Nurture - Advisers** | `Role` = Business Advisor (the site modal writes this; add the same question to the LinkedIn Lead Gen Form) |
-| **Nurture - Booked** | Latest meeting activity is known |
+| List ID | Name | Type | Definition |
+|---|---|---|---|
+| 58 | **Suppression - never nurture** | Active | Email contains any of @csgpartners.com, @iboadvisors.com, @roedgers.com, @hubspot.com, mlchasen, michael@class.com; OR Date of last meeting booked in meetings tool is known; OR Lifecycle stage is Customer or Evangelist; OR Lead status is Unqualified or Not Interested |
+| 59 | **Suppression - met Michael (static, 29 Sep 2026)** | Static | The 227 contacts with any meeting on record as of 29 Sep (calendar-synced and hand-logged meetings included), plus internal and test addresses. HubSpot's API blocks "Latest meeting activity" as a list filter, so this static list covers the meetings the scheduler property misses. **Add to it whenever a meeting is logged outside the scheduler**, or better, add "Latest meeting activity is known" as an unenrollment trigger on every workflow (the workflow editor does allow that property). |
+| 57 | **Nurture - Catch-up cohort (176, Sep 2026)** | Static | The 176 catch-up recipients. Enroll this list in W1 on Thu 1 Oct. |
+| 60 | **Nurture - Paid social owners, qualified** | Active | Original source = Paid social AND ibo_qualified = True AND not in 58 AND not in 59 |
+| 61 | **Nurture - Paid social owners, $1M-$3M** | Active | Original source = Paid social AND ibo_qualified is not True AND (EBITDA in $1m-$3m, $2m, $1.2m, $1m OR EBITDA (profit) in $1M-$3M, $0-$3M) AND not in 58/59 |
+| 62 | **Nurture - Paid social owners, under $1M** | Active | Original source = Paid social AND ibo_qualified is not True AND (EBITDA in $500k-$1m, $0, 0, $0m, $400k OR EBITDA (profit) = $0-$1M) AND not in 58/59 |
+| 63 | **Nurture - Advisers** | Active | Role = Business Advisor AND not in 58/59 |
 
+No separate Booked list: W7 enrolls on "Latest meeting activity is known" directly. Campaign object **IBO Paid-Social Nurture Sep 2026** (id 861857269481) has all 27 emails attached. The catch-up email now carries lists 58 and 59 as exclusion lists in addition to the individual exclusions.
 ## 5. Workflows to build (Automation > Workflows > Contact-based)
 
 Common settings for every nurture workflow:
 - **Goal:** Latest meeting activity **is known** (fires on any meeting, including calendar-synced and upcoming).
 - **Unenrollment triggers:** Lead status is any of Unqualified, Not Interested, Contact In a Year; Last marketing email reply date is known; Recent sales email replied date is known; Unsubscribed from all email = true.
-- **Suppression:** contact is not a member of "Suppression - never nurture". Also add an unenrollment trigger: Latest meeting activity is known.
+- **Suppression:** contact is not a member of list 58 "Suppression - never nurture" AND not a member of list 59 "Suppression - met Michael". Also add an unenrollment trigger: Latest meeting activity is known.
 - **Re-enrollment:** off (except W6, see below).
 - Scheduled emails use the delay action **"Delay until a day or time"** with Tuesday-Thursday, 7:30am, and "use contact's time zone" where the lead's time zone is known.
 
@@ -191,12 +193,12 @@ Order matters. "Me" = through the HubSpot connector from this session. "You" = i
 | 1 | Reconnect the HubSpot connector in Claude and, on HubSpot's consent screen, explicitly tick Lists, Segments and Marketing campaigns (they are unticked by default). A lock icon on any of them means a HubSpot admin has to approve the scope for the app first under Settings > Integrations > Connected apps | You (2 min) | Unlocks lists, the campaign object and marketing-contact status for me. Skip it and steps 3, 4, 5 and 9 become yours. |
 | 2 | Check marketing-contact headroom: Settings > Account > Marketing contacts | You (1 min) | 40 more contacts become marketing in step 3; confirm the tier allows it. |
 | 3 | ~~Set the 40 paid-social non-marketing contacts to marketing~~ Not needed: all 40 already have a meeting on record, so the suppression list excludes them anyway | Nobody | Checked 29 Sep. |
-| 4 | Build the suppression list and the five enrollment lists (section 4) | Me after step 1, else you (15 min) | |
-| 5 | Build a static list of the 176 catch-up contacts | Me after step 1, else you | Used in step 12 to enroll them at A2. |
+| 4 | Suppression and enrollment lists | Done 29 Sep (lists 57-63, section 4) | |
+| 5 | Static list of the 176 catch-up contacts | Done 29 Sep (list 57) | Used in step 12 to enroll them at A2. |
 | 6 | Ad lead sync: Marketing > Ads > Settings > Lead syncing, turn on "create contacts as marketing contacts" for LinkedIn and Meta; confirm the Learn More website form does the same (Forms > form > Options) | You (5 min) | Without this, new signups arrive as non-marketing and receive nothing. |
 | 7 | Build workflows W0-W7 (section 5), all switched off; each uses the suppression list on enrollment, goal "Latest meeting activity is known", and the unenrollment triggers. In W1, wrap the A1 send in an if/then: "Has been sent email IBO Nurture A1-Catchup" = No | You (60 min) | Pick the Automated-type B5, F1, F4 (section 11). |
 | 8 | Dry run: create a test contact on a personal address with ibo_qualified = True, enroll it in W1 with the workflow on, confirm A1 lands in the inbox, first name and scheduler prefill correct, then unenroll and delete the contact | You (10 min) | I check the send registered and the headers pass authentication. |
-| 9 | Create the campaign object and attach all 27 emails for reporting | Me after step 1 | Optional but cheap. |
+| 9 | Campaign object with all 27 emails attached | Done 29 Sep (IBO Paid-Social Nurture Sep 2026) | |
 | 10 | Catch-up send: open "IBO Nurture A1-Catchup", add "Suppression - never nurture" under Don't send to, confirm the count is 176, schedule for Wed 30 Sep 7:30am ET | You (3 min) | Exclusions for meetings, internal and Michael's test addresses are already on it. |
 | 11 | Switch on W1, W2, W3, W4, W5, W6, W7. Enroll existing: W1 No, W2 No, W3 Yes, W4 Yes, W5 Yes, W6 No, W7 No | You (5 min) | Existing $1M-$3M, under-$1M and adviser contacts start their slow tracks; qualified legacy owners are covered by the catch-up instead. |
 | 12 | Thursday 1 Oct: enroll the 176 catch-up contacts (list from step 5) in W1. The if/then from step 7 skips A1, so A2 goes out Tue 6 Oct 7:30am | You (2 min) | |
