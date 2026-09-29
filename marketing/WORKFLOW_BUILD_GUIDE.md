@@ -81,36 +81,37 @@ Trigger: none. Re-enrollment: on.
 
 ## W1 - IBO Nurture W1 - Track A qualified owner
 
-Trigger: none (fed by W0, W2, W3, W4 and the manual list-57 enrollment on go-live day).
+Design change 29 Sep: W1 does NOT send A1. A1 is sent by whichever workflow hands the contact
+over (W0 for new leads; the batch catch-up email for list 57; A1b from W2). That removes the
+if/then branch, so no branch logic is needed anywhere in W1.
 
-1. If/then branch. Criteria: Marketing email activity: "IBO Nurture A1-Catchup" has been sent
-   OR "IBO Nurture A1b" has been sent.
-   - Yes: no action (continue).
-   - No: Send email: IBO Nurture A1 - Your Independent Buyout (IBO) question.
-   Both branches rejoin ("Go to other action" on the next step, or end the branch and continue).
-2. Delay 1 day
-3. Delay until a day or time
-4. Send email: IBO Nurture A2 - Most Owners/Founders Don't Know this Exists
-5. Delay 1 day
-6. Delay until a day or time
-7. Send email: IBO Nurture A3 - The $26M difference
-8. Delay 1 day
-9. Delay until a day or time
-10. Send email: IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken
-11. Delay 3 days
-12. Delay until a day or time
-13. Send email: IBO Nurture A5 - A note from Michael Chasen
-14. Delay 3 days
-15. Delay until a day or time
-16. Send email: IBO Nurture A6 - What PE hopes you never learn
-17. Delay 4 days
-18. Delay until a day or time
-19. Send email: IBO Nurture A7 - Three options, pick one
-20. Delay 5 days
-21. Delay until a day or time
-22. Send email: IBO Nurture A8 - Should I close your file? (breakup)
-23. Delay 27 days
-24. Enroll in another workflow: W6
+Trigger: Manually triggered (fed by W0, W2, W3, W4 and the manual list-57 enrollment).
+Settings tab: Re-enroll off; suppression segments 58, 59, 68; goal "Date of last meeting booked
+in meetings tool is known".
+
+1. Delay 1 day
+2. Delay until a day or time (Tue/Wed/Thu 7:30 AM)
+3. Send email: IBO Nurture A2 - Most Owners/Founders Don't Know this Exists
+4. Delay 1 day
+5. Delay until a day or time
+6. Send email: IBO Nurture A3 - The $26M difference
+7. Delay 1 day
+8. Delay until a day or time
+9. Send email: IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken
+10. Delay 3 days
+11. Delay until a day or time
+12. Send email: IBO Nurture A5 - A note from Michael Chasen
+13. Delay 3 days
+14. Delay until a day or time
+15. Send email: IBO Nurture A6 - What PE hopes you never learn
+16. Delay 4 days
+17. Delay until a day or time
+18. Send email: IBO Nurture A7 - Three options, pick one
+19. Delay 5 days
+20. Delay until a day or time
+21. Send email: IBO Nurture A8 - Should I close your file? (breakup)
+22. Delay 27 days
+23. (go-live day, after W6 is on) Go to workflow: W6
 
 ## W2 - IBO Nurture W2 - Abandoned scheduler
 
@@ -257,7 +258,8 @@ Own settings:
      OR "What is your approximate annual EBITDA (profit)?" is any of
      $3M - $5M, $5M - $10M, $3M - $10M, $10M - $20M, $10M+, $20M+
      -> Set property value: ibo_qualified = True
-     -> Enroll in another workflow: W1
+     -> Send email: IBO Nurture A1 - Your Independent Buyout (IBO) question
+     -> Enroll in another workflow: W1 (go-live day)
    - Branch "$1M-$3M": "What is your approximate annual EBITDA?" is any of $1m - $3m
      OR "...(profit)?" is any of $1M - $3M, $0 - $3M
      -> Set property value: ibo_qualified = False
@@ -266,7 +268,8 @@ Own settings:
      OR "...(profit)?" is any of $0 - $1M
      -> Set property value: ibo_qualified = False
      -> Enroll in another workflow: W4
-   - None met (no EBITDA answer): Enroll in another workflow: W1 (A1 asks for the number).
+   - None met (no EBITDA answer): Send email A1, then Enroll in another workflow: W1
+     (A1 asks for the number).
 
 ## After building
 
