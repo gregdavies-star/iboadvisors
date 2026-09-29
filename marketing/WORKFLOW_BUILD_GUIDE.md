@@ -11,6 +11,15 @@ separate trigger is more reliable than a timed check.
 
 ## Before you start
 
+Two HubSpot rules found while building W6 (29 Sep):
+
+- "Go to workflow" (HubSpot's name for Enroll in another workflow) only lists workflows that are
+  switched ON. Build every workflow now WITHOUT its Go to workflow steps, then add them on go-live
+  day right after the target is switched on, in the order W6, W1, W2, W3, W4, W5, W7, W8, W0.
+  Editing a live workflow is allowed. Each is a one-minute edit.
+- A workflow cannot enroll into itself. W6 loops with "Go to action" back to action 1. If Go to
+  action only offers later actions, duplicate actions 1-11 once instead (eight months of coverage).
+
 - Lists 58 "Suppression - never nurture" and 59 "Suppression - met Michael (static, 29 Sep 2026)" exist.
 - The 27 emails are drafts in Marketing > Email. Only Automated-type emails show up in the
   Send email picker, so the retired batch copies of B5, F1, F4 cannot be chosen by mistake.
@@ -67,7 +76,7 @@ Trigger: none. Re-enrollment: on.
 9. Delay 30 days
 10. Delay until Tuesday 7:30 AM
 11. Send email: IBO Nurture Q - Still the right time to talk? (quarterly re-ask)
-12. Enroll in another workflow: W6 (this workflow; loops until L4-L10 are written)
+12. Go to action: action 1 (loops until L4-L10 are written). See the rule above if only later actions are offered.
 
 ## W1 - IBO Nurture W1 - Track A qualified owner
 
