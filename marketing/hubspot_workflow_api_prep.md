@@ -68,3 +68,29 @@ Retired batch B5 402353624804 (sent) - do not use.
 - Property enrollment: type LIST_BASED with listFilterBranch / filterBranches of PROPERTY filters.
 - Branch actions have no fields/connection; they use listBranches (each with filterBranch and
   connection) plus defaultBranch. Copy the exact shape from a GET of an existing branching flow.
+
+## Verbatim shapes from HubSpot's action reference (fetched 29 Sep)
+LIST_BRANCH (if/then; "GOTO" edgeType is how a branch rejoins an earlier/other action):
+```json
+{"type":"LIST_BRANCH","actionId":"6",
+ "listBranches":[{"filterBranch":{...same shape as listFilterBranch below...},"branchName":"Qualified",
+   "connection":{"edgeType":"STANDARD","nextActionId":"7"}}],
+ "defaultBranchName":"Fall-through branch","defaultBranch":{"edgeType":"STANDARD","nextActionId":"8"}}
+```
+STATIC_BRANCH (value-equals on one property):
+```json
+{"type":"STATIC_BRANCH","actionId":"1","inputValue":{"propertyName":"example_property"},
+ "staticBranches":[{"branchValue":"v1","connection":{"edgeType":"STANDARD","nextActionId":"2"}}],
+ "defaultBranchName":"Fall-through branch","defaultBranch":{"edgeType":"STANDARD","nextActionId":"4"}}
+```
+Delay until date (0-35): fields {"date":{"type":"STATIC_VALUE" or property ref},"delta":"0","time_unit":"DAYS","time_of_day":{"hour":7,"minute":30}}.
+Delay until day-of-week/time: copy from GET of W6 (built in UI).
+Edit record (0-5): fields {"property_name":"ibo_qualified","association":{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":1},"value":{"staticValue":"True"}}.
+Create task (0-3): fields {"task_type":"CALL","subject":"...","body":"<p>..</p>","priority":"HIGH",
+  "associations":[{"target":{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":10},"value":{"type":"ENROLLED_OBJECT"}}],
+  "use_explicit_associations":"true", plus owner/due-date fields - copy from GET of "IBO Drip Campaign - Trigger & Task"}.
+LIST_BASED enrollment: {"shouldReEnroll":false,"type":"LIST_BASED","listFilterBranch":{"filterBranches":[{"filterBranches":[],
+  "filters":[{"property":"hs_analytics_source","operation":{"operator":"IS_ANY_OF","includeObjectsWithNoValueSet":false,
+  "values":["PAID_SOCIAL"],"operationType":"ENUMERATION"},"filterType":"PROPERTY"}],"filterBranchType":"AND","filterBranchOperator":"AND"}],
+  "filters":[],"filterBranchType":"OR","filterBranchOperator":"OR"},"unEnrollObjectsNotMeetingCriteria":false,"reEnrollmentTriggersFilterBranches":[]}
+Enroll in another workflow: exists as an action ("enroll record in another workflow of the same type"); actionTypeId to be read from a GET once one is added in the UI, or omitted (go-live day add).
