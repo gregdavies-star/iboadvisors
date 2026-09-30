@@ -104,6 +104,11 @@ target is switched on (runbook step 6). Positions refer to the action numbers as
 - Event-based enrollment: the API accepts any eventTypeId and any filter property name without validation.
   Adding refinementCriteria to a flow that was never LIST_BASED fails with "Update needs listId"; switch
   it to LIST_BASED first, then to EVENT_BASED with refinement.
+- Manual enrollment via the API: POST /automation/v2/workflows/<legacy workflow id>/enrollments/contacts/<email> (204). The
+  legacy id comes from POST /automation/v4/workflow-id-mappings/batch/read with the v4 flow id (W0 5023073981 -> 46615263).
+  The v4 flow id is rejected there. Enabling a LIST_BASED flow via PUT has no "enroll existing contacts" prompt; for the
+  dry run W0 was switched to MANUAL enrollment before enabling and restored afterwards.
+- hs_marketable_status is read-only in the API; contacts created via the API are non-marketing until set in the UI.
 - Publishing emails is not possible via the API on this subscription: the v3 publish endpoint needs the
   marketing-email scope (Marketing Hub Professional+), and the legacy marketing-emails v1 API is retired.
   The `content` scope only grants read access to emails.
