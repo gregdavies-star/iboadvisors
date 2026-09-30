@@ -30,7 +30,7 @@ Editor URL pattern: `https://app-na2.hubspot.com/workflows/245308986/platform/fl
 | W2 | Learn More form submission ("IBO Homepage Form (via API)", GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7), filtered to the $3M+ EBITDA (profit) bands | On, each submission | 58, 59, 68 | Same as W1 |
 | W3, W4, W5 | None (manual, fed by W0) | Off | 58, 59, 68 | Same as W1 |
 | W7 | Date of last meeting booked is known AND email does not contain csgpartners.com, iboadvisors.com, roedgers.com, hubspot.com | On, when that date changes | None | Unenrollment rule (see check 2) |
-| W8 | Associated meeting outcome is No show AND the same four email exclusions | On, but no trigger (see check 3) | None | Unenrollment rule (see check 2) |
+| W8 | Event: meeting outcome changed to No show (event 4-1724222), refined by the same four email exclusions (rebuilt 30 Sep, see check 3) | On, each no-show event | None | Unenrollment rule (see check 2) |
 
 W0 task: assigned to Edmund Breitling (owner 164598474), type Call, priority High, due 1 hour
 after the action, title "Paid-social lead - call {{firstname}} {{lastname}} ({{EBITDA answer}})".
@@ -65,26 +65,31 @@ after the action, title "Paid-social lead - call {{firstname}} {{lastname}} ({{E
    the "Go to workflow: W6" step can be inserted between them on go-live day, per the guide.
 6. **W0 task due date.** "Due 1 hour after" was set via the API; check the editor shows it.
 
-## Go-live: "Go to workflow" steps to add in the UI
+## Go-live status (30 Sep 2026, evening ET)
 
-HubSpot only offers a target that is already switched on, so add each step right after its
-target is switched on (runbook step 6). Positions refer to the action numbers as built.
+Switched ON via the API, with all "Go to workflow" hand-offs added first (19 hand-off actions in
+total, each verified by GET and a before/after diff): W6, W1, W2, W3, W4, W5, W8. Full record in the
+session's golive/ folder (before/after JSON per flow).
 
-| Flow | Where | Target |
+| Flow | State | Hand-off actions added |
 |---|---|---|
-| W1 | After action 22 (27-day delay) | W6 |
-| W2 | After action 4 (1-day delay) | W1 |
-| W3 | After action 10 (send B4) | W6 |
-| W3 | On the "Qualified" branch of actions 14, 18, 22, 26 | W1 |
-| W4 | Between actions 2 and 3 (the two 45-day delays) | W6 |
-| W4 | On the "Qualified" branch of actions 6, 10, 14, 18 | W1 |
-| W5 | After action 11 (25-day delay) | W6 |
-| W8 | After action 15 (27-day delay) | W6 |
-| W0 | "Adviser" branch | W5 |
-| W0 | After action 3 (set ibo_qualified False, $1M-$3M branch) | W3 |
-| W0 | After action 4 (set ibo_qualified False, Under $1M branch) | W4 |
-| W0 | After action 6 (send A1, Qualified branch) | W1 |
-| W0 | After action 7 (send A1, no EBITDA answer) | W1 |
+| W6 | ON | none needed |
+| W1 | ON | 23 -> W6 (after the 27-day delay) |
+| W2 | ON | 5 -> W1 (after the 1-day delay) |
+| W3 | ON | 27 -> W6 (between B4 and the 45-day delay); 28, 29, 30, 31 -> W1 on the Qualified branches |
+| W4 | ON | 19 -> W6 (between the two 45-day delays); 20, 21, 22, 23 -> W1 on the Qualified branches |
+| W5 | ON | 12 -> W6 (after the 25-day delay) |
+| W8 | ON | 16 -> W6 (after the 27-day delay) |
+| W7 | OFF, switch on in the editor choosing "No" for existing contacts | none needed |
+| W0 | OFF, switch on in the editor choosing "No" for existing contacts, LAST | 8 -> W5 (Adviser branch); 9 -> W3; 10 -> W4; 11 -> W1 (Qualified, after A1); 12 -> W1 (no answer, after A1) |
+
+W7 and W0 have filter triggers. The API has no "enroll existing contacts?" choice, so switching them
+on through the API could enroll every existing matching contact; they are switched on in the editor.
+
+Still to do: enroll list 61 (43) into W3, list 62 (64) into W4, list 63 (3) into W5 on Thu 1 Oct
+around 7:30 ET (B1/C1/D1 send on enrollment); enroll list 57 (176) into W1 after the catch-up has
+gone out on Thu 1 Oct (so A2 lands Tue 6 Oct, not the same morning as A1). Manual enrollment via
+API: POST /automation/v2/workflows/<legacy id>/enrollments/contacts/<email>.
 
 ## Automation v4 API notes for future edits (from the 30 Sep probes)
 
