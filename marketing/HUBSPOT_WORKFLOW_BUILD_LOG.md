@@ -91,6 +91,18 @@ around 7:30 ET (B1/C1/D1 send on enrollment); enroll list 57 (176) into W1 after
 gone out on Thu 1 Oct (so A2 lands Tue 6 Oct, not the same morning as A1). Manual enrollment via
 API: POST /automation/v2/workflows/<legacy id>/enrollments/contacts/<email>.
 
+## Data fixes on 30 Sep
+
+- The 28 Sep ibo_qualified backfill had marked 54 paid-social owners with EBITDA band "$1M - $3M" as
+  True. All 54 set to False on 30 Sep; list 61 ($1M-$3M owners) grew from 43 to 96 and list 60
+  (qualified) fell from 170 to 115. 27 of them were in the catch-up list; list 61 is now excluded on
+  the catch-up email.
+- The website lead modal stamped ibo_qualified True on Business Advisors. Fixed in modal.js (merged to
+  main 30 Sep, deployed) and the 8 affected contacts cleared.
+- Contacts created by the meetings scheduler and by the API are non-marketing contacts; the API cannot
+  change that (hs_marketable_status is read-only). W7's F1 reminder cannot reach a scheduler-created
+  contact until that source is set to create marketing contacts in Settings > Marketing Contacts.
+
 ## Automation v4 API notes for future edits (from the 30 Sep probes)
 
 - Unknown field keys are silently dropped (200 OK, key missing). Always GET and diff after a write.
