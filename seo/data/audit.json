@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T17:09:15.874Z",
+  "generatedAt": "2026-09-30T17:03:30.935Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -24,19 +24,19 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 30,
-      "outboundInternalLinks": 24,
+      "outboundInternalLinks": 25,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "title": "Alternatives to Selling to Private Equity: 7 Routes, Priced",
       "titleLength": 59,
-      "description": "Alternatives to selling to private equity, priced: seven routes to liquidity at $3M+ EBITDA, what each pays on a $6M EBITDA company, and who each fits.",
-      "descriptionLength": 151,
+      "description": "Seven alternatives to selling to private equity, each costed at close on the same $6M EBITDA company - what you bank, what you keep, who controls it.",
+      "descriptionLength": 149,
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2255,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 21,
       "issues": []
     },
@@ -197,16 +197,16 @@
       "issues": []
     },
     {
-      "url": "https://www.iboadvisors.com/blog/majority-recapitalization",
-      "title": "Majority Recapitalization: Cash vs Control | IBO Advisors",
-      "titleLength": 57,
-      "description": "A majority recapitalization sells 51-80% of your company and rolls the rest. The arithmetic, the tax treatment, and what changes the day it closes.",
-      "descriptionLength": 147,
-      "h1": "Majority Recapitalization: Cash vs Control",
-      "words": 2102,
-      "date": "2026-09-28",
-      "inboundInternalLinks": 3,
-      "outboundInternalLinks": 14,
+      "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
+      "title": "Majority Recapitalization vs. a Full Sale | IBO Advisors",
+      "titleLength": 56,
+      "description": "A majority recapitalization sells 51-80% of your equity and rolls the rest. What it pays at close, how it differs from a full sale, and who runs the board.",
+      "descriptionLength": 155,
+      "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
+      "words": 2129,
+      "date": "2026-09-30",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -255,7 +255,7 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1815,
+      "words": 1875,
       "date": "2026-09-08",
       "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
@@ -281,10 +281,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1682,
+      "words": 1736,
       "date": "2026-07-06",
       "inboundInternalLinks": 18,
-      "outboundInternalLinks": 12,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -296,7 +296,7 @@
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -309,7 +309,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -400,7 +400,7 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 5,
       "issues": []
     }

@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-29T16:45:43.215Z",
+  "inspectedAt": "2026-09-30T16:38:06.354Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -22,7 +22,7 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
