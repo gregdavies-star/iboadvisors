@@ -1,0 +1,516 @@
+{
+  "portal_id": 245308986,
+  "built": "2026-09-28",
+  "notes": "All emails are drafts; nothing has been published or sent. Editor URL = open Marketing > Email and search the name. csgpartners.com contact 487751955154 is excluded on every batch email.",
+  "production": [
+    {
+      "key": "A1",
+      "name": "IBO Nurture A1 - Your Independent Buyout (IBO) question",
+      "subject": "Your Independent Buyout (IBO) question",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860702939871,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860702939871"
+    },
+    {
+      "key": "A1b",
+      "name": "IBO Nurture A1b - Your calendar link (abandoned scheduler)",
+      "subject": "Your calendar link",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860669025996,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860669025996"
+    },
+    {
+      "key": "A2",
+      "name": "IBO Nurture A2 - Most Owners/Founders Don't Know this Exists",
+      "subject": "Most Owners/Founders Don't Know this Exists",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860757860060,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860757860060"
+    },
+    {
+      "key": "A3",
+      "name": "IBO Nurture A3 - The $26M difference",
+      "subject": "The $26M difference",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860757965554,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860757965554"
+    },
+    {
+      "key": "A4",
+      "name": "IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken",
+      "subject": "The Founders/Owners Exit Conversation is Broken",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860704843490,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860704843490"
+    },
+    {
+      "key": "A5",
+      "name": "IBO Nurture A5 - A note from Michael Chasen",
+      "subject": "A note from Michael Chasen",
+      "sender": "Michael Chasen",
+      "marketing_email_object_id": 860699558620,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860699558620"
+    },
+    {
+      "key": "A6",
+      "name": "IBO Nurture A6 - What PE hopes you never learn",
+      "subject": "What PE hopes you never learn",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860637635289,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860637635289"
+    },
+    {
+      "key": "A7",
+      "name": "IBO Nurture A7 - Three options, pick one",
+      "subject": "Three options, pick one",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860645689025,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860645689025"
+    },
+    {
+      "key": "A8",
+      "name": "IBO Nurture A8 - Should I close your file? (breakup)",
+      "subject": "Should I close your file?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860708443897,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860708443897"
+    },
+    {
+      "key": "L1",
+      "name": "IBO Nurture L1 - The pros and cons, honestly",
+      "subject": "The pros and cons, honestly",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860750506702,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860750506702"
+    },
+    {
+      "key": "L2",
+      "name": "IBO Nurture L2 - How they'll value your company",
+      "subject": "How they'll value your company",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860710187760,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860710187760"
+    },
+    {
+      "key": "L3",
+      "name": "IBO Nurture L3 - The second bite, explained",
+      "subject": "The second bite, explained",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860669137645,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860669137645"
+    },
+    {
+      "key": "Q",
+      "name": "IBO Nurture Q - Still the right time to talk? (quarterly re-ask)",
+      "subject": "Still the right time to talk?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860640395972,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860640395972"
+    },
+    {
+      "key": "B1",
+      "name": "IBO Nurture B1 - Honest answer on fit ($1M-$3M)",
+      "subject": "Honest answer on fit",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860761459403,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860761459403"
+    },
+    {
+      "key": "B2",
+      "name": "IBO Nurture B2 - The four levers that move EBITDA",
+      "subject": "The four levers that move EBITDA",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860703195883,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860703195883"
+    },
+    {
+      "key": "B3",
+      "name": "IBO Nurture B3 - Exit planning, eight steps",
+      "subject": "Exit planning, eight steps",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860750653125,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860750653125"
+    },
+    {
+      "key": "B4",
+      "name": "IBO Nurture B4 - Other doors: MBO, minority recap",
+      "subject": "Other doors: MBO, minority recap",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860694432493,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860694432493"
+    },
+    {
+      "key": "B5",
+      "name": "IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify)",
+      "subject": "Has EBITDA crossed $3M?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 861120111300,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861120111300"
+    },
+    {
+      "key": "C1",
+      "name": "IBO Nurture C1 - Honest answer on fit (under $1M)",
+      "subject": "Honest answer on fit",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860645492456,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860645492456"
+    },
+    {
+      "key": "D1",
+      "name": "IBO Nurture D1 - Thanks, and a quick question (advisers)",
+      "subject": "Thanks, and a quick question",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860706602689,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860706602689"
+    },
+    {
+      "key": "D2",
+      "name": "IBO Nurture D2 - How to spot an IBO candidate in your book",
+      "subject": "How to spot an IBO candidate in your book",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860659891926,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860659891926"
+    },
+    {
+      "key": "D3",
+      "name": "IBO Nurture D3 - What we do for referring advisers",
+      "subject": "What we do for referring advisers",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860635590372,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860635590372"
+    },
+    {
+      "key": "D4",
+      "name": "IBO Nurture D4 - Close the loop? (breakup)",
+      "subject": "Close the loop?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860701586150,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860701586150"
+    },
+    {
+      "key": "F1",
+      "name": "IBO Nurture F1 - Tomorrow: three things to have handy",
+      "subject": "Tomorrow: three things to have handy",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 861123106525,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861123106525"
+    },
+    {
+      "key": "F3",
+      "name": "IBO Nurture F3 - Missed you, grab another slot",
+      "subject": "Missed you, grab another slot",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860759619306,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860759619306"
+    },
+    {
+      "key": "F4",
+      "name": "IBO Nurture F4 - Still worth the 20 minutes?",
+      "subject": "Still worth the 20 minutes?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 861122596600,
+      "type": "AUTOMATED (workflow)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/861122596600"
+    },
+    {
+      "key": "A1-Catchup",
+      "name": "IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up)",
+      "subject": "Your Independent Buyout (IBO) question",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860757857999,
+      "type": "BATCH (176 catch-up contacts)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860757857999"
+    }
+  ],
+  "tests_for_michael": [
+    {
+      "key": "A1",
+      "name": "TEST for Michael - IBO Nurture A1 - Your Independent Buyout (IBO) question",
+      "subject": "Your Independent Buyout (IBO) question",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860633460413,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860633460413"
+    },
+    {
+      "key": "A1b",
+      "name": "TEST for Michael - IBO Nurture A1b - Your calendar link (abandoned scheduler)",
+      "subject": "Your calendar link",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860763082458,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860763082458"
+    },
+    {
+      "key": "A2",
+      "name": "TEST for Michael - IBO Nurture A2 - Most Owners/Founders Don't Know this Exists",
+      "subject": "Most Owners/Founders Don't Know this Exists",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860766335710,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860766335710"
+    },
+    {
+      "key": "A3",
+      "name": "TEST for Michael - IBO Nurture A3 - The $26M difference",
+      "subject": "The $26M difference",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860763294396,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860763294396"
+    },
+    {
+      "key": "A4",
+      "name": "TEST for Michael - IBO Nurture A4 - The Founders/Owners Exit Conversation is Broken",
+      "subject": "The Founders/Owners Exit Conversation is Broken",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860694435518,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860694435518"
+    },
+    {
+      "key": "A5",
+      "name": "TEST for Michael - IBO Nurture A5 - A note from Michael Chasen",
+      "subject": "A note from Michael Chasen",
+      "sender": "Michael Chasen",
+      "marketing_email_object_id": 860645693138,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860645693138"
+    },
+    {
+      "key": "A6",
+      "name": "TEST for Michael - IBO Nurture A6 - What PE hopes you never learn",
+      "subject": "What PE hopes you never learn",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860695584481,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860695584481"
+    },
+    {
+      "key": "A7",
+      "name": "TEST for Michael - IBO Nurture A7 - Three options, pick one",
+      "subject": "Three options, pick one",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860753865447,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860753865447"
+    },
+    {
+      "key": "A8",
+      "name": "TEST for Michael - IBO Nurture A8 - Should I close your file? (breakup)",
+      "subject": "Should I close your file?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860657755869,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860657755869"
+    },
+    {
+      "key": "L1",
+      "name": "TEST for Michael - IBO Nurture L1 - The pros and cons, honestly",
+      "subject": "The pros and cons, honestly",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860663625450,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860663625450"
+    },
+    {
+      "key": "L2",
+      "name": "TEST for Michael - IBO Nurture L2 - How they'll value your company",
+      "subject": "How they'll value your company",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860633460442,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860633460442"
+    },
+    {
+      "key": "L3",
+      "name": "TEST for Michael - IBO Nurture L3 - The second bite, explained",
+      "subject": "The second bite, explained",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860657671906,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860657671906"
+    },
+    {
+      "key": "Q",
+      "name": "TEST for Michael - IBO Nurture Q - Still the right time to talk? (quarterly re-ask)",
+      "subject": "Still the right time to talk?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860637641421,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860637641421"
+    },
+    {
+      "key": "B1",
+      "name": "TEST for Michael - IBO Nurture B1 - Honest answer on fit ($1M-$3M)",
+      "subject": "Honest answer on fit",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860669254365,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860669254365"
+    },
+    {
+      "key": "B2",
+      "name": "TEST for Michael - IBO Nurture B2 - The four levers that move EBITDA",
+      "subject": "The four levers that move EBITDA",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860647060209,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860647060209"
+    },
+    {
+      "key": "B3",
+      "name": "TEST for Michael - IBO Nurture B3 - Exit planning, eight steps",
+      "subject": "Exit planning, eight steps",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860654840555,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860654840555"
+    },
+    {
+      "key": "B4",
+      "name": "TEST for Michael - IBO Nurture B4 - Other doors: MBO, minority recap",
+      "subject": "Other doors: MBO, minority recap",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860763296455,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860763296455"
+    },
+    {
+      "key": "B5",
+      "name": "TEST for Michael - IBO Nurture B5 - Has EBITDA crossed $3M? (quarterly re-qualify)",
+      "subject": "Has EBITDA crossed $3M?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860694437601,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860694437601"
+    },
+    {
+      "key": "C1",
+      "name": "TEST for Michael - IBO Nurture C1 - Honest answer on fit (under $1M)",
+      "subject": "Honest answer on fit",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860763081461,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860763081461"
+    },
+    {
+      "key": "D1",
+      "name": "TEST for Michael - IBO Nurture D1 - Thanks, and a quick question (advisers)",
+      "subject": "Thanks, and a quick question",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860695500514,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860695500514"
+    },
+    {
+      "key": "D2",
+      "name": "TEST for Michael - IBO Nurture D2 - How to spot an IBO candidate in your book",
+      "subject": "How to spot an IBO candidate in your book",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860633499328,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860633499328"
+    },
+    {
+      "key": "D3",
+      "name": "TEST for Michael - IBO Nurture D3 - What we do for referring advisers",
+      "subject": "What we do for referring advisers",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860641584853,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860641584853"
+    },
+    {
+      "key": "D4",
+      "name": "TEST for Michael - IBO Nurture D4 - Close the loop? (breakup)",
+      "subject": "Close the loop?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860779128510,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860779128510"
+    },
+    {
+      "key": "F1",
+      "name": "TEST for Michael - IBO Nurture F1 - Tomorrow: three things to have handy",
+      "subject": "Tomorrow: three things to have handy",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860694324984,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860694324984"
+    },
+    {
+      "key": "F3",
+      "name": "TEST for Michael - IBO Nurture F3 - Missed you, grab another slot",
+      "subject": "Missed you, grab another slot",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860663737045,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860663737045"
+    },
+    {
+      "key": "F4",
+      "name": "TEST for Michael - IBO Nurture F4 - Still worth the 20 minutes?",
+      "subject": "Still worth the 20 minutes?",
+      "sender": "Edmund Breitling",
+      "marketing_email_object_id": 860669141738,
+      "type": "BATCH (Michael only)",
+      "crm_url": "https://app-na2.hubspot.com/contacts/245308986/record/0-421/860669141738"
+    }
+  ],
+  "archived_superseded_drafts": [
+    858892726985,
+    858889195234,
+    858873390781,
+    858873673432,
+    785444258515,
+    785408819954,
+    729646926567
+  ],
+  "published_legacy_not_renamable": [
+    785085307634,
+    785408857819
+  ],
+  "retired_do_not_use": [
+    {
+      "key": "B5",
+      "marketing_email_object_id": 860704914138,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    },
+    {
+      "key": "F1",
+      "marketing_email_object_id": 860644120293,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    },
+    {
+      "key": "F4",
+      "marketing_email_object_id": 860699560694,
+      "reason": "created as a batch email by mistake and sent on 28 Sep; replaced by an automated email with the same name"
+    }
+  ]
+}
