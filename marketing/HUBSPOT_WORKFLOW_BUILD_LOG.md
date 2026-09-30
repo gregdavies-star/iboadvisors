@@ -49,10 +49,14 @@ after the action, title "Paid-social lead - call {{firstname}} {{lastname}} ({{E
    all email is true) was built as the workflow goal. Functionally the same (the contact leaves
    the workflow); reporting will count these as "met goal". It can be moved to unenrollment
    triggers in the editor's Settings tab in a minute if preferred.
-3. **W8 re-enrollment has no trigger.** Re-enrollment is on, but the API silently drops an
-   activity/association filter (meeting outcome) as a re-enrollment trigger. Until it is set,
-   a contact who no-shows a second time will not re-enter W8. At go-live: Details > Settings >
-   re-enrollment, tick the meeting-outcome filter.
+3. **W8 trigger rebuilt as an event (30 Sep).** The list-based "associated meeting outcome is No
+   show" trigger could not carry a re-enrollment rule through the API, so W8's trigger is now the
+   event "Meeting outcome change" (event type 4-1724222) filtered to outcome NO_SHOW, re-enrollment
+   on, with the four email-domain exclusions as refinement. Each new no-show now re-enters the
+   contact. CHECK IN THE EDITOR before switch-on: the API accepts any property name on an event
+   filter without validating it, so open W8 and confirm the trigger reads "Meeting outcome changed,
+   outcome is No show"; if the filter shows an unknown property, re-pick the outcome property in
+   the trigger panel. Rollback JSON: the previous list-based enrollment is in the session notes.
 4. **W7 action 1 direction.** DONE 30 Sep. The API build stored delta -1 DAYS; the canvas read
    "1 day before" but the editor panel showed 0 days / 0 hours / 1 minute before, so it would have
    fired one minute before the meeting. Re-saved in the editor as 1 day before; the API now stores
@@ -95,5 +99,11 @@ target is switched on (runbook step 6). Positions refer to the action numbers as
 - Delay until day of week/time is actionTypeId 0-1 (delta 0 DAYS with time of day and weekdays).
 - Edit record (0-5) needs no association block; associationTypeId 1 would edit the associated company.
 - String exclusion operator is `DOES_NOT_CONTAIN` (`NOT_CONTAINS` is rejected).
-- "Go to workflow" is actionTypeId 0-15 (its fields are not yet confirmed; read them from a GET
-  after the first one is added in the UI).
+- "Go to workflow" is actionTypeId 0-15 with `fields: {"flow_id":"<target flow id>"}` (string). Confirmed 30 Sep
+  on a probe flow; other key names (flowId, workflow_id, ...) return 500.
+- Event-based enrollment: the API accepts any eventTypeId and any filter property name without validation.
+  Adding refinementCriteria to a flow that was never LIST_BASED fails with "Update needs listId"; switch
+  it to LIST_BASED first, then to EVENT_BASED with refinement.
+- Publishing emails is not possible via the API on this subscription: the v3 publish endpoint needs the
+  marketing-email scope (Marketing Hub Professional+), and the legacy marketing-emails v1 API is retired.
+  The `content` scope only grants read access to emails.
