@@ -27,7 +27,7 @@ Editor URL pattern: `https://app-na2.hubspot.com/workflows/245308986/platform/fl
 |---|---|---|---|---|
 | W0 | Original source is Paid Social | Off | 58, 59 | None |
 | W1, W6 | None (manual, fed by other flows); built by hand per the guide | Per the guide (W1 off, W6 on) | 58, 59, 68 | Date of last meeting booked in meetings tool is known |
-| W2 | Learn More form submission (form ec6307ff-aa5a-4e75-b423-11846eab6ad7), filtered to the $3M+ EBITDA (profit) bands | On, each submission | 58, 59, 68 | Same as W1 |
+| W2 | Learn More form submission ("IBO Homepage Form (via API)", GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7), filtered to the $3M+ EBITDA (profit) bands | On, each submission | 58, 59, 68 | Same as W1 |
 | W3, W4, W5 | None (manual, fed by W0) | Off | 58, 59, 68 | Same as W1 |
 | W7 | Date of last meeting booked is known AND email does not contain csgpartners.com, iboadvisors.com, roedgers.com, hubspot.com | On, when that date changes | None | Unenrollment rule (see check 2) |
 | W8 | Associated meeting outcome is No show AND the same four email exclusions | On, but no trigger (see check 3) | None | Unenrollment rule (see check 2) |

@@ -115,7 +115,7 @@ in meetings tool is known".
 
 ## W2 - IBO Nurture W2 - Abandoned scheduler
 
-Trigger: When filter criteria is met. Form submission: "Learn More" form
+Trigger: When filter criteria is met. Form submission: "Learn More" form, which is "IBO Homepage Form (via API)" in Marketing > Forms
 (GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7) has been filled out
 AND contact property "What is your approximate annual EBITDA (profit)?" is any of
 $3M - $5M, $5M - $10M, $3M - $10M, $10M - $20M, $10M+, $20M+.

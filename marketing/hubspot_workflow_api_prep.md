@@ -50,7 +50,7 @@ W6 and W1 were built by hand in the editor on 29 Sep; W1 starts at A2 (no A1).
 Retired batch B5 402353624804 (sent) - do not use.
 
 ## Other ids
-- Learn More form GUID: ec6307ff-aa5a-4e75-b423-11846eab6ad7 (form-submission eventTypeId 4-1639801,
+- "Learn More" form = "IBO Homepage Form (via API)", GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7 (form-submission eventTypeId 4-1639801,
   filter property hs_form_id IS_ANY_OF).
 - Lists: 58 never nurture, 59 met Michael (static), 68 replied or contact in a year, 57 catch-up cohort.
 - Owner for the W0 task: Edmund Breitling (look up owner id via GET /crm/v3/owners).
