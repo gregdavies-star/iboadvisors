@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T17:25:18.657Z",
+  "generatedAt": "2026-09-30T16:56:22.078Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
+      "inboundInternalLinks": 29,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,20 +23,20 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
-      "outboundInternalLinks": 23,
+      "inboundInternalLinks": 29,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "title": "7 Alternatives to Selling to Private Equity | IBO Advisors",
       "titleLength": 58,
-      "description": "Seven ways for a $3M+ EBITDA owner to take real money off the table without selling to a private equity fund - what each pays and who it fits.",
-      "descriptionLength": 142,
+      "description": "Seven alternatives to selling to private equity, each costed at close on the same $6M EBITDA company - what you bank, what you keep, who controls it.",
+      "descriptionLength": 149,
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2225,
       "date": "2026-09-08",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 20,
       "issues": []
     },
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1762,
       "date": "2025-12-20",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -127,7 +127,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -179,8 +179,21 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1978,
       "date": "2026-09-05",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 14,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
+      "title": "Majority Recapitalization vs. a Full Sale | IBO Advisors",
+      "titleLength": 56,
+      "description": "A majority recapitalization sells 51-80% of your equity and rolls the rest. What it pays at close, how it differs from a full sale, and who runs the board.",
+      "descriptionLength": 155,
+      "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
+      "words": 2129,
+      "date": "2026-09-30",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -218,7 +231,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1985,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -229,10 +242,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1762,
+      "words": 1823,
       "date": "2026-09-08",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -255,10 +268,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1596,
+      "words": 1650,
       "date": "2026-07-06",
-      "inboundInternalLinks": 16,
-      "outboundInternalLinks": 10,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -270,7 +283,7 @@
       "h1": "Sell Part of Your Business and Keep Control",
       "words": 1979,
       "date": "2026-09-26",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -283,7 +296,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -309,7 +322,7 @@
       "h1": "What Happens After Private Equity Buys Your Company",
       "words": 2132,
       "date": "2026-09-12",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -322,7 +335,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -335,7 +348,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 9,
       "issues": []
     },
