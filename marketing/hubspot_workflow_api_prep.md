@@ -1,5 +1,7 @@
 # Workflow build via HubSpot API - prep notes (29 Sep 2026)
 
+**Status: Done 30 Sep 2026: all seven built via the API; ids and follow-ups in HUBSPOT_WORKFLOW_BUILD_LOG.md.**
+
 Purpose: build W2, W3, W4, W5, W7, W8, W0 through the Automation v4 API in a fresh session
 once `HUBSPOT_PRIVATE_APP_TOKEN` (private app "Claude workflow builder", scopes automation,
 crm.objects.contacts.read, crm.lists.read, crm.schemas.contacts.read) is in the environment.
@@ -60,7 +62,10 @@ Retired batch B5 402353624804 (sent) - do not use.
 - Delay: `{"type":"SINGLE_CONNECTION","actionId":"3","actionTypeVersion":0,"actionTypeId":"0-1",
   "connection":{"edgeType":"STANDARD","nextActionId":"2"},"fields":{"delta":"1440","time_unit":"MINUTES"}}`
 - Send email: actionTypeId "0-4", fields {"content_id":"<id>"}
-- Create task: "0-3"; edit record (set property): "0-5"; delay until date/day: "0-35".
+- Create task: "0-3"; edit record (set property): "0-5"; delay until a date or date property: "0-35"
+  (only for date/date-property delays). Delay until day of week/time is "0-1" (delta 0 DAYS plus
+  time of day and weekdays), not 0-35 (corrected 30 Sep from the probes).
+- Go to workflow (enroll in another workflow): "0-15" (fields not yet confirmed).
 - Form-submission enrollment: enrollmentCriteria.type EVENT_BASED, eventFilterBranches[0] with
   eventTypeId "4-1639801", operator HAS_COMPLETED, filterBranchType UNIFIED_EVENTS, filters
   [{property:"hs_form_id", filterType:"PROPERTY", operation:{operator:"IS_ANY_OF",
@@ -84,13 +89,16 @@ STATIC_BRANCH (value-equals on one property):
  "defaultBranchName":"Fall-through branch","defaultBranch":{"edgeType":"STANDARD","nextActionId":"4"}}
 ```
 Delay until date (0-35): fields {"date":{"type":"STATIC_VALUE" or property ref},"delta":"0","time_unit":"DAYS","time_of_day":{"hour":7,"minute":30}}.
-Delay until day-of-week/time: copy from GET of W6 (built in UI).
-Edit record (0-5): fields {"property_name":"ibo_qualified","association":{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":1},"value":{"staticValue":"True"}}.
+Delay until day-of-week/time: actionTypeId "0-1" (corrected 30 Sep from the probes), not 0-35.
+Edit record (0-5): fields {"property_name":"ibo_qualified","value":{"type":"STATIC_VALUE","staticValue":"True"}}.
+Corrected 30 Sep: no association block is needed; with associationTypeId 1 (contact to company) the action would edit
+the associated company instead of the contact.
 Create task (0-3): fields {"task_type":"CALL","subject":"...","body":"<p>..</p>","priority":"HIGH",
   "associations":[{"target":{"associationCategory":"HUBSPOT_DEFINED","associationTypeId":10},"value":{"type":"ENROLLED_OBJECT"}}],
-  "use_explicit_associations":"true", plus owner/due-date fields - copy from GET of "IBO Drip Campaign - Trigger & Task"}.
+  "use_explicit_associations":"true", plus owner and due date}. Confirmed 30 Sep: due date is fields.due_time
+  {"delta":60,"timeUnit":"MINUTES"}; fixed owner is owner_assignment {"type":"CUSTOM","value":{"type":"STATIC_VALUE","staticValue":"<ownerId>"}}.
 LIST_BASED enrollment: {"shouldReEnroll":false,"type":"LIST_BASED","listFilterBranch":{"filterBranches":[{"filterBranches":[],
   "filters":[{"property":"hs_analytics_source","operation":{"operator":"IS_ANY_OF","includeObjectsWithNoValueSet":false,
   "values":["PAID_SOCIAL"],"operationType":"ENUMERATION"},"filterType":"PROPERTY"}],"filterBranchType":"AND","filterBranchOperator":"AND"}],
   "filters":[],"filterBranchType":"OR","filterBranchOperator":"OR"},"unEnrollObjectsNotMeetingCriteria":false,"reEnrollmentTriggersFilterBranches":[]}
-Enroll in another workflow: exists as an action ("enroll record in another workflow of the same type"); actionTypeId to be read from a GET once one is added in the UI, or omitted (go-live day add).
+Enroll in another workflow ("Go to workflow"): actionTypeId "0-15"; its fields are not yet confirmed, so read them from a GET once one is added in the UI (go-live day add).

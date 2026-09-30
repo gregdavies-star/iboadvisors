@@ -199,6 +199,8 @@ meeting-based goal. Its own settings:
 - Unenrollment: Lead status is any of Unqualified, Not Interested; Unsubscribed from all
   email is true.
 - No suppression lists, no goal.
+- As built (30 Sep): the API has no unenrollment-trigger field, so the unenrollment rule above
+  is implemented as the workflow goal in W7 and W8 (same effect; reporting shows "met goal").
 
 1. Delay until a specific date or date property: "Date of last meeting booked in meetings
    tool", 1 day BEFORE.
@@ -215,6 +217,8 @@ added to the trigger, same unenrollment).
 - Trigger: When filter criteria is met. Activity filter: Meetings > Meeting outcome is any
   of No show (in the trigger panel choose "Meeting" under activity/engagement properties).
   Enroll existing contacts: No. Re-enrollment: on.
+- As built (30 Sep): unenrollment is implemented as the goal, as in W7. The meeting-outcome
+  re-enrollment trigger could not be set via the API; tick it in Settings at go-live.
 
 1. Delay 30 minutes
 2. Send email: IBO Nurture F3 - Missed you, grab another slot
@@ -270,6 +274,11 @@ Own settings:
      -> Enroll in another workflow: W4
    - None met (no EBITDA answer): Send email A1, then Enroll in another workflow: W1
      (A1 asks for the number).
+
+   As built (30 Sep): the branches are in the order Adviser, $1M-$3M, Under $1M, Qualified, then
+   the default. The EBITDA answers are stored as band strings like "$1M - $3M", so a Qualified
+   "contains $3m" check placed first would catch every $1M-$3M owner; checking the exact bands
+   first gives the intended routing (details in HUBSPOT_WORKFLOW_BUILD_LOG.md).
 
 ## After building
 
