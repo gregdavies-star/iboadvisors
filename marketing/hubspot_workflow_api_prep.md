@@ -88,7 +88,7 @@ STATIC_BRANCH (value-equals on one property):
  "staticBranches":[{"branchValue":"v1","connection":{"edgeType":"STANDARD","nextActionId":"2"}}],
  "defaultBranchName":"Fall-through branch","defaultBranch":{"edgeType":"STANDARD","nextActionId":"4"}}
 ```
-Delay until date (0-35): fields {"date":{"type":"STATIC_VALUE" or property ref},"delta":"0","time_unit":"DAYS","time_of_day":{"hour":7,"minute":30}}.
+Delay until date (0-35): fields {"date":{"type":"STATIC_VALUE" or property ref},"delta":"0","time_unit":"DAYS","time_of_day":{"hour":7,"minute":30}}. For "N days before a date property" use delta "-<N*1440>" with time_unit MINUTES (DAYS is stored but the editor panel misreads it as minutes; found on W7, 30 Sep).
 Delay until day-of-week/time: actionTypeId "0-1" (corrected 30 Sep from the probes), not 0-35.
 Edit record (0-5): fields {"property_name":"ibo_qualified","value":{"type":"STATIC_VALUE","staticValue":"True"}}.
 Corrected 30 Sep: no association block is needed; with associationTypeId 1 (contact to company) the action would edit

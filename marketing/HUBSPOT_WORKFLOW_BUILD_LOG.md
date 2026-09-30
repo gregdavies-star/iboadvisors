@@ -53,8 +53,10 @@ after the action, title "Paid-social lead - call {{firstname}} {{lastname}} ({{E
    activity/association filter (meeting outcome) as a re-enrollment trigger. Until it is set,
    a contact who no-shows a second time will not re-enter W8. At go-live: Details > Settings >
    re-enrollment, tick the meeting-outcome filter.
-4. **W7 action 1 direction.** "Delay until Date of last meeting booked, 1 day before" is stored
-   as delta -1 day. Confirm the editor shows "1 day before" (not after) before switch-on.
+4. **W7 action 1 direction.** DONE 30 Sep. The API build stored delta -1 DAYS; the canvas read
+   "1 day before" but the editor panel showed 0 days / 0 hours / 1 minute before, so it would have
+   fired one minute before the meeting. Re-saved in the editor as 1 day before; the API now stores
+   delta "-1440" MINUTES. Rule for future API builds: express date-property delays in MINUTES.
 5. **W4 two 45-day delays.** Actions 2 and 3 are two consecutive 45-day delays on purpose, so
    the "Go to workflow: W6" step can be inserted between them on go-live day, per the guide.
 6. **W0 task due date.** "Due 1 hour after" was set via the API; check the editor shows it.
@@ -89,7 +91,7 @@ target is switched on (runbook step 6). Positions refer to the action numbers as
 - LIST_BRANCH needs `"type":"LIST_BRANCH"`; a branch that ends simply omits its connection.
 - Task due date: `fields.due_time` = `{"delta":60,"timeUnit":"MINUTES"}`.
 - Fixed task owner: `owner_assignment` = `{"type":"CUSTOM","value":{"type":"STATIC_VALUE","staticValue":"<ownerId>"}}`.
-- "Delay until date property, N days before": actionTypeId 0-35 with delta "-N" and time_unit DAYS.
+- "Delay until date property, N days before": actionTypeId 0-35 with delta "-<N*1440>" and time_unit MINUTES. (A DAYS unit is accepted but the editor panel reads the number as minutes; W7 was corrected in the editor on 30 Sep.)
 - Delay until day of week/time is actionTypeId 0-1 (delta 0 DAYS with time of day and weekdays).
 - Edit record (0-5) needs no association block; associationTypeId 1 would edit the associated company.
 - String exclusion operator is `DOES_NOT_CONTAIN` (`NOT_CONTAINS` is rejected).
