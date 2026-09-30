@@ -45,6 +45,11 @@
       "permanent": true
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
       "source": "/independent-buyout-ibo",
       "destination": "/blog/independent-buyout-explained",
       "permanent": true
@@ -62,6 +67,11 @@
     {
       "source": "/blog/what-happens-after-a-private-equity-buyout",
       "destination": "/blog/what-happens-after-private-equity-buys-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/industries",
+      "destination": "/ebitda-multiples-by-industry",
       "permanent": true
     }
   ]
