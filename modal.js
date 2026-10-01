@@ -221,8 +221,12 @@
     // Phone is optional: only send it when the visitor filled it in, so a
     // blank answer never overwrites a phone number HubSpot already has.
     if (cellNumber) fields.push({ name: 'phone', value: cellNumber });
+    // ibo_qualified is an owner-only property: in HubSpot it means "owner with
+    // $3M+ EBITDA" and drives nurture routing and the "Paid social owners,
+    // qualified" list. `qualifies` above is broader (advisers always may book),
+    // so it must not be sent for advisers; they route on `role` instead.
+    if (isOwner) fields.push({ name: 'ibo_qualified', value: qualifies ? 'True' : 'False' });
     fields.push(
-      { name: 'ibo_qualified', value: qualifies ? 'True' : 'False' },
       // `role`, not `respondent_role`: the latter is not a property in the
       // portal, so HubSpot silently ignored it and no answer to this question
       // was ever stored. `role` is an enumeration whose options must include

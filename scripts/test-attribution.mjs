@@ -411,6 +411,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.waitForTimeout(600);
   const advisor = fieldMap(submissions[0]);
   check('modal sends the advisor answer', advisor.role === 'Business Advisor', `role=${advisor.role}`);
+  check('modal sends no ibo_qualified for an advisor', !('ibo_qualified' in advisor), `ibo_qualified=${advisor.ibo_qualified}`);
   await ctx.close();
 }
 
