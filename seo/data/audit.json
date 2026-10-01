@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T16:52:14.107Z",
+  "generatedAt": "2026-10-01T18:59:09.171Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -29,12 +29,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
-      "title": "Alternatives to Selling to Private Equity: 7 Routes, Priced",
+      "title": "7 Alternatives to Selling to Private Equity: What Each Pays",
       "titleLength": 59,
-      "description": "Seven alternatives to selling to private equity, each costed at close on the same $6M EBITDA company - what you bank, what you keep, who controls it.",
-      "descriptionLength": 149,
+      "description": "Alternatives to selling to private equity, compared on cash at close and control: strategic sale, MBO, ESOP, IBO, minority recap, dividend recap, search fund.",
+      "descriptionLength": 158,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2255,
+      "words": 2253,
       "date": "2026-09-08",
       "inboundInternalLinks": 18,
       "outboundInternalLinks": 21,
@@ -99,10 +99,10 @@
       "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
       "descriptionLength": 135,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 2580,
-      "date": "2026-09-17",
+      "words": 3022,
+      "date": "2026-10-01",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -205,7 +205,7 @@
       "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
       "words": 2129,
       "date": "2026-09-30",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -229,10 +229,10 @@
       "description": "Management buyout vs private equity, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
       "descriptionLength": 136,
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
-      "words": 2074,
+      "words": 2101,
       "date": "2026-09-19",
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -296,21 +296,21 @@
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 12,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
-      "title": "Selling to Private Equity: Pros and Cons | IBO Advisors",
-      "titleLength": 55,
-      "description": "The real advantages and costs of selling to private equity: what the multiple buys you, and what the debt, escrows and seven-year hold take back.",
-      "descriptionLength": 145,
+      "title": "Selling to Private Equity: 4 Pros, 5 Cons | IBO Advisors",
+      "titleLength": 56,
+      "description": "Selling to private equity, pros and cons: four real advantages against five costs - the escrow, the debt on your balance sheet, and a seven-year hold.",
+      "descriptionLength": 150,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 1912,
+      "words": 1937,
       "date": "2026-09-21",
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
