@@ -4,8 +4,8 @@
    The page embeds the HubSpot meetings scheduler (State 1). When the iframe
    reports a booking through postMessage, the page hides the scheduler and
    shows its own confirmation (State 2): the time in the visitor's timezone,
-   the one thing to do (accept the invitation), calendar fallbacks, and an
-   optional note for the host.
+   then the steps before the call (booked, accept the invitation with
+   calendar fallbacks, and an optional note for the host).
 
    The scheduling page is a round robin between two partners. HubSpot's
    booking message names the organizer the meeting landed on
@@ -29,6 +29,10 @@
    ========================================================================== */
 (function () {
   'use strict';
+
+  // The title of the calendar invitation HubSpot sends, as the visitor sees it
+  // in their inbox. Shown in step 2 so they can find the right email.
+  var MEETING_TITLE = 'Independent Buyout (IBO) Discussion';
 
   // Google Ads "Meeting booked" conversion. Empty until the conversion action
   // exists in Google Ads; the GA4 meeting_booked event fires regardless.
@@ -58,9 +62,8 @@
       portraitWebp: '/assets/founder-portrait.webp',
       portraitJpg: '/assets/founder-portrait.jpg',
       lines: [
-        '25+ years building companies and executing M&A transactions.',
-        'Led deals totaling $2B+.',
-        'Completed or advised on 100+ M&A and sale transactions.'
+        '25+ years building and selling companies.',
+        '100+ M&A transactions.'
       ]
     },
     'darren@iboadvisors.com': {
@@ -318,7 +321,10 @@
       var date = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'long', day: 'numeric' }).format(d);
       var time = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(d);
       if (!date || !time) return null;
-      return { date: date, time: time };
+      // Calendar tile: "OCT" over "9".
+      var month = new Intl.DateTimeFormat(undefined, { month: 'short' }).format(d).replace(/\.$/, '').toUpperCase();
+      var day = new Intl.DateTimeFormat(undefined, { day: 'numeric' }).format(d);
+      return { date: date, time: time, month: month, day: day };
     } catch (e) {
       return null;
     }
@@ -387,14 +393,13 @@
   function wireCalendarLinks(booking, host) {
     var google = $('book-cal-google');
     var outlook = $('book-cal-outlook');
-    var outlookCom = $('book-cal-outlookcom');
     var ics = $('book-cal-ics');
-    var links = [google, outlook, outlookCom, ics];
+    var links = [google, outlook, ics];
     var ok = booking && isNum(booking.start) && isNum(booking.end) && booking.end > booking.start;
 
     if (!ok) {
       // No time to put on a calendar: the invitation is the only source.
-      var wrap = google && google.parentNode;
+      var wrap = $('book-cal');
       if (wrap) wrap.hidden = true;
       var caption = document.querySelector('.bk-cal-caption');
       if (caption) caption.hidden = true;
@@ -404,7 +409,6 @@
     try {
       google.href = googleUrl(booking, host);
       outlook.href = outlookUrl('outlook.office.com', booking, host);
-      outlookCom.href = outlookUrl('outlook.live.com', booking, host);
       ics.setAttribute('download', icsFilename(host));
       if (icsUrl && window.URL && URL.revokeObjectURL) URL.revokeObjectURL(icsUrl);
       icsUrl = URL.createObjectURL(new Blob([icsBody(booking, host)], { type: 'text/calendar;charset=utf-8' }));
@@ -421,7 +425,40 @@
   }
 
   /* ------------------------------------------------------------------
-     "I've accepted the invitation" (no network, GA4 only)
+     Steps card: heading and progress follow the steps actually shown
+     (2 without the note, 3 with it) and how many are done.
+     ------------------------------------------------------------------ */
+  var COUNT_WORDS = { 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four' };
+
+  function updateProgress() {
+    var steps = document.querySelectorAll('#book-steps-card .bk-step');
+    var total = 0;
+    var done = 0;
+    var last = null;
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].classList.remove('is-last');
+      if (steps[i].hidden) continue;
+      total++;
+      last = steps[i];
+      if (steps[i].classList.contains('is-done')) done++;
+    }
+    if (last) last.classList.add('is-last'); // no rule under the last shown step
+    if (!total) return;
+    var title = $('book-steps-title');
+    if (title) title.textContent = (COUNT_WORDS[total] || String(total)) + ' small ' + (total === 1 ? 'thing' : 'things') + ' before your call';
+    var label = $('book-progress-label');
+    if (label) label.textContent = done + ' of ' + total + ' done';
+    var fill = $('book-progress-fill');
+    if (fill) fill.style.width = (100 * done / total).toFixed(3) + '%';
+    var bar = $('book-progress');
+    if (bar) {
+      bar.setAttribute('aria-valuemax', String(total));
+      bar.setAttribute('aria-valuenow', String(done));
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     "Accept the invitation" (no network, GA4 only). Marks step 2 done.
      ------------------------------------------------------------------ */
   function wireAccept() {
     var btn = $('book-accept');
@@ -433,7 +470,8 @@
       var done = !card.classList.contains('is-done');
       card.classList.toggle('is-done', done);
       btn.setAttribute('aria-pressed', done ? 'true' : 'false');
-      btn.textContent = done ? '\u2713 Accepted. See you on the call.' : label;
+      btn.textContent = done ? 'Marked as accepted' : label;
+      updateProgress();
       if (done) track('invite_accept_click', { src: SRC });
     });
   }
@@ -493,6 +531,8 @@
       sending.then(function () {
         form.hidden = true;
         sentEl.hidden = false;
+        card.classList.add('is-done');
+        updateProgress();
         track('precall_note_sent', { src: SRC, length: note.length });
       }).catch(function () {
         // Keep the text; give them a direct route.
@@ -545,14 +585,20 @@
     if (img.getAttribute('src') !== jpg) img.setAttribute('src', jpg);
   }
 
+  // Name (a data-host node), "{title}.", the IBO Advisors wordmark, then the
+  // credential lines. No title or no lines: that part is hidden.
   function renderCaption(host) {
-    var caption = $('book-host-caption');
-    if (!caption) return;
-    while (caption.firstChild) caption.removeChild(caption.firstChild);
-    var strong = document.createElement('strong');
-    strong.textContent = hostLabel(host) + '.';
-    caption.appendChild(strong);
-    if (host.lines && host.lines.length) caption.appendChild(document.createTextNode(' ' + host.lines.join(' ')));
+    var title = $('book-host-title');
+    if (title) {
+      title.textContent = host.title ? host.title + '.' : '';
+      title.hidden = !host.title;
+    }
+    var lines = $('book-host-lines');
+    if (lines) {
+      var text = host.lines && host.lines.length ? host.lines.join(' ') : '';
+      lines.textContent = text;
+      lines.hidden = !text;
+    }
   }
 
   function renderHost(host) {
@@ -560,6 +606,7 @@
     setText('[data-host="first"]', host.first);
     setText('[data-host="email"]', host.email);
     setText('[data-host="title"]', host.title);
+    setText('[data-meeting-title]', MEETING_TITLE);
     var links = document.querySelectorAll('[data-host-mailto]');
     for (var i = 0; i < links.length; i++) {
       links[i].setAttribute('href', 'mailto:' + host.email);
@@ -580,22 +627,39 @@
 
     try {
       var when = formatWhen(booking);
+      var tile = $('book-when-tile');
       var dateEl = $('book-when-date');
       var timeEl = $('book-when-time');
+      var sepEl = $('book-when-sep');
+      var bookedEl = $('book-booked-when');
+      $('book-when-minutes').textContent = (booking.minutes || DEFAULT_MINUTES) + ' minutes';
       if (when) {
+        $('book-when-month').textContent = when.month;
+        $('book-when-day').textContent = when.day;
+        tile.hidden = !(when.month && when.day);
         dateEl.textContent = when.date;
-        timeEl.textContent = when.time + '  \u00b7  ' + (booking.minutes || DEFAULT_MINUTES) + ' minutes';
+        timeEl.textContent = when.time;
         timeEl.hidden = false;
+        sepEl.hidden = false;
+        // "Thursday, October 9 at 4:00 PM EDT." with the time kept on one line.
+        bookedEl.textContent = when.date + ' at ';
+        var bookedTime = document.createElement('span');
+        bookedTime.className = 'bk-nowrap';
+        bookedTime.textContent = when.time + '.';
+        bookedEl.appendChild(bookedTime);
       } else {
+        tile.hidden = true;
         dateEl.textContent = 'Your time is in the invitation.';
         timeEl.hidden = true;
+        sepEl.hidden = true;
+        bookedEl.textContent = 'Your time is in the invitation.';
       }
-      if (booking.email) $('book-email').textContent = booking.email;
     } catch (e) {}
 
     try { wireAccept(); } catch (e) {}
     try { wireCalendarLinks(booking, host); } catch (e) {}
     try { wireNote(booking, host); } catch (e) {}
+    try { updateProgress(); } catch (e) {}
 
     stateSchedule.hidden = true;
     stateConfirmed.hidden = false;
