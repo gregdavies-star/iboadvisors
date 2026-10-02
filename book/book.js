@@ -5,7 +5,13 @@
    reports a booking through postMessage, the page hides the scheduler and
    shows its own confirmation (State 2): the time in the visitor's timezone,
    the one thing to do (accept the invitation), calendar fallbacks, and an
-   optional note for Michael.
+   optional note for the host.
+
+   The scheduling page is a round robin between two partners. HubSpot's
+   booking message names the organizer the meeting landed on
+   (meetingsPayload.bookingResponse.postResponse.organizer); resolveHost()
+   matches it against HOSTS below and every host-specific string on the
+   confirmation comes from the matched entry.
 
    HubSpot facts this relies on (verified in the build spike):
      - The portal is on NA2, so every message comes from
@@ -31,17 +37,49 @@
   var GOOGLE_ADS_ID = 'AW-18411360561';
 
   // Pre-call note. The note card is only rendered once the GUID is set: it is
-  // the "Pre-call note" HubSpot form (fields: email, pre_call_note), which a
-  // workflow forwards to Michael as an internal email and a task.
+  // the "Pre-call note" HubSpot form (fields: email, pre_call_note,
+  // pre_call_note_host), which a workflow forwards to the host as an internal
+  // email and a task.
   var HUBSPOT_PORTAL_ID = '245308986';
   var PRECALL_NOTE_FORM_GUID = '';
 
+  // The round-robin hosts, keyed by lower-case email. userId is the HubSpot
+  // owner/user id. Every host-specific string on the confirmation (name,
+  // title, email, portrait, credentials) comes from here. An empty `lines`
+  // array renders the caption without credentials; a missing portrait file
+  // hides the image.
+  var HOSTS = {
+    'michael@iboadvisors.com': {
+      userId: '88777593',
+      name: 'Michael Chasen',
+      first: 'Michael',
+      title: 'General Partner', // standing rule: General Partner only
+      email: 'michael@iboadvisors.com',
+      portraitWebp: '/assets/founder-portrait.webp',
+      portraitJpg: '/assets/founder-portrait.jpg',
+      lines: [
+        '25+ years building companies and executing M&A transactions.',
+        'Led deals totaling $2B+.',
+        'Completed or advised on 100+ M&A and sale transactions.'
+      ]
+    },
+    'darren@iboadvisors.com': {
+      userId: '162759897',
+      name: 'Darren Gleeman',
+      first: 'Darren',
+      title: 'General Partner', // ASSUMED, to be confirmed by Greg
+      email: 'darren@iboadvisors.com',
+      portraitWebp: '/assets/darren-gleeman-portrait.webp',
+      portraitJpg: '/assets/darren-gleeman-portrait.jpg',
+      lines: [] // credentials to come from Greg
+    }
+  };
+  var DEFAULT_HOST_EMAIL = 'michael@iboadvisors.com';
+
   var HUBSPOT_ORIGIN = 'https://meetings-na2.hubspot.com';
   var STORAGE_KEY = 'ibo_booking';
-  var CONTACT_EMAIL = 'michael@iboadvisors.com';
-  var EVENT_TITLE = 'Call with Michael Chasen';
-  var EVENT_DETAILS = 'Zoom link is in the invitation from ' + CONTACT_EMAIL + '.';
   var DEFAULT_MINUTES = 30;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var MIN_FRAME_HEIGHT = 400;
   var MAX_FRAME_HEIGHT = 3000;
 
@@ -156,7 +194,7 @@
 
     var contact = pick(post, ['contact']) || {};
     var email = str(contact.email, 254);
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) email = '';
+    if (email && !EMAIL_RE.test(email)) email = '';
 
     return {
       start: start,
@@ -167,6 +205,105 @@
       email: email,
       bookedAt: Date.now()
     };
+  }
+
+  /* ------------------------------------------------------------------
+     Host. Matches the organizer by email, then user id, then name; an
+     organizer that matches no entry becomes a generic host built from the
+     payload; no organizer at all means the default host. Never throws.
+     ------------------------------------------------------------------ */
+  function copyHost(h) {
+    return {
+      userId: h.userId || '',
+      name: h.name,
+      first: h.first,
+      title: h.title || '',
+      email: h.email,
+      portraitWebp: h.portraitWebp || '',
+      portraitJpg: h.portraitJpg || '',
+      lines: (h.lines || []).slice()
+    };
+  }
+
+  function defaultHost() { return copyHost(HOSTS[DEFAULT_HOST_EMAIL]); }
+
+  function capitalise(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+  function resolveHost(organizer) {
+    try {
+      if (!organizer || typeof organizer !== 'object') return defaultHost();
+      var key;
+
+      var email = str(organizer.email, 254).toLowerCase();
+      if (email && Object.prototype.hasOwnProperty.call(HOSTS, email)) return copyHost(HOSTS[email]);
+
+      var userId = organizer.userId;
+      if ((typeof userId === 'number' && isFinite(userId)) || (typeof userId === 'string' && userId)) {
+        for (key in HOSTS) {
+          if (Object.prototype.hasOwnProperty.call(HOSTS, key) && String(userId) === HOSTS[key].userId) return copyHost(HOSTS[key]);
+        }
+      }
+
+      var firstName = str(organizer.firstName, 100);
+      var lastName = str(organizer.lastName, 100);
+      var fullName = str(organizer.fullName, 200);
+      var joined = (firstName + ' ' + lastName).replace(/\s+/g, ' ').trim();
+      var names = [joined.toLowerCase(), fullName.replace(/\s+/g, ' ').toLowerCase()];
+      for (key in HOSTS) {
+        if (!Object.prototype.hasOwnProperty.call(HOSTS, key)) continue;
+        var hostName = HOSTS[key].name.toLowerCase();
+        if ((names[0] && names[0] === hostName) || (names[1] && names[1] === hostName)) return copyHost(HOSTS[key]);
+      }
+
+      var validEmail = EMAIL_RE.test(email) ? email : '';
+      var name = fullName || joined;
+      if (!name && !validEmail) return defaultHost();
+      // Only an email: use its local part ("pat" -> "Pat") so the copy still reads.
+      if (!name) name = capitalise(validEmail.split('@')[0].split(/[._+-]/)[0]);
+      return {
+        userId: '',
+        name: name,
+        first: firstName || name.split(' ')[0],
+        title: '',
+        email: validEmail || DEFAULT_HOST_EMAIL,
+        portraitWebp: '',
+        portraitJpg: '',
+        lines: []
+      };
+    } catch (e) {
+      return defaultHost();
+    }
+  }
+
+  // A host read back from sessionStorage. A known host is refreshed from HOSTS
+  // (so an edit to the table applies on reload); anything else is re-cleaned.
+  function storedHost(h) {
+    try {
+      if (!h || typeof h !== 'object') return defaultHost();
+      var email = str(h.email, 254).toLowerCase();
+      if (email && Object.prototype.hasOwnProperty.call(HOSTS, email)) return copyHost(HOSTS[email]);
+      var name = str(h.name, 200);
+      if (!name || !EMAIL_RE.test(email)) return defaultHost();
+      return {
+        userId: '',
+        name: name,
+        first: str(h.first, 100) || name.split(' ')[0],
+        title: str(h.title, 100),
+        email: email,
+        portraitWebp: '',
+        portraitJpg: '',
+        lines: []
+      };
+    } catch (e) {
+      return defaultHost();
+    }
+  }
+
+  function eventTitle(host) { return 'Call with ' + host.name; }
+  function eventDetails(host) { return 'Zoom link is in the invitation from ' + host.email + '.'; }
+  function icsFilename(host) {
+    var slug = String(host.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return 'call-with-' + (slug || 'ibo-advisors') + '.ics';
   }
 
   /* ------------------------------------------------------------------
@@ -204,19 +341,19 @@
     return new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z');
   }
 
-  function googleUrl(b) {
+  function googleUrl(b, host) {
     return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
-      '&text=' + encodeURIComponent(EVENT_TITLE).replace(/%20/g, '+') +
+      '&text=' + encodeURIComponent(eventTitle(host)).replace(/%20/g, '+') +
       '&dates=' + utcStamp(b.start) + '/' + utcStamp(b.end) +
-      '&details=' + encodeURIComponent(EVENT_DETAILS);
+      '&details=' + encodeURIComponent(eventDetails(host));
   }
 
-  function outlookUrl(host, b) {
-    return 'https://' + host + '/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent' +
-      '&subject=' + encodeURIComponent(EVENT_TITLE) +
+  function outlookUrl(domain, b, host) {
+    return 'https://' + domain + '/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent' +
+      '&subject=' + encodeURIComponent(eventTitle(host)) +
       '&startdt=' + encodeURIComponent(isoNoMs(b.start)) +
       '&enddt=' + encodeURIComponent(isoNoMs(b.end)) +
-      '&body=' + encodeURIComponent(EVENT_DETAILS);
+      '&body=' + encodeURIComponent(eventDetails(host));
   }
 
   // RFC 5545 TEXT escaping.
@@ -224,7 +361,7 @@
     return String(s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
   }
 
-  function icsBody(b) {
+  function icsBody(b, host) {
     var uid = utcStamp(b.start) + '-' + Math.random().toString(36).slice(2, 10) + '@iboadvisors.com';
     return [
       'BEGIN:VCALENDAR',
@@ -237,8 +374,8 @@
       'DTSTAMP:' + utcStamp(Date.now()),
       'DTSTART:' + utcStamp(b.start),
       'DTEND:' + utcStamp(b.end),
-      'SUMMARY:' + icsText(EVENT_TITLE),
-      'DESCRIPTION:' + icsText('Zoom link is in the invitation from ' + CONTACT_EMAIL),
+      'SUMMARY:' + icsText(eventTitle(host)),
+      'DESCRIPTION:' + icsText('Zoom link is in the invitation from ' + host.email),
       'END:VEVENT',
       'END:VCALENDAR',
       ''
@@ -247,7 +384,7 @@
 
   var icsUrl = null;
 
-  function wireCalendarLinks(booking) {
+  function wireCalendarLinks(booking, host) {
     var google = $('book-cal-google');
     var outlook = $('book-cal-outlook');
     var outlookCom = $('book-cal-outlookcom');
@@ -265,11 +402,12 @@
     }
 
     try {
-      google.href = googleUrl(booking);
-      outlook.href = outlookUrl('outlook.office.com', booking);
-      outlookCom.href = outlookUrl('outlook.live.com', booking);
+      google.href = googleUrl(booking, host);
+      outlook.href = outlookUrl('outlook.office.com', booking, host);
+      outlookCom.href = outlookUrl('outlook.live.com', booking, host);
+      ics.setAttribute('download', icsFilename(host));
       if (icsUrl && window.URL && URL.revokeObjectURL) URL.revokeObjectURL(icsUrl);
-      icsUrl = URL.createObjectURL(new Blob([icsBody(booking)], { type: 'text/calendar;charset=utf-8' }));
+      icsUrl = URL.createObjectURL(new Blob([icsBody(booking, host)], { type: 'text/calendar;charset=utf-8' }));
       ics.href = icsUrl;
     } catch (e) {}
 
@@ -303,7 +441,7 @@
   /* ------------------------------------------------------------------
      Pre-call note
      ------------------------------------------------------------------ */
-  function wireNote(booking) {
+  function wireNote(booking, host) {
     var card = $('book-note');
     if (!card) return;
     var canSend = !!PRECALL_NOTE_FORM_GUID && !!tracking && typeof tracking.submitForm === 'function';
@@ -333,8 +471,8 @@
       var note = String(text.value || '').trim().slice(0, 1000);
       var email = booking.email || String(emailInput.value || '').trim();
       if (!note) { showError('Write a note first, or skip this step.'); text.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError('Add your email so Michael knows who the note is from.');
+      if (!EMAIL_RE.test(email)) {
+        showError('Add your email so ' + host.first + ' knows who the note is from.');
         emailInput.hidden = false;
         emailInput.focus();
         return;
@@ -346,7 +484,8 @@
       try {
         sending = tracking.submitForm(HUBSPOT_PORTAL_ID, PRECALL_NOTE_FORM_GUID, [
           { name: 'email', value: email },
-          { name: 'pre_call_note', value: note }
+          { name: 'pre_call_note', value: note },
+          { name: 'pre_call_note_host', value: host.email }
         ]);
       } catch (err) {
         sending = Promise.reject(err);
@@ -357,9 +496,9 @@
         track('precall_note_sent', { src: SRC, length: note.length });
       }).catch(function () {
         // Keep the text; give them a direct route.
-        showError('Couldn\u2019t send. Email Michael directly at ' + CONTACT_EMAIL + '.');
+        showError('Couldn\u2019t send. Email ' + host.first + ' directly at ' + host.email + '.');
         submit.disabled = false;
-        submit.textContent = 'Send to Michael';
+        submit.textContent = 'Send to ' + host.first;
         track('precall_note_failed', { src: SRC });
       });
     });
@@ -370,9 +509,74 @@
      ------------------------------------------------------------------ */
   var confirmed = false;
 
+  function setText(selector, text) {
+    var nodes = document.querySelectorAll(selector);
+    for (var i = 0; i < nodes.length; i++) nodes[i].textContent = text;
+  }
+
+  function hostLabel(host) {
+    return host.name + (host.title ? ', ' + host.title : '') + ', IBO Advisors';
+  }
+
+  function renderPortrait(host) {
+    var figure = $('book-host-figure');
+    var picture = $('book-host-picture');
+    var webp = $('book-host-webp');
+    var img = $('book-host-img');
+    var pair = figure && figure.parentNode;
+    if (!figure || !picture || !img) return;
+
+    // No portrait: drop the image and let the caption sit above the card.
+    function noPortrait() {
+      picture.hidden = true;
+      if (pair && pair.classList) pair.classList.add('bk-pair--solo');
+    }
+
+    img.alt = hostLabel(host);
+    var jpg = host.portraitJpg || host.portraitWebp;
+    if (!jpg) { noPortrait(); return; }
+    picture.hidden = false;
+    if (pair && pair.classList) pair.classList.remove('bk-pair--solo');
+    img.onerror = noPortrait; // a file that is not there yet
+    if (webp) {
+      if (host.portraitWebp) webp.setAttribute('srcset', host.portraitWebp);
+      else webp.parentNode.removeChild(webp);
+    }
+    if (img.getAttribute('src') !== jpg) img.setAttribute('src', jpg);
+  }
+
+  function renderCaption(host) {
+    var caption = $('book-host-caption');
+    if (!caption) return;
+    while (caption.firstChild) caption.removeChild(caption.firstChild);
+    var strong = document.createElement('strong');
+    strong.textContent = hostLabel(host) + '.';
+    caption.appendChild(strong);
+    if (host.lines && host.lines.length) caption.appendChild(document.createTextNode(' ' + host.lines.join(' ')));
+  }
+
+  function renderHost(host) {
+    setText('[data-host="name"]', host.name);
+    setText('[data-host="first"]', host.first);
+    setText('[data-host="email"]', host.email);
+    setText('[data-host="title"]', host.title);
+    var links = document.querySelectorAll('[data-host-mailto]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute('href', 'mailto:' + host.email);
+      links[i].textContent = host.email;
+    }
+    var submit = $('book-note-submit');
+    if (submit && !submit.disabled) submit.textContent = 'Send to ' + host.first;
+    try { renderCaption(host); } catch (e) {}
+    try { renderPortrait(host); } catch (e) {}
+  }
+
   function renderConfirmation(booking, moveFocus) {
     confirmed = true;
     booking = booking || {};
+    var host = storedHost(booking.host);
+
+    try { renderHost(host); } catch (e) {}
 
     try {
       var when = formatWhen(booking);
@@ -390,8 +594,8 @@
     } catch (e) {}
 
     try { wireAccept(); } catch (e) {}
-    try { wireCalendarLinks(booking); } catch (e) {}
-    try { wireNote(booking); } catch (e) {}
+    try { wireCalendarLinks(booking, host); } catch (e) {}
+    try { wireNote(booking, host); } catch (e) {}
 
     stateSchedule.hidden = true;
     stateConfirmed.hidden = false;
@@ -408,8 +612,14 @@
     var booking;
     try { booking = parseBooking(data); } catch (e) { booking = { minutes: DEFAULT_MINUTES, bookedAt: Date.now() }; }
 
+    // The round-robin organizer. Logged once so the first real booking shows
+    // which fields HubSpot actually sends.
+    var organizer = pick(data, ['meetingsPayload', 'bookingResponse', 'postResponse', 'organizer']);
+    try { if (window.console && console.debug) console.debug('[book] organizer', organizer); } catch (e) {}
+    booking.host = resolveHost(organizer);
+
     var leadDays = isNum(booking.start) ? Math.max(0, Math.round((booking.start - Date.now()) / 86400000)) : null;
-    var params = { src: SRC };
+    var params = { src: SRC, host: booking.host.first ? booking.host.first.toLowerCase() : 'unknown' };
     if (leadDays !== null) params.lead_days = leadDays;
     track('meeting_booked', params);
     if (MEETING_BOOKED_CONVERSION_LABEL) {

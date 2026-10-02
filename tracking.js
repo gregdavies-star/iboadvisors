@@ -452,7 +452,8 @@
   var IDENTITY_FIELDS = {
     firstname: true, lastname: true, email: true, phone: true,
     company: true, message: true,
-    pre_call_note: true                  // the /book note is the whole submission
+    pre_call_note: true,                 // the /book note is the whole submission
+    pre_call_note_host: true             // which round-robin host the note goes to
   };
 
   /* Submit to the HubSpot Forms API with the campaign fields attached.

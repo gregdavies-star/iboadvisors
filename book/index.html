@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
 <title>Schedule a confidential call | IBO Advisors</title>
-<meta name="description" content="Pick a time for a confidential 30-minute call with Michael Chasen, General Partner at IBO Advisors. No preparation, no documents, no obligation." />
+<meta name="description" content="A 30-minute confidential call with an IBO Advisors partner. No preparation, no documents, no obligation." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="canonical" href="https://www.iboadvisors.com/book" />
 <!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
@@ -32,7 +32,8 @@
    /book - on-site meeting scheduler (page-scoped styles, bk-*).
    Standalone: no site nav, no modal, noindex. Embeds the HubSpot scheduler
    (State 1) and swaps to an IBO-styled confirmation (State 2) when the
-   iframe reports a booking. Behaviour lives in /book/book.js.
+   iframe reports a booking. Behaviour lives in /book/book.js, which fills
+   every data-host node from the host the round robin booked.
    ========================================================================== */
 
 /* Slim landing header: logo only, as on /ibo-exit. */
@@ -86,6 +87,10 @@
 .bk-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius-md); }
 .bk-caption { font-size: var(--text-sm); margin-top: var(--space-4); line-height: 1.6; }
 .bk-caption strong { display: block; color: var(--color-navy); }
+/* No portrait for this host (or the file is missing): caption above the card. */
+.bk-pair--solo { grid-template-columns: 1fr; gap: 0; }
+.bk-pair--solo .bk-caption { margin-top: 0; margin-bottom: var(--space-6); }
+.bk-portrait picture[hidden] { display: none; }
 
 /* White card with the gold rule (same treatment as the site's .step rule). */
 .bk-card {
@@ -155,13 +160,13 @@
       <div class="container">
         <div class="bk-col">
           <p class="eyebrow">Schedule a confidential call</p>
-          <h1 class="bk-title">Pick a time to talk with Michael Chasen.</h1>
-          <p class="bk-lede">30 minutes. Confidential. No preparation, no documents, no obligation.</p>
+          <h1 class="bk-title">Pick a time for a confidential call.</h1>
+          <p class="bk-lede">30 minutes with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
 
-          <div id="book-scheduler" class="meetings-iframe-container bk-scheduler" data-title="Schedule a call with Michael Chasen" data-src="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?embed=true"></div>
+          <div id="book-scheduler" class="meetings-iframe-container bk-scheduler" data-title="Schedule a confidential call with IBO Advisors" data-src="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?embed=true"></div>
           <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
           <noscript>
-            <p class="bk-quiet">The scheduler needs JavaScript. <a href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">Open Michael&rsquo;s calendar to pick a time</a>.</p>
+            <p class="bk-quiet">The scheduler needs JavaScript. <a href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">Open the calendar to pick a time</a>.</p>
           </noscript>
 
           <p class="bk-alert" id="book-failed" role="alert" hidden>That booking didn&rsquo;t go through. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
@@ -177,7 +182,7 @@
       <div class="container">
         <div class="bk-col">
           <p class="eyebrow">Your call is confirmed</p>
-          <h1 class="bk-title" id="book-confirmed-title" tabindex="-1">You&rsquo;re confirmed with Michael Chasen.</h1>
+          <h1 class="bk-title" id="book-confirmed-title" tabindex="-1">You&rsquo;re confirmed with <span data-host="name">Michael Chasen</span>.</h1>
 
           <div class="bk-when" id="book-when">
             <p class="bk-when__date" id="book-when-date">Your time is in the invitation.</p>
@@ -185,18 +190,18 @@
             <p class="bk-when__note">Zoom link is in your invitation</p>
           </div>
 
-          <p class="bk-lede">Michael has set aside 30 minutes for you. The invitation is on its way to <strong id="book-email">your inbox</strong>. Everything you share is confidential.</p>
+          <p class="bk-lede"><span data-host="first">Michael</span> has set aside 30 minutes for you. The invitation is on its way to <strong id="book-email">your inbox</strong>. Everything you share is confidential.</p>
 
           <div class="bk-pair">
-            <figure class="bk-portrait">
-              <picture><source type="image/webp" srcset="/assets/founder-portrait.webp" /><img loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, General Partner, IBO Advisors" width="1080" height="1338" /></picture>
-              <figcaption class="bk-caption"><strong>Michael Chasen, General Partner, IBO Advisors.</strong> 25+ years building companies and executing M&amp;A transactions. Led deals totaling $2B+. Completed or advised on 100+ M&amp;A and sale transactions.</figcaption>
+            <figure class="bk-portrait" id="book-host-figure">
+              <picture id="book-host-picture"><source id="book-host-webp" type="image/webp" srcset="/assets/founder-portrait.webp" /><img id="book-host-img" loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, General Partner, IBO Advisors" width="1080" height="1338" /></picture>
+              <figcaption class="bk-caption" id="book-host-caption"><strong>Michael Chasen, General Partner, IBO Advisors.</strong> 25+ years building companies and executing M&amp;A transactions. Led deals totaling $2B+. Completed or advised on 100+ M&amp;A and sale transactions.</figcaption>
             </figure>
 
             <div>
               <div class="bk-card bk-accept" id="book-accept-card">
                 <h2><span class="bk-tick" aria-hidden="true">&#10003;</span>One thing to do now</h2>
-                <p>Open the invitation from michael@iboadvisors.com and accept it, so the call lands on your calendar. Gmail sometimes holds invitations from new senders until you respond.</p>
+                <p>Open the invitation from <span data-host="email">michael@iboadvisors.com</span> and accept it, so the call lands on your calendar. Gmail sometimes holds invitations from new senders until you respond.</p>
                 <button type="button" class="btn btn--primary" id="book-accept" aria-pressed="false">I&rsquo;ve accepted the invitation</button>
                 <div class="bk-cal">
                   <a class="btn btn--outline" id="book-cal-google" href="#" target="_blank" rel="noopener" data-provider="google">Google Calendar</a>
@@ -210,19 +215,19 @@
 
           <!-- Optional pre-call note. Rendered only once PRECALL_NOTE_FORM_GUID is set in book.js. -->
           <div class="bk-card bk-note" id="book-note" hidden>
-            <h2>Anything you&rsquo;d like Michael to know before you talk?<span class="bk-optional">optional</span></h2>
+            <h2>Anything you&rsquo;d like <span data-host="first">Michael</span> to know before you talk?<span class="bk-optional">optional</span></h2>
             <form class="bk-note__form" id="book-note-form" novalidate>
-              <label class="sr-only" for="book-note-text">Your note for Michael</label>
+              <label class="sr-only" for="book-note-text">Your note for <span data-host="first">Michael</span></label>
               <textarea class="ibo-field__input" id="book-note-text" maxlength="1000" placeholder="e.g. I'm weighing a PE offer and want a second opinion."></textarea>
               <label class="sr-only" for="book-note-email">Your email</label>
               <input class="ibo-field__input" type="email" id="book-note-email" autocomplete="email" placeholder="Your email" hidden />
               <div class="bk-note__foot">
                 <button type="submit" class="ibo-modal__submit" id="book-note-submit">Send to Michael</button>
-                <p>Only Michael sees this.</p>
+                <p>Only <span data-host="first">Michael</span> sees this.</p>
               </div>
               <p class="bk-note__error" id="book-note-error" role="alert" hidden></p>
             </form>
-            <p class="bk-note__sent" id="book-note-sent" role="status" hidden>Sent. Michael will have this before your call.</p>
+            <p class="bk-note__sent" id="book-note-sent" role="status" hidden>Sent. <span data-host="first">Michael</span> will have this before your call.</p>
           </div>
 
           <div class="bk-cover">
@@ -241,7 +246,7 @@
     <section class="section--cream bk-band">
       <div class="container">
         <div class="bk-col">
-          <p>Your calendar entry is titled &ldquo;Call with Michael Chasen&rdquo;.</p>
+          <p>The invitation comes from <span data-host="first">Michael</span> directly.</p>
           <p>No one at your company will hear from us.</p>
           <p>Many owners speak with us years before any decision.</p>
         </div>
@@ -251,7 +256,7 @@
     <section class="bk-section">
       <div class="container">
         <div class="bk-col">
-          <p>Need a different time? Use the reschedule link in your invitation email, or write to <a class="bk-link" href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a>.</p>
+          <p>Need a different time? Use the reschedule link in your invitation email, or write to <a class="bk-link" href="mailto:michael@iboadvisors.com" data-host-mailto>michael@iboadvisors.com</a>.</p>
         </div>
       </div>
     </section>
