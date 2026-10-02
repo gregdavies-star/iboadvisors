@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Schedule a confidential call | IBO Advisors</title>
+<meta name="description" content="Pick a time for a confidential 30-minute call with Michael Chasen, General Partner at IBO Advisors. No preparation, no documents, no obligation." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.iboadvisors.com/book" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+  gtag('config', 'G-7HL0RK1PJ0');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+/* ==========================================================================
+   /book - on-site meeting scheduler (page-scoped styles, bk-*).
+   Standalone: no site nav, no modal, noindex. Embeds the HubSpot scheduler
+   (State 1) and swaps to an IBO-styled confirmation (State 2) when the
+   iframe reports a booking. Behaviour lives in /book/book.js.
+   ========================================================================== */
+
+/* Slim landing header: logo only, as on /ibo-exit. */
+.xc-header .site-header__inner { height: 80px; }
+
+.bk-col { max-width: var(--content-narrow); margin-inline: auto; }
+.bk-section { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
+.bk-section--tight { padding-top: 0; }
+.bk-title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: var(--text-2xl); line-height: 1.1; margin-top: var(--space-4); max-width: 22ch;
+}
+.bk-title:focus { outline: none; }
+.bk-lede { margin-top: var(--space-4); max-width: 60ch; }
+.bk-quiet { font-size: var(--text-sm); color: var(--color-text-faint); margin-top: var(--space-5); }
+.bk-quiet a, .bk-link { color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; }
+.bk-quiet a:hover, .bk-link:hover { color: var(--color-gold); }
+
+/* ---- State 1: the embed. Light border, no card chrome, so HubSpot's own
+   white panel sits flush. The container reserves HubSpot's default iframe
+   height so the layout does not jump while the iframe loads. ---- */
+.bk-scheduler {
+  margin-top: var(--space-8); min-height: 756px;
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;
+  background: var(--color-white);
+}
+.bk-scheduler iframe { display: block; width: 100%; }
+.bk-alert {
+  margin-top: var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: #fee2e2; color: #991b1b; font-size: var(--text-sm);
+}
+.bk-alert a { color: inherit; text-decoration: underline; }
+.bk-alert[hidden], .bk-state[hidden] { display: none; }
+
+/* ---- State 2: confirmation ---- */
+.bk-when {
+  margin-top: var(--space-8); background: var(--color-navy); color: var(--color-white);
+  border-radius: var(--radius-lg); padding: clamp(var(--space-6), 4vw, var(--space-8));
+}
+.bk-when__date {
+  font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); line-height: 1.15;
+  color: var(--color-white); font-variant-numeric: lining-nums tabular-nums;
+}
+.bk-when__time {
+  font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-gold-light);
+  margin-top: var(--space-2); font-variant-numeric: lining-nums tabular-nums; line-height: 1.3;
+}
+.bk-when__note { color: rgba(243, 231, 219, 0.85); font-size: var(--text-sm); margin-top: var(--space-3); }
+
+.bk-pair { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); margin-top: var(--space-10); align-items: start; }
+.bk-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius-md); }
+.bk-caption { font-size: var(--text-sm); margin-top: var(--space-4); line-height: 1.6; }
+.bk-caption strong { display: block; color: var(--color-navy); }
+
+/* White card with the gold rule (same treatment as the site's .step rule). */
+.bk-card {
+  background: var(--color-white); border: 1px solid var(--color-border); border-top: 2px solid var(--color-gold);
+  border-radius: var(--radius-md); padding: clamp(var(--space-5), 4vw, var(--space-8));
+}
+.bk-card + .bk-card, .bk-note { margin-top: var(--space-8); }
+.bk-card h2 { font-size: var(--text-lg); line-height: 1.25; }
+.bk-card h2 .bk-optional { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 400; color: var(--color-text-faint); margin-left: var(--space-2); }
+.bk-card p { font-size: var(--text-sm); margin-top: var(--space-3); }
+.bk-card .btn { margin-top: var(--space-5); width: 100%; }
+.bk-accept .bk-tick { display: none; margin-right: var(--space-2); }
+.bk-accept.is-done .bk-tick { display: inline; }
+.bk-accept.is-done { border-top-color: #3a8a5c; }
+.bk-accept.is-done .btn--primary { background: #3a8a5c; }
+.bk-cal { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
+.bk-cal .btn { margin-top: 0; width: auto; flex: 1 1 auto; padding: var(--space-2) var(--space-4); font-size: var(--text-xs); }
+.bk-cal-caption { font-size: var(--text-xs) !important; color: var(--color-text-faint) !important; }
+
+.bk-note textarea { margin-top: var(--space-4); min-height: 120px; resize: vertical; }
+.bk-note .ibo-field__input + .ibo-field__input { margin-top: var(--space-3); }
+.bk-note .ibo-modal__submit { margin-top: var(--space-4); width: auto; padding-inline: var(--space-8); }
+.bk-note__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.bk-note__foot p { margin-top: var(--space-4); font-size: var(--text-xs); color: var(--color-text-faint); }
+.bk-note__error { color: #991b1b !important; }
+.bk-note__error[hidden], .bk-note__sent[hidden], .bk-note__form[hidden], .bk-note[hidden] { display: none; }
+
+.bk-cover { margin-top: var(--space-12); }
+.bk-cover h2 { font-size: var(--text-xl); }
+.bk-cover ol { list-style: none; padding: 0; margin: var(--space-5) 0 0; counter-reset: bk; }
+.bk-cover li { counter-increment: bk; position: relative; padding: var(--space-4) 0 var(--space-4) var(--space-12); border-top: 1px solid var(--color-border); color: var(--color-text-muted); line-height: 1.6; }
+.bk-cover li::before { content: counter(bk); position: absolute; left: 0; top: var(--space-3); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; color: var(--color-gold); }
+.bk-cover__after { margin-top: var(--space-4); font-weight: 700; color: var(--color-navy); }
+
+.bk-band { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
+.bk-band p { color: var(--color-navy); }
+.bk-band p + p { margin-top: var(--space-2); }
+
+@media (max-width: 720px) {
+  .bk-pair { grid-template-columns: 1fr; }
+  .bk-portrait { max-width: 320px; }
+}
+/* 16px gutters on phones so HubSpot's 312px minimum iframe width fits. */
+@media (max-width: 480px) {
+  .bk-page .container { padding-inline: var(--space-4); }
+}
+</style>
+<!-- HubSpot tracking code (portal 245308986, NA2). Sets the hubspotutk cookie,
+     which the meetings embed passes to the iframe as parentHubspotUtk. -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
+</head>
+<body class="bk-page">
+
+<header class="site-header xc-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors" /></picture>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= STATE 1: SCHEDULING ================= -->
+  <div class="bk-state" id="book-state-schedule">
+    <section class="bk-section">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">Schedule a confidential call</p>
+          <h1 class="bk-title">Pick a time to talk with Michael Chasen.</h1>
+          <p class="bk-lede">30 minutes. Confidential. No preparation, no documents, no obligation.</p>
+
+          <div id="book-scheduler" class="meetings-iframe-container bk-scheduler" data-title="Schedule a call with Michael Chasen" data-src="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?embed=true"></div>
+          <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+          <noscript>
+            <p class="bk-quiet">The scheduler needs JavaScript. <a href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">Open Michael&rsquo;s calendar to pick a time</a>.</p>
+          </noscript>
+
+          <p class="bk-alert" id="book-failed" role="alert" hidden>That booking didn&rsquo;t go through. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
+          <p class="bk-quiet">Prefer email? <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= STATE 2: CONFIRMATION ================= -->
+  <div class="bk-state" id="book-state-confirmed" hidden>
+    <section class="bk-section">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">Your call is confirmed</p>
+          <h1 class="bk-title" id="book-confirmed-title" tabindex="-1">You&rsquo;re confirmed with Michael Chasen.</h1>
+
+          <div class="bk-when" id="book-when">
+            <p class="bk-when__date" id="book-when-date">Your time is in the invitation.</p>
+            <p class="bk-when__time" id="book-when-time" hidden></p>
+            <p class="bk-when__note">Zoom link is in your invitation</p>
+          </div>
+
+          <p class="bk-lede">Michael has set aside 30 minutes for you. The invitation is on its way to <strong id="book-email">your inbox</strong>. Everything you share is confidential.</p>
+
+          <div class="bk-pair">
+            <figure class="bk-portrait">
+              <picture><source type="image/webp" srcset="/assets/founder-portrait.webp" /><img loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, General Partner, IBO Advisors" width="1080" height="1338" /></picture>
+              <figcaption class="bk-caption"><strong>Michael Chasen, General Partner, IBO Advisors.</strong> 25+ years building companies and executing M&amp;A transactions. Led deals totaling $2B+. Completed or advised on 100+ M&amp;A and sale transactions.</figcaption>
+            </figure>
+
+            <div>
+              <div class="bk-card bk-accept" id="book-accept-card">
+                <h2><span class="bk-tick" aria-hidden="true">&#10003;</span>One thing to do now</h2>
+                <p>Open the invitation from michael@iboadvisors.com and accept it, so the call lands on your calendar. Gmail sometimes holds invitations from new senders until you respond.</p>
+                <button type="button" class="btn btn--primary" id="book-accept" aria-pressed="false">I&rsquo;ve accepted the invitation</button>
+                <div class="bk-cal">
+                  <a class="btn btn--outline" id="book-cal-google" href="#" target="_blank" rel="noopener" data-provider="google">Google Calendar</a>
+                  <a class="btn btn--outline" id="book-cal-outlook" href="#" target="_blank" rel="noopener" data-provider="outlook" title="Outlook (work or school account). For a personal Outlook.com account use the Outlook.com link below.">Outlook</a>
+                  <a class="btn btn--outline" id="book-cal-ics" href="#" download="call-with-michael-chasen.ics" data-provider="apple">Apple (.ics)</a>
+                </div>
+                <p class="bk-cal-caption">Use these only if the invitation hasn&rsquo;t appeared, so you don&rsquo;t end up with two entries. Personal Outlook.com account? <a class="bk-link" id="book-cal-outlookcom" href="#" target="_blank" rel="noopener" data-provider="outlook_com">Use this link</a>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Optional pre-call note. Rendered only once PRECALL_NOTE_FORM_GUID is set in book.js. -->
+          <div class="bk-card bk-note" id="book-note" hidden>
+            <h2>Anything you&rsquo;d like Michael to know before you talk?<span class="bk-optional">optional</span></h2>
+            <form class="bk-note__form" id="book-note-form" novalidate>
+              <label class="sr-only" for="book-note-text">Your note for Michael</label>
+              <textarea class="ibo-field__input" id="book-note-text" maxlength="1000" placeholder="e.g. I'm weighing a PE offer and want a second opinion."></textarea>
+              <label class="sr-only" for="book-note-email">Your email</label>
+              <input class="ibo-field__input" type="email" id="book-note-email" autocomplete="email" placeholder="Your email" hidden />
+              <div class="bk-note__foot">
+                <button type="submit" class="ibo-modal__submit" id="book-note-submit">Send to Michael</button>
+                <p>Only Michael sees this.</p>
+              </div>
+              <p class="bk-note__error" id="book-note-error" role="alert" hidden></p>
+            </form>
+            <p class="bk-note__sent" id="book-note-sent" role="status" hidden>Sent. Michael will have this before your call.</p>
+          </div>
+
+          <div class="bk-cover">
+            <h2>What we&rsquo;ll cover</h2>
+            <ol>
+              <li>Where your company is today and what you want from an exit, in your words.</li>
+              <li>Whether an Independent Buyout fits your size, sector and timing.</li>
+              <li>What the numbers could look like for you, and what happens next if you want to keep talking.</li>
+            </ol>
+            <p class="bk-cover__after">No preparation needed. No documents. No obligation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--cream bk-band">
+      <div class="container">
+        <div class="bk-col">
+          <p>Your calendar entry is titled &ldquo;Call with Michael Chasen&rdquo;.</p>
+          <p>No one at your company will hear from us.</p>
+          <p>Many owners speak with us years before any decision.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bk-section">
+      <div class="container">
+        <div class="bk-col">
+          <p>Need a different time? Use the reschedule link in your invitation email, or write to <a class="bk-link" href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors" /></picture>
+    </a>
+    <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="/tracking.js"></script>
+<script src="/book/book.js" defer></script>
+</body>
+</html>
