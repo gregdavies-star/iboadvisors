@@ -65,6 +65,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/sell-part-of-your-business-keep-control",
+      "destination": "/blog/sell-a-business-but-keep-control",
+      "permanent": true
+    },
+    {
       "source": "/blog/what-happens-after-a-private-equity-buyout",
       "destination": "/blog/what-happens-after-private-equity-buys-your-company",
       "permanent": true

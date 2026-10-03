@@ -50,10 +50,10 @@
         "selling to private equity pros and cons": "/blog/selling-to-private-equity-pros-and-cons",
         "what happens after private equity buys your company": "/blog/what-happens-after-private-equity-buys-your-company",
         "management buyout vs private equity": "/blog/management-buyout-vs-private-equity",
-        "how to sell a business but keep control": "/blog/sell-part-of-your-business-keep-control",
-        "partial sale of business": "/blog/sell-part-of-your-business-keep-control",
-        "sell a portion of my business": "/blog/sell-part-of-your-business-keep-control",
-        "how to take money off the table without selling": "/blog/sell-part-of-your-business-keep-control"
+        "how to sell a business but keep control": "/blog/sell-a-business-but-keep-control",
+        "partial sale of business": "/blog/sell-a-business-but-keep-control",
+        "sell a portion of my business": "/blog/sell-a-business-but-keep-control",
+        "how to take money off the table without selling": "/blog/sell-a-business-but-keep-control"
       }
     },
     {
@@ -72,10 +72,16 @@
         "how is a leveraged buyout financed",
         "seller financing in a business sale",
         "earnout in business sale",
-        "dividend recapitalization explained"
+        "dividend recapitalization explained",
+        "types of buyouts",
+        "secondary buyout"
       ],
       "covered": {
         "minority recapitalization": "/blog/minority-recapitalization-explained",
+        "earnout in business sale": "/blog/earnout-in-business-sale",
+        "majority recapitalization": "/blog/majority-recapitalization-vs-sale",
+        "leveraged recapitalization": "/blog/majority-recapitalization-vs-sale",
+        "recapitalization vs sale": "/blog/majority-recapitalization-vs-sale",
         "rollover equity": "/blog/rollover-equity-second-bite-explained",
         "second bite of the apple private equity": "/blog/rollover-equity-second-bite-explained",
         "management buyout financing": "/blog/management-buyout-financing",
@@ -116,6 +122,9 @@
         "private equity minority stake control",
         "veto rights private equity",
         "what private equity does after acquisition",
+        "private equity buyout",
+        "buyout private equity",
+        "pe buyout",
         "private equity management fees portfolio company",
         "private equity holding period",
         "private equity and founder CEO replacement",
@@ -124,7 +133,10 @@
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
         "veto rights private equity": "/blog/minority-pe-stake-board-control-veto-rights",
-        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company"
+        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company",
+        "private equity buyout": "/blog/what-happens-after-private-equity-buys-your-company",
+        "buyout private equity": "/blog/what-happens-after-private-equity-buys-your-company",
+        "pe buyout": "/blog/what-happens-after-private-equity-buys-your-company"
       }
     },
     {
