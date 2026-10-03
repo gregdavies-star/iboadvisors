@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-02T16:29:35.556Z",
+  "inspectedAt": "2026-10-03T15:03:55.030Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -55,8 +55,8 @@
     },
     {
       "url": "https://www.iboadvisors.com/industries/healthcare-services",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
       "lastCrawlTime": "2026-09-26T01:50:38Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
       "robotsTxtState": "ALLOWED",

@@ -1,39 +1,39 @@
-# Daily SEO run — 2026-10-02
+# Daily SEO run — 2026-10-03
 
-Audit clean (0 errors, 0 warnings). Rules 3, 4, 5 and 7 fired: 3 content pages of the 4 allowed and 4 link edits. The one new post was dropped in merge resolution as the fourth write of the same topic (see Changes). `totals.previous` is populated for the first time but covers the property's first verified days, so the deltas are data accumulation, not movement; rule 6 still yields no decliners.
+Rule 1 clean (0 errors, 0 warnings, 30 pages). `/industries/healthcare-services` slipped to "Crawled – currently not indexed", so rule 2 took first call on the budget and rules 3, 4 and 7 took the rest. Both caps hit exactly: 4 content pages, 1 new post — the post was dropped in merge resolution as the fifth write of the same topic (see Changes). The four content-page edits all ship.
 
-## GSC totals — 28 days (2026-09-02 → 09-29)
+## GSC totals — 28 days (2026-09-03 → 09-30)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 71 | 3,563 | 1.99% | 14.0 |
-| Prior 28d | 3 | 95 | 3.16% | 11.3 |
+| Current | 67 | 3,513 | 1.91% | 14.1 |
+| Prior 28d | 7 | 145 | 4.83% | 9.9 |
+
+First non-null prior window, but it covers the fortnight the site was still being indexed. Deltas against it are noise for ~2 more weeks.
 
 ## Changes
 
 | Change | Data point |
 |---|---|
-| `alternatives-to-selling-to-pe` — title/meta now carry its $42M worked comparison | `lowCtr`: 158 impr, 1.27% CTR @ 9.0 vs 3% expected; never retitled |
-| `selling-to-private-equity-pros-and-cons` — "4 Pros and 5 Cons"; meta carries the $35M → $19M after-tax figure | `lowCtr`: 130 impr, 0.77% @ 6.4 vs 3% expected. Counts match its own H3s |
-| ~~`family-business-succession-planning` — ~390-word H2 on the four advisor seats~~ — **dropped in merge resolution** | `strikingDistance`: "which advisors are best suited to plan the sale of a family-owned company?" **50 impr, 0 clicks @ 6.3**; page had no advisor section | **The same row was already answered by the 10-01 run**, with a 424-word section on five specialists that this branch already carries. Kept that one: it adds the hiring sequence, the sixth family-governance seat and a family-specific compensation screen. `Updated` stays October 1 — no new words landed on this page today. |
-| `management-buyout-vs-private-equity` — existing outbound link re-anchored to "private equity buyout" | `cannibalization`; winner `what-happens-after-pe-buys-your-company`, 85 impr vs 19. Titles already differentiated, so no title churn |
-| ~~New `/blog/recapitalization-vs-sale`~~ — **dropped in merge resolution** | Fourth write of this topic. The 09-28, 10-01 and 10-02 runs each wrote it and the 09-30 run wrote `/blog/majority-recapitalization-vs-sale`, every one of them reading a `main` without the earlier runs' unmerged work. The 09-30 post is kept. |
-| ~~3 inbound links to it~~ — **dropped, not retargeted** | Both surviving pages already link `/blog/majority-recapitalization-vs-sale`, so retargeting would have doubled up; the third was on the post this branch deletes. In the alternatives post the sentence was kept and unlinked, since the §302 and §1368 mechanics it promised are not covered on the surviving post. |
+| **`/industries/healthcare-services`** — 480 words on revenue multiples (`margin × EBITDA multiple`, conversion table across the 5.0x–8.5x band, home-based-care note); FAQ into body + JSON-LD | Only non-PASS URL of 29, and its **top query is "revenue multiples healthcare"** (5 @ 20.0) — a term the page never used |
+| `what-happens-after-pe-buys` → healthcare page | 405 impr @ 11.8, strongest blog page; its add-on paragraph already names a healthcare platform |
+| **`alternatives-to-selling-to-private-equity`** — title + meta; snippet now names all seven routes | 158 impr @ 9.0, **CTR 1.27% vs 3% expected**; only `lowCtr` row out of cool-down |
+| **`family-business-succession-planning`** — 400 words on the five advisory roles and their sequencing | "which advisors are best suited to plan the sale of a family-owned company?" — **50 impr @ 6.3, zero clicks**, unanswered. Uses the post's own $23M hypothetical: 20% gifted now costs $4.6M of exclusion, $11.6M in twelve years |
+| ~~New: `/blog/majority-recapitalization-explained`~~ — **dropped in merge resolution** | Fifth write of this topic, at a fourth slug. The 09-30 run already wrote `/blog/majority-recapitalization-vs-sale`, which this branch carries and which covers the same spine. One of its two inbound links was retargeted to that post; the other was dropped, since the page already links it. |
 
 ## Skipped
 
-Rule 3: the other five `lowCtr` rows are inside the 28-day cool-down (09-08 to 09-18). Rule 4's second slot: three rows are the homepage (body barred), `independent-buyout-explained` already answers "what is an ibo" in its H1, and the 20-impression row is a verbatim-quote hunt. Rule 5's remaining rows are branded or apex/`www` duplicates of ours.
-
-## Coverage
-
-`/industries/restaurants`, still the only non-PASS of 29, moved from "Discovered – currently not indexed" to **"URL is unknown to Google"**. It has the 09-26 expansion, 6 in-links and a fresh `lastmod`; no on-page cause remains, so a seventh link would be churn. Needs a manual Request Indexing.
+- **Rule 3** — 6 of 7 rows in cool-down (`/blog` 09-08, explainer 09-15, succession 09-10, veto rights 09-18, minority recap 09-08; pros-and-cons published 09-21).
+- **Rule 5** — page cap reached. Two brand rows are apex/`www` duplicates of ours; `what is an ibo` splits the homepage (40 @ 10.0) and the explainer (26 @ 7.0), and homepage body copy is barred.
+- **Rule 6** — the lone decliner is apex `iboadvisors.com/` (2 clicks vs 5): the 301 consolidating, not content.
 
 ## Needs a human
 
-1. **"IBO" is ambiguous and the data shows it.** 158 impressions across five IBO-definition queries at positions 5–11, **0 clicks on all of them**. Two causes GSC cannot separate: searchers who mean "Independent Business Owner", and `independentbuyout.com` (ours) ranking page one and taking the click. Not a snippet fault — hold further spend here until one is ruled out.
-2. **"Private equity buyout" still has no page** — 104 impressions across three queries, raised 09-26, unactioned. Add them to cluster 5 of `keywords.json` and the job can build the pillar next run.
-3. Apex still outranks `www` on the calculator (397 impr @ 34.0 vs 93 @ 8.4) — consolidation lag, fourth week.
+1. **`private equity buyout` / `buyout private equity`** (104 impr): `what-happens-after` (52 @ 26.3, 33 @ 20.3) vs `management-buyout-vs-private-equity` (11 @ 6.9, 8 @ 12.0). Both mapped to `what-happens-after` in `keywords.json` — its title was rewritten 09-20 for exactly this — but the rule-5 link didn't fit the cap. **Done by this run** — it registered `private equity buyout`, `buyout private equity` and `pe buyout` in cluster 5 and mapped all three to `what-happens-after`, which is preserved in the merge. The rule-5 link is still outstanding.
+2. **`/industries/restaurants` regressed** to **"URL is unknown to Google"** despite the 09-26 expansion and two new inbound links. Nothing on-page explains it; likely an inspection-API artefact. Worth one manual "Request indexing".
+3. **Apex still outranks `www` on the calculator** — 397 @ 34.0 vs 93 @ 8.4. Consolidation lag.
+4. **`what is an ibo`** — 66 impr, 0 clicks across two of our pages. `independentbuyout.com` is ours and ranks page one, so the click may land where this property cannot see it.
 
 ## Flagged
 
-Nothing. 0 banned-phrasing matches across 35 HTML files; all 30 JSON-LD blocks parse; the approved "$1.8 billion" line intact in both places.
+Nothing. Banned-phrasing scan: 0 matches across 35 HTML files; all JSON-LD parses. Every figure added today is an explicitly invented hypothetical or links to a source opened this run.
