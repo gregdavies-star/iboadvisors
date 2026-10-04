@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-09-26T14:52:56.520Z",
+  "inspectedAt": "2026-10-04T15:38:42.935Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -11,10 +11,26 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
+      "url": "https://www.iboadvisors.com/blog",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-09-26T16:46:21Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-25T19:51:23Z",
+      "lastCrawlTime": "2026-09-26T17:17:16Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -47,18 +63,11 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/industries/restaurants",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog",
+      "url": "https://www.iboadvisors.com/blog/sell-part-of-your-business-keep-control",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-09T19:36:58Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog",
+      "lastCrawlTime": "2026-09-28T18:57:50Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/sell-part-of-your-business-keep-control",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -120,7 +129,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T05:12:44Z",
+      "lastCrawlTime": "2026-10-02T10:05:00Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -129,7 +138,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-24T19:27:43Z",
+      "lastCrawlTime": "2026-09-26T14:47:12Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -174,7 +183,7 @@
       "url": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-24T21:57:43Z",
+      "lastCrawlTime": "2026-09-27T03:42:43Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

@@ -1,41 +1,42 @@
-# Daily SEO run — 2026-09-26
+# Daily SEO run — 2026-10-04
 
-Rule 1 clean (0 audit errors). Rule 2 had the only real problem: `/industries/restaurants` is the sole non-PASS sitemap URL, so it got a 420-word section plus two inbound links. Rules 3–6 are blocked by cool-downs, the homepage-body ban and missing prior-window data; the rest of the budget went to rule 7.
+Rule 1 clean. The "private equity buyout" query family — 137 impressions, 0 clicks, six variants — had no page and no keyword entry, and surfaced as two cannibalization rows. Built it, linked both rivals to it, and spent the last slot on the only `lowCtr` row out of cool-down.
 
-## GSC totals — 28 days (2026-08-27 → 09-23)
+## GSC totals — 28 days (2026-09-04 → 10-01)
 
-| | Clicks | Impressions | CTR | Position |
+| | Clicks | Impr | CTR | Position |
 |---|---|---|---|---|
-| Current | 53 | 2,422 | 2.19% | 15.6 |
-| Prior 28d | — | — | — | — |
+| Current | 65 | 3,470 | 1.87% | 14.1 |
+| Prior | 9 | 188 | 4.79% | 9.6 |
 
-`totals.previous` is still null, so **rule 6 yields no decliners** (~2026-10-15).
+Prior window is a partial backfill; deltas mean little. Rule 6's only decliner is the apex domain.
 
-## Changes — 4 pages edited, 1 new post
+## Changes — 3 pages edited, 1 new post
 
-| Change | Data point |
-|---|---|
-| **`/industries/restaurants`** — section on the four restaurant EBITDA normalizations, a worked bridge ($3.2M reported → $4.0M adjusted, invented group), plus one FAQ in body and JSON-LD | **"Discovered – currently not indexed"**, the only non-PASS URL of 28. Its two identical siblings are indexed, so this is weight, not a template fault. Pre-opening costs sourced to Texas Roadhouse's FY2025 10-K |
-| `alternatives-to-selling-to-pe` → restaurants page | 109 impr @ 10.2; its sector paragraph already names multi-unit restaurants |
-| `minority-pe-stake-veto-rights` → restaurants page | 178 impr @ 9.9; its capex-consent paragraph already turns on restaurant unit spending |
-| **New: `/blog/sell-part-of-your-business-keep-control`** — 1,979 words, 12 internal links, sourced to 8 Del. C. §141(a), §271(a) and IRC §1042 | The four highest-priority uncovered keywords, all cluster 2. Built on governance mechanics, not a route list, to stay clear of the minority-recap and alternatives posts |
-| `minority-recapitalization-explained` → the new post | Cluster-3 hub, 74 impr @ 9.8, closest topical match |
+**New `/blog/private-equity-buyout-explained`** (rule 7) — 2,022 words, 16 internal links, a sources-and-uses and after-tax ledger on an invented $8M EBITDA company at 7.0x, four primary sources opened before citing. Targets "buyout private equity" 63 @ 22.9, "private equity buyout" 41 @ 18.7, "pe buyout" 15 @ 28.4 and three more variants, none with a page.
 
-`keywords.json` fixed: `EBITDA multiples by industry` had a live page but no `covered` entry, so rule 7 could have re-published it.
+**Rule 5** — both cannibalization rows now link to it with the query as anchor: `what-happens-after-pe-buys` (52 @ 26.3, 33 @ 20.3) and `management-buyout-vs-pe` (11 @ 6.9, 8 @ 12.0).
+
+**Rule 3** — `alternatives-to-selling-to-pe` title and meta: 158 impr @ 9.0, 1.27% CTR against 3.0% expected. New copy names the differentiator — seven routes priced on one $42M hypothetical.
+
+**`keywords.json`** — four buyout keywords added to cluster 2 and mapped to the new post.
 
 ## Skipped
 
-- **Rule 3** — all 3 `lowCtr` rows in cool-down: `/blog` (09-08), explainer (09-15), veto rights (09-18).
-- **Rule 4** — 3 of 4 rows are the homepage (body barred); the 4th is answered in the explainer's opening.
-- **Rule 5** — 3 of 4 rows are apex/`www` duplicates of our own domain.
+- **Rule 3** — 6 of 7 rows in title cool-down (09-08 to 09-21).
+- **Rule 4** — 3 of 6 rows are the homepage (body barred), two are inside the 14-day cool-down, the last is a quoted-phrase lookup.
+- **Rule 5** — on `ibo advisors` and `what is an ibo` the loser is the homepage, body barred.
+
+## Coverage
+
+`/industries/restaurants`, the only non-PASS of 29, now has five inbound source pages. Request indexing in GSC; links are not the lever.
 
 ## Needs a human
 
-1. **~94 impressions, 0 clicks, no page and no keyword entry:** `buyout private equity` (41 @ 26.4), `private equity buyout` (21 @ 20.5), `pe buyout` (13 @ 28.5). Absent from `keywords.json`, so no rule reaches it. Add to cluster 5.
-2. **Apex still outranks `www` on the calculator** — 391 impr @ 34.4 against 46 @ 10.1. The 301 is correct; consolidation lag.
-3. **`what is an ibo`** — 68 impr, 0 clicks; `independentbuyout.com` (ours) also ranks page one, so the click may land where GSC cannot see it.
-4. **Stranded past page 2:** `management buyout financing` (74 @ 23.3), `exit planning for business owners` (24 @ 85.3).
+1. `what-happens-after-pe-buys` is titled "Private Equity Buyout: What Happens Years 1-7" and now competes with the new page; retitle after 10-18.
+2. Apex still outranks `www` on the calculator (64 @ 70.3). Past page 2 and outside every rule: "management buyout financing" 13 @ 29.5, "exit planning for business owners" 24 @ 85.3.
+3. `what is an ibo` — 63 impr, 0 clicks; `independentbuyout.com` is ours and also ranks, so clicks may land where this property cannot see them.
 
 ## Flagged
 
-Nothing. Banned-phrasing scan: 0 matches across 30 HTML files; all JSON-LD parses. The approved "$1.8 billion" line is intact in both places, so that flag stays dropped.
+Nothing. 0 banned-phrase matches across 35 files; all JSON-LD parses.
