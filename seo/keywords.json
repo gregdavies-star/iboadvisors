@@ -38,6 +38,10 @@
         "selling to private equity pros and cons",
         "what happens after private equity buys your company",
         "management buyout vs private equity",
+        "private equity buyout",
+        "buyout private equity",
+        "pe buyout",
+        "types of buyouts",
         "how to sell a business but keep control",
         "partial sale of business",
         "sell a portion of my business",
@@ -53,7 +57,11 @@
         "how to sell a business but keep control": "/blog/sell-a-business-but-keep-control",
         "partial sale of business": "/blog/sell-a-business-but-keep-control",
         "sell a portion of my business": "/blog/sell-a-business-but-keep-control",
-        "how to take money off the table without selling": "/blog/sell-a-business-but-keep-control"
+        "how to take money off the table without selling": "/blog/sell-a-business-but-keep-control",
+        "private equity buyout": "/blog/private-equity-buyout-explained",
+        "buyout private equity": "/blog/private-equity-buyout-explained",
+        "pe buyout": "/blog/private-equity-buyout-explained",
+        "types of buyouts": "/blog/private-equity-buyout-explained"
       }
     },
     {
@@ -73,7 +81,6 @@
         "seller financing in a business sale",
         "earnout in business sale",
         "dividend recapitalization explained",
-        "types of buyouts",
         "secondary buyout"
       ],
       "covered": {
@@ -122,9 +129,6 @@
         "private equity minority stake control",
         "veto rights private equity",
         "what private equity does after acquisition",
-        "private equity buyout",
-        "buyout private equity",
-        "pe buyout",
         "private equity management fees portfolio company",
         "private equity holding period",
         "private equity and founder CEO replacement",
@@ -133,10 +137,7 @@
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
         "veto rights private equity": "/blog/minority-pe-stake-board-control-veto-rights",
-        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company",
-        "private equity buyout": "/blog/what-happens-after-private-equity-buys-your-company",
-        "buyout private equity": "/blog/what-happens-after-private-equity-buys-your-company",
-        "pe buyout": "/blog/what-happens-after-private-equity-buys-your-company"
+        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company"
       }
     },
     {

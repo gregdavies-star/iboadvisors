@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-03T15:03:55.030Z",
+  "inspectedAt": "2026-10-04T15:38:42.935Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -22,7 +22,7 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -55,8 +55,8 @@
     },
     {
       "url": "https://www.iboadvisors.com/industries/healthcare-services",
-      "verdict": "NEUTRAL",
-      "coverageState": "Crawled - currently not indexed",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-09-26T01:50:38Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
       "robotsTxtState": "ALLOWED",
