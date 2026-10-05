@@ -30,14 +30,14 @@
 <style>
 /* ==========================================================================
    /book - on-site meeting scheduler (page-scoped styles, bk-*).
-   Standalone: no site nav, no modal, noindex. Embeds the HubSpot scheduler
-   (State 1) and swaps to an IBO-styled confirmation (State 2) when the
-   iframe reports a booking. Behaviour lives in /book/book.js, which fills
-   every data-host node from the host the round robin booked.
+   Full site header and footer, but no modal.js (the visitor has already
+   qualified, and modal.js fires conversions on timers): the Contact and
+   Learn More triggers are plain links, and book.js wires the mobile menu.
+   noindex. Embeds the HubSpot scheduler (State 1) and swaps to an
+   IBO-styled confirmation (State 2) when the iframe reports a booking.
+   Behaviour lives in /book/book.js, which fills every data-host node from
+   the host the round robin booked.
    ========================================================================== */
-
-/* Slim landing header: logo only, as on /ibo-exit. */
-.xc-header .site-header__inner { height: 80px; }
 
 .bk-col { max-width: var(--content-narrow); margin-inline: auto; }
 .bk-section { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
@@ -221,9 +221,10 @@
   .bk-cover { padding: var(--space-16) 0 var(--space-12); }
   .bk-cover__grid li { padding: var(--space-6); }
 }
-/* 16px gutters on phones so HubSpot's 312px minimum iframe width fits. */
+/* 16px gutters on phones so HubSpot's 312px minimum iframe width fits.
+   Scoped to main so the site footer keeps its usual gutter. */
 @media (max-width: 480px) {
-  .bk-page .container { padding-inline: var(--space-4); }
+  .bk-page main .container { padding-inline: var(--space-4); }
 }
 </style>
 <!-- HubSpot tracking code (portal 245308986, NA2). Sets the hubspotutk cookie,
@@ -232,11 +233,22 @@
 </head>
 <body class="bk-page">
 
-<header class="site-header xc-header">
+<header class="site-header">
   <div class="site-header__inner">
     <a href="/" class="logo" aria-label="IBO Advisors home">
-      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors" /></picture>
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors"  /></picture>
     </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/#advisory">Advisory</a>
+        <a class="nav__link" href="/#mechanism">Approach</a>
+        <a class="nav__link" href="/#track-record">Track Record</a>
+        <a class="nav__link" href="/blog">Blog</a>
+        <a class="nav__link" href="/#contact">Contact</a>
+      </div>
+      <a class="btn btn--outline nav__cta" href="/?learn-more=1">Learn More</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
   </div>
 </header>
 
@@ -376,10 +388,15 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <a href="/" class="logo" aria-label="IBO Advisors home">
-      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors" /></picture>
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors"  /></picture>
     </a>
     <nav class="footer-nav" aria-label="Footer">
-      <a href="/privacy">Privacy</a>
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+      <a href="/#contact">Contact</a>
     </nav>
     <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
   </div>

@@ -739,3 +739,58 @@
     track('scheduler_view', { src: SRC });
   }
 })();
+
+/* ==========================================================================
+   Mobile navigation toggle
+   /book shows the full site header but does not load modal.js (which also
+   fires conversions on timers), so this reproduces modal.js's menu toggle:
+   the ☰ button opens a dropdown panel with the nav links plus the Learn More
+   CTA (moved into the links container while open, restored on close), keeps
+   aria-expanded in step, and closes on a link tap, Escape, or a resize back
+   to the desktop bar.
+   ========================================================================== */
+(function () {
+  'use strict';
+  var nav = document.querySelector('.site-header .nav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.nav-toggle');
+  var links = nav.querySelector('.nav__links');
+  var cta = nav.querySelector('.nav__cta');
+  if (!toggle || !links) return;
+
+  if (!links.id) links.id = 'primary-nav';
+  toggle.setAttribute('aria-controls', links.id);
+  toggle.setAttribute('aria-expanded', 'false');
+
+  function isOpen() { return nav.classList.contains('nav-open'); }
+
+  function open() {
+    if (cta) links.appendChild(cta);
+    nav.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+  }
+
+  function close() {
+    if (cta && cta.parentElement === links) nav.insertBefore(cta, toggle);
+    nav.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  toggle.addEventListener('click', function () {
+    if (isOpen()) close(); else open();
+  });
+
+  links.addEventListener('click', function (e) {
+    if (e.target.closest('a')) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen()) close();
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960 && isOpen()) close();
+  });
+})();
