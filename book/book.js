@@ -74,7 +74,11 @@
       email: 'darren@iboadvisors.com',
       portraitWebp: '/assets/darren-gleeman-portrait.webp',
       portraitJpg: '/assets/darren-gleeman-portrait.jpg',
-      lines: [] // credentials to come from Greg
+      // Drawn from his MBO Ventures bio; awaiting Greg's confirmation.
+      lines: [
+        'Wharton-trained quant who built an early automated hedge fund.',
+        'Advises owners on succession, buyouts and employee ownership.'
+      ]
     }
   };
   var DEFAULT_HOST_EMAIL = 'michael@iboadvisors.com';
