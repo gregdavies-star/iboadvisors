@@ -1,5 +1,7 @@
 # HubSpot build runbook - paid-social nurture (28 Sep 2026)
 
+> **Update, 5 October 2026.** The scheduler now lives at `/book` on the site (`https://www.iboadvisors.com/book`); the hosted HubSpot scheduling page is embedded there, and the nurture emails link to `/book?src=email&...`. The "Pre-call note" form (GUID `a86c0176-58e8-437b-9474-f38bddd0a0a0`), the contact properties `pre_call_note`, `pre_call_note_host` and `pre_call_note_date`, and the workflow "IBO Booking - Pre-call note to host" (id 5062740687) all exist. The private app now has the `crm.schemas.contacts.write` and `forms` scopes but not `marketing-email`, so marketing email publishes are done in the HubSpot UI.
+
 What was built automatically, what is left to click through in HubSpot, and the exact settings for each remaining step. Companion to `DRIP_SEQUENCE_STRATEGY.md` and `DRIP_SEQUENCE_EMAILS.md`.
 
 ## 0. Do this first: email authentication (test sends went to junk on 28 Sep)
@@ -126,7 +128,7 @@ Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts
 | D4 | IBO Nurture D4 - Close the loop? (breakup) | 860701586150 |
 | F1 | IBO Nurture F1 - Tomorrow: three things to have handy | 861123106525 |
 | F3 | IBO Nurture F3 - Missed you, grab another slot | 860759619306 |
-| F4 | IBO Nurture F4 - Still worth the 20 minutes? | 861122596600 |
+| F4 | IBO Nurture F4 - Still worth the 30 minutes? | 861122596600 |
 | A1-Catchup | IBO Nurture A1-Catchup - Your Independent Buyout (IBO) question (catch-up) | 860757857999 |
 
 ### Test copies for Michael (batch, recipient = michael@iboadvisors.com only)
@@ -158,7 +160,7 @@ Full machine-readable list in `marketing/hubspot_email_ids.json`. All are drafts
 | D4 | TEST for Michael - IBO Nurture D4 - Close the loop? (breakup) | 860779128510 |
 | F1 | TEST for Michael - IBO Nurture F1 - Tomorrow: three things to have handy | 860694324984 |
 | F3 | TEST for Michael - IBO Nurture F3 - Missed you, grab another slot | 860663737045 |
-| F4 | TEST for Michael - IBO Nurture F4 - Still worth the 20 minutes? | 860669141738 |
+| F4 | TEST for Michael - IBO Nurture F4 - Still worth the 30 minutes? | 860669141738 |
 
 ## 7. Catch-up send (this week)
 
