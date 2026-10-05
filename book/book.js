@@ -4,7 +4,7 @@
    The page embeds the HubSpot meetings scheduler (State 1). When the iframe
    reports a booking through postMessage, the page hides the scheduler and
    shows its own confirmation (State 2): the time in the visitor's timezone,
-   then the steps before the call (booked, accept the invitation with
+   then the steps before the call (booked, the calendar invitation with
    calendar fallbacks, and an optional note for the host).
 
    The scheduling page is a round robin between two partners. HubSpot's
@@ -57,7 +57,7 @@
       userId: '88777593',
       name: 'Michael Chasen',
       first: 'Michael',
-      title: 'General Partner', // standing rule: General Partner only
+      title: 'Managing Partner', // standing rule: Managing Partner, never Founder
       email: 'michael@iboadvisors.com',
       portraitWebp: '/assets/founder-portrait.webp',
       portraitJpg: '/assets/founder-portrait.jpg',
@@ -70,7 +70,7 @@
       userId: '162759897',
       name: 'Darren Gleeman',
       first: 'Darren',
-      title: 'General Partner', // ASSUMED, to be confirmed by Greg
+      title: 'Managing Partner', // standing rule: Managing Partner, never Founder
       email: 'darren@iboadvisors.com',
       portraitWebp: '/assets/darren-gleeman-portrait.webp',
       portraitJpg: '/assets/darren-gleeman-portrait.jpg',
@@ -429,55 +429,25 @@
   }
 
   /* ------------------------------------------------------------------
-     Steps card: heading and progress follow the steps actually shown
-     (2 without the note, 3 with it) and how many are done.
+     Steps card: the heading follows the steps actually shown
+     (2 without the note, 3 with it).
      ------------------------------------------------------------------ */
   var COUNT_WORDS = { 1: 'One', 2: 'Two', 3: 'Three', 4: 'Four' };
 
-  function updateProgress() {
+  function updateStepsHeading() {
     var steps = document.querySelectorAll('#book-steps-card .bk-step');
     var total = 0;
-    var done = 0;
     var last = null;
     for (var i = 0; i < steps.length; i++) {
       steps[i].classList.remove('is-last');
       if (steps[i].hidden) continue;
       total++;
       last = steps[i];
-      if (steps[i].classList.contains('is-done')) done++;
     }
     if (last) last.classList.add('is-last'); // no rule under the last shown step
     if (!total) return;
     var title = $('book-steps-title');
     if (title) title.textContent = (COUNT_WORDS[total] || String(total)) + ' small ' + (total === 1 ? 'thing' : 'things') + ' before your call';
-    var label = $('book-progress-label');
-    if (label) label.textContent = done + ' of ' + total + ' done';
-    var fill = $('book-progress-fill');
-    if (fill) fill.style.width = (100 * done / total).toFixed(3) + '%';
-    var bar = $('book-progress');
-    if (bar) {
-      bar.setAttribute('aria-valuemax', String(total));
-      bar.setAttribute('aria-valuenow', String(done));
-    }
-  }
-
-  /* ------------------------------------------------------------------
-     "Accept the invitation" (no network, GA4 only). Marks step 2 done.
-     ------------------------------------------------------------------ */
-  function wireAccept() {
-    var btn = $('book-accept');
-    var card = $('book-accept-card');
-    if (!btn || !card || btn.getAttribute('data-wired')) return;
-    btn.setAttribute('data-wired', '1');
-    var label = btn.textContent;
-    btn.addEventListener('click', function () {
-      var done = !card.classList.contains('is-done');
-      card.classList.toggle('is-done', done);
-      btn.setAttribute('aria-pressed', done ? 'true' : 'false');
-      btn.textContent = done ? 'Marked as accepted' : label;
-      updateProgress();
-      if (done) track('invite_accept_click', { src: SRC });
-    });
   }
 
   /* ------------------------------------------------------------------
@@ -535,8 +505,6 @@
       sending.then(function () {
         form.hidden = true;
         sentEl.hidden = false;
-        card.classList.add('is-done');
-        updateProgress();
         track('precall_note_sent', { src: SRC, length: note.length });
       }).catch(function () {
         // Keep the text; give them a direct route.
@@ -589,12 +557,12 @@
     if (img.getAttribute('src') !== jpg) img.setAttribute('src', jpg);
   }
 
-  // Name (a data-host node), "{title}.", the IBO Advisors wordmark, then the
+  // Name (a data-host node), the title, the IBO Advisors wordmark, then the
   // credential lines. No title or no lines: that part is hidden.
   function renderCaption(host) {
     var title = $('book-host-title');
     if (title) {
-      title.textContent = host.title ? host.title + '.' : '';
+      title.textContent = host.title || '';
       title.hidden = !host.title;
     }
     var lines = $('book-host-lines');
@@ -660,10 +628,9 @@
       }
     } catch (e) {}
 
-    try { wireAccept(); } catch (e) {}
     try { wireCalendarLinks(booking, host); } catch (e) {}
     try { wireNote(booking, host); } catch (e) {}
-    try { updateProgress(); } catch (e) {}
+    try { updateStepsHeading(); } catch (e) {}
 
     stateSchedule.hidden = true;
     stateConfirmed.hidden = false;

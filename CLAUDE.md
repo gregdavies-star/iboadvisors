@@ -4,7 +4,7 @@ Static HTML/CSS/JS on Vercel (project `iboadvisors`), no build step. See README.
 
 ## Standing rules (from Greg Davies; apply to every change)
 
-1. Michael Chasen is **General Partner** only. Never "Founder", "Managing Partner" or any other title, in copy, alt text, structured data or anything else that describes him. (The `founder-portrait.*` asset filenames and `founder*` CSS class names are internal and may stay.)
+1. Michael Chasen and Darren Gleeman are **Managing Partner**. Never "Founder" or "General Partner", in copy, alt text, structured data or anything else that describes them. (The `founder-portrait.*` asset filenames and `founder*` CSS class names are internal and may stay.)
 2. The call with Michael is **30 minutes**, everywhere it is mentioned.
 3. The /book confirmation does **not** ask where the visitor will take the call and does **not** ask them to commit to rescheduling. The optional "Anything you'd like Michael to know?" note **stays**; the note goes to the HubSpot contact record and to Michael, never to the prospect.
 4. No code is deployed until Greg says build.
