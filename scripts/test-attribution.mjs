@@ -65,9 +65,14 @@ async function newCtx() {
     await route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   return { ctx, submissions };
+}
+
+// Qualified leads now land on the on-site scheduler, /book (which embeds HubSpot's).
+function onBookPage(page) {
+  try { return new URL(page.url()).pathname === '/book'; } catch (e) { return false; }
 }
 
 function fieldMap(sub) {
@@ -209,7 +214,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     return route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);
@@ -221,7 +226,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     !attempts[2].some((n) => n.startsWith('ibo_form_')) &&
     attempts[2].includes('email'),
     JSON.stringify(attempts.map((a) => a.length)));
-  check('fail-soft: lead still converts to scheduler', page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 80));
+  check('fail-soft: lead still converts to /book', onBookPage(page), page.url().slice(0, 80));
   await ctx.close();
 }
 
@@ -290,6 +295,12 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('form uuid and meeting uuid match (joinable)',
     !!f.ibo_form_uuid && f.ibo_form_uuid === q.get('ibo_meeting_uuid'),
     `${f.ibo_form_uuid} vs ${q.get('ibo_meeting_uuid')}`);
+  check('modal hands off to /book with src=modal', onBookPage(page) && q.get('src') === 'modal', page.url().slice(0, 80));
+  // /book loads tracking.js too; the hand-off must not be recorded as a new touch.
+  const touch = await page.evaluate(() => window.iboTracking.lastTouch());
+  check('landing on /book keeps the stored touch (same uuid, original landing url)',
+    !!touch && touch.uuid === f.ibo_form_uuid && !/\/book/.test(touch.landing_url || ''),
+    `${touch && touch.uuid} ${touch && touch.landing_url}`);
   await ctx.close();
 }
 
@@ -461,8 +472,8 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   check('a blank phone is not sent, and no company is sent',
     submissions.length === 1 && !('phone' in f) && !('company' in f),
     JSON.stringify(Object.keys(f)));
-  check('submits without a phone and redirects to the scheduler with no company param',
-    page.url().includes('meetings-na2.hubspot.com') && !page.url().includes('company='),
+  check('submits without a phone and redirects to /book with no company param',
+    onBookPage(page) && !page.url().includes('company='),
     page.url().slice(0, 130));
   await ctx.close();
 }
@@ -529,7 +540,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) =>
     r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);
@@ -542,7 +553,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     second.includes('what_is_your_approximate_annual_ebitda_profit'),
     JSON.stringify(second));
   check('the lead still converts after a field is dropped',
-    page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 70));
+    onBookPage(page), page.url().slice(0, 70));
   await ctx.close();
 }
 
@@ -561,7 +572,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) =>
     r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);
@@ -574,7 +585,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     second.includes('email'),
     JSON.stringify(second));
   check('the lead still converts on the identity-only retry',
-    page.url().includes('meetings-na2.hubspot.com'), page.url().slice(0, 70));
+    onBookPage(page), page.url().slice(0, 70));
   await ctx.close();
 }
 

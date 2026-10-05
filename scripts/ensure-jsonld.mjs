@@ -22,13 +22,15 @@ const organization = {
   description:
     "M&A advisory firm that structures Independent Buyouts (IBOs) - private-equity-level liquidity and valuation for business owners with $3M+ EBITDA, without selling to private equity.",
   areaServed: "US",
-  founder: { "@id": AUTHOR_ID },
+  // Michael Chasen is "General Partner" only, never "Founder" (see CLAUDE.md), so he is linked to the
+  // organization as an employee rather than through schema.org's founder relation.
+  employee: { "@id": AUTHOR_ID },
 };
 const author = {
   "@type": "Person",
   "@id": AUTHOR_ID,
   name: "Michael Chasen",
-  jobTitle: "Founder",
+  jobTitle: "General Partner",
   worksFor: { "@id": ORG_ID },
   url: ORIGIN + "/#team",
 };

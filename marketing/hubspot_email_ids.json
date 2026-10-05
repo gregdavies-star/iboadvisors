@@ -230,8 +230,8 @@
     },
     {
       "key": "F4",
-      "name": "IBO Nurture F4 - Still worth the 20 minutes?",
-      "subject": "Still worth the 20 minutes?",
+      "name": "IBO Nurture F4 - Still worth the 30 minutes?",
+      "subject": "Still worth the 30 minutes?",
       "sender": "Edmund Breitling",
       "marketing_email_object_id": 861122596600,
       "type": "AUTOMATED (workflow)",
@@ -475,8 +475,8 @@
     },
     {
       "key": "F4",
-      "name": "TEST for Michael - IBO Nurture F4 - Still worth the 20 minutes?",
-      "subject": "Still worth the 20 minutes?",
+      "name": "TEST for Michael - IBO Nurture F4 - Still worth the 30 minutes?",
+      "subject": "Still worth the 30 minutes?",
       "sender": "Edmund Breitling",
       "marketing_email_object_id": 860669141738,
       "type": "BATCH (Michael only)",

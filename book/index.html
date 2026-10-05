@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Schedule a confidential call | IBO Advisors</title>
+<meta name="description" content="A 30-minute confidential call with an IBO Advisors partner. No preparation, no documents, no obligation." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.iboadvisors.com/book" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+  gtag('config', 'G-7HL0RK1PJ0');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+/* ==========================================================================
+   /book - on-site meeting scheduler (page-scoped styles, bk-*).
+   Full site header and footer, but no modal.js (the visitor has already
+   qualified, and modal.js fires conversions on timers): the Contact and
+   Learn More triggers are plain links, and book.js wires the mobile menu.
+   noindex. Embeds the HubSpot scheduler (State 1) and swaps to an
+   IBO-styled confirmation (State 2) when the iframe reports a booking.
+   Behaviour lives in /book/book.js, which fills every data-host node from
+   the host the round robin booked.
+   ========================================================================== */
+
+.bk-col { max-width: var(--content-narrow); margin-inline: auto; }
+.bk-section { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
+.bk-section--tight { padding-top: 0; }
+.bk-title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: var(--text-2xl); line-height: 1.1; margin-top: var(--space-4); max-width: 22ch;
+}
+.bk-title:focus { outline: none; }
+.bk-lede { margin-top: var(--space-4); max-width: 60ch; }
+.bk-quiet { font-size: var(--text-sm); color: var(--color-text-faint); margin-top: var(--space-5); }
+.bk-quiet a, .bk-link { color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; }
+.bk-quiet a:hover, .bk-link:hover { color: var(--color-gold); }
+
+/* ---- State 1: the embed. Light border, no card chrome, so HubSpot's own
+   white panel sits flush. The container reserves HubSpot's default iframe
+   height so the layout does not jump while the iframe loads. ---- */
+.bk-scheduler {
+  margin-top: var(--space-8); min-height: 756px;
+  border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;
+  background: var(--color-white);
+}
+.bk-scheduler iframe { display: block; width: 100%; }
+.bk-alert {
+  margin-top: var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: #fee2e2; color: #991b1b; font-size: var(--text-sm);
+}
+.bk-alert a { color: inherit; text-decoration: underline; }
+.bk-alert[hidden], .bk-state[hidden] { display: none; }
+
+/* ---- State 2: confirmation (matches Greg's approved mockup) ---- */
+.bk-confirm { padding-bottom: var(--space-10); }
+.bk-confirm .bk-col { max-width: var(--content-default); }
+.bk-confirm .bk-title { font-size: clamp(2rem, 1.2rem + 2.9vw, 3.5rem); line-height: 1.2; max-width: 12.5em; text-wrap: wrap; }
+.bk-confirm .bk-lede { margin-top: var(--space-6); max-width: none; font-size: var(--text-lg); line-height: 1.7; }
+
+/* Navy date block: calendar tile + label, date, time line. */
+.bk-when {
+  display: flex; align-items: center; gap: var(--space-8);
+  margin-top: 3.1rem; background: var(--color-navy); color: var(--color-white);
+  border-radius: 2px; padding: 2.25rem 2.4rem;
+}
+.bk-when__tile {
+  flex: 0 0 auto; width: 108px; background: var(--color-white); border-radius: 2px; overflow: hidden; text-align: center;
+}
+.bk-when__tile[hidden] { display: none; }
+.bk-when__month {
+  display: block; background: var(--color-gold); color: var(--color-white);
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-xs); letter-spacing: 0.14em;
+  line-height: 1; padding: 0.7rem 0 0.62rem; text-transform: uppercase;
+}
+.bk-when__day {
+  display: block; font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: 2.4rem; line-height: 1; padding: 0.95rem 0 1.05rem;
+}
+.bk-when__body { min-width: 0; }
+.bk-when__label {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(0.75rem, 0.7rem + 0.3vw, 0.94rem); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--color-gold-light); line-height: 1.4;
+}
+.bk-when__date {
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.75vw, 2.6rem); line-height: 1.15;
+  color: var(--color-white); margin-top: var(--space-2); font-variant-numeric: lining-nums;
+}
+.bk-when__meta { color: rgba(255, 255, 255, 0.86); font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem); line-height: 1.45; margin-top: var(--space-2); }
+.bk-when__meta strong { color: var(--color-white); font-weight: 700; }
+.bk-when__meta strong[hidden], .bk-when__meta [hidden] { display: none; }
+.bk-when__sep { white-space: pre; margin: 0 0.3em; }
+
+/* Portrait column + steps card. */
+.bk-pair { display: grid; grid-template-columns: 288px minmax(0, 1fr); gap: 52px; margin-top: 4rem; align-items: start; }
+.bk-portrait > picture img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  border-radius: 2px; filter: grayscale(1);
+}
+.bk-caption { margin-top: var(--space-4); }
+.bk-caption__name, .bk-caption__title { display: block; font-size: 1.05rem; font-weight: 700; color: var(--color-navy); line-height: 1.5; }
+.bk-caption__mark { display: block; margin-top: 0.1rem; }
+.bk-caption__mark img { height: 24px; width: auto; max-width: none; display: block; }
+.bk-caption__lines { display: block; font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.5; margin-top: var(--space-2); }
+.bk-caption__lines[hidden] { display: none; }
+/* No portrait for this host (or the file is missing): caption above the card. */
+.bk-pair--solo { grid-template-columns: 1fr; gap: 0; }
+.bk-pair--solo .bk-caption { margin-top: 0; margin-bottom: var(--space-6); }
+.bk-portrait picture[hidden] { display: none; }
+
+.bk-card {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: 2px;
+  padding: 2.6rem 2.75rem 2.9rem;
+}
+.bk-card__rule { display: block; width: 44px; height: 2px; background: var(--color-gold); }
+.bk-card h2 { font-size: clamp(1.4rem, 1rem + 1.2vw, 1.95rem); line-height: 1.25; margin-top: 1.7rem; }
+
+.bk-progress { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.1rem; padding-bottom: 1.55rem; border-bottom: 1px solid var(--color-border); }
+.bk-progress__label {
+  flex: 0 0 auto; font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--color-navy);
+}
+.bk-progress__track { flex: 1 1 auto; height: 3px; background: #f1e3d6; border-radius: 2px; overflow: hidden; }
+.bk-progress__fill { display: block; height: 100%; width: 33.333%; background: var(--color-gold); transition: width 0.3s ease; }
+
+.bk-steps { list-style: none; margin: 0; padding: 0; }
+.bk-step { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 1.25rem; padding: 1.2rem 0 1.25rem; border-bottom: 1px solid var(--color-border); }
+.bk-step:last-child, .bk-step.is-last { border-bottom: 0; }
+.bk-step[hidden] { display: none; }
+.bk-step__marker {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--color-navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; color: var(--color-navy);
+}
+.bk-step__marker svg { display: none; width: 16px; height: 16px; }
+.bk-step.is-done .bk-step__marker { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-white); }
+.bk-step.is-done .bk-step__marker svg { display: block; }
+.bk-step.is-done .bk-step__num { display: none; }
+.bk-step__booked { display: flex; align-items: center; min-height: 40px; font-size: clamp(1rem, 0.9rem + 0.35vw, 1.28rem); line-height: 1.5; color: var(--color-text-muted); }
+.bk-nowrap { white-space: nowrap; }
+.bk-step__booked strong { color: var(--color-text); font-size: 1.06em; margin-right: 0.35em; }
+.bk-step__booked .bk-step__tick { color: var(--color-navy); margin-right: 0.4em; font-weight: 700; }
+.bk-step__title {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem); line-height: 1.5; color: var(--color-navy);
+  padding-top: 0.4rem;
+}
+.bk-step__meeting { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.4rem); line-height: 1.4; margin-top: 0.3rem; }
+.bk-step__body > p { font-size: var(--text-base); line-height: 1.6; margin-top: var(--space-2); }
+.bk-step .btn--primary { margin-top: 1.05rem; padding: 0.68rem 1.9rem; }
+.bk-accept.is-done .btn--primary { background: var(--color-navy-deep); }
+.bk-cal { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.9rem; }
+.bk-cal[hidden] { display: none; }
+.bk-cal .btn { padding: 0.52rem 1.3rem; font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.95rem); letter-spacing: 0.01em; }
+.bk-step__body > .bk-cal-caption { font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.97rem); color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.6; }
+.bk-cal-caption[hidden] { display: none; }
+
+.bk-optional { font-weight: 700; }
+.bk-note textarea { display: block; margin-top: 0.85rem; height: 112px; min-height: 96px; resize: vertical; border-radius: 6px; border-color: var(--color-border); }
+.bk-note textarea { font-size: var(--text-base); padding: 1rem 1.1rem; }
+.bk-note textarea::placeholder { font-style: italic; color: var(--color-text-faint); }
+.bk-note .ibo-field__input + .ibo-field__input { margin-top: var(--space-3); }
+.bk-note__send {
+  display: inline-flex; align-items: center; justify-content: center; margin-top: 1.1rem;
+  background: var(--color-white); color: var(--color-gold); border: 1px solid var(--color-gold); border-radius: 2px;
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.02em;
+  padding: 0.98rem 1.65rem; cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+}
+.bk-note__send:hover { background: var(--color-gold); color: var(--color-white); }
+.bk-note__send:disabled { opacity: 0.5; cursor: not-allowed; }
+.bk-note__error { color: #991b1b !important; font-size: var(--text-xs) !important; }
+.bk-note__error[hidden], .bk-note__sent[hidden], .bk-note__form[hidden] { display: none; }
+.bk-note__sent { color: var(--color-navy) !important; font-weight: 700; }
+
+.bk-resched { margin-top: 0.4rem; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem); line-height: 1.85; color: var(--color-text-muted); }
+.bk-resched u, .bk-resched a {
+  color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-gold-light);
+  text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.bk-resched a:hover { color: var(--color-gold); }
+
+/* What we'll cover: cream band, three white cards. */
+.bk-cover { background: var(--color-cream-soft); padding: 5.6rem 0 3rem; }
+.bk-cover .bk-col { max-width: var(--content-default); }
+.bk-cover h2 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.2; margin-top: 1.75rem; }
+.bk-cover__grid { list-style: none; padding: 0; margin: 2.6rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.bk-cover__grid li { background: var(--color-white); border: 1px solid rgba(14, 42, 72, 0.06); padding: 2rem 1.8rem 2rem 1.8rem; }
+.bk-cover__num { display: block; font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--color-gold); }
+.bk-cover__grid p { margin-top: 1.1rem; font-size: clamp(1rem, 0.95rem + 0.3vw, 1.25rem); line-height: 1.75; }
+.bk-cover__after { margin-top: 1.5rem; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 1rem + 0.7vw, 1.8rem); color: var(--color-navy); line-height: 1.4; }
+
+@media (max-width: 860px) {
+  .bk-pair { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-10); }
+  .bk-portrait { max-width: 288px; }
+  .bk-cover__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+@media (max-width: 560px) {
+  .bk-when { flex-direction: column; align-items: flex-start; gap: var(--space-5); padding: var(--space-6); }
+  .bk-when__tile { width: 84px; }
+  .bk-when__day { font-size: 2rem; padding: 0.75rem 0 0.85rem; }
+  .bk-card { padding: var(--space-6) var(--space-5) var(--space-8); }
+  .bk-step { grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-3); }
+  .bk-step__marker { width: 32px; height: 32px; font-size: 0.85rem; }
+  .bk-step__booked { min-height: 32px; flex-wrap: wrap; }
+  .bk-step__title { padding-top: 0.2rem; }
+  .bk-cover { padding: var(--space-16) 0 var(--space-12); }
+  .bk-cover__grid li { padding: var(--space-6); }
+}
+/* 16px gutters on phones so HubSpot's 312px minimum iframe width fits.
+   Scoped to main so the site footer keeps its usual gutter. */
+@media (max-width: 480px) {
+  .bk-page main .container { padding-inline: var(--space-4); }
+}
+</style>
+<!-- HubSpot tracking code (portal 245308986, NA2). Sets the hubspotutk cookie,
+     which the meetings embed passes to the iframe as parentHubspotUtk. -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
+</head>
+<body class="bk-page">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/#advisory">Advisory</a>
+        <a class="nav__link" href="/#mechanism">Approach</a>
+        <a class="nav__link" href="/#track-record">Track Record</a>
+        <a class="nav__link" href="/blog">Blog</a>
+        <a class="nav__link" href="/#contact">Contact</a>
+      </div>
+      <a class="btn btn--outline nav__cta" href="/?learn-more=1">Learn More</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= STATE 1: SCHEDULING ================= -->
+  <div class="bk-state" id="book-state-schedule">
+    <section class="bk-section">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">Schedule a confidential call</p>
+          <h1 class="bk-title">Pick a time for a confidential call.</h1>
+          <p class="bk-lede">30 minutes with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
+
+          <div id="book-scheduler" class="meetings-iframe-container bk-scheduler" data-title="Schedule a confidential call with IBO Advisors" data-src="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?embed=true"></div>
+          <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+          <noscript>
+            <p class="bk-quiet">The scheduler needs JavaScript. <a href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">Open the calendar to pick a time</a>.</p>
+          </noscript>
+
+          <p class="bk-alert" id="book-failed" role="alert" hidden>That booking didn&rsquo;t go through. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
+          <p class="bk-quiet">Prefer email? <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= STATE 2: CONFIRMATION =================
+       Layout follows Greg's approved mockup. Every data-host node is filled
+       by book.js from the host the round robin booked; the step count, the
+       progress label and the card heading follow the steps actually shown. -->
+  <div class="bk-state" id="book-state-confirmed" hidden>
+    <section class="bk-section bk-confirm">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">Your call is confirmed</p>
+          <h1 class="bk-title" id="book-confirmed-title" tabindex="-1">You&rsquo;re confirmed with <span data-host="name">Michael Chasen</span>.</h1>
+          <p class="bk-lede"><span data-host="first">Michael</span> has set aside 30 minutes for you. The invitation is in your inbox.<br />Everything you share is confidential.</p>
+
+          <div class="bk-when" id="book-when">
+            <div class="bk-when__tile" id="book-when-tile" aria-hidden="true" hidden>
+              <span class="bk-when__month" id="book-when-month"></span>
+              <span class="bk-when__day" id="book-when-day"></span>
+            </div>
+            <div class="bk-when__body">
+              <p class="bk-when__label">Your call &middot; shown in your time zone</p>
+              <p class="bk-when__date" id="book-when-date">Your time is in the invitation.</p>
+              <p class="bk-when__meta"><strong id="book-when-time" hidden></strong><span class="bk-when__sep" id="book-when-sep" hidden> &middot; </span><span id="book-when-minutes">30 minutes</span><span class="bk-when__sep"> &middot; </span>Zoom link in your invitation</p>
+            </div>
+          </div>
+
+          <div class="bk-pair">
+            <figure class="bk-portrait" id="book-host-figure">
+              <picture id="book-host-picture"><source id="book-host-webp" type="image/webp" srcset="/assets/founder-portrait.webp" /><img id="book-host-img" loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, General Partner, IBO Advisors" width="1080" height="1338" /></picture>
+              <figcaption class="bk-caption" id="book-host-caption">
+                <span class="bk-caption__name" data-host="name">Michael Chasen</span>
+                <span class="bk-caption__title" id="book-host-title">General Partner.</span>
+                <span class="bk-caption__mark"><picture><source type="image/webp" srcset="/assets/logo.webp" /><img src="/assets/logo.png" alt="IBO Advisors" width="2267" height="400" loading="lazy" decoding="async" /></picture></span>
+                <span class="bk-caption__lines" id="book-host-lines">25+ years building and selling companies. 100+ M&amp;A transactions.</span>
+              </figcaption>
+            </figure>
+
+            <div class="bk-card" id="book-steps-card">
+              <span class="bk-card__rule" aria-hidden="true"></span>
+              <h2 id="book-steps-title">Three small things before your call</h2>
+              <div class="bk-progress">
+                <span class="bk-progress__label" id="book-progress-label">1 of 3 done</span>
+                <span class="bk-progress__track" id="book-progress" role="progressbar" aria-labelledby="book-progress-label" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1"><span class="bk-progress__fill" id="book-progress-fill"></span></span>
+              </div>
+
+              <ol class="bk-steps">
+                <li class="bk-step is-done" id="book-step-booked">
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">1</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7" /></svg></span>
+                  <div class="bk-step__body">
+                    <p class="bk-step__booked"><span><strong>Booked</strong><span class="bk-step__tick" aria-hidden="true">&#10003;</span><span id="book-booked-when">Your time is in the invitation.</span></span></p>
+                  </div>
+                </li>
+
+                <li class="bk-step bk-accept" id="book-accept-card">
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">2</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7" /></svg></span>
+                  <div class="bk-step__body">
+                    <h3 class="bk-step__title">Accept <span data-host="first">Michael</span>&rsquo;s invitation <span class="bk-step__meeting">titled &ldquo;<span data-meeting-title>Independent Buyout (IBO) Discussion</span>&rdquo;</span></h3>
+                    <p>Open the invitation from <span data-host="email">michael@iboadvisors.com</span> and accept it, so the call lands on your calendar. Gmail sometimes holds invitations from new senders until you respond.</p>
+                    <button type="button" class="btn btn--primary" id="book-accept" aria-pressed="false">Accept the invitation</button>
+                    <div class="bk-cal" id="book-cal">
+                      <a class="btn btn--outline" id="book-cal-google" href="#" target="_blank" rel="noopener" data-provider="google">Google Calendar</a>
+                      <a class="btn btn--outline" id="book-cal-outlook" href="#" target="_blank" rel="noopener" data-provider="outlook">Outlook</a>
+                      <a class="btn btn--outline" id="book-cal-ics" href="#" download="call-with-michael-chasen.ics" data-provider="apple">Apple (.ics)</a>
+                    </div>
+                    <p class="bk-cal-caption">Use these only if the invitation hasn&rsquo;t appeared.</p>
+                  </div>
+                </li>
+
+                <!-- Optional pre-call note. Rendered only once PRECALL_NOTE_FORM_GUID is set in book.js. -->
+                <li class="bk-step bk-note" id="book-note" hidden>
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">3</span></span>
+                  <div class="bk-step__body">
+                    <h3 class="bk-step__title">Anything you&rsquo;d like <span data-host="first">Michael</span> to know before you talk? <span class="bk-optional">(optional)</span></h3>
+                    <form class="bk-note__form" id="book-note-form" novalidate>
+                      <label class="sr-only" for="book-note-text">Your note for <span data-host="first">Michael</span></label>
+                      <textarea class="ibo-field__input" id="book-note-text" rows="4" maxlength="1000" placeholder="e.g. I'm weighing a PE offer and want a second opinion."></textarea>
+                      <label class="sr-only" for="book-note-email">Your email</label>
+                      <input class="ibo-field__input" type="email" id="book-note-email" autocomplete="email" placeholder="Your email" hidden />
+                      <button type="submit" class="bk-note__send" id="book-note-submit">Send to Michael</button>
+                      <p class="bk-note__error" id="book-note-error" role="alert" hidden></p>
+                    </form>
+                    <p class="bk-note__sent" id="book-note-sent" role="status" hidden>Sent. <span data-host="first">Michael</span> will have this before your call.</p>
+                  </div>
+                </li>
+              </ol>
+
+              <p class="bk-resched">Need a different time? <u>Use the reschedule link in your invitation</u>, or write to <span data-host="first">Michael</span> directly at <a href="mailto:michael@iboadvisors.com" data-host-mailto>michael@iboadvisors.com</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bk-cover">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">30 minutes</p>
+          <h2>What we&rsquo;ll cover</h2>
+          <ol class="bk-cover__grid">
+            <li><span class="bk-cover__num" aria-hidden="true">01</span><p>Where your company is today - and what you want to accomplish, whether that&rsquo;s partial liquidity, a full sale, or simply understanding your options.</p></li>
+            <li><span class="bk-cover__num" aria-hidden="true">02</span><p>Whether an Independent Buyout fits your size, sector and timing.</p></li>
+            <li><span class="bk-cover__num" aria-hidden="true">03</span><p>What the numbers could look like for you, and what happens next if you want to keep talking.</p></li>
+          </ol>
+          <p class="bk-cover__after">No preparation needed. No documents. No obligation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="/tracking.js"></script>
+<script src="/book/book.js" defer></script>
+</body>
+</html>

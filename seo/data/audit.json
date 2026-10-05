@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-04T16:52:15.194Z",
+  "generatedAt": "2026-10-05T16:49:40.366Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -420,6 +420,7 @@
   ],
   "noindexed": [
     "/approach",
+    "/book",
     "/ibo-exit",
     "/ibo-exit2",
     "/privacy",
