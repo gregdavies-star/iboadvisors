@@ -13,6 +13,7 @@
  *
  * Under GPC:
  *   IDPixel      visitor de-anonymization      not loaded at all
+ *   Happierleads visitor de-anonymization      not loaded at all
  *   Vaudit       marketing attribution pixel   not loaded at all
  *   Google Ads   ad storage / user data /
  *                personalization              denied (modeled conversions remain)
@@ -59,7 +60,7 @@
   // identification tags are never inserted into the document.
   if (gpc) return;
 
-  function load(src, attrs) {
+  function load(src, attrs, onload) {
     var s = document.createElement('script');
     s.src = src;
     s.async = true;
@@ -68,6 +69,7 @@
         if (Object.prototype.hasOwnProperty.call(attrs, k)) s.setAttribute(k, attrs[k]);
       }
     }
+    if (onload) s.onload = onload;
     document.head.appendChild(s);
   }
 
@@ -85,4 +87,30 @@
   // This is the tag GPC most directly speaks to; it never loads for an
   // opted-out visitor.
   load('https://cdn.idpixel.app/v1/idp-analytics-6a7b58e4b22d8971ebdc12d0.min.js');
+
+  // Happierleads - identifies the company (and where it can, the person)
+  // behind an anonymous visit. Same category as IDPixel, so it is gated the
+  // same way and never loads for an opted-out visitor.
+  //
+  // This is the vendor's own snippet (Settings -> Tracking Pixel -> Other in
+  // the Happierleads dashboard), unrolled: it inserts an async script and
+  // constructs Happierleads.default once it has loaded. The clientId below is
+  // the workspace's; copy it from that same dashboard page. While it is
+  // empty the tag is skipped entirely rather than requesting a script for a
+  // workspace that does not exist.
+  var HAPPIERLEADS_CLIENT_ID = '';
+  if (HAPPIERLEADS_CLIENT_ID) {
+    load(
+      'https://rest.happierleads.com/v3/script?clientId=' +
+        encodeURIComponent(HAPPIERLEADS_CLIENT_ID) + '&version=4.0.0',
+      null,
+      function () {
+        try {
+          if (window.Happierleads && window.Happierleads.default) {
+            new window.Happierleads.default();
+          }
+        } catch (e) {}
+      }
+    );
+  }
 })();
