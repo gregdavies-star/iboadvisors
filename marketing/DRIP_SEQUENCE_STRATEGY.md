@@ -1,6 +1,6 @@
 # IBO Advisors - Paid-social drip sequence: strategy and recommendations
 
-Goal: turn HubSpot contacts created by LinkedIn and Meta ad campaigns into **meetings booked** on Michael's scheduler (`meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo`).
+Goal: turn HubSpot contacts created by LinkedIn and Meta ad campaigns into **meetings booked** on Michael's scheduler (`www.iboadvisors.com/book`).
 
 Prepared 2026-09-25 from (a) the live HubSpot portal (410 paid-social contacts, Feb-Sep 2026), (b) the site's lead flows in this repo (`modal.js`, `ibo-exit/exit.js`, `tracking.js`), and (c) current published research on lead response, nurture cadence and email performance (sources at the end).
 
@@ -124,11 +124,11 @@ Email is the spine; the meeting comes from the combination.
 | Minute/day | Action | Who |
 |---|---|---|
 | 0-1 min | Email 1 (plain text, calendar link) | Workflow |
-| 0-5 min | SMS (where phone present and the form disclosed texting): "Edmund from IBO Advisors here - I've emailed you a link to grab 20 minutes with Michael. Reply STOP to opt out." | Workflow (HubSpot SMS or Twilio) |
+| 0-5 min | SMS (where phone present and the form disclosed texting): "Edmund from IBO Advisors here - I've emailed you a link to grab 30 minutes with Michael. Reply STOP to opt out." | Workflow (HubSpot SMS or Twilio) |
 | 0-60 min (8am-7pm recipient time; otherwise next morning 8am) | Call task, high priority, "LinkedIn lead - {{band}} - call, leave voicemail, mention the email" | Edmund |
 | Day 1-18 | Emails 2-7 | Workflow |
 | Day 3 and Day 10 | Second and third call attempts if no reply | Edmund |
-| Day 0-30 | LinkedIn Matched Audience / Meta custom audience of enrolled contacts with a retargeting ad ("Still weighing a PE offer? 20 minutes.") | Ads |
+| Day 0-30 | LinkedIn Matched Audience / Meta custom audience of enrolled contacts with a retargeting ad ("Still weighing a PE offer? 30 minutes.") | Ads |
 
 ---
 
@@ -138,7 +138,7 @@ Email is the spine; the meeting comes from the combination.
 
 | # | Send | Subject (working) | Job of the email | CTA |
 |---|---|---|---|---|
-| 1 | Instant, any hour | *Your IBO question* | Acknowledge, prove a human saw it, hand over the calendar | Book 20 min |
+| 1 | Instant, any hour | *Your IBO question* | Acknowledge, prove a human saw it, hand over the calendar | Book 30 min |
 | 2 | Day 1, 7:30am local | *The $26M difference* | The one number: $50M company, $37.8M net via PE vs $64.2M via IBO, tax-free | Book, or reply "send me the math" |
 | 3 | Day 3, 7:30am | *How an IBO actually works* | The mechanism in five sentences (leveraged buyout of your own shares, ESOP trust as buyer, tax deferral, warrants for upside, you stay in control) | Book |
 | 4 | Day 6, 7:30am | *A note from Michael Chasen* | Founder credibility (Blackboard, $1.8B, 60+ transactions) and the three questions he'd ask about their company | Reply with answers, or book |
@@ -177,7 +177,7 @@ One instant email (same as B1 but shorter, pointing to the calculator and the bl
 
 | # | Send | Subject | Job |
 |---|---|---|---|
-| 1 | Instant | *Thanks - and a quick question* | Ask which clients they have in mind; calendar link for a 20-min intro |
+| 1 | Instant | *Thanks - and a quick question* | Ask which clients they have in mind; calendar link for a 30-min intro |
 | 2 | Day 3 | *How to spot an IBO candidate in your book* | Checklist: $3M+ EBITDA, owner 55+, PE inbound, cost-plus government work, key-person management team |
 | 3 | Day 10 | *What we do for referring advisors* | Co-marketing (co-written guide, webinar for their clients), confidentiality, how fees do and don't work |
 | 4 | Day 20 | *Close the loop?* | Breakup |
@@ -213,7 +213,7 @@ Send Email 7 (*Should I close your file?*), lightly reworded as "we never proper
 
 **Email 1 - instant**
 Subject: Your IBO question
-Preview: A 20-minute, confidential conversation with Michael.
+Preview: A 30-minute, confidential conversation with Michael.
 
 > Hi {{firstname}},
 >
@@ -239,7 +239,7 @@ Preview: Same company, same value, two outcomes.
 >
 > That's $26.4M on the same enterprise value. The full comparison is here: [blog: Independent Buyout vs. Private Equity]
 >
-> Worth 20 minutes to run your numbers? [scheduler]
+> Worth 30 minutes to run your numbers? [scheduler]
 >
 > Edmund
 
@@ -253,7 +253,7 @@ Preview: Five sentences, no jargon.
 >
 > It is the transaction PE firms run on companies like yours, done without the PE firm. Longer version: [blog: What Is an IBO?]
 >
-> Questions are normal at this point. That's what the 20 minutes is for: [scheduler]
+> Questions are normal at this point. That's what the 30 minutes is for: [scheduler]
 >
 > Edmund
 
@@ -265,7 +265,7 @@ Preview: Three questions I'd ask about your company.
 >
 > Edmund mentioned you'd asked about the IBO. I co-founded Blackboard, took it public and sold it for $1.8B, and I've been on one side or the other of more than sixty M&A transactions since. I started IBO Advisors because most owners are only ever shown two doors: sell to PE or sell to a strategic.
 >
-> If we spoke, I'd ask three things: roughly what EBITDA you're running, how much of the company you want to keep, and what you'd do with the proceeds. From those I can usually tell you in 20 minutes whether an IBO is worth exploring.
+> If we spoke, I'd ask three things: roughly what EBITDA you're running, how much of the company you want to keep, and what you'd do with the proceeds. From those I can usually tell you in 30 minutes whether an IBO is worth exploring.
 >
 > Reply with any of the three, or grab a time here: [scheduler]
 >
@@ -281,7 +281,7 @@ Preview: Control, rollover, and the "second bite".
 >
 > We wrote them up plainly: [blog: Private Equity Minority Stake: The Veto List] and [blog: What Happens Years 1-7].
 >
-> None of those exist in an IBO, which is the point. If a PE letter is sitting on your desk, it is worth 20 minutes before you answer it: [scheduler]
+> None of those exist in an IBO, which is the point. If a PE letter is sitting on your desk, it is worth 30 minutes before you answer it: [scheduler]
 >
 > Edmund
 
@@ -307,13 +307,13 @@ Preview: No hard feelings either way.
 >
 > If it's the timing, I'll leave you alone apart from a short note once a month with one thing worth knowing about owner exits. If you'd rather not get those, reply "no" and I'll stop entirely.
 >
-> If I misread it and you do want the 20 minutes, the link still works: [scheduler]
+> If I misread it and you do want the 30 minutes, the link still works: [scheduler]
 >
 > Edmund
 
 ### 6.3 Long tail (monthly, all tracks) - one insight per email
 
-Rotate through existing posts, one per month, each rewritten as a 100-word plain-text note with a single link and a one-line "if this is live for you, 20 minutes" close:
+Rotate through existing posts, one per month, each rewritten as a 100-word plain-text note with a single link and a one-line "if this is live for you, 30 minutes" close:
 
 1. Selling to Private Equity: Pros and Cons
 2. How Private Equity Values a Company (and the multiples by industry from the calculator)
@@ -334,7 +334,7 @@ Add a quarterly "Reading the filings" note when that column exists (see `seo/STR
 > Hi {{firstname}}, thanks for asking about the IBO. I'd rather be straight with you: the structure works when a company is at roughly $3M of EBITDA or more, because the company's own cash flow has to support the buyout. You told us you're in the $1M-$3M range, so it may not be the right tool today. Two things that might still help: our calculator shows how many years of growth get a company across that line ([calculator]), and this post covers the options that do work at your size ([blog: Business Exit Strategy: Every Option Compared]). If your numbers are closer to $3M than the form suggested, reply and tell me, and I'll set up a call. - Edmund
 
 **Track D, Email 1 - Thanks, and a quick question**
-> Hi {{firstname}}, thanks for reaching out about the IBO. Most of our best conversations start with an advisor who has an owner client being courted by PE. Do you have a specific client in mind, or are you learning the structure for your practice? Either way, 20 minutes with Michael Chasen is the quickest way in: [scheduler]. Everything is confidential, and we're happy to describe how we work with referring advisors on the call. - Edmund
+> Hi {{firstname}}, thanks for reaching out about the IBO. Most of our best conversations start with an advisor who has an owner client being courted by PE. Do you have a specific client in mind, or are you learning the structure for your practice? Either way, 30 minutes with Michael Chasen is the quickest way in: [scheduler]. Everything is confidential, and we're happy to describe how we work with referring advisors on the call. - Edmund
 
 **Track F, no-show +30 min - Missed you**
 > {{firstname}}, looks like today didn't work. No problem; here's the link to grab another time: [scheduler]. If something's changed, just reply and tell me. - Edmund
@@ -366,13 +366,13 @@ Prefer HubSpot **Sequences** (Sales Hub) over marketing workflows only if the te
 
 ### 7.3 Attribution so "meetings from the drip" is measurable
 
-- Every scheduler link in email: `https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?utm_source=hubspot&utm_medium=email&utm_campaign=nurture-owner-a&utm_content=e2&email={{contact.email}}&firstName={{contact.firstname}}&lastName={{contact.lastname}}`.
+- Every scheduler link in email: `https://www.iboadvisors.com/book?src=email&utm_source=hubspot&utm_medium=email&utm_campaign=nurture-owner-a&utm_content=e2&email={{contact.email}}&firstName={{contact.firstname}}&lastName={{contact.lastname}}`.
 - HubSpot writes the UTMs into `engagements_last_meeting_booked_source/medium/campaign`, and the existing `tracking.js` already stamps `IBO Meeting *` properties when the booking happens through the site. That gives a clean report: meetings booked where campaign starts with `nurture-`, by email (`utm_content`).
 - Build a dashboard: enrolled by segment and week; booked within 7/30 days; time to first engagement (`hs_time_to_first_engagement`, stored in milliseconds); reply rate; unsubscribe and spam rates per email.
 
 ### 7.4 Upstream fixes on the ad platforms (larger than any email)
 
-1. **LinkedIn Lead Gen Form thank-you CTA.** Set the CTA to "Book a 20-minute call" with the scheduler URL (with `utm_source=linkedin&utm_medium=leadgen_thankyou`). This alone gives LinkedIn leads what Meta leads get today.
+1. **LinkedIn Lead Gen Form thank-you CTA.** Set the CTA to "Book a 30-minute call" with the scheduler URL (with `utm_source=linkedin&utm_medium=leadgen_thankyou`). This alone gives LinkedIn leads what Meta leads get today.
 2. **A/B a website-conversion LinkedIn campaign** landing on `/?learn-more=1` (auto-opens the qualify modal and redirects qualified owners to the scheduler) against the Lead Gen Form campaign, at equal spend for 4 weeks. Judge on cost per meeting booked, not cost per lead.
 3. **Meta Instant Form in-app booking.** When the HubSpot scheduler is supported in Meta's "Book time" CTA, turn it on; until then, keep Meta on the site flow, which is working.
 4. **Lead sync latency.** LinkedIn's sync to HubSpot can take minutes to two hours. If the median sync delay exceeds ~10 minutes in the ads dashboard, route LinkedIn leads through a webhook (Zapier/LeadsBridge) into the Forms API so Email 1 truly fires in seconds.

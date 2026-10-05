@@ -227,7 +227,7 @@ added to the trigger, same unenrollment).
 5. If/then branch: "Date of last meeting booked in meetings tool" is after today.
    - Yes: end (they rebooked; W7 takes over).
    - No: continue.
-6. Send email: IBO Nurture F4 - Still worth the 20 minutes?
+6. Send email: IBO Nurture F4 - Still worth the 30 minutes?
 7. Delay 5 days
 8. Delay until a day or time
 9. Same if/then as step 5. No: continue.
