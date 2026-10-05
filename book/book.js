@@ -45,7 +45,7 @@
   // pre_call_note_host), which a workflow forwards to the host as an internal
   // email and a task.
   var HUBSPOT_PORTAL_ID = '245308986';
-  var PRECALL_NOTE_FORM_GUID = '';
+  var PRECALL_NOTE_FORM_GUID = 'a86c0176-58e8-437b-9474-f38bddd0a0a0';
 
   // The round-robin hosts, keyed by lower-case email. userId is the HubSpot
   // owner/user id. Every host-specific string on the confirmation (name,
