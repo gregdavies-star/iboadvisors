@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-10-06T17:04:08.740Z",
+  "inspectedAt": "2026-10-07T17:40:13.373Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-02T23:05:08Z",
+      "lastCrawlTime": "2026-10-06T19:13:25Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -31,7 +31,7 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -82,12 +82,11 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-25T01:42:43Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
+      "verdict": "NEUTRAL",
+      "coverageState": "Crawled - currently not indexed",
+      "lastCrawlTime": "2026-10-01T11:04:37Z",
       "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -156,7 +155,7 @@
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-24T16:57:43Z",
+      "lastCrawlTime": "2026-10-06T19:50:55Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -165,7 +164,7 @@
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-24T15:42:42Z",
+      "lastCrawlTime": "2026-10-07T02:05:56Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

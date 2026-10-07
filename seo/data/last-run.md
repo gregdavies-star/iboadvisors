@@ -1,46 +1,41 @@
-# Daily SEO run — 2026-10-06
+# Daily SEO run — 2026-10-07
 
-Audit clean (0 errors, 0 warnings). Two title/meta rewrites, one expansion covering two striking-distance queries, one cannibalization link, one new post. In merge resolution the new post was dropped as a sixth write of the same topic, one of the two title/meta rewrites was not applied, and the liquidity section was corrected (see below). `/industries/restaurants` is still the only non-PASS URL and was left alone on purpose.
+First run with a non-null prior window. (The report said "first run since 09-26"; runs have fired daily, bar 10-05, whose job was cancelled before pushing a branch.) Audit was already clean, so the budget went to the two indexing problems, the biggest unanswered query on the site, and one new post. 4 content pages edited, 1 new post, 0 title/meta rewrites.
 
-## GSC totals — 28 days (2026-09-06 → 10-03)
+## GSC totals — 28 days (2026-09-07 → 10-04)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 73 | 4,040 | 1.81% | 14.0 |
-| Prior 28d | 9 | 253 | 3.56% | 9.8 |
+| Current | 72 | 4,113 | 1.75% | 14.0 |
+| Prior 28d | 10 | 281 | 3.56% | 9.6 |
 
-The prior window predates most index coverage (6 pages / 26 queries vs 33 / 277), so the CTR and position "declines" are a denominator effect, and `decliners` is empty.
+The prior window is the Search Console verification ramp, not a real baseline — 281 impressions against 4,113. **Rule 6 yields no decliners** and the CTR/position "declines" are a wider crawl, not a loss. A usable comparison arrives around 2026-11-01.
 
-## Changes — 4 pages, 1 new post
+## Changes
 
 | Change | Data point |
 |---|---|
-| `selling-to-private-equity-pros-and-cons` — title + meta | lowCtr: 182 impr, 1 click (0.55%) at 8.1 vs 3.0% expected; never rewritten |
-| `minority-recapitalization-explained` — title + meta | lowCtr: 128 impr, **0 clicks** at 8.2 vs 3.0%. Title last touched 09-08 — exactly 28 days, cool-down elapsed; description never rewritten |
-| `family-business-succession-planning` — +591 words in two H2s, `Updated` bumped | strikingDistance: "liquidity planning for family business succession" (129 @ 17.6) and "which advisors are best suited to plan the sale of a family-owned company?" (79 @ 6.3) — neither had a heading |
-| `management-buyout-vs-private-equity` — 2 links | "private equity buyout" splits with `/what-happens-after-…`, which is titled for it and holds 85 of 106 impressions; linked on that anchor. Second link seeds the new post |
-| ~~`keywords.json`~~ — **not applied** | Both keywords already point at `/blog/majority-recapitalization-vs-sale` on this branch. |
-| ~~New `/blog/majority-recapitalization`~~ — **dropped in merge resolution** | Sixth write of this topic and the third at this slug. `/blog/majority-recapitalization-vs-sale` from 09-30 is already on this branch and covers the same ground. Both inbound links were unlinked rather than retargeted, since both pages already link the survivor; the prose was kept. |
+| **`management-buyout-vs-private-equity`** — +380 words on how each structure is taxed: installment method under §453, the §453A interest charge on the page's existing $10.5M seller note (52.4% × $2.1M × the 7% Q4-2026 rate ≈ $77K in year one), ordinary-income coupon | **"Crawled – currently not indexed"** (crawled 10-01) despite 142 impr @ 11.2. Rule 2 wants weight, not a resubmit |
+| Same page → link to `what-happens-after-private-equity-buys-your-company`, anchor "private equity buyout" | Rule 5: that family splits 63+43 impr; the winner's title already leads on the phrase |
+| **`family-business-succession-planning`** — +310 words, "Liquidity planning for family business succession" **(kept; the 10-06 run's near-identical section was removed in merge resolution)** | 140 impr @ 17.7, zero clicks — the largest unanswered query on the site. The page never used the phrase. Both runs had answered it, under headings differing only by ", in sequence", and on different household-spending premises ($600k here, $300k there), so keeping both would have contradicted the page. |
+| **New: `/blog/types-of-buyouts`** — LBO, MBO, MBI, secondary, ESOP, leveraged recap, IBO; 2,291 words, 13 internal links, 8 sources all opened | "buyout companies" 14 @ 23.1, "types of buyouts" 9 @ 48.4, "secondary buyout" 3 @ 59.3 and six more **currently land on `/blog`** — no page targets them |
+| `independent-buyout-explained` and `how-private-equity-actually-finances-a-buyout` → the new post | The two strongest indexed blog pages (244 impr @ 5.5; 19 in-body inbound) |
+
+`keywords.json`: the three new cluster-3 keywords are kept and mapped to the new post, and "types of buyouts" was moved out of cluster 2 so it is not registered twice. "private equity buyout" stays on `/blog/private-equity-buyout-explained`, the pillar built for it on 10-04, rather than the page this run chose — it picked `what-happens-after` only because main does not carry the pillar. 46 covered keys, none in more than one cluster.
 
 ## Skipped
 
-- **Rule 2** — restaurants is now "URL is unknown to Google". Every on-page cause rule 2 lists is absent: canonical fine, indexable, 6 inbound links (PASS siblings have 4), expanded 09-26 and inside the cool-down. Discovery, not on-page.
-- **Rule 3** — `/blog` (295 @ 14.9) and `alternatives-to-…` (159 @ 9.0) qualify; the cap went to bigger deficits. Five other rows are in cool-down.
-- **Rule 4** — "ibo finance" and "what is an ibo" land on the homepage, whose body is off limits.
+- **Rule 3 — no rewrites.** The biggest row, `family-business-succession-planning` (461 impr, 2 clicks @ 13.6), was rewritten 2026-09-10 and is **one day inside its 28-day cool-down; it is eligible 10-08** and should be first in tomorrow's queue. Of the other ten rows, four are in cool-down, and the rest are pages whose impressions are dominated by the brand query "ibo advisors", where the homepage legitimately takes the click (1.1, 56% CTR).
+- **Rule 4 — second slot unused.** Three of the remaining rows are the homepage (body copy barred); "what is an ibo" @ 7.0 is already answered in the explainer's title and first line.
+- **`/industries/restaurants`** is still "Discovered – currently not indexed". It got +420 words and two inbound links 11 days ago; giving that time rather than stacking more.
 
 ## Needs a human
 
-1. **`what is an ibo`** — homepage (23 @ 10.3) vs explainer (26 @ 7.0). The homepage should give way; the fix is homepage body copy, so it is an owner call, not a 301.
-2. **Apex still indexed** on `/business-valuation-calculator` (16 impr @ 2.1), four weeks after the `vercel.json` 301.
-3. **`/industries/restaurants`** — needs a manual "Request indexing"; the API cannot do it.
-4. **Stranded:** "management buyout financing" (13 @ 29.5), "exit planning for business owners" (24 @ 85.3).
+1. **The new post ran over the 1,200–2,000 word guide** in `DAILY_PROMPT.md`, as the run flagged itself. Left at full length: every claim in it is verified against its cited source and the arithmetic re-derived, so trimming would mean cutting checked content to hit a number. Raise the guide or trim deliberately — an owner call either way.
+2. **"IBO" means *institutional* buyout in standard PE usage,** and ~110 impressions/month arrive on "ibo meaning in business", "what is an ibo in business", "whats an ibo". Addressing the ambiguity head-on would serve those searchers but cuts against the category we are building. Positioning call, not a job call.
+3. **Calculator: apex still outranks `www`** — 64 impr @ 70.3 on `iboadvisors.com/business-valuation-calculator` against the www page. The 301 is correct; this is consolidation lag.
+4. **Stranded past page 2:** `exit planning for business owners` (24 @ 85.3) and `management buyout financing` (13 @ 29.5 on its exact-match term) — both have pages, neither moves.
 
 ## Flagged
 
-Nothing. Banned-phrasing scan: 0 matches; 30 JSON-LD blocks parse; the approved "$1.8 billion" line is intact.
-
-**Housekeeping:** `seo/tmp-retitle.mjs` and `seo/tmp-changelog.mjs` were deleted in merge resolution, as this run asked.
-
-**Corrected in review:** the liquidity section said household spending of $300,000 a year *plus a $2 million reserve "on top"*, then sized the requirement at $300,000 / 4% = $7.5 million — which excludes the reserve, and every later figure followed from it. Including the reserve would have made the gap about $8.7 million pre-tax against $7 million of borrowing capacity, inverting the section's conclusion. The unused clause was dropped, keeping all of the arithmetic correct: $4.5M / 0.75 = $6.0M, and 3.0x $4M = $12M less $5M drawn = $7M.
-
-**`selling-to-private-equity-pros-and-cons`:** its title and meta were kept as this branch already had them. This run judged the page "never rewritten" because main does not carry the 10-02 rewrite; the descriptions are close, and this branch's names the worked $35M deal that nets $19M after tax.
+Nothing. Banned-phrasing scan: 0 matches across 31 HTML files; 30 JSON-LD blocks parse; all 24 `jobTitle` values read "Managing Partner". The approved "$1.8 billion" line is intact.

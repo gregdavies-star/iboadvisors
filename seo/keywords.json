@@ -41,7 +41,6 @@
         "private equity buyout",
         "buyout private equity",
         "pe buyout",
-        "types of buyouts",
         "how to sell a business but keep control",
         "partial sale of business",
         "sell a portion of my business",
@@ -60,8 +59,7 @@
         "how to take money off the table without selling": "/blog/sell-a-business-but-keep-control",
         "private equity buyout": "/blog/private-equity-buyout-explained",
         "buyout private equity": "/blog/private-equity-buyout-explained",
-        "pe buyout": "/blog/private-equity-buyout-explained",
-        "types of buyouts": "/blog/private-equity-buyout-explained"
+        "pe buyout": "/blog/private-equity-buyout-explained"
       }
     },
     {
@@ -81,7 +79,9 @@
         "seller financing in a business sale",
         "earnout in business sale",
         "dividend recapitalization explained",
-        "secondary buyout"
+        "secondary buyout",
+        "types of buyouts",
+        "management buy-in"
       ],
       "covered": {
         "minority recapitalization": "/blog/minority-recapitalization-explained",
@@ -92,7 +92,10 @@
         "rollover equity": "/blog/rollover-equity-second-bite-explained",
         "second bite of the apple private equity": "/blog/rollover-equity-second-bite-explained",
         "management buyout financing": "/blog/management-buyout-financing",
-        "how is a leveraged buyout financed": "/blog/how-private-equity-actually-finances-a-buyout"
+        "how is a leveraged buyout financed": "/blog/how-private-equity-actually-finances-a-buyout",
+        "types of buyouts": "/blog/types-of-buyouts",
+        "secondary buyout": "/blog/types-of-buyouts",
+        "management buy-in": "/blog/types-of-buyouts"
       }
     },
     {

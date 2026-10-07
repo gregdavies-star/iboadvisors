@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T20:05:25.585Z",
+  "generatedAt": "2026-10-07T20:10:24.857Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 31,
+      "inboundInternalLinks": 32,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 31,
-      "outboundInternalLinks": 26,
+      "inboundInternalLinks": 32,
+      "outboundInternalLinks": 27,
       "issues": []
     },
     {
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1847,
       "date": "2025-12-20",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -62,7 +62,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1811,
       "date": "2025-10-04",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -99,10 +99,10 @@
       "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
       "descriptionLength": 135,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 3476,
-      "date": "2026-10-06",
+      "words": 3638,
+      "date": "2026-10-07",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -127,7 +127,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -138,10 +138,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 2042,
+      "words": 2072,
       "date": "2026-09-08",
-      "inboundInternalLinks": 20,
-      "outboundInternalLinks": 13,
+      "inboundInternalLinks": 21,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -190,10 +190,10 @@
       "description": "IBO stands for Independent Buyout: a leveraged sale to a trust owned by your employees, at private-equity pricing, with no fund on your cap table.",
       "descriptionLength": 146,
       "h1": "What Is an Independent Buyout (IBO)?",
-      "words": 1978,
+      "words": 2021,
       "date": "2026-09-05",
-      "inboundInternalLinks": 20,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 21,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -218,7 +218,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1471,
       "date": "2026-04-24",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -229,9 +229,9 @@
       "description": "Management buyout vs private equity, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
       "descriptionLength": 136,
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
-      "words": 2187,
-      "date": "2026-09-19",
-      "inboundInternalLinks": 10,
+      "words": 2658,
+      "date": "2026-10-07",
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -244,7 +244,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 2061,
       "date": "2026-09-08",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -257,7 +257,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1911,
       "date": "2026-09-08",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -296,7 +296,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -309,7 +309,7 @@
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -340,6 +340,19 @@
       "issues": []
     },
     {
+      "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "title": "Types of Buyouts: The 7 Structures Compared | IBO Advisors",
+      "titleLength": 58,
+      "description": "The seven types of buyouts compared - LBO, MBO, MBI, secondary, ESOP, recap and the Independent Buyout - on price, leverage, and who ends up in control.",
+      "descriptionLength": 152,
+      "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
+      "words": 2291,
+      "date": "2026-10-07",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 14,
+      "issues": []
+    },
+    {
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "title": "Private Equity Buyout: What Happens Years 1-7 | IBO Advisors",
       "titleLength": 60,
@@ -348,7 +361,7 @@
       "h1": "What Happens After Private Equity Buys Your Company",
       "words": 2364,
       "date": "2026-09-12",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 20,
       "issues": []
     },
@@ -361,7 +374,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 30,
+      "inboundInternalLinks": 31,
       "outboundInternalLinks": 9,
       "issues": []
     },
