@@ -72,10 +72,16 @@
         "how is a leveraged buyout financed",
         "seller financing in a business sale",
         "earnout in business sale",
-        "dividend recapitalization explained"
+        "dividend recapitalization explained",
+        "types of buyouts",
+        "secondary buyout",
+        "management buy-in"
       ],
       "covered": {
         "minority recapitalization": "/blog/minority-recapitalization-explained",
+        "types of buyouts": "/blog/types-of-buyouts",
+        "secondary buyout": "/blog/types-of-buyouts",
+        "management buy-in": "/blog/types-of-buyouts",
         "rollover equity": "/blog/rollover-equity-second-bite-explained",
         "second bite of the apple private equity": "/blog/rollover-equity-second-bite-explained",
         "management buyout financing": "/blog/management-buyout-financing",
@@ -115,6 +121,7 @@
       "keywords": [
         "private equity minority stake control",
         "veto rights private equity",
+        "private equity buyout",
         "what private equity does after acquisition",
         "private equity management fees portfolio company",
         "private equity holding period",
@@ -124,6 +131,7 @@
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
         "veto rights private equity": "/blog/minority-pe-stake-board-control-veto-rights",
+        "private equity buyout": "/blog/what-happens-after-private-equity-buys-your-company",
         "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company"
       }
     },
