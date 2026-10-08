@@ -135,7 +135,10 @@
         "private equity management fees portfolio company",
         "private equity holding period",
         "private equity and founder CEO replacement",
-        "private equity debt on acquired company"
+        "private equity debt on acquired company",
+        "private equity buyout",
+        "buyout private equity",
+        "pe buyout"
       ],
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
