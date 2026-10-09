@@ -1,41 +1,43 @@
-# Daily SEO run — 2026-09-26
+# Daily SEO run — 2026-10-09
 
-Rule 1 clean (0 audit errors). Rule 2 had the only real problem: `/industries/restaurants` is the sole non-PASS sitemap URL, so it got a 420-word section plus two inbound links. Rules 3–6 are blocked by cool-downs, the homepage-body ban and missing prior-window data; the rest of the budget went to rule 7.
+Thirteen days since the last run, so most cool-downs had expired. Both rule-3 and both rule-4 slots were used; the rest of the budget went to the new post's inbound links. Audit clean: 30 pages, 0 errors.
 
-## GSC totals — 28 days (2026-08-27 → 09-23)
+## GSC totals — 28 days (2026-09-09 → 10-06)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 53 | 2,422 | 2.19% | 15.6 |
-| Prior 28d | — | — | — | — |
+| Current | 80 | 4,337 | 1.84% | 13.6 |
+| Prior 28d | 12 | 350 | 3.43% | 13.3 |
 
-`totals.previous` is still null, so **rule 6 yields no decliners** (~2026-10-15).
+**The prior window is not a baseline** — 350 impressions is history filling in, not a 12x surge. Rule 6 returned 0 decliners and stays uninformative until ~November.
 
-## Changes — 4 pages edited, 1 new post
+## Changes — 4 content pages, 1 new post
 
 | Change | Data point |
 |---|---|
-| **`/industries/restaurants`** — section on the four restaurant EBITDA normalizations, a worked bridge ($3.2M reported → $4.0M adjusted, invented group), plus one FAQ in body and JSON-LD | **"Discovered – currently not indexed"**, the only non-PASS URL of 28. Its two identical siblings are indexed, so this is weight, not a template fault. Pre-opening costs sourced to Texas Roadhouse's FY2025 10-K |
-| `alternatives-to-selling-to-pe` → restaurants page | 109 impr @ 10.2; its sector paragraph already names multi-unit restaurants |
-| `minority-pe-stake-veto-rights` → restaurants page | 178 impr @ 9.9; its capex-consent paragraph already turns on restaurant unit spending |
-| **New: `/blog/sell-part-of-your-business-keep-control`** — 1,979 words, 12 internal links, sourced to 8 Del. C. §141(a), §271(a) and IRC §1042 | The four highest-priority uncovered keywords, all cluster 2. Built on governance mechanics, not a route list, to stay clear of the minority-recap and alternatives posts |
-| `minority-recapitalization-explained` → the new post | Cluster-3 hub, 74 impr @ 9.8, closest topical match |
+| **`family-business-succession-planning`** — title + meta; two new H2s (~660 words) on liquidity sequencing and the six advisor roles | 538 impr / 2 clicks @ 13.3 vs 1.0% expected — the site's biggest CTR gap. Sections target `liquidity planning for family business succession` (156 impr @ 17.7) and the two "which advisors" questions (120 impr @ 6.3–7.6) |
+| **`minority-recapitalization-explained`** — title + meta | 142 impr, **0 clicks at position 7.9** vs 3.0% expected; title last changed 09-08 |
+| **New: `/blog/types-of-buyouts-explained`** — 1,875 prose words + 2 tables, 15 internal links; GF Data/Capital Pad, Bain GPE Report 2026, NCEO, 26 U.S.C. §1042 | ~190 impr, 0 clicks on `buyout private equity` (63), `private equity buyout` (43), `buyout companies` (16), `pe buyout` (15), `types of buyouts` (12) — no page targeted them |
+| Links to it from `management-buyout-vs-private-equity` and `what-happens-after-private-equity-buys-your-company` | Rule 5: both cannibalization rows are these two pages on those queries (6.9/11.4 vs 26.3/20.3) |
 
-`keywords.json` fixed: `EBITDA multiples by industry` had a live page but no `covered` entry, so rule 7 could have re-published it.
+`keywords.json`: six buyout keywords added to cluster 3 and covered — item 1 of the 09-26 human list, which no rule could otherwise reach.
 
 ## Skipped
 
-- **Rule 3** — all 3 `lowCtr` rows in cool-down: `/blog` (09-08), explainer (09-15), veto rights (09-18).
-- **Rule 4** — 3 of 4 rows are the homepage (body barred); the 4th is answered in the explainer's opening.
-- **Rule 5** — 3 of 4 rows are apex/`www` duplicates of our own domain.
+Rules 3 and 4 hit their cap of 2. The rest of `lowCtr` is in cool-down (09-15 to 09-20) or published inside 28 days; the rest of striking distance is homepage queries (body barred), already answered, or an exact-phrase lookup. 5 of 7 cannibalization rows are apex/`www` duplicates of our own pages.
+
+## Coverage
+
+`/industries/restaurants` moved from "Discovered – not indexed" to **"URL is unknown to Google"**. Fetched live: 200, correct canonical, 09-26 expansion in place, 6 inbound links against 4 for its two *indexed* siblings. Not an on-page cause, so I did not churn it — if still unknown next week, submit manually.
 
 ## Needs a human
 
-1. **~94 impressions, 0 clicks, no page and no keyword entry:** `buyout private equity` (41 @ 26.4), `private equity buyout` (21 @ 20.5), `pe buyout` (13 @ 28.5). Absent from `keywords.json`, so no rule reaches it. Add to cluster 5.
-2. **Apex still outranks `www` on the calculator** — 391 impr @ 34.4 against 46 @ 10.1. The 301 is correct; consolidation lag.
-3. **`what is an ibo`** — 68 impr, 0 clicks; `independentbuyout.com` (ours) also ranks page one, so the click may land where GSC cannot see it.
-4. **Stranded past page 2:** `management buyout financing` (74 @ 23.3), `exit planning for business owners` (24 @ 85.3).
+1. **Calculator stranded on page 7:** `business valuation calculator` (61 impr @ 70.3) plus five variants at 62–73. Title/meta already rewritten 09-17; needs links, not copy.
+2. **`exit planning for business owners` at 85.3** — covered keyword, same authority diagnosis.
+3. **`what is an ibo` family:** 107 impr, 0 clicks at positions 8–11. `independentbuyout.com` is ours and ranks page one too, so clicks may land where this property cannot see them — not a snippet fault we can evidence.
+4. **Apex still visible** at 1.8 for `ibo advisors`. The 301 is correct; consolidation lag.
+5. **Next post candidate:** a $40M carve-out MBO query ranks us at 7.8 with no page on carve-outs.
 
 ## Flagged
 
-Nothing. Banned-phrasing scan: 0 matches across 30 HTML files; all JSON-LD parses. The approved "$1.8 billion" line is intact in both places, so that flag stays dropped.
+Nothing. Banned-phrasing scan: 0 matches. Chasen and Gleeman are "Managing Partner" everywhere. All JSON-LD parses. No prior flag re-raised.
