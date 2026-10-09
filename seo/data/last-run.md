@@ -1,51 +1,60 @@
-# Daily SEO run — 2026-10-08
+# Daily SEO run — 2026-10-09
 
-Audit clean (0 errors, 0 warnings). A real prior window finally exists: impressions up 13.8x, clicks up 7.6x, position 15.6 → 13.7.
+Audit clean, 0 errors. Run #44, fired 17:15 UTC.
 
-The run's own report opened "first run since 09-26". That is what `main` looks like, not what has happened: this is the twelfth daily run since 09-26, and eleven of them are stacked unmerged on this branch. Because every run reads `main`, each one re-reads the same cluster-3 keywords as uncovered and the same pages as never rewritten. This run wrote a seventh majority-recapitalization post for that reason.
+The run's report opens "thirteen days since the last run". That is what `main` looks like — its changelog ends 09-26. This is the twelfth consecutive daily run, and all twelve are stacked unmerged on this branch. Because every run reads `main`, each one re-reads the same keywords as uncovered and the same pages as never rewritten. That is why this run wrote a second types-of-buyouts post and a third advisor section on the same page.
 
-## GSC totals — 28 days (2026-09-08 → 10-05)
+## GSC totals — 28 days (2026-09-09 → 10-06)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 76 | 4,222 | 1.80% | 13.7 |
-| Prior 28d | 10 | 307 | 3.26% | 11.8 |
+| Current | 80 | 4,337 | 1.84% | 13.6 |
+| Prior 28d | 12 | 350 | 3.43% | 13.3 |
 
-CTR fell because impressions grew into page-2 positions, not because snippets got worse. **No decliners** (rule 6).
+The prior window is history filling in, not a baseline. Rule 6 returned 0 decliners and stays uninformative until about November.
 
-## Changes kept — 4 pages edited, 0 new posts
+## Changes kept — 2 pages edited, 0 new posts
 
 | Change | Data point |
 |---|---|
-| **`family-business-succession-planning`** — title + meta rewritten around liquidity; two pieces added to the existing advisor section | Biggest CTR gap on the site: **503 impr, 2 clicks (0.40%) vs 1.0% expected at 13.5**. The 09-10 title cool-down expired today. Targets "which advisors are best suited to plan the sale of a family-owned company?" (88 impr @ **6.3**) and the integrated tax/estate query (24 @ 7.8) |
-| **`management-buyout-vs-private-equity`** — 456-word MBO/MBI/BIMBO/LBO/secondary-buyout comparison table, plus the rule-5 link out | Rule 2: the only **"Crawled – currently not indexed"** URL. 2,300 words and 8 inbound links, so differentiation, not thinness. Serves "leveraged buyout vs management buyout" (2 @ 22.0) and two sibling comparisons |
-| **`selling-to-private-equity-pros-and-cons`** — title now leads with the head phrase; meta carries "advantages and disadvantages" **and** the worked figure | **211 impr, 1 click (0.47%) vs 3.0% expected at 8.1**. No title rewrite has ever shipped here — the 10-01, 10-02 and 10-06 rewrites are all still unmerged on this branch |
-| **`what-happens-after-private-equity-buys-your-company`** — two links added, both retargeted | Rule 8: the partial-sale post had **1 inbound link**, the site floor, on 46 impr @ 6.6 |
+| **`family-business-succession-planning`** — a second liquidity section, "What the handover can actually pay at close" (472 words), plus an independent-valuation role added to the existing advisor list | 538 impr / 2 clicks @ 13.3 against a 1.0% expectation, the site's biggest CTR gap. The new section serves `liquidity planning for family business succession` (156 impr @ 17.7) from the deal side rather than the family-need side |
+| **`what-happens-after-private-equity-buys-your-company`** — one link added | Rule 5: this page and `management-buyout-vs-private-equity` split the buyout-type queries. It now links the types-of-buyouts pillar; the MBO page already did from 10-08 |
 
-`keywords.json`: acted on the 09-26 recommendation — "private equity buyout"/"buyout private equity"/"pe buyout" (**121 impr, 0 clicks**) were in no cluster on `main`. This branch already maps all three to the pillar built for them on 10-04, so the run's duplicate mapping was removed. 46 covered mappings, no keyword in two clusters, every mapped URL resolves.
+`keywords.json`: five of the run's six buyout keywords mapped to `/blog/types-of-buyouts` — item 1 of the 09-26 human list, which no rule could otherwise reach. 48 mappings.
 
 ## Dropped or corrected on merge
 
 | What | Why |
 |---|---|
-| **New post `/blog/majority-recapitalization-explained` (3,047 words)** — dropped | The **seventh** majority-recap duplicate across 09-28 → 10-08, at the fourth slug. `/blog/majority-recapitalization-vs-sale` on this branch already covers the same ground: majority vs minority vs leveraged recap, recap vs sale, the worked $5M-EBITDA example, the rollover-percentage point and the tax treatment |
-| **The run's competing 430-word advisor section** on family succession — dropped, two pieces carried across | It replaced the 10-01 section under the same H2. Kept the 10-01 version (472 words, positioned after the § 6166 paragraph it references, with the $4.6M-vs-$11.6M cost-of-delay arithmetic tied to the page's own invented company) and carried over the two things it lacked: the integrated-firm answer and the four questions that sort advisors. The role count is consistent at five plus a facilitator in the section and in the FAQ |
-| **The table row "Employee buyout / IBO — a trust holding the company for its employees"** — split into two rows | Two sections below, the same page describes the Independent Buyout as trust-financed with existing leadership continuing and no sponsor on the board. Conflating it with an ESOP misdescribed the firm's own structure |
-| **Three link targets** | Two pointed at `/blog/sell-part-of-your-business-keep-control`, which this branch deletes, and two at the dropped recap post. Retargeted to `/blog/sell-a-business-but-keep-control` and `/blog/majority-recapitalization-vs-sale` |
-| **A link added to `/blog/types-of-buyouts`** from the new taxonomy section | The 456-word taxonomy table would otherwise compete with the taxonomy pillar this branch adds. The section is comparison-framed and keeps its own queries; the pillar keeps the list queries |
+| **New post `/blog/types-of-buyouts-explained` (2,725 words)** — dropped | Duplicate of `/blog/types-of-buyouts` on this branch (2,856 words): same seven structures, same side-by-side comparison, same worked example. Its one distinct section, "Private equity buyout", is the subject of `/blog/private-equity-buyout-explained`, which this branch also carries. Second duplicate of this post in three days, and the eighth duplicate overall since 09-28 |
+| **The run's third advisor section** on family succession — dropped, one role carried across | It covered the same ground as the existing 472-word section: six roles, the integrated-firm question, the each-specialist-optimises-their-own-piece failure mode, a screening question. Kept the existing section and added the one role it genuinely lacked — an independent valuation firm, now proposed by two consecutive runs. The list is six roles; the section and the FAQ were both updated to match |
+| **The run's title and meta rewrites** on family succession and minority recapitalization — dropped | This branch rewrote both on 10-08 and 10-06 respectively, for the same CTR rows, and neither has shipped. Rewriting an unshipped title twice in three days gives Google nothing to measure |
+| **Four link targets** | All pointed at the dropped post. Retargeted to `/blog/types-of-buyouts` |
+| **One keyword mapping** | The run mapped `private equity buyout` to its new post; cluster 1 on this branch already maps it to `/blog/private-equity-buyout-explained`. Added would have put one keyword in two clusters with conflicting targets |
 
-## Skipped
+## Verified
 
-Rule 3 capped at 2 — `independent-buyout-explained` and `minority-pe-stake…` stay in cool-down to 10-13/10-16. Rule 4's other rows are homepage queries (body copy barred). 3 of 6 rule-5 rows are apex/`www` duplicates of our own pages.
+The one new cited claim: lower-middle-market deals in the $25M–$50M enterprise-value band carried **4.0x total debt and 3.4x senior debt** through the first nine months of 2025. Confirmed against the cited page, which sources it to GF Data's Q3 2025 ESOP Advisor report, Tables 3–4. That page also warns that senior debt is a component of total debt rather than an additional amount; the section uses 3.4x alone and does not stack the two, which is correct.
+
+Its arithmetic re-derives: $4M EBITDA × 7.0x = $28M enterprise value; less $5M existing debt = $23M equity; 3.4x × $4M = $13.6M senior capacity; less the existing $5M = $8.6M of new borrowing; about $8M of cash at close against $23M of value, leaving $15M in a note. The two liquidity sections share one invented company and do not contradict each other.
+
+## Coverage
+
+`/industries/restaurants` is still "URL is unknown to Google", and the inspection returns **no last-crawl time at all** — Google has never fetched it. That is why its six inbound links have not helped: links cannot promote a URL that was never crawled. The run reached the same conclusion from the other direction (fetched live 200, correct canonical, no on-page cause) and also declined to churn it. A manual Inspect and Request Indexing is the only lever.
+
+`management-buyout-vs-private-equity` remains the one "Crawled – currently not indexed" URL; the 10-08 taxonomy section on this branch is the differentiation attempt.
 
 ## Needs a human
 
-1. **`/industries/restaurants` went from "Discovered" to "URL is unknown to Google"** despite the sitemap, 6 inbound links and a 09-26 expansion. Its identical siblings are indexed. Needs a manual Inspect + Request indexing, not another edit. Unchanged since 10-07.
-2. **Apex still outranks `www` on the calculator** — 397 impr @ 34.0 vs 122 @ 7.7. The 301 is right; this is consolidation lag, and GSC's 28-day window means a correct fix cannot show before roughly 11-01. The apex ask is closed; this row is stale, not new.
-3. **`/blog`: 316 impr, 0 clicks** on "buyout companies" (@23.1) and "types of buyouts" (@48.3). The run's own conclusion — "a listing page can't win these, they want a pillar" — is already built on this branch: `/blog/types-of-buyouts` and `/blog/private-equity-buyout-explained`. This is the clearest argument yet for merging.
-4. **The 1,200–2,000 word guide in `DAILY_PROMPT.md`.** Two verified posts have now run over it (10-07 at 2,562 words, this run at 3,047 before it was dropped as a duplicate). Either raise the guide or have runs trim deliberately.
-5. **`/blog/the-broken-owner-exit-conversation` has no `covered` entry** in `keywords.json`, on this branch, on `main` and on the run's branch. That is the gap class that produced the 09-21 duplicate. Left alone here rather than widening this merge, but it is a one-line guard.
+1. **Merge this branch.** Twelve runs, 33 indexable pages. It is the only fix for the duplicate cycle, which has now produced eight duplicate posts.
+2. **Request Indexing on `/industries/restaurants`** — never crawled, as above.
+3. **Calculator stranded on page 7:** `business valuation calculator` (61 impr @ 70.3) plus five variants at 62–73. Title and meta were rewritten 09-17; this needs links, not copy. Note the standing rule that the homepage does not link it.
+4. **`exit planning for business owners` at 85.3** — covered keyword, same authority diagnosis.
+5. **The 1,200–2,000 word guide in `DAILY_PROMPT.md`** — three verified posts have now run over it.
+6. **Next-post candidate from the run:** a $40M carve-out MBO query ranking at 7.8 with no page on carve-outs. Worth a decision once the stack is merged, not before — an unmerged stack is what produces the duplicates.
 
 ## Flagged
 
-The conflated ESOP/IBO table row, above — the one factual defect in this run's output. Everything else verified: no numeric or sourced claims in the new taxonomy section; the $35M/$19M figure re-derived from the page's own table ($5M × 7.0x = $35.00M, 70% cash = $24.50M, earnout $3.50M × 0.21 = $0.735M, 23.8% on $25.235M = $6.006M, $19.23M in hand = 54.9% of headline); banned-phrasing scan clean across all changed files; all JSON-LD parses; both approved biography lines untouched; Managing Partner title intact.
+Nothing factual. Banned-phrasing scan clean; Chasen and Gleeman are Managing Partner everywhere; all JSON-LD parses; both approved biography lines intact.
+
+One process note: the changelog union had to be redone with semantic dedup. The 10-08 fold re-serialised that file, so its lines no longer byte-match the merge base and a string-based union silently duplicated about 160 entries. Future unions on this file must compare parsed objects, not strings.
