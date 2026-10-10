@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T17:01:14.436Z",
+  "generatedAt": "2026-10-10T16:20:46.437Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
+      "inboundInternalLinks": 29,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
-      "outboundInternalLinks": 23,
+      "inboundInternalLinks": 29,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
@@ -36,7 +36,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2225,
       "date": "2026-09-08",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 20,
       "issues": []
     },
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1762,
       "date": "2025-12-20",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -81,15 +81,15 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "title": "Family Business Succession Planning | IBO Advisors",
+      "title": "Family Business Succession: Liquidity and Who Pays",
       "titleLength": 50,
-      "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
-      "descriptionLength": 135,
+      "description": "Liquidity planning for family business succession: the 5-7 year successor timeline, how the handover gets funded, and which advisors you need.",
+      "descriptionLength": 142,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 2580,
-      "date": "2026-09-17",
+      "words": 3386,
+      "date": "2026-10-10",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -127,7 +127,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -177,9 +177,22 @@
       "description": "IBO stands for Independent Buyout: a leveraged sale to a trust owned by your employees, at private-equity pricing, with no fund on your cap table.",
       "descriptionLength": 146,
       "h1": "What Is an Independent Buyout (IBO)?",
-      "words": 1978,
-      "date": "2026-09-05",
-      "inboundInternalLinks": 17,
+      "words": 2365,
+      "date": "2026-10-10",
+      "inboundInternalLinks": 18,
+      "outboundInternalLinks": 15,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
+      "title": "Majority Recapitalization vs. Sale | IBO Advisors",
+      "titleLength": 49,
+      "description": "A majority recapitalization sells control and calls it a partnership. How it differs from a minority recap, a leveraged recap and an outright sale.",
+      "descriptionLength": 147,
+      "h1": "Majority Recapitalization vs. Sale: What the Word \"Recap\" Is Hiding",
+      "words": 1966,
+      "date": "2026-10-10",
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -205,7 +218,7 @@
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
       "words": 2074,
       "date": "2026-09-19",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -218,21 +231,21 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1985,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 13,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
-      "title": "Minority Recapitalization Explained | IBO Advisors",
-      "titleLength": 50,
-      "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
-      "descriptionLength": 144,
+      "title": "Minority Recapitalization: Sell 30%, Keep Control",
+      "titleLength": 49,
+      "description": "What a minority recapitalization pays: the non-control discount, the preferred stack, and what 30% of your company actually puts in your account.",
+      "descriptionLength": 145,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1762,
+      "words": 1794,
       "date": "2026-09-08",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -255,10 +268,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1596,
+      "words": 1647,
       "date": "2026-07-06",
-      "inboundInternalLinks": 16,
-      "outboundInternalLinks": 10,
+      "inboundInternalLinks": 17,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -270,7 +283,7 @@
       "h1": "Sell Part of Your Business and Keep Control",
       "words": 1979,
       "date": "2026-09-26",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -283,7 +296,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 1912,
       "date": "2026-09-21",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -309,7 +322,7 @@
       "h1": "What Happens After Private Equity Buys Your Company",
       "words": 2132,
       "date": "2026-09-12",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 15,
       "issues": []
     },
@@ -322,7 +335,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 9,
       "issues": []
     },

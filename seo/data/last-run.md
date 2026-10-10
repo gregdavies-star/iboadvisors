@@ -1,41 +1,40 @@
-# Daily SEO run — 2026-09-26
+# Daily SEO run — 2026-10-10
 
-Rule 1 clean (0 audit errors). Rule 2 had the only real problem: `/industries/restaurants` is the sole non-PASS sitemap URL, so it got a 420-word section plus two inbound links. Rules 3–6 are blocked by cool-downs, the homepage-body ban and missing prior-window data; the rest of the budget went to rule 7.
+First run since 09-26, so every cool-down had expired and the full budget was usable.
+Audit clean (0 errors, 0 warnings); `totals.previous` is populated at last, so rule 6 goes live next pull.
+Impressions up 7.9x on a 3-place position gain, clicks up 4.8x — a page-2 problem, not a snippet problem.
 
-## GSC totals — 28 days (2026-08-27 → 09-23)
+## GSC totals — 28 days (2026-09-10 → 10-07)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 53 | 2,422 | 2.19% | 15.6 |
-| Prior 28d | — | — | — | — |
-
-`totals.previous` is still null, so **rule 6 yields no decliners** (~2026-10-15).
+| Current | 76 | 4,160 | 1.83% | 13.2 |
+| Prior 28d | 16 | 527 | 3.04% | 16.2 |
 
 ## Changes — 4 pages edited, 1 new post
 
 | Change | Data point |
 |---|---|
-| **`/industries/restaurants`** — section on the four restaurant EBITDA normalizations, a worked bridge ($3.2M reported → $4.0M adjusted, invented group), plus one FAQ in body and JSON-LD | **"Discovered – currently not indexed"**, the only non-PASS URL of 28. Its two identical siblings are indexed, so this is weight, not a template fault. Pre-opening costs sourced to Texas Roadhouse's FY2025 10-K |
-| `alternatives-to-selling-to-pe` → restaurants page | 109 impr @ 10.2; its sector paragraph already names multi-unit restaurants |
-| `minority-pe-stake-veto-rights` → restaurants page | 178 impr @ 9.9; its capex-consent paragraph already turns on restaurant unit spending |
-| **New: `/blog/sell-part-of-your-business-keep-control`** — 1,979 words, 12 internal links, sourced to 8 Del. C. §141(a), §271(a) and IRC §1042 | The four highest-priority uncovered keywords, all cluster 2. Built on governance mechanics, not a route list, to stay clear of the minority-recap and alternatives posts |
-| `minority-recapitalization-explained` → the new post | Cluster-3 hub, 74 impr @ 9.8, closest topical match |
-
-`keywords.json` fixed: `EBITDA multiples by industry` had a live page but no `covered` entry, so rule 7 could have re-published it.
+| **New `/blog/majority-recapitalization-vs-sale`** — 1,966 words, 14 links. §368(a)(1)(E) vs market usage; a worked $6M-EBITDA recap where a 20% roll buys 40% of a half-debt equity layer; the preference waterfall; dividend-recap debt service | Cluster 3 holds the top uncovered keywords, and the demand lands on the wrong page today: "majority recapitalization" and "partial vs full recapitalization" both rank via `minority-recapitalization-explained` |
+| **`family-business-succession-planning`** — title, meta, two sections (~800 words), link to the new post | `lowCtr` row 1: 538 impr, 2 clicks, 0.37% vs 1.0% expected at 13.3. Striking distance: "liquidity planning for family business succession" 156 @ 17.7, "which advisors are best suited to plan the sale of a family-owned company?" 92 @ 6.3 |
+| **`independent-buyout-explained`** — "What does IBO mean in business?" section, one FAQ, CFI source | Acronym cluster page-one with no clicks: "what is an ibo" 43 @ 8.3, "ibo meaning in business" 27 @ 11.2, "ibo finance" 28 @ 4.9. Never separated IBO from *institutional buyout* |
+| **`minority-recapitalization-explained`** — title, meta, link to the new post | 136 impr, **0 clicks** at 7.9 vs a 3.0% expectation; old title promised nothing past the keyword |
+| `rollover-equity-second-bite-explained` → new post | Third inbound link; best topical donor (17 in-links, PASS) |
 
 ## Skipped
 
-- **Rule 3** — all 3 `lowCtr` rows in cool-down: `/blog` (09-08), explainer (09-15), veto rights (09-18).
-- **Rule 4** — 3 of 4 rows are the homepage (body barred); the 4th is answered in the explainer's opening.
-- **Rule 5** — 3 of 4 rows are apex/`www` duplicates of our own domain.
+**Rule 3, further targets:** `/blog` (325 impr, 0 clicks) is mostly brand "ibo advisors" at 2.6, won correctly by the homepage at 1.1; the rest sits past 15. `selling-to-private-equity-pros-and-cons` (232 @ 8.6) already leads with its query. **Rule 5:** 4 of 6 rows are brand or apex/`www` duplicates of our own domain. **Rule 6:** `decliners` empty.
+
+## Coverage
+
+`/industries/restaurants`, the only non-PASS URL of 29, **regressed** from "Discovered – currently not indexed" to **"URL is unknown to Google"**. On-page is clean — self-canonical, in the sitemap, 6 inbound links, 420 words added 09-26 — and both identical siblings are indexed. No fault left to fix, so no edit; needs a manual URL Inspection → *Request indexing*.
 
 ## Needs a human
 
-1. **~94 impressions, 0 clicks, no page and no keyword entry:** `buyout private equity` (41 @ 26.4), `private equity buyout` (21 @ 20.5), `pe buyout` (13 @ 28.5). Absent from `keywords.json`, so no rule reaches it. Add to cluster 5.
-2. **Apex still outranks `www` on the calculator** — 391 impr @ 34.4 against 46 @ 10.1. The 301 is correct; consolidation lag.
-3. **`what is an ibo`** — 68 impr, 0 clicks; `independentbuyout.com` (ours) also ranks page one, so the click may land where GSC cannot see it.
-4. **Stranded past page 2:** `management buyout financing` (74 @ 23.3), `exit planning for business owners` (24 @ 85.3).
+1. **`buyout private equity` / `private equity buyout` / `pe buyout` — 121 impr, 0 clicks, no page.** Raised 09-26, not actioned; split between `management-buyout-vs-private-equity` (6.9 / 11.4) and `what-happens-after-private-equity-buys-your-company` (26.3 / 20.3). Add to cluster 5 — the largest untargeted pool on the site.
+2. **`business valuation calculator` — 53 impr at 70.1** while that page ranks 7.7 elsewhere: the apex/`www` split still unwinding.
+3. **`what is an ibo` — 0 clicks at 8.3.** `independentbuyout.com` (ours) also ranks page one, so the click may land where GSC cannot see it.
 
 ## Flagged
 
-Nothing. Banned-phrasing scan: 0 matches across 30 HTML files; all JSON-LD parses. The approved "$1.8 billion" line is intact in both places, so that flag stays dropped.
+Nothing. Banned-phrasing scan: 0 matches across 31 HTML files; all JSON-LD parses; Michael and Darren are Managing Partner throughout. The approved "$1.8 billion" lines are intact in both places, so that flag stays dropped.
