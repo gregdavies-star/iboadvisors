@@ -1,19 +1,32 @@
-{"date":"2026-09-02","days":28,"clicks":7,"impressions":145,"ctr":0.0483,"position":9.9,"pages":6,"queries":22}
-{"date":"2026-09-05","days":28,"clicks":9,"impressions":253,"ctr":0.0356,"position":9.8,"pages":6,"queries":26}
-{"date":"2026-09-07","days":28,"clicks":10,"impressions":307,"ctr":0.0326,"position":11.8,"pages":6,"queries":33}
-{"date":"2026-09-08","days":28,"clicks":12,"impressions":350,"ctr":0.0343,"position":13.3,"pages":10,"queries":39}
-{"date":"2026-09-09","days":28,"clicks":16,"impressions":527,"ctr":0.0304,"position":16.2,"pages":22,"queries":59}
-{"date":"2026-09-10","days":28,"clicks":17,"impressions":738,"ctr":0.023,"position":16.4,"pages":22,"queries":76}
-{"date":"2026-09-11","days":28,"clicks":19,"impressions":913,"ctr":0.0208,"position":16.8,"pages":22,"queries":82}
-{"date":"2026-09-12","days":28,"clicks":20,"impressions":1046,"ctr":0.0191,"position":18,"pages":22,"queries":100}
-{"date":"2026-09-13","days":28,"clicks":21,"impressions":1161,"ctr":0.0181,"position":18.3,"pages":23,"queries":103}
-{"date":"2026-09-14","days":28,"clicks":24,"impressions":1299,"ctr":0.0185,"position":18.2,"pages":25,"queries":114}
-{"date":"2026-09-15","days":28,"clicks":30,"impressions":1537,"ctr":0.0195,"position":17.9,"pages":26,"queries":129}
-{"date":"2026-09-16","days":28,"clicks":31,"impressions":1695,"ctr":0.0183,"position":17.7,"pages":26,"queries":134}
-{"date":"2026-09-17","days":28,"clicks":36,"impressions":1817,"ctr":0.0198,"position":17.4,"pages":26,"queries":147}
-{"date":"2026-09-18","days":28,"clicks":40,"impressions":1923,"ctr":0.0208,"position":17.3,"pages":27,"queries":153}
-{"date":"2026-09-19","days":28,"clicks":42,"impressions":1989,"ctr":0.0211,"position":17.1,"pages":27,"queries":160}
-{"date":"2026-09-20","days":28,"clicks":43,"impressions":2055,"ctr":0.0209,"position":16.9,"pages":27,"queries":161}
-{"date":"2026-09-21","days":28,"clicks":49,"impressions":2156,"ctr":0.0227,"position":16.5,"pages":27,"queries":163}
-{"date":"2026-09-22","days":28,"clicks":51,"impressions":2276,"ctr":0.0224,"position":16.1,"pages":28,"queries":168}
-{"date":"2026-09-23","days":28,"clicks":53,"impressions":2422,"ctr":0.0219,"position":15.6,"pages":30,"queries":172}
+{"date": "2026-09-02", "days": 28, "clicks": 7, "impressions": 145, "ctr": 0.0483, "position": 9.9, "pages": 6, "queries": 22}
+{"date": "2026-09-05", "days": 28, "clicks": 9, "impressions": 253, "ctr": 0.0356, "position": 9.8, "pages": 6, "queries": 26}
+{"date": "2026-09-07", "days": 28, "clicks": 10, "impressions": 307, "ctr": 0.0326, "position": 11.8, "pages": 6, "queries": 33}
+{"date": "2026-09-08", "days": 28, "clicks": 12, "impressions": 350, "ctr": 0.0343, "position": 13.3, "pages": 10, "queries": 39}
+{"date": "2026-09-09", "days": 28, "clicks": 16, "impressions": 527, "ctr": 0.0304, "position": 16.2, "pages": 22, "queries": 59}
+{"date": "2026-09-10", "days": 28, "clicks": 17, "impressions": 738, "ctr": 0.023, "position": 16.4, "pages": 22, "queries": 76}
+{"date": "2026-09-11", "days": 28, "clicks": 19, "impressions": 913, "ctr": 0.0208, "position": 16.8, "pages": 22, "queries": 82}
+{"date": "2026-09-12", "days": 28, "clicks": 20, "impressions": 1046, "ctr": 0.0191, "position": 18, "pages": 22, "queries": 100}
+{"date": "2026-09-13", "days": 28, "clicks": 21, "impressions": 1161, "ctr": 0.0181, "position": 18.3, "pages": 23, "queries": 103}
+{"date": "2026-09-14", "days": 28, "clicks": 24, "impressions": 1299, "ctr": 0.0185, "position": 18.2, "pages": 25, "queries": 114}
+{"date": "2026-09-15", "days": 28, "clicks": 30, "impressions": 1537, "ctr": 0.0195, "position": 17.9, "pages": 26, "queries": 129}
+{"date": "2026-09-16", "days": 28, "clicks": 31, "impressions": 1695, "ctr": 0.0183, "position": 17.7, "pages": 26, "queries": 134}
+{"date": "2026-09-17", "days": 28, "clicks": 36, "impressions": 1817, "ctr": 0.0198, "position": 17.4, "pages": 26, "queries": 147}
+{"date": "2026-09-18", "days": 28, "clicks": 40, "impressions": 1923, "ctr": 0.0208, "position": 17.3, "pages": 27, "queries": 153}
+{"date": "2026-09-19", "days": 28, "clicks": 42, "impressions": 1989, "ctr": 0.0211, "position": 17.1, "pages": 27, "queries": 160}
+{"date": "2026-09-20", "days": 28, "clicks": 43, "impressions": 2055, "ctr": 0.0209, "position": 16.9, "pages": 27, "queries": 161}
+{"date": "2026-09-21", "days": 28, "clicks": 49, "impressions": 2156, "ctr": 0.0227, "position": 16.5, "pages": 27, "queries": 163}
+{"date": "2026-09-22", "days": 28, "clicks": 51, "impressions": 2276, "ctr": 0.0224, "position": 16.1, "pages": 28, "queries": 168}
+{"date": "2026-09-23", "days": 28, "clicks": 53, "impressions": 2422, "ctr": 0.0219, "position": 15.6, "pages": 30, "queries": 172}
+{"date": "2026-10-07", "days": 28, "clicks": 76, "impressions": 4160, "ctr": 0.0183, "position": 13.2, "pages": 30, "queries": 270}
+{"date": "2026-10-06", "days": 28, "clicks": 80, "impressions": 4337, "ctr": 0.0184, "position": 13.6, "pages": 30, "queries": 278}
+{"date": "2026-10-05", "days": 28, "clicks": 76, "impressions": 4222, "ctr": 0.018, "position": 13.7, "pages": 30, "queries": 277}
+{"date": "2026-10-04", "days": 28, "clicks": 72, "impressions": 4113, "ctr": 0.0175, "position": 14, "pages": 30, "queries": 281}
+{"date": "2026-10-03", "days": 28, "clicks": 73, "impressions": 4040, "ctr": 0.0181, "position": 14, "pages": 33, "queries": 277}
+{"date": "2026-10-01", "days": 28, "clicks": 65, "impressions": 3470, "ctr": 0.0187, "position": 14.1, "pages": 33, "queries": 244}
+{"date": "2026-09-30", "days": 28, "clicks": 67, "impressions": 3513, "ctr": 0.0191, "position": 14.1, "pages": 33, "queries": 246}
+{"date": "2026-09-29", "days": 28, "clicks": 71, "impressions": 3563, "ctr": 0.0199, "position": 14, "pages": 33, "queries": 246}
+{"date": "2026-09-28", "days": 28, "clicks": 67, "impressions": 3399, "ctr": 0.0197, "position": 14.2, "pages": 33, "queries": 239}
+{"date": "2026-09-27", "days": 28, "clicks": 62, "impressions": 3206, "ctr": 0.0193, "position": 14.5, "pages": 33, "queries": 231}
+{"date": "2026-09-24", "days": 28, "clicks": 54, "impressions": 2582, "ctr": 0.0209, "position": 15.2, "pages": 30, "queries": 184}
+{"date": "2026-09-25", "days": 28, "clicks": 57, "impressions": 2794, "ctr": 0.0204, "position": 14.9, "pages": 31, "queries": 194}
+{"date": "2026-09-26", "days": 28, "clicks": 60, "impressions": 3020, "ctr": 0.0199, "position": 14.5, "pages": 32, "queries": 208}
