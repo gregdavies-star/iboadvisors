@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-10T16:06:45.080Z",
+  "inspectedAt": "2026-10-11T16:31:27.587Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -31,7 +31,7 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
+      "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -237,7 +237,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-25T14:12:42Z",
+      "lastCrawlTime": "2026-10-11T07:22:12Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
