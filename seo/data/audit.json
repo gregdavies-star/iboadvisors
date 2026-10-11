@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T17:01:14.436Z",
+  "generatedAt": "2026-10-11T16:51:50.897Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
+      "inboundInternalLinks": 29,
       "outboundInternalLinks": 1,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 28,
-      "outboundInternalLinks": 23,
+      "inboundInternalLinks": 29,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
@@ -81,13 +81,13 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "title": "Family Business Succession Planning | IBO Advisors",
-      "titleLength": 50,
-      "description": "Family business succession planning: the 5-7 year successor timeline, the pitfalls that sink transitions, and how to fund the handover.",
-      "descriptionLength": 135,
+      "title": "Family Business Succession Planning: How You Get Paid",
+      "titleLength": 53,
+      "description": "Family business succession planning and the liquidity question behind it: a 5-7 year successor timeline, who funds the handover, 2026 estate tax rules.",
+      "descriptionLength": 151,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 2580,
-      "date": "2026-09-17",
+      "words": 3594,
+      "date": "2026-10-11",
       "inboundInternalLinks": 13,
       "outboundInternalLinks": 13,
       "issues": []
@@ -114,7 +114,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -127,7 +127,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2042,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -179,8 +179,21 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 1978,
       "date": "2026-09-05",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 14,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
+      "title": "Majority Recapitalization vs Sale | IBO Advisors",
+      "titleLength": 48,
+      "description": "Majority recapitalization vs sale: what changes when you sell 70% of your company instead of 100%, how the rollover defers tax, what leverage costs.",
+      "descriptionLength": 148,
+      "h1": "Majority Recapitalization vs Sale: What You Keep, and What You Are Taxed On",
+      "words": 2008,
+      "date": "2026-10-11",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -198,12 +211,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
-      "title": "Management Buyout vs Private Equity | IBO Advisors",
+      "title": "Management Buyout vs Private Equity: Who Pays More",
       "titleLength": 50,
-      "description": "Management buyout vs private equity, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
-      "descriptionLength": 136,
-      "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
-      "words": 2074,
+      "description": "Management buyout vs private equity sale, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
+      "descriptionLength": 141,
+      "h1": "Management Buyout vs a Private Equity Sale: Price, Control, and When You Actually Get Paid",
+      "words": 2085,
       "date": "2026-09-19",
       "inboundInternalLinks": 8,
       "outboundInternalLinks": 13,
@@ -218,7 +231,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 1985,
       "date": "2026-09-08",
-      "inboundInternalLinks": 17,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -229,10 +242,10 @@
       "description": "What a minority recapitalization is, how it compares to a full sale or an Independent Buyout, and when partial liquidity makes sense for owners.",
       "descriptionLength": 144,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1762,
+      "words": 1808,
       "date": "2026-09-08",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -257,7 +270,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1596,
       "date": "2026-07-06",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 17,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -270,21 +283,21 @@
       "h1": "Sell Part of Your Business and Keep Control",
       "words": 1979,
       "date": "2026-09-26",
-      "inboundInternalLinks": 2,
+      "inboundInternalLinks": 3,
       "outboundInternalLinks": 11,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
-      "title": "Selling to Private Equity: Pros and Cons | IBO Advisors",
-      "titleLength": 55,
-      "description": "The real advantages and costs of selling to private equity: what the multiple buys you, and what the debt, escrows and seven-year hold take back.",
-      "descriptionLength": 145,
+      "title": "Selling to Private Equity: Pros and Cons, After Tax",
+      "titleLength": 51,
+      "description": "The case for and against selling to private equity, with the after-tax ledger: what a $35M headline price actually leaves you, and what the hold costs.",
+      "descriptionLength": 151,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 1912,
+      "words": 1944,
       "date": "2026-09-21",
-      "inboundInternalLinks": 8,
-      "outboundInternalLinks": 15,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -322,7 +335,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 9,
       "issues": []
     },
