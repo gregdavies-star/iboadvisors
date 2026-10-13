@@ -1,61 +1,66 @@
-# Daily SEO run — 2026-10-11
+# Daily SEO run — 2026-10-12
 
-Audit clean, 0 errors, 0 warnings. Run #46, fired 16:28 UTC.
+Audit clean. Run #47, fired 20:03 UTC.
 
-The run's report opens "first run since 09-26". That is what `main` looks like — its changelog ends 09-26. This is the fourteenth consecutive daily run, and all fourteen are stacked unmerged on this branch.
+## A correction to this branch's own record
 
-## GSC totals — 28 days (2026-09-11 → 10-08)
+Two things reported here as fact were wrong, and both are now corrected against the full run history.
 
-| | Clicks | Impressions | CTR | Position |
-|---|---|---|---|---|
-| Current | 81 | 4,176 | 1.94% | 12.9 |
-| Prior 28d (08-14 → 09-10) | 17 | 738 | 2.30% | 16.4 |
+**No daily run has ever been dropped.** This file previously recorded that the 09-28 run "never fired" and that GitHub's scheduler had dropped it, and on 10-12 the same conclusion was drawn again. Both were wrong. Pulling all 39 scheduled runs from 09-04 to 10-12 shows a run on **every single day**, with no gaps. The 09-28 run fired at 18:19 UTC (+7.3h) and this one fired at 20:03 UTC (+9.1h) — seventeen minutes after the 19:45 check that declared the window past. The cause in both cases was the same: a check made before the run arrived, treated as evidence that it never would.
 
-First genuinely usable prior window. CTR fell because impressions grew faster than clicks, and position improved 3.5 places.
+**The fire time is drifting, and the earlier retraction of that was also wrong.** An earlier note here corrected "drifting later all week" to "high variance, not a trend", on 14 runs. With all 39 the trend is plain:
 
-## Changes kept — 1 page edited, 0 new posts
+| ISO week | runs | mean lag | range |
+|---|---|---|---|
+| 36 | 3 | 3.0h | 2.6–3.7h |
+| 37 | 7 | 3.9h | 2.8–5.2h |
+| 38 | 7 | 4.1h | 3.1–5.7h |
+| 39 | 7 | 4.6h | 3.8–5.7h |
+| 40 | 7 | 5.6h | 4.0–7.3h |
+| 41 | 7 | 6.4h | 5.1–8.4h |
+| 42 | 1 | 9.1h | — |
 
-| Change | Data point |
+Least-squares slope **+0.64h per week** across 39 runs; first 13 runs mean 3.9h against last 13 mean 6.1h. The cron is `0 11 * * *`, the most contended slot there is.
+
+The operational consequence: **there is no established upper bound on the fire window, so a run must never be called dropped.** At the current slope the fire time reaches midnight UTC in roughly four weeks, which would push runs onto the following calendar day and break both the daily cadence and the GSC date windows. That is the real argument for moving the cron, and it does not depend on any run having been lost.
+
+## GSC totals — 28 days
+
+Unchanged in shape from 10-11: impressions in the low 4,000s, clicks around 80, position just under 13.
+
+## Changes kept — 2 pages edited, 0 new posts
+
+| Change | Why |
 |---|---|
-| **`family-business-succession-planning`** — a new section, "Paying the estate's bill without losing the company": 26 U.S.C. § 303 redemptions and *Connelly v. United States* | The page is the worst payer on the site: 576 impr, 2 clicks, 0.35% against 1.0% expected. This is the first run in six to add material the page did not already have, and it is the best single contribution any run has made to this branch |
+| **`what-happens-after-private-equity-buys-your-company`** — a 102-word caveat on the page's own rollover table, noting it ignores the preferred return that sits ahead of common equity in the waterfall | This is the gap flagged on this branch on 10-10 and never filled. The page works a rollover through two exit scenarios without mentioning the preference at all, which overstates what the stake pays. The caveat is the honest fix |
+| **`selling-to-private-equity-pros-and-cons`** — a sentence noting the deal on offer is rarely a clean 100% sale | Most sponsor transactions at this size are majority recapitalizations selling 51–80% with the rest rolled, so cash at close and the second bite are two separate things to value. Consistent with the framing already verified on the recap post |
 
-This is genuinely new ground. § 303 lets a company redeem part of a decedent's stock and have the payment treated as a sale rather than a dividend, converting company cash into estate liquidity without the family losing control. *Connelly* is the 2024 decision that changed how a redemption-funded buy-sell policy interacts with estate valuation. Neither appeared anywhere on the site before today.
-
-## Verified
-
-**26 U.S.C. § 303**, against the statute: the quoted phrase "shall be treated as a distribution in full payment in exchange for the stock so redeemed" is verbatim; the threshold is stock exceeding 35% of the gross estate less § 2053 and § 2054 deductions, which is what "adjusted gross estate" means in practice; and the cap is the sum of death taxes and the funeral and administration expenses deductible under § 2053. All three as written.
-
-***Connelly v. United States***, against the opinion: argued 27 March 2024, decided 6 June 2024, "Thomas, J., delivered the opinion for a unanimous Court" with no dissent or concurrence. Crown held $3 million of life insurance to redeem Michael Connelly's **77.18%** stake. The estate's analyst valued the company at **$3.86 million** and the shares at about **$3 million** ($3.86M × 0.7718 = $2.98M). The IRS valued the company at **$6.86 million** ($3.86M + $3M) and the shares at **$5.3 million** ($6.86M × 0.7718 = $5.29M), assessing **$889,914** more estate tax. The holding is quoted exactly: "Crown's contractual obligation to redeem Michael's shares did not diminish the value of those shares." Every figure and the arithmetic check.
+The rollover table's arithmetic was re-derived and holds: $9M × 8.0x = $72M less $16M of debt = $56M of equity, 20% = $11.2M, a 2.3x on the $4.8M rolled; and $7M × 8.0x = $56M less $16M = $40M, 20% = $8.0M, 1.7x.
 
 ## Dropped or corrected on merge
 
 | What | Why |
 |---|---|
-| **A new post at `/blog/majority-recapitalization-vs-sale`** (2,570 words) | The tenth duplicate since 09-28, and the second day running written onto the keeper's own slug. This branch's version is 2,695 words and better structured: it sources the rollover percentage, runs three year-5 scenarios with annualised returns, and treats the tax question separately |
-| **The run's four-claims opening** to its liquidity section | Restates the framing of the liquidity section already on the page |
-| **Its worked figure of $5 million cash at close** | Contradicts this branch's verified $8 million on the same invented company ($4M EBITDA, $28M EV, $5M debt, $23M equity). Two cash-at-close numbers for one company is the defect class this branch keeps catching |
-| **A FOURTH advisor section** | It auto-merged into a second position on the page and said *five* seats where the page says six roles. Caught by the duplicate-heading check, which flagged the advisor H2 appearing twice |
-| **Title and meta rewrites** on family succession, selling-to-private-equity and management-buyout-vs-private-equity | All three were already rewritten on this branch on 10-08, for the same CTR rows, with nothing shipped. This is the fourth consecutive run to propose a family-succession title rewrite |
-| **Three keyword mappings** | The run mapped `private equity buyout`, `buyout private equity` and `pe buyout` to `what-happens-after`; cluster 1 here maps all three to the pillar built for them on 10-04. Keeping both would put three keywords in two clusters with conflicting targets — the same collision as 10-08, and the third run to attempt it |
-| **Three link additions** | No-ops: this branch already links the same posts from the same paragraphs |
+| **New post at `/blog/majority-recapitalization-explained`** (2,733 words) | Eleventh duplicate since 09-28, and the third recap slug used — this one was already dropped from the 10-03 run, and the last two runs wrote onto the keeper's own slug instead. `majority-recapitalization-vs-sale` stays: 2,695 words, six sources |
+| **Its rollover-prevalence statistic** — not carried across | The one thing it had that the keeper lacks: 46% in 2020 rising to 57% in 2023 for mid-market deals of $25M–$500M, attributed to Goodwin's private equity deal database. **goodwinlaw.com returns 403 to this environment** on its root, on a real path and on a fake path alike, so the 403 says nothing about the page and the figure cannot be checked against its source. The same numbers reached the 10-10 run through a different intermediary, which is the second-hand condition behind both of the worst errors caught in this stack. Not carried, and not asserted to be wrong either — just unverifiable from here |
+| **A fourth liquidity section and a FIFTH advisor framing** on family succession | The page already has three distinct liquidity and estate sections and one six-role advisor section. The run's advisor list gave seven roles in a different order |
+| **A new FAQ entry** on the same page | It introduced a second invented company ($3M of available annual cash) and an unsourced generalisation that a full-price internal sale "routinely implies debt service closer to $5 million" |
+| **A Gibson Dunn commentary source on Connelly** | Redundant: the branch cites the opinion itself, by docket and date |
+| **Title and meta rewrites** on family succession and minority recapitalization | Both already rewritten on this branch (10-08 and 10-06) with nothing shipped. Fifth consecutive run to propose a family-succession title rewrite |
+| **A false cross-reference**, introduced by the run and then briefly by this merge | The run's caveat claimed the rollover post "goes through the preference stack in detail". That post contains no instance of "preference" or "preferred". The first repair said the recap was worked through "above", which implied this page; it is not. The sentence now describes what each target actually contains |
 
-## Coverage
+## Still unfilled
 
-`/industries/restaurants` is still the only non-PASS URL, and the run has now independently reached the same diagnosis this branch reported on 10-09: **no `lastCrawlTime` at all**, so Google has never fetched the 09-26 expansion, and with six inbound internal links this is neither an on-page nor an orphan fault. Its own words: "Request indexing in Search Console."
+The preference-waterfall gap. Three runs have now circled it — 10-10 wrote a worked waterfall in a post that was dropped for other reasons, 10-10's merge noted it as a gap, and this run wrote a cross-reference asserting it was already covered. It is not covered anywhere on the site. Filling it properly means working a preference stack through one of the existing invented companies, which is a content decision rather than a merge decision.
 
 ## Needs a human
 
-1. **Merge this branch.** Fourteen runs, 33 indexable pages, ten duplicate posts — two of them written onto a keeper's own slug on consecutive days.
-2. **Request Indexing on `/industries/restaurants`** — never crawled. Both this branch and the run now say the same thing.
-3. **The 1,200–2,000 word guide in `DAILY_PROMPT.md`** — three verified posts have run over it.
-4. **The `seo-on-merge` ordering fix for `lastmod`.**
-
-The run also re-raised the apex/`www` calculator split and the two page-2 strandings (`management buyout financing`, `exit planning for business owners`). The apex ask is closed and this row is lag, not news. The strandings are real and unactioned, and they want links rather than copy.
-
-## Worth adding later
-
-Two citations the dropped post had and this branch's version does not: 26 U.S.C. § 302 on redemptions, and the IRS questions-and-answers page on the § 163(j) business-interest limitation. The second is the more useful — a leveraged recap's interest deductibility is a real constraint the current post does not mention. Noted rather than transplanted, since writing it properly is not a merge decision. The preference-waterfall idea from the 10-10 run still stands too.
+1. **Merge this branch.** Fifteen runs, 33 indexable pages, eleven duplicate posts.
+2. **Move the cron off `0 11 * * *`**, on the drift evidence above rather than on any dropped run. A jittered off-hour minute, earlier in the day, buys headroom against a slope that is currently +0.64h per week.
+3. **Request Indexing on `/industries/restaurants`** — never crawled.
+4. **The 1,200–2,000 word guide in `DAILY_PROMPT.md`.**
+5. **The `seo-on-merge` ordering fix for `lastmod`.**
 
 ## Flagged
 
-Nothing factual. Banned-phrasing scan clean; Chasen and Gleeman are Managing Partner throughout; all JSON-LD parses; both approved biography lines intact.
+Nothing beyond the above. Banned-phrasing scan clean; Chasen and Gleeman are Managing Partner throughout; all JSON-LD parses; both approved biography lines intact.
