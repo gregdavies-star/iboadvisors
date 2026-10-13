@@ -49,6 +49,14 @@ The rollover table's arithmetic was re-derived and holds: $9M × 8.0x = $72M les
 | **Title and meta rewrites** on family succession and minority recapitalization | Both already rewritten on this branch (10-08 and 10-06) with nothing shipped. Fifth consecutive run to propose a family-succession title rewrite |
 | **A false cross-reference**, introduced by the run and then briefly by this merge | The run's caveat claimed the rollover post "goes through the preference stack in detail". That post contains no instance of "preference" or "preferred". The first repair said the recap was worked through "above", which implied this page; it is not. The sentence now describes what each target actually contains |
 
+## A drift no check covered
+
+Blog cards on `/blog` carry an excerpt that, at creation, matches the post's meta description. **Fifteen of twenty-six no longer do**, because runs have rewritten metas over the past fortnight without touching the corresponding card. The ten that still match are all posts created inside this stack, where card and meta were written together.
+
+Most are harmless rewordings, but some now misdescribe the page. `family-business-succession-planning` is the clearest: the card still sells "successor timelines, common pitfalls, and what to do when there's no family successor" while the page has been refocused on liquidity and retitled accordingly.
+
+Only one was fixed here — `minority-recapitalization-explained`, where this merge itself split the two apart by keeping the branch's meta while the run's card text auto-merged. Realigning the other fifteen is a content pass, not a merge decision, so it is left for a deliberate call. The useful part is that the drift is now measurable, and the check for it belongs in the standing method alongside the duplicate-heading check.
+
 ## Still unfilled
 
 The preference-waterfall gap. Three runs have now circled it — 10-10 wrote a worked waterfall in a post that was dropped for other reasons, 10-10's merge noted it as a gap, and this run wrote a cross-reference asserting it was already covered. It is not covered anywhere on the site. Filling it properly means working a preference stack through one of the existing invented companies, which is a content decision rather than a merge decision.
