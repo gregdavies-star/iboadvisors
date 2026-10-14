@@ -983,6 +983,22 @@ a {
   line-height: 1.6;
   margin: 0 0 var(--space-6);
 }
+/* Multi-paragraph modal body (the adviser message): tighter spacing between
+   paragraphs, the usual gap before the button, and visible links. */
+.ibo-modal__text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0 0 var(--space-3);
+}
+.ibo-modal__text:last-of-type {
+  margin-bottom: var(--space-6);
+}
+.ibo-modal__text a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .ibo-field {
   margin-bottom: var(--space-4);
 }

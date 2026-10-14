@@ -298,6 +298,15 @@ Debt service becomes a fixed, recurring obligation, and loan covenants can requi
             <option value="$10M+" data-qualifies="true">Over $10M</option>
           </select>
         </div>
+        <div class="ibo-field" id="ibo-advisor-ebitda-wrap" hidden>
+          <label class="ibo-field__label" for="ibo-advisorEbitdaBand">Approximate annual EBITDA (Profit) of the companies you work with</label>
+          <select class="ibo-field__input ibo-field__select" id="ibo-advisorEbitdaBand" name="advisorEbitdaBand">
+            <option value="" disabled selected>Select a range</option>
+            <option value="$0 - $3M" data-qualifies="false">Less than $3M</option>
+            <option value="$3M - $10M" data-qualifies="true">Between $3M - $10M</option>
+            <option value="$10M+" data-qualifies="true">Over $10M</option>
+          </select>
+        </div>
         <p class="ibo-field__error" id="ibo-form-error" hidden></p>
         <button type="submit" class="ibo-modal__submit" id="ibo-modal-submit">Next</button>
       </form>
@@ -307,6 +316,15 @@ Debt service becomes a fixed, recurring obligation, and loan covenants can requi
       <h3 class="ibo-modal__title">Thank You</h3>
       <p class="ibo-modal__intro">Thank you - we&rsquo;ve received your details. The Independent Buyout structure is built for companies above a certain scale, and based on what you&rsquo;ve shared it may not be the right fit today. We&rsquo;ll keep your information on file and reach out if that changes or if we can point you to a better-suited path.</p>
       <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-modal-declined-close">Close</button>
+    </div>
+
+    <!-- Step 2b: Advisor below-threshold message -->
+    <div class="ibo-modal__step" id="ibo-modal-step-advisor-declined" hidden>
+      <h3 class="ibo-modal__title">Thanks for reaching out</h3>
+      <p class="ibo-modal__text">The Independent Buyout (IBO) is built on a company&rsquo;s own borrowing capacity, and the economics start to work at roughly $3M in annual EBITDA.</p>
+      <p class="ibo-modal__text">Since the companies you work with are below that today, we&rsquo;ll hold off on a call rather than take up your time. When one of your clients crosses that line, we&rsquo;d welcome the introduction. Just come back and book a time.</p>
+      <p class="ibo-modal__text">In the meantime, check out our <a href="/">homepage</a> and feel free to share our <a href="/business-valuation-calculator">valuation calculator</a> with the owners you advise.</p>
+      <button type="button" class="ibo-modal__submit ibo-modal__close-btn" id="ibo-modal-advisor-declined-close">Close</button>
     </div>
   </div>
 </div>

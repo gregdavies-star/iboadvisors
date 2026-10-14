@@ -53,16 +53,19 @@
    visitors land in the qualify flow, never on an ungated scheduler).
 
    The form asks for three required answers: Name, Email and "Which best
-   describes you?" (CEO/Founder/Owner or Business Advisor). Owners must also
-   pick an approximate annual EBITDA band, which is revealed only once they
-   choose that role: "Less than $3M" ($0 - $3M, does not qualify), "Between
-   $3M - $10M" ($3M - $10M) or "Over $10M" ($10M+). A phone number is
-   optional and is sent to HubSpot only when filled in. There is no company
-   field.
+   describes you?" (CEO/Founder/Owner or Business Advisor). Each role then
+   reveals its own approximate annual EBITDA band question: owners answer
+   for their company, advisors for the companies they typically work with.
+   The bands are the same for both: "Less than $3M" ($0 - $3M, does not
+   qualify), "Between $3M - $10M" ($3M - $10M) or "Over $10M" ($10M+). A
+   phone number is optional and is sent to HubSpot only when filled in.
+   There is no company field.
 
-   Submits to the HubSpot Forms API, then routes qualified leads (advisors,
-   and owners with EBITDA >= $3M) to the on-site scheduler at /book. Owners
-   under $3M EBITDA see an in-modal thank-you message instead of a scheduler.
+   Submits to the HubSpot Forms API, then routes qualified leads (owners
+   and advisors at $3M+ EBITDA) to the on-site scheduler at /book. Under
+   $3M, owners see an in-modal thank-you message and advisors see their own
+   message (the owner wording does not fit someone describing clients), so
+   neither reaches the scheduler.
    ========================================================================== */
 (function () {
   // HubSpot identifiers — same Portal ID / Form used by iboadvisors.com so
@@ -80,25 +83,41 @@
   var form = document.getElementById('ibo-modal-form');
   var stepForm = document.getElementById('ibo-modal-step-form');
   var stepDeclined = document.getElementById('ibo-modal-step-declined');
+  var stepAdvisorDeclined = document.getElementById('ibo-modal-step-advisor-declined');
+  var advisorDeclinedCloseBtn = document.getElementById('ibo-modal-advisor-declined-close');
   var submitBtn = document.getElementById('ibo-modal-submit');
   var errorEl = document.getElementById('ibo-form-error');
   var ebitdaSelect = document.getElementById('ibo-ebitdaBand');
   var ebitdaWrap = document.getElementById('ibo-ebitda-wrap');
+  var advisorEbitdaSelect = document.getElementById('ibo-advisorEbitdaBand');
+  var advisorEbitdaWrap = document.getElementById('ibo-advisor-ebitda-wrap');
   var roleRadios = document.querySelectorAll('input[name="respondentRole"]');
 
   if (!overlay || !form) return;
 
-  // Toggle the EBITDA question: only owners/founders/CEOs answer it.
-  // Advisors skip straight to scheduling with no EBITDA gate.
+  // Toggle the EBITDA question for the chosen role: owners/founders/CEOs
+  // answer for their own company, advisors for the companies they work
+  // with. Only the visible select is required; the hidden one is cleared so
+  // a band chosen under one role never leaks into the other's submission.
   function updateRoleUI() {
     var selected = document.querySelector('input[name="respondentRole"]:checked');
     var isOwner = !!selected && selected.value === 'CEO/Founder/Owner';
+    var isAdvisor = !!selected && selected.value === 'Business Advisor';
     ebitdaWrap.hidden = !isOwner;
     if (isOwner) {
       ebitdaSelect.setAttribute('required', 'required');
     } else {
       ebitdaSelect.removeAttribute('required');
       ebitdaSelect.value = '';
+    }
+    if (advisorEbitdaWrap) {
+      advisorEbitdaWrap.hidden = !isAdvisor;
+      if (isAdvisor) {
+        advisorEbitdaSelect.setAttribute('required', 'required');
+      } else {
+        advisorEbitdaSelect.removeAttribute('required');
+        advisorEbitdaSelect.value = '';
+      }
     }
   }
 
@@ -136,6 +155,7 @@
     document.body.style.overflow = 'hidden';
     stepForm.hidden = false;
     stepDeclined.hidden = true;
+    if (stepAdvisorDeclined) stepAdvisorDeclined.hidden = true;
     form.reset();
     hideError();
     updateRoleUI();
@@ -173,6 +193,7 @@
 
   closeBtn.addEventListener('click', closeModal);
   declinedCloseBtn.addEventListener('click', closeModal);
+  if (advisorDeclinedCloseBtn) advisorDeclinedCloseBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function (e) {
     if (e.target === overlay) closeModal();
   });
@@ -190,24 +211,26 @@
     var selectedRole = document.querySelector('input[name="respondentRole"]:checked');
     var respondentRole = selectedRole ? selectedRole.value : '';
     var isOwner = respondentRole === 'CEO/Founder/Owner';
-    var ebitdaOption = ebitdaSelect.options[ebitdaSelect.selectedIndex];
-    var ebitdaBand = ebitdaSelect.value;
+    var isAdvisor = respondentRole === 'Business Advisor';
+    // Owners answer the EBITDA question for their own company, advisors for
+    // the companies they work with; the one for the chosen role is the gate.
+    var bandSelect = isAdvisor && advisorEbitdaSelect ? advisorEbitdaSelect : ebitdaSelect;
+    var ebitdaOption = bandSelect.options[bandSelect.selectedIndex];
+    var ebitdaBand = bandSelect.value;
 
     if (!fullName || !email || !respondentRole) {
       showError('Please fill in every required field to continue.');
       return;
     }
 
-    if (isOwner && !ebitdaBand) {
+    if ((isOwner || isAdvisor) && !ebitdaBand) {
       showError('Please fill in every required field to continue.');
       return;
     }
 
-    // Advisors always qualify for scheduling; owners/founders/CEOs are
-    // gated by the EBITDA threshold selected above.
-    var qualifies = isOwner
-      ? (ebitdaOption && ebitdaOption.getAttribute('data-qualifies') === 'true')
-      : true;
+    // Both roles are gated by the same $3M EBITDA threshold: owners on their
+    // company, advisors on the companies they typically work with.
+    var qualifies = !!(ebitdaOption && ebitdaOption.getAttribute('data-qualifies') === 'true');
 
     var nameParts = fullName.split(/\s+/);
     var firstName = nameParts.shift() || fullName;
@@ -226,8 +249,8 @@
     if (cellNumber) fields.push({ name: 'phone', value: cellNumber });
     // ibo_qualified is an owner-only property: in HubSpot it means "owner with
     // $3M+ EBITDA" and drives nurture routing and the "Paid social owners,
-    // qualified" list. `qualifies` above is broader (advisers always may book),
-    // so it must not be sent for advisers; they route on `role` instead.
+    // qualified" list, so it is not sent for advisers even though they are
+    // now gated too; they route on `role` plus the EBITDA band below.
     if (isOwner) fields.push({ name: 'ibo_qualified', value: qualifies ? 'True' : 'False' });
     fields.push(
       // `role`, not `respondent_role`: the latter is not a property in the
@@ -236,6 +259,8 @@
       // "CEO/Founder/Owner" and "Business Advisor" verbatim; until they are
       // added, submitForm's retry drops this field and keeps the lead.
       { name: 'role', value: respondentRole },
+      // For advisers this band describes the companies they work with, not
+      // their own; the contact's `role` says which reading applies.
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: ebitdaBand }
     );
 
@@ -243,7 +268,7 @@
     window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, fields)
       .then(function () {
         track('modal_submit', {
-          ebitda_band: isOwner ? ebitdaBand : 'advisor',
+          ebitda_band: ebitdaBand,
           respondent_role: respondentRole,
           qualified: qualifies ? 'yes' : 'no'
         });
@@ -260,7 +285,13 @@
           // Learn More Form - Unqualified Lead
           fireConversion('AW-18411360561/jK-oCMy9vOgcELGinMtE');
           stepForm.hidden = true;
-          stepDeclined.hidden = false;
+          // Advisers get their own message: the owner wording ("may not be the
+          // right fit for your company") does not fit someone describing clients.
+          if (isAdvisor && stepAdvisorDeclined) {
+            stepAdvisorDeclined.hidden = false;
+          } else {
+            stepDeclined.hidden = false;
+          }
         }
       })
       .catch(function () {
