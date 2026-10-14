@@ -98,7 +98,7 @@
   // the workspace's; copy it from that same dashboard page. While it is
   // empty the tag is skipped entirely rather than requesting a script for a
   // workspace that does not exist.
-  var HAPPIERLEADS_CLIENT_ID = '';
+  var HAPPIERLEADS_CLIENT_ID = 'oN8svYNZh8eWLaHvW1H6cG';
   if (HAPPIERLEADS_CLIENT_ID) {
     load(
       'https://rest.happierleads.com/v3/script?clientId=' +
