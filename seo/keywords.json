@@ -38,6 +38,9 @@
         "selling to private equity pros and cons",
         "what happens after private equity buys your company",
         "management buyout vs private equity",
+        "private equity buyout",
+        "buyout private equity",
+        "pe buyout",
         "how to sell a business but keep control",
         "partial sale of business",
         "sell a portion of my business",
@@ -50,10 +53,13 @@
         "selling to private equity pros and cons": "/blog/selling-to-private-equity-pros-and-cons",
         "what happens after private equity buys your company": "/blog/what-happens-after-private-equity-buys-your-company",
         "management buyout vs private equity": "/blog/management-buyout-vs-private-equity",
-        "how to sell a business but keep control": "/blog/sell-part-of-your-business-keep-control",
-        "partial sale of business": "/blog/sell-part-of-your-business-keep-control",
-        "sell a portion of my business": "/blog/sell-part-of-your-business-keep-control",
-        "how to take money off the table without selling": "/blog/sell-part-of-your-business-keep-control"
+        "how to sell a business but keep control": "/blog/sell-a-business-but-keep-control",
+        "partial sale of business": "/blog/sell-a-business-but-keep-control",
+        "sell a portion of my business": "/blog/sell-a-business-but-keep-control",
+        "how to take money off the table without selling": "/blog/sell-a-business-but-keep-control",
+        "private equity buyout": "/blog/private-equity-buyout-explained",
+        "buyout private equity": "/blog/private-equity-buyout-explained",
+        "pe buyout": "/blog/private-equity-buyout-explained"
       }
     },
     {
@@ -70,16 +76,34 @@
         "second bite of the apple private equity",
         "management buyout financing",
         "how is a leveraged buyout financed",
+        "types of buyouts",
+        "private equity buyout",
+        "buyout companies",
+        "management buy-in",
+        "secondary buyout",
+        "ESOP buyout",
         "seller financing in a business sale",
         "earnout in business sale",
-        "dividend recapitalization explained"
+        "dividend recapitalization explained",
+        "secondary buyout",
+        "types of buyouts",
+        "management buy-in"
       ],
       "covered": {
         "minority recapitalization": "/blog/minority-recapitalization-explained",
+        "earnout in business sale": "/blog/earnout-in-business-sale",
+        "majority recapitalization": "/blog/majority-recapitalization-vs-sale",
+        "leveraged recapitalization": "/blog/majority-recapitalization-vs-sale",
+        "recapitalization vs sale": "/blog/majority-recapitalization-vs-sale",
         "rollover equity": "/blog/rollover-equity-second-bite-explained",
         "second bite of the apple private equity": "/blog/rollover-equity-second-bite-explained",
         "management buyout financing": "/blog/management-buyout-financing",
-        "how is a leveraged buyout financed": "/blog/how-private-equity-actually-finances-a-buyout"
+        "how is a leveraged buyout financed": "/blog/how-private-equity-actually-finances-a-buyout",
+        "types of buyouts": "/blog/types-of-buyouts",
+        "secondary buyout": "/blog/types-of-buyouts",
+        "management buy-in": "/blog/types-of-buyouts",
+        "buyout companies": "/blog/types-of-buyouts",
+        "ESOP buyout": "/blog/types-of-buyouts"
       }
     },
     {
@@ -119,7 +143,10 @@
         "private equity management fees portfolio company",
         "private equity holding period",
         "private equity and founder CEO replacement",
-        "private equity debt on acquired company"
+        "private equity debt on acquired company",
+        "private equity buyout",
+        "buyout private equity",
+        "pe buyout"
       ],
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
