@@ -61,7 +61,7 @@
    field.
 
    Submits to the HubSpot Forms API, then routes qualified leads (advisors,
-   and owners with EBITDA >= $3M) to the HubSpot meeting scheduler. Owners
+   and owners with EBITDA >= $3M) to the on-site scheduler at /book. Owners
    under $3M EBITDA see an in-modal thank-you message instead of a scheduler.
    ========================================================================== */
 (function () {
@@ -69,7 +69,10 @@
   // leads submitted here land in the same HubSpot account.
   var HUBSPOT_PORTAL_ID = '245308986';
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
-  var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
+  // The on-site scheduler page (/book embeds the HubSpot scheduler and shows
+  // its own confirmation). Resolved against the current origin where the URL
+  // is built, so previews and production each send visitors to their own /book.
+  var BOOK_PATH = '/book';
 
   var overlay = document.getElementById('ibo-modal-overlay');
   var closeBtn = document.getElementById('ibo-modal-close');
@@ -247,10 +250,11 @@
         if (qualifies) {
           // Learn More Form - Qualified Lead
           fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
-          var url = window.iboTracking.withUtms(new URL(HUBSPOT_MEETING_URL));
+          var url = window.iboTracking.withUtms(new URL(BOOK_PATH, window.location.origin));
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
+          url.searchParams.set('src', 'modal');
           window.location.href = url.toString();
         } else {
           // Learn More Form - Unqualified Lead
@@ -438,11 +442,23 @@
    GA4: schedule_click - any click on a link to the scheduling page
    ========================================================================== */
 (function () {
+  // The on-site scheduler: /book on this site, relative or absolute (the
+  // calculator writes an absolute URL into its link), never /booking etc.
+  function isBookPage(href) {
+    try {
+      var u = new URL(href, window.location.href);
+      var ours = u.origin === window.location.origin || /(^|\.)iboadvisors\.com$/.test(u.hostname);
+      return ours && /^\/book\/?$/.test(u.pathname);
+    } catch (e) {
+      return false;
+    }
+  }
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
-    var isScheduler = href.indexOf('meetings-na2.hubspot.com') !== -1 || href === '/meet' || href.indexOf('iboadvisors.com/meet') !== -1;
+    var isScheduler = href.indexOf('meetings-na2.hubspot.com') !== -1 || href === '/meet' || href.indexOf('iboadvisors.com/meet') !== -1 ||
+      isBookPage(href);
     if (!isScheduler) return;
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'schedule_click', { link_url: href, page_path: window.location.pathname });

@@ -295,7 +295,21 @@
   var current = paramsFromUrl();
   var currentTouch = null;
 
-  if (!isEmpty(current)) {
+  /* The scheduler hand-off is not a new touch. withUtms (below) copies the
+     stored touch onto the /book URL, ibo_meeting_uuid included, and /book
+     loads this script too. Recording that load as a touch would mint a new
+     uuid (breaking the form-to-meeting join) and overwrite the stored landing
+     URL with /book. A URL carrying ibo_meeting_uuid is always our own
+     hand-off, so it leaves the stored attribution alone. */
+  function isSchedulerHandoff() {
+    try {
+      return new URLSearchParams(window.location.search).has(MEETING_FIELDS.uuid);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (!isEmpty(current) && !isSchedulerHandoff()) {
     currentTouch = touchFrom(current);
     store.last = currentTouch;
     if (!store.first) store.first = currentTouch;
@@ -437,7 +451,9 @@
      enrichment, and enrichment is never worth losing a lead over. */
   var IDENTITY_FIELDS = {
     firstname: true, lastname: true, email: true, phone: true,
-    company: true, message: true
+    company: true, message: true,
+    pre_call_note: true,                 // the /book note is the whole submission
+    pre_call_note_host: true             // which round-robin host the note goes to
   };
 
   /* Submit to the HubSpot Forms API with the campaign fields attached.
@@ -540,7 +556,24 @@
     return url;
   }
 
+  /* ---- Google tag ---- */
+
+  // GA4 event. Same helper modal.js, exit.js and calculator.js keep locally;
+  // shared here so newer pages (/book) do not need another copy.
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
+  // Google Ads conversion, by full send_to ("AW-.../label").
+  function fireConversion(sendTo) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: sendTo });
+    }
+  }
+
   window.iboTracking = {
+    track: track,
+    fireConversion: fireConversion,
     hutk: hutk,
     attribution: attribution,
     utmParams: utmParams,

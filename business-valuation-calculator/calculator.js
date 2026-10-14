@@ -10,7 +10,10 @@
 
   var HUBSPOT_PORTAL_ID = '245308986';
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
-  var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
+  // The on-site scheduler page, resolved against the current origin where the
+  // URL is built. The PDF needs an absolute production URL instead.
+  var BOOK_PATH = '/book';
+  var PDF_BOOK_URL = 'https://www.iboadvisors.com/book?src=pdf';
 
   // EBITDA bands sent as what_is_your_approximate_annual_ebitda_profit. That
   // HubSpot property is an enumeration, and ebitdaBandFor below must return
@@ -518,11 +521,12 @@
         if (qualifies) {
           var q = $('vc-success-qualified');
           q.hidden = false;
-          var url = tracking.withUtms(new URL(HUBSPOT_MEETING_URL));
+          var url = tracking.withUtms(new URL(BOOK_PATH, window.location.origin));
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
           url.searchParams.set('company', company);
+          url.searchParams.set('src', 'calculator');
           $('vc-meeting-link').href = url.toString();
         }
         success.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -741,7 +745,7 @@
       doc.roundedRect(btnX, btnY, btnW, btnH, 4, 4, 'F');
       doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(255, 255, 255);
       doc.text('Schedule a call', btnX + btnW / 2, btnY + 19, { align: 'center' });
-      doc.link(btnX, btnY, btnW, btnH, { url: HUBSPOT_MEETING_URL });
+      doc.link(btnX, btnY, btnW, btnH, { url: PDF_BOOK_URL });
     } else {
       doc.setTextColor(205, 172, 124);
       doc.textWithLink('www.iboadvisors.com', MARGIN + 20, y + 76, { url: 'https://www.iboadvisors.com' });

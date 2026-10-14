@@ -5,7 +5,7 @@ Companion to `DRIP_SEQUENCE_STRATEGY.md`. Every email in every track, ready to p
 Conventions used in all emails:
 
 - **Plain text, no images, no buttons.** One link per email.
-- `[scheduler]` = `https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?utm_source=hubspot&utm_medium=email&utm_campaign=<track>&utm_content=<email id>&email={{contact.email}}&firstName={{contact.firstname}}&lastName={{contact.lastname}}`. Set `utm_campaign` to `nurture-owner-a`, `nurture-owner-b`, `nurture-owner-c`, `nurture-advisor-d`, `nurture-booked-f` or `nurture-longtail`, and `utm_content` to the email id below (e.g. `a2`). HubSpot writes these into the "last meeting booked" source/medium/campaign properties, which is how meetings get attributed to a specific email.
+- `[scheduler]` = `https://www.iboadvisors.com/book?src=email&utm_source=hubspot&utm_medium=email&utm_campaign=<track>&utm_content=<email id>&email={{contact.email}}&firstName={{contact.firstname}}&lastName={{contact.lastname}}`. Set `utm_campaign` to `nurture-owner-a`, `nurture-owner-b`, `nurture-owner-c`, `nurture-advisor-d`, `nurture-booked-f` or `nurture-longtail`, and `utm_content` to the email id below (e.g. `a2`). HubSpot writes these into the "last meeting booked" source/medium/campaign properties, which is how meetings get attributed to a specific email.
 - `{{firstname}}` = `{{ contact.firstname }}` with default "there". Fix the existing "Hi there,," double comma.
 - Sender: Edmund Breitling (reply-to edmund@iboadvisors.com) unless marked "from Michael".
 - Signature block on every email (not repeated below):
@@ -29,7 +29,7 @@ Send window: A1 is instant, any hour. A2-A7 go at 7:30am recipient local time on
 ### A1 - Instant (within 60 seconds of the lead syncing)
 
 **Subject:** Your IBO question
-**Preview:** A 20-minute, confidential conversation with Michael.
+**Preview:** A 30-minute, confidential conversation with Michael.
 
 ```
 Hi {{firstname}},
@@ -50,10 +50,10 @@ Edmund
 
 **Paired SMS (0-5 min, only where a phone exists and the form disclosed texting):**
 ```
-Edmund from IBO Advisors here. I've just emailed you a link to grab 20 minutes with Michael Chasen about the Independent Buyout. Reply STOP to opt out.
+Edmund from IBO Advisors here. I've just emailed you a link to grab 30 minutes with Michael Chasen about the Independent Buyout. Reply STOP to opt out.
 ```
 
-**Paired call task:** high priority, due in 60 minutes (8am-7pm recipient time, otherwise next morning at 8am). Voicemail script: "Hi {{firstname}}, Edmund Breitling at IBO Advisors following up on your LinkedIn note about the Independent Buyout. I've emailed you a link to 20 minutes with Michael Chasen; happy to talk now as well. My number is ..."
+**Paired call task:** high priority, due in 60 minutes (8am-7pm recipient time, otherwise next morning at 8am). Voicemail script: "Hi {{firstname}}, Edmund Breitling at IBO Advisors following up on your LinkedIn note about the Independent Buyout. I've emailed you a link to 30 minutes with Michael Chasen; happy to talk now as well. My number is ..."
 
 ### A1b - Abandoned scheduler only (60 minutes after a qualifying site-form submit with no meeting)
 
@@ -66,7 +66,7 @@ Hi {{firstname}},
 You qualified for a conversation with Michael a little while ago, but I don't see a time on the calendar yet. Pages close, phones ring; here is the link again, with your details already filled in:
 [scheduler]
 
-Nothing to prepare. Twenty minutes, confidential, and you'll know by the end whether an IBO is worth exploring for your company.
+Nothing to prepare. Thirty minutes, confidential, and you'll know by the end whether an IBO is worth exploring for your company.
 
 Edmund
 ```
@@ -88,7 +88,7 @@ The same company, at the same $50M, structured as an IBO, nets about $64.2M: the
 That's $26.4M on the same enterprise value. The full comparison, line by line, is here:
 https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison
 
-Worth 20 minutes to run your numbers?
+Worth 30 minutes to run your numbers?
 [scheduler]
 
 Edmund
@@ -111,7 +111,7 @@ The company borrows against its own cash flow, the way a PE buyer would. Instead
 It is the transaction PE firms run on companies like yours, done without the PE firm. Longer version:
 https://www.iboadvisors.com/blog/independent-buyout-explained
 
-Questions are normal at this point. That is what the 20 minutes is for:
+Questions are normal at this point. That is what the 30 minutes is for:
 [scheduler]
 
 Edmund
@@ -129,7 +129,7 @@ Edmund
 
 Edmund mentioned you'd asked about the IBO. I co-founded Blackboard, took it public and sold it for $1.8 billion, and I've been on one side or the other of more than sixty M&A transactions since. I started IBO Advisors because most owners are only ever shown two doors: sell to private equity or sell to a strategic.
 
-If we spoke, I'd ask three things: roughly what EBITDA you're running, how much of the company you want to keep, and what you'd do with the proceeds. From those I can usually tell you in 20 minutes whether an IBO is worth exploring.
+If we spoke, I'd ask three things: roughly what EBITDA you're running, how much of the company you want to keep, and what you'd do with the proceeds. From those I can usually tell you in 30 minutes whether an IBO is worth exploring.
 
 Reply with any of the three, or grab a time here:
 [scheduler]
@@ -157,7 +157,7 @@ We wrote them up plainly:
 https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights
 https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company
 
-None of those exist in an IBO, which is the point. If a PE letter is sitting on your desk, it's worth 20 minutes before you answer it:
+None of those exist in an IBO, which is the point. If a PE letter is sitting on your desk, it's worth 30 minutes before you answer it:
 [scheduler]
 
 Edmund
@@ -194,7 +194,7 @@ I haven't heard back, which usually means one of two things: the timing is wrong
 
 If it's the timing, I'll leave you alone apart from a short note once a month with one thing worth knowing about owner exits. If you'd rather not get those, reply "no" and I'll stop entirely.
 
-If I misread it and you do want the 20 minutes, the link still works:
+If I misread it and you do want the 30 minutes, the link still works:
 [scheduler]
 
 Edmund
@@ -212,7 +212,7 @@ Send: first Tuesday of the month, 7:30am recipient time (test Sunday 6pm after t
 
 Standard close:
 ```
-If any of this is live for you right now, 20 minutes with Michael is the quickest way to know where you stand:
+If any of this is live for you right now, 30 minutes with Michael is the quickest way to know where you stand:
 [scheduler]
 
 Edmund
@@ -285,7 +285,7 @@ https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained
 
 Quick one. It's been about three months since you first asked about the Independent Buyout. Things change: EBITDA, a PE approach, a partner who wants out, a health scare.
 
-If any of that has happened, the 20 minutes is still here, still confidential:
+If any of that has happened, the 30 minutes is still here, still confidential:
 [scheduler]
 
 If not, ignore this and I'll keep the monthly notes coming.
@@ -393,7 +393,7 @@ Edmund
 
 Quarterly check-in, one question: is the company at or near $3M of EBITDA now, or on a clear path there in the next 12 months?
 
-If yes, reply "yes" and I'll set up 20 minutes with Michael. If not, no need to answer; I'll check again in a few months.
+If yes, reply "yes" and I'll set up 30 minutes with Michael. If not, no need to answer; I'll check again in a few months.
 
 Edmund
 ```
@@ -442,7 +442,7 @@ Hi {{firstname}},
 
 Thanks for reaching out about the Independent Buyout. Most of our best conversations start with an adviser who has an owner client being courted by private equity.
 
-Do you have a specific client in mind, or are you learning the structure for your practice? Either way, 20 minutes with Michael Chasen is the quickest way in:
+Do you have a specific client in mind, or are you learning the structure for your practice? Either way, 30 minutes with Michael Chasen is the quickest way in:
 [scheduler]
 
 Everything is confidential, and we're happy to describe how we work with referring advisers on the call.
@@ -502,7 +502,7 @@ Edmund
 ```
 {{firstname}},
 
-I'll stop here unless you tell me otherwise. If a client of yours ever gets a PE approach and wants a second path, the 20 minutes with Michael is a standing offer:
+I'll stop here unless you tell me otherwise. If a client of yours ever gets a PE approach and wants a second path, the 30 minutes with Michael is a standing offer:
 [scheduler]
 
 I'll send a short note once a month on owner exits; reply "no" if you'd rather not.
@@ -526,7 +526,7 @@ Enrollment: meeting booked through the scheduler. HubSpot's own confirmation ema
 ```
 {{firstname}},
 
-Looking forward to tomorrow. To make the 20 minutes count, it helps to have three things in your head (no documents needed):
+Looking forward to tomorrow. To make the 30 minutes count, it helps to have three things in your head (no documents needed):
 
 1. Roughly what EBITDA the company is running this year.
 2. How ownership is split today, and how much of the company you'd want to keep.
@@ -543,7 +543,7 @@ Edmund
 ### F2 - SMS, 2 hours before
 
 ```
-Reminder: your 20 minutes with Michael Chasen (IBO Advisors) is at {{meeting time}}. Video link: {{meeting link}}. Need to move it? {{reschedule link}}
+Reminder: your 30 minutes with Michael Chasen (IBO Advisors) is at {{meeting time}}. Video link: {{meeting link}}. Need to move it? {{reschedule link}}
 ```
 
 **Why this, here:** Two hours is close enough to be acted on, far enough to reschedule. SMS reaches the owner who is between meetings and not in their inbox.
@@ -567,7 +567,7 @@ Edmund
 
 ### F4 - No-show, day 2
 
-**Subject:** Still worth the 20 minutes?
+**Subject:** Still worth the 30 minutes?
 
 ```
 {{firstname}},

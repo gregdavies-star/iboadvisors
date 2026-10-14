@@ -30,7 +30,9 @@
 
   var HUBSPOT_PORTAL_ID = '245308986';
   var HUBSPOT_FORM_GUID = 'ec6307ff-aa5a-4e75-b423-11846eab6ad7';
-  var HUBSPOT_MEETING_URL = 'https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo';
+  // The on-site scheduler page, resolved against the current origin where the
+  // URL is built.
+  var BOOK_PATH = '/book';
 
   // EBITDA bands sent as what_is_your_approximate_annual_ebitda_profit. That
   // HubSpot property is an enumeration, and ebitdaBandFor below must return
@@ -543,11 +545,12 @@
         fireConversion(qualifies
           ? 'AW-18411360561/XH9KCMqlj-gcELGinMtE'
           : 'AW-18411360561/jK-oCMy9vOgcELGinMtE');
-        var url = tracking.withUtms(new URL(HUBSPOT_MEETING_URL));
+        var url = tracking.withUtms(new URL(BOOK_PATH, window.location.origin));
         url.searchParams.set('firstName', firstName);
         url.searchParams.set('lastName', lastName);
         url.searchParams.set('email', email);
         url.searchParams.set('company', company);
+        url.searchParams.set('src', 'ibo-exit');
         window.location.href = url.toString();
       })
       .catch(function () {
@@ -607,11 +610,23 @@
    GA4: schedule_click - any click on a link to the scheduling page
    ========================================================================== */
 (function () {
+  // The on-site scheduler: /book on this site, relative or absolute (the
+  // calculator writes an absolute URL into its link), never /booking etc.
+  function isBookPage(href) {
+    try {
+      var u = new URL(href, window.location.href);
+      var ours = u.origin === window.location.origin || /(^|\.)iboadvisors\.com$/.test(u.hostname);
+      return ours && /^\/book\/?$/.test(u.pathname);
+    } catch (e) {
+      return false;
+    }
+  }
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
-    var isScheduler = href.indexOf('meetings-na2.hubspot.com') !== -1 || href === '/meet' || href.indexOf('iboadvisors.com/meet') !== -1;
+    var isScheduler = href.indexOf('meetings-na2.hubspot.com') !== -1 || href === '/meet' || href.indexOf('iboadvisors.com/meet') !== -1 ||
+      isBookPage(href);
     if (!isScheduler) return;
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'schedule_click', { link_url: href, page_path: window.location.pathname });
