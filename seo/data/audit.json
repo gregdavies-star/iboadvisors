@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:01:46.369Z",
+  "generatedAt": "2026-10-14T15:59:00.632Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
-      "outboundInternalLinks": 27,
+      "inboundInternalLinks": 33,
+      "outboundInternalLinks": 28,
       "issues": []
     },
     {
@@ -49,7 +49,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1847,
       "date": "2025-12-20",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -75,7 +75,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2113,
       "date": "2026-09-29",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2515,
+      "words": 2605,
       "date": "2026-09-10",
       "inboundInternalLinks": 24,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -138,10 +138,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 2072,
+      "words": 2127,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -151,10 +151,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2097,
+      "words": 2207,
       "date": "2026-09-13",
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -179,7 +179,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -192,7 +192,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 22,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -216,10 +216,10 @@
       "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
       "descriptionLength": 146,
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
-      "words": 1471,
+      "words": 1506,
       "date": "2026-04-24",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -270,7 +270,7 @@
       "h1": "Private Equity Buyout: What It Is and How It Works",
       "words": 2031,
       "date": "2026-10-04",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -296,7 +296,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -310,6 +310,19 @@
       "words": 2079,
       "date": "2026-09-27",
       "inboundInternalLinks": 10,
+      "outboundInternalLinks": 12,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "title": "Seller Financing in a Business Sale | IBO Advisors",
+      "titleLength": 50,
+      "description": "Seller financing in a business sale: how a seller note is sized, why it ranks behind the bank, the tax that lands in year one, and what to negotiate.",
+      "descriptionLength": 149,
+      "h1": "Seller Financing in a Business Sale",
+      "words": 2645,
+      "date": "2026-10-14",
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -348,7 +361,7 @@
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
       "words": 2291,
       "date": "2026-10-07",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -361,7 +374,7 @@
       "h1": "What Happens After Private Equity Buys Your Company",
       "words": 2482,
       "date": "2026-09-12",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 21,
       "issues": []
     },
@@ -374,7 +387,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 9,
       "issues": []
     },
