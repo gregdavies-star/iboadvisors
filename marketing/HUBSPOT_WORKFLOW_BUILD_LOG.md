@@ -27,7 +27,7 @@ Editor URL pattern: `https://app-na2.hubspot.com/workflows/245308986/platform/fl
 |---|---|---|---|---|
 | W0 | Original source is Paid Social | Off | 58, 59 | None |
 | W1, W6 | None (manual, fed by other flows); built by hand per the guide | Per the guide (W1 off, W6 on) | 58, 59, 68 | Date of last meeting booked in meetings tool is known |
-| W2 | Learn More form submission ("IBO Homepage Form (via API)", GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7), filtered to the $3M+ EBITDA (profit) bands. **TO DO (15 Oct): add "Role is not Business Advisor" to this trigger in the editor.** As built it has no role filter, so a $3M+ adviser who does not book within 60 minutes gets A1b and then W1 (owner copy); advisers belong in W5 | On, each submission | 58, 59, 68 | Same as W1 |
+| W2 | Learn More form submission ("IBO Homepage Form (via API)", GUID ec6307ff-aa5a-4e75-b423-11846eab6ad7), filtered to the $3M+ EBITDA (profit) bands. Role is none of Business Advisor added to the enrollment criteria in the editor on 15 Oct (Greg), because the site now sends ibo_qualified for advisers too and they belong in W5, not A1b/W1 | On, each submission | 58, 59, 68 | Same as W1 |
 | W3, W4, W5 | None (manual, fed by W0) | Off | 58, 59, 68 | Same as W1 |
 | W7 | Date of last meeting booked is known AND email does not contain csgpartners.com, iboadvisors.com, roedgers.com, hubspot.com | On, when that date changes | None | Unenrollment rule (see check 2) |
 | W8 | Event: meeting outcome changed to No show (event 4-1724222), refined by the same four email exclusions (rebuilt 30 Sep, see check 3) | On, each no-show event | None | Unenrollment rule (see check 2) |
