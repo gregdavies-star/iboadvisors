@@ -1,39 +1,28 @@
-# Daily SEO run — 2026-10-13 (folded into the open stack)
+# Daily SEO run — 2026-10-15
 
-Run #48 fired at 17:52 UTC, +6.9 hours after its 11:00 cron. Steps 1-11 succeeded; only step 12 (open a pull request) failed, as on every run since the repo setting blocking Actions from creating PRs was found off. This is the sixteenth run folded onto this branch.
+The 10-13 stack merged (PR #56), so `main` finally matches what earlier runs kept re-proposing — no duplicate posts, no stale asks. One new post, three link edits, one keyword-map fix. No title/meta rewrites: no candidate was evidenced.
 
-## GSC totals — 28 days (2026-09-13 → 10-10)
+## GSC totals — 28 days (2026-09-15 → 10-12)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 78 | 3,974 | 1.96% | 12.2 |
-| Prior 28d | 20 | 1,046 | 1.91% | 18.0 |
+| Current | 78 | 3,866 | 2.02% | 11.7 |
+| Prior 28d | 24 | 1,299 | 1.85% | 18.2 |
 
-Clicks nearly quadrupled and average position improved 5.8 places against the prior window. Both windows predate anything on this branch, which has not shipped.
+## Changes
 
-## Kept from the run
+- **New post `/blog/seller-financing-business-sale`** (rule 7). Nothing published in the trailing 7 days; `seller financing in a business sale` was the highest-priority uncovered keyword, and seller notes appeared on 13 pages with no page of their own. Covers subordination, blockage, standstill and full standby; a worked hypothetical valuing a $5.25M note at $3.44M–$4.65M, turning a 7.0x offer into 6.64x–6.88x; set-off as a second escrow; the tax schedule. Every source opened before citing: IRS Pub 537, 26 U.S.C. § 453A, the IRS AFR index, SRS Acquiom LMM deal terms. Arithmetic re-derived; company invented and labelled.
+- **Three links.** `/blog/earnout-in-business-sale` and `/blog/management-buyout-financing` → the new post. `/blog/how-private-equity-actually-finances-a-buyout` (21 inbound) → `/blog/private-equity-buyout-explained`, which had 3 inbound links, fewest on the site, despite owning the ~165-impression `private equity buyout` pool.
+- **`keywords.json`.** Those three pe-buyout terms sat in clusters 3 and 5 without `covered` entries, so every run re-read them as uncovered. Mapped; duplicates removed.
 
-- **Fresh GSC data** (`gsc-latest.json`, `gsc-coverage.json`).
-- **A three-scenario preference waterfall**, carried from the dropped duplicate post into `/blog/majority-recapitalization-vs-sale` and re-derived on that post's own invented company. This fills a real gap: the page already asserted that the liquidation preference "decides more second-bite outcomes than growth does" while the table above it modelled no preference at all, so the site's strongest claim about the preference was unsupported on the only page making it. Three earlier runs circled this gap without filling it. Figures re-derived from GF Data's Q3 2025 ESOP Advisor report (Tables 1 and 3-4) via Capital Pad: 6.8x and 4.0x/3.4x for the $25M-$50M enterprise-value tier, first nine months of 2025.
-- **The M&A broker registration exemption**, one paragraph appended to the existing advisor section of `/blog/family-business-succession-planning`. Verified directly against 15 U.S.C. § 78o(b)(13): added by Pub. L. 117-328 effective 90 days after 2022-12-29; prior-fiscal-year EBITDA under $25,000,000 **or** gross revenues under $250,000,000; the buyer must both control and be active in management; custody of funds is one of nine disqualifying activities. The run's version named custody as though it were the only condition, so the paragraph as written states the exemption as conditional.
+## Skipped, with reasons
 
-## Dropped from the run
+- **Rule 3:** the five rows at real page-1 positions (family succession, PE pros/cons, minority recap, MBO vs PE, alternatives-to-PE) are all inside the 28-day cool-down, rewritten 10-04 to 10-13. `/blog/how-to-sell-a-business-to-private-equity` and `/business-valuation-calculator` have head queries at positions 28–75 — a ranking problem, not a snippet one. `/blog` loses brand impressions to the homepage, correctly. `/blog/independent-buyout-explained` sits at 4.9 with zero clicks, but `independentbuyout.com` (ours) ranks page one for those terms and can absorb the click invisibly.
+- **Rule 4:** four of six rows are pages edited 10-04 and 10-13; the other two are homepage queries, and homepage body copy is off-limits.
+- **Rule 5:** brand terms the homepage wins at 1.1, plus the pe-buyout pair already routed with that anchor from both losers. Verified, not repeated. **Rule 6:** no decliners.
 
-- **`/blog/majority-recapitalization`** — the twelfth duplicate post in this stack, on a slug already dropped on 10-03, duplicating `/blog/majority-recapitalization-vs-sale`. Root cause unchanged and unchanged all month: every run reads a `main` that lacks this stack, so the same keywords keep reading as uncovered. Merging the PR is the only fix.
-- **Two H2s on `/blog/family-business-succession-planning`** (~860 words). Both duplicate sections already on this branch, and the liquidity one **contradicts** it: it derives an $11 million cash-at-close ceiling from the 4.0x total-debt multiple where the shipped section derives about $8 million from the 3.4x senior multiple, and it reprices the page's invented company at 6.8x/$27M against its established 7.0x/$28M. The advisor table gave five roles against the shipped section's six, which the page's own FAQ ("Six roles, not one firm") depends on. Ninth run to edit this file.
-- **Title and meta on `/blog/family-business-succession-planning`** — sixth consecutive run to propose rewriting this title; the 10-08 rewrite on this branch has not shipped.
-- **Title and meta on `/blog/selling-to-private-equity-pros-and-cons`** — same reason; rewritten on this branch on 10-08, unshipped.
-- **Three link additions.** All three already exist on this branch pointing at the right targets. The third was the fourth attempt to route "private equity buyout" at `/blog/what-happens-after-private-equity-buys-your-company`; this branch covers the term with `/blog/private-equity-buyout-explained`, links it from that page with that anchor, and maps the whole trio there in `keywords.json`.
+## Coverage and human asks
 
-## Coverage — a regression worth a human
+`/industries/restaurants` reads "Discovered – currently not indexed". Last run saw "URL is unknown to Google" and called it a regression; that has reverted, so read it as a transient API response. The page is ~2,000 words with FAQ schema, 7 inbound links (more than both indexed siblings), correct canonical, in the sitemap, and expanded twice in September — nothing left on-page. **Request indexing in Search Console**, the third run to conclude this.
 
-`/industries/restaurants` moved from "Discovered – currently not indexed" to **"URL is unknown to Google"**. That is backwards: a URL Google had previously discovered now reads as one it has never seen. This is a single day's inspection reading and could be a transient API response, so it is worth re-reading tomorrow before drawing a conclusion from the direction of travel. The reading itself is unambiguous though: no `lastCrawlTime`, and both `robotsTxtState` and `indexingState` come back unspecified. It is in the sitemap, its canonical is correct, it was expanded on 09-26, and it carries 6 inbound internal links against 4 each for its two indexed siblings. The URL inspection has never returned a `lastCrawlTime` for it at all. No amount of on-page work or internal linking fixes a URL Google is not fetching. **Request indexing in Search Console** is still the only lever, and this is the second consecutive run to reach that conclusion independently.
-
-## Stale asks the run repeated
-
-- The ~165-impression pe-buyout pool with "no page" and "not in `keywords.json`". This branch has `/blog/private-equity-buyout-explained`, `/blog/types-of-buyouts`, and all four terms mapped. The run cannot see them.
-- Apex and www both appearing for the calculator. The 301 is correct and GSC reports a 28-day rolling window, so consolidation cannot show yet. Closed.
-
-## Verification
-
-Arithmetic re-derived from scratch for the preference table and the run's own waterfall; both internally consistent. Source dates and periods checked on the Capital Pad page (GF Data Q3 2025 ESOP Advisor report; `?p=505747` 301s to the canonical URL, so the canonical form is used). § 78o(b)(13) read in full, including the nine excluded activities, the control-and-active-management test and the effective-date note. Heading check across all changed pages, including the full H2 list per page, since a duplicate section auto-merged without conflicting on 10-11. Blog-card excerpts checked against page metas. All 27 `jobTitle` values read "Managing Partner". Both approved biography lines present. No deal data, client references, counts, sizes, timelines or outcomes added. Banned-phrasing scan clean.
+Audit: 34 indexable pages, 0 errors, 0 warnings. Flagged: nothing. No deal data added; banned-phrasing scan clean; `jobTitle` reads Managing Partner.
