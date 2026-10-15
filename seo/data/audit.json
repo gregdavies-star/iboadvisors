@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T15:59:00.632Z",
+  "generatedAt": "2026-10-15T21:52:04.749Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -76,7 +76,7 @@
       "words": 2113,
       "date": "2026-09-29",
       "inboundInternalLinks": 6,
-      "outboundInternalLinks": 12,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -320,9 +320,9 @@
       "description": "Seller financing in a business sale: how a seller note is sized, why it ranks behind the bank, the tax that lands in year one, and what to negotiate.",
       "descriptionLength": 149,
       "h1": "Seller Financing in a Business Sale",
-      "words": 2645,
+      "words": 3028,
       "date": "2026-10-14",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 12,
       "issues": []
     },

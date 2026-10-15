@@ -1,29 +1,31 @@
-# Daily SEO run — 2026-10-14
+# Daily SEO run — 2026-10-15 (folded into #66)
 
-The 16-run stack merged to `main` this morning (PR #56), so this is the first run in a month reading a repo that matches the live site. With cool-downs now checkable, every `lowCtr` and `strikingDistance` row resolves to blocked-or-not-evidenced. One new post and five internal links instead; no duplicate post, no title rewrite.
+Run #50 fired at 15:25 UTC, +4.4 hours after its 11:00 cron. Steps 1–11 succeeded; only step 12 (open a pull request) failed, as on every run while the repo setting stays off.
 
-| | Clicks | Impressions | CTR | Position |
-|---|---|---|---|---|
-| Current (09-14 → 10-11) | 78 | 3,918 | 1.99% | 11.9 |
-| Prior 28d | 21 | 1,161 | 1.81% | 18.3 |
+## The duplicate cycle is not over — it is conditional on merging
 
-Clicks 3.7x, position up 6.4 places, no decliners.
+The 10-15 run wrote `/blog/seller-financing-business-sale`, the **thirteenth duplicate** of this programme, against the `/blog/seller-financing-in-a-business-sale` the 10-14 run wrote one day earlier. Same topic, slug missing "in-a".
 
-## Changes
+This corrects the conclusion recorded yesterday. The 10-14 run produced no duplicate because it read a `main` that finally contained the merged stack. The 10-15 run read the same `main` — but #66 is still open, so the seller-financing ground read as uncovered again and the run took it. **The mechanism was never "the backlog"; it is that a run cannot see unmerged work.** One unmerged PR is enough to reproduce it, within a day.
 
-- **New post `/blog/seller-financing-in-a-business-sale`** (rule 7) — highest-priority uncovered keyword, cluster 3. Nothing on the site is about seller notes; the MBO-financing post covers them only as one layer of a buy-side stack. Sourced to IRC [§ 453](https://www.law.cornell.edu/uscode/text/26/453), [§ 453A](https://www.law.cornell.edu/uscode/text/26/453A) (the $5,000,000 threshold and the pledging rule), [§ 1274A](https://www.law.cornell.edu/uscode/text/26/1274A), [IRS Pub 537](https://www.irs.gov/publications/p537) and the [SRS Acquiom 2026 LMM study](https://www.srsacquiom.com/our-insights/lower-middle-market-deals/) (4,400+ deals; earnouts in 29% ≤$50M). Invented company, arithmetic re-derived. 2,645 words against the 1,200–2,000 target: the overage is the four installment-sale rules, in line with the site's other pillars.
-- **Five internal links** into the un-indexed pages. `/blog/private-equity-buyout-explained` (4 inbound) and `/blog/earnout-in-business-sale` (5) were the weakest on the site; linked from `how-pe-firms-value-a-company` (24 inbound), `how-to-sell-a-business-to-private-equity`, `how-private-equity-actually-finances-a-buyout` (22) and `management-buyout-financing`.
-- **`seo/keywords.json`** — the pe-buyout trio read as uncovered in clusters 3 and 5 despite cluster 2 mapping it to `/blog/private-equity-buyout-explained`. That mis-read is the mechanism behind ten dropped duplicate posts. Mapped everywhere; cluster-3 duplicates removed.
+## Kept from the run
 
-## Skipped
+- **Fresh GSC and coverage data.**
+- **The keywords fix, independently identical to the 10-14 run's.** Both runs mapped `private equity buyout`, `buyout private equity` and `pe buyout` into clusters 3 and 5 and deduped the repeated cluster-3 keywords. Two runs converging on the same diagnosis from the same data is strong corroboration. 49 mappings; all four corrected invariants clean.
+- **A set-off section** carried into the surviving post. Buyers negotiate the right to reduce the note by indemnity or purchase-price-adjustment claims they *assert* rather than prove, stacked on escrows already held back. All four statistics verified on SRS Acquiom's Lower Middle Market M&A page: virtually all LMM deals carry at least one escrow or holdback; the median general indemnification escrow is 12.5% of transaction value against 10% across all deals; 92% include a purchase price adjustment; nearly half carry a separate PPA escrow at a median 1.23%. The arithmetic holds — 12.5% + 1.23% + a 15% note is 28.7%, so "well over a quarter" is right.
+- **A seller note / earnout / rollover comparison table**, also carried across. Its one statistic — earnouts achieving about 21 cents on the dollar — was **uncited** in the dropped version and linked only to our own earnout post. Verified at SRS Acquiom's M&A earnouts overview ("earnouts achieve about 21 cents on the dollar and are contested at least 28% of the time"), and the attribution was added rather than left resting on an internal link.
 
-- **All 10 `lowCtr` rows.** Seven are inside the 28-day cool-down. The three eligible ones show no snippet fault: `/blog` earns 55 of its 344 impressions on *ibo advisors* at p2.7, where the homepage takes the click at p1.1; `how-to-sell-a-business-to-private-equity` averages p16.1 only because brand queries lift it, its head terms sitting at p25–33; `independent-buyout-explained` (p4.9, 0 clicks) competes on IBO-definition queries with **independentbuyout.com, which we own** — those clicks are invisible here. All three titles are already exact-match at 49–59 chars.
-- **All 6 `strikingDistance` rows.** Three are `family-business-succession-planning`, edited nine runs running and last on 10-13; two are homepage queries, where body copy is off-limits; the sixth is a quoted-phrase search on a page edited 10-03.
-- **Cannibalization** — brand rows across our own estate. The *private equity buyout* split has a designated winner that shipped today; it needs indexing, not routing.
+## Dropped from the run
 
-## Needs a human
+- **`/blog/seller-financing-business-sale`**, the duplicate. The 10-14 version survives: 2,645 words against 2,343, and it cites 26 U.S.C. § 453 and § 1274A as well as § 453A, all three read in full against the statute.
+- **Two link additions**, retargeted. Both runs linked the new post from `/blog/how-private-equity-actually-finances-a-buyout` and `/blog/management-buyout-financing`; the 10-14 anchors are fuller and were kept.
+- A link on `/blog/earnout-in-business-sale` **auto-merged without conflicting** and pointed at the dropped slug. Retargeted. This is the failure mode that needs a positive check every time — a clean merge is not evidence of a correct one.
 
-- **`/industries/restaurants`: request indexing in Search Console.** Live since September, 7 inbound links, correct canonical, in the sitemap — and URL Inspection has never once returned a `lastCrawlTime`. Third consecutive run to reach this independently; no on-page work fixes a URL Google is not fetching. The other five un-indexed URLs only went live today.
-- 15 of 27 blog-index card excerpts differ from their page metas. Pre-existing, already noted by hand on 10-13; flagged so the scope is known.
+## Coverage — two real changes
 
-Audit: 34 pages, 0 errors, 0 warnings. No deal data added, banned-phrasing scan clean, all `jobTitle` values read Managing Partner.
+- **All four posts from the 10-14 merge are now "Submitted and indexed"**, inside 24 hours. 32 of 33 URLs indexed.
+- **`/industries/restaurants` recovered**, from "URL is unknown to Google" back to "Discovered – currently not indexed". The sequence is 10-12 discovered, 10-13 unknown, 10-14 unknown, 10-15 discovered. **The "not a transient" call recorded on 10-14 was wrong** — it was transient, over a two-day window rather than one. The underlying problem is unchanged: `lastCrawlTime` has never been returned for this URL in any inspection. Requesting indexing in Search Console remains the only lever, and no page-side work will substitute.
+
+## Verification
+
+Both salvaged sections verified against their primary sources, including the one claim the run left uncited. Set-off arithmetic re-derived. Both SRS URLs return 200 and a fake path on the same host returns 404, so the 200s are meaningful. Corrected keyword invariants all clean. All `jobTitle` values read "Managing Partner"; both approved biography lines present; no deal data, clients, counts, sizes, timelines or outcomes added.
