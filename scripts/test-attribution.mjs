@@ -418,11 +418,29 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   await page.fill('#ibo-email', 'ada@example.com');
   await page.fill('#ibo-cellNumber', '555-0100');
   await page.check('input[name="respondentRole"][value="Business Advisor"]');
+  await page.selectOption('#ibo-advisorEbitdaBand', { label: 'Between $3M - $10M' });
   await page.click('#ibo-modal-submit');
   await page.waitForTimeout(600);
-  const advisor = fieldMap(submissions[0]);
+  const advisor = submissions.length ? fieldMap(submissions[0]) : {};
   check('modal sends the advisor answer', advisor.role === 'Business Advisor', `role=${advisor.role}`);
-  check('modal sends no ibo_qualified for an advisor', !('ibo_qualified' in advisor), `ibo_qualified=${advisor.ibo_qualified}`);
+  check('modal sends ibo_qualified=True for a $3M+ advisor', advisor.ibo_qualified === 'True' && advisor.what_is_your_approximate_annual_ebitda_profit === '$3M - $10M', JSON.stringify(advisor));
+  await ctx.close();
+}
+
+{
+  const { ctx, submissions } = await newCtx();
+  const page = await ctx.newPage();
+  // An adviser whose clients are under $3M is tagged False, like an owner.
+  await page.goto(`${BASE}/`);
+  await page.click('[data-ibo-open-modal]');
+  await page.fill('#ibo-fullName', 'Ada Lovelace');
+  await page.fill('#ibo-email', 'ada@example.com');
+  await page.check('input[name="respondentRole"][value="Business Advisor"]');
+  await page.selectOption('#ibo-advisorEbitdaBand', { label: 'Less than $3M' });
+  await page.click('#ibo-modal-submit');
+  await page.waitForTimeout(600);
+  const advisor = submissions.length ? fieldMap(submissions[0]) : {};
+  check('modal sends ibo_qualified=False for an under-$3M advisor', advisor.ibo_qualified === 'False' && advisor.role === 'Business Advisor', JSON.stringify(advisor));
   await ctx.close();
 }
 

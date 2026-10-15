@@ -247,11 +247,12 @@
     // Phone is optional: only send it when the visitor filled it in, so a
     // blank answer never overwrites a phone number HubSpot already has.
     if (cellNumber) fields.push({ name: 'phone', value: cellNumber });
-    // ibo_qualified is an owner-only property: in HubSpot it means "owner with
-    // $3M+ EBITDA" and drives nurture routing and the "Paid social owners,
-    // qualified" list, so it is not sent for advisers even though they are
-    // now gated too; they route on `role` plus the EBITDA band below.
-    if (isOwner) fields.push({ name: 'ibo_qualified', value: qualifies ? 'True' : 'False' });
+    // ibo_qualified is sent for owners and advisers alike: True at $3M+ on
+    // the band for the chosen role (an owner's own company, an adviser's
+    // clients). In HubSpot the "Paid social owners, qualified" list (60)
+    // also requires Role is not Business Advisor, so a qualified adviser
+    // stays out of the owner track and routes on `role` (list 63 / W5).
+    fields.push({ name: 'ibo_qualified', value: qualifies ? 'True' : 'False' });
     fields.push(
       // `role`, not `respondent_role`: the latter is not a property in the
       // portal, so HubSpot silently ignored it and no answer to this question
