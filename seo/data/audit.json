@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T21:52:04.749Z",
+  "generatedAt": "2026-10-16T21:52:55.107Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -16,10 +16,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog",
-      "title": "Exit Planning & M&A Insights for Owners | IBO Advisors",
-      "titleLength": 54,
-      "description": "Exit planning, M&A, and Independent Buyout guides from IBO Advisors - written for owners with $3M+ in EBITDA weighing their options before a sale.",
-      "descriptionLength": 146,
+      "title": "Buyouts, Recaps and Exit Options for Owners | IBO Advisors",
+      "titleLength": 58,
+      "description": "Guides to buyouts, recapitalizations and exit options for owners with $3M+ EBITDA - what each structure pays and who ends up controlling the company.",
+      "descriptionLength": 149,
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
@@ -229,7 +229,7 @@
       "description": "Management buyout vs private equity sale, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
       "descriptionLength": 141,
       "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
-      "words": 3251,
+      "words": 3245,
       "date": "2026-10-08",
       "inboundInternalLinks": 12,
       "outboundInternalLinks": 16,
@@ -302,10 +302,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
-      "title": "How to Sell a Business but Keep Control | IBO Advisors",
-      "titleLength": 54,
-      "description": "Four ways a $3M+ EBITDA owner takes real cash off the table and still runs the company: minority recap, dividend recap, staged sale, Independent Buyout.",
-      "descriptionLength": 152,
+      "title": "Sell Part of Your Business, Keep Control | IBO Advisors",
+      "titleLength": 55,
+      "description": "How to sell part of your business and keep control: minority recap, dividend recap, staged sale or an Independent Buyout, and what each one pays you.",
+      "descriptionLength": 149,
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
@@ -320,9 +320,9 @@
       "description": "Seller financing in a business sale: how a seller note is sized, why it ranks behind the bank, the tax that lands in year one, and what to negotiate.",
       "descriptionLength": 149,
       "h1": "Seller Financing in a Business Sale",
-      "words": 3028,
+      "words": 3197,
       "date": "2026-10-14",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -359,10 +359,10 @@
       "description": "The seven types of buyouts compared - LBO, MBO, MBI, secondary, ESOP, recap and the Independent Buyout - on price, leverage, and who ends up in control.",
       "descriptionLength": 152,
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
-      "words": 2291,
+      "words": 2287,
       "date": "2026-10-07",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
