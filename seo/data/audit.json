@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T13:59:51.541Z",
+  "generatedAt": "2026-10-19T17:33:26.913Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
-      "outboundInternalLinks": 27,
+      "inboundInternalLinks": 33,
+      "outboundInternalLinks": 28,
       "issues": []
     },
     {
@@ -47,10 +47,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1847,
+      "words": 1872,
       "date": "2025-12-20",
-      "inboundInternalLinks": 14,
-      "outboundInternalLinks": 17,
+      "inboundInternalLinks": 15,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -62,7 +62,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1811,
       "date": "2025-10-04",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -73,10 +73,10 @@
       "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
       "descriptionLength": 147,
       "h1": "Earnout in a Business Sale: What It Pays",
-      "words": 2113,
+      "words": 2116,
       "date": "2026-09-29",
-      "inboundInternalLinks": 4,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -127,7 +127,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -140,7 +140,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2072,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 22,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -192,7 +192,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 22,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -216,10 +216,10 @@
       "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
       "descriptionLength": 146,
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
-      "words": 1471,
+      "words": 1498,
       "date": "2026-04-24",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -296,20 +296,33 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 13,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
-      "title": "How to Sell a Business but Keep Control | IBO Advisors",
-      "titleLength": 54,
-      "description": "Four ways a $3M+ EBITDA owner takes real cash off the table and still runs the company: minority recap, dividend recap, staged sale, Independent Buyout.",
+      "title": "Sell Part of Your Business and Keep Control | IBO Advisors",
+      "titleLength": 58,
+      "description": "Four ways to sell part of your business, take real cash off the table and keep control: minority recap, dividend recap, staged sale, Independent Buyout.",
       "descriptionLength": 152,
       "h1": "How to Sell a Business but Keep Control",
       "words": 2079,
       "date": "2026-09-27",
       "inboundInternalLinks": 10,
+      "outboundInternalLinks": 12,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "title": "Seller Financing in a Business Sale | IBO Advisors",
+      "titleLength": 50,
+      "description": "A seller note is the part of your price you lend back to the buyer. What it pays, where it sits behind the bank, and the tax that lands before the cash.",
+      "descriptionLength": 152,
+      "h1": "Seller Financing in a Business Sale: What a Seller Note Actually Pays",
+      "words": 2242,
+      "date": "2026-10-19",
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -322,7 +335,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 2064,
       "date": "2026-09-21",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -374,7 +387,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 9,
       "issues": []
     },
