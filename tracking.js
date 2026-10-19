@@ -571,8 +571,73 @@
     }
   }
 
+  /* ------------------------------------------------------------------
+     Full-name fields -> firstname / lastname
+
+     Every lead form on the site asks for one "Full name" field, and the
+     site's own Forms API submissions split it (first word -> firstname, the
+     rest -> lastname) before they are sent. HubSpot's non-HubSpot forms
+     collector (Settings > Marketing > Forms > Non-HubSpot forms) ALSO
+     captures the same DOM form when it is submitted and maps its inputs by
+     name. With no input called firstname it took the whole full name as the
+     first name, which is how records like "Greg Rubin" / "Rubin" appeared.
+
+     So every input marked data-split-name gets hidden firstname / lastname
+     siblings in its form that mirror the split. They are kept current on
+     every keystroke and again at submit (capture phase, ahead of the
+     collector's own listener), and no visible full-name input carries a
+     name attribute the collector could read as the first name.
+     ------------------------------------------------------------------ */
+  function splitName(fullName) {
+    var parts = String(fullName || '').trim().split(/\s+/).filter(Boolean);
+    var first = parts.shift() || '';
+    return { first: first, last: parts.join(' ') };
+  }
+
+  function hiddenField(form, name) {
+    var el = form.querySelector('input[name="' + name + '"]');
+    if (!el) {
+      el = document.createElement('input');
+      el.type = 'hidden';
+      el.name = name;
+      form.appendChild(el);
+    }
+    return el;
+  }
+
+  function wireNameSplitting() {
+    var inputs = document.querySelectorAll('input[data-split-name]');
+    Array.prototype.forEach.call(inputs, function (input) {
+      var form = input.form;
+      if (!form) return;
+      var first = hiddenField(form, 'firstname');
+      var last = hiddenField(form, 'lastname');
+      function sync() {
+        var name = splitName(input.value);
+        first.value = name.first;
+        last.value = name.last;
+      }
+      input.addEventListener('input', sync);
+      input.addEventListener('change', sync);
+      // Window capture runs before any document- or form-level submit
+      // listener, including the collector's, so the hidden values are
+      // current even for a value set without an input event (autofill).
+      window.addEventListener('submit', function (e) {
+        if (e.target === form) sync();
+      }, true);
+      sync();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wireNameSplitting);
+  } else {
+    wireNameSplitting();
+  }
+
   window.iboTracking = {
     track: track,
+    splitName: splitName,
     fireConversion: fireConversion,
     hutk: hutk,
     attribution: attribution,

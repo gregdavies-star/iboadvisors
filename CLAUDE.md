@@ -16,6 +16,7 @@ Static HTML/CSS/JS on Vercel (project `iboadvisors`), no build step. See README.
 - `/book` is the only scheduler entry point. Site links and nurture emails point at `/book` (with a `src` parameter: `modal`, `ibo-exit`, `calculator`, `pdf`, `email`), not at the hosted meetings-na2 page.
 - The scheduling page's "redirect after booking" setting must stay **OFF**. Inside the /book embed it would navigate the whole page away from the on-site confirmation.
 - The scheduling page is a round robin between Michael Chasen (michael@iboadvisors.com, owner 88777593) and Darren Gleeman (darren@iboadvisors.com, owner 162759897). `/book` resolves the host from the booking message's `postResponse.organizer` (by email, then user id, then name) and renders the confirmation from it. Host details (name, title, email, portrait, credential lines) live in the `HOSTS` table in `book/book.js`.
+- HubSpot's non-HubSpot forms collector captures the site's own lead forms on submit and maps inputs by name. Every visible full-name input carries `data-split-name` and **no `name` attribute**; `tracking.js` mirrors the split into hidden `firstname` / `lastname` fields in the same form. Without that, the collector wrote the whole full name into First Name ("Greg Rubin" / "Rubin").
 - The pre-call note posts to the "Pre-call note" HubSpot form (fields `email`, `pre_call_note`, `pre_call_note_host`; the third carries the booked host's email). Its GUID goes in `PRECALL_NOTE_FORM_GUID` in `book/book.js`; while that is empty the note card is not rendered.
 
 ## SEO regeneration
