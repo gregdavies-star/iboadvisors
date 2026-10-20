@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T13:59:51.541Z",
+  "generatedAt": "2026-10-20T15:52:17.693Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
-      "outboundInternalLinks": 27,
+      "inboundInternalLinks": 33,
+      "outboundInternalLinks": 28,
       "issues": []
     },
     {
@@ -73,10 +73,10 @@
       "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
       "descriptionLength": 147,
       "h1": "Earnout in a Business Sale: What It Pays",
-      "words": 2113,
+      "words": 2116,
       "date": "2026-09-29",
-      "inboundInternalLinks": 4,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -127,7 +127,7 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2515,
       "date": "2026-09-10",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -138,10 +138,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 2072,
+      "words": 2113,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -179,7 +179,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1537,
       "date": "2026-04-09",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -192,7 +192,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 21,
+      "inboundInternalLinks": 22,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -216,10 +216,10 @@
       "description": "How management buyouts get financed - seller notes, bank and mezzanine debt, personal capital - and how an Independent Buyout's structure differs.",
       "descriptionLength": 146,
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
-      "words": 1471,
+      "words": 1492,
       "date": "2026-04-24",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -237,10 +237,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
-      "title": "Private Equity Minority Stake: The Veto List | IBO Advisors",
-      "titleLength": 59,
-      "description": "A minority stake in private equity is rarely a minority say. The sponsor keeps veto rights over debt, acquisitions, hiring, and when you sell.",
-      "descriptionLength": 142,
+      "title": "Private Equity Minority Stake: Who Decides | IBO Advisors",
+      "titleLength": 57,
+      "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
+      "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 2061,
       "date": "2026-09-08",
@@ -270,7 +270,7 @@
       "h1": "Private Equity Buyout: What It Is and How It Works",
       "words": 2031,
       "date": "2026-10-04",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -296,7 +296,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 20,
+      "inboundInternalLinks": 21,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -311,6 +311,19 @@
       "date": "2026-09-27",
       "inboundInternalLinks": 10,
       "outboundInternalLinks": 12,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "title": "Seller Financing in a Business Sale | IBO Advisors",
+      "titleLength": 50,
+      "description": "A seller note is the slice of your price the buyer borrows from you. What it costs, how it gets subordinated, and the IRS rules that decide the tax.",
+      "descriptionLength": 148,
+      "h1": "Seller Financing in a Business Sale",
+      "words": 2536,
+      "date": "2026-10-20",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -348,7 +361,7 @@
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
       "words": 2291,
       "date": "2026-10-07",
-      "inboundInternalLinks": 7,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -374,7 +387,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 32,
+      "inboundInternalLinks": 33,
       "outboundInternalLinks": 9,
       "issues": []
     },
