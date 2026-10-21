@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-20T15:34:04.222Z",
+  "inspectedAt": "2026-10-21T15:51:03.194Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -14,7 +14,7 @@
       "url": "https://www.iboadvisors.com/blog",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T16:46:21Z",
+      "lastCrawlTime": "2026-10-10T18:15:04Z",
       "googleCanonical": "https://www.iboadvisors.com/blog",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -50,7 +50,7 @@
       "url": "https://www.iboadvisors.com/industries/healthcare-services",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T01:50:38Z",
+      "lastCrawlTime": "2026-10-20T16:34:49Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -59,6 +59,20 @@
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
       "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/dividend-recapitalization",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -156,7 +170,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T02:42:42Z",
+      "lastCrawlTime": "2026-10-20T19:04:47Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

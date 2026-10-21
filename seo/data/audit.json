@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:39:18.556Z",
+  "generatedAt": "2026-10-21T16:00:48.724Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,10 +34,10 @@
       "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and who controls the company after.",
       "descriptionLength": 148,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2288,
+      "words": 2325,
       "date": "2026-09-08",
       "inboundInternalLinks": 19,
-      "outboundInternalLinks": 22,
+      "outboundInternalLinks": 23,
       "issues": []
     },
     {
@@ -283,7 +283,7 @@
       "h1": "Private Equity Buyout: What It Is and How It Works",
       "words": 2031,
       "date": "2026-10-04",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -346,10 +346,10 @@
       "description": "The advantages and disadvantages of selling to private equity: a worked $35M deal nets $19M after tax, against the debt, the escrow and the seven-year hold.",
       "descriptionLength": 156,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 2064,
+      "words": 2095,
       "date": "2026-09-21",
       "inboundInternalLinks": 12,
-      "outboundInternalLinks": 17,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -380,8 +380,8 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
-      "title": "Private Equity Buyout: What Happens Years 1-7 | IBO Advisors",
-      "titleLength": 60,
+      "title": "What Happens After Private Equity Buys Your Company",
+      "titleLength": 51,
       "description": "What happens after a private equity buyout, year by year: the debt on your balance sheet, the consent list, 65% CEO turnover, and a seven-year hold.",
       "descriptionLength": 148,
       "h1": "What Happens After Private Equity Buys Your Company",
