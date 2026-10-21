@@ -84,14 +84,12 @@
         "ESOP buyout",
         "seller financing in a business sale",
         "earnout in business sale",
-        "dividend recapitalization explained",
-        "secondary buyout",
-        "types of buyouts",
-        "management buy-in"
+        "dividend recapitalization explained"
       ],
       "covered": {
         "minority recapitalization": "/blog/minority-recapitalization-explained",
         "earnout in business sale": "/blog/earnout-in-business-sale",
+        "seller financing in a business sale": "/blog/seller-financing-in-a-business-sale",
         "majority recapitalization": "/blog/majority-recapitalization-vs-sale",
         "leveraged recapitalization": "/blog/majority-recapitalization-vs-sale",
         "recapitalization vs sale": "/blog/majority-recapitalization-vs-sale",
@@ -103,7 +101,9 @@
         "secondary buyout": "/blog/types-of-buyouts",
         "management buy-in": "/blog/types-of-buyouts",
         "buyout companies": "/blog/types-of-buyouts",
-        "ESOP buyout": "/blog/types-of-buyouts"
+        "ESOP buyout": "/blog/types-of-buyouts",
+        "private equity buyout": "/blog/private-equity-buyout-explained",
+        "dividend recapitalization explained": "/blog/dividend-recapitalization"
       }
     },
     {
@@ -151,7 +151,10 @@
       "covered": {
         "private equity minority stake control": "/blog/minority-pe-stake-board-control-veto-rights",
         "veto rights private equity": "/blog/minority-pe-stake-board-control-veto-rights",
-        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company"
+        "what private equity does after acquisition": "/blog/what-happens-after-private-equity-buys-your-company",
+        "private equity buyout": "/blog/private-equity-buyout-explained",
+        "buyout private equity": "/blog/private-equity-buyout-explained",
+        "pe buyout": "/blog/private-equity-buyout-explained"
       }
     },
     {
