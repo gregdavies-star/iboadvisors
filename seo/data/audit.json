@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:39:18.556Z",
+  "generatedAt": "2026-10-22T16:04:17.208Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,21 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 35,
+      "outboundInternalLinks": 30,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "title": "Adjusted EBITDA Add-Backs: What Survives Diligence",
+      "titleLength": 50,
+      "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
+      "descriptionLength": 138,
+      "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
+      "words": 2112,
+      "date": "2026-10-22",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -73,10 +86,10 @@
       "description": "A dividend recapitalization borrows against your company and pays you the proceeds - no buyer, no board seat. What it pays, what it costs, how it's taxed.",
       "descriptionLength": 154,
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
-      "words": 2224,
+      "words": 2245,
       "date": "2026-10-18",
-      "inboundInternalLinks": 3,
-      "outboundInternalLinks": 10,
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -86,10 +99,10 @@
       "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
       "descriptionLength": 147,
       "h1": "Earnout in a Business Sale: What It Pays",
-      "words": 2113,
+      "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 6,
-      "outboundInternalLinks": 13,
+      "inboundInternalLinks": 7,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -101,7 +114,7 @@
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
       "words": 1614,
       "date": "2025-11-21",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -138,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2605,
+      "words": 2645,
       "date": "2026-09-10",
-      "inboundInternalLinks": 25,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 26,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -205,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -309,7 +322,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -380,10 +393,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
-      "title": "Private Equity Buyout: What Happens Years 1-7 | IBO Advisors",
-      "titleLength": 60,
-      "description": "What happens after a private equity buyout, year by year: the debt on your balance sheet, the consent list, 65% CEO turnover, and a seven-year hold.",
-      "descriptionLength": 148,
+      "title": "What Happens When Private Equity Buys Your Company",
+      "titleLength": 50,
+      "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
+      "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
       "words": 2482,
       "date": "2026-09-12",
@@ -400,7 +413,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -413,7 +426,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 9,
       "issues": []
     },
