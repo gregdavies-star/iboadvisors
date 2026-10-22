@@ -69,6 +69,11 @@
       utmParams: function () { return {}; },
       utmFields: function () { return []; },
       meetingFields: function () { return []; },
+      // Fallback split if tracking.js failed to load: first word, then the rest.
+      splitName: function (name) {
+        var parts = String(name || '').trim().split(/\s+/).filter(Boolean);
+        return { first: parts.shift() || '', last: parts.join(' ') };
+      },
       withUtms: function (url) { return url; },
       formContext: formContext,
       submitForm: function (portalId, formGuid, fields) {
@@ -495,9 +500,11 @@
     return tracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, fields);
   }
 
+  // Shared best-effort split (tracking.js); same rules as the hidden
+  // firstname / lastname fields the forms carry for HubSpot.
   function splitName(fullName) {
-    var parts = fullName.split(/\s+/);
-    return { first: parts.shift() || fullName, last: parts.join(' ') };
+    var split = tracking.splitName(fullName);
+    return { first: split.first || fullName, last: split.last };
   }
 
   var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;

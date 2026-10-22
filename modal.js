@@ -232,9 +232,11 @@
     // company, advisors on the companies they typically work with.
     var qualifies = !!(ebitdaOption && ebitdaOption.getAttribute('data-qualifies') === 'true');
 
-    var nameParts = fullName.split(/\s+/);
-    var firstName = nameParts.shift() || fullName;
-    var lastName = nameParts.join(' ');
+    // Shared best-effort split (tracking.js); same rules as the hidden
+    // firstname / lastname fields the form carries for HubSpot.
+    var split = window.iboTracking.splitName(fullName);
+    var firstName = split.first || fullName;
+    var lastName = split.last;
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Checking…';
@@ -447,9 +449,9 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      var nameParts = name.split(/\s+/);
-      var firstName = nameParts.shift() || name;
-      var lastName = nameParts.join(' ');
+      var split = window.iboTracking.splitName(name);
+      var firstName = split.first || name;
+      var lastName = split.last;
 
       window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_MESSAGE_FORM_GUID, [
         { name: 'firstname', value: firstName },

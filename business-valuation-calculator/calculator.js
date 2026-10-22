@@ -50,6 +50,11 @@
       utmParams: function () { return {}; },
       utmFields: function () { return []; },
       meetingFields: function () { return []; },
+      // Fallback split if tracking.js failed to load: first word, then the rest.
+      splitName: function (name) {
+        var parts = String(name || '').trim().split(/\s+/).filter(Boolean);
+        return { first: parts.shift() || '', last: parts.join(' ') };
+      },
       withUtms: function (url) { return url; },
       formContext: formContext,
       submitForm: function (portalId, formGuid, fields) {
@@ -484,9 +489,9 @@
       return;
     }
 
-    var nameParts = fullName.split(/\s+/);
-    var firstName = nameParts.shift() || fullName;
-    var lastName = nameParts.join(' ');
+    var split = tracking.splitName(fullName);
+    var firstName = split.first || fullName;
+    var lastName = split.last;
     var band = ebitdaBandFor(lastResult.adjProfit);
     var qualifies = band !== UNQUALIFIED_BAND;
 
