@@ -18,7 +18,7 @@ Editor URL pattern: `https://app-na2.hubspot.com/workflows/245308986/platform/fl
 | W4 | IBO Nurture W4 - Track C owner under $1M | [5023160006](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5023160006/edit) | 18 | API, 30 Sep |
 | W5 | IBO Nurture W5 - Track D advisers | [5023183577](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5023183577/edit) | 11 | API, 30 Sep |
 | W6 | IBO Nurture W6 - Long tail monthly | [5021185726](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5021185726/edit) | 23 | By hand, 29 Sep |
-| W7 | IBO Nurture W7 - Meeting reminder (F1) | [5022928580](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5022928580/edit) | 3 | API, 30 Sep |
+| W7 (OFF since 22 Oct; prep text moved to the scheduling page confirmation email) | IBO Nurture W7 - Meeting reminder (F1) | [5022928580](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5022928580/edit) | 3 | API, 30 Sep |
 | W8 | IBO Nurture W8 - No-show recovery (F3, F4, A7, A8) | [5023073984](https://app-na2.hubspot.com/workflows/245308986/platform/flow/5023073984/edit) | 15 | API, 30 Sep |
 
 ## Settings as built
