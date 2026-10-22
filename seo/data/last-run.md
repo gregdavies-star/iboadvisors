@@ -1,36 +1,32 @@
-# Daily SEO run — 2026-10-21
+# Daily SEO run — 2026-10-22
 
-Clicks and impressions nearly doubled against the prior 28 days and average position improved 5.5 places, so there was no decliner work. Two real problems: `/industries/restaurants` still unindexed while both sibling industry pages rank, and a three-way fight over "private equity buyout" caused by two of our own titles leading with the same head term. Both fixed; no new post (the trailing-7-day cap of 2 is met).
+Clicks up 55% and average position up five places on the prior window; nothing needed defending today.
+One new post on adjusted EBITDA add-backs — the first cluster-4 gap not already answered by an existing page — built on two 2026 credit agreements and the SEC's non-GAAP interpretations.
+One title/meta rewrite that also settles half a cannibalization row. Audit clean: 36 pages, 0 errors.
 
-| Window | Clicks | Impressions | CTR | Position |
+## Search Console, 28 days vs prior 28
+
+| | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 2026-09-21 → 10-18 | 80 | 3,878 | 2.06% | 11.4 |
-| 2026-08-24 → 09-20 | 43 | 2,055 | 2.09% | 16.9 |
+| 2026-09-22 → 10-19 | 76 | 3,947 | 1.93% | 11.3 |
+| 2026-08-25 → 09-21 | 49 | 2,156 | 2.27% | 16.5 |
 
-## Changes (4 pages)
+## Changes
 
-- **`/industries/restaurants` — expanded ~670 words.** "Discovered – currently not indexed", 0 impressions, while `/industries/government-contractors` runs 43 impressions at 4.2 and `/industries/healthcare-services` 37 at 11.3. It already has 7 inbound links, so the gap is perceived value, not discovery. Added a section on the three four-wall ratios a buyer tests before accepting restaurant EBITDA — prime cost, occupancy as a share of sales, and the gap between restaurant-level margin and company EBITDA — plus one FAQ and its JSON-LD entry. Every figure came from the Texas Roadhouse FY2025 10-K already cited on the page (food and beverage 35.0% vs 33.4%, labor 33.3% vs 33.1%, rent 1.6%, restaurant margin 15.5% vs 17.1%). "Reviewed" moved to October 2026.
-- **`/blog/what-happens-after-private-equity-buys-your-company` — retitled** to "What Happens After Private Equity Buys Your Company". It led with the exact term `/blog/private-equity-buyout-explained` targets while sitting at 26.1 on "buyout private equity" (47 imp) and 20.7 on "private equity buyout" (34 imp) — and at 3.8 on its own query. Last title change 09-20, outside the cool-down.
-- **Two contextual links into the winner** `/blog/private-equity-buyout-explained` (5 inbound links, positions 47.7 and 11.4), from `/blog/alternatives-to-selling-to-private-equity` and `/blog/selling-to-private-equity-pros-and-cons`, query as anchor text.
+- **New post, `/blog/adjusted-ebitda-add-backs`** (2,112 words incl. tables). Rule 7: one post actually shipped in the trailing 7 days. Specificity is public record — MasterBrand's March 2026 credit agreement caps run-rate synergy add-backs at **15% of Consolidated EBITDA** and Viasat's January 2026 agreement at **20.0%**; SEC C&DI 100.01 treats an expense recurring "at irregular intervals" as recurring. Worked on an invented $5M-EBITDA company. Nine internal links out including the calculator, three inbound donors added.
+- **Title + meta, `/blog/what-happens-after-private-equity-buys-your-company`.** lowCtr: 320 impressions, 4 clicks (1.25%) at position 9.9 vs 3.0% expected; last rewritten 09-20. The old title opened with "Private Equity Buyout", which `/blog/private-equity-buyout-explained` is meant to win; the new one uses this page's own best queries ("what happens when a private equity firm buys your company", positions 3.3–12.4).
 
-## Skipped
+## Considered and skipped
 
-- **Low CTR:** seven of eight flagged pages are inside the 28-day cool-down. The eighth, `/blog/how-pe-firms-value-a-company`, is eligible but its impressions are almost all "private equity accounting firm valuation" (pos 66.6) and "private equity and accounting firm valuations" (pos 52.5). No snippet wins at position 60 — content gap, not title fault.
-- **Striking distance:** all three queries sit on `/blog/family-business-succession-planning`, expanded 10-13 (clears 10-27). The other two are homepage queries; homepage body copy is off limits.
-- **Internal linking:** every post already links to ≥5 others.
+- **Rule 3, seven other lowCtr pages** — inside the 28-day cool-down, except `/blog/how-pe-firms-value-a-company`, whose visible queries are "private equity accounting firm valuation" at positions 52–67. A relevance problem, not a snippet one.
+- **Rule 4, striking distance** — three of four rows are `/blog/family-business-succession-planning`, edited 10-13 (inside the 14-day cool-down); the fourth is "ibo finance" on the homepage, where body copy is off-limits. No decliners this window (rule 6).
 
 ## Coverage
 
-32 of 35 PASS. Restaurants addressed above; requesting indexing in Search Console is still the other lever. `/blog/dividend-recapitalization` and `/blog/seller-financing-in-a-business-sale` show "URL is unknown to Google" — both ≤3 days old with 3 and 8 inbound links, so crawl lag, not a fault.
+35 of 36 pass. `/industries/restaurants` now reads "URL is unknown to Google" (it was "Discovered – currently not indexed" through 10-20) despite seven inbound internal links and a sitemap entry. Nothing on-page left to fix — **requesting indexing in Search Console is the only lever.**
 
-## Needs a human
+## For a human
 
-1. **PE buying accounting firms**: 27 impressions across two variants, ranking 50-66 on a generic page, no page targeting it. Worth a post once the cap clears — public-record rich, needs no deal data.
-2. **Request indexing for `/industries/restaurants`** after merge.
-3. `seo/tmp-changelog.mjs` is an untracked helper the sandbox would not let me delete — please remove before merging.
+`/blog/private-equity-buyout-explained` sits at position 47.4 for "buyout private equity" while two other pages outrank it on the query it is designated to win. If today's retitle does not separate them within two windows, the fix is re-pointing internal anchors wholesale rather than any redirect.
 
-## Verification
-
-Every figure in the new section was read off the 10-K itself, not from memory. One draft sentence explained the 1.6% rent line by saying Texas Roadhouse owns much of its real estate; the filing says the opposite — "the majority of our company restaurants are located on leased premises" — so the sentence was rewritten to make the point the filing does support, that a reported rent line is not the same thing as total occupancy cost.
-
-No flags. Nothing added references an IBO Advisors transaction, client, or result; the only specificity is a public SEC filing and arithmetic on a made-up twelve-unit group.
+No flags: nothing in this run touched firm claims, clients, or deal data.

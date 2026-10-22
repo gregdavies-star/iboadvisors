@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-10-21T15:51:03.194Z",
+  "inspectedAt": "2026-10-22T15:49:06.838Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T18:17:22Z",
+      "lastCrawlTime": "2026-10-21T18:17:05Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -23,7 +23,7 @@
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T17:17:16Z",
+      "lastCrawlTime": "2026-10-22T06:14:34Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -58,23 +58,27 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/dividend-recapitalization",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-21T18:16:06Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/dividend-recapitalization",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
-      "verdict": "NEUTRAL",
-      "coverageState": "URL is unknown to Google",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-21T18:56:22Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -197,7 +201,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T08:04:59Z",
+      "lastCrawlTime": "2026-10-21T20:47:31Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -260,7 +264,7 @@
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T15:58:10Z",
+      "lastCrawlTime": "2026-10-22T12:59:50Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/restaurant-ma",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
