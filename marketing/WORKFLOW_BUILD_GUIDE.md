@@ -185,6 +185,11 @@ Trigger: none (fed by W0).
 
 ## W7 - IBO Nurture W7 - Meeting reminder (F1)
 
+**Status 22 Oct 2026: OFF.** The F1 prep content was merged into the scheduling page's
+confirmation email and W7 was switched off in the editor. Leave it off; the section below is the
+build record. (As run from 2 Oct to 22 Oct, F1 went out about 60 minutes after booking, not the
+day before as written here.)
+
 This workflow is for people who HAVE booked, so it must not use lists 58/59 or the
 meeting-based goal. Its own settings:
 

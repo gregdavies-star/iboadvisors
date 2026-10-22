@@ -38,7 +38,7 @@ Thanks for asking about the Independent Buyout on LinkedIn. I'm Edmund Breitling
 
 Short version: an IBO gives you private-equity-level liquidity and valuation without selling to private equity, without giving up control, and in most structures without capital gains tax on the proceeds.
 
-The fastest way to see whether it fits your company is 20 confidential minutes with our managing partner, Michael Chasen. Pick a time here:
+The fastest way to see whether it fits your company is 30 confidential minutes with our managing partner, Michael Chasen. Pick a time here:
 [scheduler]
 
 If you'd rather I call, reply with a good number and a time that suits you.
@@ -79,7 +79,7 @@ Edmund
 **Preview:** Same company, same value, two outcomes.
 
 ```
-{{firstname}}, one number explains why owners look at this.
+Hi {{firstname}}, one number explains why owners look at this.
 
 Take a company worth $50M. Sold to a PE firm, after federal and state capital gains the owner typically nets about $37.8M, plus a required rollover and a board that now outvotes them.
 
@@ -102,7 +102,7 @@ Edmund
 **Preview:** Five sentences, no jargon.
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 The mechanics, in five sentences.
 
@@ -125,7 +125,7 @@ Edmund
 **Preview:** Three questions I'd ask about your company.
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Edmund mentioned you'd asked about the IBO. I co-founded Blackboard, took it public and sold it for $1.8 billion, and I've been on one side or the other of more than sixty M&A transactions since. I started IBO Advisors because most owners are only ever shown two doors: sell to private equity or sell to a strategic.
 
@@ -145,7 +145,7 @@ Michael
 **Preview:** Control, rollover, and the "second bite".
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Three things that don't appear on the summary page of a PE term sheet:
 
@@ -171,7 +171,7 @@ Edmund
 **Preview:** Reply with a number.
 
 ```
-{{firstname}}, to save us both time, reply with a number:
+Hi {{firstname}}, to save us both time, reply with a number:
 
 1 - I'd like to talk in the next couple of weeks (I'll send times).
 2 - Interesting, but not for 6-12 months (I'll check back then, nothing in between).
@@ -188,7 +188,7 @@ Edmund
 **Preview:** No hard feelings either way.
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 I haven't heard back, which usually means one of two things: the timing is wrong, or the emails are. Either is fine.
 
@@ -223,7 +223,7 @@ Edmund
 **Subject:** The pros and cons, honestly
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Selling to private equity is the right answer for some owners. The trouble is that the people explaining it are usually the buyers.
 
@@ -238,7 +238,7 @@ https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons
 **Subject:** How they'll value your company
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Before any buyer names a number, they've already decided the multiple. Here's how PE firms build it, what they quietly deduct, and why two firms can land 2x apart on the same company.
 https://www.iboadvisors.com/blog/how-pe-firms-value-a-company
@@ -254,7 +254,7 @@ https://www.iboadvisors.com/business-valuation-calculator
 **Subject:** The second bite, explained
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 "You'll roll 20% and get a second bite of the apple" is the most persuasive line in private equity. Sometimes it's true. Here's how the rollover actually works, who controls the exit that produces the second bite, and the two clauses that decide whether you ever see it.
 https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained
@@ -281,7 +281,7 @@ https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained
 **Subject:** Still the right time to talk?
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Quick one. It's been about three months since you first asked about the Independent Buyout. Things change: EBITDA, a PE approach, a partner who wants out, a health scare.
 
@@ -329,7 +329,7 @@ Edmund
 **Subject:** The four levers that move EBITDA
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Most companies in the $1M-$3M range are closer to $3M than their P&L says. Four things buyers will add back or reprice, and that you can move on purpose:
 
@@ -350,7 +350,7 @@ Edmund
 **Subject:** Exit planning, eight steps
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Whatever the exit ends up being, the owners who do best start two to five years out. Here's the sequence we'd follow, in order, with what each step is worth at the closing table:
 https://www.iboadvisors.com/blog/exit-planning-for-business-owners
@@ -367,7 +367,7 @@ Edmund
 **Subject:** Other doors: MBO, minority recap
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Two structures that do work below $3M of EBITDA, and that PE firms rarely mention because they don't need a PE firm:
 
@@ -389,7 +389,7 @@ Edmund
 **Subject:** Has EBITDA crossed $3M?
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Quarterly check-in, one question: is the company at or near $3M of EBITDA now, or on a clear path there in the next 12 months?
 
@@ -457,7 +457,7 @@ Edmund
 **Subject:** How to spot an IBO candidate in your book
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 The profile that tends to fit, so you can scan your client list in five minutes:
 
@@ -480,7 +480,7 @@ Edmund
 **Subject:** What we do for referring advisers
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Three things advisers usually want to know before introducing a client:
 
@@ -500,7 +500,7 @@ Edmund
 **Subject:** Close the loop?
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 I'll stop here unless you tell me otherwise. If a client of yours ever gets a PE approach and wants a second path, the 30 minutes with Michael is a standing offer:
 [scheduler]
@@ -518,13 +518,23 @@ Edmund
 
 Enrollment: meeting booked through the scheduler. HubSpot's own confirmation email stays on.
 
+> **22 Oct 2026:** W7 is **off**. The "three things to have in your head" prep paragraph now lives
+> in the scheduling page's confirmation email (Sales > Meetings > discussing-the-ibo > Automation),
+> which is sent by the booking itself in the host's voice and never repeats on a reschedule. The
+> meetings tool also sends reminders 2 hours and 10 minutes before the call. F1 below is kept for
+> the record only. F3 and F4 (W8, no-show recovery) are unchanged.
+>
+> Every nurture email opens `Hi {{firstname}},` with the token default "there" (checked one by one
+> in the editor, 22 Oct). The bare `{{firstname}},` opener used before rendered as "there," when
+> the name was missing.
+
 ### F1 - 24 hours before the meeting
 
 **Subject:** Tomorrow: three things to have handy
 **Preview:** Nothing to prepare, just have these to hand.
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Looking forward to tomorrow. To make the 30 minutes count, it helps to have three things in your head (no documents needed):
 
@@ -553,7 +563,7 @@ Reminder: your 30 minutes with Michael Chasen (IBO Advisors) is at {{meeting tim
 **Subject:** Missed you, grab another slot
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 Looks like today didn't work; it happens. Here's the link to pick another time:
 [scheduler]
@@ -570,7 +580,7 @@ Edmund
 **Subject:** Still worth the 30 minutes?
 
 ```
-{{firstname}},
+Hi {{firstname}},
 
 One more try. You booked the call for a reason, and that reason probably hasn't gone away. The calendar is here:
 [scheduler]
