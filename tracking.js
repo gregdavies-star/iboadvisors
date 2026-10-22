@@ -588,10 +588,47 @@
      collector's own listener), and no visible full-name input carries a
      name attribute the collector could read as the first name.
      ------------------------------------------------------------------ */
+  /* One "Full name" box cannot say where the first name ends, so this is a
+     best-effort split that every form on the site shares (modal.js,
+     calculator.js and exit.js call it). Rules, in order:
+       - a trailing ", MBA" / ", Jr." style suffix is dropped;
+       - a known two-word given name ("Mary Jane", "Juan Carlos") stays
+         together as the first name when a surname follows it;
+       - otherwise the first word is the first name;
+       - a lone middle initial ("William R Schoenherr") is dropped;
+       - everything else is the last name, so "Gabriel García Márquez" and
+         "Ludwig van Beethoven" keep their two-word surnames.
+     Reps can still correct the record; the aim is to be right more often. */
+  var COMPOUND_FIRST_NAMES = [
+    'mary jane', 'mary ann', 'mary anne', 'mary beth', 'mary lou', 'mary kay', 'mary ellen',
+    'mary jo', 'mary kate', 'mary grace', 'mary catherine', 'mary elizabeth', 'mary frances',
+    'mary margaret', 'mary louise', 'mary alice', 'mary clare', 'mary claire',
+    'anna maria', 'anna marie', 'ana maria', 'ana lucia', 'ana paula', 'ann marie', 'anne marie',
+    'rose marie', 'carol ann', 'ruth ann', 'lee ann', 'lee anne', 'leigh ann', 'jo ann', 'jo anne',
+    'sue ellen', 'sarah jane', 'betty jo', 'betty lou', 'peggy sue', 'emma jane', 'emma rose',
+    'billy bob', 'billy joe', 'billy ray', 'bobby joe', 'bobby ray', 'jim bob', 'joe bob',
+    'john paul', 'john michael', 'john david', 'john mark', 'john henry',
+    'jean paul', 'jean pierre', 'jean luc', 'jean claude', 'jean marie', 'jean michel',
+    'juan carlos', 'juan pablo', 'juan jose', 'juan manuel', 'juan antonio', 'juan luis',
+    'jose luis', 'jose antonio', 'jose manuel', 'jose maria', 'luis miguel', 'luis alberto',
+    'carlos alberto', 'jorge luis', 'miguel angel', 'marco antonio', 'pedro pablo',
+    'maria jose', 'maria elena', 'maria fernanda', 'maria teresa', 'maria luisa', 'maria del',
+    'hans peter', 'karl heinz', 'klaus dieter', 'franz josef'
+  ];
+
   function splitName(fullName) {
-    var parts = String(fullName || '').trim().split(/\s+/).filter(Boolean);
-    var first = parts.shift() || '';
-    return { first: first, last: parts.join(' ') };
+    var text = String(fullName || '').replace(/\s+/g, ' ').trim();
+    // "Santhosh Cherian, MD" / "John Smith, Jr." -> drop the suffix.
+    text = text.replace(/\s*,.*$/, '');
+    var parts = text.split(' ').filter(Boolean);
+    if (!parts.length) return { first: '', last: '' };
+    var takeTwo = parts.length >= 3 &&
+      COMPOUND_FIRST_NAMES.indexOf((parts[0] + ' ' + parts[1]).toLowerCase()) !== -1;
+    var first = takeTwo ? parts.slice(0, 2).join(' ') : parts[0];
+    var rest = parts.slice(takeTwo ? 2 : 1);
+    // Drop a lone middle initial when a surname still follows it.
+    if (rest.length >= 2 && /^[A-Za-z]\.?$/.test(rest[0])) rest = rest.slice(1);
+    return { first: first, last: rest.join(' ') };
   }
 
   function hiddenField(form, name) {
