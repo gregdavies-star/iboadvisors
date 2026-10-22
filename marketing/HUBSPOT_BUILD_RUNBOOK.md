@@ -1,5 +1,7 @@
 # HubSpot build runbook - paid-social nurture (28 Sep 2026)
 
+> **Update, 22 October 2026.** (1) Every nurture email now opens `Hi {{firstname}},` with default "there"; A1 and the catch-up say 30 confidential minutes. (2) W7 is off: the "three things" prep text lives in the scheduling page's confirmation email. (3) HubSpot's non-HubSpot forms collector was writing the full name into First Name ("Greg Rubin" / "Rubin") and ignores hidden inputs, so the site-side mirror in tracking.js cannot stop it; the collector is being switched off in Settings > Marketing > Forms > Non-HubSpot Forms. (4) Opening a marketing email from a contact's timeline shows the published preview with token defaults ("Hi there"), not the personalised copy that was sent; preview-as-contact and test-send-as-contact show the real render. (5) Active list **283 "Suppression - in conversation"** (created 22 Oct, 141 contacts): Lead Status is any of Prospecting, In discussions, Doing Phase I Analysis, After Phase I, Closed, Deal Executed, Informational Only; OR Last Contacted within the last 14 days. Added as a suppression segment on W0-W6 on 22 Oct (existing contacts not enrolled); it is also the trigger for the planned W9 in-conversation drip.
+
 > **Update, 5 October 2026.** The scheduler now lives at `/book` on the site (`https://www.iboadvisors.com/book`); the hosted HubSpot scheduling page is embedded there, and the nurture emails link to `/book?src=email&...`. The "Pre-call note" form (GUID `a86c0176-58e8-437b-9474-f38bddd0a0a0`), the contact properties `pre_call_note`, `pre_call_note_host` and `pre_call_note_date`, and the workflow "IBO Booking - Pre-call note to host" (id 5062740687) all exist. The private app now has the `crm.schemas.contacts.write` and `forms` scopes but not `marketing-email`, so marketing email publishes are done in the HubSpot UI.
 
 What was built automatically, what is left to click through in HubSpot, and the exact settings for each remaining step. Companion to `DRIP_SEQUENCE_STRATEGY.md` and `DRIP_SEQUENCE_EMAILS.md`.
@@ -90,6 +92,7 @@ D1 -> 3 days -> D2 -> 7 days -> D3 -> 10 days -> D4 -> 25 days -> enroll in W6.
 - Delay until the first Tuesday, 7:30am.
 
 ### W7 - Track F, meeting booked
+- **22 Oct 2026: W7 is OFF.** The prep paragraph is in the scheduling page's confirmation email. The lines below are the original sketch.
 - Enroll: Latest meeting activity is known (or Meeting start time is known via the Meetings activity filter).
 - Delay until 24 hours before the meeting start (use the meeting's start time property from the Meetings tool) -> F1. 
 - SMS at T-2h is not available (no SMS tool in this portal); skip until HubSpot SMS or Twilio is added.

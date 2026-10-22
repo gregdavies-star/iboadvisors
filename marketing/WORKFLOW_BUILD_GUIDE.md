@@ -50,12 +50,16 @@ with suppression lists and a goal. Click Details on the trigger box at the top o
 then the Settings tab:
 
 - Re-enroll: off (W6: on).
-- "Added to a suppression segment": ON, then pick three lists:
+- "Added to a suppression segment": ON, then pick the lists (22 Oct 2026: list 283 "Suppression - in
+  conversation" was added to W0-W6; in the current editor this setting is reached by clicking inside
+  the trigger box, then the Settings tab, not the top-bar Settings menu):
   - 58 "Suppression - never nurture" (internal domains, CSG Partners, Michael's test addresses,
     scheduler bookings, customers, Unqualified / Not Interested)
   - 59 "Suppression - met Michael (static, 29 Sep 2026)"
   - 68 "Suppression - replied or contact in a year" (replied to a marketing or sales email, or
     lead status Contact In a Year; created 29 Sep for this purpose)
+  - 283 "Suppression - in conversation" (Lead Status in any sales stage, or Last Contacted within
+    14 days; added 22 Oct 2026 to W0-W6, W0 included)
 - "Met a workflow goal": ON, goal criteria: Latest meeting activity is known.
 - "No longer meet eligibility conditions": leave as is.
 - Save.
@@ -184,6 +188,11 @@ Trigger: none (fed by W0).
 12. Enroll in another workflow: W6
 
 ## W7 - IBO Nurture W7 - Meeting reminder (F1)
+
+**Status 22 Oct 2026: OFF.** The F1 prep content was merged into the scheduling page's
+confirmation email and W7 was switched off in the editor. Leave it off; the section below is the
+build record. (As run from 2 Oct to 22 Oct, F1 went out about 60 minutes after booking, not the
+day before as written here.)
 
 This workflow is for people who HAVE booked, so it must not use lists 58/59 or the
 meeting-based goal. Its own settings:
