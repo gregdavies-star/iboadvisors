@@ -21,6 +21,13 @@
      Google Consent Mode defaults and gates the Vaudit / IDPixel / Happierleads tags, which it
      injects itself when there is no opt-out signal. See /privacy section 8. -->
 <script src="/privacy-signals.js"></script>
+<!-- FirstParty Tracking Script -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://fp.iboadvisors.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5QX2GKC7');</script>
+<!-- End FirstParty Tracking Script -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
 <script>
@@ -99,6 +106,10 @@
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
 </head>
 <body>
+<!-- FirstParty Tracking Script (noscript) -->
+<noscript><iframe src="https://fp.iboadvisors.com/ns.html?id=GTM-5QX2GKC7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End FirstParty Tracking Script (noscript) -->
 
 <header class="site-header">
   <div class="site-header__inner">
