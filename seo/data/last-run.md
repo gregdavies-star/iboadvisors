@@ -1,32 +1,36 @@
-# Daily SEO run — 2026-10-22
+# Daily SEO run — 2026-10-23
 
-Clicks up 55% and average position up five places on the prior window; nothing needed defending today.
-One new post on adjusted EBITDA add-backs — the first cluster-4 gap not already answered by an existing page — built on two 2026 credit agreements and the SEC's non-GAAP interpretations.
-One title/meta rewrite that also settles half a cannibalization row. Audit clean: 36 pages, 0 errors.
+First clean run since #66 merged on 10-21: no unmerged branch, so no duplicate post this time. One new post, two title/meta rewrites, three inbound links, and a keyword-map fix that closes the loop which produced seventeen duplicates.
 
-## Search Console, 28 days vs prior 28
-
-| | Clicks | Impressions | CTR | Position |
+| Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 2026-09-22 → 10-19 | 76 | 3,947 | 1.93% | 11.3 |
-| 2026-08-25 → 09-21 | 49 | 2,156 | 2.27% | 16.5 |
+| 23 Sep – 20 Oct | 77 | 4,000 | 1.92% | 11.4 |
+| Prior 28 days | 51 | 2,276 | 2.24% | 16.1 |
 
-## Changes
+Impressions up 76%, clicks up 51%, average position up 4.7 places. CTR fell because the new impressions arrive at positions 10–25.
 
-- **New post, `/blog/adjusted-ebitda-add-backs`** (2,112 words incl. tables). Rule 7: one post actually shipped in the trailing 7 days. Specificity is public record — MasterBrand's March 2026 credit agreement caps run-rate synergy add-backs at **15% of Consolidated EBITDA** and Viasat's January 2026 agreement at **20.0%**; SEC C&DI 100.01 treats an expense recurring "at irregular intervals" as recurring. Worked on an invented $5M-EBITDA company. Nine internal links out including the calculator, three inbound donors added.
-- **Title + meta, `/blog/what-happens-after-private-equity-buys-your-company`.** lowCtr: 320 impressions, 4 clicks (1.25%) at position 9.9 vs 3.0% expected; last rewritten 09-20. The old title opened with "Private Equity Buyout", which `/blog/private-equity-buyout-explained` is meant to win; the new one uses this page's own best queries ("what happens when a private equity firm buys your company", positions 3.3–12.4).
+## Changed
+
+- **New post — `/blog/adjusted-ebitda-add-backs`** (rule 7; one post shipped in the trailing 7 days). Highest-priority genuinely uncovered keyword once cluster 4's mis-mapping is fixed. 2,412 words, four sources, all opened: the SEC's non-GAAP C&DIs (100.01–100.04, 100.06); Gen Digital's credit agreement on EDGAR — twelve "plus" clauses, run-rate savings capped at 30% of Consolidated EBITDA, a "big four" QoE named as the evidence standard; GF Data via ACG (360 deals, 7.4x with a sell-side QoE vs 7.0x without); St. Louis Fed WP 2022-029. Worked example is an invented $5M-EBITDA contractor. **Not used:** S&P's add-back studies (spglobal.com 403s) and the "22% of add-backs rejected" figure that advisory blogs attribute to SRS Acquiom but SRS Acquiom does not publish.
+- **`/blog/what-happens-after-private-equity-buys-your-company`** — title + meta. 300 impressions, 1.33% CTR at position 9.4 against 3.0% expected. Also rule 5: the old title led with "Private Equity Buyout", which `/blog/private-equity-buyout-explained` should own; the new one leads with this page's own query.
+- **`/ebitda-multiples-by-industry`** — title + meta, never changed before. 339 impressions, 0.59% at position 16.6.
+- **Three inbound links** to the new post, from `/blog/how-pe-firms-value-a-company` (26 in-links), `/ebitda-multiples-by-industry`, and `/blog/dividend-recapitalization` (3 in-links, the site's thinnest).
+- **`seo/keywords.json`** — mapped three cluster-4 keywords that pages already target but the map read as uncovered.
 
 ## Considered and skipped
 
-- **Rule 3, seven other lowCtr pages** — inside the 28-day cool-down, except `/blog/how-pe-firms-value-a-company`, whose visible queries are "private equity accounting firm valuation" at positions 52–67. A relevance problem, not a snippet one.
-- **Rule 4, striking distance** — three of four rows are `/blog/family-business-succession-planning`, edited 10-13 (inside the 14-day cool-down); the fourth is "ibo finance" on the homepage, where body copy is off-limits. No decliners this window (rule 6).
+- **Striking distance (4 rows).** Three are `/blog/family-business-succession-planning` (158, 101 and 31 impressions), last content-edited 10-13 — inside the 14-day cool-down. The fourth is "ibo finance" on the homepage, whose body copy is off limits.
+- **Five lowCtr rows** inside the 28-day title cool-down. `/blog/how-pe-firms-value-a-company` was outside it but skipped: its logged queries are "private equity accounting firm valuation" at position 66.6 and 52.1 — topical drift, not a snippet fault.
+- **The single decliner** is the apex `iboadvisors.com`, 7 clicks to 0. That is the apex→www 301 consolidating, not a loss.
+- **Cannibalization on "ibo advisors" / "independent buyout".** The homepage wins all three at positions 1.1–3.6. No action.
 
 ## Coverage
 
-35 of 36 pass. `/industries/restaurants` now reads "URL is unknown to Google" (it was "Discovered – currently not indexed" through 10-20) despite seven inbound internal links and a sitemap entry. Nothing on-page left to fix — **requesting indexing in Search Console is the only lever.**
+32 of 33 PASS. `/industries/restaurants` has slipped from "Discovered – currently not indexed" to **"URL is unknown to Google"**. It is in `sitemap.xml`, carries 7 inbound links from every natural donor including `/blog/restaurant-ma`, and has been expanded twice (09-26, 09-27). On-page levers are exhausted.
 
 ## For a human
 
-`/blog/private-equity-buyout-explained` sits at position 47.4 for "buyout private equity" while two other pages outrank it on the query it is designated to win. If today's retitle does not separate them within two windows, the fix is re-pointing internal anchors wholesale rather than any redirect.
+1. **Request indexing** for `/industries/restaurants` in Search Console. Nothing else will move it.
+2. "Private equity accounting firm valuation" and its variant drew 30 impressions at positions 52–67 against `/blog/how-pe-firms-value-a-company`. That is an industry page we do not have — a cluster-7 candidate alongside the HVAC and dental entries.
 
-No flags: nothing in this run touched firm claims, clients, or deal data.
+No 301s proposed. Nothing flagged under the no-deal-data rule.

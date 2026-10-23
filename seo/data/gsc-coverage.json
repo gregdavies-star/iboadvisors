@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-22T15:49:06.838Z",
+  "inspectedAt": "2026-10-23T15:37:41.492Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -111,7 +111,7 @@
       "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-09T02:20:53Z",
+      "lastCrawlTime": "2026-10-22T14:24:36Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -156,7 +156,7 @@
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-25T02:57:43Z",
+      "lastCrawlTime": "2026-10-22T15:40:44Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -219,7 +219,7 @@
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-06T19:50:55Z",
+      "lastCrawlTime": "2026-10-22T13:09:12Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

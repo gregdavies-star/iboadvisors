@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T21:58:13.841Z",
+  "generatedAt": "2026-10-23T21:53:28.029Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -34,9 +34,9 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 2130,
+      "words": 2553,
       "date": "2026-10-22",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -419,15 +419,15 @@
     },
     {
       "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-      "title": "EBITDA Multiples by Industry (2026) | IBO Advisors",
-      "titleLength": 50,
-      "description": "EBITDA multiple ranges for 19 lower-middle-market industries, the size premium that moves them, and what raises or lowers your number inside the band.",
-      "descriptionLength": 150,
+      "title": "EBITDA Multiples by Industry: 19 Ranges, 2026 | IBO Advisors",
+      "titleLength": 60,
+      "description": "EBITDA multiple ranges for all 19 lower-middle-market industries, the size premium that moves your band, and what decides where you land inside it.",
+      "descriptionLength": 147,
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
