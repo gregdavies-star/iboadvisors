@@ -1,33 +1,35 @@
-# Daily SEO run — 2026-10-20 (folded into #66)
+# SEO daily run — 2026-10-24
 
-Run #55 fired at 15:30 UTC. Steps 1–11 succeeded; only step 12 failed.
+One new post on adjusted EBITDA add-backs, with three inbound links. Two title/meta rewrites from `lowCtr`. A fourth pass at `/industries/restaurants`, where the on-page work now looks finished.
 
-## A seventeenth duplicate — second consecutive add/add on the surviving slug
+| Window | Clicks | Impressions | CTR | Position |
+|---|---|---|---|---|
+| 2026-09-24 → 10-21 | 77 | 4,067 | 1.89% | 11.5 |
+| Prior 28 days | 53 | 2,422 | 2.19% | 15.6 |
 
-The run wrote `/blog/seller-financing-in-a-business-sale` again, the same path as yesterday's and the same path as the post already on this branch. This branch's version wins at 3,654 words and 11 sources against 2,536 and 6.
+Clicks +45%, impressions +68%, position 15.6 → 11.5. The CTR "decline" is arithmetic: the new impressions arrived on page 2–5. Most of the `lowCtr` list has that cause and is not a snippet problem.
 
-Seven days, seven runs, six duplicates. Nothing about the cause has changed: a run cannot see unmerged work, so it re-takes the same ground. The post's own keyword is still the highest-priority uncovered one on `main`.
+## Changes
 
-## Kept — one clause
+- **New `/blog/adjusted-ebitda-add-backs`** (2,152 words). Rule 7: one post in the trailing 7 days, cap allowed one. Built on the SEC's own add-back test (Non-GAAP C&DI 100.01 — an expense recurring "repeatedly or occasionally, including at irregular intervals") plus three EDGAR staff letters: Bill.com (2021, commissions), Cardiovascular Systems (2022, IPR&D), BRC Inc. (2024, recruiting). Worked schedule, made-up numbers; 6 internal links plus the calculator.
+- **Inbound links to it** from `/blog/how-pe-firms-value-a-company` (26 in-links; its step-2 paragraph now defers to the detail page rather than competing), `/ebitda-multiples-by-industry` (359 impr), `/blog/exit-planning-for-business-owners`.
+- **`/ebitda-multiples-by-industry` title+meta** — 359 impr, 2 clicks (0.56%) at 16.5 vs 1.0% expected, never rewritten. Title now promises the table the top query ("industry multiples database", 34 impr) wants.
+- **`/blog/majority-recapitalization-vs-sale` title+meta** — 111 impr, **0 clicks at position 6.7** vs 3.0% expected: the one row where position is good enough that the snippet is genuinely the fault.
+- **`/industries/restaurants` +520 words** on the working capital peg, which runs negative in restaurants (cited to Cracker Barrel FY2025 10-K), plus FAQ, schema, and a ninth inbound link from `/blog/business-exit-planning-every-option`.
+- `seo/keywords.json`: new post mapped; three cluster-4 keywords closed against pages already answering them.
 
-The post's § 453A passage already gave the formula and worked the applicable percentage on its own $6 million case (16.7%), but never said what the rate actually is. The run supplied it, and it checked out: **"For individuals, the rate for overpayments and underpayments will be 7% per year, compounded daily"**, announced in Revenue Ruling 2026-15. That one figure now completes a sentence the post had been leaving open, using the example already there.
+Audit: 36 pages, **0 errors, 0 warnings**. Sitemap and JSON-LD regenerated.
 
-Fresh Search Console and coverage data.
+## Skipped
 
-## Not carried
+Rule 4 — all three striking-distance queries sit on `/blog/family-business-succession-planning` (expanded 10-13, in cool-down); the fourth is homepage. Rule 3 — `/blog/what-happens-after-private-equity-buys-your-company` skipped on diagnosis: its 269 impressions are borrowed buyout queries at positions 20–26, too deep for a snippet to help. Five other rows in cool-down. Rule 6 — the only decliner is apex `iboadvisors.com`, i.e. the apex→www 301 working. Rule 5 — three of five rows are brand queries the homepage wins.
 
-- **The duplicate post.**
-- **Its worked § 453A example** — it runs on a different invented company, and this post already works the charge through on its own $6 million note. Carrying it would put two companies in one passage.
-- **The GulfStar Group commentary** — an investment bank's half-year note, secondary, and not needed for anything the post claims.
-- **The IRS applicable-federal-rates page** — genuine, but Publication 537 already carries the test-rate-by-term rule on this post, and a second source for the same rule adds nothing.
-- Link and title changes this branch already carries in equivalent form.
+## Needs a human
 
-That is four of five things declined, which is the right ratio when a post is already at 3,654 words and eleven sources. The discipline worth keeping is that "verified" and "worth adding" are different tests, and only the second one decides.
+1. **`/industries/restaurants` is likely no longer an on-page problem**: 3,200+ words, correct canonical, nine in-body inbound links — more than either sibling industry page, created the same day and both indexed. The likelier cause is overlap with `/blog/restaurant-ma` (position 6.5) and the restaurants row in `/ebitda-multiples-by-industry` (position **2.5** for "ebitda multiple for restaurants"). If still NEUTRAL in two weeks, merge the post into the industry page and 301 it rather than expanding a fifth time. No redirect made.
+2. `/ebitda-multiples-by-industry` ranks 45–90 on its head terms — an authority gap. The digital-PR play in STRATEGY.md §5.1 targets this page.
+3. No `ahrefs-latest.json`: post selection used `keywords.json` priority and GSC impressions only.
 
-## Coverage
+## Flagged
 
-32 of 33 URLs indexed. `/industries/restaurants` holds at "Discovered – currently not indexed" with no `lastCrawlTime` — a sixth day since it recovered on 10-15. Requesting indexing in Search Console remains the only lever.
-
-## Verification
-
-The § 6621 rate checked against the IRS release, including which Revenue Ruling announces it. Everything else in the run was either already covered here or declined on grounds of fit rather than accuracy.
+Nothing. No source or opportunity row asked for deal specifics; no copy on the pages touched names an IBO Advisors transaction, client, deal count or result.
