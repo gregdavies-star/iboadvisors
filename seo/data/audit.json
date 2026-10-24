@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T17:47:16.456Z",
+  "generatedAt": "2026-10-24T14:29:48.992Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,21 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 35,
+      "outboundInternalLinks": 30,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "title": "Adjusted EBITDA Add-Backs: What Buyers Accept | IBO Advisors",
+      "titleLength": 60,
+      "description": "Which adjusted EBITDA add-backs survive a buyer's quality of earnings review, which get struck, and the evidence standard each one has to meet.",
+      "descriptionLength": 143,
+      "h1": "Adjusted EBITDA Add-Backs: What Buyers Accept",
+      "words": 2152,
+      "date": "2026-10-24",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -47,10 +60,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1872,
+      "words": 1902,
       "date": "2025-12-20",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -99,10 +112,10 @@
       "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
       "descriptionLength": 152,
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
-      "words": 1614,
+      "words": 1665,
       "date": "2025-11-21",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -138,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2605,
+      "words": 2637,
       "date": "2026-09-10",
-      "inboundInternalLinks": 25,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 26,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -166,7 +179,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2207,
       "date": "2026-09-13",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 18,
       "issues": []
     },
@@ -205,16 +218,16 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
-      "title": "Majority Recapitalization vs. a Full Sale | IBO Advisors",
+      "title": "Majority Recapitalization vs. a Full Sale: What You Keep",
       "titleLength": 56,
-      "description": "A majority recapitalization sells 51-80% of your equity and rolls the rest. What it pays at close, how it differs from a full sale, and who runs the board.",
-      "descriptionLength": 155,
+      "description": "A majority recapitalization sells 51-80% of your company and rolls the rest. What it pays at close against a full sale, and who controls the board after.",
+      "descriptionLength": 153,
       "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
       "words": 2512,
       "date": "2026-10-13",
@@ -400,21 +413,21 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 9,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-      "title": "EBITDA Multiples by Industry (2026) | IBO Advisors",
-      "titleLength": 50,
-      "description": "EBITDA multiple ranges for 19 lower-middle-market industries, the size premium that moves them, and what raises or lowers your number inside the band.",
-      "descriptionLength": 150,
+      "title": "EBITDA Multiples by Industry: 2026 Table | IBO Advisors",
+      "titleLength": 55,
+      "description": "EBITDA multiples by industry for 2026: a table of valuation ranges across 19 lower-middle-market sectors, and the size premium that moves yours.",
+      "descriptionLength": 144,
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 8,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -452,8 +465,8 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 5,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 6,
       "issues": []
     }
   ],

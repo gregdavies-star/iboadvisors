@@ -128,7 +128,11 @@
         "EBITDA multiples by industry": "/ebitda-multiples-by-industry",
         "restaurant EBITDA multiples": "/industries/restaurants",
         "healthcare services valuation multiples": "/industries/healthcare-services",
-        "government contractor valuation multiples": "/industries/government-contractors"
+        "government contractor valuation multiples": "/industries/government-contractors",
+        "adjusted EBITDA add-backs": "/blog/adjusted-ebitda-add-backs",
+        "how to value a business based on EBITDA": "/blog/how-pe-firms-value-a-company",
+        "what multiple of EBITDA is my business worth": "/ebitda-multiples-by-industry",
+        "lower middle market valuation multiples": "/ebitda-multiples-by-industry"
       }
     },
     {
