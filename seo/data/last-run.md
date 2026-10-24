@@ -1,36 +1,35 @@
-# Daily SEO run — 2026-10-23
+# SEO daily run — 2026-10-24
 
-First clean run since #66 merged on 10-21: no unmerged branch, so no duplicate post this time. One new post, two title/meta rewrites, three inbound links, and a keyword-map fix that closes the loop which produced seventeen duplicates.
+One new post on adjusted EBITDA add-backs, with three inbound links. Two title/meta rewrites from `lowCtr`. A fourth pass at `/industries/restaurants`, where the on-page work now looks finished.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 23 Sep – 20 Oct | 77 | 4,000 | 1.92% | 11.4 |
-| Prior 28 days | 51 | 2,276 | 2.24% | 16.1 |
+| 2026-09-24 → 10-21 | 77 | 4,067 | 1.89% | 11.5 |
+| Prior 28 days | 53 | 2,422 | 2.19% | 15.6 |
 
-Impressions up 76%, clicks up 51%, average position up 4.7 places. CTR fell because the new impressions arrive at positions 10–25.
+Clicks +45%, impressions +68%, position 15.6 → 11.5. The CTR "decline" is arithmetic: the new impressions arrived on page 2–5. Most of the `lowCtr` list has that cause and is not a snippet problem.
 
-## Changed
+## Changes
 
-- **New post — `/blog/adjusted-ebitda-add-backs`** (rule 7; one post shipped in the trailing 7 days). Highest-priority genuinely uncovered keyword once cluster 4's mis-mapping is fixed. 2,412 words, four sources, all opened: the SEC's non-GAAP C&DIs (100.01–100.04, 100.06); Gen Digital's credit agreement on EDGAR — twelve "plus" clauses, run-rate savings capped at 30% of Consolidated EBITDA, a "big four" QoE named as the evidence standard; GF Data via ACG (360 deals, 7.4x with a sell-side QoE vs 7.0x without); St. Louis Fed WP 2022-029. Worked example is an invented $5M-EBITDA contractor. **Not used:** S&P's add-back studies (spglobal.com 403s) and the "22% of add-backs rejected" figure that advisory blogs attribute to SRS Acquiom but SRS Acquiom does not publish.
-- **`/blog/what-happens-after-private-equity-buys-your-company`** — title + meta. 300 impressions, 1.33% CTR at position 9.4 against 3.0% expected. Also rule 5: the old title led with "Private Equity Buyout", which `/blog/private-equity-buyout-explained` should own; the new one leads with this page's own query.
-- **`/ebitda-multiples-by-industry`** — title + meta, never changed before. 339 impressions, 0.59% at position 16.6.
-- **Three inbound links** to the new post, from `/blog/how-pe-firms-value-a-company` (26 in-links), `/ebitda-multiples-by-industry`, and `/blog/dividend-recapitalization` (3 in-links, the site's thinnest).
-- **`seo/keywords.json`** — mapped three cluster-4 keywords that pages already target but the map read as uncovered.
+- **New `/blog/adjusted-ebitda-add-backs`** (2,152 words). Rule 7: one post in the trailing 7 days, cap allowed one. Built on the SEC's own add-back test (Non-GAAP C&DI 100.01 — an expense recurring "repeatedly or occasionally, including at irregular intervals") plus three EDGAR staff letters: Bill.com (2021, commissions), Cardiovascular Systems (2022, IPR&D), BRC Inc. (2024, recruiting). Worked schedule, made-up numbers; 6 internal links plus the calculator.
+- **Inbound links to it** from `/blog/how-pe-firms-value-a-company` (26 in-links; its step-2 paragraph now defers to the detail page rather than competing), `/ebitda-multiples-by-industry` (359 impr), `/blog/exit-planning-for-business-owners`.
+- **`/ebitda-multiples-by-industry` title+meta** — 359 impr, 2 clicks (0.56%) at 16.5 vs 1.0% expected, never rewritten. Title now promises the table the top query ("industry multiples database", 34 impr) wants.
+- **`/blog/majority-recapitalization-vs-sale` title+meta** — 111 impr, **0 clicks at position 6.7** vs 3.0% expected: the one row where position is good enough that the snippet is genuinely the fault.
+- **`/industries/restaurants` +520 words** on the working capital peg, which runs negative in restaurants (cited to Cracker Barrel FY2025 10-K), plus FAQ, schema, and a ninth inbound link from `/blog/business-exit-planning-every-option`.
+- `seo/keywords.json`: new post mapped; three cluster-4 keywords closed against pages already answering them.
 
-## Considered and skipped
+Audit: 36 pages, **0 errors, 0 warnings**. Sitemap and JSON-LD regenerated.
 
-- **Striking distance (4 rows).** Three are `/blog/family-business-succession-planning` (158, 101 and 31 impressions), last content-edited 10-13 — inside the 14-day cool-down. The fourth is "ibo finance" on the homepage, whose body copy is off limits.
-- **Five lowCtr rows** inside the 28-day title cool-down. `/blog/how-pe-firms-value-a-company` was outside it but skipped: its logged queries are "private equity accounting firm valuation" at position 66.6 and 52.1 — topical drift, not a snippet fault.
-- **The single decliner** is the apex `iboadvisors.com`, 7 clicks to 0. That is the apex→www 301 consolidating, not a loss.
-- **Cannibalization on "ibo advisors" / "independent buyout".** The homepage wins all three at positions 1.1–3.6. No action.
+## Skipped
 
-## Coverage
+Rule 4 — all three striking-distance queries sit on `/blog/family-business-succession-planning` (expanded 10-13, in cool-down); the fourth is homepage. Rule 3 — `/blog/what-happens-after-private-equity-buys-your-company` skipped on diagnosis: its 269 impressions are borrowed buyout queries at positions 20–26, too deep for a snippet to help. Five other rows in cool-down. Rule 6 — the only decliner is apex `iboadvisors.com`, i.e. the apex→www 301 working. Rule 5 — three of five rows are brand queries the homepage wins.
 
-32 of 33 PASS. `/industries/restaurants` has slipped from "Discovered – currently not indexed" to **"URL is unknown to Google"**. It is in `sitemap.xml`, carries 7 inbound links from every natural donor including `/blog/restaurant-ma`, and has been expanded twice (09-26, 09-27). On-page levers are exhausted.
+## Needs a human
 
-## For a human
+1. **`/industries/restaurants` is likely no longer an on-page problem**: 3,200+ words, correct canonical, nine in-body inbound links — more than either sibling industry page, created the same day and both indexed. The likelier cause is overlap with `/blog/restaurant-ma` (position 6.5) and the restaurants row in `/ebitda-multiples-by-industry` (position **2.5** for "ebitda multiple for restaurants"). If still NEUTRAL in two weeks, merge the post into the industry page and 301 it rather than expanding a fifth time. No redirect made.
+2. `/ebitda-multiples-by-industry` ranks 45–90 on its head terms — an authority gap. The digital-PR play in STRATEGY.md §5.1 targets this page.
+3. No `ahrefs-latest.json`: post selection used `keywords.json` priority and GSC impressions only.
 
-1. **Request indexing** for `/industries/restaurants` in Search Console. Nothing else will move it.
-2. "Private equity accounting firm valuation" and its variant drew 30 impressions at positions 52–67 against `/blog/how-pe-firms-value-a-company`. That is an industry page we do not have — a cluster-7 candidate alongside the HVAC and dental entries.
+## Flagged
 
-No 301s proposed. Nothing flagged under the no-deal-data rule.
+Nothing. No source or opportunity row asked for deal specifics; no copy on the pages touched names an IBO Advisors transaction, client, deal count or result.
