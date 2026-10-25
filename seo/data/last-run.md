@@ -1,35 +1,27 @@
-# SEO daily run — 2026-10-24
+# Daily SEO run — 2026-10-25
 
-One new post on adjusted EBITDA add-backs, with three inbound links. Two title/meta rewrites from `lowCtr`. A fourth pass at `/industries/restaurants`, where the on-page work now looks finished.
+Two title/meta rewrites on pages that have never had one, two internal links. Clicks +48%, impressions +59%, average position 15.2 → 11.6.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 2026-09-24 → 10-21 | 77 | 4,067 | 1.89% | 11.5 |
-| Prior 28 days | 53 | 2,422 | 2.19% | 15.6 |
-
-Clicks +45%, impressions +68%, position 15.6 → 11.5. The CTR "decline" is arithmetic: the new impressions arrived on page 2–5. Most of the `lowCtr` list has that cause and is not a snippet problem.
+| 09-25 → 10-22 | 80 | 4,118 | 1.94% | 11.6 |
+| 08-28 → 09-24 | 54 | 2,582 | 2.09% | 15.2 |
 
 ## Changes
 
-- **New `/blog/adjusted-ebitda-add-backs`** (2,152 words). Rule 7: one post in the trailing 7 days, cap allowed one. Built on the SEC's own add-back test (Non-GAAP C&DI 100.01 — an expense recurring "repeatedly or occasionally, including at irregular intervals") plus three EDGAR staff letters: Bill.com (2021, commissions), Cardiovascular Systems (2022, IPR&D), BRC Inc. (2024, recruiting). Worked schedule, made-up numbers; 6 internal links plus the calculator.
-- **Inbound links to it** from `/blog/how-pe-firms-value-a-company` (26 in-links; its step-2 paragraph now defers to the detail page rather than competing), `/ebitda-multiples-by-industry` (359 impr), `/blog/exit-planning-for-business-owners`.
-- **`/ebitda-multiples-by-industry` title+meta** — 359 impr, 2 clicks (0.56%) at 16.5 vs 1.0% expected, never rewritten. Title now promises the table the top query ("industry multiples database", 34 impr) wants.
-- **`/blog/majority-recapitalization-vs-sale` title+meta** — 111 impr, **0 clicks at position 6.7** vs 3.0% expected: the one row where position is good enough that the snippet is genuinely the fault.
-- **`/industries/restaurants` +520 words** on the working capital peg, which runs negative in restaurants (cited to Cracker Barrel FY2025 10-K), plus FAQ, schema, and a ninth inbound link from `/blog/business-exit-planning-every-option`.
-- `seo/keywords.json`: new post mapped; three cluster-4 keywords closed against pages already answering them.
+- **`/ebitda-multiples-by-industry` title + meta** — 393 impressions, 2 clicks (0.51%) at position 17.2 against a 1.0% expectation; never rewritten. Both now publish the span the page's own table carries (19 sectors, 3.0x–10.0x) rather than describe it.
+- **`/blog/majority-recapitalization-vs-sale` title + meta** — 135 impressions, **0 clicks at position 6.6** against a 3.0% expectation; never rewritten. Title leads with the bare query ("majority recapitalization", 11 impr at 13.6) plus a specific promise; the full-sale comparison moves to the description.
+- **Two internal links.** `/blog/dividend-recapitalization` had the fewest inbound links of any post (3), and the Route 2 section in `/blog/sell-a-business-but-keep-control` was the only one of four routes with no deeper link. On "buyout private equity" / "private equity buyout" the page that should win, `/blog/private-equity-buyout-explained`, sits at 46 and 15.9 with 5 inbound links; it gains one from the strongest exact-topic page.
 
-Audit: 36 pages, **0 errors, 0 warnings**. Sitemap and JSON-LD regenerated.
+## Considered and skipped
 
-## Skipped
+- **No new post.** Three `new-post` entries in the trailing 7 days (10-18, 10-19, 10-20), so rule 7's cap closes — the first run in a week where the cap, not a reviewer, stops it.
+- **Striking distance.** All three qualifying rows are `/blog/family-business-succession-planning`, edited 10-13, inside the 14-day cool-down. "ibo finance" (pos 5.1) lands on the homepage, whose body copy is off limits.
+- **Six lowCtr rows** sat inside the 28-day title cool-down. `/blog/how-pe-firms-value-a-company` (107 impr, pos 25.9) is not a snippet problem: its logged queries are accounting-firm valuation terms at positions 52–87, which the page does not target.
+- **Decliner** `iboadvisors.com/` (7 → 0 clicks) is the apex host that 301s to `www`; the clicks moved to the www rows.
 
-Rule 4 — all three striking-distance queries sit on `/blog/family-business-succession-planning` (expanded 10-13, in cool-down); the fourth is homepage. Rule 3 — `/blog/what-happens-after-private-equity-buys-your-company` skipped on diagnosis: its 269 impressions are borrowed buyout queries at positions 20–26, too deep for a snippet to help. Five other rows in cool-down. Rule 6 — the only decliner is apex `iboadvisors.com`, i.e. the apex→www 301 working. Rule 5 — three of five rows are brand queries the homepage wins.
+## Coverage
 
-## Needs a human
+34 of 35 indexed. `/industries/restaurants` holds at "Discovered – currently not indexed", still with no `lastCrawlTime`. 2,727 unique words, 7 inbound links (homepage, calculator, five posts); padding it twice (09-26, 09-27) changed nothing. **Nothing on-page is left to fix — requesting indexing in Search Console is the only lever, and it needs a human.**
 
-1. **`/industries/restaurants` is likely no longer an on-page problem**: 3,200+ words, correct canonical, nine in-body inbound links — more than either sibling industry page, created the same day and both indexed. The likelier cause is overlap with `/blog/restaurant-ma` (position 6.5) and the restaurants row in `/ebitda-multiples-by-industry` (position **2.5** for "ebitda multiple for restaurants"). If still NEUTRAL in two weeks, merge the post into the industry page and 301 it rather than expanding a fifth time. No redirect made.
-2. `/ebitda-multiples-by-industry` ranks 45–90 on its head terms — an authority gap. The digital-PR play in STRATEGY.md §5.1 targets this page.
-3. No `ahrefs-latest.json`: post selection used `keywords.json` priority and GSC impressions only.
-
-## Flagged
-
-Nothing. No source or opportunity row asked for deal specifics; no copy on the pages touched names an IBO Advisors transaction, client, deal count or result.
+Audit: 35 pages, 0 errors, 0 warnings.
