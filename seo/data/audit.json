@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T17:47:16.456Z",
+  "generatedAt": "2026-10-25T14:53:59.544Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -75,7 +75,7 @@
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
       "words": 2224,
       "date": "2026-10-18",
-      "inboundInternalLinks": 3,
+      "inboundInternalLinks": 4,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -151,10 +151,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 2127,
+      "words": 2163,
       "date": "2026-09-08",
       "inboundInternalLinks": 22,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -211,10 +211,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
-      "title": "Majority Recapitalization vs. a Full Sale | IBO Advisors",
-      "titleLength": 56,
-      "description": "A majority recapitalization sells 51-80% of your equity and rolls the rest. What it pays at close, how it differs from a full sale, and who runs the board.",
-      "descriptionLength": 155,
+      "title": "Majority Recapitalization: Sell 51-80%, Roll the Rest",
+      "titleLength": 53,
+      "description": "A majority recapitalization sells 51-80% of your company and rolls the rest. What you bank at close, how it differs from a full sale, who gets the board.",
+      "descriptionLength": 153,
       "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
       "words": 2512,
       "date": "2026-10-13",
@@ -283,7 +283,7 @@
       "h1": "Private Equity Buyout: What It Is and How It Works",
       "words": 2031,
       "date": "2026-10-04",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -320,10 +320,10 @@
       "description": "How to sell part of your business and keep control: minority recap, dividend recap, staged sale or an Independent Buyout, and what each one pays you.",
       "descriptionLength": 149,
       "h1": "How to Sell a Business but Keep Control",
-      "words": 2079,
+      "words": 2099,
       "date": "2026-09-27",
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 12,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -406,10 +406,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-      "title": "EBITDA Multiples by Industry (2026) | IBO Advisors",
-      "titleLength": 50,
-      "description": "EBITDA multiple ranges for 19 lower-middle-market industries, the size premium that moves them, and what raises or lowers your number inside the band.",
-      "descriptionLength": 150,
+      "title": "EBITDA Multiples by Industry 2026: 19 Ranges, 3x to 10x",
+      "titleLength": 55,
+      "description": "EBITDA multiples by industry: 19 lower-middle-market ranges from 3.0x to 10.0x, the size premium that shifts them, and what moves you inside your band.",
+      "descriptionLength": 151,
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,

@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-10-20T15:34:04.222Z",
+  "inspectedAt": "2026-10-25T14:46:40.889Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T18:17:22Z",
+      "lastCrawlTime": "2026-10-21T18:17:05Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -14,7 +14,7 @@
       "url": "https://www.iboadvisors.com/blog",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T16:46:21Z",
+      "lastCrawlTime": "2026-10-10T18:15:04Z",
       "googleCanonical": "https://www.iboadvisors.com/blog",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -23,7 +23,7 @@
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T17:17:16Z",
+      "lastCrawlTime": "2026-10-22T06:14:34Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -50,7 +50,7 @@
       "url": "https://www.iboadvisors.com/industries/healthcare-services",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T01:50:38Z",
+      "lastCrawlTime": "2026-10-20T16:34:49Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -61,6 +61,24 @@
       "coverageState": "Discovered - currently not indexed",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/dividend-recapitalization",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-21T18:16:06Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/dividend-recapitalization",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-21T18:56:22Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -93,7 +111,7 @@
       "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-09T02:20:53Z",
+      "lastCrawlTime": "2026-10-22T14:24:36Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -138,7 +156,7 @@
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-25T02:57:43Z",
+      "lastCrawlTime": "2026-10-22T15:40:44Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -156,7 +174,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-26T02:42:42Z",
+      "lastCrawlTime": "2026-10-20T19:04:47Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -183,7 +201,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T08:04:59Z",
+      "lastCrawlTime": "2026-10-21T20:47:31Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -201,7 +219,7 @@
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-06T19:50:55Z",
+      "lastCrawlTime": "2026-10-22T13:09:12Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -246,7 +264,7 @@
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T15:58:10Z",
+      "lastCrawlTime": "2026-10-22T12:59:50Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/restaurant-ma",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
