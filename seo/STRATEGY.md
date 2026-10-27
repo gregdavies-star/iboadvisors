@@ -93,3 +93,44 @@ KPIs (in order): qualified leads from organic (modal submissions with EBITDA ≥
 - **Bing Webmaster Tools** (free) - second index, AI search surfaces.
 - **PageSpeed Insights / Rich Results Test** (free) - CWV and schema validation.
 - Optional later: Screaming Frog (bulk crawl), a rank-tracking add-on for local/regional terms, Qwoted/Featured subscriptions for expert quotes.
+
+## 8. Settled decisions
+
+Decisions already taken, with the evidence behind them. The daily job should treat
+these as closed and not re-open them without new data.
+
+### "buyout private equity" / "private equity buyout" belong to the comparison page
+
+**Decided 2026-10-27 by Greg Davies.** `/blog/management-buyout-vs-private-equity`
+is the designated page for both queries. `keywords.json` points there.
+
+Three of our pages compete on these terms, and the comparison page is the only one
+anywhere near page one:
+
+| Page | "buyout private equity" | "private equity buyout" |
+|---|---|---|
+| `/blog/management-buyout-vs-private-equity` | 11 impr, **pos 6.9** | 7 impr, **pos 11.6** |
+| `/blog/private-equity-buyout-explained` | 29 impr, pos 46.7 | 15 impr, pos 18.6 |
+| `/blog/what-happens-after-private-equity-buys-your-company` | 7 impr, pos 26.1 | 7 impr, pos 20.6 |
+
+Six runs between 10-13 and 10-25 added inbound internal links to
+`/blog/private-equity-buyout-explained` to try to make it win "buyout private
+equity". It moved 47.7 to 46.7. The designated page was the weaker of the two all
+along - 2,031 words and 9 inbound links against 3,245 and 12 - so the link-building
+was asking Google to prefer the thinner page on the same topic.
+
+**Do not add further internal links aimed at transferring these queries**, and do
+not treat the comparison page as a cannibalization loser on them. Rule 5's remedy
+already holds: `/blog/private-equity-buyout-explained` links to the winner with the
+query in its anchor text.
+
+`/blog/private-equity-buyout-explained` stays live and keeps "pe buyout", where no
+page of ours performs (4 impressions, best position 27) and so there is nothing to
+concede. It is also the better intent match for a plain-primer query, so if the
+comparison page ever stops holding page one on the two terms above, revisit this
+rather than resuming the link pushes.
+
+**Open, not decided:** the primer's title and H1 still lead with "Private Equity
+Buyout", the exact term now conceded. Differentiating them is the other half of
+rule 5, but it is a live page taking impressions on these terms, so it needs a
+human's sign-off rather than a run's.
