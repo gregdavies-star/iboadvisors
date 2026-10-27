@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-10-26T17:08:28.287Z",
+  "inspectedAt": "2026-10-27T16:11:25.335Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -20,20 +20,27 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-22T06:14:34Z",
-      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-10-07T19:35:57Z",
       "googleCanonical": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-22T06:14:34Z",
+      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -56,11 +63,22 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/industries/restaurants",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-14T19:50:58Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T15:24:33Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/dividend-recapitalization",
@@ -117,15 +135,6 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-14T19:50:58Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
@@ -147,7 +156,7 @@
       "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-15T18:09:27Z",
+      "lastCrawlTime": "2026-10-27T16:04:21Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

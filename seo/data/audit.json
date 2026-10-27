@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T13:41:41.457Z",
+  "generatedAt": "2026-10-27T16:18:14.491Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -24,7 +24,7 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 35,
-      "outboundInternalLinks": 30,
+      "outboundInternalLinks": 33,
       "issues": []
     },
     {
@@ -47,10 +47,10 @@
       "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and who controls the company after.",
       "descriptionLength": 148,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2325,
+      "words": 2327,
       "date": "2026-09-08",
       "inboundInternalLinks": 19,
-      "outboundInternalLinks": 23,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
@@ -60,10 +60,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1902,
+      "words": 1942,
       "date": "2025-12-20",
       "inboundInternalLinks": 15,
-      "outboundInternalLinks": 19,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -88,7 +88,7 @@
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
       "words": 2245,
       "date": "2026-10-18",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2061,
+      "words": 2101,
       "date": "2026-09-08",
       "inboundInternalLinks": 21,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -439,7 +439,7 @@
       "h1": "Government contractor valuation multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 4,
       "issues": []
     },
@@ -452,7 +452,7 @@
       "h1": "Healthcare services valuation multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 5,
       "issues": []
     },
@@ -465,7 +465,7 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 6,
       "issues": []
     }
