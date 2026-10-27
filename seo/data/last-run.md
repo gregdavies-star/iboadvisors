@@ -1,34 +1,40 @@
-# Daily SEO run — 2026-10-26
+# Daily SEO run — 2026-10-27
 
-One expansion, two links. Every other lever is cool-down-locked once the four unmerged daily branches are counted, and the new-post cap is shut.
+Four internal links, no content rewrites. Every `lowCtr` row except one is inside its 28-day cool-down, the `strikingDistance` rows are already answered on the page, and the new-post cap is shut — so the run went after the two things still open: the un-indexed industry page and the bottom of the internal-link distribution.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 09-26 → 10-23 | 79 | 4,167 | 1.90% | 11.9 |
-| 08-29 → 09-25 | 57 | 2,794 | 2.04% | 14.9 |
+| 09-27 → 10-24 | 76 | 4,101 | 1.85% | 12.3 |
+| 08-30 → 09-26 | 60 | 3,020 | 1.99% | 14.5 |
 
 ## Changes
 
-- **`/blog/types-of-buyouts` +367 words (rule 4).** "owner buyout": 20 impressions at 12.9, 0 clicks, on the `/blog` index, which cannot answer it. No page used the phrase. The new H2 separates its three meanings — a third party buying the owner out, one co-owner buying out another, an owner buying through a holdco — and routes each to a structure in the list. SBA 7(a) verified at sba.gov: its $5M cap cannot reach the post's own $17M half-stake.
-- **`/blog` hero anchor widened (rule 5)** to carry "owner buyout".
-- **`/blog/ibo-vs-pe-numbers-comparison` → `/blog/earnout-in-business-sale` (rule 8).** Target had 6 inbound in-body links; the donor had a whole earn-out section and no link to it.
+- **`/blog` hero → all three `/industries` pages (rule 2).** `/industries/restaurants` is still the only non-PASS sitemap URL (NEUTRAL, "Discovered — currently not indexed") after four expansions since it was published 09-25. It is not thin, it is differentiated from `/blog/restaurant-ma`, and its two sibling pages from the same batch are indexed — so more words were not the lever. `/blog` is the joint-most-linked URL on the site (35 in-links) and carried **zero** links to `/industries`.
+- **`/blog/alternatives-to-selling-to-private-equity` → `/industries/healthcare-services` (rule 8).** Target had 5 inbound in-body links. The donor already named the 5.0x–8.5x healthcare band as plain text beside a linked restaurant band.
+- **`/blog/business-exit-planning-every-option` → `/industries/government-contractors` (rule 8).** Target had 4 inbound links, lowest of any indexable page. The donor's sector paragraph named all three sectors but priced only one; it now carries the 4.5x–7.5x GovCon band and the set-aside recertification point behind it.
+- **`/blog/minority-pe-stake-board-control-veto-rights` → `/blog/dividend-recapitalization` (rule 8).** Target had 5 inbound links; the donor already listed "a dividend recapitalization" unlinked.
+
+Industry-page in-links after the run: restaurants 8→9, healthcare 5→7, GovCon 4→6.
 
 ## Considered and skipped
 
-- **Every `lowCtr` row.** Nine were retitled 10-11 to 10-25, four only on unmerged branches (`/ebitda-multiples-by-industry` three days running). The tenth, `/blog/how-pe-firms-value-a-company`, is out of cool-down but no snippet fault: its queries are accounting-firm valuation terms at 52–87.
-- **`strikingDistance`.** All three rows are `/blog/family-business-succession-planning`, expanded 10-13; cool-down opens tomorrow. "ibo finance" lands on the homepage, whose body is off limits.
-- **No new post:** two shipped in the trailing 7 days (seller financing, adjusted EBITDA add-backs).
-- **Not a CTR fault:** ~90 impressions of "what is an ibo" / "ibo finance" at positions 5–11, zero clicks. Our own independentbuyout.com ranks page one on these, where this property cannot see clicks.
+- **8 of 9 `lowCtr` rows** were retitled between 10-11 and 10-25 — inside cool-down.
+- **`/blog/how-pe-firms-value-a-company`** is out of cool-down but has no snippet fault: 111 impressions at position 27.4, and its visible queries are *accounting-firm* valuation terms at positions 52–66. Rewriting the title of the site's strongest page (26 in-links) to chase ~0.4 expected clicks from off-intent queries would cost more than it earns.
+- **All 3 `strikingDistance` rows** are `/blog/family-business-succession-planning`, which already answers each one directly — including the "integrated tax, estate and succession planning" query, verbatim, in its advisor section. Rule 4's precondition is not met. "ibo finance" (pos 5.0) lands on the homepage, whose body is off limits.
+- **Cannibalization:** the three brand rows are won by the homepage at positions 1.1–3.6; the buyout rows were addressed 10-21 and 10-26.
+- **No new post:** two shipped in the trailing 7 days (seller financing 10-20, adjusted EBITDA add-backs 10-22).
 
-No deal-data flags this run.
+## Coverage and decliners
 
-## Coverage
-
-34 of 35 indexed. `/industries/restaurants` holds at "Discovered – currently not indexed" with no `lastCrawlTime`; padded four times, nothing on-page left. Audit: 0 errors, 0 warnings.
+- `/industries/restaurants` — see above. If the verdict has not moved in the next pull, this is a crawl-priority problem, not a page problem, and the next step is a human Request Indexing in Search Console rather than a fifth expansion.
+- The one `decliners` row is `https://iboadvisors.com/` (apex, non-www) falling 7 clicks → 0. That is the apex→www 301 consolidating, not a loss; site clicks rose 60 → 76 over the same window.
 
 ## For a human
 
-1. **Request indexing for `/industries/restaurants`** — the only lever left.
-2. **`/blog/private-equity-buyout-explained` is not responding to links.** Six runs have added them, today's included; "buyout private equity" moved 47.7 → 46.7. `/blog/management-buyout-vs-private-equity` holds 6.9 on it.
-3. **`/blog/family-business-succession-planning`: 4,938 words, 2 clicks on 504 impressions** after ten expansions. Check for an AI overview first.
-4. `/blog`'s sitemap `lastmod` needs a second pass post-commit (git-derived).
+1. **Split `/blog/family-business-succession-planning`.** At 4,938 words it is the longest page on the site and has absorbed ~10 expansions for the same three queries without moving (pos 12.2 average, 2 clicks on 485 impressions). Two of those queries are advisor-selection intent competing inside a succession post. A dedicated page — "which advisors handle the sale of a family business" — is a page decision, not a daily-job one.
+2. **"Private equity accounting firm valuation"** (39 impressions, positions 52–66) is an unserved content gap, not a CTR fault. PE roll-ups of accounting practices are a live theme; candidate for the next new post or a fourth `/industries` page.
+3. No `ahrefs-latest.json` in the repo, so rule 7's volume/KD preference ran unweighted.
+
+## Flagged
+
+Nothing. No source or instruction in this run asked for transaction specifics.
