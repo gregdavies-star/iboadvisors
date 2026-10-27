@@ -130,7 +130,23 @@ concede. It is also the better intent match for a plain-primer query, so if the
 comparison page ever stops holding page one on the two terms above, revisit this
 rather than resuming the link pushes.
 
-**Open, not decided:** the primer's title and H1 still lead with "Private Equity
-Buyout", the exact term now conceded. Differentiating them is the other half of
-rule 5, but it is a live page taking impressions on these terms, so it needs a
-human's sign-off rather than a run's.
+**The primer was retitled on 2026-10-27, also Greg's call**, which is the other half
+of rule 5. It went from "Private Equity Buyout: What It Is and How It Works" to
+**"What Is a Private Equity Buyout? Meaning and Mechanics"**, with the H1 shortened
+to "What Is a Private Equity Buyout?" and the meta description rewritten to lead with
+the definition. Its blog card on `/blog` was brought in line, image alt included.
+
+The retitle aims at what the page already wins rather than at the terms it lost. Of
+its 233 impressions in the window, the two conceded terms are 44 of them, and the
+rest is a long tail of definitional queries where it ranks 1-11: "what is a private
+equity buyout" and "what is buyout in private equity" at position 1, "what is a
+buyout fund" at 1, "pe buyout meaning" at 8, "private equity buyout definition" at 8,
+"what is a buyout in private equity" at 9.5. Leading with "What Is" splits the intent
+from the comparison page cleanly and points the title at the queries the page is
+already ranking for.
+
+**Still untouched:** two pages link to the primer with the bare exact-match anchor
+"private equity buyout" - `/blog/seller-financing-in-a-business-sale` and
+`/blog/types-of-buyouts`. Those anchors still tell Google the primer owns the
+conceded term. Rewording them is body-copy editing on two other pages, so it is
+left for a human to approve rather than done as part of a retitle.
