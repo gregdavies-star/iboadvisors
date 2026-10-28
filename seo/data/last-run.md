@@ -1,40 +1,36 @@
-# Daily SEO run — 2026-10-27
+# Daily SEO run — 2026-10-28
 
-Four internal links, no content rewrites. Every `lowCtr` row except one is inside its 28-day cool-down, the `strikingDistance` rows are already answered on the page, and the new-post cap is shut — so the run went after the two things still open: the un-indexed industry page and the bottom of the internal-link distribution.
+One new post plus its three inbound donors — the full four-page cap. Every `lowCtr` row with a real snippet fault is inside its 28-day cool-down, and the `strikingDistance` rows are already answered on the page, so the new-post slot was the only lever that moved.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 09-27 → 10-24 | 76 | 4,101 | 1.85% | 12.3 |
-| 08-30 → 09-26 | 60 | 3,020 | 1.99% | 14.5 |
+| 09-28 → 10-25 | 74 | 4,072 | 1.82% | 12.3 |
+| 08-31 → 09-27 | 62 | 3,206 | 1.93% | 14.5 |
 
 ## Changes
 
-- **`/blog` hero → all three `/industries` pages (rule 2).** `/industries/restaurants` is still the only non-PASS sitemap URL (NEUTRAL, "Discovered — currently not indexed") after four expansions since it was published 09-25. It is not thin, it is differentiated from `/blog/restaurant-ma`, and its two sibling pages from the same batch are indexed — so more words were not the lever. `/blog` is the joint-most-linked URL on the site (35 in-links) and carried **zero** links to `/industries`.
-- **`/blog/alternatives-to-selling-to-private-equity` → `/industries/healthcare-services` (rule 8).** Target had 5 inbound in-body links. The donor already named the 5.0x–8.5x healthcare band as plain text beside a linked restaurant band.
-- **`/blog/business-exit-planning-every-option` → `/industries/government-contractors` (rule 8).** Target had 4 inbound links, lowest of any indexable page. The donor's sector paragraph named all three sectors but priced only one; it now carries the 4.5x–7.5x GovCon band and the set-aside recertification point behind it.
-- **`/blog/minority-pe-stake-board-control-veto-rights` → `/blog/dividend-recapitalization` (rule 8).** Target had 5 inbound links; the donor already listed "a dividend recapitalization" unlinked.
+- **New post: `/blog/sde-vs-ebitda`, 1,901 words (rule 7).** One post shipped in the trailing 7 days, so the cap was open. "SDE vs EBITDA" is the highest-priority uncovered keyword in `keywords.json` (cluster 4), and it beats the other cluster-4 gap, "quality of earnings report", which the 10-22 add-backs post already covers in substance. Three sources, all opened and quoted: SBA 7(a) (`$5 million` maximum, "changes of ownership"), GF Data via ACG (7.3x TTM adjusted EBITDA, 80 Q1 2026 transactions), SEC non-GAAP C&DI 100.01 on recurring operating expenses. The worked company is invented and labelled as such; its 3.0x SDE quote is explicitly made up, because no reliable public SDE dataset exists at this size — the post says so rather than borrowing a blog's number.
+- **`/blog/adjusted-ebitda-add-backs` → new post (rules 7, 8).** Its FAQ already answered the SDE question in three sentences with nowhere to send the reader. 7 in-links.
+- **`/blog/how-pe-firms-value-a-company` → new post.** Strongest page on the site (26 in-links); its normalization step said above-market owner comp is added back without naming the measure that adds back all of it.
+- **`/blog/choosing-an-ma-advisory-firm` → new post.** 9 in-links, last touched 09-22. Its "$3M+ EBITDA vs Main Street broker" FAQ now carries the earnings-measure tell.
 
-Industry-page in-links after the run: restaurants 8→9, healthcare 5→7, GovCon 4→6.
+No deal-data flags this run.
 
 ## Considered and skipped
 
-- **8 of 9 `lowCtr` rows** were retitled between 10-11 and 10-25 — inside cool-down.
-- **`/blog/how-pe-firms-value-a-company`** is out of cool-down but has no snippet fault: 111 impressions at position 27.4, and its visible queries are *accounting-firm* valuation terms at positions 52–66. Rewriting the title of the site's strongest page (26 in-links) to chase ~0.4 expected clicks from off-intent queries would cost more than it earns.
-- **All 3 `strikingDistance` rows** are `/blog/family-business-succession-planning`, which already answers each one directly — including the "integrated tax, estate and succession planning" query, verbatim, in its advisor section. Rule 4's precondition is not met. "ibo finance" (pos 5.0) lands on the homepage, whose body is off limits.
-- **Cannibalization:** the three brand rows are won by the homepage at positions 1.1–3.6; the buyout rows were addressed 10-21 and 10-26.
-- **No new post:** two shipped in the trailing 7 days (seller financing 10-20, adjusted EBITDA add-backs 10-22).
+- **8 of 10 `lowCtr` rows** were retitled 10-11 to 10-25. Of the two out of cool-down, `/blog/how-pe-firms-value-a-company` ranks 52–66 on accounting-firm valuation terms and `/blog/dividend-recapitalization` sits at 30 on its own head term — both ranking problems, not snippet faults.
+- **`/blog/sell-part-of-your-business-keep-control` (150 impr, pos 7.4)** is a 301 to `/blog/sell-a-business-but-keep-control` in `vercel.json`. There is no page to retitle; the live target was rewritten 10-19.
+- **All 3 `strikingDistance` rows** are `/blog/family-business-succession-planning`, now out of cool-down — but it already carries `<h2>Liquidity planning for family business succession</h2>` and `<h2>Which advisors are best suited to plan the sale of a family-owned company?</h2>` verbatim. Rule 4's precondition is not met.
+- **Cannibalization:** brand rows won by the homepage at 1.0–3.6; buyout rows addressed 10-21 and 10-26.
+- **Decliners:** the one row is apex `iboadvisors.com` going 7 clicks → 0. That is the apex→www 301 consolidating, not a loss.
 
-## Coverage and decliners
+## Coverage
 
-- `/industries/restaurants` — see above. If the verdict has not moved in the next pull, this is a crawl-priority problem, not a page problem, and the next step is a human Request Indexing in Search Console rather than a fifth expansion.
-- The one `decliners` row is `https://iboadvisors.com/` (apex, non-www) falling 7 clicks → 0. That is the apex→www 301 consolidating, not a loss; site clicks rose 60 → 76 over the same window.
+34 of 35 indexed. `/industries/restaurants` holds at "Discovered — currently not indexed". Yesterday's unmerged branch added the first `/blog` → `/industries` links; nothing further is available on-page. Audit: 0 errors, 0 warnings, 37 indexable pages.
 
 ## For a human
 
-1. **Split `/blog/family-business-succession-planning`.** At 4,938 words it is the longest page on the site and has absorbed ~10 expansions for the same three queries without moving (pos 12.2 average, 2 clicks on 485 impressions). Two of those queries are advisor-selection intent competing inside a succession post. A dedicated page — "which advisors handle the sale of a family business" — is a page decision, not a daily-job one.
-2. **"Private equity accounting firm valuation"** (39 impressions, positions 52–66) is an unserved content gap, not a CTR fault. PE roll-ups of accounting practices are a live theme; candidate for the next new post or a fourth `/industries` page.
-3. No `ahrefs-latest.json` in the repo, so rule 7's volume/KD preference ran unweighted.
-
-## Flagged
-
-Nothing. No source or instruction in this run asked for transaction specifics.
+1. **Request indexing for `/industries/restaurants`** in Search Console. Five expansions and a link pass have not moved it; this is now crawl priority.
+2. **Split `/blog/family-business-succession-planning`** (4,938 words, 2 clicks on 491 impressions). Two of its three striking-distance queries are advisor-selection intent trapped inside a succession post.
+3. **Branch `seo/daily-1793117895` (10-27) is still unmerged** and carries four link edits. Today's donors were chosen to avoid it, but the changelog and `last-run.md` will conflict.
+4. No `ahrefs-latest.json` in the repo, so rule 7's volume/KD preference ran unweighted again.
