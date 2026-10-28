@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T13:41:41.457Z",
+  "generatedAt": "2026-10-28T17:08:08.757Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
-      "outboundInternalLinks": 30,
+      "inboundInternalLinks": 36,
+      "outboundInternalLinks": 31,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 3140,
+      "words": 3159,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -73,10 +73,10 @@
       "description": "How to choose an M&A advisor at $3M+ in EBITDA: track record, fee structure, conflicts of interest, and the questions to ask before signing.",
       "descriptionLength": 140,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1811,
+      "words": 1870,
       "date": "2025-10-04",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -151,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2645,
+      "words": 2679,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 27,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -244,7 +244,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1506,
       "date": "2026-04-24",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -324,6 +324,19 @@
       "date": "2026-07-06",
       "inboundInternalLinks": 23,
       "outboundInternalLinks": 13,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/sde-vs-ebitda",
+      "title": "SDE vs EBITDA: Which One Prices Your Business | IBO Advisors",
+      "titleLength": 60,
+      "description": "SDE adds back your whole salary; EBITDA only the part above a hired manager's. Which number applies to your business, and what the wrong one costs you.",
+      "descriptionLength": 151,
+      "h1": "SDE vs EBITDA: Which One Prices Your Business",
+      "words": 1901,
+      "date": "2026-10-28",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -413,7 +426,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -426,7 +439,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
       "issues": []
     },
