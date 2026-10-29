@@ -289,6 +289,12 @@ the acceptance criteria below. Nothing deploys until Greg says build.
    the WP5 test shows whether event 4-1720599 fires for API-created meetings; if it does not,
    rebuild both as meeting-based workflows (enrol meetings on create) or let the receiver do the
    two writes (section 3 rows 19 and 20).
+8. W8 second trigger (decision 10, can be done now, before any Calendly work): in the W8 trigger
+   panel add a second trigger group, "Lead Status is any of No Show", with re-enrolment on when
+   Lead Status changes to No Show, keeping the existing "Meeting outcome changed to No show" event
+   trigger and the staff-domain refinement on both. Then set the outcome on the next real no-show
+   and confirm one contact enrols once and F3 goes out 30 minutes later. Note for the runbook: Lead
+   Status "No Show" is not in list 283's sales stages, which is right for a recovery sequence.
 
 ### WP3. Dashboard build (Opus, 1.5 to 2 days)
 
@@ -416,12 +422,14 @@ receiver is harmless when nothing books through Calendly.
 10. **No-show practice (new, from the audit). Decided 29 Oct: Greg will enforce it.** Nobody has
     ever set a scheduler meeting's outcome to No show: 0 of 279, with 252 past meetings still
     "Scheduled", while 6 contacts carry Lead Status "No Show". W8 has therefore never run on a
-    real no-show. The two marks differ: Lead Status "No Show" on the contact triggers nothing;
-    Outcome "No show" on the meeting activity fires W8. The practice from now until cutover is the
-    meeting outcome (open the meeting on the contact timeline, set Outcome to No show). After
-    cutover it is "Mark no-show" in Calendly, which the receiver mirrors to the HubSpot meeting
-    (section 7); Lead Status stays whatever the reps use for pipeline. The 6 historical "No Show"
-    lead statuses are left alone.
+    real no-show. The two marks differ: Lead Status "No Show" on the contact triggers nothing
+    today; Outcome "No show" on the meeting activity fires W8. Decision: **W8 gets both
+    triggers** (WP2 step 8), so the reps' existing Lead Status habit starts the recovery sequence
+    and the meeting outcome stays the system record that HubSpot's meeting reports and the
+    dashboard's no-show views read. After cutover, "Mark no-show" in Calendly sets the outcome
+    automatically through the receiver (section 7). Double enrolment is not a risk: HubSpot does
+    not re-enrol a contact who is still active in the workflow, and W8 runs about 40 days. The 6
+    historical "No Show" lead statuses are left alone.
 
 ## 9. Unverified points and how each gets settled
 
