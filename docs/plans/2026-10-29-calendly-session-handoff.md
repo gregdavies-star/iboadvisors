@@ -68,8 +68,12 @@ Taken by Greg on 29 Oct:
   Michael and Darren as the two hosts; three seats. Greg's account owns the token and webhook
   (WP0 step 1, WP1 step 6).
 
-Still open (section 8, decisions 2 to 9): owner on booking
-(recommended: only when empty); invite sender (recommended: host's calendar); booking questions
+- Decision 2 (29 Oct): owner set to the host only when empty at booking; moved to the host when
+  the meeting outcome becomes COMPLETED (new meeting-based workflow, WP2 step 9). Edmund's comp
+  credit is the booking's outreach attribution, not the owner: stamped on the meeting record as
+  `ibo_booking_*` (section 5.2) and read by a meetings report (WP2 step 10).
+
+Still open (section 8, decisions 3 to 9): invite sender (recommended: host's calendar); booking questions
 (recommended: name and email only); completed meetings stay manual; do not install the native
 Calendly for HubSpot app; 14-day fallback window; dashboard bookings panel or defer; Darren's
 HubSpot seat.

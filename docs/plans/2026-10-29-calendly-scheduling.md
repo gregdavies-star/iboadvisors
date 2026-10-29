@@ -96,6 +96,7 @@ exactly as written; rows 5, 16 and 17 were corrected; rows 19 and 20 are new.
 | 18 | `CLAUDE.md` HubSpot facts | repo | describes the NA2 embed | Rewrite the scheduler bullets after cutover |
 | 19 | "Meeting Booked -> Change to MQL" (new, audit) | workflow 4879166163, enabled | HubSpot meeting-booked event 4-1720599 (unfiltered) sets `lifecyclestage=marketingqualifiedlead` | Verify in WP5 whether the event fires for API-created meetings. If not, the receiver sets `lifecyclestage` to MQL when the contact is below it (never downgrades), or the workflow is rebuilt as a meeting-based one |
 | 20 | "Meeting Booked - Notify Edmund" (new, audit) | workflow 4830712547, enabled | same event; internal email to Edmund Breitling (owner 164598474) per booking | Same test. Fallback: a meeting-based workflow (enrol meetings on create, notify), or the receiver sends the notification |
+| 21 | Edmund's booking credit (comp; decision 2) | HubSpot reports | contact-level `engagements_last_meeting_booked_campaign` (19 contacts carry an `edmund` campaign today; only 8 bookers are owned by Edmund, so owner was never the measure) | The receiver stamps the attribution on each **meeting record** (`ibo_booking_source/medium/campaign/entry_src`, new custom meeting properties) and on the contact (`ibo_meeting_*`). Credit = meetings whose campaign identifies his outreach, whoever owns the contact, so the owner move on completion costs nothing |
 
 ## 4. Target architecture
 
@@ -157,7 +158,8 @@ Why this shape:
 
 Upsert by email. Names are written only when the contact has none (mirrors the meetings tool,
 which does not overwrite). `hubspot_owner_id` is set to the host's owner only when the contact has
-no owner (decision 2 below).
+no owner at booking; it moves to the host when the meeting outcome becomes COMPLETED, through a
+meeting-based HubSpot workflow (WP2 step 9), not through the receiver (decision 2).
 
 | Property | Type | Written on | Value |
 |---|---|---|---|
@@ -196,6 +198,7 @@ today; 290 carry `hs_latest_meeting_activity`).
 | `hubspot_owner_id` | host's owner id: Michael 88777593, Darren 162759897 (both confirmed, active, no teams) |
 | `hs_activity_type` | not set: the portal defines no meeting types (the option list is empty) |
 | `calendly_invitee_uri` (new custom meeting property) | idempotency key; the Supabase row holds the HubSpot meeting id too. This will be the portal's first custom meeting property (all 127 today are HubSpot-defined) |
+| `ibo_booking_source`, `ibo_booking_medium`, `ibo_booking_campaign`, `ibo_booking_entry_src` (new custom meeting properties) | the booking's attribution, same values as the contact's `ibo_meeting_*` at that moment, written once and never changed. Per-booking credit for comp (decision 2): a meeting report filtered on campaign and outcome COMPLETED does not depend on who owns the contact, and a contact's second booking does not overwrite the first |
 | associations | `associationTypeId` 200 to the contact |
 
 `hs_meeting_source` is read-only through the API (confirmed, as are `hs_created_by_scheduling_page`
@@ -297,6 +300,18 @@ the acceptance criteria below. Nothing deploys until Greg says build.
    trigger and the staff-domain refinement on both. Then set the outcome on the next real no-show
    and confirm one contact enrols once and F3 goes out 30 minutes later. Note for the runbook: Lead
    Status "No Show" is not in list 283's sales stages, which is right for a recovery sequence.
+9. Owner on completion (decision 2): a new meeting-based workflow, "Meeting completed -> contact
+   owner is the host": enrol meetings when `hs_meeting_outcome` becomes COMPLETED, re-enrolment on,
+   action: set the associated contact's `hubspot_owner_id` to the meeting's owner. Works for the
+   existing HubSpot-tool meetings and for the Calendly-created ones alike, since both are real
+   meeting records owned by the host. Build it after the comp report in step 10 exists, so no
+   owner moves before the credit measure is in place.
+10. Edmund's comp report (decision 2): a saved meetings report, filter `ibo_booking_campaign`
+    (or the existing contact-level `engagements_last_meeting_booked_campaign` for history) on his
+    outreach campaigns, grouped by `hs_meeting_outcome`. Which campaign and source values count
+    as his outreach is confirmed with Greg when the report is built (today: `dripify / outbound /
+    edmund-1`; bookings from the nurture emails arrive as `hs_automation` and are a separate
+    question).
 
 ### WP3. Dashboard build (Opus, 1.5 to 2 days)
 
@@ -359,7 +374,8 @@ at the preview URL, then once more on production before the site deploy:
 |---|---|
 | Book from `/book?src=modal&...` as a brand-new email | contact created, owner = host, Meeting with owner = host, outcome SCHEDULED, `ibo_*` set, form submission on the timeline with the right original source, confirmation shows the host and local time, invite arrives from the host's address, GA4 event |
 | Same booking, side effects (audit) | lifecycle stage becomes MQL and Edmund gets the "Meeting Booked" email, either because event 4-1720599 fired for the API meeting or because the fallback in WP2 step 7 is in place; `notes_last_contacted` moved |
-| Book as an existing contact owned by someone else | owner unchanged, meeting owner = host |
+| Book as an existing contact owned by someone else | owner unchanged, meeting owner = host, `ibo_booking_*` on the meeting carry the attribution |
+| Mark the meeting Completed in HubSpot | contact owner becomes the host (WP2 step 9); the meeting's `ibo_booking_campaign` is unchanged, so the comp report still credits the outreach |
 | Reschedule from the invite | old meeting RESCHEDULED, new meeting SCHEDULED, possibly other host |
 | Cancel | CANCELED; contact leaves nothing in a send list |
 | Mark no-show in Calendly | NO_SHOW within a minute, W8 enrols the contact (or the meeting-based rebuild does) |
@@ -397,15 +413,21 @@ receiver is harmless when nothing books through Calendly.
   their Calendly Zoom connection.
 - HubSpot still shows every meeting on the contact timeline, owned by the right partner, and every
   contact still carries the campaign that produced the booking.
+- When they mark a meeting Completed, the contact's owner moves to them (decision 2). Until then
+  the owner stays whoever had the record, so Edmund keeps his contacts through the booking.
 
 ## 8. Decisions for Greg
 
 1. **Plan and admin. Decided 29 Oct.** Greg signs up for Calendly Teams as the organization
    owner and adds Michael and Darren as the two hosts (three seats). Greg's account owns the API
    token and the webhook subscription (WP0 step 1, WP1 step 6).
-2. **Contact owner on booking.** Recommended: set the host as owner only when the contact has none;
-   never overwrite. Same as today's effective behaviour (audit: two recent bookers owned by Edmund
-   kept him while their meetings went to Michael).
+2. **Contact owner on booking. Decided 29 Oct.** At booking the host becomes owner only when the
+   contact has none (today's effective behaviour). When the meeting outcome becomes COMPLETED the
+   owner moves to the host (WP2 step 9). Edmund's comp is a booking that came out of his outreach,
+   regardless of who owned the record, so credit is measured from the booking's attribution, never
+   from the owner: the receiver stamps it on the meeting record (section 5.2) and a meetings report
+   reads it (WP2 step 10). Portal check on 29 Oct: 19 bookers carry an `edmund` campaign while
+   only 8 are owned by Edmund, which confirms owner was never the right measure.
 3. **Invite sender.** Recommended: calendar invitation from the host's calendar, not Calendly's
    email confirmation, so the confirmation copy and the "Gmail holds invitations from new senders"
    advice stay true.
