@@ -413,12 +413,15 @@ receiver is harmless when nothing books through Calendly.
 9. **Darren's HubSpot seat.** If his paid Sales Hub seat existed only for the meetings round robin,
    check whether it can be released once HubSpot scheduling is unpublished (cost offset; the API
    does not expose seat assignments, so this stays a UI check).
-10. **No-show practice (new, from the audit).** Nobody has ever set a scheduler meeting's outcome to
-    No show: 0 of 279, with 252 past meetings still "Scheduled", while 6 contacts carry Lead Status
-    "No Show". W8 has therefore never run on a real no-show. With Calendly, marking the no-show in
-    Calendly becomes the one action that reaches HubSpot (section 7). Decide whether that is the
-    rule for Michael and Darren from cutover, and whether the historical "No Show" lead statuses
-    should be left alone (recommended: yes, they predate the programme).
+10. **No-show practice (new, from the audit). Decided 29 Oct: Greg will enforce it.** Nobody has
+    ever set a scheduler meeting's outcome to No show: 0 of 279, with 252 past meetings still
+    "Scheduled", while 6 contacts carry Lead Status "No Show". W8 has therefore never run on a
+    real no-show. The two marks differ: Lead Status "No Show" on the contact triggers nothing;
+    Outcome "No show" on the meeting activity fires W8. The practice from now until cutover is the
+    meeting outcome (open the meeting on the contact timeline, set Outcome to No show). After
+    cutover it is "Mark no-show" in Calendly, which the receiver mirrors to the HubSpot meeting
+    (section 7); Lead Status stays whatever the reps use for pipeline. The 6 historical "No Show"
+    lead statuses are left alone.
 
 ## 9. Unverified points and how each gets settled
 
