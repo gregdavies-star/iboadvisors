@@ -233,10 +233,11 @@ the acceptance criteria below. Nothing deploys until Greg says build.
 
 ### WP0. Accounts and decisions (Greg, about half a day)
 
-1. Calendly **Teams**, 2 seats (Michael, Darren). Round robin is Teams and above; the pricing page
-   shows $16 per seat per month on annual billing. Decide who is the Calendly organization owner or
-   admin: the API token and the organization-scope webhook must be created by an admin, and the
-   token then covers both hosts' events.
+1. **Decided 29 Oct (decision 1):** Greg signs up for Calendly **Teams** as the organization
+   owner, then adds Michael and Darren as users and connects them as the two hosts. Round robin is
+   Teams and above; the pricing page shows $16 per seat per month on annual billing, so this is
+   three seats. Greg's owner account creates the API token and the organization-scope webhook (WP1
+   step 6), and the token then covers both hosts' events.
 2. Each host connects Google Calendar and Zoom in Calendly.
 3. Decisions 1 to 9 in section 8.
 4. Done 29 Oct: `IBO_HUBSPOT_SERVICE_KEY` (private app 59288867 on portal 245308986) is in the
@@ -257,7 +258,8 @@ the acceptance criteria below. Nothing deploys until Greg says build.
 4. Confirmation email: move the "three things" prep text from the HubSpot scheduling page's
    automation into the Calendly event-type confirmation email.
 5. Calendly Workflow: email reminders at 2 hours and 10 minutes before, matching today.
-6. Personal access token (admin, scopes `scheduled_events:read`, `webhooks:write`) and a webhook
+6. Personal access token (created under Greg's owner account, scopes `scheduled_events:read`,
+   `webhooks:write`) and a webhook
    signing key, both stored as Vercel environment variables on the dashboard project
    (`CALENDLY_API_TOKEN`, `CALENDLY_WEBHOOK_SIGNING_KEY`, `CALENDLY_ORG_URI`). Never in the repo.
 7. Branding: primary colour to the site navy; `hide_event_type_details=1` since the page already
@@ -398,8 +400,9 @@ receiver is harmless when nothing books through Calendly.
 
 ## 8. Decisions for Greg
 
-1. **Plan and admin.** Calendly Teams with 2 host seats; who is the organization admin that owns the
-   token (a third admin seat, or Michael)?
+1. **Plan and admin. Decided 29 Oct.** Greg signs up for Calendly Teams as the organization
+   owner and adds Michael and Darren as the two hosts (three seats). Greg's account owns the API
+   token and the webhook subscription (WP0 step 1, WP1 step 6).
 2. **Contact owner on booking.** Recommended: set the host as owner only when the contact has none;
    never overwrite. Same as today's effective behaviour (audit: two recent bookers owned by Edmund
    kept him while their meetings went to Michael).
@@ -450,7 +453,7 @@ receiver is harmless when nothing books through Calendly.
 
 | Item | Figure |
 |---|---|
-| Calendly Teams | $16 per seat per month, annual, per the pricing page; 2 to 3 seats |
+| Calendly Teams | $16 per seat per month, annual, per the pricing page; 3 seats (Greg as owner, Michael, Darren) per decision 1 |
 | HubSpot | no change in tier; possibly one Sales seat fewer (decision 9) |
 | Vercel and Supabase | within current usage |
 | Build effort | WP3 1.5 to 2 days, WP4 1 day, WP5 1 day; WP0 to WP2 about 1.5 days of Greg's time spread across the week |

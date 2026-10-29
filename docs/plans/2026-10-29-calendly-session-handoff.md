@@ -64,7 +64,11 @@ Taken by Greg on 29 Oct:
   outcome stays the system record. Greg will enforce the practice with the reps. The 6 historical
   "No Show" lead statuses stay as they are.
 
-Still open (section 8, decisions 1 to 9): Calendly plan and admin seat; owner on booking
+- Decision 1 (29 Oct): Greg signs up for Calendly Teams as the organization owner and adds
+  Michael and Darren as the two hosts; three seats. Greg's account owns the token and webhook
+  (WP0 step 1, WP1 step 6).
+
+Still open (section 8, decisions 2 to 9): owner on booking
 (recommended: only when empty); invite sender (recommended: host's calendar); booking questions
 (recommended: name and email only); completed meetings stay manual; do not install the native
 Calendly for HubSpot app; 14-day fallback window; dashboard bookings panel or defer; Darren's
