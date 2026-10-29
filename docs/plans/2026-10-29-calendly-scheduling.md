@@ -462,13 +462,13 @@ receiver is harmless when nothing books through Calendly.
 |---|---|---|
 | `calendly.event_scheduled` arrives with `event.origin === 'https://calendly.com'` | listener never fires | WP1 test booking, console log; the official sample does not check origin at all, so the check is ours |
 | API-created meetings fire HubSpot's "Meeting outcome changed" event (W8 trigger) | W8 silent on no-shows | WP5 no-show case; fallback is the meeting-based workflow |
-| API-logged meetings update `notes_last_contacted` (list 283) | contacts not suppressed as "in conversation" | WP5, inspect the test contact |
+| API-logged meetings update `notes_last_contacted` (list 283) | contacts not suppressed as "in conversation" | **Largely settled 29 Oct**: calendar-synced meetings moved `notes_last_contacted` and `hs_latest_meeting_activity` on every associated contact (same check as the row below). WP5 confirms once for an API-created meeting |
 | `crm.objects.contacts.write` is enough to create meetings with `dashboardapp` | 403 on create | WP4 first replay; add the meetings scope if needed |
 | `hs_meeting_source` value for API meetings (expected INTEGRATION) | source-filtered reports empty | WP5, read the created meeting |
 | Round-robin reschedule can land on the other host | confirmation copy names the wrong partner if we reuse the stored host | handled: `/confirm` re-resolves the host from the new event |
 | Calendly's own confirmation page names the host | none for us (we swap it out), but it affects the one second before State 2 renders | WP1 test booking |
 | Monthly (not annual) Calendly pricing | budget | Calendly pricing page at purchase |
-| HubSpot's meeting-booked event (4-1720599) fires for API-created meetings | MQL stage and Edmund's notification stop on cutover | WP5 first booking; fallback in WP2 step 7 |
+| HubSpot's meeting-booked event (4-1720599) fires for API-created meetings | MQL stage and Edmund's notification stop on cutover | **Largely settled 29 Oct** from portal data: on 5 of the portal's calendar-synced (BIDIRECTIONAL_API) meetings, every associated contact not already MQL entered MQL at the meeting's exact creation minute (7 contacts, 14 Sep to 25 Oct), and `hs_latest_meeting_activity` and `notes_last_contacted` moved for all of them. The event therefore fires for meetings the scheduler did not create. WP5 confirms it once for an API-created meeting; the fallback in WP2 step 7 is now unlikely to be needed |
 | Current IBO portal state: custom properties, list 58 definition, meeting types, how many MEETINGS_EMBEDDED meetings exist | WP2 scope | **Settled 29 Oct** by the read-only audit in Appendix C: the `ibo_meeting_*` group exists and the six "(new)" names are free; list 58 is a 9-way OR with `engagements_last_meeting_booked is known` as one branch; the portal defines no meeting types; zero MEETINGS_EMBEDDED meetings exist, all 279 scheduler bookings are MEETINGS_PUBLIC |
 
 ## 10. Costs and effort
@@ -519,7 +519,11 @@ receiver is harmless when nothing books through Calendly.
   `context.hutk` and `pageUri`, as `tracking.submitForm` already does.
 - `engagements_last_meeting_booked` and its `_source/_medium/_campaign` are written only by the
   meetings tool. `notes_last_contacted`, `notes_last_updated`, `num_contacted_notes` are written by any
-  logged meeting (verify).
+  logged meeting (confirmed 29 Oct on calendar-synced meetings; see section 9).
+- The meeting-booked event `4-1720599` fires for meetings the scheduler did not create: the MQL
+  workflow stamped 7 contacts at the creation minute of their calendar-synced meetings (29 Oct
+  check). The 3 Zoom-app INTEGRATION meetings in the portal have **no associated contact**, a
+  reminder that a third-party app logs what it can match and silently drops the rest.
 - Workflows: "Meeting outcome changed" is documented as firing when an outcome changes in the
   account; meeting-based workflows can enrol meetings by property regardless of source.
 - Event type ids in this portal (audit): `4-1639801` form submission (filtered on `hs_form_id`),
