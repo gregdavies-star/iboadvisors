@@ -1,36 +1,33 @@
-# Daily SEO run — 2026-10-28
+# Daily SEO run — 2026-10-29
 
-One new post plus its three inbound donors — the full four-page cap. Every `lowCtr` row with a real snippet fault is inside its 28-day cool-down, and the `strikingDistance` rows are already answered on the page, so the new-post slot was the only lever that moved.
+One new post, one expansion, two links. The valuation cluster's last high-intent keyword is now covered; every `lowCtr` row but one is cool-down-locked, and the one that is free has a position problem, not a snippet problem.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 09-28 → 10-25 | 74 | 4,072 | 1.82% | 12.3 |
-| 08-31 → 09-27 | 62 | 3,206 | 1.93% | 14.5 |
+| 09-29 → 10-26 | 73 | 4,073 | 1.79% | 12.3 |
+| 09-01 → 09-28 | 67 | 3,399 | 1.97% | 14.2 |
 
 ## Changes
 
-- **New post: `/blog/sde-vs-ebitda`, 1,901 words (rule 7).** One post shipped in the trailing 7 days, so the cap was open. "SDE vs EBITDA" is the highest-priority uncovered keyword in `keywords.json` (cluster 4), and it beats the other cluster-4 gap, "quality of earnings report", which the 10-22 add-backs post already covers in substance. Three sources, all opened and quoted: SBA 7(a) (`$5 million` maximum, "changes of ownership"), GF Data via ACG (7.3x TTM adjusted EBITDA, 80 Q1 2026 transactions), SEC non-GAAP C&DI 100.01 on recurring operating expenses. The worked company is invented and labelled as such; its 3.0x SDE quote is explicitly made up, because no reliable public SDE dataset exists at this size — the post says so rather than borrowing a blog's number.
-- **`/blog/adjusted-ebitda-add-backs` → new post (rules 7, 8).** Its FAQ already answered the SDE question in three sentences with nowhere to send the reader. 7 in-links.
-- **`/blog/how-pe-firms-value-a-company` → new post.** Strongest page on the site (26 in-links); its normalization step said above-market owner comp is added back without naming the measure that adds back all of it.
-- **`/blog/choosing-an-ma-advisory-firm` → new post.** 9 in-links, last touched 09-22. Its "$3M+ EBITDA vs Main Street broker" FAQ now carries the earnings-measure tell.
-
-No deal-data flags this run.
+- **New post `/blog/quality-of-earnings-report` (rule 7), 2,179 words.** Highest-priority uncovered keyword in `keywords.json` (cluster 4); one distinct new post in the trailing 7 days, so under the cap. Anchored on the Limbach Holdings / PNC credit agreement of 9 Sep 2026, read on EDGAR: it lets a lender take a QoE *instead of* audited financials above $15M of target revenue, and exempts QoE-evidenced add-backs from the 15%-of-EBITDA cap the merely-asserted ones share. Worked EBITDA bridge on an invented company; $455,000 of struck adjustments priced at GF Data's 6.8x and 3.4x senior leverage. 10 internal links out, 4 in.
+- **`/blog/family-business-succession-planning` +344 words (rule 4).** "which advisors offer integrated tax, estate, and business succession planning for multi-generation family businesses?" — 28 impressions at **8.1**, answered only in an unheaded paragraph. Added it verbatim as an H2, plus a four-model provider table and the four dated documents that make "integrated" mean something. `Updated` bumped; last content edit 10-13, outside cool-down.
+- **Two inbound links (rules 7, 8)** from `/blog/adjusted-ebitda-add-backs` and `/blog/how-pe-firms-value-a-company`, both placed on paragraphs that already discuss QoE work.
 
 ## Considered and skipped
 
-- **8 of 10 `lowCtr` rows** were retitled 10-11 to 10-25. Of the two out of cool-down, `/blog/how-pe-firms-value-a-company` ranks 52–66 on accounting-firm valuation terms and `/blog/dividend-recapitalization` sits at 30 on its own head term — both ranking problems, not snippet faults.
-- **`/blog/sell-part-of-your-business-keep-control` (150 impr, pos 7.4)** is a 301 to `/blog/sell-a-business-but-keep-control` in `vercel.json`. There is no page to retitle; the live target was rewritten 10-19.
-- **All 3 `strikingDistance` rows** are `/blog/family-business-succession-planning`, now out of cool-down — but it already carries `<h2>Liquidity planning for family business succession</h2>` and `<h2>Which advisors are best suited to plan the sale of a family-owned company?</h2>` verbatim. Rule 4's precondition is not met.
-- **Cannibalization:** brand rows won by the homepage at 1.0–3.6; buyout rows addressed 10-21 and 10-26.
-- **Decliners:** the one row is apex `iboadvisors.com` going 7 clicks → 0. That is the apex→www 301 consolidating, not a loss.
+- **`lowCtr`: 7 of 8 rows cool-down-locked** (retitled 10-12 to 10-25). The 8th, `/blog/dividend-recapitalization`, is free but its head term "dividend recapitalization" sits at position **30** (38 impr) — 0 clicks on 145 impressions is noise at a 1% expected CTR, and no title fixes page 3.
+- **`/blog/sell-part-of-your-business-keep-control` (150 impr, 7.4)** is a 301 in `vercel.json`; Google is still indexing the dead URL. Nothing on-page to rewrite.
+- **`strikingDistance`:** the two bigger family-business rows already have exact-match H2s. "ibo finance" (pos 5) lands on the homepage, body off-limits. "owner buyout" expanded 10-26.
+- **`cannibalization`:** all six rows are brand/category terms the homepage already wins at 1–3.5, or were handled 10-25/10-26. `independentbuyout.com` is ours and absorbs some of these clicks — not a snippet fault.
+- **`decliners`:** the single row is apex `iboadvisors.com` (6 → 0 clicks). That is the apex→www 301 consolidating, not a loss.
 
 ## Coverage
 
-34 of 35 indexed. `/industries/restaurants` holds at "Discovered — currently not indexed". Yesterday's unmerged branch added the first `/blog` → `/industries` links; nothing further is available on-page. Audit: 0 errors, 0 warnings, 37 indexable pages.
+35 of 36 sitemap URLs PASS. `/industries/restaurants` is still NEUTRAL, "Discovered - currently not indexed"; expanded 10-21 and 10-24 with two inbound links added. No further on-page lever — it needs crawl time.
 
 ## For a human
 
-1. **Request indexing for `/industries/restaurants`** in Search Console. Five expansions and a link pass have not moved it; this is now crawl priority.
-2. **Split `/blog/family-business-succession-planning`** (4,938 words, 2 clicks on 491 impressions). Two of its three striking-distance queries are advisor-selection intent trapped inside a succession post.
-3. **Branch `seo/daily-1793117895` (10-27) is still unmerged** and carries four link edits. Today's donors were chosen to avoid it, but the changelog and `last-run.md` will conflict.
-4. No `ahrefs-latest.json` in the repo, so rule 7's volume/KD preference ran unweighted again.
+- **43 impressions at positions 52–66** on "private equity accounting firm valuation" and "private equity and accounting firm valuations", with no page targeting them. CPA-firm roll-ups are not in `keywords.json`; worth adding to cluster 7.
+- **"industry multiples database"** — 66 impressions at 44.5 on `/ebitda-multiples-by-industry`. A downloadable version of that table is the digital-PR asset in STRATEGY.md §5.
+
+**Flagged:** nothing this run.

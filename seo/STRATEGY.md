@@ -150,3 +150,26 @@ already ranking for.
 `/blog/types-of-buyouts`. Those anchors still tell Google the primer owns the
 conceded term. Rewording them is body-copy editing on two other pages, so it is
 left for a human to approve rather than done as part of a retitle.
+
+### Open: /blog/family-business-succession-planning may need splitting
+
+**Raised by the 10-27 and 10-28 runs, with Greg since 10-27, not yet decided.**
+The page is the longest on the site and has absorbed roughly ten expansions
+against the same three striking-distance queries without moving - 2 clicks on
+about 490 impressions. Two of those three queries are advisor-selection intent
+rather than succession-planning intent, which is the argument for carving them
+out into a dedicated page ("which advisors handle the sale of a family
+business").
+
+That material is now largely assembled in one place. The page carries an H2 for
+each of the two advisor queries - "Which advisors are best suited to plan the
+sale of a family-owned company?" and, added on 10-29 for a query sitting at
+position 8.1, "Which advisors offer integrated tax, estate, and business
+succession planning for multi-generation family businesses?" - plus a four-model
+provider table and the four-dated-documents test of what "integrated" means.
+
+**For a daily run:** promoting an existing answer to a headed section, or adding
+a comparison table that answers a striking-distance query directly, is fine and
+is what the 10-29 run did. Adding more words to the succession or liquidity
+themes is not - those are the parts that have not moved in ten rounds. If the
+split happens, the two advisor sections and the provider table are what moves.
