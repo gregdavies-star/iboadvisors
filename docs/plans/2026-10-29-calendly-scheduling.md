@@ -428,12 +428,12 @@ receiver is harmless when nothing books through Calendly.
    from the owner: the receiver stamps it on the meeting record (section 5.2) and a meetings report
    reads it (WP2 step 10). Portal check on 29 Oct: 19 bookers carry an `edmund` campaign while
    only 8 are owned by Edmund, which confirms owner was never the right measure.
-3. **Invite sender.** Recommended: calendar invitation from the host's calendar, not Calendly's
+3. **Invite sender. Decided 29 Oct, as recommended.** Calendar invitation from the host's calendar, not Calendly's
    email confirmation, so the confirmation copy and the "Gmail holds invitations from new senders"
    advice stay true.
-4. **Booking questions.** Recommended: name and email only, as today. Phone is optional and would
+4. **Booking questions. Decided 29 Oct, as recommended.** Name and email only, as today. Phone is optional and would
    lower completion.
-5. **Completed meetings.** Recommended: stay manual (Had Zoom Meeting in the dashboard, outcome in
+5. **Completed meetings. Decided 29 Oct, as recommended.** Stay manual (Had Zoom Meeting in the dashboard, outcome in
    HubSpot). Auto-marking past meetings COMPLETED is possible later with a cron.
 6. **Native Calendly for HubSpot app.** Recommended: do not install. It would duplicate meetings and
    cannot write the properties the programme needs.

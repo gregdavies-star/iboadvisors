@@ -73,10 +73,12 @@ Taken by Greg on 29 Oct:
   credit is the booking's outreach attribution, not the owner: stamped on the meeting record as
   `ibo_booking_*` (section 5.2) and read by a meetings report (WP2 step 10).
 
-Still open (section 8, decisions 3 to 9): invite sender (recommended: host's calendar); booking questions
-(recommended: name and email only); completed meetings stay manual; do not install the native
-Calendly for HubSpot app; 14-day fallback window; dashboard bookings panel or defer; Darren's
-HubSpot seat.
+- Decisions 3, 4, 5 (29 Oct), as recommended: invite from the host's calendar; booking form is
+  name and email only; completed meetings stay a manual mark.
+
+Still open (section 8, decisions 6 to 9): native Calendly for HubSpot app (Greg asked for the
+options and trade-offs on 29 Oct); 14-day fallback window; dashboard bookings panel or defer;
+Darren's HubSpot seat.
 
 ## Suggested next steps for the new session
 
