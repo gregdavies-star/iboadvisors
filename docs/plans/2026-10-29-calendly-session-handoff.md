@@ -82,8 +82,11 @@ Taken by Greg on 29 Oct:
   `ibo_booking_*` stamp stays (cheap, written by the receiver anyway); the comp report (WP2 step
   10) is deferred. Do not let it drive any further decision.
 
-Still open (section 8, decisions 7 to 9): 14-day fallback window; dashboard bookings panel or
-defer; Darren's HubSpot seat.
+- Decisions 7 and 9 (29 Oct): 14-day fallback window, unpublish the HubSpot scheduling page on
+  day 15; Darren's seat is a UI check on the same day, no action before.
+
+Still open (section 8): decision 8, dashboard bookings panel or defer (Greg asked what WP3 is
+before deciding).
 
 ## Suggested next steps for the new session
 

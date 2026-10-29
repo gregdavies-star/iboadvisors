@@ -447,13 +447,14 @@ receiver is harmless when nothing books through Calendly.
    the entry paths that never pass the form (19 nurture email links, the PDF link, outbound), and
    behaviour on NA2. Two writers would duplicate every meeting. Revisit only if HubSpot stops
    being the source of truth.
-7. **Fallback window.** Recommended: keep the HubSpot scheduling page published for 14 days after
-   cutover.
+7. **Fallback window. Decided 29 Oct, as recommended.** Keep the HubSpot scheduling page published
+   but unlinked for 14 days after cutover; unpublish on day 15 (WP6 step 4).
 8. **Dashboard view.** Add a Calendly bookings panel (host split, source, status) to replace the lost
    HubSpot meetings-tool report, or defer.
-9. **Darren's HubSpot seat.** If his paid Sales Hub seat existed only for the meetings round robin,
-   check whether it can be released once HubSpot scheduling is unpublished (cost offset; the API
-   does not expose seat assignments, so this stays a UI check).
+9. **Darren's HubSpot seat. Decided 29 Oct.** No action now. On day 15, when the scheduling page
+   is unpublished (WP6 step 4), check in HubSpot's users and seats settings whether his paid Sales
+   Hub seat is still needed for anything beyond the round robin, and release it if not. The API
+   does not expose seat assignments, so this stays a UI check.
 10. **No-show practice (new, from the audit). Decided 29 Oct: Greg will enforce it.** Nobody has
     ever set a scheduler meeting's outcome to No show: 0 of 279, with 252 past meetings still
     "Scheduled", while 6 contacts carry Lead Status "No Show". W8 has therefore never run on a
