@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T13:41:41.457Z",
+  "generatedAt": "2026-10-29T17:28:50.081Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
-      "outboundInternalLinks": 30,
+      "inboundInternalLinks": 36,
+      "outboundInternalLinks": 31,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 3140,
+      "words": 3163,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "Liquidity planning for a family business succession: how to pay the exiting generation, fund the successor, and pick the advisors who run the transition.",
       "descriptionLength": 153,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 4938,
-      "date": "2026-10-13",
+      "words": 5282,
+      "date": "2026-10-29",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 17,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -151,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2645,
+      "words": 2680,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 27,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2207,
       "date": "2026-09-13",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 18,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2419,
       "date": "2026-10-10",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -244,7 +244,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1506,
       "date": "2026-04-24",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -298,6 +298,19 @@
       "date": "2026-10-04",
       "inboundInternalLinks": 9,
       "outboundInternalLinks": 16,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/quality-of-earnings-report",
+      "title": "Quality of Earnings Report: What Buyers Test | IBO Advisors",
+      "titleLength": 59,
+      "description": "What a quality of earnings report covers, what one costs, and why a lender will accept one instead of audited financials, plus the EBITDA bridge math.",
+      "descriptionLength": 150,
+      "h1": "Quality of Earnings Report: What Buyers Test",
+      "words": 2179,
+      "date": "2026-10-29",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -413,7 +426,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 35,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -426,7 +439,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
       "issues": []
     },
