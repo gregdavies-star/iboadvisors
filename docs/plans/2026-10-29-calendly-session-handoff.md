@@ -76,9 +76,14 @@ Taken by Greg on 29 Oct:
 - Decisions 3, 4, 5 (29 Oct), as recommended: invite from the host's calendar; booking form is
   name and email only; completed meetings stay a manual mark.
 
-Still open (section 8, decisions 6 to 9): native Calendly for HubSpot app (Greg asked for the
-options and trade-offs on 29 Oct); 14-day fallback window; dashboard bookings panel or defer;
-Darren's HubSpot seat.
+- Decision 6 (29 Oct): do not install the native Calendly for HubSpot app; the webhook receiver
+  is the only writer. A form-first hybrid was weighed and rejected (reasons in section 8).
+- Greg, 29 Oct: Edmund's comp credit is a minor matter for this project. The per-booking
+  `ibo_booking_*` stamp stays (cheap, written by the receiver anyway); the comp report (WP2 step
+  10) is deferred. Do not let it drive any further decision.
+
+Still open (section 8, decisions 7 to 9): 14-day fallback window; dashboard bookings panel or
+defer; Darren's HubSpot seat.
 
 ## Suggested next steps for the new session
 

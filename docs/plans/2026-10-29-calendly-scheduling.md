@@ -306,7 +306,8 @@ the acceptance criteria below. Nothing deploys until Greg says build.
    existing HubSpot-tool meetings and for the Calendly-created ones alike, since both are real
    meeting records owned by the host. Build it after the comp report in step 10 exists, so no
    owner moves before the credit measure is in place.
-10. Edmund's comp report (decision 2): a saved meetings report, filter `ibo_booking_campaign`
+10. Deferred (Greg, 29 Oct: not on this project's critical path). Edmund's comp report
+    (decision 2): a saved meetings report, filter `ibo_booking_campaign`
     (or the existing contact-level `engagements_last_meeting_booked_campaign` for history) on his
     outreach campaigns, grouped by `hs_meeting_outcome`. Which campaign and source values count
     as his outreach is confirmed with Greg when the report is built (today: `dripify / outbound /
@@ -435,8 +436,17 @@ receiver is harmless when nothing books through Calendly.
    lower completion.
 5. **Completed meetings. Decided 29 Oct, as recommended.** Stay manual (Had Zoom Meeting in the dashboard, outcome in
    HubSpot). Auto-marking past meetings COMPLETED is possible later with a cron.
-6. **Native Calendly for HubSpot app.** Recommended: do not install. It would duplicate meetings and
-   cannot write the properties the programme needs.
+6. **Native Calendly for HubSpot app. Decided 29 Oct: do not install.** Considered against a
+   form-first hybrid (attribution written on the IBO form submit, the app logging the meeting).
+   The 29 Oct portal check showed the meeting-booked event fires for non-scheduler meetings, which
+   helps both paths equally. What decided it: the confirmation lookup needs server code with the
+   Calendly token whichever way, so the receiver is a one-day increment, not the whole build; the
+   receiver alone controls the meeting owner per host (the app needs each host's HubSpot user
+   connected, and the portal's Zoom app shows what happens otherwise: three meetings under one
+   owner with no contact attached), the outcome mapping that W8 depends on, the attribution for
+   the entry paths that never pass the form (19 nurture email links, the PDF link, outbound), and
+   behaviour on NA2. Two writers would duplicate every meeting. Revisit only if HubSpot stops
+   being the source of truth.
 7. **Fallback window.** Recommended: keep the HubSpot scheduling page published for 14 days after
    cutover.
 8. **Dashboard view.** Add a Calendly bookings panel (host split, source, status) to replace the lost
