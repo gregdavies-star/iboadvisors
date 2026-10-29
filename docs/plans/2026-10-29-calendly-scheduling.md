@@ -82,7 +82,7 @@ exactly as written; rows 5, 16 and 17 were corrected; rows 19 and 20 are new.
 | 4 | W7 pre-meeting email (off since 22 Oct) | workflow 5022928580 | same property; re-enrols on change; its branch tests "is after today" | Leave off; if ever re-enabled, trigger and branch on `ibo_last_meeting_start` |
 | 5 | W8 no-show recovery | workflow 5023073984 | Trigger: event "Meeting outcome changed" to NO_SHOW (event type 4-1724222). **Also** three if/then branches ("Rebooked" if `engagements_last_meeting_booked` is after today) before F4, A7 and A8 (audit) | Receiver PATCHes `hs_meeting_outcome=NO_SHOW` on the HubSpot meeting; verify the event fires for API-created meetings, else rebuild W8 as a meeting-based workflow. Re-point the three branches to "`ibo_last_meeting_start` is after today OR `engagements_last_meeting_booked` is after today", or a rebooked contact still gets F4, A7 and A8. Note: W8 has **never fired on a scheduler booking**: 0 of 279 scheduling-page meetings has ever been NO_SHOW and 252 past ones still read SCHEDULED; reps mark no-shows as Lead Status "No Show" instead (decision 10) |
 | 6 | List 283 "Suppression - in conversation" (W9 trigger) | HubSpot list | Lead Status in a sales stage, or Last Contacted within 14 days (`notes_last_contacted`) | API-logged meetings should update Last Contacted; verify with one test. (No W9 workflow exists yet; 283 is used only as a suppression list on W0 to W6) |
-| 7 | Dashboard "booked" classification | `lib/ingest/hubspot/classify.ts:884-890` | `engagements_last_meeting_booked` OR an associated live meeting | Second half already covers API meetings; add `ibo_last_meeting_booked` to the first |
+| 7 | Dashboard "booked" classification | `lib/ingest/hubspot/classify.ts:884-890` | `engagements_last_meeting_booked` OR an associated live meeting | Second half already covers API meetings; add `ibo_last_meeting_booked` to the first so a canceled Calendly booking stays "booked", as a canceled HubSpot one does today. Rows 7 to 10 are expanded column by column in Appendix D (decision 8) |
 | 8 | Dashboard booking attribution | `classify.ts:990-993`, `lib/email/nurture.ts:237`, `lib/email/rollup.ts:662,677` | `engagements_last_meeting_booked_source/medium/campaign` (confirmed populated, e.g. `linkedin / paid / IBO_XPR_Conversions_IBO Discussion`; HubSpot keeps no content value) | Fall back to `ibo_meeting_source/medium/campaign` (the receiver writes them) |
 | 9 | Dashboard funnel label "Direct meetings-link (calendar)" | `classify.ts:417,435-436` | landing URL host `meetings-na2.hubspot.com` | Add `calendly.com` and the `/book` page |
 | 10 | Dashboard meetings sync, Today's Meetings, No-show queue, Missed Meeting | `sync.ts:655-671`, `lib/queries/*`, `lib/ads/follow-up.ts` | HubSpot meeting objects (any source) | Works unchanged as long as the receiver creates real Meeting objects associated to the contact |
@@ -96,6 +96,7 @@ exactly as written; rows 5, 16 and 17 were corrected; rows 19 and 20 are new.
 | 18 | `CLAUDE.md` HubSpot facts | repo | describes the NA2 embed | Rewrite the scheduler bullets after cutover |
 | 19 | "Meeting Booked -> Change to MQL" (new, audit) | workflow 4879166163, enabled | HubSpot meeting-booked event 4-1720599 (unfiltered) sets `lifecyclestage=marketingqualifiedlead` | Verify in WP5 whether the event fires for API-created meetings. If not, the receiver sets `lifecyclestage` to MQL when the contact is below it (never downgrades), or the workflow is rebuilt as a meeting-based one |
 | 20 | "Meeting Booked - Notify Edmund" (new, audit) | workflow 4830712547, enabled | same event; internal email to Edmund Breitling (owner 164598474) per booking | Same test. Fallback: a meeting-based workflow (enrol meetings on create, notify), or the receiver sends the notification |
+| 22 | LinkedIn Campaign Manager conversion "Meeting Scheduled" (dashboard column "LinkedIn conv. (post-click)", via Windsor) | LinkedIn, `lib/ads/conversion-rule.ts` | LinkedIn's own conversion rule; if it fires on the HubSpot meetings confirmation URL it stops firing after cutover | Check the rule in Campaign Manager in WP1; re-point it to the `/book` confirmation state if it is URL-based. No dashboard code |
 | 21 | Edmund's booking credit (comp; decision 2) | HubSpot reports | contact-level `engagements_last_meeting_booked_campaign` (19 contacts carry an `edmund` campaign today; only 8 bookers are owned by Edmund, so owner was never the measure) | The receiver stamps the attribution on each **meeting record** (`ibo_booking_source/medium/campaign/entry_src`, new custom meeting properties) and on the contact (`ibo_meeting_*`). Credit = meetings whose campaign identifies his outreach, whoever owns the contact, so the owner move on completion costs nothing |
 
 ## 4. Target architecture
@@ -340,6 +341,40 @@ Acceptance:
 - Existing dashboard tests pass; `booked_meeting` is true for a contact whose only meeting is
   Calendly-created.
 
+**Dashboard parity (decision 8, hard gate).** The dashboard is used every day and must not be
+interrupted: every column in Appendix D reads the same for a Calendly booking as for a HubSpot
+one, from the first booking and through the 14-day fallback when both kinds coexist. The
+inventory of 29 Oct found no filter on meeting source anywhere in the app, so most columns
+already work off the meeting object; these are the changes that make the rest hold:
+
+1. Fetch the new contact properties (`ibo_last_meeting_booked`, `ibo_last_meeting_start`,
+   `ibo_meeting_host`, `ibo_meeting_status`, `ibo_meeting_source/medium/campaign/content`,
+   `ibo_meeting_entry_src`) in `properties.ts` and `docs/reference/properties_used.json`.
+2. `classify.ts` booked flag: OR in `ibo_last_meeting_booked`, so canceled bookings stay
+   "booked" as today (row 7).
+3. `classify.ts` last-booking UTMs (`meeting_booked_at/_source/_medium/_campaign`): take whichever
+   of `engagements_last_meeting_booked` and `ibo_last_meeting_booked` is later, with that set's
+   UTMs. This alone fixes every Email Nurture column that reads the booking campaign (From
+   nurture, Assisted, Direct, Step booked, weekly nurture meetings, the Booking column).
+4. `classify.ts` `funnelType`: `iboadvisors.com/book` and `calendly.com` URLs, and
+   `ibo_meeting_entry_src` set, read "Direct meetings-link (calendar)". Fixes the Funnel labels,
+   the Meetings list Source detail and the contact Source subline.
+5. Attribution fallback for contacts the receiver had to create (Forms API submission failed, so
+   HubSpot has no visit): `attributionUrl` falls back to `ibo_meeting_landing_url`, and
+   `platform()` treats `OFFLINE` like direct traffic when that URL carries ad UTMs. Keeps Platform,
+   row membership and Overview channel right.
+6. No change to the worklist no-show rule: the receiver gives the superseding meeting outcome
+   SCHEDULED and marks the old one RESCHEDULED, which is what HubSpot does today (3 RESCHEDULED
+   scheduler meetings exist), so "rebooked" resolves.
+7. Receiver requirements the columns depend on (already in section 5): associate the meeting to
+   the contact (an unassociated meeting is invisible everywhere); set `hs_meeting_start_time`,
+   `hs_meeting_end_time`, `hs_timestamp`; use HubSpot's internal outcome values; never overwrite
+   COMPLETED; set the contact owner only when blank (decision 2), since Point person and the
+   worklist Owner read the contact owner.
+8. Acceptance: a fixture contact whose only meeting is Calendly-created reads identically to a
+   HubSpot-booked control on every Appendix D column; the sync's 4-hourly cadence is unchanged,
+   so a Calendly booking appears within the same window as a HubSpot one does today.
+
 ### WP4. Site build (Opus, 1 day)
 
 Files: `book/index.html`, `book/book.js`, `modal.js` and `ibo-exit/exit.js` (`schedule_click`
@@ -385,12 +420,16 @@ at the preview URL, then once more on production before the site deploy:
 | Replay the same delivery | no duplicate meeting |
 | List 58, W2 branch, dashboard | contact suppressed, W2 does not send A1b, dashboard shows the meeting under the host |
 | Pre-call note | lands on the contact and reaches the booked host |
+| Dashboard parity sweep (decision 8) | after the next 4-hourly sync, walk every Appendix D column for the test contact against a HubSpot-booked control: Ad Performance Meetings, kind columns, Meetings Held, Today's Meetings, Missed Meeting, No Meeting Scheduled; Meetings list Meeting, Point person, Source; Overview and Forecast counts; Funnel label; Pipeline last touch; contact detail; Email Nurture From nurture, Assisted, Direct, Step booked, Meeting held, worklist No-show and Owner |
+| Dashboard regression on the dashboard-only deploy (WP6 step 1) | before the site deploys, the same sweep over existing HubSpot-booked contacts shows no column changed |
 
 Delete the test contacts and meetings afterwards.
 
 ### WP6. Cutover and decommission (when Greg says build)
 
-1. Deploy the dashboard (receiver live but idle). Create the production webhook subscription with
+1. Deploy the dashboard first (receiver live but idle, parity changes in). Run the regression
+   sweep from WP5 on existing HubSpot bookings: nothing may change while no Calendly booking
+   exists. Only then create the production webhook subscription with
    a script (`events`: `invitee.created`, `invitee.canceled`, `invitee_no_show.created`,
    `invitee_no_show.deleted`; `scope`: organization; `signing_key` set).
 2. Deploy the site. Links, emails and redirects do not change: `/book` is the only entry point.
@@ -449,8 +488,14 @@ receiver is harmless when nothing books through Calendly.
    being the source of truth.
 7. **Fallback window. Decided 29 Oct, as recommended.** Keep the HubSpot scheduling page published
    but unlinked for 14 days after cutover; unpublish on day 15 (WP6 step 4).
-8. **Dashboard view.** Add a Calendly bookings panel (host split, source, status) to replace the lost
-   HubSpot meetings-tool report, or defer.
+8. **Dashboard. Decided 29 Oct.** Greg: the IBO dashboard is used every day, actively, and cannot
+   have an interruption; it must be built so that even during cutover every column is accurate.
+   So dashboard parity is a hard gate on WP3 and WP5 (Appendix D is the column inventory and WP3
+   lists the changes), the dashboard deploys before the site with a regression sweep in between
+   (WP6 step 1), and both booking kinds must read correctly side by side through the fallback
+   window. The new Calendly bookings panel that would replace the lost HubSpot meetings-tool
+   report is deferred to after cutover: the Supabase table holds every booking from day one, so
+   nothing is lost by waiting, and WP3 stays focused on the receiver and parity.
 9. **Darren's HubSpot seat. Decided 29 Oct.** No action now. On day 15, when the scheduling page
    is unpublished (WP6 step 4), check in HubSpot's users and seats settings whether his paid Sales
    Hub seat is still needed for anything beyond the round robin, and release it if not. The API
@@ -697,3 +742,42 @@ Seven owners, none archived, no teams: Cyrus Roepers 79839272, Michael Chasen 88
 - Meetings Link form submissions (HubSpot refuses to export MEETING-type forms).
 - Event type display names (Automation v4 returns ids only).
 - Seat assignments (decision 9).
+
+## Appendix D. Dashboard inventory, 29 October 2026 (decision 8)
+
+Read-only pass over `iboadvisors-dashboard` at b5b7363. Nothing in the app filters on
+`hs_meeting_source`, `hs_created_by_scheduling_page`, `hs_organizer_email` or `hs_meeting_title`
+(zero hits). The sync fetches every meeting with four properties (`hs_meeting_outcome`,
+`hs_meeting_start_time`, `hs_createdate`, `hs_lastmodifieddate`), stores `contact_id`, `outcome`,
+`start_time`, `created_at`, and treats every outcome except CANCELED as live. The full HubSpot sync
+runs every 4 hours (`vercel.json`), so a booking of either kind appears within that window.
+
+Derived contact fields the pages read: `booked_meeting` (scheduler property OR a live meeting
+object), `first_meeting_booked_at` (earliest `hs_createdate` of a live meeting),
+`meeting_booked_campaign` (scheduler property only, today), `had_zoom_meeting` (manual flag),
+`owner_id` (contact owner), `funnel_type` and `platform` (from landing URLs and analytics source).
+
+| Page | Column or view | Reads | Calendly booking |
+|---|---|---|---|
+| Ad Performance | Meetings; Meetings booked by kind (Company, Advisor, IBO Qualified, Unknown); Meetings Held and its status columns; Lead to meeting; Cost / meeting | `booked_meeting`, `lead_status`, role and qualification | works unchanged |
+| Ad Performance | Today's Meetings | live meeting `start_time` within today, Eastern | works once the receiver sets `hs_meeting_start_time` and associates the contact; counts meeting objects, so a second writer would double-count (decision 6) |
+| Ad Performance | Follow up: No Meeting Scheduled (IBO Qualified, Unknown) | `booked_meeting` false | works; WP3 item 2 keeps canceled bookings out of it, as today |
+| Ad Performance | Follow up: Missed Meeting | latest live `start_time` before today, `had_zoom_meeting` unset, not IBO Unqualified | works unchanged; decided by Had Zoom Meeting, not by NO_SHOW |
+| Ad Performance | LinkedIn conv. (post-click) | LinkedIn's own "Meeting Scheduled" conversion via Windsor | outside the app; check the rule in Campaign Manager (section 3 row 22) |
+| Ad Performance, Overview | row membership and per-channel split | landing URLs, `ibo_meeting_landing_url` (ad-set id only), `hs_analytics_source` | works when HubSpot tracked the visitor; WP3 item 5 covers receiver-created contacts |
+| Meetings list | who is listed; Meeting time and "+N more"; Status; Had Zoom Meeting; Role / IBO Qualified; follow-up filter | `booked_meeting`, live `start_time`, `lead_status`, flag | works once start time and association are set |
+| Meetings list | Point person | contact `hubspot_owner_id` | works with decision 2 (owner set when blank); a dash otherwise |
+| Meetings list, contact detail, Funnel | Source detail, Source subline, funnel-type labels and filter | `funnel_type` from the URL (`meetings-na2.hubspot.com`) or "Meetings Link:" conversion name | **needs WP3 item 4** |
+| Overview, Forecast | Meetings, Meeting rate, Cost / meeting, Meeting to contract | `booked_meeting` by platform | works unchanged |
+| Funnel | Booked Meeting stage counts | `booked_meeting` | works unchanged |
+| Lead Quality | lead-form bypass | `funnel_type` = ad lead form | works unchanged, reads no meeting signal |
+| Pipeline | Last touch, Days since touch | `v_deal_staleness`: max live `start_time` up to now, not CANCELED or NO_SHOW | works once start time and association are set |
+| Contact detail | Meeting booked; Meetings on record (time, outcome); edits to Point person, Had Zoom Meeting, Lead Status | `booked_meeting`, meeting rows, HubSpot properties | works unchanged |
+| Email Nurture | booking time behind every nurture metric; Meeting held; qualified-LinkedIn 30-day rate; legacy sequence; list health | `first_meeting_booked_at`, outcome COMPLETED, `booked_meeting` | works unchanged (COMPLETED stays the team's manual mark, decision 5) |
+| Email Nurture | From nurture, Assisted, Direct, Nurture to meeting, Cost / meeting incl. nurture, Step booked, weekly nurture meetings, untracked footnote, Booking column | `meeting_booked_campaign` (scheduler property) | **needs WP3 item 3**; without it every Calendly booking reads Assisted and From nurture drops to 0 |
+| Email Nurture worklist | No-show queue and label; "booked after entering" exclusion; Owner; Last human touch | outcome NO_SHOW with a later SCHEDULED or COMPLETED meeting as rebooked; `first_meeting_booked_at`; contact owner; `notes_last_contacted` | works with the section 5.3 outcome mapping; last contacted confirmed to move for non-scheduler meetings (section 9) |
+
+Pre-existing behaviour that is the same for both booking kinds and is left alone: a RESCHEDULED
+meeting is live, so an old slot can still appear under Today's Meetings and "+N more" on the day
+it was originally booked for. The offline reference script `docs/reference/analyze.py` still reads
+the scheduler property and is not a page.

@@ -85,8 +85,13 @@ Taken by Greg on 29 Oct:
 - Decisions 7 and 9 (29 Oct): 14-day fallback window, unpublish the HubSpot scheduling page on
   day 15; Darren's seat is a UI check on the same day, no action before.
 
-Still open (section 8): decision 8, dashboard bookings panel or defer (Greg asked what WP3 is
-before deciding).
+- Decision 8 (29 Oct): the dashboard is used every day and cannot be interrupted; every column
+  must be accurate through cutover. Dashboard parity is a hard gate on WP3 and WP5, with the
+  column inventory in Appendix D and the required changes in WP3. The new bookings panel is
+  deferred to after cutover.
+
+Section 8 is closed: all ten decisions are recorded. The plan now waits on Greg's Calendly
+sign-up (WP0, WP1), the WP2 HubSpot steps, and Greg saying build for WP3 and WP4.
 
 ## Suggested next steps for the new session
 
