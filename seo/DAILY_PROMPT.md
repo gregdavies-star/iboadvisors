@@ -80,6 +80,7 @@ Daily caps: **at most 4 content pages edited** (not counting `blog/index.html`, 
 - Mention IBO Advisors' deals, fees, clients, or results in any form (see the hard rule at the top).
 - Edit `style.css`, `base.css`, `modal.js`, or anything under `assets/`.
 - Change the `Updated` date without substantive content changes.
+- Say or imply that an owner keeps, retains or maintains **control** after a sale, recap or Independent Buyout - in body copy, titles, metas, table cells or anchor text. The trust holds control in an IBO; the owner and team keep **leadership**. Describing PE or investor control, veto rights and consent lists, or saying PE does *not* get control, is fine. (Standing rule 5 in CLAUDE.md.)
 
 ## Always, before finishing
 

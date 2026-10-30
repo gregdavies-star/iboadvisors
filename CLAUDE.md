@@ -8,6 +8,7 @@ Static HTML/CSS/JS on Vercel (project `iboadvisors`), no build step. See README.
 2. The call with Michael is **30 minutes**, everywhere it is mentioned.
 3. The /book confirmation does **not** ask where the visitor will take the call and does **not** ask them to commit to rescheduling. The optional "Anything you'd like Michael to know?" note **stays**; the note goes to the HubSpot contact record and to Michael, never to the prospect.
 4. No code is deployed until Greg says build.
+5. **"Control" wording.** Never say or imply that an owner keeps, retains or maintains **control** after a sale, recap or Independent Buyout. In an IBO the trust holds control; what the owner and team keep is **leadership** (also fine: "the existing team keeps running the company", "no outside sponsor"). Saying that private equity does *not* have control, or describing PE/investor control, veto rights, consent lists and control premiums, is fine. Applies to every page, title, meta description, alt text, table cell, JSON-LD and email. (Added 30 Oct 2026; a one-time audit of existing posts is pending Greg's approval.)
 
 ## HubSpot facts
 

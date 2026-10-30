@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T21:55:24.092Z",
+  "generatedAt": "2026-10-30T21:52:32.953Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 37,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 37,
-      "outboundInternalLinks": 35,
+      "inboundInternalLinks": 36,
+      "outboundInternalLinks": 34,
       "issues": []
     },
     {
@@ -44,12 +44,12 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "title": "7 Alternatives to Selling to Private Equity: What Each Pays",
       "titleLength": 59,
-      "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and who controls the company after.",
-      "descriptionLength": 148,
+      "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and what you still own.",
+      "descriptionLength": 136,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2327,
+      "words": 2239,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 18,
       "outboundInternalLinks": 24,
       "issues": []
     },
@@ -60,10 +60,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1942,
+      "words": 1909,
       "date": "2025-12-20",
-      "inboundInternalLinks": 15,
-      "outboundInternalLinks": 20,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -86,10 +86,10 @@
       "description": "A dividend recapitalization borrows against your company and pays you the proceeds - no buyer, no board seat. What it pays, what it costs, how it's taxed.",
       "descriptionLength": 154,
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
-      "words": 2245,
+      "words": 2205,
       "date": "2026-10-18",
-      "inboundInternalLinks": 6,
-      "outboundInternalLinks": 11,
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -128,7 +128,7 @@
       "words": 5282,
       "date": "2026-10-29",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -203,10 +203,10 @@
       "description": "Independent buyout vs. private equity, side by side on a $10M EBITDA example: cash at close, rollover, control, and who sets the exit date.",
       "descriptionLength": 139,
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
-      "words": 1587,
+      "words": 1565,
       "date": "2026-04-09",
-      "inboundInternalLinks": 14,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 13,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -216,9 +216,9 @@
       "description": "IBO stands for Independent Buyout: a leveraged sale to a trust owned by your employees, at private-equity pricing, with no fund on your cap table.",
       "descriptionLength": 146,
       "h1": "What Is an Independent Buyout (IBO)?",
-      "words": 2419,
+      "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 26,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -229,10 +229,10 @@
       "description": "A majority recapitalization sells 51-80% of your company and rolls the rest. What you bank at close, how it differs from a full sale, who gets the board.",
       "descriptionLength": 153,
       "h1": "Majority Recapitalization vs. a Full Sale: What the Word “Recap” Actually Changes",
-      "words": 2512,
+      "words": 2495,
       "date": "2026-10-13",
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -244,7 +244,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1506,
       "date": "2026-04-24",
-      "inboundInternalLinks": 16,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -252,12 +252,12 @@
       "url": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "title": "Management Buyout vs Private Equity: Who Pays More",
       "titleLength": 50,
-      "description": "Management buyout vs private equity sale, compared on price, cash at closing, control and timeline - with 2026 lower-middle-market deal data.",
-      "descriptionLength": 141,
-      "h1": "Management Buyout vs Private Equity: Price, Control, and When You Actually Get Paid",
-      "words": 3245,
+      "description": "Management buyout vs private equity sale, compared on price, cash at closing, leadership and timeline - with 2026 lower-middle-market deal data.",
+      "descriptionLength": 144,
+      "h1": "Management Buyout vs Private Equity: Price, Leadership, and When You Actually Get Paid",
+      "words": 3247,
       "date": "2026-10-08",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2101,
+      "words": 2115,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 15,
+      "inboundInternalLinks": 19,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -281,10 +281,10 @@
       "description": "A minority recapitalization sells 20-49% of your company for cash while you keep the majority and the board. What a 30% slice really pays, after discounts.",
       "descriptionLength": 155,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
-      "words": 1938,
+      "words": 1917,
       "date": "2026-09-08",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -335,8 +335,8 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 23,
-      "outboundInternalLinks": 13,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -350,19 +350,6 @@
       "date": "2026-10-28",
       "inboundInternalLinks": 4,
       "outboundInternalLinks": 9,
-      "issues": []
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
-      "title": "Sell Part of Your Business, Keep Control | IBO Advisors",
-      "titleLength": 55,
-      "description": "How to sell part of your business and keep control: minority recap, dividend recap, staged sale or an Independent Buyout, and what each one pays you.",
-      "descriptionLength": 149,
-      "h1": "How to Sell a Business but Keep Control",
-      "words": 2099,
-      "date": "2026-09-27",
-      "inboundInternalLinks": 11,
-      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -387,8 +374,8 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 2095,
       "date": "2026-09-21",
-      "inboundInternalLinks": 12,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 11,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -398,7 +385,7 @@
       "description": "Owners get shown two exit paths - private equity or a strategic buyer - because those are the only two deals the room gets paid to close.",
       "descriptionLength": 137,
       "h1": "The Owner Exit Conversation Is Broken: Why You're Only Ever Shown Two Doors",
-      "words": 1197,
+      "words": 1180,
       "date": "2026-07-14",
       "inboundInternalLinks": 7,
       "outboundInternalLinks": 8,
@@ -411,10 +398,10 @@
       "description": "The seven types of buyouts compared - LBO, MBO, MBI, secondary, ESOP, recap and the Independent Buyout - on price, leverage, and who ends up in control.",
       "descriptionLength": 152,
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
-      "words": 2693,
+      "words": 2648,
       "date": "2026-10-26",
       "inboundInternalLinks": 9,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -427,7 +414,7 @@
       "words": 2482,
       "date": "2026-09-12",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 21,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -439,7 +426,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 37,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 9,
       "issues": []
     },
