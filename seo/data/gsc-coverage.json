@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-10-26T17:08:28.287Z",
+  "inspectedAt": "2026-10-30T16:58:05.177Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-21T18:17:05Z",
+      "lastCrawlTime": "2026-10-25T17:10:37Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -14,17 +14,8 @@
       "url": "https://www.iboadvisors.com/blog",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-10T18:15:04Z",
+      "lastCrawlTime": "2026-10-27T21:19:23Z",
       "googleCanonical": "https://www.iboadvisors.com/blog",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-22T06:14:34Z",
-      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -38,10 +29,26 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-22T06:14:34Z",
+      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
       "url": "https://www.iboadvisors.com/industries/government-contractors",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-15T20:28:02Z",
+      "lastCrawlTime": "2026-10-28T03:19:24Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/government-contractors",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -56,11 +63,22 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/industries/restaurants",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T19:49:23Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-10-27T15:24:33Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/blog/dividend-recapitalization",
@@ -93,7 +111,7 @@
       "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-14T20:49:17Z",
+      "lastCrawlTime": "2026-10-27T21:04:23Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -117,15 +135,6 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-14T19:50:58Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
@@ -138,17 +147,8 @@
       "url": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-14T20:05:33Z",
+      "lastCrawlTime": "2026-10-28T00:49:21Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-15T18:09:27Z",
-      "googleCanonical": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -174,7 +174,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-20T19:04:47Z",
+      "lastCrawlTime": "2026-10-29T11:19:57Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -192,7 +192,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-15T22:58:03Z",
+      "lastCrawlTime": "2026-10-28T15:49:21Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -201,7 +201,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-21T20:47:31Z",
+      "lastCrawlTime": "2026-10-28T18:19:21Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -255,7 +255,7 @@
       "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T18:55:08Z",
+      "lastCrawlTime": "2026-10-28T01:24:13Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -282,7 +282,7 @@
       "url": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T12:47:37Z",
+      "lastCrawlTime": "2026-10-29T10:15:37Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -291,7 +291,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T14:20:05Z",
+      "lastCrawlTime": "2026-10-28T08:53:12Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

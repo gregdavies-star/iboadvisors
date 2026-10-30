@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T16:05:05.034Z",
+  "generatedAt": "2026-10-30T17:12:22.820Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 35,
+      "outboundInternalLinks": 30,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 3140,
+      "words": 3162,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -75,7 +75,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1811,
       "date": "2025-10-04",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -151,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2645,
+      "words": 2661,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 27,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -289,10 +289,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
-      "title": "Private Equity Buyout: What It Is and How It Works",
+      "title": "Private Equity Buyout Explained: Debt, Price, Exit",
       "titleLength": 50,
-      "description": "How a private equity buyout works: the types, how the debt is sized against your EBITDA, what the owner nets at close, and what changes after.",
-      "descriptionLength": 142,
+      "description": "A private equity buyout is a purchase funded mostly by debt your company repays. What it means for the price, the board, the timeline and your rollover.",
+      "descriptionLength": 152,
       "h1": "Private Equity Buyout: What It Is and How It Works",
       "words": 2031,
       "date": "2026-10-04",
@@ -324,6 +324,19 @@
       "date": "2026-07-06",
       "inboundInternalLinks": 22,
       "outboundInternalLinks": 12,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/sde-vs-ebitda",
+      "title": "SDE vs EBITDA: Which One Buyers Actually Use | IBO Advisors",
+      "titleLength": 59,
+      "description": "SDE adds back the owner's whole salary; adjusted EBITDA adds back only the part above a replacement manager's pay. Which one a buyer uses sets the price.",
+      "descriptionLength": 153,
+      "h1": "SDE vs EBITDA: Which One Buyers Actually Use",
+      "words": 1982,
+      "date": "2026-10-30",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -393,14 +406,14 @@
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "title": "Free Business Valuation Calculator | IBO Advisors",
-      "titleLength": 49,
-      "description": "Free business valuation calculator. Get an EBITDA-multiple range for your industry, see what raises or lowers your number, and download the full analysis.",
-      "descriptionLength": 154,
+      "title": "Free Business Valuation Calculator: EBITDA Multiples",
+      "titleLength": 52,
+      "description": "Free business valuation calculator for private companies: enter your EBITDA, get a multiple range from 19 industry bands, and see what moves your number.",
+      "descriptionLength": 153,
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -413,7 +426,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
       "issues": []
     },
