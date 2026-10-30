@@ -66,7 +66,7 @@
     },
     {
       "source": "/blog/sell-part-of-your-business-keep-control",
-      "destination": "/blog/sell-a-business-but-keep-control",
+      "destination": "/blog/alternatives-to-selling-to-private-equity",
       "permanent": true
     },
     {
@@ -77,6 +77,11 @@
     {
       "source": "/industries",
       "destination": "/ebitda-multiples-by-industry",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sell-a-business-but-keep-control",
+      "destination": "/blog/alternatives-to-selling-to-private-equity",
       "permanent": true
     }
   ]
