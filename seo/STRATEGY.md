@@ -93,3 +93,83 @@ KPIs (in order): qualified leads from organic (modal submissions with EBITDA ≥
 - **Bing Webmaster Tools** (free) - second index, AI search surfaces.
 - **PageSpeed Insights / Rich Results Test** (free) - CWV and schema validation.
 - Optional later: Screaming Frog (bulk crawl), a rank-tracking add-on for local/regional terms, Qwoted/Featured subscriptions for expert quotes.
+
+## 8. Settled decisions
+
+Decisions already taken, with the evidence behind them. The daily job should treat
+these as closed and not re-open them without new data.
+
+### "buyout private equity" / "private equity buyout" belong to the comparison page
+
+**Decided 2026-10-27 by Greg Davies.** `/blog/management-buyout-vs-private-equity`
+is the designated page for both queries. `keywords.json` points there.
+
+Three of our pages compete on these terms, and the comparison page is the only one
+anywhere near page one:
+
+| Page | "buyout private equity" | "private equity buyout" |
+|---|---|---|
+| `/blog/management-buyout-vs-private-equity` | 11 impr, **pos 6.9** | 7 impr, **pos 11.6** |
+| `/blog/private-equity-buyout-explained` | 29 impr, pos 46.7 | 15 impr, pos 18.6 |
+| `/blog/what-happens-after-private-equity-buys-your-company` | 7 impr, pos 26.1 | 7 impr, pos 20.6 |
+
+Six runs between 10-13 and 10-25 added inbound internal links to
+`/blog/private-equity-buyout-explained` to try to make it win "buyout private
+equity". It moved 47.7 to 46.7. The designated page was the weaker of the two all
+along - 2,031 words and 9 inbound links against 3,245 and 12 - so the link-building
+was asking Google to prefer the thinner page on the same topic.
+
+**Do not add further internal links aimed at transferring these queries**, and do
+not treat the comparison page as a cannibalization loser on them. Rule 5's remedy
+already holds: `/blog/private-equity-buyout-explained` links to the winner with the
+query in its anchor text.
+
+`/blog/private-equity-buyout-explained` stays live and keeps "pe buyout", where no
+page of ours performs (4 impressions, best position 27) and so there is nothing to
+concede. It is also the better intent match for a plain-primer query, so if the
+comparison page ever stops holding page one on the two terms above, revisit this
+rather than resuming the link pushes.
+
+**The primer was retitled on 2026-10-27, also Greg's call**, which is the other half
+of rule 5. It went from "Private Equity Buyout: What It Is and How It Works" to
+**"What Is a Private Equity Buyout? Meaning and Mechanics"**, with the H1 shortened
+to "What Is a Private Equity Buyout?" and the meta description rewritten to lead with
+the definition. Its blog card on `/blog` was brought in line, image alt included.
+
+The retitle aims at what the page already wins rather than at the terms it lost. Of
+its 233 impressions in the window, the two conceded terms are 44 of them, and the
+rest is a long tail of definitional queries where it ranks 1-11: "what is a private
+equity buyout" and "what is buyout in private equity" at position 1, "what is a
+buyout fund" at 1, "pe buyout meaning" at 8, "private equity buyout definition" at 8,
+"what is a buyout in private equity" at 9.5. Leading with "What Is" splits the intent
+from the comparison page cleanly and points the title at the queries the page is
+already ranking for.
+
+**Still untouched:** two pages link to the primer with the bare exact-match anchor
+"private equity buyout" - `/blog/seller-financing-in-a-business-sale` and
+`/blog/types-of-buyouts`. Those anchors still tell Google the primer owns the
+conceded term. Rewording them is body-copy editing on two other pages, so it is
+left for a human to approve rather than done as part of a retitle.
+
+### Open: /blog/family-business-succession-planning may need splitting
+
+**Raised by the 10-27 and 10-28 runs, with Greg since 10-27, not yet decided.**
+The page is the longest on the site and has absorbed roughly ten expansions
+against the same three striking-distance queries without moving - 2 clicks on
+about 490 impressions. Two of those three queries are advisor-selection intent
+rather than succession-planning intent, which is the argument for carving them
+out into a dedicated page ("which advisors handle the sale of a family
+business").
+
+That material is now largely assembled in one place. The page carries an H2 for
+each of the two advisor queries - "Which advisors are best suited to plan the
+sale of a family-owned company?" and, added on 10-29 for a query sitting at
+position 8.1, "Which advisors offer integrated tax, estate, and business
+succession planning for multi-generation family businesses?" - plus a four-model
+provider table and the four-dated-documents test of what "integrated" means.
+
+**For a daily run:** promoting an existing answer to a headed section, or adding
+a comparison table that answers a striking-distance query directly, is fine and
+is what the 10-29 run did. Adding more words to the succession or liquidity
+themes is not - those are the parts that have not moved in ten rounds. If the
+split happens, the two advisor sections and the provider table are what moves.

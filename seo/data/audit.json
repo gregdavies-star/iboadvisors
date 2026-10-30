@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T16:05:05.034Z",
+  "generatedAt": "2026-10-30T21:55:21.754Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 36,
+      "outboundInternalLinks": 34,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 3140,
+      "words": 3182,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 9,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
@@ -47,10 +47,10 @@
       "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and what you still own.",
       "descriptionLength": 136,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2237,
+      "words": 2239,
       "date": "2026-09-08",
       "inboundInternalLinks": 18,
-      "outboundInternalLinks": 23,
+      "outboundInternalLinks": 24,
       "issues": []
     },
     {
@@ -60,10 +60,10 @@
       "description": "Every business exit strategy option compared - strategic sale, PE sale, MBO, family succession, and the Independent Buyout - with a comparison table.",
       "descriptionLength": 149,
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
-      "words": 1869,
+      "words": 1909,
       "date": "2025-12-20",
       "inboundInternalLinks": 14,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -73,10 +73,10 @@
       "description": "How to choose an M&A advisor at $3M+ in EBITDA: track record, fee structure, conflicts of interest, and the questions to ask before signing.",
       "descriptionLength": 140,
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
-      "words": 1811,
+      "words": 1870,
       "date": "2025-10-04",
-      "inboundInternalLinks": 9,
-      "outboundInternalLinks": 8,
+      "inboundInternalLinks": 10,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -88,7 +88,7 @@
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
       "words": 2205,
       "date": "2026-10-18",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -125,10 +125,10 @@
       "description": "Liquidity planning for a family business succession: how to pay the exiting generation, fund the successor, and pick the advisors who run the transition.",
       "descriptionLength": 153,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
-      "words": 4938,
-      "date": "2026-10-13",
+      "words": 5282,
+      "date": "2026-10-29",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -151,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2645,
+      "words": 2714,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 28,
+      "outboundInternalLinks": 21,
       "issues": []
     },
     {
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -179,7 +179,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2207,
       "date": "2026-09-13",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 18,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -244,7 +244,7 @@
       "h1": "Management Buyout Financing: How Owners and Management Teams Fund an MBO",
       "words": 1506,
       "date": "2026-04-24",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2054,
+      "words": 2115,
       "date": "2026-09-08",
       "inboundInternalLinks": 19,
-      "outboundInternalLinks": 13,
+      "outboundInternalLinks": 14,
       "issues": []
     },
     {
@@ -289,15 +289,28 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
-      "title": "Private Equity Buyout: What It Is and How It Works",
-      "titleLength": 50,
-      "description": "How a private equity buyout works: the types, how the debt is sized against your EBITDA, what the owner nets at close, and what changes after.",
-      "descriptionLength": 142,
-      "h1": "Private Equity Buyout: What It Is and How It Works",
+      "title": "What Is a Private Equity Buyout? Meaning and Mechanics",
+      "titleLength": 54,
+      "description": "A private equity buyout is a fund buying control with borrowed money on a three-to-seven-year clock. What it pays an owner, and what changes after the wire.",
+      "descriptionLength": 156,
+      "h1": "What Is a Private Equity Buyout?",
       "words": 2031,
       "date": "2026-10-04",
       "inboundInternalLinks": 9,
       "outboundInternalLinks": 16,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/quality-of-earnings-report",
+      "title": "Quality of Earnings Report: What Buyers Test | IBO Advisors",
+      "titleLength": 59,
+      "description": "What a quality of earnings report covers, what one costs, and why a lender will accept one instead of audited financials, plus the EBITDA bridge math.",
+      "descriptionLength": 150,
+      "h1": "Quality of Earnings Report: What Buyers Test",
+      "words": 2188,
+      "date": "2026-10-29",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -324,6 +337,19 @@
       "date": "2026-07-06",
       "inboundInternalLinks": 22,
       "outboundInternalLinks": 12,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/sde-vs-ebitda",
+      "title": "SDE vs EBITDA: Which One Prices Your Business | IBO Advisors",
+      "titleLength": 60,
+      "description": "SDE adds back your whole salary; EBITDA only the part above a hired manager's. Which number applies to your business, and what the wrong one costs you.",
+      "descriptionLength": 151,
+      "h1": "SDE vs EBITDA: Which One Prices Your Business",
+      "words": 1907,
+      "date": "2026-10-28",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -393,14 +419,14 @@
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "title": "Free Business Valuation Calculator | IBO Advisors",
-      "titleLength": 49,
-      "description": "Free business valuation calculator. Get an EBITDA-multiple range for your industry, see what raises or lowers your number, and download the full analysis.",
-      "descriptionLength": 154,
+      "title": "Free Business Valuation Calculator: EBITDA Multiples",
+      "titleLength": 52,
+      "description": "Free business valuation calculator for private companies: enter your EBITDA, get a multiple range from 19 industry bands, and see what moves your number.",
+      "descriptionLength": 153,
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 36,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -413,7 +439,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -426,7 +452,7 @@
       "h1": "Government contractor valuation multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 4,
       "issues": []
     },
@@ -439,7 +465,7 @@
       "h1": "Healthcare services valuation multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 5,
       "issues": []
     },
@@ -452,7 +478,7 @@
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 6,
       "issues": []
     }
