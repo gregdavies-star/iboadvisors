@@ -1,7 +1,8 @@
 # Session hand-off: Calendly scheduling plan for /book
 
 Paste this into the first message of the new session (one started inside the IBO Advisors
-organization). It replaces the hand-off from session_01DyVcqJLWpVAbg6t133oDxR, which is done.
+organization). It replaces the hand-off from session_01DyVcqKKjUpoKzuYR1khFXZ (30 Oct), which
+closed section 8 and started WP1 with Greg.
 
 ## Working rules
 
@@ -21,6 +22,10 @@ organization). It replaces the hand-off from session_01DyVcqJLWpVAbg6t133oDxR, w
   meetings scope was not offered in the private-app picker. Not available: `content` (marketing
   email names), `scheduler.meetings.meeting-link.read` (scheduling page slugs). The new session's
   environment must carry the same variable; if it does not, ask Greg before anything else.
+- Calendly access: the environment variable `CALENDLY_PAT` is a personal access token on Greg's
+  Calendly owner account (Teams Plus trial, added 30 Oct). Use it with curl against
+  `https://api.calendly.com` for GET calls only; never print it. The token for the dashboard
+  build (WP1 step 6) will be a separate one, created later for Vercel.
 - Nothing has been written to HubSpot by any session. Keep it that way unless Greg says
   otherwise for a specific change.
 - Redact prospect names and emails to initials in anything that is written down.
@@ -35,8 +40,9 @@ receiver in the dashboard app. Sections: 1 recommendation, 2 flow today, 3 depen
 changes for Michael and Darren, 8 decisions for Greg, 9 unverified points, 10 costs, Appendix A
 Calendly facts, Appendix B HubSpot facts, Appendix C the portal audit of 29 Oct 2026.
 
-Commits on the branch so far: the plan (21ebb2e), the audit folded in (45b7b4f), decision 10
-recorded, then decision 10 revised with WP2 step 8 and this hand-off file.
+Commits on the branch so far: the plan (21ebb2e), the audit folded in (45b7b4f), decision 10,
+then on 29 and 30 Oct decisions 1 to 9 one by one (a746a99 to ef8d597), the event-firing
+finding (19b0651) and decision 8 with Appendix D (a964882). Section 8 is closed.
 
 ## What the 29 Oct audit established (details in Appendix C)
 
@@ -93,12 +99,36 @@ Taken by Greg on 29 Oct:
 Section 8 is closed: all ten decisions are recorded. The plan now waits on Greg's Calendly
 sign-up (WP0, WP1), the WP2 HubSpot steps, and Greg saying build for WP3 and WP4.
 
+## WP1 progress as of 30 Oct
+
+Greg has: signed up for Calendly (Teams Plus free trial, owner account), invited Michael and
+Darren, created the team round-robin event type "Independent Buyout (IBO) Discussion" (30 min,
+Zoom, pool of Michael and Darren, schedule set by host, 14-day window, 4 hours notice), and
+generated the PAT. Michael's availability is a custom schedule on his own account; Darren's was
+the Calendly default. Greg believes the Calendly setup is correct and asked for it to be verified
+through the API. Not yet confirmed: Darren's Zoom and both hosts' Google Calendar connections,
+the booking form (decision 4: name and email only), confirmation page with no redirect, calendar
+invitation mode (decision 3), the "three things" confirmation text, the reminder workflow, and
+the LinkedIn Campaign Manager conversion check.
+
 ## Suggested next steps for the new session
 
-1. Confirm the environment variable reaches portal 245308986 (`GET /account-info/v3/details`).
-2. Ask Greg which of decisions 1 to 9 he has taken, and record them in section 8.
-3. WP2 step 8 (the W8 second trigger) is a UI change Greg can make now; offer the click path.
-4. The build packages WP3 (dashboard receiver) and WP4 (site) are sized for Opus workers and wait
-   on decisions 1, 3 and 4 and on Greg saying build. Do not start them before that.
-5. Known runbook follow-ups outside this plan: W0 suppresses lists 58, 59, 283 but not 68; W8's
+1. Confirm both variables: `GET /account-info/v3/details` on HubSpot must return portal
+   245308986; `GET /users/me` on Calendly must return Greg's owner account.
+2. Verify WP1 read-only through the Calendly API and report what does not match WP1 steps 1 to
+   5 and 7 or decisions 3 and 4: `GET /users/me` for the organization URI; `GET /event_types`
+   with the organization; the event type's duration, location (kind zoom), pool and hosts,
+   `custom_questions`; `GET /user_availability_schedules?user=` for each host's hours; `GET
+   /event_type_available_times` for the next 7 days (slot count per host); `GET
+   /organization_memberships` for who has accepted. The invitation mode, confirmation redirect
+   and reminder workflow are not in the API; ask Greg to confirm them from the UI.
+3. Ask Michael and Darren, through Greg, which hours the HubSpot scheduling page used, so the
+   Calendly hours match (the HubSpot page settings are not readable with our scopes).
+4. WP1 step 8: once the hosts' calendars are connected, two test bookings under Greg's email,
+   one per host; fetch the scheduled events and invitees with the PAT, redact, and save as WP3
+   fixtures under `docs/plans/fixtures/` (prospect data redacted to initials).
+5. WP2 step 8 (the W8 second trigger) is a UI change Greg can make any time; the click path was
+   given on 29 Oct.
+6. WP3 and WP4 wait on Greg saying build. Do not start them before that.
+7. Known runbook follow-ups outside this plan: W0 suppresses lists 58, 59, 283 but not 68; W8's
    final "enrol in W6" never takes effect because every W8 contact is already in list 58.
