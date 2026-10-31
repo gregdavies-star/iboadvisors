@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T16:05:05.034Z",
+  "generatedAt": "2026-10-31T16:11:58.533Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 35,
+      "outboundInternalLinks": 30,
       "issues": []
     },
     {
@@ -34,10 +34,10 @@
       "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
       "descriptionLength": 138,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "words": 3140,
+      "words": 3168,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -151,10 +151,10 @@
       "description": "How private equity values a company: normalized EBITDA, market multiples, and the working capital peg that shrinks your cash at close.",
       "descriptionLength": 134,
       "h1": "How Do Private Equity Firms Value a Company?",
-      "words": 2645,
+      "words": 2681,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 27,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -179,7 +179,7 @@
       "h1": "How to Sell a Business to Private Equity",
       "words": 2207,
       "date": "2026-09-13",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 18,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -301,6 +301,19 @@
       "issues": []
     },
     {
+      "url": "https://www.iboadvisors.com/blog/quality-of-earnings-report",
+      "title": "Quality of Earnings Report: What a QoE Finds | IBO Advisors",
+      "titleLength": 59,
+      "description": "What a quality of earnings report tests - proof of cash, the EBITDA bridge, the working-capital peg - what it costs, and when to run one yourself.",
+      "descriptionLength": 146,
+      "h1": "Quality of Earnings Report: What a Buyer’s Accountants Actually Test",
+      "words": 2052,
+      "date": "2026-10-31",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 8,
+      "issues": []
+    },
+    {
       "url": "https://www.iboadvisors.com/blog/restaurant-ma",
       "title": "Restaurant M&A: Alternatives to a PE Roll-Up | IBO Advisors",
       "titleLength": 59,
@@ -367,10 +380,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "title": "Types of Buyouts: The 7 Structures Compared | IBO Advisors",
-      "titleLength": 58,
-      "description": "The seven types of buyouts compared - LBO, MBO, MBI, secondary, ESOP, recap and the Independent Buyout - on price, leverage, and who ends up in control.",
-      "descriptionLength": 152,
+      "title": "Types of Buyouts: 7 Structures, and What Each Pays",
+      "titleLength": 50,
+      "description": "The seven types of buyouts compared - LBO, MBO, MBI, ESOP, secondary, recap and the Independent Buyout - on price, leverage and who owns the company after.",
+      "descriptionLength": 155,
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
       "words": 2648,
       "date": "2026-10-26",
@@ -393,14 +406,14 @@
     },
     {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "title": "Free Business Valuation Calculator | IBO Advisors",
-      "titleLength": 49,
-      "description": "Free business valuation calculator. Get an EBITDA-multiple range for your industry, see what raises or lowers your number, and download the full analysis.",
-      "descriptionLength": 154,
+      "title": "Free Business Valuation Calculator: EBITDA Multiples",
+      "titleLength": 52,
+      "description": "Free business valuation calculator for $3M+ EBITDA owners: an industry EBITDA-multiple range in two minutes, plus what moves your number up or down.",
+      "descriptionLength": 148,
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -413,7 +426,7 @@
       "h1": "EBITDA multiples by industry",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 10,
       "issues": []
     },
