@@ -1,56 +1,52 @@
-# Daily SEO run — 2026-10-31
+# Daily SEO run — 2026-11-01
 
-> **Fold note (added when this run was folded into `claude/seo-work-qcfmfg`).** The run could not see the
-> unmerged branch, so two of its four changes were already there:
-> — **`/blog/quality-of-earnings-report` was already written** (2,188 words), as were its blog-index card,
-> its `keywords.json` mapping and inbound links from the same two donor pages this run picked, plus a
-> third from `/blog/family-business-succession-planning`. The run's 2,052-word draft was dropped - the
-> twenty-first duplicate of this kind - but two of its sections were **salvaged into the keeper** and
-> re-derived on the keeper's own invented company: the working-capital peg (hung on the $85,000 vacation
-> accrual already in the bridge) and the limits of the post-closing true-up. The keeper is now 2,785 words.
-> *Chicago Bridge & Iron v. Westinghouse* was checked against the opinion itself before import: the
-> $1.93 billion in the dropped draft is the **seller's** characterisation of how much of the buyer's claims
-> were really breach-of-representation claims, not the size of the objections, so the kept text uses the
-> opinion's own "pay over $2 billion" and attributes the $1.93 billion correctly. The "wide-ranging
-> brief … confined to a discrete set of narrow disputes" wording is the Court's own and is now quoted as
-> such rather than through a law-firm summary.
-> — **`/business-valuation-calculator`.** This run's title is *identical* to the 10-30 run's, chosen
-> independently - treat that as corroboration. The title is kept; this run's meta was dropped in favour of
-> the 10-30 wording, which names private companies and the verified 19 industry bands instead of narrowing
-> the snippet to "$3M+ EBITDA owners" for a tool whose own size tiers reach below $3M.
-> **Kept whole:** the `/blog/types-of-buyouts` title and meta (386 impressions at 9.6, 3 clicks, never
-> rewritten - and the new meta drops "who ends up in control" per standing rule 5), with its blog card's
-> title, excerpt **and image alt** brought in line; the GSC snapshots; the 10-28 history row.
-One new post on the highest-priority uncovered keyword, two title/meta rewrites, two inbound links.
-Clicks and impressions both up on the prior window; average position 13.8 → 12.1.
-Audit: 0 errors, 0 warnings across 36 indexable pages.
+> **Fold note (added when this run was folded into `claude/seo-work-qcfmfg`).**
+> — **Third consecutive run to write `/blog/quality-of-earnings-report`**, which has been on the open
+> branch since 10-29. The 2,596-word draft was dropped, along with its card, its `keywords.json` entry and
+> two of its three links. **Salvaged into the keeper**, after the filing was checked on EDGAR: Oil-Dri
+> Corporation of America's revolving credit agreement with **BMO Bank N.A.**, Ninth Amendment of October 7,
+> 2026, whose Consolidated EBITDA clause (s) adds back "adjustments reflected in any quality of earnings
+> report prepared by a nationally or regionally recognized accounting firm" with no cap - a second,
+> unrelated lender corroborating the Limbach/PNC point the keeper already made. Two notes on the citation:
+> the lender is BMO and the underlying agreement dates from January 27, 2006, neither of which the draft
+> named; and the exhibit *index* in that 8-K misdates the Ninth Amendment as April 16, 2024 while the 8-K
+> body gives the October 7, 2026 event date, so the body is what the citation follows. One paragraph on
+> which months the working capital average is drawn from was salvaged too. The keeper is now 3,011 words.
+> — **Kept whole: the `/blog/exit-planning-for-business-owners` correction.** It had called a QoE
+> "essentially a financial audit", which is wrong and is live in production. Good catch by the run.
+> — **Dropped: both retitles.** `/blog/types-of-buyouts` keeps the 10-31 wording - this run's title names
+> the acronyms its own meta already lists. `/blog/private-equity-buyout-explained` keeps the 10-29 title:
+> this is the third independent retitle proposal for that page and the second to lead with the definitional
+> family rather than the conceded head term, which corroborates the decision; but "Meaning" earns its place
+> for the position-8 "pe buyout meaning" query, and this run's "Debt, Price, Payout" drops it.
+One new post (quality of earnings), two title/meta rewrites, three inbound links. Clicks and impressions up on the prior window; average position improved two places.
 
 | Window | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| 10-01 → 10-28 | 72 | 4,206 | 1.71% | 12.1 |
-| 09-03 → 09-30 | 69 | 3,681 | 1.87% | 13.8 |
+| 10-02 → 10-29 | 73 | 4,285 | 1.70% | 11.8 |
+| 09-04 → 10-01 | 69 | 3,843 | 1.80% | 13.8 |
 
 ## Changes
 
-- **New post `/blog/quality-of-earnings-report` (rule 7), 2,052 words.** Top uncovered keyword in `keywords.json` (Valuation, priority 4); no page targets it, one new post in the trailing 7 days. Covers the EBITDA bridge, proof of cash and the working-capital peg, with a worked bridge on an invented $38M-revenue manufacturer and the Delaware Supreme Court's limit on what a post-closing true-up can fix (*Chicago Bridge & Iron v. Westinghouse*). Every source was opened before citing.
-- **`/blog/types-of-buyouts` title + meta (rule 3).** 386 impressions at 9.6, 3 clicks — 0.78% against 3.0% expected; never rewritten. Brand suffix dropped for a specific promise; the meta's "who ends up in control" is gone per standing rule 5.
-- **`/business-valuation-calculator` title + meta (rule 3).** 105 impressions at 9.3, 0 clicks; last changed 2026-09-17. Its visible queries are "business valuation calculator ebitda" variants, so EBITDA is now in the title. og/twitter aligned.
-- **Two links in (rule 8)** from `/blog/how-pe-firms-value-a-company` (26 inbound, already had a QoE section) and `/blog/adjusted-ebitda-add-backs`.
+- **New post `/blog/quality-of-earnings-report` (rule 7).** No post in the trailing 7 days; QoE was the highest-value uncovered cluster-4 keyword. 2,596 words. Three sources, each opened today: SEC non-GAAP C&DIs 100.01/100.04 (verbatim); Oil-Dri's Ninth Amendment of 7 Oct 2026 on EDGAR, which adds back "adjustments reflected in any quality of earnings report" inside its Consolidated EBITDA definition; GF Data via ACG (7.4x with a sell-side QoE vs 7.0x without, 360 deals since Q3 2024). Worked example is an invented $4.2M-EBITDA distributor. No fee or timeline figures — only vendor blogs publish them.
+- **`/blog/types-of-buyouts` title + meta (rule 3).** 428 impressions, 0.93% CTR at 9.2 vs 3.0% expected; never rewritten. The title now names the structures the variant queries use (LBO, MBO, MBI, ESOP, recap, IBO).
+- **`/blog/private-equity-buyout-explained` title + meta (rule 3).** 418 impressions, 0.48% at 16.0 vs 1.0%; never rewritten. Head terms sit at 25–47 and no title fixes that, so it leads with the definitional family already on page one ("what is a pe buyout", 8.3) and carries the page's own 46-cents-on-the-dollar figure.
+- **Three links into the new post** from `how-pe-firms-value-a-company`, `exit-planning-for-business-owners` (which called a QoE "essentially a financial audit" — corrected) and `adjusted-ebitda-add-backs`.
 
 ## Considered and skipped
 
-- **`strikingDistance`:** all three live rows are `/blog/family-business-succession-planning`, which already has an H2 answering each query almost verbatim — rule 4's condition is not met. "ibo finance" lands on the homepage, body off limits.
-- **`/blog/private-equity-buyout-explained`, `/blog/dividend-recapitalization`:** top queries at positions 47 and 29. Rank, not snippet.
-- **The two `keep-control` URLs in `lowCtr`** are 301s to `/blog/alternatives-to-selling-to-private-equity`.
-- **Cannibalization** on "types of buyouts" was resolved 10-26 via the `/blog` hero anchor; the homepage wins the brand queries.
-- No deal-data flags this run.
+- **`strikingDistance`:** both large rows already have dedicated H2s on `/blog/family-business-succession-planning`. "types of buyouts" and "owner buyout" point at pages edited 10-26, inside cool-down; "independent buyout" and "ibo finance" land on homepage body copy, off limits.
+- **`lowCtr`:** four rows were retitled 10-25, inside cool-down; two more are retired URLs that 301 in `vercel.json`, so their impressions are historical.
+- **`cannibalization`:** three of four rows are `/blog` outranking its own children, and the 10-26 run already widened the index's hero anchor.
+
+No deal-data flags this run.
 
 ## Coverage
 
-35 of 36 indexed. `/industries/restaurants` is still "Discovered – currently not indexed", no crawl recorded, after four rounds of padding — 3,939 words, 10 inbound links. Nothing left to fix on-page.
+35 of 36 pass. `/industries/restaurants` holds at "Discovered – currently not indexed" with no crawl recorded — Google has not fetched it, so more content cannot be the lever. Audit: 0 errors, 0 warnings.
 
 ## For a human
 
-1. **Request indexing for `/industries/restaurants`** — the only remaining lever.
-2. **Two standing-rule-5 phrases left in place** pending sign-off on the audit: `/blog/types-of-buyouts` ("a holding company the owner controls … without handing the company to anyone") and `/blog/family-business-succession-planning` ("without the family losing control", on a § 303 redemption).
-3. **"private equity accounting firm valuation"** drew 43 impressions at positions 52–66 across two variants with no page targeting it. PE roll-ups of CPA firms may be worth a post.
+1. **Request indexing for `/industries/restaurants`.** Nothing on-page is left to do.
+2. **`/blog/how-pe-firms-value-a-company` cites "29.4% of management-adjusted EBITDA" to an AI-content marketing site**, plus two more claims of the same class. Worth replacing — it is the most-linked page on the site.
+3. **"SDE vs EBITDA" is the last uncovered cluster-4 keyword.** Recommend closing it as out of scope: SDE is used below ~$1M of EBITDA.
