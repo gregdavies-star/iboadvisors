@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T16:05:05.034Z",
+  "generatedAt": "2026-11-01T17:18:16.373Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
-      "outboundInternalLinks": 29,
+      "inboundInternalLinks": 35,
+      "outboundInternalLinks": 30,
       "issues": []
     },
     {
@@ -36,8 +36,8 @@
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
       "words": 3140,
       "date": "2026-10-22",
-      "inboundInternalLinks": 7,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 8,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -112,10 +112,10 @@
       "description": "A step-by-step exit planning guide for business owners - when to start, how to value your company, and how to compare every exit option before you sell.",
       "descriptionLength": 152,
       "h1": "Exit Planning for Business Owners: A Step-by-Step Guide",
-      "words": 1665,
+      "words": 1674,
       "date": "2025-11-21",
-      "inboundInternalLinks": 10,
-      "outboundInternalLinks": 9,
+      "inboundInternalLinks": 11,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -153,8 +153,8 @@
       "h1": "How Do Private Equity Firms Value a Company?",
       "words": 2645,
       "date": "2026-09-10",
-      "inboundInternalLinks": 26,
-      "outboundInternalLinks": 19,
+      "inboundInternalLinks": 27,
+      "outboundInternalLinks": 20,
       "issues": []
     },
     {
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 23,
+      "inboundInternalLinks": 24,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -289,15 +289,28 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
-      "title": "Private Equity Buyout: What It Is and How It Works",
-      "titleLength": 50,
-      "description": "How a private equity buyout works: the types, how the debt is sized against your EBITDA, what the owner nets at close, and what changes after.",
-      "descriptionLength": 142,
-      "h1": "Private Equity Buyout: What It Is and How It Works",
+      "title": "What Is a Private Equity Buyout? Debt, Price, Payout",
+      "titleLength": 52,
+      "description": "A private equity buyout explained: how the debt is sized against your EBITDA, and why a $56M headline leaves the owner about 46 cents on the dollar.",
+      "descriptionLength": 148,
+      "h1": "What Is a Private Equity Buyout? The Debt, the Price, and What You Bank",
       "words": 2031,
       "date": "2026-10-04",
       "inboundInternalLinks": 9,
       "outboundInternalLinks": 16,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/quality-of-earnings-report",
+      "title": "Quality of Earnings Report: What a QoE Tests | IBO Advisors",
+      "titleLength": 59,
+      "description": "A quality of earnings report tests reported EBITDA line by line - proof of cash, revenue cut-off, the add-back schedule and the working capital peg.",
+      "descriptionLength": 148,
+      "h1": "Quality of Earnings Report: What a QoE Tests",
+      "words": 2603,
+      "date": "2026-11-01",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -367,10 +380,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "title": "Types of Buyouts: The 7 Structures Compared | IBO Advisors",
-      "titleLength": 58,
-      "description": "The seven types of buyouts compared - LBO, MBO, MBI, secondary, ESOP, recap and the Independent Buyout - on price, leverage, and who ends up in control.",
-      "descriptionLength": 152,
+      "title": "7 Types of Buyouts: LBO, MBO, MBI, ESOP, Recap, IBO",
+      "titleLength": 51,
+      "description": "Seven types of buyouts compared: LBO, MBO, MBI, secondary, ESOP, leveraged recap and the IBO - what each pays an owner, and who owns the company after.",
+      "descriptionLength": 151,
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
       "words": 2648,
       "date": "2026-10-26",
@@ -400,7 +413,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 34,
+      "inboundInternalLinks": 35,
       "outboundInternalLinks": 9,
       "issues": []
     },
