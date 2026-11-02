@@ -105,11 +105,16 @@ Greg has: signed up for Calendly (Teams Plus free trial, owner account), invited
 Darren, created the team round-robin event type "Independent Buyout (IBO) Discussion" (30 min,
 Zoom, pool of Michael and Darren, schedule set by host, 14-day window, 4 hours notice), and
 generated the PAT. Michael's availability is a custom schedule on his own account; Darren's was
-the Calendly default. Greg believes the Calendly setup is correct and asked for it to be verified
-through the API. Not yet confirmed: Darren's Zoom and both hosts' Google Calendar connections,
-the booking form (decision 4: name and email only), confirmation page with no redirect, calendar
-invitation mode (decision 3), the "three things" confirmation text, the reminder workflow, and
-the LinkedIn Campaign Manager conversion check.
+the Calendly default.
+
+Verified 30 Oct through the API and Greg's UI checks to 2 Nov (details in the plan under WP1,
+"WP1 status"): event type, round robin, 30 minutes, hosts, hours, 14-day window, Zoom and
+calendar connections, booking form name and email only, calendar-invitation mode, confirmation
+page with no redirect. Michael decided 2 Nov: no "three things" text; confirmation on booking
+plus the two reminders only. The PAT was regenerated 30 Oct with `webhooks:read`; a session
+started before that still holds the old value. Still open: the reminder workflows, assignment
+mode, the public personal event types, plan and seats, the test bookings, and the LinkedIn
+Campaign Manager conversion check.
 
 ## Suggested next steps for the new session
 

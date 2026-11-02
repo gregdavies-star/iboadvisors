@@ -259,17 +259,39 @@ the acceptance criteria below. Nothing deploys until Greg says build.
 3. Calendar invitation mode: "calendar invitation" so the invite arrives from the host's own
    calendar address, keeping the confirmation copy "Open the invitation from michael@iboadvisors.com"
    true. Verify the sender on a test booking.
-4. Confirmation email: move the "three things" prep text from the HubSpot scheduling page's
-   automation into the Calendly event-type confirmation email.
-5. Calendly Workflow: email reminders at 2 hours and 10 minutes before, matching today.
+4. **Changed 2 Nov (Michael, via Greg):** no prep text. The prospect gets a confirmation when
+   booked and the two reminders, exactly as the HubSpot page sends today, nothing more. The
+   confirmation is the calendar invitation from the host's calendar (step 3); no custom
+   confirmation text is added. The "three things" copy is dropped and is not moved anywhere.
+5. Calendly Workflow: email reminders at 2 hours and 10 minutes before, matching today. These
+   cannot stay in HubSpot: the scheduling page's confirmation and reminders fire only for bookings
+   made through that page, never for API-created meetings (settled 2 Nov).
 6. Personal access token (created under Greg's owner account, scopes `scheduled_events:read`,
-   `webhooks:write`) and a webhook
+   `webhooks:read`, `webhooks:write`; the first PAT lacked `webhooks:read` and the subscription
+   list returned 403, 30 Oct) and a webhook
    signing key, both stored as Vercel environment variables on the dashboard project
    (`CALENDLY_API_TOKEN`, `CALENDLY_WEBHOOK_SIGNING_KEY`, `CALENDLY_ORG_URI`). Never in the repo.
 7. Branding: primary colour to the site navy; `hide_event_type_details=1` since the page already
    carries the heading and lede; `hide_gdpr_banner=1` because `/privacy-signals.js` handles consent.
 8. Two test bookings (one per host, forced by blocking the other's calendar) to record real
    `invitee.created` payloads for the test fixtures.
+
+**WP1 status, read-only API check of 30 Oct and Greg's UI work to 2 Nov.** Event type
+`f93b1b41-66e7-4806-946e-386c4c640d88`, active, `pooling_type` round_robin, 30 minutes, hosts
+exactly Michael and Darren (`/event_type_memberships`), Greg owner and not a host, both
+invitations accepted 29 Oct. Hours set by host: Michael Mon 09:00-19:30, Tue 13:00-19:30, Wed
+09:00-19:30, Thu-Fri 09:00-17:00 ET (a per-event schedule, not his default "Working hours", so
+editing the default does not change this event); Darren Mon-Fri 09:00-17:00 ET. Open times stop
+at 14 days; both hosts' Zoom connections show connected and both calendars return busy blocks.
+Fixed by Greg 30 Oct: the default booking question removed (`custom_questions` now empty,
+decision 4 met). Confirmed by Greg in the UI: calendar-invitation mode (decision 3), confirmation
+page set to display Calendly's page with no redirect, 30-minute increments, invitee time zone.
+Not a defect: `locations` lists `zoom_conference` twice because the location is set per host in
+the pool. No slug: shared round-robin events use the `/d/dtw2-wzr-r92/` link and the editor
+offers no link field; the embed uses that link and the visitor never sees it. Still open: the
+reminder workflows (step 5), assignment mode and equal priority (not in the API), the four
+personal event types that are public (Greg, Michael, Darren 30 min; Darren 45 min) to be made
+secret or turned off, plan and seat count on the billing page, and the test bookings (step 8).
 
 ### WP2. HubSpot preparation (Greg in the UI plus this session, about half a day)
 
