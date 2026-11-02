@@ -151,6 +151,56 @@ already ranking for.
 conceded term. Rewording them is body-copy editing on two other pages, so it is
 left for a human to approve rather than done as part of a retitle.
 
+### The primer's title is settled: lead with the definitional question
+
+**Decided 2026-10-29 by Greg Davies, re-proposed by the runs of 10-30, 10-31 and
+11-02.** `/blog/private-equity-buyout-explained` is titled "What Is a Private
+Equity Buyout? Meaning and Mechanics", H1 "What Is a Private Equity Buyout?".
+
+Every run that has looked at this page has reached the same conclusion about the
+*direction* - the head terms sit at positions 26 to 46 where no title helps, so
+the title should serve the definitional family the page actually ranks for. That
+is the decision, and it is closed. On the 28 days to 2026-10-30 the page's query
+table shows 58 of 194 impressions on definitional phrasings, at positions 7 to 11:
+
+| Query | Impressions | Position |
+|---|---|---|
+| pe buyout meaning | 11 | 8.9 |
+| what is a buyout fund | 5 | 10.6 |
+| what is a buyout fund in private equity | 5 | 8.4 |
+| what is a private equity buyout | 5 | 7.2 |
+| what is a pe buyout | 4 | 8.3 |
+| what is buyout in private equity | 3 | 7.0 |
+| private equity buyout definition | 2 | 9.0 |
+
+The 10-31 and 11-02 runs both proposed "What Is a Private Equity Buyout? Debt,
+Price, Payout", which satisfies the same rationale. The kept title differs only in
+the suffix, and keeps it because "Meaning" is an exact-token match for the largest
+definitional row and for two smaller ones. **For a daily run:** this page's title
+and H1 are closed. Do not propose another rewrite without new query data showing
+the definitional family has moved.
+
+### /blog/types-of-buyouts keeps a worded title, not an acronym list
+
+**Decided 2026-10-31, re-proposed identically by the 11-01 and 11-02 runs.** The
+page is titled "Types of Buyouts: 7 Structures, and What Each Pays"; the meta
+lists all seven structures by name and acronym.
+
+Both later runs proposed "7 Types of Buyouts: LBO, MBO, MBI, ESOP, Recap, IBO" -
+the same string, chosen independently, on the stated grounds that the acronyms are
+"the acronyms its real queries use". **The page's own query data does not support
+that.** On the 28 days to 2026-10-30, of the 88 impressions in the page's top 28
+query rows, **3** carry an acronym at all ("management buyout vs esop", position
+62). The rest are spelled out: "types of buyouts" (21 impressions at 13.1),
+"independent buyout", "leveraged buyout vs management buyout", "secondary buyout
+meaning", "management buyout meaning". The acronyms belong in the meta, where they
+already are, and putting them in the title as well spends the title on terms the
+page is not asked for.
+
+**For a daily run:** independent agreement between runs is evidence, but it is
+evidence that can be checked. Check the page's own `pageQueries` rows before
+retitling on a claim about "the queries it gets".
+
 ### Open: /blog/family-business-succession-planning may need splitting
 
 **Raised by the 10-27 and 10-28 runs, with Greg since 10-27, not yet decided.**
