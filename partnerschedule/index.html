@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Schedule your client&rsquo;s call with IBO Advisors</title>
+<meta name="description" content="For referral partners: share your client&rsquo;s details and book a 30-minute confidential call with Michael Chasen, Managing Partner, IBO Advisors." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.iboadvisors.com/partnerschedule" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel / Happierleads tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+  gtag('config', 'G-7HL0RK1PJ0');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+/* ==========================================================================
+   /partnerschedule - referral partners book a call for their client
+   (page-scoped styles, ps-*).
+
+   Orphan page (noindex, nothing on the site links here): Michael emails the
+   link to advisors, bankers and CPAs. The partner, not the business owner,
+   fills in the form. Three states, one page:
+     1. Form: the prospective client (left) and the partner (right).
+     2. Pick a time on Michael's calendar (our own picker over
+        /api/partner-availability; no HubSpot iframe).
+     3. Confirmation, written to the partner about their client. Layout and
+        styles follow the /book confirmation (bk-* there, ps-* here).
+   Inputs and the Next button reuse .ibo-field* / .ibo-modal__submit from
+   style.css, as the Learn More modal does. No modal.js (it fires Google Ads
+   conversions on timers); partnerschedule.js wires the mobile menu.
+   Behaviour lives in /partnerschedule/partnerschedule.js.
+   ========================================================================== */
+
+.ps-col { max-width: var(--content-default); margin-inline: auto; }
+.ps-section { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
+.ps-title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: var(--text-2xl); line-height: 1.12; margin-top: var(--space-4); max-width: 24ch;
+}
+.ps-title:focus { outline: none; }
+.ps-lede { margin-top: var(--space-4); max-width: 62ch; }
+.ps-quiet { font-size: var(--text-sm); color: var(--color-text-faint); margin-top: var(--space-5); }
+.ps-quiet a, .ps-link { color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; }
+.ps-quiet a:hover, .ps-link:hover { color: var(--color-gold); }
+.ps-state[hidden], .ps-alert[hidden], .ps-notice[hidden] { display: none; }
+.ps-alert {
+  margin-top: var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: #fee2e2; color: #991b1b; font-size: var(--text-sm); line-height: 1.6;
+}
+.ps-alert a { color: inherit; text-decoration: underline; }
+.ps-notice {
+  margin-top: var(--space-6); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: var(--color-cream-soft); border: 1px solid var(--color-border-cream);
+  color: var(--color-navy); font-size: var(--text-sm); line-height: 1.6;
+}
+.ps-notice a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- State 1: the form ---- */
+.ps-form { margin-top: var(--space-10); }
+.ps-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.ps-group {
+  border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
+  padding: var(--space-8) var(--space-8) var(--space-4); min-width: 0;
+}
+.ps-group__title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.6rem); line-height: 1.25; padding: 0; float: left; width: 100%;
+}
+.ps-group__title::after {
+  content: ''; display: block; width: 44px; height: 2px; background: var(--color-gold); margin: var(--space-3) 0 var(--space-6);
+}
+.ps-group__title + * { clear: both; }
+.ps-group__intro { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0 0 var(--space-5); line-height: 1.6; clear: both; }
+.ps-optional { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--color-text-faint); }
+.ps-hint { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: 0.4rem; line-height: 1.5; min-height: 1.5em; }
+.ps-hint strong { color: var(--color-navy); }
+.ps-hint--empty { min-height: 0; margin-top: 0; }
+.ps-field-error { margin: 0.5rem 0 0; padding: 0.45rem 0.75rem; font-size: var(--text-xs); line-height: 1.5; }
+.ps-field-error[hidden], .ibo-field__error[hidden] { display: none; }
+.ibo-field__input[aria-invalid="true"] { border-color: #b91c1c; }
+.ibo-field__input[aria-invalid="true"]:focus { box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2); }
+.ps-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-8); }
+.ps-actions .ibo-field__error { margin: 0; flex: 1 1 100%; }
+.ps-submit.ibo-modal__submit { width: auto; min-width: 220px; padding: var(--space-4) var(--space-10); }
+.ps-actions__note { font-size: var(--text-sm); color: var(--color-text-faint); margin: 0; }
+
+/* EBITDA: a text input that snaps a listbox of $3M ... $50M, Over $50M. */
+.ps-combo { position: relative; }
+.ps-combo .ibo-field__input { padding-right: 3rem; }
+.ps-combo__toggle {
+  position: absolute; top: 0; right: 0; height: 100%; width: 2.75rem; border: 0; background: transparent;
+  display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--color-navy);
+  border-radius: 0 6px 6px 0;
+}
+.ps-combo__toggle svg { width: 1rem; height: 1rem; transition: transform 0.15s ease; }
+.ps-combo.is-open .ps-combo__toggle svg { transform: rotate(180deg); }
+.ps-combo__list {
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 4px);
+  max-height: 248px; overflow-y: auto; margin: 0; padding: 0.3rem 0; list-style: none;
+  background: var(--color-white); border: 1px solid #d1d5db; border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(14, 42, 72, 0.14);
+}
+.ps-combo__list[hidden] { display: none; }
+.ps-combo__option {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 0.5rem 1rem; font-size: var(--text-sm); color: var(--color-text); cursor: pointer; line-height: 1.4;
+}
+.ps-combo__option:hover { background: #fbf8f4; }
+.ps-combo__option.is-active { background: #f6efe5; box-shadow: inset 3px 0 0 var(--color-gold); }
+.ps-combo__option[aria-selected="true"] { font-weight: 700; color: var(--color-navy); }
+.ps-combo__option[aria-selected="true"]::after { content: '\2713'; color: var(--color-gold); font-weight: 700; }
+
+/* ---- State 2: pick a time ---- */
+.ps-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
+.ps-back { display: inline-block; margin-bottom: var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.ps-back:hover { color: var(--color-gold); }
+.ps-tz { margin: 0; min-width: min(100%, 320px); }
+.ps-tz .ibo-field__label { margin-bottom: 0.35rem; }
+.ps-picker {
+  display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 0;
+  margin-top: var(--space-8); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
+  min-height: 360px;
+}
+.ps-picker__days { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
+.ps-picker__times { padding: var(--space-6) var(--space-8); min-width: 0; }
+.ps-picker__label {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-gold); margin: 0 0 var(--space-3);
+}
+.ps-days { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+.ps-day, .ps-time {
+  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
+  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; text-align: left;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.ps-day { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; padding: 0.7rem 0.9rem; font-size: var(--text-sm); font-weight: 700; }
+.ps-day__count { font-weight: 400; font-size: var(--text-xs); color: var(--color-text-faint); white-space: nowrap; }
+.ps-day:hover, .ps-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
+.ps-day[aria-pressed="true"], .ps-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+.ps-day[aria-pressed="true"] .ps-day__count { color: rgba(255, 255, 255, 0.75); }
+.ps-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; }
+.ps-time { padding: 0.7rem 0.5rem; text-align: center; font-size: var(--text-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
+.ps-times__date { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); color: var(--color-navy); margin: 0 0 var(--space-4); line-height: 1.3; }
+.ps-months { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: var(--space-5); }
+.ps-months[hidden] { display: none; }
+.ps-months button { background: none; border: 0; padding: 0; font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ps-months button:hover { color: var(--color-gold); }
+.ps-months button[hidden] { display: none; }
+.ps-status { grid-column: 1 / -1; padding: var(--space-10) var(--space-8); text-align: center; align-self: center; }
+.ps-status[hidden] { display: none; }
+.ps-status p { margin: 0 auto; max-width: 48ch; }
+.ps-status .ps-retry { margin-top: var(--space-4); }
+.ps-spinner {
+  display: block; width: 28px; height: 28px; margin: 0 auto var(--space-4); border-radius: 50%;
+  border: 3px solid rgba(169, 128, 74, 0.25); border-top-color: var(--color-gold); animation: ps-spin 0.9s linear infinite;
+}
+.ps-spinner[hidden], .ps-retry[hidden] { display: none; }
+@keyframes ps-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ps-spinner { animation-duration: 3s; } }
+.ps-picker__days[hidden], .ps-picker__times[hidden] { display: none; }
+.ps-confirmbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-6); }
+.ps-confirmbar .ibo-modal__submit { width: auto; padding: var(--space-4) var(--space-8); }
+.ps-confirmbar__note { margin: 0; font-size: var(--text-sm); color: var(--color-text-faint); }
+
+/* ---- State 3: confirmation (same layout as /book) ---- */
+.ps-confirm { padding-bottom: var(--space-10); }
+.ps-confirm .ps-title { font-size: clamp(2rem, 1.2rem + 2.9vw, 3.5rem); line-height: 1.2; max-width: 14em; text-wrap: wrap; }
+.ps-confirm .ps-lede { margin-top: var(--space-6); max-width: none; font-size: var(--text-lg); line-height: 1.7; overflow-wrap: anywhere; }
+
+.ps-when {
+  display: flex; align-items: center; gap: var(--space-8);
+  margin-top: 3.1rem; background: var(--color-navy); color: var(--color-white);
+  border-radius: 2px; padding: 2.25rem 2.4rem;
+}
+.ps-when__tile { flex: 0 0 auto; width: 108px; background: var(--color-white); border-radius: 2px; overflow: hidden; text-align: center; }
+.ps-when__tile[hidden] { display: none; }
+.ps-when__month {
+  display: block; background: var(--color-gold); color: var(--color-white);
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-xs); letter-spacing: 0.14em;
+  line-height: 1; padding: 0.7rem 0 0.62rem; text-transform: uppercase;
+}
+.ps-when__day { display: block; font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 2.4rem; line-height: 1; padding: 0.95rem 0 1.05rem; }
+.ps-when__body { min-width: 0; }
+.ps-when__label {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(0.75rem, 0.7rem + 0.3vw, 0.94rem); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--color-gold-light); line-height: 1.4;
+}
+.ps-when__date {
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.75vw, 2.6rem); line-height: 1.15;
+  color: var(--color-white); margin-top: var(--space-2); font-variant-numeric: lining-nums;
+}
+.ps-when__meta { color: rgba(255, 255, 255, 0.86); font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem); line-height: 1.45; margin-top: var(--space-2); }
+.ps-when__meta strong { color: var(--color-white); font-weight: 700; }
+.ps-when__meta [hidden] { display: none; }
+.ps-when__sep { white-space: pre; margin: 0 0.3em; }
+
+.ps-pair { display: grid; grid-template-columns: 288px minmax(0, 1fr); gap: 52px; margin-top: 4rem; align-items: start; }
+.ps-portrait > picture img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 2px; filter: grayscale(1); }
+.ps-portrait picture[hidden] { display: none; }
+.ps-caption { margin-top: var(--space-4); }
+.ps-caption__name, .ps-caption__title { display: block; font-size: 1.05rem; font-weight: 700; color: var(--color-navy); line-height: 1.5; }
+.ps-caption__mark { display: block; margin-top: 0.1rem; }
+.ps-caption__mark img { height: 24px; width: auto; max-width: none; display: block; }
+.ps-caption__lines { display: block; font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.5; margin-top: var(--space-2); }
+.ps-pair--solo { grid-template-columns: 1fr; gap: 0; }
+.ps-pair--solo .ps-caption { margin-top: 0; margin-bottom: var(--space-6); }
+
+.ps-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: 2px; padding: 2.6rem 2.75rem 2.9rem; min-width: 0; }
+.ps-card__rule { display: block; width: 44px; height: 2px; background: var(--color-gold); }
+.ps-card h2 { font-size: clamp(1.4rem, 1rem + 1.2vw, 1.95rem); line-height: 1.25; margin-top: 1.7rem; }
+
+.ps-steps { list-style: none; margin: 1.4rem 0 0; padding: 0; border-top: 1px solid var(--color-border); }
+.ps-step { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 1.25rem; padding: 1.2rem 0 1.25rem; border-bottom: 1px solid var(--color-border); }
+.ps-step.is-last { border-bottom: 0; }
+.ps-step[hidden] { display: none; }
+.ps-step__marker {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--color-navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; color: var(--color-navy);
+}
+.ps-step__marker svg { display: none; width: 16px; height: 16px; }
+.ps-step.is-done .ps-step__marker { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-white); }
+.ps-step.is-done .ps-step__marker svg { display: block; }
+.ps-step.is-done .ps-step__num { display: none; }
+.ps-step__booked { display: flex; align-items: center; min-height: 40px; font-size: clamp(1rem, 0.9rem + 0.35vw, 1.28rem); line-height: 1.5; color: var(--color-text-muted); }
+.ps-nowrap { white-space: nowrap; }
+.ps-step__booked strong { color: var(--color-text); font-size: 1.06em; margin-right: 0.35em; }
+.ps-step__booked .ps-step__tick { color: var(--color-navy); margin-right: 0.4em; font-weight: 700; }
+.ps-step__title {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem); line-height: 1.5; color: var(--color-navy);
+  padding-top: 0.4rem;
+}
+.ps-step__meeting { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.4rem); line-height: 1.4; margin-top: 0.3rem; }
+.ps-step__body > p { font-size: var(--text-base); line-height: 1.6; margin-top: var(--space-2); overflow-wrap: anywhere; }
+.ps-cal { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.9rem; }
+.ps-cal[hidden], .ps-cal-caption[hidden] { display: none; }
+.ps-cal .btn { padding: 0.52rem 1.3rem; font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.95rem); letter-spacing: 0.01em; }
+.ps-step__body > .ps-cal-caption { font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.97rem); color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.6; }
+
+.ps-note-optional { font-weight: 700; }
+.ps-note textarea { display: block; margin-top: 0.85rem; height: 112px; min-height: 96px; resize: vertical; border-radius: 6px; border-color: var(--color-border); font-size: var(--text-base); padding: 1rem 1.1rem; }
+.ps-note textarea::placeholder { font-style: italic; color: var(--color-text-faint); }
+.ps-note__send {
+  display: inline-flex; align-items: center; justify-content: center; margin-top: 1.1rem;
+  background: var(--color-white); color: var(--color-gold); border: 1px solid var(--color-gold); border-radius: 2px;
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.02em;
+  padding: 0.98rem 1.65rem; cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+}
+.ps-note__send:hover { background: var(--color-gold); color: var(--color-white); }
+.ps-note__send:disabled { opacity: 0.5; cursor: not-allowed; }
+.ps-note__error { color: #991b1b !important; font-size: var(--text-xs) !important; }
+.ps-note__error[hidden], .ps-note__sent[hidden], .ps-note__form[hidden] { display: none; }
+.ps-note__sent { color: var(--color-navy) !important; font-weight: 700; }
+
+.ps-resched { margin-top: 0.4rem; font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem); line-height: 1.75; color: var(--color-text-muted); }
+.ps-resched a, .ps-another button {
+  color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-gold-light);
+  text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.ps-resched a:hover, .ps-another button:hover { color: var(--color-gold); }
+.ps-another { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-faint); }
+.ps-another button { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; cursor: pointer; }
+
+.ps-cover { background: var(--color-cream-soft); padding: 5.6rem 0 3rem; }
+.ps-cover h2 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.2; margin-top: 1.75rem; }
+.ps-cover__grid { list-style: none; padding: 0; margin: 2.6rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.ps-cover__grid li { background: var(--color-white); border: 1px solid rgba(14, 42, 72, 0.06); padding: 2rem 1.8rem; }
+.ps-cover__num { display: block; font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--color-gold); }
+.ps-cover__grid p { margin-top: 1.1rem; font-size: clamp(1rem, 0.95rem + 0.3vw, 1.25rem); line-height: 1.75; }
+.ps-cover__after { margin-top: 1.5rem; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 1rem + 0.7vw, 1.8rem); color: var(--color-navy); line-height: 1.4; }
+
+@media (max-width: 860px) {
+  .ps-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .ps-picker { grid-template-columns: 1fr; }
+  .ps-picker__days { border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .ps-days { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .ps-pair { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-10); }
+  .ps-portrait { max-width: 288px; }
+  .ps-cover__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+@media (max-width: 560px) {
+  .ps-group { padding: var(--space-6) var(--space-5) var(--space-2); }
+  .ps-submit.ibo-modal__submit, .ps-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
+  .ps-picker__days, .ps-picker__times { padding: var(--space-5); }
+  .ps-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ps-day { flex-direction: column; gap: 0.1rem; }
+  .ps-times { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .ps-time { padding: 0.7rem 0.25rem; }
+  .ps-when { flex-direction: column; align-items: flex-start; gap: var(--space-5); padding: var(--space-6); }
+  .ps-when__tile { width: 84px; }
+  .ps-when__day { font-size: 2rem; padding: 0.75rem 0 0.85rem; }
+  .ps-card { padding: var(--space-6) var(--space-5) var(--space-8); }
+  .ps-step { grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-3); }
+  .ps-step__marker { width: 32px; height: 32px; font-size: 0.85rem; }
+  .ps-step__booked { min-height: 32px; flex-wrap: wrap; }
+  .ps-step__title { padding-top: 0.2rem; }
+  .ps-cover { padding: var(--space-16) 0 var(--space-12); }
+  .ps-cover__grid li { padding: var(--space-6); }
+}
+@media (max-width: 480px) {
+  .ps-page main .container { padding-inline: var(--space-4); }
+}
+</style>
+<!-- HubSpot tracking code (portal 245308986, NA2). Sets the hubspotutk cookie,
+     which the Forms API submission carries as context.hutk. -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
+</head>
+<body class="ps-page">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/#advisory">Advisory</a>
+        <a class="nav__link" href="/#mechanism">Approach</a>
+        <a class="nav__link" href="/#track-record">Track Record</a>
+        <a class="nav__link" href="/blog">Blog</a>
+        <a class="nav__link" href="/#contact">Contact</a>
+      </div>
+      <a class="btn btn--outline nav__cta" href="/?learn-more=1">Learn More</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= STATE 1: FORM =================
+       Inputs carry no name attributes and the form opts out of HubSpot's
+       non-HubSpot forms collector: this form holds TWO people (client and
+       partner), and the collector would map them onto one contact. The lead
+       reaches HubSpot only through the Forms API (partnerschedule.js). -->
+  <div class="ps-state" id="ps-state-form">
+    <section class="ps-section">
+      <div class="container">
+        <div class="ps-col">
+          <p class="eyebrow">For referral partners</p>
+          <h1 class="ps-title" id="ps-form-title" tabindex="-1">Schedule Your Client&rsquo;s Meeting with IBO Advisors</h1>
+          <p class="ps-lede">Tell us about your client, then pick a 30-minute time on Michael Chasen&rsquo;s calendar. Your client and you both receive the invitation. Everything is confidential.</p>
+
+          <p class="ps-notice" id="ps-not-live" role="status" hidden>This form isn&rsquo;t live yet. Until it is, email your client&rsquo;s details to Michael at <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and he&rsquo;ll set up the call.</p>
+
+          <form class="ps-form" id="ps-form" novalidate data-hs-do-not-collect="true">
+            <div class="ps-grid">
+              <fieldset class="ps-group">
+                <legend class="ps-group__title">Prospective client</legend>
+
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-name">Prospective Client Name</label>
+                  <input class="ibo-field__input" type="text" id="ps-client-name" autocomplete="off" maxlength="200" placeholder="James Carter" required aria-describedby="ps-client-name-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-client-name-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-email">Prospective Client Email</label>
+                  <input class="ibo-field__input" type="email" id="ps-client-email" autocomplete="off" maxlength="254" placeholder="james@carterindustrial.com" required aria-describedby="ps-client-email-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-client-email-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-cell">Prospective Client Cell Number</label>
+                  <input class="ibo-field__input" type="tel" id="ps-client-cell" autocomplete="off" maxlength="30" placeholder="(555) 123-4567" required aria-describedby="ps-client-cell-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-client-cell-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-revenue">Prospective Client Revenue</label>
+                  <input class="ibo-field__input" type="text" inputmode="decimal" id="ps-client-revenue" autocomplete="off" maxlength="40" placeholder="e.g. 45M or 45,000,000" required aria-describedby="ps-client-revenue-hint ps-client-revenue-error" />
+                  <p class="ps-hint" id="ps-client-revenue-hint" aria-live="polite">Annual revenue. A number under 1,000 is read as millions.</p>
+                  <p class="ibo-field__error ps-field-error" id="ps-client-revenue-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-industry">Prospective Client Industry</label>
+                  <select class="ibo-field__input ibo-field__select" id="ps-client-industry" required aria-describedby="ps-client-industry-error">
+                    <option value="" selected disabled>Select an industry</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Recruiting">Recruiting</option>
+                    <option value="Technology / Software">Technology / Software</option>
+                    <option value="Consulting / Professional Services">Consulting / Professional Services</option>
+                    <option value="Financial Services">Financial Services</option>
+                    <option value="Education">Education</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <p class="ibo-field__error ps-field-error" id="ps-client-industry-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" id="ps-client-ebitda-label" for="ps-client-ebitda">Prospective Client EBITDA</label>
+                  <div class="ps-combo" id="ps-ebitda-combo">
+                    <input class="ibo-field__input" type="text" inputmode="decimal" id="ps-client-ebitda" autocomplete="off" maxlength="40" placeholder="Type an amount, e.g. 7.4M, or choose" required
+                      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ps-ebitda-list" aria-describedby="ps-client-ebitda-hint ps-client-ebitda-error" />
+                    <button type="button" class="ps-combo__toggle" id="ps-ebitda-toggle" tabindex="-1" aria-label="Show EBITDA options">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+                    </button>
+                    <ul class="ps-combo__list" id="ps-ebitda-list" role="listbox" aria-labelledby="ps-client-ebitda-label" hidden></ul>
+                  </div>
+                  <p class="ps-hint" id="ps-client-ebitda-hint" aria-live="polite">Annual EBITDA, rounded to the nearest $1M.</p>
+                  <p class="ibo-field__error ps-field-error" id="ps-client-ebitda-error" hidden></p>
+                </div>
+              </fieldset>
+
+              <fieldset class="ps-group">
+                <legend class="ps-group__title">You</legend>
+                <p class="ps-group__intro">Michael adds you to the invitation as a guest, so you can join the call.</p>
+
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-partner-name">Your Name</label>
+                  <input class="ibo-field__input" type="text" id="ps-partner-name" autocomplete="name" maxlength="200" placeholder="Your full name" required aria-describedby="ps-partner-name-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-partner-name-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-partner-email">Your Email</label>
+                  <input class="ibo-field__input" type="email" id="ps-partner-email" autocomplete="email" maxlength="254" placeholder="you@yourfirm.com" required aria-describedby="ps-partner-email-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-partner-email-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-partner-cell">Your Cell <span class="ps-optional">(optional)</span></label>
+                  <input class="ibo-field__input" type="tel" id="ps-partner-cell" autocomplete="tel" maxlength="30" placeholder="(555) 987-6543" aria-describedby="ps-partner-cell-error" />
+                  <p class="ibo-field__error ps-field-error" id="ps-partner-cell-error" hidden></p>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="ps-actions">
+              <p class="ibo-field__error" id="ps-form-error" role="alert" hidden></p>
+              <button type="submit" class="ibo-modal__submit ps-submit" id="ps-form-submit">Next</button>
+              <p class="ps-actions__note">Next: pick a time on Michael&rsquo;s calendar.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= STATE 2: PICK A TIME ================= -->
+  <div class="ps-state" id="ps-state-pick" hidden>
+    <section class="ps-section">
+      <div class="container">
+        <div class="ps-col">
+          <button type="button" class="ps-back" id="ps-back">&larr; Edit details</button>
+          <div class="ps-picker-head">
+            <div>
+              <p class="eyebrow">Step 2 of 2</p>
+              <h1 class="ps-title" id="ps-pick-title" tabindex="-1">Pick a time on Michael&rsquo;s calendar for <span data-client="first">your client</span></h1>
+              <p class="ps-lede">30 minutes on Zoom with Michael Chasen, Managing Partner. The invitation goes to <span data-client="first">your client</span> and to you.</p>
+            </div>
+            <div class="ibo-field ps-tz">
+              <label class="ibo-field__label" for="ps-tz">Times shown in</label>
+              <select class="ibo-field__input ibo-field__select" id="ps-tz"></select>
+            </div>
+          </div>
+
+          <div class="ps-picker" id="ps-picker" aria-busy="false">
+            <div class="ps-status" id="ps-status" role="status" hidden>
+              <span class="ps-spinner" id="ps-spinner" aria-hidden="true"></span>
+              <p id="ps-status-text">Loading Michael&rsquo;s calendar&hellip;</p>
+              <p class="ps-months" id="ps-status-months" hidden></p>
+              <button type="button" class="btn btn--outline ps-retry" id="ps-retry" hidden>Try again</button>
+            </div>
+            <div class="ps-picker__days" id="ps-days-wrap" hidden>
+              <p class="ps-picker__label" id="ps-days-label">Choose a day</p>
+              <ul class="ps-days" id="ps-days" aria-labelledby="ps-days-label"></ul>
+              <p class="ps-months" id="ps-months" hidden>
+                <button type="button" id="ps-month-prev" hidden>&larr; Earlier dates</button>
+                <button type="button" id="ps-month-next" hidden>Later dates &rarr;</button>
+              </p>
+            </div>
+            <div class="ps-picker__times" id="ps-times-wrap" hidden>
+              <p class="ps-picker__label" id="ps-times-label">Choose a start time</p>
+              <p class="ps-times__date" id="ps-times-date"></p>
+              <ul class="ps-times" id="ps-times" aria-labelledby="ps-times-label"></ul>
+            </div>
+          </div>
+
+          <p class="ps-alert" id="ps-book-error" role="alert" hidden></p>
+          <div class="ps-confirmbar">
+            <button type="button" class="ibo-modal__submit" id="ps-confirm" disabled>Choose a time</button>
+            <p class="ps-confirmbar__note">The call is 30 minutes. The Zoom link is in the invitation.</p>
+          </div>
+          <p class="ps-quiet">Can&rsquo;t find a time that works? Write to Michael at <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= STATE 3: CONFIRMATION =================
+       Same layout as the /book confirmation, written to the partner about
+       their client. data-client / data-partner nodes are filled by
+       partnerschedule.js. -->
+  <div class="ps-state" id="ps-state-confirmed" hidden>
+    <section class="ps-section ps-confirm">
+      <div class="container">
+        <div class="ps-col">
+          <p class="eyebrow">Your client&rsquo;s call is confirmed</p>
+          <h1 class="ps-title" id="ps-confirmed-title" tabindex="-1"><span data-client="first">Your client</span> is booked with Michael Chasen.</h1>
+          <p class="ps-lede">Michael has set aside 30 minutes. The calendar invitation is on its way to <strong data-client="email">your client</strong> and to you at <strong data-partner="email">your email</strong>.</p>
+
+          <div class="ps-when" id="ps-when">
+            <div class="ps-when__tile" id="ps-when-tile" aria-hidden="true" hidden>
+              <span class="ps-when__month" id="ps-when-month"></span>
+              <span class="ps-when__day" id="ps-when-day"></span>
+            </div>
+            <div class="ps-when__body">
+              <p class="ps-when__label" id="ps-when-label">Your client&rsquo;s call</p>
+              <p class="ps-when__date" id="ps-when-date">The time is in the invitation.</p>
+              <p class="ps-when__meta"><strong id="ps-when-time" hidden></strong><span class="ps-when__sep" id="ps-when-sep" hidden> &middot; </span><span>30 minutes</span><span class="ps-when__sep"> &middot; </span>Zoom link in the invitation</p>
+            </div>
+          </div>
+
+          <div class="ps-pair" id="ps-pair">
+            <figure class="ps-portrait" id="ps-host-figure">
+              <picture id="ps-host-picture"><source type="image/webp" srcset="/assets/founder-portrait.webp" /><img id="ps-host-img" loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, Managing Partner, IBO Advisors" width="1080" height="1338" /></picture>
+              <figcaption class="ps-caption">
+                <span class="ps-caption__name">Michael Chasen</span>
+                <span class="ps-caption__title">Managing Partner</span>
+                <span class="ps-caption__mark"><picture><source type="image/webp" srcset="/assets/logo.webp" /><img src="/assets/logo.png" alt="IBO Advisors" width="2267" height="400" loading="lazy" decoding="async" /></picture></span>
+                <span class="ps-caption__lines">25+ years building and selling companies. 100+ M&amp;A transactions.</span>
+              </figcaption>
+            </figure>
+
+            <div class="ps-card" id="ps-steps-card">
+              <span class="ps-card__rule" aria-hidden="true"></span>
+              <h2 id="ps-steps-title">Three small things before the call</h2>
+              <ol class="ps-steps">
+                <li class="ps-step is-done">
+                  <span class="ps-step__marker" aria-hidden="true"><span class="ps-step__num">1</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7" /></svg></span>
+                  <div class="ps-step__body">
+                    <p class="ps-step__booked"><span><strong>Booked</strong><span class="ps-step__tick" aria-hidden="true">&#10003;</span><span id="ps-booked-when">The time is in the invitation.</span></span></p>
+                  </div>
+                </li>
+
+                <li class="ps-step">
+                  <span class="ps-step__marker" aria-hidden="true"><span class="ps-step__num">2</span></span>
+                  <div class="ps-step__body">
+                    <h3 class="ps-step__title">Accept the invitation <span class="ps-step__meeting">titled &ldquo;<span data-meeting-title>IBO Discussion</span>&rdquo;</span></h3>
+                    <p>It comes from michael@iboadvisors.com, to you and to <span data-client="first">your client</span>. Accept it so the call is on your calendar, and let <span data-client="first">your client</span> know to look for it: Gmail sometimes holds invitations from new senders until they respond.</p>
+                    <div class="ps-cal" id="ps-cal">
+                      <a class="btn btn--outline" id="ps-cal-google" href="#" target="_blank" rel="noopener" data-provider="google">Google Calendar</a>
+                      <a class="btn btn--outline" id="ps-cal-outlook" href="#" target="_blank" rel="noopener" data-provider="outlook">Outlook</a>
+                      <a class="btn btn--outline" id="ps-cal-ics" href="#" download="call-with-michael-chasen.ics" data-provider="apple">Apple (.ics)</a>
+                    </div>
+                    <p class="ps-cal-caption" id="ps-cal-caption">Use these only if the invitation hasn&rsquo;t appeared.</p>
+                  </div>
+                </li>
+
+                <!-- Optional note for Michael. Goes to the "Pre-call note" HubSpot
+                     form against the CLIENT's contact record, and on to Michael;
+                     never to the client. Hidden if the form cannot be reached. -->
+                <li class="ps-step ps-note" id="ps-note" hidden>
+                  <span class="ps-step__marker" aria-hidden="true"><span class="ps-step__num">3</span></span>
+                  <div class="ps-step__body">
+                    <h3 class="ps-step__title">Anything you&rsquo;d like Michael to know about <span data-client="first">your client</span> before the call? <span class="ps-note-optional">(optional)</span></h3>
+                    <form class="ps-note__form" id="ps-note-form" novalidate data-hs-do-not-collect="true">
+                      <label class="sr-only" for="ps-note-text">Your note for Michael</label>
+                      <textarea class="ibo-field__input" id="ps-note-text" rows="4" maxlength="1000" placeholder="e.g. Second-generation owner, weighing a PE offer and wants a second opinion."></textarea>
+                      <button type="submit" class="ps-note__send" id="ps-note-submit">Send to Michael</button>
+                      <p class="ps-note__error" id="ps-note-error" role="alert" hidden></p>
+                    </form>
+                    <p class="ps-note__sent" id="ps-note-sent" role="status" hidden>Sent. Michael will have this before the call.</p>
+                  </div>
+                </li>
+              </ol>
+
+              <p class="ps-resched">Need a different time? Reply to the invitation or write to Michael at <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a>.</p>
+            </div>
+          </div>
+
+          <p class="ps-another">Referring another client? <button type="button" id="ps-another">Schedule another call</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ps-cover">
+      <div class="container">
+        <div class="ps-col">
+          <p class="eyebrow">30 minutes</p>
+          <h2>What Michael will cover with <span data-client="first">your client</span></h2>
+          <ol class="ps-cover__grid">
+            <li><span class="ps-cover__num" aria-hidden="true">01</span><p>Where the company is today - and what the owner wants to accomplish, whether that&rsquo;s partial liquidity, a full sale, or simply understanding the options.</p></li>
+            <li><span class="ps-cover__num" aria-hidden="true">02</span><p>Whether an Independent Buyout fits the company&rsquo;s size, sector and timing.</p></li>
+            <li><span class="ps-cover__num" aria-hidden="true">03</span><p>What the numbers could look like, and what happens next if your client wants to keep talking.</p></li>
+          </ol>
+          <p class="ps-cover__after">No preparation needed. No documents. No obligation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="/tracking.js"></script>
+<script src="/partnerschedule/partnerschedule.js" defer></script>
+</body>
+</html>

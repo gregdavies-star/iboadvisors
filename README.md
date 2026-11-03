@@ -4,9 +4,11 @@ Static marketing site for IBO Advisors ("A Private Equity outcome without the Pr
 
 ## Structure
 
-This is a static HTML/CSS site — no build step required.
+This is a static HTML/CSS site — no build step required. The only server code is two Vercel serverless functions in `api/` (`partner-availability.js`, `partner-book.js`, sharing `api/_scheduler.js`) that back `/partnerschedule`; they need `IBO_HUBSPOT_SERVICE_KEY` in the Vercel project.
 
 - `index.html` — single-page site (hero, mechanism, track record, team, contact/experts sections)
+- `book/` — on-site HubSpot scheduler (round robin) with an IBO-styled confirmation
+- `partnerschedule/` — orphan page for referral partners to book a client onto Michael's calendar (see CLAUDE.md)
 - `style.css`, `base.css` — styling
 - `assets/` — images (hero art, founder portrait, industry icons)
 
