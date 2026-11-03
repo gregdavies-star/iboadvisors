@@ -36,8 +36,11 @@
    link to advisors, bankers and CPAs. The partner, not the business owner,
    fills in the form. Three states, one page:
      1. Form: the prospective client (left) and the partner (right).
-     2. Pick a time on Michael's calendar (our own picker over
-        /api/partner-availability; no HubSpot iframe).
+     2. Pick a time on Michael's calendar: our own picker over
+        /api/partner-availability (no HubSpot iframe). Left, a month
+        calendar (.ps-calendar) whose arrows page monthOffset; right, the
+        start times for the selected day, or the loading / error / empty
+        status. Stacks calendar-above-times at <=860px.
      3. Confirmation, written to the partner about their client. Layout and
         styles follow the /book confirmation (bk-* there, ps-* here).
    Inputs and the Next button reuse .ibo-field* / .ibo-modal__submit from
@@ -134,36 +137,62 @@
 .ps-tz { margin: 0; min-width: min(100%, 320px); }
 .ps-tz .ibo-field__label { margin-bottom: 0.35rem; }
 .ps-picker {
-  display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 0;
+  display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 0;
   margin-top: var(--space-8); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
-  min-height: 360px;
+  min-height: 380px;
 }
-.ps-picker__days { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
+.ps-picker__cal { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
 .ps-picker__times { padding: var(--space-6) var(--space-8); min-width: 0; }
 .ps-picker__label {
   font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--color-gold); margin: 0 0 var(--space-3);
 }
-.ps-days { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
-.ps-day, .ps-time {
-  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
-  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; text-align: left;
+
+/* Month calendar: month name between arrows, SUN..SAT, one cell per day.
+   Open days are bold navy buttons; closed days are faint and inert; the
+   chosen day is a filled navy circle; today carries a small gold dot. */
+.ps-calendar__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); }
+.ps-calendar__month { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); color: var(--color-navy); margin: 0; line-height: 1.3; text-align: center; flex: 1 1 auto; }
+.ps-calendar__nav {
+  flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-white);
+  color: var(--color-navy); display: flex; align-items: center; justify-content: center; cursor: pointer;
   transition: border-color var(--transition-interactive), background var(--transition-interactive);
 }
-.ps-day { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; padding: 0.7rem 0.9rem; font-size: var(--text-sm); font-weight: 700; }
-.ps-day__count { font-weight: 400; font-size: var(--text-xs); color: var(--color-text-faint); white-space: nowrap; }
-.ps-day:hover, .ps-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
-.ps-day[aria-pressed="true"], .ps-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
-.ps-day[aria-pressed="true"] .ps-day__count { color: rgba(255, 255, 255, 0.75); }
+.ps-calendar__nav svg { width: 16px; height: 16px; }
+.ps-calendar__nav:hover:not(:disabled) { border-color: var(--color-gold); background: #fbf8f4; }
+.ps-calendar__nav:disabled { opacity: 0.35; cursor: default; }
+.ps-calendar__grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.ps-calendar__grid th {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-faint); text-align: center; padding: 0 0 var(--space-2);
+}
+.ps-calendar__grid td { text-align: center; padding: 2px 0; height: 44px; }
+.ps-calday {
+  position: relative; width: 40px; height: 40px; margin: 0 auto; border-radius: 50%; border: 1px solid transparent;
+  display: flex; align-items: center; justify-content: center; padding: 0; background: transparent;
+  font-family: var(--font-body); font-size: var(--text-sm); font-variant-numeric: tabular-nums; line-height: 1;
+}
+button.ps-calday { color: var(--color-navy); font-weight: 700; cursor: pointer; background: #f6efe5; transition: background var(--transition-interactive), border-color var(--transition-interactive); }
+button.ps-calday:hover { border-color: var(--color-gold); background: #efe3d2; }
+button.ps-calday[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+span.ps-calday { color: #b9b4aa; font-weight: 400; }
+.ps-calday.is-today::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--color-gold);
+}
+.ps-calendar__note { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; min-height: 1.5em; }
+.ps-calendar__note:empty { min-height: 0; margin: 0; }
+
+.ps-time {
+  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
+  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.ps-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
+.ps-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
 .ps-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; }
 .ps-time { padding: 0.7rem 0.5rem; text-align: center; font-size: var(--text-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
 .ps-times__date { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); color: var(--color-navy); margin: 0 0 var(--space-4); line-height: 1.3; }
-.ps-months { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: var(--space-5); }
-.ps-months[hidden] { display: none; }
-.ps-months button { background: none; border: 0; padding: 0; font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-.ps-months button:hover { color: var(--color-gold); }
-.ps-months button[hidden] { display: none; }
-.ps-status { grid-column: 1 / -1; padding: var(--space-10) var(--space-8); text-align: center; align-self: center; }
+.ps-status { padding: var(--space-10) var(--space-4); text-align: center; }
 .ps-status[hidden] { display: none; }
 .ps-status p { margin: 0 auto; max-width: 48ch; }
 .ps-status .ps-retry { margin-top: var(--space-4); }
@@ -174,7 +203,7 @@
 .ps-spinner[hidden], .ps-retry[hidden] { display: none; }
 @keyframes ps-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ps-spinner { animation-duration: 3s; } }
-.ps-picker__days[hidden], .ps-picker__times[hidden] { display: none; }
+.ps-times-panel[hidden] { display: none; }
 .ps-confirmbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-6); }
 .ps-confirmbar .ibo-modal__submit { width: auto; padding: var(--space-4) var(--space-8); }
 .ps-confirmbar__note { margin: 0; font-size: var(--text-sm); color: var(--color-text-faint); }
@@ -289,8 +318,8 @@
 @media (max-width: 860px) {
   .ps-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .ps-picker { grid-template-columns: 1fr; }
-  .ps-picker__days { border-right: 0; border-bottom: 1px solid var(--color-border); }
-  .ps-days { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .ps-picker__cal { border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .ps-calendar { max-width: 460px; margin-inline: auto; }
   .ps-pair { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-10); }
   .ps-portrait { max-width: 288px; }
   .ps-cover__grid { grid-template-columns: 1fr; gap: var(--space-4); }
@@ -298,9 +327,8 @@
 @media (max-width: 560px) {
   .ps-group { padding: var(--space-6) var(--space-5) var(--space-2); }
   .ps-submit.ibo-modal__submit, .ps-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
-  .ps-picker__days, .ps-picker__times { padding: var(--space-5); }
-  .ps-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ps-day { flex-direction: column; gap: 0.1rem; }
+  .ps-picker__cal, .ps-picker__times { padding: var(--space-5); }
+  .ps-picker__cal { padding-inline: var(--space-3); }
   .ps-times { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
   .ps-time { padding: 0.7rem 0.25rem; }
   .ps-when { flex-direction: column; align-items: flex-start; gap: var(--space-5); padding: var(--space-6); }
@@ -469,25 +497,43 @@
             </div>
           </div>
 
+          <!-- Left: month calendar, always shown so the arrows stay usable.
+               Built by partnerschedule.js (renderCalendar). Right: the start
+               times for the selected day, or the loading / error / empty
+               status in their place. -->
           <div class="ps-picker" id="ps-picker" aria-busy="false">
-            <div class="ps-status" id="ps-status" role="status" hidden>
-              <span class="ps-spinner" id="ps-spinner" aria-hidden="true"></span>
-              <p id="ps-status-text">Loading Michael&rsquo;s calendar&hellip;</p>
-              <p class="ps-months" id="ps-status-months" hidden></p>
-              <button type="button" class="btn btn--outline ps-retry" id="ps-retry" hidden>Try again</button>
+            <div class="ps-picker__cal">
+              <p class="ps-picker__label" id="ps-cal-label">Choose a day</p>
+              <div class="ps-calendar" id="ps-calendar">
+                <div class="ps-calendar__head">
+                  <button type="button" class="ps-calendar__nav" id="ps-month-prev" aria-label="Previous month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                  </button>
+                  <p class="ps-calendar__month" id="ps-cal-month" aria-live="polite"></p>
+                  <button type="button" class="ps-calendar__nav" id="ps-month-next" aria-label="Next month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                  </button>
+                </div>
+                <table class="ps-calendar__grid" id="ps-cal-grid">
+                  <thead>
+                    <tr><th scope="col" abbr="Sunday">Sun</th><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th></tr>
+                  </thead>
+                  <tbody id="ps-cal-body"></tbody>
+                </table>
+                <p class="ps-calendar__note" id="ps-cal-note" role="status"></p>
+              </div>
             </div>
-            <div class="ps-picker__days" id="ps-days-wrap" hidden>
-              <p class="ps-picker__label" id="ps-days-label">Choose a day</p>
-              <ul class="ps-days" id="ps-days" aria-labelledby="ps-days-label"></ul>
-              <p class="ps-months" id="ps-months" hidden>
-                <button type="button" id="ps-month-prev" hidden>&larr; Earlier dates</button>
-                <button type="button" id="ps-month-next" hidden>Later dates &rarr;</button>
-              </p>
-            </div>
-            <div class="ps-picker__times" id="ps-times-wrap" hidden>
-              <p class="ps-picker__label" id="ps-times-label">Choose a start time</p>
-              <p class="ps-times__date" id="ps-times-date"></p>
-              <ul class="ps-times" id="ps-times" aria-labelledby="ps-times-label"></ul>
+            <div class="ps-picker__times">
+              <div class="ps-status" id="ps-status" role="status" hidden>
+                <span class="ps-spinner" id="ps-spinner" aria-hidden="true"></span>
+                <p id="ps-status-text">Loading Michael&rsquo;s calendar&hellip;</p>
+                <button type="button" class="btn btn--outline ps-retry" id="ps-retry" hidden>Try again</button>
+              </div>
+              <div class="ps-times-panel" id="ps-times-wrap" hidden>
+                <p class="ps-picker__label" id="ps-times-label">Choose a start time</p>
+                <p class="ps-times__date" id="ps-times-date"></p>
+                <ul class="ps-times" id="ps-times" aria-labelledby="ps-times-label"></ul>
+              </div>
             </div>
           </div>
 
