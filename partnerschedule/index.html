@@ -379,12 +379,6 @@
                   <p class="ibo-field__error ps-field-error" id="ps-client-cell-error" hidden></p>
                 </div>
                 <div class="ibo-field">
-                  <label class="ibo-field__label" for="ps-client-revenue">Prospective Client Revenue</label>
-                  <input class="ibo-field__input" type="text" inputmode="decimal" id="ps-client-revenue" autocomplete="off" maxlength="40" placeholder="e.g. 45M or 45,000,000" required aria-describedby="ps-client-revenue-hint ps-client-revenue-error" />
-                  <p class="ps-hint" id="ps-client-revenue-hint" aria-live="polite">Annual revenue. A number under 1,000 is read as millions.</p>
-                  <p class="ibo-field__error ps-field-error" id="ps-client-revenue-error" hidden></p>
-                </div>
-                <div class="ibo-field">
                   <label class="ibo-field__label" for="ps-client-industry">Prospective Client Industry</label>
                   <select class="ibo-field__input ibo-field__select" id="ps-client-industry" required aria-describedby="ps-client-industry-error">
                     <option value="" selected disabled>Select an industry</option>
@@ -400,6 +394,12 @@
                     <option value="Other">Other</option>
                   </select>
                   <p class="ibo-field__error ps-field-error" id="ps-client-industry-error" hidden></p>
+                </div>
+                <div class="ibo-field">
+                  <label class="ibo-field__label" for="ps-client-revenue">Prospective Client Revenue</label>
+                  <input class="ibo-field__input" type="text" inputmode="decimal" id="ps-client-revenue" autocomplete="off" maxlength="40" placeholder="e.g. 45M or 45,000,000" required aria-describedby="ps-client-revenue-hint ps-client-revenue-error" />
+                  <p class="ps-hint" id="ps-client-revenue-hint" aria-live="polite">Annual revenue. A number under 1,000 is read as millions.</p>
+                  <p class="ibo-field__error ps-field-error" id="ps-client-revenue-error" hidden></p>
                 </div>
                 <div class="ibo-field">
                   <label class="ibo-field__label" id="ps-client-ebitda-label" for="ps-client-ebitda">Prospective Client EBITDA</label>
