@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T02:07:04.723Z",
+  "generatedAt": "2026-11-03T18:24:01.598Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -88,7 +88,7 @@
       "h1": "Dividend Recapitalization Explained: Borrowing Against Your Own Company",
       "words": 2205,
       "date": "2026-10-18",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -232,7 +232,7 @@
       "words": 2495,
       "date": "2026-10-13",
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -320,10 +320,10 @@
       "description": "What multi-unit restaurant groups are worth, what a PE roll-up asks of you, and the ownership transition option that keeps your operators in charge.",
       "descriptionLength": 148,
       "h1": "Restaurant M&A: Ownership Transition Options for Owners Who Don't Want a PE Buyer",
-      "words": 1651,
+      "words": 1675,
       "date": "2026-05-20",
       "inboundInternalLinks": 8,
-      "outboundInternalLinks": 9,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -348,7 +348,7 @@
       "h1": "SDE vs EBITDA: Which One Prices Your Business",
       "words": 1907,
       "date": "2026-10-28",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -440,7 +440,7 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 10,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
