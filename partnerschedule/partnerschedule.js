@@ -56,8 +56,9 @@
     title: 'Managing Partner',
     email: 'michael@iboadvisors.com'
   };
-  // The calendar invitation's title, as it appears in the inbox.
-  var MEETING_TITLE = 'IBO Discussion';
+  // The calendar invitation's title, as it appears in the inbox (verified on
+  // the first test booking, 3 Nov 2026: hs_meeting_title on the record).
+  var MEETING_TITLE = 'Independent Buyout Discussion (IBO) with Michael Chasen';
   var MINUTES = 30;
 
   var AVAILABILITY_URL = '/api/partner-availability';
