@@ -94,7 +94,9 @@
 .ps-field-error[hidden], .ibo-field__error[hidden] { display: none; }
 .ibo-field__input[aria-invalid="true"] { border-color: #b91c1c; }
 .ibo-field__input[aria-invalid="true"]:focus { box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2); }
-.ps-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-8); }
+/* Next sits at the right, under the partner column, so it reads as the
+   last step after both columns rather than the end of the client column. */
+.ps-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-8); }
 .ps-actions .ibo-field__error { margin: 0; flex: 1 1 100%; }
 .ps-submit.ibo-modal__submit { width: auto; min-width: 220px; padding: var(--space-4) var(--space-10); }
 .ps-actions__note { font-size: var(--text-sm); color: var(--color-text-faint); margin: 0; }
@@ -440,8 +442,8 @@
 
             <div class="ps-actions">
               <p class="ibo-field__error" id="ps-form-error" role="alert" hidden></p>
-              <button type="submit" class="ibo-modal__submit ps-submit" id="ps-form-submit">Next</button>
               <p class="ps-actions__note">Next: pick a time on Michael&rsquo;s calendar.</p>
+              <button type="submit" class="ibo-modal__submit ps-submit" id="ps-form-submit">Next</button>
             </div>
           </form>
         </div>
