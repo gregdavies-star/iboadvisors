@@ -1,40 +1,40 @@
-# Daily SEO run — 2026-11-03
+# Daily SEO run — 2026-11-04
 
-No title, meta or content edit was due: every `lowCtr` page is inside its 28-day cool-down, and the one rule-4 page outside its cool-down already answers the query. The run went to rule 8 instead — three links into the two weakest pages — plus a control-wording sweep. Audit clean: 37 pages, 0 errors.
+Retitled the two `lowCtr` pages still outside their cool-down. Published one new post on **what private equity charges a portfolio company**, the highest-priority uncovered keyword left in `keywords.json`, with three inbound links. Audit clean: 38 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-10-31 vs prior 28)
+## GSC totals (28 days to 2026-11-01 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 76 | 4,484 | 1.69% | 11.5 |
-| Prior | 73 | 4,040 | 1.81% | 14.0 |
+| Current | 79 | 4,639 | 1.70% | 11.4 |
+| Prior | 72 | 4,113 | 1.75% | 14.0 |
+
+Clicks +9.7%, impressions +12.8%, position +2.6 places. CTR is flat because the added impressions land at positions 10-20.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/ebitda-multiples-by-industry` | link | Rule 8: `/blog/sde-vs-ebitda` had 4 in-body inbound links, the site floor. Its FAQ answer on sub-$1M businesses already named SDE. |
-| `/blog/restaurant-ma` | link | Rule 8: second link to the same page. The donor quotes 1.5x–3x SDE and 4x–7x adjusted EBITDA in one paragraph without saying the two cannot be swapped. |
-| `/blog/majority-recapitalization-vs-sale` | link | Rule 8: `/blog/dividend-recapitalization` had 5 inbound links. The donor names a dividend recap and never linked to the post on it. |
-
-No `Updated` dates changed; none of the edits is substantive content.
+| `/blog/earnout-in-business-sale` | title + meta | lowCtr: 104 impr, **0 clicks at position 6.9** vs 3.0% expected; never retitled, and 15 of 55 characters went to the brand suffix. Title now carries the page's sourced 41%; the meta takes what it displaced (~21 cents realised, 28% contested). |
+| `/blog/adjusted-ebitda-add-backs` | title + meta | lowCtr: 238 impr, 1 click (0.42%) at 13.0 vs 1.0%. Its biggest query rows ask about legitimacy ("which add-backs are legitimate when adjusting ebitda for a sale", 11 impr at 12.8; "ebitda adjustments", 7), so title and meta now use that wording. |
+| `/blog/private-equity-management-fees-portfolio-company` | **new post**, 2,067 words | Rule 7: one post in the trailing 7 days. Six sources, all opened with WebFetch — the KKR / Renaissance Parent monitoring agreement and its 2017 termination agreement ($16,227,089 at IPO), Biomet's 8-K, Bowden's 2014 OCIE speech, the SEC's Blackstone and Apollo orders. Worked example invented. |
+| 3 posts + `/blog` | link, card | Rule 8 donors, each on a sentence already naming a monitoring fee: `what-happens-after-private-equity-buys-your-company`, `rollover-equity-second-bite-explained`, `how-private-equity-actually-finances-a-buyout`. Two card excerpts synced. |
 
 ## Skipped
 
-- **Rule 3:** 9 of 11 `lowCtr` rows are in cool-down (10-12 to 10-31). `/blog/adjusted-ebitda-add-backs` (213 impr, 0 clicks, pos 11.5) is eligible, but its title already carries the legitimacy wording its queries use, and pos 11.5 is not a snippet problem.
-- **Rule 4:** only "majority recapitalization" (20 impr @ 13.9, plus 10 on "what is a…" @ 14.3) is outside the 14-day cool-down, and that page opens with the definition and repeats it in its FAQ. The rest: homepage body (off-limits), `/blog`, pages edited 10-26/10-29.
-- **Rule 5** remedies already in place. **Rule 7:** cap reached (posts on 10-28, 10-29). No `ahrefs-latest.json`.
+**Rule 4** — all five rows unavailable: succession (123 impr at 6.0) and types-of-buyouts (21 at 13.1) in cool-down; "ibo finance" (25 at 4.6) is homepage body copy; "owner buyout" (31 at 12.1) ranks the blog index; "majority recapitalization" (20 at 13.9) is already answered in its opening section. **Rule 3** — the 112- and 159-impression keep-control rows are **301s to `/blog/alternatives-to-selling-to-private-equity`**, so there is no page to retitle; six other rows in cool-down. **Rule 5** — 11-02 already widened the `/blog` hero anchor. **Rule 6** — no decliners.
 
 ## Coverage
 
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed") at ~3,950 words and 9 inbound links. Not expanded again — 10-21 and 10-24 moved nothing. Submit it manually.
+`/industries/restaurants` is still the only non-`PASS` URL. Re-checked on disk: 3,954 words, no `noindex`, correct canonical, 9 inbound links. Expanded 10-21 and 10-24 with no effect, so not expanded again.
 
 ## For a human
 
-1. **Two `lowCtr` rows are dead URLs.** The two "keep control" posts (143 impr @ 5.9, 121 @ 7.6) were deleted 10-30 and 301'd to `/blog/alternatives-to-selling-to-private-equity`, whose own impressions fell 159 → 65. Their live queries are partial-sale intent. **Consider repointing the second 301 to `/blog/minority-recapitalization-explained`.**
-2. **Standing rule 5 misses, still live:** `rollover-equity-second-bite-explained:176`, `what-happens-after-private-equity-buys-your-company:172`, `family-business-succession-planning:222`, `selling-to-private-equity-pros-and-cons:216` and `:226`, `majority-recapitalization-vs-sale:267`. Left in place pending your audit.
-3. **`/blog` absorbs generic buyout demand** — "owner buyout" (30 @ 12.1), "buyout companies" (34 @ 22.9), "corporate buyouts". An index page cannot win these; it is the argument for the buyout pillar in STRATEGY §2.
+1. **Submit `/industries/restaurants` for indexing manually** — the one lever the job lacks.
+2. "industry multiples database", 67 impr at 43.9 on `/ebitda-multiples-by-industry`: a ranking problem, not a snippet one. Keep the title frozen; point links at it.
+3. "private equity accounting firm valuation"/"...valuations", 20 each at positions 53-64, untargeted. Add to cluster 7 if you want it written.
+4. `ahrefs-latest.json` absent, so rule 7's volume/KD preference could not be applied.
 
 ## Flagged
 
-Nothing asked for deal specifics this run.
+`/blog/rollover-equity-second-bite-explained` has published copy implying an owner keeps control after a sale ("how much of a business you can sell and still keep control turns on the board composition and the consent list"). Standing rule 5 forbids it, but the audit of existing posts is pending your approval, so it is reported, not edited. Nothing asked for deal specifics.

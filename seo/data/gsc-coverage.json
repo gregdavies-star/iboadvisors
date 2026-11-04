@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-11-03T18:15:26.976Z",
+  "inspectedAt": "2026-11-04T18:24:58.891Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T08:10:59Z",
+      "lastCrawlTime": "2026-11-03T10:27:43Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -57,7 +57,7 @@
       "url": "https://www.iboadvisors.com/industries/healthcare-services",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-20T16:34:49Z",
+      "lastCrawlTime": "2026-11-04T00:06:42Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -102,7 +102,7 @@
       "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-27T15:24:33Z",
+      "lastCrawlTime": "2026-11-04T01:16:28Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -129,7 +129,7 @@
       "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-27T21:04:23Z",
+      "lastCrawlTime": "2026-11-03T20:15:59Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -156,7 +156,7 @@
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-14T20:20:07Z",
+      "lastCrawlTime": "2026-11-04T03:46:03Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -174,7 +174,7 @@
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-22T15:40:44Z",
+      "lastCrawlTime": "2026-11-03T18:17:09Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -183,7 +183,7 @@
       "url": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-13T22:13:41Z",
+      "lastCrawlTime": "2026-11-03T18:39:10Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -192,7 +192,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-29T11:19:57Z",
+      "lastCrawlTime": "2026-11-04T11:16:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -210,7 +210,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T11:01:15Z",
+      "lastCrawlTime": "2026-11-03T22:46:02Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
