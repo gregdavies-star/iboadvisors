@@ -19,34 +19,20 @@
    This file holds only the handler and its query parsing. The slug, the
    meeting length, the HubSpot call and the slot clean-up (Michael's busy
    blocks are dropped, never returned) live in ./_scheduler.js, shared with
-   /api/partner-book. The client never chooses which calendar it reads.
+   /api/partner-book (and with the public /book2 endpoints /api/availability
+   and /api/book). This endpoint always reads LINKS.partner, Michael's
+   personal link, which no env var overrides, and keeps HubSpot's slot list
+   as is (no :00/:30 filter). The client never chooses which calendar it
+   reads.
 
    Environment: IBO_HUBSPOT_SERVICE_KEY (HubSpot private app token with
    scheduler.meetings.meeting-link.read). Missing -> 503, never a token echo.
    Every response is JSON with Cache-Control: no-store.
    ========================================================================== */
 
-import { fetchAvailability, isValidTimeZone, MAX_MONTH_OFFSET } from './_scheduler.js';
+import { fetchAvailability, isValidTimeZone, MAX_MONTH_OFFSET, LINKS, send, queryParam } from './_scheduler.js';
 
 const DEFAULT_TIMEZONE = 'America/New_York';
-
-function send(res, status, body) {
-  res.statusCode = status;
-  res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.setHeader('Cache-Control', 'no-store');
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.end(JSON.stringify(body));
-}
-
-function queryParam(req, name) {
-  let value;
-  if (req.query && typeof req.query === 'object') value = req.query[name];
-  if (value === undefined) {
-    try { value = new URL(req.url || '/', 'http://localhost').searchParams.get(name); } catch { value = undefined; }
-  }
-  if (Array.isArray(value)) value = value[0];
-  return value === null || value === undefined ? undefined : String(value);
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
@@ -76,7 +62,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { slots, hasMore } = await fetchAvailability(token, timezone, monthOffset);
+    const { slots, hasMore } = await fetchAvailability(token, timezone, monthOffset, { slug: LINKS.partner.slug });
     return send(res, 200, { timezone, monthOffset, slots, hasMore });
   } catch (err) {
     const timedOut = err && (err.name === 'TimeoutError' || err.name === 'AbortError');

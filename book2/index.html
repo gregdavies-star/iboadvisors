@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<title>Schedule a confidential call | IBO Advisors</title>
+<meta name="description" content="A 30-minute confidential call with an IBO Advisors partner. No preparation, no documents, no obligation." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://www.iboadvisors.com/book2" />
+<!-- Global Privacy Control. Must stay first, and stay synchronous: it sets
+     Google Consent Mode defaults and gates the Vaudit / IDPixel / Happierleads tags, which it
+     injects itself when there is no opt-out signal. See /privacy section 8. -->
+<script src="/privacy-signals.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18411360561');
+  gtag('config', 'G-7HL0RK1PJ0');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/base.css" />
+<link rel="stylesheet" href="/style.css" />
+<style>
+/* ==========================================================================
+   /book2 - test build of the on-site meeting scheduler (page-scoped
+   styles, bk-*). Nothing links here; noindex, nofollow. Same page as /book
+   (full site header and footer, no modal.js; book2.js wires the mobile
+   menu), but State 1 is our own picker over /api/availability instead of
+   the HubSpot iframe (the /partnerschedule picker, renamed bk-*: a month
+   calendar with the time zone select under it, start times beside it),
+   shown first, with a "Your details" block under the chosen time only when the
+   name, email or a required question is missing; then the same IBO-styled
+   confirmation (State 2), booked through /api/book. Behaviour lives in /book2/book2.js, which
+   fills every data-host node from the host the booking landed on.
+   ========================================================================== */
+
+.bk-col { max-width: var(--content-narrow); margin-inline: auto; }
+.bk-section { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0; }
+.bk-section--tight { padding-top: 0; }
+.bk-title {
+  font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: var(--text-2xl); line-height: 1.1; margin-top: var(--space-4); max-width: 22ch;
+}
+.bk-title:focus { outline: none; }
+.bk-lede { margin-top: var(--space-4); max-width: 60ch; }
+.bk-quiet { font-size: var(--text-sm); color: var(--color-text-faint); margin-top: var(--space-5); }
+.bk-quiet a, .bk-link { color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; }
+.bk-quiet a:hover, .bk-link:hover { color: var(--color-gold); }
+
+.bk-alert {
+  margin-top: var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: #fee2e2; color: #991b1b; font-size: var(--text-sm);
+}
+.bk-alert a { color: inherit; text-decoration: underline; }
+.bk-alert[hidden], .bk-state[hidden] { display: none; }
+
+/* ---- State 2: confirmation (matches Greg's approved mockup) ---- */
+.bk-confirm { padding-bottom: var(--space-10); }
+.bk-confirm .bk-col { max-width: var(--content-default); }
+.bk-confirm .bk-title { font-size: clamp(2rem, 1.2rem + 2.9vw, 3.5rem); line-height: 1.2; max-width: 12.5em; text-wrap: wrap; }
+.bk-confirm .bk-lede { margin-top: var(--space-6); max-width: none; font-size: var(--text-lg); line-height: 1.7; }
+
+/* Navy date block: calendar tile + label, date, time line. */
+.bk-when {
+  display: flex; align-items: center; gap: var(--space-8);
+  margin-top: 3.1rem; background: var(--color-navy); color: var(--color-white);
+  border-radius: 2px; padding: 2.25rem 2.4rem;
+}
+.bk-when__tile {
+  flex: 0 0 auto; width: 108px; background: var(--color-white); border-radius: 2px; overflow: hidden; text-align: center;
+}
+.bk-when__tile[hidden] { display: none; }
+.bk-when__month {
+  display: block; background: var(--color-gold); color: var(--color-white);
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-xs); letter-spacing: 0.14em;
+  line-height: 1; padding: 0.7rem 0 0.62rem; text-transform: uppercase;
+}
+.bk-when__day {
+  display: block; font-family: var(--font-display); font-weight: 600; color: var(--color-navy);
+  font-size: 2.4rem; line-height: 1; padding: 0.95rem 0 1.05rem;
+}
+.bk-when__body { min-width: 0; }
+.bk-when__label {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(0.75rem, 0.7rem + 0.3vw, 0.94rem); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--color-gold-light); line-height: 1.4;
+}
+.bk-when__date {
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.75vw, 2.6rem); line-height: 1.15;
+  color: var(--color-white); margin-top: var(--space-2); font-variant-numeric: lining-nums;
+}
+.bk-when__meta { color: rgba(255, 255, 255, 0.86); font-size: clamp(1rem, 0.9rem + 0.5vw, 1.4rem); line-height: 1.45; margin-top: var(--space-2); }
+.bk-when__meta strong { color: var(--color-white); font-weight: 700; }
+.bk-when__meta strong[hidden], .bk-when__meta [hidden] { display: none; }
+.bk-when__sep { white-space: pre; margin: 0 0.3em; }
+
+/* Portrait column + steps card. */
+.bk-pair { display: grid; grid-template-columns: 288px minmax(0, 1fr); gap: 52px; margin-top: 4rem; align-items: start; }
+.bk-portrait > picture img {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
+  border-radius: 2px; filter: grayscale(1);
+}
+.bk-caption { margin-top: var(--space-4); }
+.bk-caption__name, .bk-caption__title { display: block; font-size: 1.05rem; font-weight: 700; color: var(--color-navy); line-height: 1.5; }
+.bk-caption__mark { display: block; margin-top: 0.1rem; }
+.bk-caption__mark img { height: 24px; width: auto; max-width: none; display: block; }
+.bk-caption__lines { display: block; font-size: 1.1rem; color: var(--color-text-muted); line-height: 1.5; margin-top: var(--space-2); }
+.bk-caption__lines[hidden] { display: none; }
+/* No portrait for this host (or the file is missing): caption above the card. */
+.bk-pair--solo { grid-template-columns: 1fr; gap: 0; }
+.bk-pair--solo .bk-caption { margin-top: 0; margin-bottom: var(--space-6); }
+.bk-portrait picture[hidden] { display: none; }
+
+.bk-card {
+  background: var(--color-white); border: 1px solid var(--color-border); border-radius: 2px;
+  padding: 2.6rem 2.75rem 2.9rem;
+}
+.bk-card__rule { display: block; width: 44px; height: 2px; background: var(--color-gold); }
+.bk-card h2 { font-size: clamp(1.4rem, 1rem + 1.2vw, 1.95rem); line-height: 1.25; margin-top: 1.7rem; }
+
+.bk-steps { list-style: none; margin: 1.4rem 0 0; padding: 0; border-top: 1px solid var(--color-border); }
+.bk-step { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 1.25rem; padding: 1.2rem 0 1.25rem; border-bottom: 1px solid var(--color-border); }
+.bk-step:last-child, .bk-step.is-last { border-bottom: 0; }
+.bk-step[hidden] { display: none; }
+.bk-step__marker {
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--color-navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; color: var(--color-navy);
+}
+.bk-step__marker svg { display: none; width: 16px; height: 16px; }
+.bk-step.is-done .bk-step__marker { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-white); }
+.bk-step.is-done .bk-step__marker svg { display: block; }
+.bk-step.is-done .bk-step__num { display: none; }
+.bk-step__booked { display: flex; align-items: center; min-height: 40px; font-size: clamp(1rem, 0.9rem + 0.35vw, 1.28rem); line-height: 1.5; color: var(--color-text-muted); }
+.bk-nowrap { white-space: nowrap; }
+.bk-step__booked strong { color: var(--color-text); font-size: 1.06em; margin-right: 0.35em; }
+.bk-step__booked .bk-step__tick { color: var(--color-navy); margin-right: 0.4em; font-weight: 700; }
+.bk-step__title {
+  font-family: var(--font-body); font-weight: 700; font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem); line-height: 1.5; color: var(--color-navy);
+  padding-top: 0.4rem;
+}
+.bk-step__meeting { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.4rem); line-height: 1.4; margin-top: 0.3rem; }
+.bk-step__body > p { font-size: var(--text-base); line-height: 1.6; margin-top: var(--space-2); }
+.bk-cal { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.9rem; }
+.bk-cal[hidden] { display: none; }
+.bk-cal .btn { padding: 0.52rem 1.3rem; font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.95rem); letter-spacing: 0.01em; }
+.bk-step__body > .bk-cal-caption { font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.97rem); color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.6; }
+.bk-cal-caption[hidden] { display: none; }
+
+.bk-optional { font-weight: 700; }
+.bk-note textarea { display: block; margin-top: 0.85rem; height: 112px; min-height: 96px; resize: vertical; border-radius: 6px; border-color: var(--color-border); }
+.bk-note textarea { font-size: var(--text-base); padding: 1rem 1.1rem; }
+.bk-note textarea::placeholder { font-style: italic; color: var(--color-text-faint); }
+.bk-note .ibo-field__input + .ibo-field__input { margin-top: var(--space-3); }
+.bk-note__send {
+  display: inline-flex; align-items: center; justify-content: center; margin-top: 1.1rem;
+  background: var(--color-white); color: var(--color-gold); border: 1px solid var(--color-gold); border-radius: 2px;
+  font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); letter-spacing: 0.02em;
+  padding: 0.98rem 1.65rem; cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+}
+.bk-note__send:hover { background: var(--color-gold); color: var(--color-white); }
+.bk-note__send:disabled { opacity: 0.5; cursor: not-allowed; }
+.bk-note__error { color: #991b1b !important; font-size: var(--text-xs) !important; }
+.bk-note__error[hidden], .bk-note__sent[hidden], .bk-note__form[hidden] { display: none; }
+.bk-note__sent { color: var(--color-navy) !important; font-weight: 700; }
+
+.bk-resched { margin-top: 0.4rem; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem); line-height: 1.85; color: var(--color-text-muted); }
+.bk-resched u, .bk-resched a {
+  color: var(--color-text); text-decoration: underline; text-decoration-color: var(--color-gold-light);
+  text-decoration-thickness: 1px; text-underline-offset: 4px;
+}
+.bk-resched a:hover { color: var(--color-gold); }
+
+/* What we'll cover: cream band, three white cards. */
+.bk-cover { background: var(--color-cream-soft); padding: 5.6rem 0 3rem; }
+.bk-cover .bk-col { max-width: var(--content-default); }
+.bk-cover h2 { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); line-height: 1.2; margin-top: 1.75rem; }
+.bk-cover__grid { list-style: none; padding: 0; margin: 2.6rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.bk-cover__grid li { background: var(--color-white); border: 1px solid rgba(14, 42, 72, 0.06); padding: 2rem 1.8rem 2rem 1.8rem; }
+.bk-cover__num { display: block; font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--color-gold); }
+.bk-cover__grid p { margin-top: 1.1rem; font-size: clamp(1rem, 0.95rem + 0.3vw, 1.25rem); line-height: 1.75; }
+.bk-cover__after { margin-top: 1.5rem; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 1rem + 0.7vw, 1.8rem); color: var(--color-navy); line-height: 1.4; }
+
+@media (max-width: 860px) {
+  .bk-pair { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-10); }
+  .bk-portrait { max-width: 288px; }
+  .bk-cover__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+}
+@media (max-width: 560px) {
+  .bk-when { flex-direction: column; align-items: flex-start; gap: var(--space-5); padding: var(--space-6); }
+  .bk-when__tile { width: 84px; }
+  .bk-when__day { font-size: 2rem; padding: 0.75rem 0 0.85rem; }
+  .bk-card { padding: var(--space-6) var(--space-5) var(--space-8); }
+  .bk-step { grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-3); }
+  .bk-step__marker { width: 32px; height: 32px; font-size: 0.85rem; }
+  .bk-step__booked { min-height: 32px; flex-wrap: wrap; }
+  .bk-step__title { padding-top: 0.2rem; }
+  .bk-cover { padding: var(--space-16) 0 var(--space-12); }
+  .bk-cover__grid li { padding: var(--space-6); }
+}
+/* 16px gutters on phones, as on /partnerschedule.
+   Scoped to main so the site footer keeps its usual gutter. */
+@media (max-width: 480px) {
+  .bk-page main .container { padding-inline: var(--space-4); }
+}
+
+/* ---- Inline "Your details" block (book2 only): opens under the picker,
+   above the Confirm button, only when something is missing. ---- */
+.bk-col--wide { max-width: var(--content-default); }
+.bk-details {
+  margin-top: var(--space-6); max-width: 760px; padding: var(--space-6) var(--space-8) var(--space-4);
+  border: 1px solid var(--color-border); border-top: 2px solid var(--color-gold); border-radius: 2px; background: var(--color-white);
+}
+.bk-details[hidden] { display: none; }
+.bk-details__title { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: clamp(1.2rem, 1rem + 0.6vw, 1.5rem); line-height: 1.3; }
+.bk-details__slot { margin: var(--space-2) 0 var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); }
+.bk-details__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-6); }
+.bk-details__full { grid-column: 1 / -1; }
+.bk-details > .ibo-field__error { margin: 0 0 var(--space-4); }
+.bk-field-error { margin: 0.5rem 0 0; padding: 0.45rem 0.75rem; font-size: var(--text-xs); line-height: 1.5; }
+.bk-field-error[hidden], .bk-details .ibo-field__error[hidden], .bk-notice[hidden], .bk-who[hidden] { display: none; }
+.ibo-field__input[aria-invalid="true"] { border-color: #b91c1c; }
+.ibo-field__input[aria-invalid="true"]:focus { box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2); }
+.bk-notice {
+  margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: var(--color-cream-soft); border: 1px solid var(--color-border-cream);
+  color: var(--color-navy); font-size: var(--text-sm); line-height: 1.6;
+}
+
+/* ---- Pick a time (the /partnerschedule picker, bk-*): a month calendar
+   with the time zone select under it on the left, start times on the right.
+   Stacks calendar-above-times at <=860px. ---- */
+.bk-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
+.bk-tz { margin: var(--space-5) 0 0; min-width: 0; }
+.bk-tz .ibo-field__select { width: 100%; min-width: 0; max-width: 100%; }
+.bk-tz .ibo-field__label { margin-bottom: 0.35rem; }
+.bk-who { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted); overflow-wrap: anywhere; }
+.bk-who strong { color: var(--color-navy); }
+.bk-change { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.bk-change:hover { color: var(--color-gold); }
+.bk-picker {
+  display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 0;
+  margin-top: var(--space-6); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
+  min-height: 380px;
+}
+.bk-picker__cal { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
+.bk-picker__times { padding: var(--space-6) var(--space-8); min-width: 0; }
+.bk-picker__label {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-gold); margin: 0 0 var(--space-3);
+}
+
+/* Month calendar: month name between arrows, SUN..SAT, one cell per day.
+   Open days are bold navy buttons; closed days are faint and inert; the
+   chosen day is a filled navy circle; today carries a small gold dot. */
+.bk-calendar__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); }
+.bk-calendar__month { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); color: var(--color-navy); margin: 0; line-height: 1.3; text-align: center; flex: 1 1 auto; }
+.bk-calendar__nav {
+  flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-white);
+  color: var(--color-navy); display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.bk-calendar__nav svg { width: 16px; height: 16px; }
+.bk-calendar__nav:hover:not(:disabled) { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-calendar__nav:disabled { opacity: 0.35; cursor: default; }
+.bk-calendar__grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.bk-calendar__grid th {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-faint); text-align: center; padding: 0 0 var(--space-2);
+}
+.bk-calendar__grid td { text-align: center; padding: 2px 0; height: 44px; }
+.bk-calday {
+  position: relative; width: 40px; height: 40px; margin: 0 auto; border-radius: 50%; border: 1px solid transparent;
+  display: flex; align-items: center; justify-content: center; padding: 0; background: transparent;
+  font-family: var(--font-body); font-size: var(--text-sm); font-variant-numeric: tabular-nums; line-height: 1;
+}
+button.bk-calday { color: var(--color-navy); font-weight: 700; cursor: pointer; background: #f6efe5; transition: background var(--transition-interactive), border-color var(--transition-interactive); }
+button.bk-calday:hover { border-color: var(--color-gold); background: #efe3d2; }
+button.bk-calday[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+span.bk-calday { color: #b9b4aa; font-weight: 400; }
+.bk-calday.is-today::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--color-gold);
+}
+.bk-calendar__note { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; min-height: 1.5em; }
+.bk-calendar__note:empty { min-height: 0; margin: 0; }
+
+.bk-time {
+  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
+  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.bk-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+.bk-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; }
+.bk-time { padding: 0.7rem 0.5rem; text-align: center; font-size: var(--text-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
+.bk-times__date { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); color: var(--color-navy); margin: 0 0 var(--space-4); line-height: 1.3; }
+.bk-status { padding: var(--space-10) var(--space-4); text-align: center; }
+.bk-status[hidden] { display: none; }
+.bk-status p { margin: 0 auto; max-width: 48ch; }
+.bk-status a, .bk-alert a { text-decoration: underline; }
+.bk-status .bk-retry { margin-top: var(--space-4); }
+.bk-spinner {
+  display: block; width: 28px; height: 28px; margin: 0 auto var(--space-4); border-radius: 50%;
+  border: 3px solid rgba(169, 128, 74, 0.25); border-top-color: var(--color-gold); animation: bk-spin 0.9s linear infinite;
+}
+.bk-spinner[hidden], .bk-retry[hidden] { display: none; }
+@keyframes bk-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bk-spinner { animation-duration: 3s; } }
+.bk-times-panel[hidden] { display: none; }
+.bk-confirmbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-6); }
+.bk-confirmbar .ibo-modal__submit { width: auto; padding: var(--space-4) var(--space-8); }
+.bk-confirmbar__note { margin: 0; font-size: var(--text-sm); color: var(--color-text-faint); }
+.bk-alert { line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .bk-picker { grid-template-columns: 1fr; }
+  .bk-picker__cal { border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .bk-calendar, .bk-tz { max-width: 460px; margin-inline: auto; }
+}
+@media (max-width: 560px) {
+  .bk-details { padding: var(--space-5) var(--space-5) var(--space-2); }
+  .bk-details__grid { grid-template-columns: 1fr; }
+  .bk-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
+  .bk-picker__cal, .bk-picker__times { padding: var(--space-5); }
+  .bk-picker__cal { padding-inline: var(--space-3); }
+  .bk-times { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .bk-time { padding: 0.7rem 0.25rem; }
+}
+</style>
+<!-- HubSpot tracking code (portal 245308986, NA2). Page-view analytics and
+     the hubspotutk cookie for the pre-call note's Forms API submission. -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
+</head>
+<body class="bk-page">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo.webp" /><img class="logo__mark" src="/assets/logo.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/#advisory">Advisory</a>
+        <a class="nav__link" href="/#mechanism">Approach</a>
+        <a class="nav__link" href="/#track-record">Track Record</a>
+        <a class="nav__link" href="/blog">Blog</a>
+        <a class="nav__link" href="/#contact">Contact</a>
+      </div>
+      <a class="btn btn--outline nav__cta" href="/?learn-more=1">Learn More</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= STATE 1: SCHEDULING =================
+       The picker first, always (the same flow as /book's embed), over
+       /api/availability. At Confirm, a "Your details" block opens under the
+       chosen time only when the name, email or a required booking question
+       is missing. Inputs carry no name attributes and the form opts out of
+       HubSpot's non-HubSpot forms collector: the contact reaches HubSpot
+       through the booking itself (/api/book). -->
+  <div class="bk-state" id="book-state-schedule">
+    <section class="bk-section">
+      <div class="container">
+        <div class="bk-col bk-col--wide">
+          <div class="bk-picker-head">
+            <div>
+              <p class="eyebrow">Schedule a confidential call</p>
+              <h1 class="bk-title" id="book-pick-title" tabindex="-1">Pick a time for your call</h1>
+              <p class="bk-lede" id="book-pick-lede">30 minutes on Zoom with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
+            </div>
+          </div>
+
+          <p class="bk-who" id="book-who" hidden>Booking for <strong id="book-who-name"></strong> &middot; <span id="book-who-email"></span> &middot; <button type="button" class="bk-change" id="book-change">Change</button></p>
+
+          <!-- Left: month calendar, always shown so the arrows stay usable,
+               with the time zone select under it (as in HubSpot's picker).
+               Built by book2.js (renderCalendar). Right: the start times for
+               the selected day, or the loading / error / empty status. -->
+          <div class="bk-picker" id="book-picker" aria-busy="false">
+            <div class="bk-picker__cal">
+              <p class="bk-picker__label" id="book-cal-label">Choose a day</p>
+              <div class="bk-calendar" id="book-calendar">
+                <div class="bk-calendar__head">
+                  <button type="button" class="bk-calendar__nav" id="book-month-prev" aria-label="Previous month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                  </button>
+                  <p class="bk-calendar__month" id="book-cal-month" aria-live="polite"></p>
+                  <button type="button" class="bk-calendar__nav" id="book-month-next" aria-label="Next month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                  </button>
+                </div>
+                <table class="bk-calendar__grid" id="book-cal-grid">
+                  <thead>
+                    <tr><th scope="col" abbr="Sunday">Sun</th><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th></tr>
+                  </thead>
+                  <tbody id="book-cal-body"></tbody>
+                </table>
+                <p class="bk-calendar__note" id="book-cal-note" role="status"></p>
+              </div>
+              <div class="ibo-field bk-tz">
+                <label class="ibo-field__label" for="book-tz">Times shown in</label>
+                <select class="ibo-field__input ibo-field__select" id="book-tz"></select>
+              </div>
+            </div>
+            <div class="bk-picker__times">
+              <div class="bk-status" id="book-status" role="status" aria-live="polite" hidden>
+                <span class="bk-spinner" id="book-spinner" aria-hidden="true"></span>
+                <p id="book-status-text">Loading open times&hellip;</p>
+                <button type="button" class="btn btn--outline bk-retry" id="book-retry" hidden>Try again</button>
+              </div>
+              <div class="bk-times-panel" id="book-times-wrap" hidden>
+                <p class="bk-picker__label" id="book-times-label">Choose a start time</p>
+                <p class="bk-times__date" id="book-times-date"></p>
+                <ul class="bk-times" id="book-times" aria-labelledby="book-times-label"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Your details: opened by book2.js at Confirm only when something is missing, or from "Change". -->
+          <form class="bk-details" id="book-details-form" novalidate data-hs-do-not-collect="true" aria-labelledby="book-details-title" hidden>
+            <h2 class="bk-details__title" id="book-details-title">Your details</h2>
+            <p class="bk-details__slot" id="book-details-slot" aria-live="polite"></p>
+            <p class="bk-notice" id="book-details-notice" role="status" hidden></p>
+            <div class="bk-details__grid">
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-first">First name</label>
+                <input class="ibo-field__input" type="text" id="book-first" autocomplete="given-name" maxlength="100" required aria-describedby="book-first-error" />
+                <p class="ibo-field__error bk-field-error" id="book-first-error" hidden></p>
+              </div>
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-last">Last name</label>
+                <input class="ibo-field__input" type="text" id="book-last" autocomplete="family-name" maxlength="100" required aria-describedby="book-last-error" />
+                <p class="ibo-field__error bk-field-error" id="book-last-error" hidden></p>
+              </div>
+              <div class="ibo-field bk-details__full">
+                <label class="ibo-field__label" for="book-email">Email</label>
+                <input class="ibo-field__input" type="email" id="book-email" autocomplete="email" maxlength="254" required aria-describedby="book-email-error" />
+                <p class="ibo-field__error bk-field-error" id="book-email-error" hidden></p>
+              </div>
+            </div>
+            <!-- Required booking questions still unanswered, built by book2.js. -->
+            <div class="bk-details__grid" id="book-questions"></div>
+            <p class="ibo-field__error" id="book-details-error" role="alert" hidden></p>
+            <!-- Enter in a field confirms, like the button below. -->
+            <button type="submit" class="sr-only" tabindex="-1" aria-hidden="true">Confirm booking</button>
+          </form>
+
+          <p class="bk-alert" id="book-failed" role="alert" hidden></p>
+          <div class="bk-confirmbar">
+            <button type="button" class="ibo-modal__submit" id="book-confirm" disabled>Choose a time</button>
+            <p class="bk-confirmbar__note">The call is 30 minutes. The Zoom link is in the invitation.</p>
+          </div>
+          <p class="bk-quiet">Can&rsquo;t find a time that works? Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
+
+          <noscript>
+            <p class="bk-quiet">The scheduler needs JavaScript. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= STATE 2: CONFIRMATION =================
+       Layout follows Greg's approved mockup. Every data-host node is filled
+       by book2.js from the host the round robin booked; the card heading
+       follows the number of steps actually shown. -->
+  <div class="bk-state" id="book-state-confirmed" hidden>
+    <section class="bk-section bk-confirm">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">Your call is confirmed</p>
+          <h1 class="bk-title" id="book-confirmed-title" tabindex="-1">You&rsquo;re confirmed with <span data-host="name">Michael Chasen</span>.</h1>
+          <p class="bk-lede"><span data-host="first">Michael</span> has set aside 30 minutes for you. The invitation is in your inbox.<br />Everything you share is confidential.</p>
+
+          <div class="bk-when" id="book-when">
+            <div class="bk-when__tile" id="book-when-tile" aria-hidden="true" hidden>
+              <span class="bk-when__month" id="book-when-month"></span>
+              <span class="bk-when__day" id="book-when-day"></span>
+            </div>
+            <div class="bk-when__body">
+              <p class="bk-when__label">Your call &middot; shown in your time zone</p>
+              <p class="bk-when__date" id="book-when-date">Your time is in the invitation.</p>
+              <p class="bk-when__meta"><strong id="book-when-time" hidden></strong><span class="bk-when__sep" id="book-when-sep" hidden> &middot; </span><span id="book-when-minutes">30 minutes</span><span class="bk-when__sep"> &middot; </span>Zoom link in your invitation</p>
+            </div>
+          </div>
+
+          <div class="bk-pair">
+            <figure class="bk-portrait" id="book-host-figure">
+              <picture id="book-host-picture"><source id="book-host-webp" type="image/webp" srcset="/assets/founder-portrait.webp" /><img id="book-host-img" loading="lazy" decoding="async" src="/assets/founder-portrait.jpg" alt="Michael Chasen, Managing Partner, IBO Advisors" width="1080" height="1338" /></picture>
+              <figcaption class="bk-caption" id="book-host-caption">
+                <span class="bk-caption__name" data-host="name">Michael Chasen</span>
+                <span class="bk-caption__title" id="book-host-title">Managing Partner</span>
+                <span class="bk-caption__mark"><picture><source type="image/webp" srcset="/assets/logo.webp" /><img src="/assets/logo.png" alt="IBO Advisors" width="2267" height="400" loading="lazy" decoding="async" /></picture></span>
+                <span class="bk-caption__lines" id="book-host-lines">25+ years building and selling companies. 100+ M&amp;A transactions.</span>
+              </figcaption>
+            </figure>
+
+            <div class="bk-card" id="book-steps-card">
+              <span class="bk-card__rule" aria-hidden="true"></span>
+              <h2 id="book-steps-title">Three small things before your call</h2>
+              <ol class="bk-steps">
+                <li class="bk-step is-done" id="book-step-booked">
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">1</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7" /></svg></span>
+                  <div class="bk-step__body">
+                    <p class="bk-step__booked"><span><strong>Booked</strong><span class="bk-step__tick" aria-hidden="true">&#10003;</span><span id="book-booked-when">Your time is in the invitation.</span></span></p>
+                  </div>
+                </li>
+
+                <li class="bk-step bk-accept" id="book-accept-card">
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">2</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7" /></svg></span>
+                  <div class="bk-step__body">
+                    <h3 class="bk-step__title">Accept <span data-host="first">Michael</span>&rsquo;s invitation <span class="bk-step__meeting">titled &ldquo;<span data-meeting-title>Independent Buyout (IBO) Discussion</span>&rdquo;</span></h3>
+                    <p>Open the invitation from <span data-host="email">michael@iboadvisors.com</span> and accept it, so the call lands on your calendar. Gmail sometimes holds invitations from new senders until you respond.</p>
+                    <div class="bk-cal" id="book-cal">
+                      <a class="btn btn--outline" id="book-cal-google" href="#" target="_blank" rel="noopener" data-provider="google">Google Calendar</a>
+                      <a class="btn btn--outline" id="book-cal-outlook" href="#" target="_blank" rel="noopener" data-provider="outlook">Outlook</a>
+                      <a class="btn btn--outline" id="book-cal-ics" href="#" download="call-with-michael-chasen.ics" data-provider="apple">Apple (.ics)</a>
+                    </div>
+                    <p class="bk-cal-caption">Use these only if the invitation hasn&rsquo;t appeared.</p>
+                  </div>
+                </li>
+
+                <!-- Optional pre-call note. Rendered only once PRECALL_NOTE_FORM_GUID is set in book2.js. -->
+                <li class="bk-step bk-note" id="book-note" hidden>
+                  <span class="bk-step__marker" aria-hidden="true"><span class="bk-step__num">3</span></span>
+                  <div class="bk-step__body">
+                    <h3 class="bk-step__title">Anything you&rsquo;d like <span data-host="first">Michael</span> to know before you talk? <span class="bk-optional">(optional)</span></h3>
+                    <form class="bk-note__form" id="book-note-form" novalidate>
+                      <label class="sr-only" for="book-note-text">Your note for <span data-host="first">Michael</span></label>
+                      <textarea class="ibo-field__input" id="book-note-text" rows="4" maxlength="1000" placeholder="e.g. I'm weighing a PE offer and want a second opinion."></textarea>
+                      <label class="sr-only" for="book-note-email">Your email</label>
+                      <input class="ibo-field__input" type="email" id="book-note-email" autocomplete="email" placeholder="Your email" hidden />
+                      <button type="submit" class="bk-note__send" id="book-note-submit">Send to Michael</button>
+                      <p class="bk-note__error" id="book-note-error" role="alert" hidden></p>
+                    </form>
+                    <p class="bk-note__sent" id="book-note-sent" role="status" hidden>Sent. <span data-host="first">Michael</span> will have this before your call.</p>
+                  </div>
+                </li>
+              </ol>
+
+              <p class="bk-resched">Need a different time? <u>Use the reschedule link in your invitation</u>, or write to <span data-host="first">Michael</span> directly at <a href="mailto:michael@iboadvisors.com" data-host-mailto>michael@iboadvisors.com</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bk-cover">
+      <div class="container">
+        <div class="bk-col">
+          <p class="eyebrow">30 minutes</p>
+          <h2>What we&rsquo;ll cover</h2>
+          <ol class="bk-cover__grid">
+            <li><span class="bk-cover__num" aria-hidden="true">01</span><p>Where your company is today - and what you want to accomplish, whether that&rsquo;s partial liquidity, a full sale, or simply understanding your options.</p></li>
+            <li><span class="bk-cover__num" aria-hidden="true">02</span><p>Whether an Independent Buyout fits your size, sector and timing.</p></li>
+            <li><span class="bk-cover__num" aria-hidden="true">03</span><p>What the numbers could look like for you, and what happens next if you want to keep talking.</p></li>
+          </ol>
+          <p class="bk-cover__after">No preparation needed. No documents. No obligation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <a href="/" class="logo" aria-label="IBO Advisors home">
+      <picture><source type="image/webp" srcset="/assets/logo-footer.webp" /><img class="logo__mark" src="/assets/logo-footer.png" alt="IBO Advisors"  /></picture>
+    </a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/#advisory">Advisory</a>
+      <a href="/#mechanism">Approach</a>
+      <a href="/#track-record">Track Record</a>
+      <a href="/blog">Blog</a>
+      <a href="/business-valuation-calculator">Valuation Calculator</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">IBO Advisors. All rights reserved. &middot; <a href="/privacy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="/tracking.js"></script>
+<script src="/book2/book2.js" defer></script>
+</body>
+</html>

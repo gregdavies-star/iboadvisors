@@ -9,9 +9,18 @@
 
      POST /api/partner-book   Content-Type: application/json
        { startTime, timezone,
-         client:  { firstName, lastName, email, phone },
-         partner: { name, email, cell },
-         industry, ebitdaBand }
+         client:  { firstName, lastName, email, phone? },
+         partner: { name, email, cell? },
+         industry?, ebitdaBand }
+       phone, cell and industry are optional (omit, null or ""); each is
+       validated only when present. ebitdaBand is required.
+
+     Michael's "IBO Discussion" link asks three booking questions. Since
+     Nov 2026 only the EBITDA band is required there (Greg made mobile phone
+     and industry optional), and /partnerschedule no longer asks for the
+     client's cell or industry. The mobilephone and
+     what_is_your_companys_industry form fields are sent only when a value
+     was given; the EBITDA band is always sent.
        -> 200 { ok: true, start, end, hubspot: { organizer, contact, guestEmails, start, end } }
        -> 4xx/5xx { ok: false, error, message, status }
 
@@ -36,34 +45,36 @@
      - Logs carry status codes and HubSpot's error category only: no names,
        emails, phone numbers or token.
 
+   Shared code: slugs (LINKS.partner here, which no env var overrides),
+   availability re-check, input cleaning, origin check and the HubSpot
+   response subset live in ./_scheduler.js, shared with /api/book (the
+   public /book2 page). This endpoint keeps HubSpot's full slot list (no
+   :00/:30 filter) and always books Michael's personal link.
+
    Environment: IBO_HUBSPOT_SERVICE_KEY (HubSpot private app token).
    Every response is JSON with Cache-Control: no-store.
    ========================================================================== */
 
-import { fetchAvailability, isValidTimeZone, SLUG, DURATION_MS, MAX_MONTH_OFFSET, SCHEDULER_BASE } from './_scheduler.js';
+import {
+  findSlot, isValidTimeZone, hubspotSubset, LINK_BANDS, CONFLICT_RE, LINKS, DURATION_MS, SCHEDULER_BASE,
+  send, clean, cleanEmail, cleanPhone, header, sameOrigin, readBody,
+} from './_scheduler.js';
 
 const MAX_LEAD_MS = 90 * 24 * 3600 * 1000; // ~90 days ahead
-const MAX_BODY_BYTES = 16 * 1024;
 const BOOK_TIMEOUT_MS = 20000;
 const BOOK_URL = SCHEDULER_BASE;
+const SLUG = LINKS.partner.slug;
 
-// The options on the scheduling page's required questions, verbatim.
+// The options on the scheduling page's (now optional) industry question,
+// verbatim. Still exported for compatibility.
 export const INDUSTRIES = [
   'Construction', 'Manufacturing', 'Healthcare', 'Recruiting', 'Technology / Software',
   'Consulting / Professional Services', 'Financial Services', 'Education', 'Real Estate', 'Other',
 ];
-export const EBITDA_BANDS = ['$0 - $3M', '$3M - $5M', '$5M - $10M', '$10M - $20M', '$20M+'];
-
-const EMAIL_RE = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)+$/;
-const PHONE_CHARS_RE = /^\+?[0-9\s().\-]+$/;
-
-function send(res, status, body) {
-  res.statusCode = status;
-  res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.setHeader('Cache-Control', 'no-store');
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.end(JSON.stringify(body));
-}
+// The five options on the link's EBITDA question (LINK_BANDS in
+// ./_scheduler.js), exported under the old name for compatibility.
+export const EBITDA_BANDS = LINK_BANDS;
+export { hubspotSubset };
 
 function fail(res, status, error, message, upstreamStatus) {
   const body = { ok: false, error, message };
@@ -71,27 +82,8 @@ function fail(res, status, error, message, upstreamStatus) {
   return send(res, status, body);
 }
 
-/* ---- input cleaning ---- */
-
-// Control characters out, whitespace collapsed, trimmed; null if too long.
-function clean(value, max) {
-  if (typeof value !== 'string') return '';
-  const s = value.replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g, ' ').replace(/\s+/g, ' ').trim();
-  return s.length > max ? null : s;
-}
-
-function cleanEmail(value) {
-  const s = clean(value, 254);
-  if (!s || !EMAIL_RE.test(s)) return null;
-  return s.toLowerCase();
-}
-
-// 10-15 digits, made of digits, spaces, ( ) . - and an optional leading +.
-function cleanPhone(value) {
-  const s = clean(value, 30);
-  if (!s || !PHONE_CHARS_RE.test(s)) return null;
-  const digits = s.replace(/\D/g, '').length;
-  return digits >= 10 && digits <= 15 ? s : null;
+function present(v) {
+  return v !== undefined && v !== null && v !== '';
 }
 
 export function validate(body, now = Date.now()) {
@@ -114,8 +106,11 @@ export function validate(body, now = Date.now()) {
   if (!lastName) errors.push('client.lastName is required (max 100 chars)');
   const clientEmail = cleanEmail(client.email);
   if (!clientEmail) errors.push('client.email must be a valid email');
-  const clientPhone = cleanPhone(client.phone);
-  if (!clientPhone) errors.push('client.phone must be a phone number with 10-15 digits');
+  let clientPhone = '';
+  if (present(client.phone)) {
+    clientPhone = cleanPhone(client.phone);
+    if (!clientPhone) errors.push('client.phone must be a phone number with 10-15 digits, or empty');
+  }
 
   const partnerName = clean(partner.name, 200);
   if (!partnerName) errors.push('partner.name is required (max 200 chars)');
@@ -123,12 +118,13 @@ export function validate(body, now = Date.now()) {
   if (!partnerEmail) errors.push('partner.email must be a valid email');
   else if (clientEmail && partnerEmail === clientEmail) errors.push('partner.email must differ from client.email');
   let partnerCell = '';
-  if (partner.cell !== undefined && partner.cell !== null && partner.cell !== '') {
+  if (present(partner.cell)) {
     partnerCell = cleanPhone(partner.cell);
     if (!partnerCell) errors.push('partner.cell must be a phone number with 10-15 digits, or empty');
   }
 
-  if (!INDUSTRIES.includes(body.industry)) errors.push('industry must be one of the scheduling page options');
+  const industry = present(body.industry) ? body.industry : '';
+  if (industry && !INDUSTRIES.includes(industry)) errors.push('industry must be one of the scheduling page options, or empty');
   if (!EBITDA_BANDS.includes(body.ebitdaBand)) errors.push('ebitdaBand must be one of the scheduling page options');
 
   if (errors.length) return { errors };
@@ -139,120 +135,11 @@ export function validate(body, now = Date.now()) {
       timezone,
       client: { firstName, lastName, email: clientEmail, phone: clientPhone },
       partner: { name: partnerName, email: partnerEmail, cell: partnerCell },
-      industry: body.industry,
+      industry,
       ebitdaBand: body.ebitdaBand,
     },
   };
 }
-
-/* ---- request plumbing ---- */
-
-function header(req, name) {
-  const h = req.headers && req.headers[name];
-  return Array.isArray(h) ? h[0] : (h || '');
-}
-
-// Browsers always send Origin on a POST; it must name this host. Requests
-// without one (curl, server-to-server) are allowed through to validation.
-function sameOrigin(req) {
-  const origin = header(req, 'origin');
-  if (!origin) return true;
-  const host = header(req, 'x-forwarded-host') || header(req, 'host');
-  try {
-    return !!host && new URL(origin).host.toLowerCase() === String(host).split(',')[0].trim().toLowerCase();
-  } catch {
-    return false;
-  }
-}
-
-async function readBody(req) {
-  // Vercel parses JSON bodies onto req.body (a getter that throws on bad JSON).
-  let body;
-  try { body = req.body; } catch { throw new SyntaxError('Invalid JSON'); }
-  if (body !== undefined && body !== null && typeof body === 'object' && !Buffer.isBuffer(body)) return body;
-  let raw;
-  if (typeof body === 'string') raw = body;
-  else if (Buffer.isBuffer(body)) raw = body.toString('utf8');
-  else {
-    const chunks = [];
-    let size = 0;
-    for await (const chunk of req) {
-      size += chunk.length;
-      if (size > MAX_BODY_BYTES) throw new RangeError('Body too large');
-      chunks.push(chunk);
-    }
-    raw = Buffer.concat(chunks).toString('utf8');
-  }
-  if (raw.length > MAX_BODY_BYTES) throw new RangeError('Body too large');
-  return JSON.parse(raw);
-}
-
-/* ---- availability re-check ---- */
-
-function monthIndex(ms, timezone) {
-  const parts = new Intl.DateTimeFormat('en-US', { timeZone: timezone, year: 'numeric', month: 'numeric' }).formatToParts(new Date(ms));
-  const year = Number(parts.find((p) => p.type === 'year').value);
-  const month = Number(parts.find((p) => p.type === 'month').value);
-  return year * 12 + month - 1;
-}
-
-// The calendar month (in the booker's zone) the slot belongs to, then the
-// month before as a fallback in case HubSpot lists a spill-over day there.
-async function findSlot(token, timezone, startTime, now) {
-  const offset = Math.max(0, monthIndex(startTime, timezone) - monthIndex(now, timezone));
-  const offsets = offset > 0 ? [offset, offset - 1] : [0];
-  for (const o of offsets) {
-    if (o > MAX_MONTH_OFFSET) continue;
-    const { slots } = await fetchAvailability(token, timezone, o);
-    const slot = slots.find((s) => s.start === startTime);
-    if (slot) return slot;
-  }
-  return null;
-}
-
-/* ---- HubSpot response ---- */
-
-function toMs(value) {
-  if (typeof value === 'number' && Number.isFinite(value)) return value;
-  if (typeof value === 'string' && /^\d{10,}$/.test(value)) return Number(value);
-  if (typeof value === 'string' && value) {
-    const t = Date.parse(value);
-    if (Number.isFinite(t)) return t;
-  }
-  return null;
-}
-
-function person(p) {
-  if (!p || typeof p !== 'object') return null;
-  const out = {};
-  for (const key of ['email', 'firstName', 'lastName', 'fullName', 'userId', 'id', 'contactId']) {
-    if (typeof p[key] === 'string' || typeof p[key] === 'number') out[key] = p[key];
-  }
-  return Object.keys(out).length ? out : null;
-}
-
-// Only the fields the page can use; HubSpot's response is not passed through.
-export function hubspotSubset(data) {
-  if (!data || typeof data !== 'object') return {};
-  const post = data.postResponse && typeof data.postResponse === 'object' ? data.postResponse : data;
-  const range = post.timerange && typeof post.timerange === 'object' ? post.timerange : {};
-  const out = {};
-  const organizer = person(post.organizer || data.organizer);
-  if (organizer) out.organizer = organizer;
-  const contact = person(post.contact || data.contact) ||
-    (data.contactId ? { contactId: String(data.contactId) } : null);
-  if (contact) out.contact = contact;
-  const guests = post.guestEmails || data.guestEmails;
-  if (Array.isArray(guests)) out.guestEmails = guests.filter((g) => typeof g === 'string').slice(0, 10);
-  const start = toMs(range.start ?? post.start ?? data.start ?? data.startTime);
-  const end = toMs(range.end ?? post.end ?? data.end ?? data.endTime);
-  if (start !== null) out.start = start;
-  if (end !== null) out.end = end;
-  if (typeof data.calendarEventId === 'string') out.calendarEventId = data.calendarEventId;
-  return out;
-}
-
-const CONFLICT_RE = /(not\s+available|unavailable|no longer available|conflict|already\s+booked|busy|taken|time\s*slot|availability)/i;
 
 /* ---- handler ---- */
 
@@ -286,7 +173,7 @@ export default async function handler(req, res) {
   // 1. The slot must be open right now.
   let slot;
   try {
-    slot = await findSlot(token, value.timezone, value.startTime, now);
+    slot = await findSlot(token, value.timezone, value.startTime, now, { slug: SLUG });
   } catch (err) {
     const timedOut = err && (err.name === 'TimeoutError' || err.name === 'AbortError');
     console.warn('[partner-book] availability check failed', { status: err && err.upstreamStatus ? err.upstreamStatus : null, timedOut });
@@ -310,8 +197,8 @@ export default async function handler(req, res) {
     timezone: value.timezone,
     locale: 'en-us',
     formFields: [
-      { name: 'mobilephone', value: value.client.phone },
-      { name: 'what_is_your_companys_industry', value: value.industry },
+      ...(value.client.phone ? [{ name: 'mobilephone', value: value.client.phone }] : []),
+      ...(value.industry ? [{ name: 'what_is_your_companys_industry', value: value.industry }] : []),
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: value.ebitdaBand },
     ],
   };

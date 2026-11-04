@@ -40,6 +40,11 @@
       "permanent": false
     },
     {
+      "source": "/learn-more2",
+      "destination": "/?learn-more=1&book=2",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/#contact",
       "permanent": true

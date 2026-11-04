@@ -532,6 +532,7 @@
           url.searchParams.set('email', email);
           url.searchParams.set('company', company);
           url.searchParams.set('src', 'calculator');
+          url.searchParams.set('ebitda', band);
           $('vc-meeting-link').href = url.toString();
         }
         success.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -558,6 +558,7 @@
         url.searchParams.set('email', email);
         url.searchParams.set('company', company);
         url.searchParams.set('src', 'ibo-exit');
+        url.searchParams.set('ebitda', band);
         window.location.href = url.toString();
       })
       .catch(function () {

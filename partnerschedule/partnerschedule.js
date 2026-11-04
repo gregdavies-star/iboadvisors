@@ -5,8 +5,14 @@
    it in for their client, so every line of copy talks to the partner about
    "your client". Three states:
 
-     1. Form. The prospective client (name, email, cell, revenue, industry,
-        EBITDA) and the partner (name, email, optional cell). On Next the lead
+     1. Form. The prospective client (name, email, optional cell, revenue,
+        EBITDA) and the partner (name, email, optional cell). Greg made
+        mobile phone and industry optional on Michael's "IBO Discussion"
+        scheduling page (4 Nov 2026); its only required booking question is
+        now the EBITDA band. Industry is not asked here; the client's cell
+        is asked but optional, and when given it goes to the referral form
+        as phone and mobilephone and to /api/partner-book as client.phone
+        (omitted everywhere when blank). On Next the lead
         goes to HubSpot through the Forms API (window.iboTracking.submitForm,
         which adds the IBO Form * attribution fields and retries without
         enrichment on a 400). A failed submission keeps the partner on the
@@ -15,9 +21,11 @@
         is NOT submitted as a contact of their own.
      2. Pick a time. Our own picker over /api/partner-availability (Michael's
         "IBO Discussion" page, 30 minutes), in a time zone the partner can
-        change. Confirm -> POST /api/partner-book, which books the client as
-        the booker and the partner as a guest; HubSpot sends both the
-        invitation and the reminders.
+        change: a month calendar (open days clickable, the rest greyed; the
+        arrows page HubSpot's monthOffset 0..6) beside the start times for
+        the selected day. Confirm -> POST /api/partner-book, which books the
+        client as the booker and the partner as a guest; HubSpot sends both
+        the invitation and the reminders.
      3. Confirmation, modelled on /book: date block, Michael's portrait, the
         steps (booked, accept the invitation with calendar fallbacks, an
         optional note to Michael). Saved in sessionStorage so a reload shows
@@ -284,7 +292,6 @@
     clientEmail: $('ps-client-email'),
     clientCell: $('ps-client-cell'),
     revenue: $('ps-client-revenue'),
-    industry: $('ps-client-industry'),
     ebitda: $('ps-client-ebitda'),
     partnerName: $('ps-partner-name'),
     partnerEmail: $('ps-partner-email'),
@@ -557,16 +564,12 @@
       : !EMAIL_RE.test(clientEmail) ? 'That email address doesn\u2019t look right.' : '');
 
     var clientCell = str(F.clientCell.value, 30);
-    check(F.clientCell, !clientCell ? 'Enter your client\u2019s cell number. Michael\u2019s calendar needs one for the booking.'
-      : !validPhone(clientCell) ? 'Enter a full cell number, with the area code.' : '');
+    check(F.clientCell, clientCell && !validPhone(clientCell) ? 'Enter a full cell number, with the area code, or leave this blank.' : '');
 
     var revenue = readRevenue();
     check(F.revenue, revenue.status === 'empty' ? 'Enter your client\u2019s annual revenue, e.g. 45M.'
       : revenue.status === 'zero' ? 'Revenue must be more than $0.'
       : revenue.status !== 'ok' ? 'Enter revenue as an amount, e.g. 45M or 45,000,000.' : '');
-
-    var industry = F.industry.value;
-    check(F.industry, industry ? '' : 'Choose your client\u2019s industry.');
 
     var e = readEbitda(F.ebitda.value);
     if (e.status === 'ok' && ebitda.status === 'ok' && e.index === ebitda.index) e = ebitda; // keep a typed over-$50M amount
@@ -595,9 +598,8 @@
           firstName: split.first,
           lastName: split.last,
           email: clientEmail,
-          phone: clientCell,
+          phone: clientCell || undefined,
           revenue: revenue.dollars,
-          industry: industry,
           ebitdaExact: e.exact,
           ebitdaMillions: e.millions,
           ebitdaTyped: e.typed || null,
@@ -631,18 +633,16 @@
       { name: 'firstname', value: c.firstName },
       { name: 'lastname', value: c.lastName },
       { name: 'email', value: c.email },
-      { name: 'phone', value: c.phone },
-      { name: 'mobilephone', value: c.phone },
       { name: 'annualrevenue', value: String(c.revenue) },
       { name: 'exact_annual_ebitda', value: String(c.ebitdaExact) },
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: c.ebitdaBand },
-      { name: 'what_is_your_companys_industry', value: c.industry },
       { name: 'role', value: 'CEO/Founder/Owner' },
       // The form only accepts $3M+ EBITDA, which is what "qualified" means.
       { name: 'ibo_qualified', value: 'True' },
       { name: 'referring_partner', value: p.name },
       { name: 'referring_partner_email', value: p.email }
     ];
+    if (c.phone) fields.splice(3, 0, { name: 'phone', value: c.phone }, { name: 'mobilephone', value: c.phone });
     if (p.cell) fields.push({ name: 'referring_partner_cell', value: p.cell });
     return fields;
   }
@@ -673,7 +673,7 @@
       sending = Promise.reject(err);
     }
     sending.then(function () {
-      track('partner_form_submit', { ebitda_band: lead.client.ebitdaBand, industry: lead.client.industry });
+      track('partner_form_submit', { ebitda_band: lead.client.ebitdaBand });
       lead.submittedAt = Date.now();
       storageSet(LEAD_KEY, lead);
       startPicker(lead, true);
@@ -694,7 +694,6 @@
       F.clientEmail.value = c.email || '';
       F.clientCell.value = c.phone || '';
       F.revenue.value = isNum(c.revenue) ? formatDollars(c.revenue) : '';
-      F.industry.value = c.industry || '';
       if (isNum(c.ebitdaIndex) && c.ebitdaIndex >= 0 && c.ebitdaIndex < EBITDA_OPTIONS.length) {
         applyEbitda({ status: 'ok', index: c.ebitdaIndex, millions: c.ebitdaMillions, exact: c.ebitdaExact, typed: c.ebitdaTyped || null });
         commitEbitdaText();
@@ -709,7 +708,7 @@
   function validLead(lead) {
     return !!(lead && lead.client && lead.partner && EMAIL_RE.test(lead.client.email || '') &&
       EMAIL_RE.test(lead.partner.email || '') && lead.client.firstName && lead.client.lastName &&
-      lead.client.phone && lead.client.industry && lead.client.ebitdaBand && lead.partner.name);
+      lead.client.ebitdaBand && lead.partner.name);
   }
 
   /* ------------------------------------------------------------------
@@ -725,7 +724,11 @@
     dayKey: null,
     slot: null,
     req: 0,
-    autoAdvanced: false
+    autoAdvanced: false,
+    // Slots by monthOffset for the current zone. The calendar for a month
+    // draws from every loaded offset, so a day HubSpot happens to list under
+    // a neighbouring offset is never lost. Cleared on a zone change.
+    loaded: {}
   };
 
   function tzShortName(tz, at) {
@@ -746,7 +749,7 @@
       var opt = document.createElement('option');
       opt.value = z[0];
       var abbr = tzShortName(z[0]);
-      opt.textContent = z[1] + (abbr ? ' \u00b7 ' + abbr : '') + (z[0] === detected ? ' (yours)' : '');
+      opt.textContent = z[1] + (abbr ? ' \u00b7 ' + abbr : '') + (z[0] === detected ? ' \u00b7 yours' : '');
       tzSelect.appendChild(opt);
     });
     if (!validTimeZone(picker.tz)) picker.tz = detected;
@@ -761,6 +764,7 @@
     picker.autoAdvanced = false;
     picker.slot = null;
     picker.dayKey = null;
+    picker.loaded = {};
     loadAvailability();
   });
 
@@ -794,45 +798,29 @@
 
   var statusBox = $('ps-status');
   var statusText = $('ps-status-text');
-  var statusMonths = $('ps-status-months');
   var spinner = $('ps-spinner');
   var retryBtn = $('ps-retry');
-  var daysWrap = $('ps-days-wrap');
   var timesWrap = $('ps-times-wrap');
-  var daysList = $('ps-days');
   var timesList = $('ps-times');
   var timesDate = $('ps-times-date');
-  var monthsBox = $('ps-months');
+  var calGrid = $('ps-cal-grid');
+  var calBody = $('ps-cal-body');
+  var calMonth = $('ps-cal-month');
+  var calNote = $('ps-cal-note');
   var prevBtn = $('ps-month-prev');
   var nextBtn = $('ps-month-next');
   var confirmBtn = $('ps-confirm');
   var bookError = $('ps-book-error');
   var pickerEl = $('ps-picker');
 
+  // The status replaces the times column only; the calendar stays put.
   function showStatus(kind, html) {
     statusBox.hidden = false;
-    daysWrap.hidden = true;
     timesWrap.hidden = true;
     spinner.hidden = kind !== 'loading';
     retryBtn.hidden = kind !== 'error';
     statusText.innerHTML = html;
     pickerEl.setAttribute('aria-busy', kind === 'loading' ? 'true' : 'false');
-    // Month links inside the status box (empty month).
-    statusMonths.innerHTML = '';
-    statusMonths.hidden = true;
-    if (kind === 'empty') {
-      if (picker.monthOffset > 0) statusMonths.appendChild(monthButton('\u2190 Earlier dates', -1));
-      if (picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET) statusMonths.appendChild(monthButton('Later dates \u2192', 1));
-      statusMonths.hidden = !statusMonths.childNodes.length;
-    }
-  }
-
-  function monthButton(label, delta) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = label;
-    b.addEventListener('click', function () { changeMonth(delta); });
-    return b;
   }
 
   function changeMonth(delta) {
@@ -861,12 +849,134 @@
     });
   }
 
+  /* ---- Month calendar ----
+     monthOffset 0 is the current month in the chosen zone (as HubSpot counts
+     it). Weekday and length of a calendar date do not depend on the zone, so
+     the grid itself is laid out in UTC; only "which month is now" and the
+     day each slot falls on (dayKey) use the zone. */
+  function shownMonth() {
+    var parts = new Intl.DateTimeFormat('en-US', { timeZone: picker.tz, year: 'numeric', month: 'numeric' }).formatToParts(new Date());
+    var y = 0, m = 0;
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i].type === 'year') y = Number(parts[i].value);
+      if (parts[i].type === 'month') m = Number(parts[i].value);
+    }
+    var index = y * 12 + (m - 1) + picker.monthOffset;
+    return { year: Math.floor(index / 12), month: (index % 12) + 1 }; // month 1..12
+  }
+
+  function utcLabel(y, m, d, opts) {
+    var o = { timeZone: 'UTC' };
+    for (var k in opts) if (Object.prototype.hasOwnProperty.call(opts, k)) o[k] = opts[k];
+    return new Intl.DateTimeFormat('en-US', o).format(new Date(Date.UTC(y, m - 1, d)));
+  }
+
+  // Open days of the shown month, from every loaded offset: { key: day }.
+  function daysForMonth(ym) {
+    var prefix = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-';
+    var seen = {};
+    var slots = [];
+    Object.keys(picker.loaded).forEach(function (off) {
+      picker.loaded[off].forEach(function (s) {
+        if (!seen[s.start]) { seen[s.start] = true; slots.push(s); }
+      });
+    });
+    slots.sort(function (a, b) { return a.start - b.start; });
+    var byKey = {};
+    groupDays(slots).forEach(function (day) {
+      if (day.key.indexOf(prefix) === 0) byKey[day.key] = day;
+    });
+    return byKey;
+  }
+
+  // Any loaded open day after the shown month (keeps the next arrow live
+  // even if HubSpot's hasMore says otherwise).
+  function hasLaterDays(ym) {
+    var last = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-31';
+    return Object.keys(picker.loaded).some(function (off) {
+      return picker.loaded[off].some(function (s) { return dayKey(s.start) > last; });
+    });
+  }
+
+  function renderCalendar(loading) {
+    var ym = shownMonth();
+    var open = loading ? {} : daysForMonth(ym);
+    var monthName = utcLabel(ym.year, ym.month, 1, { month: 'long', year: 'numeric' });
+    calMonth.textContent = monthName;
+    calGrid.setAttribute('aria-label', monthName);
+    prevBtn.disabled = picker.monthOffset <= 0;
+    nextBtn.disabled = !(picker.monthOffset < MAX_MONTH_OFFSET && (picker.hasMore || hasLaterDays(ym)));
+
+    var todayKey = dayKey(Date.now());
+    var lead = new Date(Date.UTC(ym.year, ym.month - 1, 1)).getUTCDay();
+    var length = new Date(Date.UTC(ym.year, ym.month, 0)).getUTCDate();
+    calBody.innerHTML = '';
+    var row = null;
+    for (var cell = 0; cell < Math.ceil((lead + length) / 7) * 7; cell++) {
+      if (cell % 7 === 0) { row = document.createElement('tr'); calBody.appendChild(row); }
+      var td = document.createElement('td');
+      row.appendChild(td);
+      var d = cell - lead + 1;
+      if (d < 1 || d > length) continue; // leading / trailing blank
+      var key = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-' + (d < 10 ? '0' : '') + d;
+      var day = open[key];
+      var el;
+      if (day) {
+        el = document.createElement('button');
+        el.type = 'button';
+        el.setAttribute('data-day', key);
+        el.setAttribute('aria-pressed', key === picker.dayKey ? 'true' : 'false');
+        el.setAttribute('aria-label', utcLabel(ym.year, ym.month, d, { weekday: 'long', month: 'long', day: 'numeric' }) +
+          ', ' + day.slots.length + (day.slots.length === 1 ? ' time' : ' times') + ' open');
+        el.addEventListener('click', onDayClick);
+        el.addEventListener('keydown', onDayKey);
+      } else {
+        el = document.createElement('span');
+        el.setAttribute('aria-label', utcLabel(ym.year, ym.month, d, { weekday: 'long', month: 'long', day: 'numeric' }) + ', no open times');
+      }
+      el.className = 'ps-calday' + (key === todayKey ? ' is-today' : '');
+      if (key === todayKey) el.setAttribute('aria-current', 'date');
+      el.textContent = String(d);
+      td.appendChild(el);
+    }
+    return open;
+  }
+
+  function onDayClick(e) {
+    var key = e.currentTarget.getAttribute('data-day');
+    if (!key || key === picker.dayKey) return;
+    picker.dayKey = key;
+    picker.slot = null;
+    renderPicker();
+    updateConfirm();
+    var again = calBody.querySelector('button[data-day="' + key + '"]');
+    if (again) again.focus();
+  }
+
+  // Arrow keys move between open days (left/right one day, up/down a week,
+  // skipping closed days in that direction).
+  function onDayKey(e) {
+    var step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    var key = e.currentTarget.getAttribute('data-day');
+    var d = Number(key.slice(8));
+    var prefix = key.slice(0, 8);
+    for (var n = d + step; n >= 1 && n <= 31; n += step) {
+      var target = calBody.querySelector('button[data-day="' + prefix + (n < 10 ? '0' : '') + n + '"]');
+      if (target) { target.focus(); return; }
+    }
+  }
+
   function loadAvailability() {
     var req = ++picker.req;
     picker.slot = null;
     updateConfirm();
+    var offset = picker.monthOffset;
+    renderCalendar(true);
+    calNote.textContent = '';
     showStatus('loading', 'Loading Michael&rsquo;s calendar&hellip;');
-    var url = AVAILABILITY_URL + '?timezone=' + encodeURIComponent(picker.tz) + '&monthOffset=' + picker.monthOffset;
+    var url = AVAILABILITY_URL + '?timezone=' + encodeURIComponent(picker.tz) + '&monthOffset=' + offset;
     fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
       .then(function (res) {
         return res.json().catch(function () { return null; }).then(function (data) {
@@ -880,6 +990,7 @@
         picker.slots = data.slots.filter(function (s) {
           return s && isNum(s.start) && isNum(s.end) && s.end > s.start && s.start > now + 60000;
         });
+        picker.loaded[offset] = picker.slots;
         picker.hasMore = !!data.hasMore;
         // An empty month with more to come: move on once, automatically.
         if (!picker.slots.length && picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET && !picker.autoAdvanced) {
@@ -892,56 +1003,32 @@
       })
       .catch(function () {
         if (req !== picker.req) return;
+        renderCalendar(true);
         showStatus('error', 'Couldn&rsquo;t load Michael&rsquo;s calendar. Try again, or write to Michael at ' + emailLink() + '.');
       });
   }
 
   function renderPicker() {
-    picker.days = groupDays(picker.slots);
-    if (!picker.days.length) {
-      showStatus('empty', 'No open times ' + (picker.monthOffset ? 'in this month' : 'in the next few weeks') +
-        '. Write to Michael at ' + emailLink() + ' and he&rsquo;ll find a time for ' + escapeHtml(clientFirst()) + '.');
+    var open = renderCalendar(false);
+    var keys = Object.keys(open).sort();
+    picker.days = keys.map(function (k) { return open[k]; });
+    if (!keys.length) {
+      var monthName = calMonth.textContent;
+      calNote.textContent = 'No open days in ' + monthName + '.';
+      showStatus('empty', 'No open times ' + (picker.monthOffset ? 'in ' + escapeHtml(monthName) : 'in the next few weeks') +
+        '. ' + (!nextBtn.disabled ? 'Try the next month, or w' : 'W') + 'rite to Michael at ' + emailLink() +
+        ' and he&rsquo;ll find a time for ' + escapeHtml(clientFirst()) + '.');
       return;
+    }
+    calNote.textContent = '';
+    // Keep the chosen day if it is still open, else the first open day.
+    if (!open[picker.dayKey]) {
+      picker.dayKey = keys[0];
+      renderCalendar(false);
     }
     statusBox.hidden = true;
     pickerEl.setAttribute('aria-busy', 'false');
-    daysWrap.hidden = false;
     timesWrap.hidden = false;
-
-    var keep = false;
-    for (var i = 0; i < picker.days.length; i++) if (picker.days[i].key === picker.dayKey) keep = true;
-    if (!keep) picker.dayKey = picker.days[0].key;
-
-    daysList.innerHTML = '';
-    picker.days.forEach(function (day) {
-      var li = document.createElement('li');
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'ps-day';
-      b.setAttribute('aria-pressed', day.key === picker.dayKey ? 'true' : 'false');
-      var name = document.createElement('span');
-      name.textContent = fmt(day.first, { weekday: 'short', month: 'short', day: 'numeric' });
-      var count = document.createElement('span');
-      count.className = 'ps-day__count';
-      count.textContent = day.slots.length + (day.slots.length === 1 ? ' time' : ' times');
-      b.appendChild(name);
-      b.appendChild(count);
-      b.setAttribute('aria-label', longDate(day.first) + ', ' + count.textContent + ' open');
-      b.addEventListener('click', function () {
-        if (picker.dayKey === day.key) return;
-        picker.dayKey = day.key;
-        picker.slot = null;
-        renderPicker();
-        updateConfirm();
-      });
-      li.appendChild(b);
-      daysList.appendChild(li);
-    });
-
-    prevBtn.hidden = picker.monthOffset <= 0;
-    nextBtn.hidden = !(picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET);
-    monthsBox.hidden = prevBtn.hidden && nextBtn.hidden;
-
     renderTimes();
   }
 
@@ -1033,11 +1120,11 @@
     var body = {
       startTime: slot.start,
       timezone: picker.tz,
-      client: { firstName: lead.client.firstName, lastName: lead.client.lastName, email: lead.client.email, phone: lead.client.phone },
+      client: { firstName: lead.client.firstName, lastName: lead.client.lastName, email: lead.client.email },
       partner: { name: lead.partner.name, email: lead.partner.email, cell: lead.partner.cell || '' },
-      industry: lead.client.industry,
       ebitdaBand: lead.client.ebitdaBand
     };
+    if (lead.client.phone) body.client.phone = lead.client.phone; // optional; omitted when blank
 
     fetch(BOOK_URL, {
       method: 'POST',
@@ -1086,7 +1173,7 @@
       bookedAt: Date.now()
     };
     var leadDays = Math.max(0, Math.round((start - Date.now()) / 86400000));
-    track('partner_meeting_booked', { lead_days: leadDays, ebitda_band: lead.client.ebitdaBand, industry: lead.client.industry });
+    track('partner_meeting_booked', { lead_days: leadDays, ebitda_band: lead.client.ebitdaBand });
     storageSet(BOOKING_KEY, record);
     storageRemove(LEAD_KEY);
     renderConfirmation(record, true);
