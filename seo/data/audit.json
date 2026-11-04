@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T16:52:06.795Z",
+  "generatedAt": "2026-11-04T18:43:01.340Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
+      "inboundInternalLinks": 37,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,20 +23,20 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
-      "outboundInternalLinks": 34,
+      "inboundInternalLinks": 37,
+      "outboundInternalLinks": 35,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
-      "title": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "titleLength": 50,
-      "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
-      "descriptionLength": 138,
+      "title": "Adjusted EBITDA Add-Backs: What Buyers and Lenders Allow",
+      "titleLength": 56,
+      "description": "Which EBITDA add-backs are legitimate: the adjustments buyers accept, the 15-30% cap lenders write into credit agreements, and what a struck dollar costs.",
+      "descriptionLength": 154,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
       "words": 3182,
       "date": "2026-10-22",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -94,10 +94,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
-      "title": "Earnout in a Business Sale: What It Pays | IBO Advisors",
-      "titleLength": 55,
-      "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
-      "descriptionLength": 147,
+      "title": "Earnout in a Business Sale: Why 41% Pay Nothing",
+      "titleLength": 47,
+      "description": "How an earnout in a business sale pays out: 41% pay nothing, payers average ~21 cents on the dollar, 28% get contested - and the clauses that decide yours.",
+      "descriptionLength": 155,
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
@@ -164,10 +164,10 @@
       "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
       "descriptionLength": 150,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
-      "words": 2163,
+      "words": 2194,
       "date": "2026-09-08",
-      "inboundInternalLinks": 24,
-      "outboundInternalLinks": 16,
+      "inboundInternalLinks": 25,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 25,
+      "inboundInternalLinks": 26,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -270,7 +270,7 @@
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
       "words": 2115,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
+      "inboundInternalLinks": 20,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -283,7 +283,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1917,
       "date": "2026-09-08",
-      "inboundInternalLinks": 12,
+      "inboundInternalLinks": 13,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -298,6 +298,19 @@
       "date": "2026-10-04",
       "inboundInternalLinks": 9,
       "outboundInternalLinks": 16,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-company",
+      "title": "Private Equity Management Fees: What You Pay | IBO Advisors",
+      "titleLength": 59,
+      "description": "What private equity charges a portfolio company it owns: the monitoring fee, transaction fees, expenses, and the lump sum due when the sponsor exits.",
+      "descriptionLength": 149,
+      "h1": "Private Equity Management Fees: What You Pay",
+      "words": 2078,
+      "date": "2026-11-04",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 10,
       "issues": []
     },
     {
@@ -333,10 +346,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1736,
+      "words": 1769,
       "date": "2026-07-06",
-      "inboundInternalLinks": 22,
-      "outboundInternalLinks": 12,
+      "inboundInternalLinks": 23,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -374,7 +387,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 2095,
       "date": "2026-09-21",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -411,10 +424,10 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2482,
+      "words": 2515,
       "date": "2026-09-12",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 20,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 21,
       "issues": []
     },
     {
@@ -426,7 +439,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
+      "inboundInternalLinks": 37,
       "outboundInternalLinks": 9,
       "issues": []
     },
