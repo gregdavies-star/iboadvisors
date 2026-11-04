@@ -16,6 +16,7 @@
     "gsc:pull": "node scripts/gsc.mjs pull",
     "gsc:inspect": "node scripts/gsc.mjs inspect",
     "ahrefs:pull": "node scripts/ahrefs.mjs pull",
-    "test:attribution": "node scripts/test-attribution.mjs"
+    "test:attribution": "node scripts/test-attribution.mjs",
+    "test:scheduler": "node scripts/test-scheduler.mjs"
   }
 }

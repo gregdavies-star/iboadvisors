@@ -282,6 +282,7 @@
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
           url.searchParams.set('src', 'modal');
+          url.searchParams.set('ebitda', ebitdaBand);
           window.location.href = url.toString();
         } else {
           // Learn More Form - Unqualified Lead
