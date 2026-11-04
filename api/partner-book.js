@@ -9,9 +9,18 @@
 
      POST /api/partner-book   Content-Type: application/json
        { startTime, timezone,
-         client:  { firstName, lastName, email, phone },
-         partner: { name, email, cell },
-         industry, ebitdaBand }
+         client:  { firstName, lastName, email, phone? },
+         partner: { name, email, cell? },
+         industry?, ebitdaBand }
+       phone, cell and industry are optional (omit, null or ""); each is
+       validated only when present. ebitdaBand is required.
+
+     Michael's "IBO Discussion" link asks three booking questions. Since
+     Nov 2026 only the EBITDA band is required there (Greg made mobile phone
+     and industry optional), and /partnerschedule no longer asks for the
+     client's cell or industry. The mobilephone and
+     what_is_your_companys_industry form fields are sent only when a value
+     was given; the EBITDA band is always sent.
        -> 200 { ok: true, start, end, hubspot: { organizer, contact, guestEmails, start, end } }
        -> 4xx/5xx { ok: false, error, message, status }
 
@@ -56,7 +65,8 @@ const BOOK_TIMEOUT_MS = 20000;
 const BOOK_URL = SCHEDULER_BASE;
 const SLUG = LINKS.partner.slug;
 
-// The options on the scheduling page's required questions, verbatim.
+// The options on the scheduling page's (now optional) industry question,
+// verbatim. Still exported for compatibility.
 export const INDUSTRIES = [
   'Construction', 'Manufacturing', 'Healthcare', 'Recruiting', 'Technology / Software',
   'Consulting / Professional Services', 'Financial Services', 'Education', 'Real Estate', 'Other',
@@ -70,6 +80,10 @@ function fail(res, status, error, message, upstreamStatus) {
   const body = { ok: false, error, message };
   if (upstreamStatus) body.status = upstreamStatus;
   return send(res, status, body);
+}
+
+function present(v) {
+  return v !== undefined && v !== null && v !== '';
 }
 
 export function validate(body, now = Date.now()) {
@@ -92,8 +106,11 @@ export function validate(body, now = Date.now()) {
   if (!lastName) errors.push('client.lastName is required (max 100 chars)');
   const clientEmail = cleanEmail(client.email);
   if (!clientEmail) errors.push('client.email must be a valid email');
-  const clientPhone = cleanPhone(client.phone);
-  if (!clientPhone) errors.push('client.phone must be a phone number with 10-15 digits');
+  let clientPhone = '';
+  if (present(client.phone)) {
+    clientPhone = cleanPhone(client.phone);
+    if (!clientPhone) errors.push('client.phone must be a phone number with 10-15 digits, or empty');
+  }
 
   const partnerName = clean(partner.name, 200);
   if (!partnerName) errors.push('partner.name is required (max 200 chars)');
@@ -101,12 +118,13 @@ export function validate(body, now = Date.now()) {
   if (!partnerEmail) errors.push('partner.email must be a valid email');
   else if (clientEmail && partnerEmail === clientEmail) errors.push('partner.email must differ from client.email');
   let partnerCell = '';
-  if (partner.cell !== undefined && partner.cell !== null && partner.cell !== '') {
+  if (present(partner.cell)) {
     partnerCell = cleanPhone(partner.cell);
     if (!partnerCell) errors.push('partner.cell must be a phone number with 10-15 digits, or empty');
   }
 
-  if (!INDUSTRIES.includes(body.industry)) errors.push('industry must be one of the scheduling page options');
+  const industry = present(body.industry) ? body.industry : '';
+  if (industry && !INDUSTRIES.includes(industry)) errors.push('industry must be one of the scheduling page options, or empty');
   if (!EBITDA_BANDS.includes(body.ebitdaBand)) errors.push('ebitdaBand must be one of the scheduling page options');
 
   if (errors.length) return { errors };
@@ -117,7 +135,7 @@ export function validate(body, now = Date.now()) {
       timezone,
       client: { firstName, lastName, email: clientEmail, phone: clientPhone },
       partner: { name: partnerName, email: partnerEmail, cell: partnerCell },
-      industry: body.industry,
+      industry,
       ebitdaBand: body.ebitdaBand,
     },
   };
@@ -179,8 +197,8 @@ export default async function handler(req, res) {
     timezone: value.timezone,
     locale: 'en-us',
     formFields: [
-      { name: 'mobilephone', value: value.client.phone },
-      { name: 'what_is_your_companys_industry', value: value.industry },
+      ...(value.client.phone ? [{ name: 'mobilephone', value: value.client.phone }] : []),
+      ...(value.industry ? [{ name: 'what_is_your_companys_industry', value: value.industry }] : []),
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: value.ebitdaBand },
     ],
   };

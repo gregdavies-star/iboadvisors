@@ -390,26 +390,51 @@ await test('partner-book still rejects a coarse band', () => {
 });
 
 // ---- partner endpoints unchanged ----
-await test('partner-book still books a :15 start on the partner link with the partner as guest', async () => {
+const partnerBody = (extra = {}) => ({
+  startTime: base + 15 * MIN, timezone: 'America/Chicago',
+  client: { firstName: 'Jane', lastName: 'Doe', email: 'jane@example.com', ...(extra.client || {}) },
+  partner: { name: 'Pat Partner', email: 'pat@example.com', cell: '' },
+  ebitdaBand: '$3M - $5M',
+  ...(extra.top || {}),
+});
+function partnerFetch() {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base + 15 * MIN]))],
     [isBookPost, () => jsonResponse(200, { postResponse: { organizer: { email: 'michael@iboadvisors.com' } } })],
   ]);
+}
+await test('partner-book books a :15 start on the partner link without client phone or industry', async () => {
+  partnerFetch();
   const res = fakeRes();
-  await partnerBook.default(fakeReq({
-    startTime: base + 15 * MIN, timezone: 'America/Chicago',
-    client: { firstName: 'Jane', lastName: 'Doe', email: 'jane@example.com', phone: '555-123-4567' },
-    partner: { name: 'Pat Partner', email: 'pat@example.com', cell: '' },
-    industry: 'Manufacturing', ebitdaBand: '$3M - $5M',
-  }), res);
+  await partnerBook.default(fakeReq(partnerBody()), res);
   assert.equal(res.statusCode, 200, res.raw);
   const post = calls.find((c) => c.method === 'POST');
   assert.equal(post.body.slug, 'michael-chasen/ibo-discussion');
   assert.deepEqual(post.body.guestEmails, ['pat@example.com']);
+  assert.deepEqual(post.body.formFields, [{ name: EBITDA_PROPERTY, value: '$3M - $5M' }]);
   assert.ok(calls[0].url.includes(encodeURIComponent('michael-chasen/ibo-discussion')));
+  // empty strings and null count as absent too
+  partnerFetch();
+  const res2 = fakeRes();
+  await partnerBook.default(fakeReq(partnerBody({ client: { phone: '' }, top: { industry: null } })), res2);
+  assert.equal(res2.statusCode, 200, res2.raw);
+  assert.deepEqual(calls.find((c) => c.method === 'POST').body.formFields, [{ name: EBITDA_PROPERTY, value: '$3M - $5M' }]);
 });
-
-// ---- /api/availability handler ----
+await test('partner-book still sends phone and industry when given, and validates them', async () => {
+  partnerFetch();
+  const res = fakeRes();
+  await partnerBook.default(fakeReq(partnerBody({ client: { phone: '555-123-4567' }, top: { industry: 'Manufacturing' } })), res);
+  assert.equal(res.statusCode, 200, res.raw);
+  assert.deepEqual(calls.find((c) => c.method === 'POST').body.formFields, [
+    { name: 'mobilephone', value: '555-123-4567' },
+    { name: 'what_is_your_companys_industry', value: 'Manufacturing' },
+    { name: EBITDA_PROPERTY, value: '$3M - $5M' },
+  ]);
+  assert.ok(partnerBook.validate(partnerBody({ client: { phone: '123' } }), now).errors.some((e) => e.includes('client.phone')));
+  assert.ok(partnerBook.validate(partnerBody({ top: { industry: 'Mining' } }), now).errors.some((e) => e.includes('industry')));
+  assert.ok(partnerBook.validate(partnerBody({ top: { ebitdaBand: undefined } }), now).errors.some((e) => e.includes('ebitdaBand')));
+  assert.ok(Array.isArray(partnerBook.INDUSTRIES) && partnerBook.INDUSTRIES.includes('Manufacturing'));
+});
 await test('availability handler: band routing, half-hour slots, questions, degraded questions', async () => {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base, base + 15 * MIN, base + 30 * MIN]))],

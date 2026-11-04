@@ -5,8 +5,11 @@
    it in for their client, so every line of copy talks to the partner about
    "your client". Three states:
 
-     1. Form. The prospective client (name, email, cell, revenue, industry,
-        EBITDA) and the partner (name, email, optional cell). On Next the lead
+     1. Form. The prospective client (name, email, revenue, EBITDA) and the
+        partner (name, email, optional cell). The client's cell and industry
+        are no longer asked: Greg made both optional on Michael's "IBO
+        Discussion" scheduling page (Nov 2026), whose only required booking
+        question is now the EBITDA band. On Next the lead
         goes to HubSpot through the Forms API (window.iboTracking.submitForm,
         which adds the IBO Form * attribution fields and retries without
         enrichment on a 400). A failed submission keeps the partner on the
@@ -282,9 +285,7 @@
   var F = {
     clientName: $('ps-client-name'),
     clientEmail: $('ps-client-email'),
-    clientCell: $('ps-client-cell'),
     revenue: $('ps-client-revenue'),
-    industry: $('ps-client-industry'),
     ebitda: $('ps-client-ebitda'),
     partnerName: $('ps-partner-name'),
     partnerEmail: $('ps-partner-email'),
@@ -556,17 +557,10 @@
     check(F.clientEmail, !clientEmail ? 'Enter your client\u2019s email address.'
       : !EMAIL_RE.test(clientEmail) ? 'That email address doesn\u2019t look right.' : '');
 
-    var clientCell = str(F.clientCell.value, 30);
-    check(F.clientCell, !clientCell ? 'Enter your client\u2019s cell number. Michael\u2019s calendar needs one for the booking.'
-      : !validPhone(clientCell) ? 'Enter a full cell number, with the area code.' : '');
-
     var revenue = readRevenue();
     check(F.revenue, revenue.status === 'empty' ? 'Enter your client\u2019s annual revenue, e.g. 45M.'
       : revenue.status === 'zero' ? 'Revenue must be more than $0.'
       : revenue.status !== 'ok' ? 'Enter revenue as an amount, e.g. 45M or 45,000,000.' : '');
-
-    var industry = F.industry.value;
-    check(F.industry, industry ? '' : 'Choose your client\u2019s industry.');
 
     var e = readEbitda(F.ebitda.value);
     if (e.status === 'ok' && ebitda.status === 'ok' && e.index === ebitda.index) e = ebitda; // keep a typed over-$50M amount
@@ -595,9 +589,7 @@
           firstName: split.first,
           lastName: split.last,
           email: clientEmail,
-          phone: clientCell,
           revenue: revenue.dollars,
-          industry: industry,
           ebitdaExact: e.exact,
           ebitdaMillions: e.millions,
           ebitdaTyped: e.typed || null,
@@ -631,12 +623,9 @@
       { name: 'firstname', value: c.firstName },
       { name: 'lastname', value: c.lastName },
       { name: 'email', value: c.email },
-      { name: 'phone', value: c.phone },
-      { name: 'mobilephone', value: c.phone },
       { name: 'annualrevenue', value: String(c.revenue) },
       { name: 'exact_annual_ebitda', value: String(c.ebitdaExact) },
       { name: 'what_is_your_approximate_annual_ebitda_profit', value: c.ebitdaBand },
-      { name: 'what_is_your_companys_industry', value: c.industry },
       { name: 'role', value: 'CEO/Founder/Owner' },
       // The form only accepts $3M+ EBITDA, which is what "qualified" means.
       { name: 'ibo_qualified', value: 'True' },
@@ -673,7 +662,7 @@
       sending = Promise.reject(err);
     }
     sending.then(function () {
-      track('partner_form_submit', { ebitda_band: lead.client.ebitdaBand, industry: lead.client.industry });
+      track('partner_form_submit', { ebitda_band: lead.client.ebitdaBand });
       lead.submittedAt = Date.now();
       storageSet(LEAD_KEY, lead);
       startPicker(lead, true);
@@ -692,9 +681,7 @@
       var p = lead.partner;
       F.clientName.value = c.name || '';
       F.clientEmail.value = c.email || '';
-      F.clientCell.value = c.phone || '';
       F.revenue.value = isNum(c.revenue) ? formatDollars(c.revenue) : '';
-      F.industry.value = c.industry || '';
       if (isNum(c.ebitdaIndex) && c.ebitdaIndex >= 0 && c.ebitdaIndex < EBITDA_OPTIONS.length) {
         applyEbitda({ status: 'ok', index: c.ebitdaIndex, millions: c.ebitdaMillions, exact: c.ebitdaExact, typed: c.ebitdaTyped || null });
         commitEbitdaText();
@@ -709,7 +696,7 @@
   function validLead(lead) {
     return !!(lead && lead.client && lead.partner && EMAIL_RE.test(lead.client.email || '') &&
       EMAIL_RE.test(lead.partner.email || '') && lead.client.firstName && lead.client.lastName &&
-      lead.client.phone && lead.client.industry && lead.client.ebitdaBand && lead.partner.name);
+      lead.client.ebitdaBand && lead.partner.name);
   }
 
   /* ------------------------------------------------------------------
@@ -1033,9 +1020,8 @@
     var body = {
       startTime: slot.start,
       timezone: picker.tz,
-      client: { firstName: lead.client.firstName, lastName: lead.client.lastName, email: lead.client.email, phone: lead.client.phone },
+      client: { firstName: lead.client.firstName, lastName: lead.client.lastName, email: lead.client.email },
       partner: { name: lead.partner.name, email: lead.partner.email, cell: lead.partner.cell || '' },
-      industry: lead.client.industry,
       ebitdaBand: lead.client.ebitdaBand
     };
 
@@ -1086,7 +1072,7 @@
       bookedAt: Date.now()
     };
     var leadDays = Math.max(0, Math.round((start - Date.now()) / 86400000));
-    track('partner_meeting_booked', { lead_days: leadDays, ebitda_band: lead.client.ebitdaBand, industry: lead.client.industry });
+    track('partner_meeting_booked', { lead_days: leadDays, ebitda_band: lead.client.ebitdaBand });
     storageSet(BOOKING_KEY, record);
     storageRemove(LEAD_KEY);
     renderConfirmation(record, true);
