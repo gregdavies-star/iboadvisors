@@ -77,6 +77,15 @@
   // is built, so previews and production each send visitors to their own /book.
   var BOOK_PATH = '/book';
 
+  // Test entry: /learn-more2 -> /book2, remove at cut-over. /learn-more2
+  // redirects to /?learn-more=1&book=2 (vercel.json). With book=2 on the page
+  // URL, a qualified lead is handed off to /book2 instead of /book, the
+  // qualified / unqualified Google Ads conversions are not fired, and
+  // modal_submit carries test: 'book2'. Read from the page URL, so it holds
+  // whether the modal auto-opens or is opened from a Learn More button.
+  var BOOK2_TEST = false;
+  try { BOOK2_TEST = new URLSearchParams(window.location.search).get('book') === '2'; } catch (err) {}
+
   var overlay = document.getElementById('ibo-modal-overlay');
   var closeBtn = document.getElementById('ibo-modal-close');
   var declinedCloseBtn = document.getElementById('ibo-modal-declined-close');
@@ -269,15 +278,17 @@
     // submitForm attaches the visitor's captured utm_* fields on top of these.
     window.iboTracking.submitForm(HUBSPOT_PORTAL_ID, HUBSPOT_FORM_GUID, fields)
       .then(function () {
-        track('modal_submit', {
+        var submitParams = {
           ebitda_band: ebitdaBand,
           respondent_role: respondentRole,
           qualified: qualifies ? 'yes' : 'no'
-        });
+        };
+        if (BOOK2_TEST) submitParams.test = 'book2'; // test entry, remove at cut-over
+        track('modal_submit', submitParams);
         if (qualifies) {
-          // Learn More Form - Qualified Lead
-          fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
-          var url = window.iboTracking.withUtms(new URL(BOOK_PATH, window.location.origin));
+          // Learn More Form - Qualified Lead (not in the /book2 test entry)
+          if (!BOOK2_TEST) fireConversion('AW-18411360561/XH9KCMqlj-gcELGinMtE');
+          var url = window.iboTracking.withUtms(new URL(BOOK2_TEST ? '/book2' : BOOK_PATH, window.location.origin));
           url.searchParams.set('firstName', firstName);
           url.searchParams.set('lastName', lastName);
           url.searchParams.set('email', email);
@@ -286,8 +297,8 @@
           if (cellNumber) url.searchParams.set('phone', cellNumber);
           window.location.href = url.toString();
         } else {
-          // Learn More Form - Unqualified Lead
-          fireConversion('AW-18411360561/jK-oCMy9vOgcELGinMtE');
+          // Learn More Form - Unqualified Lead (not in the /book2 test entry)
+          if (!BOOK2_TEST) fireConversion('AW-18411360561/jK-oCMy9vOgcELGinMtE');
           stepForm.hidden = true;
           // Advisers get their own message: the owner wording ("may not be the
           // right fit for your company") does not fit someone describing clients.
