@@ -38,7 +38,8 @@
      1. Form: the prospective client (left) and the partner (right).
      2. Pick a time on Michael's calendar: our own picker over
         /api/partner-availability (no HubSpot iframe). Left, a month
-        calendar (.ps-calendar) whose arrows page monthOffset; right, the
+        calendar (.ps-calendar) whose arrows page monthOffset, with the
+        time zone select under it; right, the
         start times for the selected day, or the loading / error / empty
         status. Stacks calendar-above-times at <=860px.
      3. Confirmation, written to the partner about their client. Layout and
@@ -134,7 +135,7 @@
 .ps-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
 .ps-back { display: inline-block; margin-bottom: var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .ps-back:hover { color: var(--color-gold); }
-.ps-tz { margin: 0; min-width: min(100%, 320px); }
+.ps-tz { margin: var(--space-5) 0 0; }
 .ps-tz .ibo-field__label { margin-bottom: 0.35rem; }
 .ps-picker {
   display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 0;
@@ -319,7 +320,7 @@ span.ps-calday { color: #b9b4aa; font-weight: 400; }
   .ps-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .ps-picker { grid-template-columns: 1fr; }
   .ps-picker__cal { border-right: 0; border-bottom: 1px solid var(--color-border); }
-  .ps-calendar { max-width: 460px; margin-inline: auto; }
+  .ps-calendar, .ps-tz { max-width: 460px; margin-inline: auto; }
   .ps-pair { grid-template-columns: 1fr; gap: var(--space-8); margin-top: var(--space-10); }
   .ps-portrait { max-width: 288px; }
   .ps-cover__grid { grid-template-columns: 1fr; gap: var(--space-4); }
@@ -469,13 +470,10 @@ span.ps-calday { color: #b9b4aa; font-weight: 400; }
               <h1 class="ps-title" id="ps-pick-title" tabindex="-1">Pick a time on Michael&rsquo;s calendar for <span data-client="first">your client</span></h1>
               <p class="ps-lede">30 minutes on Zoom with Michael Chasen, Managing Partner. The invitation goes to <span data-client="first">your client</span> and to you.</p>
             </div>
-            <div class="ibo-field ps-tz">
-              <label class="ibo-field__label" for="ps-tz">Times shown in</label>
-              <select class="ibo-field__input ibo-field__select" id="ps-tz"></select>
-            </div>
           </div>
 
-          <!-- Left: month calendar, always shown so the arrows stay usable.
+          <!-- Left: month calendar, always shown so the arrows stay usable,
+               with the time zone select under it.
                Built by partnerschedule.js (renderCalendar). Right: the start
                times for the selected day, or the loading / error / empty
                status in their place. -->
@@ -499,6 +497,11 @@ span.ps-calday { color: #b9b4aa; font-weight: 400; }
                   <tbody id="ps-cal-body"></tbody>
                 </table>
                 <p class="ps-calendar__note" id="ps-cal-note" role="status"></p>
+              </div>
+              <!-- Time zone under the calendar, as in HubSpot's picker. -->
+              <div class="ibo-field ps-tz">
+                <label class="ibo-field__label" for="ps-tz">Times shown in</label>
+                <select class="ibo-field__input ibo-field__select" id="ps-tz"></select>
               </div>
             </div>
             <div class="ps-picker__times">

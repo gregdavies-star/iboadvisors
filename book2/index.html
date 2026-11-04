@@ -33,8 +33,9 @@
    styles, bk-*). Nothing links here; noindex, nofollow. Same page as /book
    (full site header and footer, no modal.js; book2.js wires the mobile
    menu), but State 1 is our own picker over /api/availability instead of
-   the HubSpot iframe (the /partnerschedule picker, renamed bk-*), shown
-   first, with a "Your details" block under the chosen time only when the
+   the HubSpot iframe (the /partnerschedule picker, renamed bk-*: a month
+   calendar with the time zone select under it, start times beside it),
+   shown first, with a "Your details" block under the chosen time only when the
    name, email or a required question is missing; then the same IBO-styled
    confirmation (State 2), booked through /api/book. Behaviour lives in /book2/book2.js, which
    fills every data-host node from the host the booking landed on.
@@ -232,48 +233,76 @@
   color: var(--color-navy); font-size: var(--text-sm); line-height: 1.6;
 }
 
-/* ---- State 1b: pick a time (the /partnerschedule picker, bk-*) ---- */
+/* ---- Pick a time (the /partnerschedule picker, bk-*): a month calendar
+   with the time zone select under it on the left, start times on the right.
+   Stacks calendar-above-times at <=860px. ---- */
 .bk-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
-.bk-tz { margin: 0; min-width: min(100%, 320px); }
+.bk-tz { margin: var(--space-5) 0 0; }
 .bk-tz .ibo-field__label { margin-bottom: 0.35rem; }
 .bk-who { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted); overflow-wrap: anywhere; }
 .bk-who strong { color: var(--color-navy); }
 .bk-change { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .bk-change:hover { color: var(--color-gold); }
 .bk-picker {
-  display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 0;
+  display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 0;
   margin-top: var(--space-6); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
-  min-height: 360px;
+  min-height: 380px;
 }
-.bk-picker__days { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
+.bk-picker__cal { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
 .bk-picker__times { padding: var(--space-6) var(--space-8); min-width: 0; }
 .bk-picker__label {
   font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--color-gold); margin: 0 0 var(--space-3);
 }
-.bk-days { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
-.bk-day, .bk-time {
-  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
-  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer; text-align: left;
+
+/* Month calendar: month name between arrows, SUN..SAT, one cell per day.
+   Open days are bold navy buttons; closed days are faint and inert; the
+   chosen day is a filled navy circle; today carries a small gold dot. */
+.bk-calendar__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); }
+.bk-calendar__month { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); color: var(--color-navy); margin: 0; line-height: 1.3; text-align: center; flex: 1 1 auto; }
+.bk-calendar__nav {
+  flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-white);
+  color: var(--color-navy); display: flex; align-items: center; justify-content: center; cursor: pointer;
   transition: border-color var(--transition-interactive), background var(--transition-interactive);
 }
-.bk-day { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; padding: 0.7rem 0.9rem; font-size: var(--text-sm); font-weight: 700; }
-.bk-day__count { font-weight: 400; font-size: var(--text-xs); color: var(--color-text-faint); white-space: nowrap; }
-.bk-day:hover, .bk-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
-.bk-day[aria-pressed="true"], .bk-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
-.bk-day[aria-pressed="true"] .bk-day__count { color: rgba(255, 255, 255, 0.75); }
+.bk-calendar__nav svg { width: 16px; height: 16px; }
+.bk-calendar__nav:hover:not(:disabled) { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-calendar__nav:disabled { opacity: 0.35; cursor: default; }
+.bk-calendar__grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.bk-calendar__grid th {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-faint); text-align: center; padding: 0 0 var(--space-2);
+}
+.bk-calendar__grid td { text-align: center; padding: 2px 0; height: 44px; }
+.bk-calday {
+  position: relative; width: 40px; height: 40px; margin: 0 auto; border-radius: 50%; border: 1px solid transparent;
+  display: flex; align-items: center; justify-content: center; padding: 0; background: transparent;
+  font-family: var(--font-body); font-size: var(--text-sm); font-variant-numeric: tabular-nums; line-height: 1;
+}
+button.bk-calday { color: var(--color-navy); font-weight: 700; cursor: pointer; background: #f6efe5; transition: background var(--transition-interactive), border-color var(--transition-interactive); }
+button.bk-calday:hover { border-color: var(--color-gold); background: #efe3d2; }
+button.bk-calday[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+span.bk-calday { color: #b9b4aa; font-weight: 400; }
+.bk-calday.is-today::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--color-gold);
+}
+.bk-calendar__note { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; min-height: 1.5em; }
+.bk-calendar__note:empty { min-height: 0; margin: 0; }
+
+.bk-time {
+  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
+  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.bk-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
 .bk-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; }
 .bk-time { padding: 0.7rem 0.5rem; text-align: center; font-size: var(--text-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
 .bk-times__date { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); color: var(--color-navy); margin: 0 0 var(--space-4); line-height: 1.3; }
-.bk-months { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: var(--space-5); }
-.bk-months[hidden], .bk-months button[hidden] { display: none; }
-.bk-months button { background: none; border: 0; padding: 0; font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-.bk-months button:hover { color: var(--color-gold); }
-.bk-status { grid-column: 1 / -1; padding: var(--space-10) var(--space-8); text-align: center; align-self: center; }
+.bk-status { padding: var(--space-10) var(--space-4); text-align: center; }
 .bk-status[hidden] { display: none; }
 .bk-status p { margin: 0 auto; max-width: 48ch; }
 .bk-status a, .bk-alert a { text-decoration: underline; }
-.bk-status .bk-months { justify-content: center; }
 .bk-status .bk-retry { margin-top: var(--space-4); }
 .bk-spinner {
   display: block; width: 28px; height: 28px; margin: 0 auto var(--space-4); border-radius: 50%;
@@ -282,7 +311,7 @@
 .bk-spinner[hidden], .bk-retry[hidden] { display: none; }
 @keyframes bk-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .bk-spinner { animation-duration: 3s; } }
-.bk-picker__days[hidden], .bk-picker__times[hidden] { display: none; }
+.bk-times-panel[hidden] { display: none; }
 .bk-confirmbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-6); }
 .bk-confirmbar .ibo-modal__submit { width: auto; padding: var(--space-4) var(--space-8); }
 .bk-confirmbar__note { margin: 0; font-size: var(--text-sm); color: var(--color-text-faint); }
@@ -290,16 +319,15 @@
 
 @media (max-width: 860px) {
   .bk-picker { grid-template-columns: 1fr; }
-  .bk-picker__days { border-right: 0; border-bottom: 1px solid var(--color-border); }
-  .bk-days { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .bk-picker__cal { border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .bk-calendar, .bk-tz { max-width: 460px; margin-inline: auto; }
 }
 @media (max-width: 560px) {
   .bk-details { padding: var(--space-5) var(--space-5) var(--space-2); }
   .bk-details__grid { grid-template-columns: 1fr; }
   .bk-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
-  .bk-picker__days, .bk-picker__times { padding: var(--space-5); }
-  .bk-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .bk-day { flex-direction: column; gap: 0.1rem; }
+  .bk-picker__cal, .bk-picker__times { padding: var(--space-5); }
+  .bk-picker__cal { padding-inline: var(--space-3); }
   .bk-times { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
   .bk-time { padding: 0.7rem 0.25rem; }
 }
@@ -348,33 +376,51 @@
               <h1 class="bk-title" id="book-pick-title" tabindex="-1">Pick a time for your call</h1>
               <p class="bk-lede" id="book-pick-lede">30 minutes on Zoom with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
             </div>
-            <div class="ibo-field bk-tz">
-              <label class="ibo-field__label" for="book-tz">Times shown in</label>
-              <select class="ibo-field__input ibo-field__select" id="book-tz"></select>
-            </div>
           </div>
 
           <p class="bk-who" id="book-who" hidden>Booking for <strong id="book-who-name"></strong> &middot; <span id="book-who-email"></span> &middot; <button type="button" class="bk-change" id="book-change">Change</button></p>
 
+          <!-- Left: month calendar, always shown so the arrows stay usable,
+               with the time zone select under it (as in HubSpot's picker).
+               Built by book2.js (renderCalendar). Right: the start times for
+               the selected day, or the loading / error / empty status. -->
           <div class="bk-picker" id="book-picker" aria-busy="false">
-            <div class="bk-status" id="book-status" role="status" aria-live="polite" hidden>
-              <span class="bk-spinner" id="book-spinner" aria-hidden="true"></span>
-              <p id="book-status-text">Loading open times&hellip;</p>
-              <p class="bk-months" id="book-status-months" hidden></p>
-              <button type="button" class="btn btn--outline bk-retry" id="book-retry" hidden>Try again</button>
+            <div class="bk-picker__cal">
+              <p class="bk-picker__label" id="book-cal-label">Choose a day</p>
+              <div class="bk-calendar" id="book-calendar">
+                <div class="bk-calendar__head">
+                  <button type="button" class="bk-calendar__nav" id="book-month-prev" aria-label="Previous month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                  </button>
+                  <p class="bk-calendar__month" id="book-cal-month" aria-live="polite"></p>
+                  <button type="button" class="bk-calendar__nav" id="book-month-next" aria-label="Next month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                  </button>
+                </div>
+                <table class="bk-calendar__grid" id="book-cal-grid">
+                  <thead>
+                    <tr><th scope="col" abbr="Sunday">Sun</th><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th></tr>
+                  </thead>
+                  <tbody id="book-cal-body"></tbody>
+                </table>
+                <p class="bk-calendar__note" id="book-cal-note" role="status"></p>
+              </div>
+              <div class="ibo-field bk-tz">
+                <label class="ibo-field__label" for="book-tz">Times shown in</label>
+                <select class="ibo-field__input ibo-field__select" id="book-tz"></select>
+              </div>
             </div>
-            <div class="bk-picker__days" id="book-days-wrap" hidden>
-              <p class="bk-picker__label" id="book-days-label">Choose a day</p>
-              <ul class="bk-days" id="book-days" aria-labelledby="book-days-label"></ul>
-              <p class="bk-months" id="book-months" hidden>
-                <button type="button" id="book-month-prev" hidden>&larr; Earlier dates</button>
-                <button type="button" id="book-month-next" hidden>Later dates &rarr;</button>
-              </p>
-            </div>
-            <div class="bk-picker__times" id="book-times-wrap" hidden>
-              <p class="bk-picker__label" id="book-times-label">Choose a start time</p>
-              <p class="bk-times__date" id="book-times-date"></p>
-              <ul class="bk-times" id="book-times" aria-labelledby="book-times-label"></ul>
+            <div class="bk-picker__times">
+              <div class="bk-status" id="book-status" role="status" aria-live="polite" hidden>
+                <span class="bk-spinner" id="book-spinner" aria-hidden="true"></span>
+                <p id="book-status-text">Loading open times&hellip;</p>
+                <button type="button" class="btn btn--outline bk-retry" id="book-retry" hidden>Try again</button>
+              </div>
+              <div class="bk-times-panel" id="book-times-wrap" hidden>
+                <p class="bk-picker__label" id="book-times-label">Choose a start time</p>
+                <p class="bk-times__date" id="book-times-date"></p>
+                <ul class="bk-times" id="book-times" aria-labelledby="book-times-label"></ul>
+              </div>
             </div>
           </div>
 

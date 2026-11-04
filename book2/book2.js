@@ -950,7 +950,9 @@
   });
 
   /* ------------------------------------------------------------------
-     Pick a time (the /partnerschedule picker, bk-*)
+     Pick a time (the /partnerschedule picker, bk-*): a month calendar on
+     the left (open days clickable, closed days greyed, arrows page
+     monthOffset, time zone select under it), start times on the right
      ------------------------------------------------------------------ */
   var tzSelect = $('book-tz');
   var picker = {
@@ -968,7 +970,13 @@
     reqTz: null,     // zone, band and email of the request in flight
     reqBand: null,
     reqEmail: null,
-    loading: false
+    loading: false,
+    // Slots by monthOffset for the current zone, band and email (loadedFor).
+    // The calendar for a month draws from every loaded offset, so a day
+    // HubSpot happens to list under a neighbouring offset is never lost.
+    // Cleared when the zone, band or email changes.
+    loaded: {},
+    loadedFor: null
   };
 
   function validTimeZone(tz) {
@@ -1017,6 +1025,7 @@
     picker.autoAdvanced = false;
     picker.slot = null;
     picker.dayKey = null;
+    picker.loaded = {};
     loadAvailability();
   });
 
@@ -1050,15 +1059,15 @@
 
   var statusBox = $('book-status');
   var statusText = $('book-status-text');
-  var statusMonths = $('book-status-months');
   var spinner = $('book-spinner');
   var retryBtn = $('book-retry');
-  var daysWrap = $('book-days-wrap');
   var timesWrap = $('book-times-wrap');
-  var daysList = $('book-days');
   var timesList = $('book-times');
   var timesDate = $('book-times-date');
-  var monthsBox = $('book-months');
+  var calGrid = $('book-cal-grid');
+  var calBody = $('book-cal-body');
+  var calMonth = $('book-cal-month');
+  var calNote = $('book-cal-note');
   var prevBtn = $('book-month-prev');
   var nextBtn = $('book-month-next');
   var confirmBtn = $('book-confirm');
@@ -1067,30 +1076,14 @@
 
   var MAIL_LINK = '<a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a>';
 
+  // The status replaces the times column only; the calendar stays put.
   function showStatus(kind, html) {
     statusBox.hidden = false;
-    daysWrap.hidden = true;
     timesWrap.hidden = true;
     spinner.hidden = kind !== 'loading';
     retryBtn.hidden = kind !== 'error';
     statusText.innerHTML = html;
     pickerEl.setAttribute('aria-busy', kind === 'loading' ? 'true' : 'false');
-    // Month links inside the status box (empty month).
-    statusMonths.innerHTML = '';
-    statusMonths.hidden = true;
-    if (kind === 'empty') {
-      if (picker.monthOffset > 0) statusMonths.appendChild(monthButton('← Earlier dates', -1));
-      if (picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET) statusMonths.appendChild(monthButton('Later dates →', 1));
-      statusMonths.hidden = !statusMonths.childNodes.length;
-    }
-  }
-
-  function monthButton(label, delta) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = label;
-    b.addEventListener('click', function () { changeMonth(delta); });
-    return b;
   }
 
   function changeMonth(delta) {
@@ -1138,9 +1131,14 @@
     picker.reqBand = band;
     var email = knownEmail();
     picker.reqEmail = email.toLowerCase();
+    var offset = picker.monthOffset;
+    var forKey = picker.tz + '|' + band + '|' + picker.reqEmail;
+    if (picker.loadedFor !== forKey) { picker.loaded = {}; picker.loadedFor = forKey; }
     updateConfirm();
+    renderCalendar(true);
+    calNote.textContent = '';
     showStatus('loading', 'Loading open times&hellip;');
-    var url = AVAILABILITY_URL + '?timezone=' + encodeURIComponent(picker.tz) + '&monthOffset=' + picker.monthOffset +
+    var url = AVAILABILITY_URL + '?timezone=' + encodeURIComponent(picker.tz) + '&monthOffset=' + offset +
       (band ? '&band=' + encodeURIComponent(band) : '') +
       (email ? '&email=' + encodeURIComponent(email) : '');
     fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
@@ -1175,6 +1173,7 @@
         picker.slots = data.slots.filter(function (s) {
           return s && isNum(s.start) && isNum(s.end) && s.end > s.start && s.start > now + 60000;
         });
+        picker.loaded[offset] = picker.slots;
         picker.hasMore = !!data.hasMore;
         // An empty month with more to come: move on once, automatically.
         if (!picker.slots.length && picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET && !picker.autoAdvanced) {
@@ -1197,56 +1196,150 @@
         if (req !== picker.req) return;
         picker.loading = false;
         if (after) { bookingInFlight = false; updateConfirm(); }
+        renderCalendar(true);
         showStatus('error', 'Couldn&rsquo;t load the calendar. Try again, or write to ' + MAIL_LINK + ' and Michael will find a time with you.');
       });
   }
 
+  /* ---- Month calendar ----
+     monthOffset 0 is the current month in the chosen zone (as HubSpot counts
+     it). Weekday and length of a calendar date do not depend on the zone, so
+     the grid itself is laid out in UTC; only "which month is now" and the
+     day each slot falls on (dayKey) use the zone. */
+  function shownMonth() {
+    var parts = new Intl.DateTimeFormat('en-US', { timeZone: picker.tz, year: 'numeric', month: 'numeric' }).formatToParts(new Date());
+    var y = 0, m = 0;
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i].type === 'year') y = Number(parts[i].value);
+      if (parts[i].type === 'month') m = Number(parts[i].value);
+    }
+    var index = y * 12 + (m - 1) + picker.monthOffset;
+    return { year: Math.floor(index / 12), month: (index % 12) + 1 }; // month 1..12
+  }
+
+  function utcLabel(y, m, d, opts) {
+    var o = { timeZone: 'UTC' };
+    for (var k in opts) if (Object.prototype.hasOwnProperty.call(opts, k)) o[k] = opts[k];
+    return new Intl.DateTimeFormat('en-US', o).format(new Date(Date.UTC(y, m - 1, d)));
+  }
+
+  // Open days of the shown month, from every loaded offset: { key: day }.
+  function daysForMonth(ym) {
+    var prefix = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-';
+    var seen = {};
+    var slots = [];
+    Object.keys(picker.loaded).forEach(function (off) {
+      picker.loaded[off].forEach(function (s) {
+        if (!seen[s.start]) { seen[s.start] = true; slots.push(s); }
+      });
+    });
+    slots.sort(function (a, b) { return a.start - b.start; });
+    var byKey = {};
+    groupDays(slots).forEach(function (day) {
+      if (day.key.indexOf(prefix) === 0) byKey[day.key] = day;
+    });
+    return byKey;
+  }
+
+  // Any loaded open day after the shown month (keeps the next arrow live
+  // even if HubSpot's hasMore says otherwise).
+  function hasLaterDays(ym) {
+    var last = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-31';
+    return Object.keys(picker.loaded).some(function (off) {
+      return picker.loaded[off].some(function (s) { return dayKey(s.start) > last; });
+    });
+  }
+
+  function renderCalendar(loading) {
+    var ym = shownMonth();
+    var open = loading ? {} : daysForMonth(ym);
+    var monthName = utcLabel(ym.year, ym.month, 1, { month: 'long', year: 'numeric' });
+    calMonth.textContent = monthName;
+    calGrid.setAttribute('aria-label', monthName);
+    prevBtn.disabled = picker.monthOffset <= 0;
+    nextBtn.disabled = !(picker.monthOffset < MAX_MONTH_OFFSET && (picker.hasMore || hasLaterDays(ym)));
+
+    var todayKey = dayKey(Date.now());
+    var lead = new Date(Date.UTC(ym.year, ym.month - 1, 1)).getUTCDay();
+    var length = new Date(Date.UTC(ym.year, ym.month, 0)).getUTCDate();
+    calBody.innerHTML = '';
+    var row = null;
+    for (var cell = 0; cell < Math.ceil((lead + length) / 7) * 7; cell++) {
+      if (cell % 7 === 0) { row = document.createElement('tr'); calBody.appendChild(row); }
+      var td = document.createElement('td');
+      row.appendChild(td);
+      var d = cell - lead + 1;
+      if (d < 1 || d > length) continue; // leading / trailing blank
+      var key = ym.year + '-' + (ym.month < 10 ? '0' : '') + ym.month + '-' + (d < 10 ? '0' : '') + d;
+      var day = open[key];
+      var el;
+      if (day) {
+        el = document.createElement('button');
+        el.type = 'button';
+        el.setAttribute('data-day', key);
+        el.setAttribute('aria-pressed', key === picker.dayKey ? 'true' : 'false');
+        el.setAttribute('aria-label', utcLabel(ym.year, ym.month, d, { weekday: 'long', month: 'long', day: 'numeric' }) +
+          ', ' + day.slots.length + (day.slots.length === 1 ? ' time' : ' times') + ' open');
+        el.addEventListener('click', onDayClick);
+        el.addEventListener('keydown', onDayKey);
+      } else {
+        el = document.createElement('span');
+        el.setAttribute('aria-label', utcLabel(ym.year, ym.month, d, { weekday: 'long', month: 'long', day: 'numeric' }) + ', no open times');
+      }
+      el.className = 'bk-calday' + (key === todayKey ? ' is-today' : '');
+      if (key === todayKey) el.setAttribute('aria-current', 'date');
+      el.textContent = String(d);
+      td.appendChild(el);
+    }
+    return open;
+  }
+
+  function onDayClick(e) {
+    var key = e.currentTarget.getAttribute('data-day');
+    if (!key || key === picker.dayKey) return;
+    picker.dayKey = key;
+    picker.slot = null;
+    renderPicker();
+    updateConfirm();
+    var again = calBody.querySelector('button[data-day="' + key + '"]');
+    if (again) again.focus();
+  }
+
+  // Arrow keys move between open days (left/right one day, up/down a week,
+  // skipping closed days in that direction).
+  function onDayKey(e) {
+    var step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    var key = e.currentTarget.getAttribute('data-day');
+    var d = Number(key.slice(8));
+    var prefix = key.slice(0, 8);
+    for (var n = d + step; n >= 1 && n <= 31; n += step) {
+      var target = calBody.querySelector('button[data-day="' + prefix + (n < 10 ? '0' : '') + n + '"]');
+      if (target) { target.focus(); return; }
+    }
+  }
+
   function renderPicker() {
-    picker.days = groupDays(picker.slots);
-    if (!picker.days.length) {
-      showStatus('empty', 'No open times ' + (picker.monthOffset ? 'in this month' : 'in the next few weeks') +
-        '. Write to ' + MAIL_LINK + ' and Michael will find a time with you.');
+    var open = renderCalendar(false);
+    var keys = Object.keys(open).sort();
+    picker.days = keys.map(function (k) { return open[k]; });
+    if (!keys.length) {
+      var monthName = calMonth.textContent;
+      calNote.textContent = 'No open days in ' + monthName + '.';
+      showStatus('empty', 'No open times ' + (picker.monthOffset ? 'in ' + monthName : 'in the next few weeks') +
+        '. ' + (!nextBtn.disabled ? 'Try the next month, or w' : 'W') + 'rite to ' + MAIL_LINK + ' and Michael will find a time with you.');
       return;
+    }
+    calNote.textContent = '';
+    // Keep the chosen day if it is still open, else the first open day.
+    if (!open[picker.dayKey]) {
+      picker.dayKey = keys[0];
+      renderCalendar(false);
     }
     statusBox.hidden = true;
     pickerEl.setAttribute('aria-busy', 'false');
-    daysWrap.hidden = false;
     timesWrap.hidden = false;
-
-    var keep = false;
-    for (var i = 0; i < picker.days.length; i++) if (picker.days[i].key === picker.dayKey) keep = true;
-    if (!keep) picker.dayKey = picker.days[0].key;
-
-    daysList.innerHTML = '';
-    picker.days.forEach(function (day) {
-      var li = document.createElement('li');
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'bk-day';
-      b.setAttribute('aria-pressed', day.key === picker.dayKey ? 'true' : 'false');
-      var name = document.createElement('span');
-      name.textContent = fmt(day.first, { weekday: 'short', month: 'short', day: 'numeric' });
-      var count = document.createElement('span');
-      count.className = 'bk-day__count';
-      count.textContent = day.slots.length + (day.slots.length === 1 ? ' time' : ' times');
-      b.appendChild(name);
-      b.appendChild(count);
-      b.setAttribute('aria-label', longDate(day.first) + ', ' + count.textContent + ' open');
-      b.addEventListener('click', function () {
-        if (picker.dayKey === day.key) return;
-        picker.dayKey = day.key;
-        picker.slot = null;
-        renderPicker();
-        updateConfirm();
-      });
-      li.appendChild(b);
-      daysList.appendChild(li);
-    });
-
-    prevBtn.hidden = picker.monthOffset <= 0;
-    nextBtn.hidden = !(picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET);
-    monthsBox.hidden = prevBtn.hidden && nextBtn.hidden;
-
     renderTimes();
   }
 
@@ -1339,8 +1432,8 @@
       bookingInFlight = true;
       confirmBtn.disabled = true;
       confirmBtn.textContent = 'Checking the time…';
-      picker.monthOffset = 0;
-      picker.autoAdvanced = false;
+      // Recheck the month on screen (the chosen time is in it); no auto-advance.
+      picker.autoAdvanced = true;
       loadAvailability(start, function (found) {
         bookingInFlight = false;
         if (found && !needsDetails()) { book(); return; }
