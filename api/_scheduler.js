@@ -42,6 +42,9 @@
        never returned to the browser.
      - The page advertises about two weeks ahead, so monthOffset 1+ is usually
        empty with hasMore false.
+     - The link-details call (GET .../book/{slug}) needs ?timezone=; it
+       answers 400 without it. Its customParams carry formFields (the
+       booking questions) and startTimeIncrementMinutes.
      - HubSpot offers :15/:45 starts after a meeting that ends at :15. The
        /book2 endpoints pass halfHourOnly so only :00 and :30 starts are
        offered or bookable. The partner endpoints keep HubSpot's list as is.
@@ -223,6 +226,13 @@ function questionType(name, field, options) {
   return 'text';
 }
 
+function startIncrement(data) {
+  const params = data && typeof data === 'object' && data.customParams && typeof data.customParams === 'object' ? data.customParams : {};
+  const n = Number(params.startTimeIncrementMinutes);
+  return params.startTimeIncrementMinutes !== null && params.startTimeIncrementMinutes !== undefined &&
+    params.startTimeIncrementMinutes !== '' && Number.isFinite(n) ? n : null;
+}
+
 // Maps a "meeting link details" response to the custom booking questions.
 // Exported for tests; pure.
 export function linkQuestions(data) {
@@ -247,11 +257,15 @@ export function linkQuestions(data) {
   return questions;
 }
 
-// GET the link's details by slug. Returns { linkId, questions }, where
-// questions are the custom form fields (first name, last name and email are
-// left out: the page always asks for those). Throws like fetchAvailability.
-export async function fetchLinkDetails(token, slug) {
-  const response = await globalThis.fetch(`${SCHEDULER_BASE}/${encodeURIComponent(slug)}`, {
+// GET the link's details by slug. HubSpot requires ?timezone= on this call
+// (400 without it). Returns { linkId, questions, startTimeIncrementMinutes },
+// where questions are the custom form fields (first name, last name and
+// email are left out: the page always asks for those) and
+// startTimeIncrementMinutes is customParams.startTimeIncrementMinutes (number
+// or null). Throws like fetchAvailability.
+export async function fetchLinkDetails(token, slug, timezone = 'America/New_York') {
+  const url = `${SCHEDULER_BASE}/${encodeURIComponent(slug)}?timezone=${encodeURIComponent(timezone)}`;
+  const response = await globalThis.fetch(url, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
     signal: AbortSignal.timeout(LINK_DETAILS_TIMEOUT_MS),
@@ -266,6 +280,7 @@ export async function fetchLinkDetails(token, slug) {
   return {
     linkId: rawId === null || rawId === undefined ? null : String(rawId),
     questions: linkQuestions(data),
+    startTimeIncrementMinutes: startIncrement(data),
   };
 }
 

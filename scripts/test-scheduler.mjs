@@ -55,7 +55,11 @@ function useFetch(routes) {
 const isContactSearch = (u) => u.includes('/crm/v3/objects/contacts/search');
 const isAvailability = (u) => u.includes('/availability-page/');
 const isBookPost = (u, i) => (i.method === 'POST') && u.startsWith(sched.SCHEDULER_BASE + '?');
+// Link details: HubSpot answers 400 without ?timezone=, and so does this fake.
 const isDetails = (u, i) => (i.method || 'GET') === 'GET' && u.startsWith(sched.SCHEDULER_BASE + '/') && !isAvailability(u);
+function detailsResponse(status, body) {
+  return (u) => (/[?&]timezone=[^&]+/.test(u) ? jsonResponse(status, body) : jsonResponse(400, { message: 'timezone is required' }));
+}
 
 // Silence the handlers' status-only logs during tests.
 const quiet = { warn: console.warn, info: console.info, error: console.error };
@@ -84,6 +88,7 @@ const DETAILS = {
   linkId: 987654,
   slug: 'michael-chasen/discussing-the-ibo',
   customParams: {
+    startTimeIncrementMinutes: 30,
     formFields: [
       { label: 'First name', name: 'firstName', fieldType: 'string', isRequired: true },
       { label: 'Last name', name: 'LASTNAME', fieldType: 'string', isRequired: true },
@@ -161,10 +166,11 @@ await test('partner-book still exports EBITDA_BANDS and hubspotSubset', () => {
 
 // ---- fetchLinkDetails ----
 await test('fetchLinkDetails maps custom questions and filters standard fields', async () => {
-  useFetch([[isDetails, () => jsonResponse(200, DETAILS)]]);
-  const out = await fetchLinkDetails('t', 'michael-chasen/discussing-the-ibo');
-  assert.equal(calls[0].url, `${sched.SCHEDULER_BASE}/michael-chasen%2Fdiscussing-the-ibo`);
+  useFetch([[isDetails, detailsResponse(200, DETAILS)]]);
+  const out = await fetchLinkDetails('t', 'michael-chasen/discussing-the-ibo', 'America/Chicago');
+  assert.equal(calls[0].url, `${sched.SCHEDULER_BASE}/michael-chasen%2Fdiscussing-the-ibo?timezone=America%2FChicago`);
   assert.equal(out.linkId, '987654');
+  assert.equal(out.startTimeIncrementMinutes, 30);
   assert.deepEqual(out.questions.map((q) => q.name), ['mobilephone', 'what_is_your_companys_industry', EBITDA_PROPERTY, 'notes']);
   const [phone, industry, ebitda, notes] = out.questions;
   assert.deepEqual(phone, { name: 'mobilephone', label: 'Mobile phone number', required: true, type: 'phone', options: [] });
@@ -176,8 +182,10 @@ await test('fetchLinkDetails maps custom questions and filters standard fields',
   assert.equal(notes.type, 'text');
 });
 await test('fetchLinkDetails: missing arrays give no questions; non-2xx throws with upstreamStatus', async () => {
-  useFetch([[isDetails, () => jsonResponse(200, { linkId: 1 })]]);
-  assert.deepEqual((await fetchLinkDetails('t', 'x')).questions, []);
+  useFetch([[isDetails, detailsResponse(200, { linkId: 1 })]]);
+  const bare = await fetchLinkDetails('t', 'x', 'America/New_York');
+  assert.deepEqual(bare.questions, []);
+  assert.equal(bare.startTimeIncrementMinutes, null);
   useFetch([[isDetails, () => jsonResponse(404, { message: 'nope' })]]);
   await assert.rejects(fetchLinkDetails('t', 'x'), (e) => e.upstreamStatus === 404);
 });
@@ -238,7 +246,7 @@ await test('book handler: missing required answers -> 400 missing_answers, nothi
   useFetch([
     [isContactSearch, () => jsonResponse(403, {})],
     [isAvailability, () => jsonResponse(200, availabilityBody([base, base + 15 * MIN]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
     [isBookPost, () => { throw new Error('must not book'); }],
   ]);
   const b = goodBody(); b.answers = {};
@@ -255,7 +263,7 @@ await test('book handler: books the team link, fills EBITDA, drops unknown answe
   useFetch([
     [isContactSearch, () => jsonResponse(403, {})],
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
     [isBookPost, () => jsonResponse(200, {
       postResponse: { organizer: { email: 'darren@iboadvisors.com', userId: 162759897, firstName: 'Darren', lastName: 'Gleeman' },
         timerange: { start: base, end: base + HALF } },
@@ -305,7 +313,7 @@ await test('book handler: a :15 start is not bookable (409), cross-origin is 403
   useFetch([
     [isContactSearch, () => jsonResponse(403, {})],
     [isAvailability, () => jsonResponse(200, availabilityBody([base + 15 * MIN]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const b = goodBody(); b.startTime = base + 15 * MIN;
   const res = fakeRes();
@@ -327,7 +335,7 @@ await test('book handler: coarse $3M - $10M leaves a required 5-option EBITDA qu
   useFetch([
     [isContactSearch, () => jsonResponse(403, {})],
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
     [isBookPost, () => { throw new Error('must not book'); }],
   ]);
   const b = goodBody(); b.band = '$3M - $10M';
@@ -342,7 +350,7 @@ await test('book handler: coarse $10M+ routes to michael; buildFormFields fills 
   useFetch([
     [isContactSearch, () => jsonResponse(403, {})],
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
     [isBookPost, () => { throw new Error('must not book'); }],
   ]);
   const b = goodBody(); b.band = '$10M+';
@@ -365,7 +373,7 @@ await test('book handler: coarse $10M+ routes to michael; buildFormFields fills 
 await test('availability handler: coarse URL band $10M+ routes to michael', async () => {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%2410M%2B' }, res);
@@ -405,7 +413,7 @@ await test('partner-book still books a :15 start on the partner link with the pa
 await test('availability handler: band routing, half-hour slots, questions, degraded questions', async () => {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base, base + 15 * MIN, base + 30 * MIN]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%2420M%2B&monthOffset=0' }, res);
@@ -414,6 +422,8 @@ await test('availability handler: band routing, half-hour slots, questions, degr
   assert.deepEqual(res.json.slots.map((s) => s.start), [base, base + 30 * MIN]);
   assert.equal(res.json.questions.length, 4);
   assert.equal(res.json.questionsUnavailable, undefined);
+  assert.equal(res.json.increment, 30);
+  assert.ok(calls.some((c) => isDetails(c.url, { method: c.method }) && c.url.includes('timezone=America%2FNew_York')));
   assert.ok(calls.every((c) => c.url.includes(encodeURIComponent(LINKS.michael.slug))));
 
   useFetch([
@@ -426,6 +436,7 @@ await test('availability handler: band routing, half-hour slots, questions, degr
   assert.equal(res2.json.calendar, 'team');
   assert.deepEqual(res2.json.questions, []);
   assert.equal(res2.json.questionsUnavailable, true);
+  assert.equal(res2.json.increment, null);
 
   const res3 = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?monthOffset=7' }, res3);
@@ -435,7 +446,7 @@ await test('availability handler: band routing, half-hour slots, questions, degr
 await test('availability handler: no email keeps URL-band routing and reports bandSource', async () => {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%245M%20-%20%2410M' }, res);
@@ -452,7 +463,7 @@ await test('availability handler: contact band overrides the URL band', async ()
   useFetch([
     [isContactSearch, () => jsonResponse(200, { results: [{ properties: { [EBITDA_PROPERTY]: '$20M+' } }] })],
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%243M%20-%20%245M&email=Jane%40Example.com' }, res);
@@ -466,7 +477,7 @@ await test('availability handler: contact band overrides the URL band', async ()
 await test('availability handler: invalid email is ignored (no lookup)', async () => {
   useFetch([
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%2410M%20-%20%2420M&email=not-an-email' }, res);
@@ -479,7 +490,7 @@ await test('availability handler: lookup failure falls back to the URL band', as
   useFetch([
     [isContactSearch, () => jsonResponse(403, { category: 'MISSING_SCOPES' })],
     [isAvailability, () => jsonResponse(200, availabilityBody([base]))],
-    [isDetails, () => jsonResponse(200, DETAILS)],
+    [isDetails, detailsResponse(200, DETAILS)],
   ]);
   const res = fakeRes();
   await availability.default({ method: 'GET', url: '/api/availability?band=%2410M%20-%20%2420M&email=jane%40example.com' }, res);

@@ -10,15 +10,20 @@
                 band: <band used> | null, bandSource: 'contact' | 'request' | 'none',
                 slots: [{ start, end }], hasMore,
                 questions: [{ name, label, required, type, options }],
-                questionsUnavailable?: true }
+                increment: <minutes> | null, questionsUnavailable?: true }
           start / end are epoch milliseconds (UTC), sorted, future only, and
           start only at :00 or :30 (HubSpot otherwise offers :15/:45 starts
           after a meeting that ends at :15).
           questions are the link's custom booking questions (first name,
           last name and email are left out); type is 'text' | 'phone' |
           'select', options is [{ label, value }] (empty unless select).
-          If HubSpot's link details cannot be read, questions is [] and
-          questionsUnavailable is true; the slots are still returned.
+          increment is the link's customParams.startTimeIncrementMinutes
+          (HubSpot's start-time increment setting), for checking that
+          setting from the API; null when HubSpot does not report it.
+          If HubSpot's link details cannot be read, questions is [],
+          increment is null and questionsUnavailable is true; the slots are
+          still returned. The link-details call carries ?timezone= (HubSpot
+          answers 400 without it).
 
    Query parameters (all optional):
      timezone     IANA zone, checked with Intl. Default America/New_York.
@@ -102,7 +107,7 @@ export default async function handler(req, res) {
   const slug = LINKS[calendar].slug;
 
   // Link details are a nice-to-have: their failure never fails the response.
-  const detailsPromise = fetchLinkDetails(token, slug).catch((err) => {
+  const detailsPromise = fetchLinkDetails(token, slug, timezone).catch((err) => {
     console.warn('[availability] link details failed', {
       calendar,
       status: err && err.upstreamStatus ? err.upstreamStatus : null,
@@ -116,7 +121,11 @@ export default async function handler(req, res) {
       fetchAvailability(token, timezone, monthOffset, { slug, halfHourOnly: true }),
       detailsPromise,
     ]);
-    const body = { timezone, monthOffset, calendar, band, bandSource, slots, hasMore, questions: details ? details.questions : [] };
+    const body = {
+      timezone, monthOffset, calendar, band, bandSource, slots, hasMore,
+      questions: details ? details.questions : [],
+      increment: details ? details.startTimeIncrementMinutes : null,
+    };
     if (!details) body.questionsUnavailable = true;
     return send(res, 200, body);
   } catch (err) {

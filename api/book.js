@@ -187,7 +187,7 @@ export default async function handler(req, res) {
 
   // 2. The slot must be open right now on that link (:00/:30 only); the
   //    link's questions are read at the same time.
-  const detailsPromise = fetchLinkDetails(token, slug).catch((err) => {
+  const detailsPromise = fetchLinkDetails(token, slug, value.timezone).catch((err) => {
     console.warn('[book] link details failed', {
       calendar,
       status: err && err.upstreamStatus ? err.upstreamStatus : null,
