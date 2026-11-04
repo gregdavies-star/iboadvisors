@@ -135,10 +135,11 @@
 .ps-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
 .ps-back { display: inline-block; margin-bottom: var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .ps-back:hover { color: var(--color-gold); }
-.ps-tz { margin: var(--space-5) 0 0; }
+.ps-tz { margin: var(--space-5) 0 0; min-width: 0; }
+.ps-tz .ibo-field__select { width: 100%; min-width: 0; max-width: 100%; }
 .ps-tz .ibo-field__label { margin-bottom: 0.35rem; }
 .ps-picker {
-  display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 0;
+  display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 0;
   margin-top: var(--space-8); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
   min-height: 380px;
 }

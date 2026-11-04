@@ -739,7 +739,7 @@
       var opt = document.createElement('option');
       opt.value = z[0];
       var abbr = tzShortName(z[0]);
-      opt.textContent = z[1] + (abbr ? ' \u00b7 ' + abbr : '') + (z[0] === detected ? ' (yours)' : '');
+      opt.textContent = z[1] + (abbr ? ' \u00b7 ' + abbr : '') + (z[0] === detected ? ' \u00b7 yours' : '');
       tzSelect.appendChild(opt);
     });
     if (!validTimeZone(picker.tz)) picker.tz = detected;

@@ -237,14 +237,15 @@
    with the time zone select under it on the left, start times on the right.
    Stacks calendar-above-times at <=860px. ---- */
 .bk-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
-.bk-tz { margin: var(--space-5) 0 0; }
+.bk-tz { margin: var(--space-5) 0 0; min-width: 0; }
+.bk-tz .ibo-field__select { width: 100%; min-width: 0; max-width: 100%; }
 .bk-tz .ibo-field__label { margin-bottom: 0.35rem; }
 .bk-who { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted); overflow-wrap: anywhere; }
 .bk-who strong { color: var(--color-navy); }
 .bk-change { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .bk-change:hover { color: var(--color-gold); }
 .bk-picker {
-  display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 0;
+  display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 0;
   margin-top: var(--space-6); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
   min-height: 380px;
 }
