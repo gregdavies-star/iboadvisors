@@ -5,11 +5,14 @@
    it in for their client, so every line of copy talks to the partner about
    "your client". Three states:
 
-     1. Form. The prospective client (name, email, revenue, EBITDA) and the
-        partner (name, email, optional cell). The client's cell and industry
-        are no longer asked: Greg made both optional on Michael's "IBO
-        Discussion" scheduling page (Nov 2026), whose only required booking
-        question is now the EBITDA band. On Next the lead
+     1. Form. The prospective client (name, email, optional cell, revenue,
+        EBITDA) and the partner (name, email, optional cell). Greg made
+        mobile phone and industry optional on Michael's "IBO Discussion"
+        scheduling page (4 Nov 2026); its only required booking question is
+        now the EBITDA band. Industry is not asked here; the client's cell
+        is asked but optional, and when given it goes to the referral form
+        as phone and mobilephone and to /api/partner-book as client.phone
+        (omitted everywhere when blank). On Next the lead
         goes to HubSpot through the Forms API (window.iboTracking.submitForm,
         which adds the IBO Form * attribution fields and retries without
         enrichment on a 400). A failed submission keeps the partner on the
@@ -287,6 +290,7 @@
   var F = {
     clientName: $('ps-client-name'),
     clientEmail: $('ps-client-email'),
+    clientCell: $('ps-client-cell'),
     revenue: $('ps-client-revenue'),
     ebitda: $('ps-client-ebitda'),
     partnerName: $('ps-partner-name'),
@@ -559,6 +563,9 @@
     check(F.clientEmail, !clientEmail ? 'Enter your client\u2019s email address.'
       : !EMAIL_RE.test(clientEmail) ? 'That email address doesn\u2019t look right.' : '');
 
+    var clientCell = str(F.clientCell.value, 30);
+    check(F.clientCell, clientCell && !validPhone(clientCell) ? 'Enter a full cell number, with the area code, or leave this blank.' : '');
+
     var revenue = readRevenue();
     check(F.revenue, revenue.status === 'empty' ? 'Enter your client\u2019s annual revenue, e.g. 45M.'
       : revenue.status === 'zero' ? 'Revenue must be more than $0.'
@@ -591,6 +598,7 @@
           firstName: split.first,
           lastName: split.last,
           email: clientEmail,
+          phone: clientCell || undefined,
           revenue: revenue.dollars,
           ebitdaExact: e.exact,
           ebitdaMillions: e.millions,
@@ -634,6 +642,7 @@
       { name: 'referring_partner', value: p.name },
       { name: 'referring_partner_email', value: p.email }
     ];
+    if (c.phone) fields.splice(3, 0, { name: 'phone', value: c.phone }, { name: 'mobilephone', value: c.phone });
     if (p.cell) fields.push({ name: 'referring_partner_cell', value: p.cell });
     return fields;
   }
@@ -683,6 +692,7 @@
       var p = lead.partner;
       F.clientName.value = c.name || '';
       F.clientEmail.value = c.email || '';
+      F.clientCell.value = c.phone || '';
       F.revenue.value = isNum(c.revenue) ? formatDollars(c.revenue) : '';
       if (isNum(c.ebitdaIndex) && c.ebitdaIndex >= 0 && c.ebitdaIndex < EBITDA_OPTIONS.length) {
         applyEbitda({ status: 'ok', index: c.ebitdaIndex, millions: c.ebitdaMillions, exact: c.ebitdaExact, typed: c.ebitdaTyped || null });
@@ -1114,6 +1124,7 @@
       partner: { name: lead.partner.name, email: lead.partner.email, cell: lead.partner.cell || '' },
       ebitdaBand: lead.client.ebitdaBand
     };
+    if (lead.client.phone) body.client.phone = lead.client.phone; // optional; omitted when blank
 
     fetch(BOOK_URL, {
       method: 'POST',
