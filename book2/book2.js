@@ -6,32 +6,32 @@
    meeting starts are only ever on :00 or :30 and prospects over $10M EBITDA
    are offered Michael's calendar only:
 
-     State 1a  Details: first name, last name, email (prefilled from the
-               firstName / lastName / email URL params the hand-offs pass)
-               plus one input per required booking question the scheduling
-               link asks that the page cannot answer itself.
-     State 1b  Pick a time: the /partnerschedule picker (time zone, days,
-               times, month navigation), fed by
-               GET /api/availability?timezone=&monthOffset=&band=
+     State 1   Pick a time, first, always (the same flow as /book's
+               embed): the /partnerschedule picker (time zone, days, times,
+               month navigation), fed by
+               GET /api/availability?timezone=&monthOffset=&band=&email=
+               At Confirm, the time is booked straight away when first
+               name, last name and email came with the hand-off and every
+               required booking question is answered. Otherwise a compact
+               "Your details" block opens under the chosen time (name,
+               email, and only the required questions still unanswered),
+               with a "Confirm booking" button. "Change" opens the same block.
      State 2   Confirmation, rendered from the POST /api/book response:
                the time in the visitor's time zone, then the steps before
                the call (booked, the calendar invitation with calendar
                fallbacks, and an optional note for the host).
 
-   URL params: firstName, lastName, email (prefill), ebitda (the exact band
-   submitted to HubSpot as what_is_your_approximate_annual_ebitda_profit;
-   sent to the API as `band` when it is one the API knows), src (modal,
-   ibo-exit, calculator, pdf, email; else direct) for tracking.
+   URL params: firstName, lastName, email (prefill); phone (the Learn More
+   modal's cell number; answers a phone question); ebitda (the band
+   submitted to HubSpot as what_is_your_approximate_annual_ebitda_profit,
+   sent to both endpoints as `band`; it answers the EBITDA question when it
+   is one of that question's options); src (modal, ibo-exit, calculator,
+   pdf, email; else direct) for tracking.
 
-   Availability is asked for with the visitor's email once it is known
-   (prefill or details step), so the server can route on the band stored on
-   their HubSpot contact; a changed email reloads it.
-
-   Skipping the details step: a visitor who arrives with a valid first
-   name, last name and email goes straight to the picker. If availability
-   then reports a required question the page cannot answer, the details
-   step is shown with that question. The details stay editable from the
-   picker ("Change").
+   Availability is asked for with the visitor's email once it is known, so
+   the server can route on the band stored on their HubSpot contact. A new
+   email or EBITDA answer at Confirm re-checks the chosen time against the
+   slots for those details before booking.
 
    The booking lands on Michael or Darren (round robin, or Michael only for
    the top bands). /api/book returns HubSpot's organizer; resolveHost()
@@ -662,9 +662,17 @@
   }
   function knownBand(b) { return BANDS.indexOf(b) !== -1 ? b : ''; }
 
+  function validPhone(value) {
+    if (!/^\+?[0-9\s().\-]+$/.test(value)) return false;
+    var digits = value.replace(/\D/g, '').length;
+    return digits >= 7 && digits <= 15;
+  }
+
   // The band from the hand-off. When the visitor answers the EBITDA question
   // (no band known, or a coarse one), that answer becomes the band.
   var URL_BAND = knownBand(str(param('ebitda'), 40));
+  // The Learn More modal's cell number: answers the phone question.
+  var URL_PHONE = (function () { var p = str(param('phone'), 30); return validPhone(p) ? p : ''; })();
 
   var details = {
     firstName: str(param('firstName'), 100),
@@ -690,20 +698,6 @@
     return !!(details.firstName && details.lastName && EMAIL_RE.test(details.email));
   }
 
-  var stepDetails = $('book-step-details');
-  var stepPick = $('book-step-pick');
-  var detailsForm = $('book-details-form');
-  var detailsError = $('book-details-error');
-  var detailsNotice = $('book-details-notice');
-  var questionsBox = $('book-questions');
-  var F = { first: $('book-first'), last: $('book-last'), email: $('book-email') };
-
-  function focusHeading(id) {
-    try { window.scrollTo(0, 0); } catch (e) {}
-    var h = $(id);
-    if (h) { try { h.focus({ preventScroll: true }); } catch (e) { h.focus(); } }
-  }
-
   function fieldError(input, message) {
     var el = $(input.id + '-error');
     if (message) {
@@ -715,20 +709,16 @@
     }
   }
 
-  function validPhone(value) {
-    if (!/^\+?[0-9\s().\-]+$/.test(value)) return false;
-    var digits = value.replace(/\D/g, '').length;
-    return digits >= 7 && digits <= 15;
-  }
-
   /* ---- Booking questions ----
      `questions` stays null until the first availability response. Only the
-     required ones are asked; the EBITDA one only when no band is known from
-     the hand-off. `forcedMissing` holds names /api/book reported missing
-     (400 missing_answers), asked even if availability did not list them. */
+     required ones count; the EBITDA one is answered by a known band that is
+     one of its options, a phone question by the `phone` URL param.
+     `forcedMissing` holds names /api/book reported missing (400
+     missing_answers), asked even if availability did not list them. */
   var questions = null;
   var forcedMissing = [];
-  var questionInputs = {}; // name -> input/select
+  var questionInputs = {}; // name -> input/select in the details block
+  var asked = [];          // the questions the open details block shows
 
   function humanise(name) {
     var s = String(name || '').replace(/[_-]+/g, ' ').trim();
@@ -752,6 +742,19 @@
     }
     if (type === 'select' && !options.length) type = 'text';
     return { name: name, label: str(q.label, 200) || humanise(name), required: q.required !== false, type: type, options: options };
+  }
+
+  function isPhoneQuestion(q) {
+    var n = q.name.toLowerCase();
+    return q.type === 'phone' || n === 'mobilephone' || n === 'phone';
+  }
+
+  // URL prefill: the `phone` param answers any phone question.
+  function applyPrefill() {
+    if (!URL_PHONE) return;
+    (questions || []).forEach(function (q) {
+      if (isPhoneQuestion(q) && !details.answers[q.name] && forcedMissing.indexOf(q.name) === -1) details.answers[q.name] = URL_PHONE;
+    });
   }
 
   // The server answers the EBITDA question from a known band that is one of
@@ -788,8 +791,27 @@
     return neededQuestions().filter(function (q) { return !str(details.answers[q.name] || '', 500); });
   }
 
+  function needsDetails() { return !detailsComplete() || unansweredQuestions().length > 0; }
+
+  /* ------------------------------------------------------------------
+     Inline "Your details" block, under the chosen time. Shown at Confirm
+     only when something is missing, or from "Change".
+     ------------------------------------------------------------------ */
+  var detailsForm = $('book-details-form');
+  var detailsError = $('book-details-error');
+  var detailsNotice = $('book-details-notice');
+  var detailsSlot = $('book-details-slot');
+  var questionsBox = $('book-questions');
+  var F = { first: $('book-first'), last: $('book-last'), email: $('book-email') };
+
+  function detailsOpen() { return !detailsForm.hidden; }
+
   // Keep what the visitor has typed before the inputs are rebuilt.
-  function readQuestionInputs() {
+  function readDetailsInputs() {
+    if (!detailsOpen()) return;
+    details.firstName = str(F.first.value, 100);
+    details.lastName = str(F.last.value, 100);
+    details.email = str(F.email.value, 254);
     for (var name in questionInputs) {
       if (Object.prototype.hasOwnProperty.call(questionInputs, name)) {
         details.answers[name] = str(questionInputs[name].value, 500);
@@ -798,10 +820,9 @@
   }
 
   function renderQuestions() {
-    readQuestionInputs();
     questionsBox.innerHTML = '';
     questionInputs = {};
-    neededQuestions().forEach(function (q, i) {
+    asked.forEach(function (q, i) {
       var id = 'book-q-' + i;
       var wrap = document.createElement('div');
       wrap.className = 'ibo-field bk-details__full';
@@ -839,7 +860,6 @@
       input.id = id;
       input.required = true;
       input.setAttribute('data-question', q.name);
-      input.setAttribute('data-type', q.type);
       input.setAttribute('aria-describedby', id + '-error');
       var err = document.createElement('p');
       err.className = 'ibo-field__error bk-field-error';
@@ -853,11 +873,36 @@
     });
   }
 
-  function fillDetailsForm() {
+  // Opens the block with name, email and the required questions that are
+  // still unanswered (a question answered inside the block stays shown).
+  function openDetails(notice) {
+    readDetailsInputs();
+    var keep = {};
+    asked.forEach(function (q) { keep[q.name] = true; });
+    asked = neededQuestions().filter(function (q) {
+      return keep[q.name] || !str(details.answers[q.name] || '', 500);
+    });
     F.first.value = details.firstName;
     F.last.value = details.lastName;
     F.email.value = details.email;
+    [F.first, F.last, F.email].forEach(function (input) { fieldError(input, ''); });
     renderQuestions();
+    detailsError.hidden = true;
+    if (notice) { detailsNotice.textContent = notice; detailsNotice.hidden = false; }
+    else detailsNotice.hidden = true;
+    detailsForm.hidden = false;
+    renderWho();
+    updateConfirm();
+    // Focus the first field that needs something, else first name.
+    var target = !details.firstName ? F.first : !details.lastName ? F.last : !EMAIL_RE.test(details.email) ? F.email : null;
+    if (!target) {
+      for (var i = 0; i < asked.length && !target; i++) {
+        if (!str(details.answers[asked[i].name] || '', 500)) target = questionInputs[asked[i].name];
+      }
+    }
+    target = target || F.first;
+    try { target.focus({ preventScroll: true }); } catch (e) { try { target.focus(); } catch (e2) {} }
+    try { detailsForm.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {}
   }
 
   function validateDetails() {
@@ -874,7 +919,7 @@
     check(F.email, !email ? 'Enter your email address.' : !EMAIL_RE.test(email) ? 'That email address doesn’t look right.' : '');
 
     var answers = {};
-    neededQuestions().forEach(function (q) {
+    asked.forEach(function (q) {
       var input = questionInputs[q.name];
       if (!input) return;
       var value = str(input.value, 500);
@@ -898,28 +943,11 @@
     return true;
   }
 
+  // Enter in a field = the Confirm booking button.
   detailsForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!validateDetails()) return;
-    detailsNotice.hidden = true;
-    showPicker(true);
+    onConfirm();
   });
-
-  function showDetails(moveFocus, notice) {
-    fillDetailsForm();
-    if (notice) { detailsNotice.textContent = notice; detailsNotice.hidden = false; }
-    else detailsNotice.hidden = true;
-    stepPick.hidden = true;
-    stepDetails.hidden = false;
-    if (moveFocus) focusHeading('book-details-title');
-    if (forcedMissing.length || notice) {
-      // Point at the first question that still needs an answer.
-      var missing = unansweredQuestions();
-      if (moveFocus && missing.length && questionInputs[missing[0].name]) {
-        try { questionInputs[missing[0].name].focus({ preventScroll: true }); } catch (e) {}
-      }
-    }
-  }
 
   /* ------------------------------------------------------------------
      Pick a time (the /partnerschedule picker, bk-*)
@@ -1097,7 +1125,10 @@
 
   function availabilityKey() { return picker.tz + '|' + currentBand() + '|' + knownEmail().toLowerCase() + '|' + picker.monthOffset; }
 
-  function loadAvailability() {
+  // keepStart: re-select this start time if the new slots still have it.
+  // after(found): called once the slots are on screen (found = that start
+  // is still open). Neither is passed for an ordinary load.
+  function loadAvailability(keepStart, after) {
     var req = ++picker.req;
     var band = currentBand();
     picker.slot = null;
@@ -1138,7 +1169,7 @@
         } else if (questions === null) {
           questions = [];
         }
-        if (!stepDetails.hidden) renderQuestions();
+        applyPrefill();
 
         var now = Date.now();
         picker.slots = data.slots.filter(function (s) {
@@ -1149,21 +1180,23 @@
         if (!picker.slots.length && picker.hasMore && picker.monthOffset < MAX_MONTH_OFFSET && !picker.autoAdvanced) {
           picker.autoAdvanced = true;
           picker.monthOffset++;
-          loadAvailability();
+          loadAvailability(keepStart, after);
           return;
         }
         picker.loadedKey = availabilityKey();
-        renderPicker();
-
-        // Arrived with name and email but the link needs another answer:
-        // show the details step with that question.
-        if (!stepPick.hidden && unansweredQuestions().length) {
-          showDetails(true, 'One more detail before you pick a time.');
+        var found = null;
+        if (isNum(keepStart)) {
+          for (var i = 0; i < picker.slots.length; i++) if (picker.slots[i].start === keepStart) found = picker.slots[i];
+          if (found) { picker.slot = found; picker.dayKey = dayKey(found.start); }
         }
+        renderPicker();
+        updateConfirm();
+        if (after) after(!!found);
       })
       .catch(function () {
         if (req !== picker.req) return;
         picker.loading = false;
+        if (after) { bookingInFlight = false; updateConfirm(); }
         showStatus('error', 'Couldn&rsquo;t load the calendar. Try again, or write to ' + MAIL_LINK + ' and Michael will find a time with you.');
       });
   }
@@ -1253,55 +1286,31 @@
 
   var bookingInFlight = false;
 
+  // One button: "Confirm <time>" while the details are known, "Confirm
+  // booking" once the inline details block is open.
   function updateConfirm() {
+    if (picker.slot) detailsSlot.textContent = 'Your time: ' + slotLabel(picker.slot.start) + '.';
+    else detailsSlot.textContent = 'Choose a time above.';
     if (bookingInFlight || confirmed) return;
     if (picker.slot) {
       confirmBtn.disabled = false;
-      confirmBtn.textContent = 'Confirm ' + slotLabel(picker.slot.start);
+      confirmBtn.textContent = detailsOpen() ? 'Confirm booking' : 'Confirm ' + slotLabel(picker.slot.start);
     } else {
       confirmBtn.disabled = true;
       confirmBtn.textContent = 'Choose a time';
     }
   }
 
+  // "Booking for Pat Owner · pat@example.com · Change", above the picker,
+  // while the details are known and the block is closed.
   function renderWho() {
     $('book-who-name').textContent = (details.firstName + ' ' + details.lastName).trim();
     $('book-who-email').textContent = details.email;
-    $('book-who').hidden = !detailsComplete();
-  }
-
-  var schedulerViewed = false;
-
-  function showPicker(moveFocus) {
-    renderWho();
-    if (!tzSelect.options.length) buildTzSelect();
-    stepDetails.hidden = true;
-    stepPick.hidden = false;
-    if (moveFocus) focusHeading('book-pick-title');
-    if (!schedulerViewed) {
-      schedulerViewed = true;
-      track('scheduler_view', { src: SRC, band: currentBand() || 'unknown' });
-    }
-    // Reuse the slots on screen (and the chosen time) unless the zone, band
-    // or month they were loaded for has changed, e.g. an EBITDA answer that
-    // moves the visitor onto Michael's calendar.
-    var band = currentBand();
-    var email = knownEmail().toLowerCase();
-    if (picker.loading && picker.reqBand === band && picker.reqTz === picker.tz && picker.reqEmail === email) return;
-    if (picker.loading || picker.loadedKey !== availabilityKey()) {
-      if (picker.loading || picker.reqBand !== band || picker.reqEmail !== email) {
-        picker.monthOffset = 0;
-        picker.autoAdvanced = false;
-      }
-      picker.dayKey = null;
-      loadAvailability();
-    } else {
-      updateConfirm();
-    }
+    $('book-who').hidden = !detailsComplete() || detailsOpen();
   }
 
   $('book-change').addEventListener('click', function () {
-    showDetails(true);
+    openDetails();
   });
 
   function showBookError(html) {
@@ -1311,9 +1320,45 @@
 
   var FAILED_HTML = 'That booking didn&rsquo;t go through. Write to ' + MAIL_LINK + ' and Michael will find a time with you.';
 
-  confirmBtn.addEventListener('click', function () {
+  confirmBtn.addEventListener('click', function () { onConfirm(); });
+
+  function onConfirm() {
     if (!picker.slot || bookingInFlight || confirmed) return;
-    if (!detailsComplete()) { showDetails(true); return; }
+    bookError.hidden = true;
+    if (detailsOpen()) {
+      if (!validateDetails()) return;
+    } else if (needsDetails()) {
+      openDetails();
+      return;
+    }
+    // A new email or an EBITDA answer can move the visitor to another
+    // calendar: check the chosen time against the slots for the new details
+    // first, and book it straight away if it is still open.
+    if (picker.loadedKey !== availabilityKey()) {
+      var start = picker.slot.start;
+      bookingInFlight = true;
+      confirmBtn.disabled = true;
+      confirmBtn.textContent = 'Checking the time…';
+      picker.monthOffset = 0;
+      picker.autoAdvanced = false;
+      loadAvailability(start, function (found) {
+        bookingInFlight = false;
+        if (found && !needsDetails()) { book(); return; }
+        updateConfirm();
+        if (!found) {
+          showBookError(picker.calendar === 'michael'
+            ? 'That time isn&rsquo;t open on Michael&rsquo;s calendar. Pick another time above.'
+            : 'That time is no longer open. Pick another time above.');
+        } else {
+          openDetails();
+        }
+      });
+      return;
+    }
+    book();
+  }
+
+  function book() {
     var slot = picker.slot;
     var band = currentBand();
     bookingInFlight = true;
@@ -1363,8 +1408,7 @@
           if (forcedMissing.indexOf(n) === -1) forcedMissing.push(n);
           delete details.answers[n];
         });
-        updateConfirm();
-        showDetails(true, 'One more detail before we can book ' + slotLabel(slot.start) + '.');
+        openDetails('One more detail before we can book ' + slotLabel(slot.start) + '.');
       } else {
         showBookError(FAILED_HTML);
         updateConfirm();
@@ -1375,7 +1419,7 @@
       showBookError(FAILED_HTML);
       updateConfirm();
     });
-  });
+  }
 
   function onBooked(slot, data, band) {
     var hs = data.hubspot && typeof data.hubspot === 'object' ? data.hubspot : {};
@@ -1422,26 +1466,17 @@
   }
 
   /* ------------------------------------------------------------------
-     Start
+     Start: the picker first, always (the same flow as /book's embed).
      ------------------------------------------------------------------ */
   var stored = loadBooking();
   if (stored) {
     renderConfirmation(stored, false);
   } else {
-    fillDetailsForm();
-    if (detailsComplete()) {
-      // Names and email came with the hand-off: straight to the picker. Its
-      // first availability response brings the booking questions; if one
-      // still needs an answer, the details step comes back with it.
-      showPicker(false);
-    } else {
-      stepPick.hidden = true;
-      stepDetails.hidden = false;
-      // Load availability now so the booking questions (and the slots) are
-      // ready by the time the visitor has typed their details.
-      if (!tzSelect.options.length) buildTzSelect();
-      loadAvailability();
-    }
+    buildTzSelect();
+    renderCalendarCopy();
+    renderWho();
+    track('scheduler_view', { src: SRC, band: currentBand() || 'unknown' });
+    loadAvailability();
   }
 })();
 

@@ -33,9 +33,10 @@
    styles, bk-*). Nothing links here; noindex, nofollow. Same page as /book
    (full site header and footer, no modal.js; book2.js wires the mobile
    menu), but State 1 is our own picker over /api/availability instead of
-   the HubSpot iframe: (a) details, (b) pick a time (the /partnerschedule
-   picker, renamed bk-*), then the same IBO-styled confirmation (State 2),
-   booked through /api/book. Behaviour lives in /book2/book2.js, which
+   the HubSpot iframe (the /partnerschedule picker, renamed bk-*), shown
+   first, with a "Your details" block under the chosen time only when the
+   name, email or a required question is missing; then the same IBO-styled
+   confirmation (State 2), booked through /api/book. Behaviour lives in /book2/book2.js, which
    fills every data-host node from the host the booking landed on.
    ========================================================================== */
 
@@ -208,21 +209,25 @@
   .bk-page main .container { padding-inline: var(--space-4); }
 }
 
-/* ---- State 1a: details (book2 only) ---- */
+/* ---- Inline "Your details" block (book2 only): opens under the picker,
+   above the Confirm button, only when something is missing. ---- */
 .bk-col--wide { max-width: var(--content-default); }
-.bk-step-panel[hidden] { display: none; }
-.bk-details { margin-top: var(--space-8); max-width: 760px; }
+.bk-details {
+  margin-top: var(--space-6); max-width: 760px; padding: var(--space-6) var(--space-8) var(--space-4);
+  border: 1px solid var(--color-border); border-top: 2px solid var(--color-gold); border-radius: 2px; background: var(--color-white);
+}
+.bk-details[hidden] { display: none; }
+.bk-details__title { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: clamp(1.2rem, 1rem + 0.6vw, 1.5rem); line-height: 1.3; }
+.bk-details__slot { margin: var(--space-2) 0 var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); }
 .bk-details__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-6); }
 .bk-details__full { grid-column: 1 / -1; }
+.bk-details > .ibo-field__error { margin: 0 0 var(--space-4); }
 .bk-field-error { margin: 0.5rem 0 0; padding: 0.45rem 0.75rem; font-size: var(--text-xs); line-height: 1.5; }
-.bk-field-error[hidden], .bk-actions .ibo-field__error[hidden], .bk-notice[hidden], .bk-who[hidden] { display: none; }
+.bk-field-error[hidden], .bk-details .ibo-field__error[hidden], .bk-notice[hidden], .bk-who[hidden] { display: none; }
 .ibo-field__input[aria-invalid="true"] { border-color: #b91c1c; }
 .ibo-field__input[aria-invalid="true"]:focus { box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2); }
-.bk-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-4); }
-.bk-actions .ibo-field__error { margin: 0; flex: 1 1 100%; }
-.bk-submit.ibo-modal__submit { width: auto; min-width: 220px; padding: var(--space-4) var(--space-10); }
 .bk-notice {
-  margin-top: var(--space-6); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
   background: var(--color-cream-soft); border: 1px solid var(--color-border-cream);
   color: var(--color-navy); font-size: var(--text-sm); line-height: 1.6;
 }
@@ -289,8 +294,9 @@
   .bk-days { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 @media (max-width: 560px) {
+  .bk-details { padding: var(--space-5) var(--space-5) var(--space-2); }
   .bk-details__grid { grid-template-columns: 1fr; }
-  .bk-submit.ibo-modal__submit, .bk-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
+  .bk-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
   .bk-picker__days, .bk-picker__times { padding: var(--space-5); }
   .bk-days { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bk-day { flex-direction: column; gap: 0.1rem; }
@@ -326,53 +332,16 @@
 <main id="top">
 
   <!-- ================= STATE 1: SCHEDULING =================
-       Two steps, one state: (a) details (name, email, plus any required
-       booking question the scheduling link asks), then (b) our own picker
-       over /api/availability. Inputs carry no name attributes and the form
-       opts out of HubSpot's non-HubSpot forms collector: the contact reaches
-       HubSpot through the booking itself (/api/book). -->
+       The picker first, always (the same flow as /book's embed), over
+       /api/availability. At Confirm, a "Your details" block opens under the
+       chosen time only when the name, email or a required booking question
+       is missing. Inputs carry no name attributes and the form opts out of
+       HubSpot's non-HubSpot forms collector: the contact reaches HubSpot
+       through the booking itself (/api/book). -->
   <div class="bk-state" id="book-state-schedule">
     <section class="bk-section">
       <div class="container">
-
-        <!-- ---- Step 1: details ---- -->
-        <div class="bk-col bk-col--wide bk-step-panel" id="book-step-details">
-          <p class="eyebrow">Schedule a confidential call</p>
-          <h1 class="bk-title" id="book-details-title" tabindex="-1">First, where should we send the invitation?</h1>
-          <p class="bk-lede">30 minutes with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
-          <p class="bk-notice" id="book-details-notice" role="status" hidden></p>
-
-          <form class="bk-details" id="book-details-form" novalidate data-hs-do-not-collect="true">
-            <div class="bk-details__grid">
-              <div class="ibo-field">
-                <label class="ibo-field__label" for="book-first">First name</label>
-                <input class="ibo-field__input" type="text" id="book-first" autocomplete="given-name" maxlength="100" required aria-describedby="book-first-error" />
-                <p class="ibo-field__error bk-field-error" id="book-first-error" hidden></p>
-              </div>
-              <div class="ibo-field">
-                <label class="ibo-field__label" for="book-last">Last name</label>
-                <input class="ibo-field__input" type="text" id="book-last" autocomplete="family-name" maxlength="100" required aria-describedby="book-last-error" />
-                <p class="ibo-field__error bk-field-error" id="book-last-error" hidden></p>
-              </div>
-              <div class="ibo-field bk-details__full">
-                <label class="ibo-field__label" for="book-email">Email</label>
-                <input class="ibo-field__input" type="email" id="book-email" autocomplete="email" maxlength="254" required aria-describedby="book-email-error" />
-                <p class="ibo-field__error bk-field-error" id="book-email-error" hidden></p>
-              </div>
-            </div>
-            <!-- Required booking questions from /api/availability, built by book2.js. -->
-            <div class="bk-details__grid" id="book-questions"></div>
-
-            <div class="bk-actions">
-              <p class="ibo-field__error" id="book-details-error" role="alert" hidden></p>
-              <button type="submit" class="ibo-modal__submit bk-submit" id="book-details-submit">Next: pick a time</button>
-            </div>
-          </form>
-          <p class="bk-quiet">Prefer email? <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a></p>
-        </div>
-
-        <!-- ---- Step 2: pick a time ---- -->
-        <div class="bk-col bk-col--wide bk-step-panel" id="book-step-pick" hidden>
+        <div class="bk-col bk-col--wide">
           <div class="bk-picker-head">
             <div>
               <p class="eyebrow">Schedule a confidential call</p>
@@ -409,19 +378,46 @@
             </div>
           </div>
 
+          <!-- Your details: opened by book2.js at Confirm only when something is missing, or from "Change". -->
+          <form class="bk-details" id="book-details-form" novalidate data-hs-do-not-collect="true" aria-labelledby="book-details-title" hidden>
+            <h2 class="bk-details__title" id="book-details-title">Your details</h2>
+            <p class="bk-details__slot" id="book-details-slot" aria-live="polite"></p>
+            <p class="bk-notice" id="book-details-notice" role="status" hidden></p>
+            <div class="bk-details__grid">
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-first">First name</label>
+                <input class="ibo-field__input" type="text" id="book-first" autocomplete="given-name" maxlength="100" required aria-describedby="book-first-error" />
+                <p class="ibo-field__error bk-field-error" id="book-first-error" hidden></p>
+              </div>
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-last">Last name</label>
+                <input class="ibo-field__input" type="text" id="book-last" autocomplete="family-name" maxlength="100" required aria-describedby="book-last-error" />
+                <p class="ibo-field__error bk-field-error" id="book-last-error" hidden></p>
+              </div>
+              <div class="ibo-field bk-details__full">
+                <label class="ibo-field__label" for="book-email">Email</label>
+                <input class="ibo-field__input" type="email" id="book-email" autocomplete="email" maxlength="254" required aria-describedby="book-email-error" />
+                <p class="ibo-field__error bk-field-error" id="book-email-error" hidden></p>
+              </div>
+            </div>
+            <!-- Required booking questions still unanswered, built by book2.js. -->
+            <div class="bk-details__grid" id="book-questions"></div>
+            <p class="ibo-field__error" id="book-details-error" role="alert" hidden></p>
+            <!-- Enter in a field confirms, like the button below. -->
+            <button type="submit" class="sr-only" tabindex="-1" aria-hidden="true">Confirm booking</button>
+          </form>
+
           <p class="bk-alert" id="book-failed" role="alert" hidden></p>
           <div class="bk-confirmbar">
             <button type="button" class="ibo-modal__submit" id="book-confirm" disabled>Choose a time</button>
             <p class="bk-confirmbar__note">The call is 30 minutes. The Zoom link is in the invitation.</p>
           </div>
           <p class="bk-quiet">Can&rsquo;t find a time that works? Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
-        </div>
 
-        <noscript>
-          <div class="bk-col">
+          <noscript>
             <p class="bk-quiet">The scheduler needs JavaScript. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
-          </div>
-        </noscript>
+          </noscript>
+        </div>
       </div>
     </section>
   </div>

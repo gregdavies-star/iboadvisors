@@ -283,6 +283,7 @@
           url.searchParams.set('email', email);
           url.searchParams.set('src', 'modal');
           url.searchParams.set('ebitda', ebitdaBand);
+          if (cellNumber) url.searchParams.set('phone', cellNumber);
           window.location.href = url.toString();
         } else {
           // Learn More Form - Unqualified Lead
