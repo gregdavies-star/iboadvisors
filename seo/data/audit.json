@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T19:13:54.320Z",
+  "generatedAt": "2026-11-05T19:18:09.616Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -307,10 +307,10 @@
       "description": "What private equity charges a portfolio company it owns: the monitoring fee, transaction fees, expenses, and the lump sum due when the sponsor exits.",
       "descriptionLength": 149,
       "h1": "Private Equity Management Fees: What You Pay",
-      "words": 2253,
-      "date": "2026-11-04",
+      "words": 2832,
+      "date": "2026-11-05",
       "inboundInternalLinks": 5,
-      "outboundInternalLinks": 10,
+      "outboundInternalLinks": 11,
       "issues": []
     },
     {
