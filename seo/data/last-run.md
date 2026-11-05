@@ -1,56 +1,42 @@
-# Daily SEO run — 2026-11-02
+# Daily SEO run — 2026-11-05
 
-> **Fold note (added when this run was folded into `claude/seo-work-qcfmfg`).**
-> — **Fourth consecutive run to write `/blog/quality-of-earnings-report`**, which has been on the open
-> branch since 10-29. The 2,245-word draft was dropped with its card, its `keywords.json` entry and all
-> three of its links; the keeper already carries four inbound links, including from two of the same donors.
-> — **Kept: the `/blog` hero anchor**, widened to carry "buyout companies" - the cannibalization row
-> between `/blog` (36 impressions at 23.0) and `/blog/types-of-buyouts` (2 at 35.0).
-> — **Both retitles dropped, and both decisions are now written into `seo/STRATEGY.md` section 8** so
-> the runs stop re-deciding them. The primer keeps "What Is a Private Equity Buyout? Meaning and
-> Mechanics": this run and the 10-31 run proposed the identical alternative, "Debt, Price, Payout", which
-> serves the same definitional rationale, but "Meaning" is an exact-token match for the page's largest
-> definitional row ("pe buyout meaning", 11 impressions at position 8.9). `/blog/types-of-buyouts` keeps
-> "7 Structures, and What Each Pays": this run and the 11-01 run both proposed "7 Types of Buyouts: LBO,
-> MBO, MBI, ESOP, Recap, IBO" on the stated ground that the acronyms are what the page's real queries use,
-> and **the page's own `pageQueries` rows do not support that** - 3 of the 88 impressions in its top 28
-> rows carry an acronym at all, and that row sits at position 62. The real queries are spelled out:
-> "types of buyouts" (21 at 13.1), "independent buyout", "leveraged buyout vs management buyout",
-> "secondary buyout meaning". Independent agreement between runs is evidence, but it can be checked.
-Retitled the two never-rewritten pages at the top of `lowCtr`. Published one new post on **quality of earnings reports**, the highest-priority uncovered keyword left in `keywords.json`, with three contextual inbound links. Audit clean: 36 pages, 0 errors, 0 warnings.
+Retitled the two `lowCtr` pages that had never been rewritten. Published one new post on **private equity management fees charged to portfolio companies**, the highest-priority uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 38 indexable pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-10-30 vs prior 28)
+## GSC totals (28 days to 2026-11-02 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 76 | 4,411 | 1.72% | 11.6 |
-| Prior | 72 | 3,992 | 1.80% | 13.9 |
+| Current | 75 | 4,793 | 1.56% | 11.3 |
+| Prior | 76 | 4,222 | 1.80% | 13.7 |
 
-Impressions +10.5%, position +2.3 places. CTR dipped because the added impressions sit in positions 10-20, not because snippets got worse.
+Impressions +13.5%, average position +2.4 places, clicks flat. The CTR dip is the new impressions arriving at positions 10–20.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/types-of-buyouts` | title + meta | lowCtr: 478 impr, 5 clicks (1.05%) at 8.8 vs 3.0% expected; never retitled. Title now fronts LBO/MBO/MBI/ESOP, the acronyms its real queries use. Dropped "who ends up in control" from the meta (standing rule 5). |
-| `/blog/private-equity-buyout-explained` | title + meta | lowCtr: 456 impr, 2 clicks (0.44%) at 15.3 vs 1.0%; never retitled. Top queries are definitional ("pe buyout meaning"), so the title is now a question and the meta carries the page's own $56M → ~$26M number. H1 unchanged. |
-| `/blog/quality-of-earnings-report` | **new post**, 2,245 words | Rule 7: last post was 2026-10-22. Four sources, all opened with WebFetch: Baker Tilly, DealLawyers.com on the SRS Acquiom 2026 PPA study, GF Data via Middle Market Growth, Gen Digital's credit agreement on EDGAR. Worked example explicitly invented. |
-| 3 posts | link | Rule 8: inbound links from `how-pe-firms-value-a-company`, `adjusted-ebitda-add-backs`, `how-to-sell-a-business-to-private-equity`, each on a sentence that already named a QoE. |
-| `/blog` | link | Rule 5: "buyout companies" splits /blog (36 impr @ 23.0) and `types-of-buyouts` (2 @ 35.0). Hero anchor now carries the query. |
+| `/blog/adjusted-ebitda-add-backs` | title + meta | lowCtr: 283 impr, 1 click (0.35%) at 12.8 vs 1.0% expected; never retitled. Its biggest query row is "which add-backs are **legitimate** when adjusting ebitda for a sale" (13 impr at 11.0) and the title had no form of that word. H1 and blog card unchanged. |
+| `/blog/earnout-in-business-sale` | title + meta | lowCtr: 112 impr, 0 clicks at 6.8 vs 3.0%; never retitled. Dropped the "\| IBO Advisors" suffix for the page's own sourced number (41% of earnouts pay nothing); the meta now leads with the 21-cents figure. |
+| `/blog/private-equity-management-fees-portfolio-companies` | **new post**, 2,359 words | Rule 7: one post in the trailing 7 days. Seven sources, all opened with WebFetch: three SEC press releases, the 2014 "Spreading Sunshine" speech, the Phalippou/Rauch/Umber JFE study via Harvard Law, ILPA Principles 3.0, Cleary on the Fifth Circuit vacatur. The $42M worked example is explicitly invented. Longer than the 1,200–2,000 guide. |
+| 2 posts | link | Rule 8 inbound donors: `what-happens-after-private-equity-buys-your-company` (already cited the same Blackstone release) and the cluster-5 hub `minority-pe-stake-board-control-veto-rights`. |
 
 ## Skipped
 
-All three rule-4 queries sit on `/blog/family-business-succession-planning`, which already has H2s named almost verbatim for two of them after six expansions (10-06 to 10-13) and runs 4,938 words; a seventh section would be padding. "types of buyouts" is inside its 14-day cool-down. Six other `lowCtr` pages are inside the 28-day title cool-down. The "ibo advisors" cannibalization row is a brand query with the homepage at position 1.
+**Rule 4:** "majority recapitalization" (21 impr at 13.9) sits on the page named for it — it already answers the query, so position 13.9 is a ranking problem, not a missing section. "types of buyouts" is inside its 14-day content cool-down (edited 10-26). The other three rows are `/blog`, the homepage, and `family-business-succession-planning`, which STRATEGY §8 closes to further succession/liquidity words.
+
+**Rule 3:** six `lowCtr` pages are inside the 28-day title cool-down. Two more — `sell-part-of-your-business-keep-control` (104 impr at 7.7) and `sell-a-business-but-keep-control` (170 impr at 6.1) — are deleted pages that 301 to `/blog/alternatives-to-selling-to-private-equity`; there is nothing on disk to retitle.
+
+**Rule 5:** "ibo advisors" is brand with the homepage at position 1. "buyout companies" was handled on 11-02. On "buyouts alternatives" and "types of buyouts" the intended winner already outranks `/blog` (1.8 vs 4.9; 13.1 vs 57.1). **Rule 6:** no decliners.
 
 ## Coverage
 
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed"). On-page causes are exhausted: ~3,950 words, FAQ block, 8 inbound links including the homepage. Expanded 10-21 and 10-24 with no change, so not expanded again. Both sibling industry pages PASS on thinner profiles — crawl budget, not the page.
+`/industries/restaurants` remains the only non-`PASS` URL ("Discovered - currently not indexed"), unchanged for three weeks. On-page causes are exhausted (~3,950 words, 9 in-links); not expanded again.
 
 ## For a human
 
-1. **Submit `/industries/restaurants` for indexing manually** — the one lever the job lacks.
-2. **"industry multiples database"**: 65 impr at position 43.9 on `/ebitda-multiples-by-industry`, the largest zero-click query. That is a ranking problem; four title rewrites in nine days moved nothing. Freeze the title for a month and point links at it.
-3. **"private equity accounting firm valuation" (21) + "...valuations" (20)**, positions 50-64, no page targeting them. Add to cluster 7 if you want it written.
+1. **Submit `/industries/restaurants` for indexing manually** — still the one lever the job lacks.
+2. **The two retired keep-control URLs draw 274 impressions at positions 6–8** and both 301 to `/blog/alternatives-to-selling-to-private-equity`. The queries behind them are partial-sale queries; confirm that is the right target, or point them at `/blog/minority-recapitalization-explained`.
+3. **"industry multiples database"**: 67 impr at 43.9 on `/ebitda-multiples-by-industry`, the largest zero-click query and unchanged. Title stays frozen as recommended on 11-02.
 4. `ahrefs-latest.json` still absent, so rule 7's volume/KD preference could not be applied.
 
 ## Flagged

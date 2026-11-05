@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T16:52:06.795Z",
+  "generatedAt": "2026-11-05T18:44:04.088Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
+      "inboundInternalLinks": 37,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,20 +23,20 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
-      "outboundInternalLinks": 34,
+      "inboundInternalLinks": 37,
+      "outboundInternalLinks": 35,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
-      "title": "Adjusted EBITDA Add-Backs: What Survives Diligence",
-      "titleLength": 50,
-      "description": "Adjusted EBITDA add-backs: which ones survive a buyer's diligence, what lenders cap them at, and what every rejected dollar costs at 7.3x.",
-      "descriptionLength": 138,
+      "title": "Adjusted EBITDA Add-Backs: Which Ones Are Legitimate",
+      "titleLength": 52,
+      "description": "Which EBITDA add-backs are legitimate when you sell a business: what survives a buyer's diligence, what lenders cap, and the 7.3x cost of each one struck.",
+      "descriptionLength": 154,
       "h1": "Adjusted EBITDA Add-Backs: What Survives Diligence",
       "words": 3182,
       "date": "2026-10-22",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -49,7 +49,7 @@
       "h1": "7 Alternatives to Selling to Private Equity",
       "words": 2239,
       "date": "2026-09-08",
-      "inboundInternalLinks": 18,
+      "inboundInternalLinks": 19,
       "outboundInternalLinks": 24,
       "issues": []
     },
@@ -62,7 +62,7 @@
       "h1": "Business Exit Planning: Every Option Explained (Sale, MBO, IBO, Succession)",
       "words": 1909,
       "date": "2025-12-20",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 19,
       "issues": []
     },
@@ -75,7 +75,7 @@
       "h1": "How to Choose an M&A Advisory Firm When You Have $3M+ in EBITDA",
       "words": 1870,
       "date": "2025-10-04",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -94,14 +94,14 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
-      "title": "Earnout in a Business Sale: What It Pays | IBO Advisors",
-      "titleLength": 55,
-      "description": "How an earnout in a business sale works, what the data says it pays - 41% of earnouts pay nothing - and the clauses that decide whether yours does.",
-      "descriptionLength": 147,
+      "title": "Earnout in a Business Sale: 41% Pay Nothing",
+      "titleLength": 43,
+      "description": "An earnout in a business sale pays about 21 cents on each dollar offered. How the four terms work, what the data shows, and which clauses to fight for.",
+      "descriptionLength": 151,
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 9,
+      "inboundInternalLinks": 10,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2163,
       "date": "2026-09-08",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -205,7 +205,7 @@
       "h1": "Independent Buyout vs. Private Equity: The Numbers-Based Comparison Every Owner Should See",
       "words": 1565,
       "date": "2026-04-09",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 8,
       "issues": []
     },
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 25,
+      "inboundInternalLinks": 26,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2115,
+      "words": 2162,
       "date": "2026-09-08",
-      "inboundInternalLinks": 19,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 20,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -298,6 +298,19 @@
       "date": "2026-10-04",
       "inboundInternalLinks": 9,
       "outboundInternalLinks": 16,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-companies",
+      "title": "Private Equity Management Fees on Portfolio Companies",
+      "titleLength": 53,
+      "description": "What private equity charges the company it buys: monitoring fees, transaction fees, and the acceleration clause that bills a decade of fees at once.",
+      "descriptionLength": 148,
+      "h1": "Private Equity Management Fees on Portfolio Companies",
+      "words": 2355,
+      "date": "2026-11-05",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 12,
       "issues": []
     },
     {
@@ -335,7 +348,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1736,
       "date": "2026-07-06",
-      "inboundInternalLinks": 22,
+      "inboundInternalLinks": 23,
       "outboundInternalLinks": 12,
       "issues": []
     },
@@ -411,10 +424,10 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2482,
+      "words": 2512,
       "date": "2026-09-12",
       "inboundInternalLinks": 13,
-      "outboundInternalLinks": 20,
+      "outboundInternalLinks": 21,
       "issues": []
     },
     {
@@ -426,7 +439,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 36,
+      "inboundInternalLinks": 37,
       "outboundInternalLinks": 9,
       "issues": []
     },
