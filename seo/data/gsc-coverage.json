@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-11-04T18:24:58.891Z",
+  "inspectedAt": "2026-11-05T18:28:36.051Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T10:27:43Z",
+      "lastCrawlTime": "2026-11-05T18:17:39Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
