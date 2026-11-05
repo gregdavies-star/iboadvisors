@@ -21,8 +21,9 @@
    blocks are dropped, never returned) live in ./_scheduler.js, shared with
    /api/partner-book (and with the public /book2 endpoints /api/availability
    and /api/book). This endpoint always reads LINKS.partner, Michael's
-   personal link, which no env var overrides, and keeps HubSpot's slot list
-   as is (no :00/:30 filter). The client never chooses which calendar it
+   personal link, which no env var overrides, and offers only :00 and :30
+   starts (halfHourOnly; HubSpot otherwise offers :15/:45 starts after a
+   meeting that ends at :15). The client never chooses which calendar it
    reads.
 
    Environment: IBO_HUBSPOT_SERVICE_KEY (HubSpot private app token with
@@ -62,7 +63,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { slots, hasMore } = await fetchAvailability(token, timezone, monthOffset, { slug: LINKS.partner.slug });
+    const { slots, hasMore } = await fetchAvailability(token, timezone, monthOffset, { slug: LINKS.partner.slug, halfHourOnly: true });
     return send(res, 200, { timezone, monthOffset, slots, hasMore });
   } catch (err) {
     const timedOut = err && (err.name === 'TimeoutError' || err.name === 'AbortError');

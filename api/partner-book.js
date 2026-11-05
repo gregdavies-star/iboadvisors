@@ -48,8 +48,9 @@
    Shared code: slugs (LINKS.partner here, which no env var overrides),
    availability re-check, input cleaning, origin check and the HubSpot
    response subset live in ./_scheduler.js, shared with /api/book (the
-   public /book2 page). This endpoint keeps HubSpot's full slot list (no
-   :00/:30 filter) and always books Michael's personal link.
+   public /book2 page). This endpoint always books Michael's personal link
+   and, like /api/book, accepts only :00 and :30 starts (halfHourOnly): a
+   :15/:45 start is refused with 409 slot_unavailable.
 
    Environment: IBO_HUBSPOT_SERVICE_KEY (HubSpot private app token).
    Every response is JSON with Cache-Control: no-store.
@@ -173,7 +174,7 @@ export default async function handler(req, res) {
   // 1. The slot must be open right now.
   let slot;
   try {
-    slot = await findSlot(token, value.timezone, value.startTime, now, { slug: SLUG });
+    slot = await findSlot(token, value.timezone, value.startTime, now, { slug: SLUG, halfHourOnly: true });
   } catch (err) {
     const timedOut = err && (err.name === 'TimeoutError' || err.name === 'AbortError');
     console.warn('[partner-book] availability check failed', { status: err && err.upstreamStatus ? err.upstreamStatus : null, timedOut });

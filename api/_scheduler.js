@@ -7,8 +7,10 @@
    deployed as a route of its own. Keep the underscore.
 
    Used by:
-     /api/partner-availability  open slots for /partnerschedule (partner link)
-     /api/partner-book          books a referral partner's client (partner link)
+     /api/partner-availability  open :00/:30 slots for /partnerschedule
+                                (partner link)
+     /api/partner-book          books a referral partner's client (partner link,
+                                :00/:30 starts only)
      /api/availability          open :00/:30 slots + booking questions for
                                 /book2, on the link the EBITDA band routes to
      /api/book                  books a /book2 visitor on that link
@@ -45,9 +47,9 @@
      - The link-details call (GET .../book/{slug}) needs ?timezone=; it
        answers 400 without it. Its customParams carry formFields (the
        booking questions) and startTimeIncrementMinutes.
-     - HubSpot offers :15/:45 starts after a meeting that ends at :15. The
-       /book2 endpoints pass halfHourOnly so only :00 and :30 starts are
-       offered or bookable. The partner endpoints keep HubSpot's list as is.
+     - HubSpot offers :15/:45 starts after a meeting that ends at :15. Every
+       endpoint (/book2's and the partner ones) passes halfHourOnly, so only
+       :00 and :30 starts are offered or bookable.
 
    Token scopes (IBO_HUBSPOT_SERVICE_KEY):
      scheduler.meetings.meeting-link.read   required (availability, link
