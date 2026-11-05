@@ -1,16 +1,17 @@
 /* ==========================================================================
    TEMPORARY DIAGNOSTIC, delete before merging.
 
-   GET /api/debug-busy?key=<last 8 chars of IBO_HUBSPOT_SERVICE_KEY>&link=team|michael&timezone=America/New_York
+   GET /api/debug-busy?key=<nonce>&link=team|michael&timezone=America/New_York
 
    Why: the round robin link offers times when Michael is booked, while his
    own link blocks them. HubSpot's availability-page response carries
    allUsersBusyTimes (per member: meetingsUser + busyTimes), which
    ./_scheduler.js drops. This returns a compact view of it so we can see
-   which members HubSpot thinks are busy, and when, on 2026-11-06.
+   which members HubSpot thinks are busy, and when, on 2026-11-05 and
+   2026-11-06.
 
-   Guarded by `key` (compared in constant time; wrong or missing -> 404, so
-   the route looks absent). Output never includes the token, and the user
+   Guarded by `key`, a fixed one-off nonce (DEBUG_KEY below), compared in
+   constant time; wrong or missing -> 404, so the route looks absent. Output never includes the token, and the user
    copy keeps only identity / calendar / offline-looking scalar fields
    (nothing whose name looks like a token, secret or key).
    ========================================================================== */
@@ -18,12 +19,13 @@
 import { timingSafeEqual } from 'node:crypto';
 import { LINKS, SCHEDULER_BASE, isValidTimeZone, send, queryParam } from './_scheduler.js';
 
-const DAY = '2026-11-06';
+const DAYS = { busyNov5: '2026-11-05', busyNov6: '2026-11-06' };
+const DEBUG_KEY = '19a987ff91b1c345b7766eccc71ebbbd';
 const KEEP_RE = /email|name|userid|^id$|calendar|offline|connect|provider|status|timezone|avail|active|sync|type|owner|team/i;
 const DROP_RE = /token|secret|key|password|auth|credential/i;
 
-function keyOk(given, token) {
-  const want = Buffer.from(token.slice(-8));
+function keyOk(given) {
+  const want = Buffer.from(DEBUG_KEY);
   const got = Buffer.from(String(given || ''));
   return got.length === want.length && timingSafeEqual(got, want);
 }
@@ -64,14 +66,15 @@ function localParts(t, tz) {
 }
 
 export default async function handler(req, res) {
-  const token = process.env.IBO_HUBSPOT_SERVICE_KEY;
-  if (req.method !== 'GET' || !token || !keyOk(queryParam(req, 'key'), token)) {
+  if (req.method !== 'GET' || !keyOk(queryParam(req, 'key'))) {
     return send(res, 404, { error: 'not_found' });
   }
   const link = queryParam(req, 'link') === 'michael' ? 'michael' : 'team';
   const rawTz = queryParam(req, 'timezone');
   const timezone = rawTz && isValidTimeZone(rawTz) ? rawTz : 'America/New_York';
   const slug = LINKS[link].slug;
+  const token = process.env.IBO_HUBSPOT_SERVICE_KEY;
+  if (!token) return send(res, 503, { error: 'not_configured' });
 
   let response;
   try {
@@ -98,14 +101,16 @@ export default async function handler(req, res) {
   const allUsersBusyTimes = entries.map((entry) => {
     const e = entry && typeof entry === 'object' ? entry : {};
     const busy = Array.isArray(e.busyTimes) ? e.busyTimes : [];
-    const busyNov6 = [];
+    const byDay = Object.fromEntries(Object.keys(DAYS).map((k) => [k, []]));
     for (const b of busy) {
       const s = ms(b && (b.start ?? b.startMillisUtc));
       const en = ms(b && (b.end ?? b.endMillisUtc));
       if (s === null || en === null) continue;
       const a = localParts(s, timezone);
       const z = localParts(en, timezone);
-      if (a.date === DAY || z.date === DAY) busyNov6.push(`${a.date === DAY ? a.hm : a.date + ' ' + a.hm}-${z.date === DAY ? z.hm : z.date + ' ' + z.hm}`);
+      for (const [k, day] of Object.entries(DAYS)) {
+        if (a.date === day || z.date === day) byDay[k].push(`${a.date === day ? a.hm : a.date + ' ' + a.hm}-${z.date === day ? z.hm : z.date + ' ' + z.hm}`);
+      }
     }
     return {
       meetingsUserKeys: Object.keys(e.meetingsUser || {}),
@@ -113,7 +118,8 @@ export default async function handler(req, res) {
       entryKeys: Object.keys(e),
       isOffline: e.isOffline,
       busyCount: busy.length,
-      busyNov6,
+      busyNov5: byDay.busyNov5,
+      busyNov6: byDay.busyNov6,
     };
   });
 
@@ -124,6 +130,7 @@ export default async function handler(req, res) {
     topLevelKeys: Object.keys(data),
     linkType: data.linkType,
     customParams,
+    availability: cp.availability !== undefined ? cp.availability : null, // in full
     allUsersBusyTimes,
   });
 }
