@@ -1,64 +1,32 @@
-# Daily SEO run — 2026-11-05
+# Daily SEO run — 2026-11-06
 
-> **Fold note (added when this run was folded onto a branch restarted from the merged `main`).** This run was
-> based on `f8f33bf`, before #72 merged, so it could not see yesterday's work. Four of its six changes were
-> dropped, and one of them mattered more than the usual duplicate:
-> — **It wrote `/blog/private-equity-management-fees-portfolio-companies` — PLURAL —** against the
-> `/blog/private-equity-management-fees-portfolio-company` that shipped yesterday. A slug differing by one
-> letter is not an add/add conflict, so **git would not have flagged it**, and merging would have put two
-> near-identical URLs live against each other. Dropped, with its blog card.
-> — Its `keywords.json` line would have **repointed the existing mapping** from the live singular URL to the
-> dead plural one. Main's mapping is kept.
-> — Its `/blog/what-happens-after-private-equity-buys-your-company` edit would have **replaced yesterday's
-> inbound link** with one pointing at the plural slug. Main's file is kept untouched.
-> — Its `/blog/minority-pe-stake-board-control-veto-rights` link was genuinely new, so it was applied by hand
-> onto main's current file with the anchor pointed at the live slug — not by taking the run's copy of the file.
-> — **Both retitles dropped.** #72 shipped new titles on `/blog/adjusted-ebitda-add-backs` and
-> `/blog/earnout-in-business-sale` yesterday; retitling either again a day later resets the measurement and
-> teaches us nothing. For the record, this run's add-backs title — "Which Ones Are Legitimate" — is the
-> better token match for that page's biggest query row ("which add-backs are legitimate when adjusting ebitda
-> for a sale", 13 impressions at 11.0) than the shipped "What Buyers and Lenders Allow". **It is the candidate
-> to try if the shipped title has not moved the CTR by 2026-12-04.** The earnout title it proposed, "41% Pay
-> Nothing", is all but identical to the shipped "Why 41% Pay Nothing" — independent convergence on the hook.
-Retitled the two `lowCtr` pages that had never been rewritten. Published one new post on **private equity management fees charged to portfolio companies**, the highest-priority uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 38 indexable pages, 0 errors, 0 warnings.
+Published one new post on **how long private equity holds a company**, the highest-priority uncovered keyword left in `keywords.json`, with three inbound links. Retitled the one `lowCtr` page outside its cool-down. Audit clean: 39 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-11-02 vs prior 28)
+## GSC totals (28 days to 2026-11-03 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 75 | 4,793 | 1.56% | 11.3 |
-| Prior | 76 | 4,222 | 1.80% | 13.7 |
+| Current | 70 | 4,906 | 1.43% | 11.2 |
+| Prior | 80 | 4,337 | 1.84% | 13.6 |
 
-Impressions +13.5%, average position +2.4 places, clicks flat. The CTR dip is the new impressions arriving at positions 10–20.
+Impressions +13.1%, position +2.4 places; clicks −12.5%, nearly all of it the homepage brand query.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/adjusted-ebitda-add-backs` | title + meta | lowCtr: 283 impr, 1 click (0.35%) at 12.8 vs 1.0% expected; never retitled. Its biggest query row is "which add-backs are **legitimate** when adjusting ebitda for a sale" (13 impr at 11.0) and the title had no form of that word. H1 and blog card unchanged. |
-| `/blog/earnout-in-business-sale` | title + meta | lowCtr: 112 impr, 0 clicks at 6.8 vs 3.0%; never retitled. Dropped the "\| IBO Advisors" suffix for the page's own sourced number (41% of earnouts pay nothing); the meta now leads with the 21-cents figure. |
-| `/blog/private-equity-management-fees-portfolio-companies` | **new post**, 2,359 words | Rule 7: one post in the trailing 7 days. Seven sources, all opened with WebFetch: three SEC press releases, the 2014 "Spreading Sunshine" speech, the Phalippou/Rauch/Umber JFE study via Harvard Law, ILPA Principles 3.0, Cleary on the Fifth Circuit vacatur. The $42M worked example is explicitly invented. Longer than the 1,200–2,000 guide. |
-| 2 posts | link | Rule 8 inbound donors: `what-happens-after-private-equity-buys-your-company` (already cited the same Blackstone release) and the cluster-5 hub `minority-pe-stake-board-control-veto-rights`. |
+| `/blog/private-equity-holding-period` | **new post**, 2,078 words | Rule 7: one post in the trailing 7 days. Cluster 5's last big uncovered term, and three posts lean on hold-length numbers with no page to point at. Five sources, each opened with WebFetch: Private Equity Info's 13,757-exit study (median 6.0 years, by industry), Bain's 2026 and midyear reports, PitchBook's 33,575-company exit queue via Penn Mutual, Lazard's interim 2026 secondaries report. Worked example invented. |
+| `/blog/dividend-recapitalization` | title + meta | lowCtr: 171 impressions, 1 click (0.58%) at position 15.1 vs 1.0% expected; never retitled since 10-18. Its winnable rows are definitional, at positions 6–10; the head term sits at 28.7, where no title helps. |
+| 3 posts + `/blog` | link, card | Rule 8 donors, each on a sentence already citing hold length: `rollover-equity-second-bite-explained`, `what-happens-after-private-equity-buys-your-company`, `dividend-recapitalization`. Two cards synced. |
 
 ## Skipped
 
-**Rule 4:** "majority recapitalization" (21 impr at 13.9) sits on the page named for it — it already answers the query, so position 13.9 is a ranking problem, not a missing section. "types of buyouts" is inside its 14-day content cool-down (edited 10-26). The other three rows are `/blog`, the homepage, and `family-business-succession-planning`, which STRATEGY §8 closes to further succession/liquidity words.
+**Rule 3** — the other 11 `lowCtr` pages are inside the 28-day cool-down. **Rule 4** — all six rows unavailable: succession (110 impr at 4.2) and types-of-buyouts (23 at 12.2) edited inside 14 days and covered by settled decisions; "ibo finance" (26 at 4.6) is homepage body copy; two rows rank `/blog`; "majority recapitalization" (22 at 13.8) edited 11-03. **Rule 5** — the `/blog` hero already links "types of buyouts, the buyout companies behind each one" to the winner. **Rule 6** — the homepage lost 22 clicks on a flat position (7.4): "ibo advisors" is 16 of them at position 1.0, on a SERP shared with the NYC Independent Budget Office and the International Baccalaureate, and "independent buyout" (18 impr at 4.3) is where our own `independentbuyout.com` also ranks. No on-page fault to fix.
 
-**Rule 3:** six `lowCtr` pages are inside the 28-day title cool-down. Two more — `sell-part-of-your-business-keep-control` (104 impr at 7.7) and `sell-a-business-but-keep-control` (170 impr at 6.1) — are deleted pages that 301 to `/blog/alternatives-to-selling-to-private-equity`; there is nothing on disk to retitle.
+## Coverage and for a human
 
-**Rule 5:** "ibo advisors" is brand with the homepage at position 1. "buyout companies" was handled on 11-02. On "buyouts alternatives" and "types of buyouts" the intended winner already outranks `/blog` (1.8 vs 4.9; 13.1 vs 57.1). **Rule 6:** no decliners.
-
-## Coverage
-
-`/industries/restaurants` remains the only non-`PASS` URL ("Discovered - currently not indexed"), unchanged for three weeks. On-page causes are exhausted (~3,950 words, 9 in-links); not expanded again.
-
-## For a human
-
-1. **Submit `/industries/restaurants` for indexing manually** — still the one lever the job lacks.
-2. **The two retired keep-control URLs draw 274 impressions at positions 6–8** and both 301 to `/blog/alternatives-to-selling-to-private-equity`. The queries behind them are partial-sale queries; confirm that is the right target, or point them at `/blog/minority-recapitalization-explained`.
-3. **"industry multiples database"**: 67 impr at 43.9 on `/ebitda-multiples-by-industry`, the largest zero-click query and unchanged. Title stays frozen as recommended on 11-02.
-4. `ahrefs-latest.json` still absent, so rule 7's volume/KD preference could not be applied.
+`/industries/restaurants` remains the only non-`PASS` URL ("Discovered — currently not indexed"); expanded 10-21 and 10-24 with no effect, so it got a fresh inbound link from today's new page instead. **Submit it for indexing manually** — still the one lever the job lacks. `ahrefs-latest.json` is absent again, so rule 7's volume/KD preference could not be applied.
 
 ## Flagged
 
-Nothing. No source or opportunity row asked for deal specifics this run.
+Two published pages still say an owner can sell and "still keep control" — `/blog/rollover-equity-second-bite-explained` (the 11-04 flag, re-checked, still present) and `/blog/selling-to-private-equity-pros-and-cons`. Standing rule 5 forbids it, but the audit of existing posts is pending your approval, so they are reported, not edited. Nothing asked for deal specifics.
