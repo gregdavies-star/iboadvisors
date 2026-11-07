@@ -1,40 +1,39 @@
-# Daily SEO run — 2026-11-04
+# Daily SEO run — 2026-11-07
 
-Retitled the two `lowCtr` pages still outside their cool-down. Published one new post on **what private equity charges a portfolio company**, the highest-priority uncovered keyword left in `keywords.json`, with three inbound links. Audit clean: 38 pages, 0 errors, 0 warnings.
+Published one new post on **how long private equity holds a company**, the highest-priority uncovered keyword left in `keywords.json`, with three inbound links. Retitled the only `lowCtr` page outside its cool-down. Audit clean: 39 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-11-01 vs prior 28)
+## GSC totals (28 days to 2026-11-04 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 79 | 4,639 | 1.70% | 11.4 |
-| Prior | 72 | 4,113 | 1.75% | 14.0 |
+| Current | 72 | 5,056 | 1.42% | 11.0 |
+| Prior | 79 | 4,285 | 1.84% | 13.2 |
 
-Clicks +9.7%, impressions +12.8%, position +2.6 places. CTR is flat because the added impressions land at positions 10-20.
+Impressions +18.0% and position +2.2 places, clicks −8.9%. The lost clicks are almost all the homepage (37 vs 55) at an unchanged position 7.3 on fewer impressions — demand, not a snippet fault.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/earnout-in-business-sale` | title + meta | lowCtr: 104 impr, **0 clicks at position 6.9** vs 3.0% expected; never retitled, and 15 of 55 characters went to the brand suffix. Title now carries the page's sourced 41%; the meta takes what it displaced (~21 cents realised, 28% contested). |
-| `/blog/adjusted-ebitda-add-backs` | title + meta | lowCtr: 238 impr, 1 click (0.42%) at 13.0 vs 1.0%. Its biggest query rows ask about legitimacy ("which add-backs are legitimate when adjusting ebitda for a sale", 11 impr at 12.8; "ebitda adjustments", 7), so title and meta now use that wording. |
-| `/blog/private-equity-management-fees-portfolio-company` | **new post**, 2,067 words | Rule 7: one post in the trailing 7 days. Six sources, all opened with WebFetch — the KKR / Renaissance Parent monitoring agreement and its 2017 termination agreement ($16,227,089 at IPO), Biomet's 8-K, Bowden's 2014 OCIE speech, the SEC's Blackstone and Apollo orders. Worked example invented. |
-| 3 posts + `/blog` | link, card | Rule 8 donors, each on a sentence already naming a monitoring fee: `what-happens-after-private-equity-buys-your-company`, `rollover-equity-second-bite-explained`, `how-private-equity-actually-finances-a-buyout`. Two card excerpts synced. |
+| `/blog/private-equity-holding-period` | **new post**, 2,231 words | Rule 7: one post in the trailing 7 days. Four sources, all opened with WebFetch — Private Equity Info's 13,757-exit study (6.0-year median, nine-sector table), Bain's GPE Report 2026 (32,000 unsold companies at $3.8tn, 40% held past five years), Goodwin on fund terms and extension consents, Jefferies on $115bn of GP-led secondaries. Worked example invented and re-derived. |
+| `/blog/how-private-equity-actually-finances-a-buyout` | title + meta | lowCtr: 116 impr, 2 clicks (1.72%) at position 9.0 vs 3.0% expected; last retitled 09-08. 15 of 51 title characters went to the brand suffix. New meta carries the page's own $42M worked deal. |
+| 3 posts + `/blog` | link, card | Rule 8 donors, each on a sentence already naming the hold clock: `what-happens-after-private-equity-buys-your-company`, `rollover-equity-second-bite-explained`, `minority-pe-stake-board-control-veto-rights`. One card excerpt synced. |
 
 ## Skipped
 
-**Rule 4** — all five rows unavailable: succession (123 impr at 6.0) and types-of-buyouts (21 at 13.1) in cool-down; "ibo finance" (25 at 4.6) is homepage body copy; "owner buyout" (31 at 12.1) ranks the blog index; "majority recapitalization" (20 at 13.9) is already answered in its opening section. **Rule 3** — the 112- and 159-impression keep-control rows are **301s to `/blog/alternatives-to-selling-to-private-equity`**, so there is no page to retitle; six other rows in cool-down. **Rule 5** — 11-02 already widened the `/blog` hero anchor. **Rule 6** — no decliners.
+**Rule 3** — the other eleven `lowCtr` rows are inside the 28-day cool-down (retitled 10-12 to 11-04). **Rule 4** — all six rows blocked: four pages edited inside 14 days; "ibo finance" is homepage body copy; "owner buyout" and "buyouts alternatives" rank the blog index. **Rule 5** — "ibo advisors" is brand; the three real rows resolve to `/blog/types-of-buyouts`, linked from the `/blog` hero since 11-02. **Rule 6** — `/blog/what-happens-after-private-equity-buys-your-company` lost 2 clicks but *gained* 3.8 positions; given the new inbound link, not rewritten.
 
 ## Coverage
 
-`/industries/restaurants` is still the only non-`PASS` URL. Re-checked on disk: 3,954 words, no `noindex`, correct canonical, 9 inbound links. Expanded 10-21 and 10-24 with no effect, so not expanded again.
+`/industries/restaurants` is still the only non-`PASS` URL, and today returned "URL is unknown to Google" rather than "Discovered — currently not indexed". It flipped the same way on 10-13 and flipped back; treat it as API noise. On disk: no `noindex`, correct canonical, 9 inbound links. Four expansions have not moved it, so not expanded again.
 
 ## For a human
 
-1. **Submit `/industries/restaurants` for indexing manually** — the one lever the job lacks.
-2. "industry multiples database", 67 impr at 43.9 on `/ebitda-multiples-by-industry`: a ranking problem, not a snippet one. Keep the title frozen; point links at it.
-3. "private equity accounting firm valuation"/"...valuations", 20 each at positions 53-64, untargeted. Add to cluster 7 if you want it written.
+1. **Submit `/industries/restaurants` for indexing manually** — still the one lever the job lacks.
+2. "industry multiples database", 68 impr at 43.6 on `/ebitda-multiples-by-industry`: ranking, not snippet. Title stays frozen.
+3. "private equity accounting firm valuation"/"…valuations", 17 and 16 impr at positions 52–64, untargeted. Add to cluster 7 if you want it written.
 4. `ahrefs-latest.json` absent, so rule 7's volume/KD preference could not be applied.
 
 ## Flagged
 
-`/blog/rollover-equity-second-bite-explained` has published copy implying an owner keeps control after a sale ("how much of a business you can sell and still keep control turns on the board composition and the consent list"). Standing rule 5 forbids it, but the audit of existing posts is pending your approval, so it is reported, not edited. Nothing asked for deal specifics.
+`/blog/rollover-equity-second-bite-explained` still carries copy implying an owner keeps control after a sale ("how much of a business you can sell and still keep control turns on the board composition and the consent list"). Re-checked on disk today, so not a stale flag. Standing rule 5 forbids it, but the audit of existing posts awaits your approval, so it is reported, not edited. Nothing asked for deal specifics.
