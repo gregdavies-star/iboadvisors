@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-06T17:50:09.512Z",
+  "inspectedAt": "2026-11-07T16:46:00.940Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -40,7 +40,7 @@
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
+      "coverageState": "URL is unknown to Google",
       "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
       "indexingState": "INDEXING_STATE_UNSPECIFIED"
     },
@@ -228,7 +228,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T18:19:21Z",
+      "lastCrawlTime": "2026-11-06T22:03:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -318,7 +318,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T08:53:12Z",
+      "lastCrawlTime": "2026-11-06T19:33:03Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T21:54:54.836Z",
+  "generatedAt": "2026-11-07T21:52:32.772Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -159,10 +159,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
-      "title": "How Private Equity Finances a Buyout | IBO Advisors",
-      "titleLength": 51,
-      "description": "Private equity funds most of a buyout with debt placed on the company being acquired, not its own cash. How the mechanics work, and what it costs you.",
-      "descriptionLength": 150,
+      "title": "How Private Equity Finances a Buyout: Your Company Borrows",
+      "titleLength": 58,
+      "description": "How private equity finances a buyout: in a worked $42M deal the fund puts in 36%, and debt placed on the company takes two-thirds of its EBITDA.",
+      "descriptionLength": 144,
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2194,
       "date": "2026-09-08",
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2160,
+      "words": 2194,
       "date": "2026-09-08",
       "inboundInternalLinks": 21,
-      "outboundInternalLinks": 15,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -309,7 +309,7 @@
       "h1": "Private Equity Holding Period: Median 6 Years and Rising",
       "words": 2090,
       "date": "2026-11-06",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 14,
       "issues": []
     },
