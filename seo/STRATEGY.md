@@ -218,6 +218,19 @@ The state at the moment of the request, so the next run can tell whether it work
 | Inbound in-body links | 10 | 8 |
 | Impressions (28 days to 11-06) | **none - absent from the page table** | 53 at position 6.9 |
 
+**The request was submitted on 2026-11-10** and Search Console returned "Indexing
+requested - URL was added to a priority crawl queue." The URL Inspection panel at that
+moment showed every crawl field as **N/A** - Crawl allowed, Page fetch, Indexing allowed,
+User-declared canonical and Google-selected canonical - with "View crawled page" greyed
+out. That is independent confirmation of the diagnosis: there is no crawl on record at
+all, so this cannot be a `noindex`, a robots block or a canonical pointing elsewhere. The
+page has simply never been fetched.
+
+Search Console's own dialog states that "Submitting a page multiple times will not change
+its queue position or priority", so **a third request is pointless**. If this one does not
+take, the next lever is an internal link from a frequently crawled page, not another
+submission.
+
 **The signal that matters is a `lastCrawlTime` appearing at all**, not the
 `coverageState` string, which has flipped repeatedly between "Discovered - currently not
 indexed" and "URL is unknown to Google" and whose neither state has held. Report the
