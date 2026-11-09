@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T21:49:38.202Z",
+  "generatedAt": "2026-11-09T21:49:27.632Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -276,10 +276,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
-      "title": "Minority Recapitalization: Sell 30%, Keep 70% | IBO Advisors",
-      "titleLength": 60,
-      "description": "A minority recapitalization sells 20-49% of your company for cash while you keep the majority and the board. What a 30% slice really pays, after discounts.",
-      "descriptionLength": 155,
+      "title": "Minority Recapitalization: What Selling 30% Actually Pays",
+      "titleLength": 57,
+      "description": "A minority recapitalization sells a 20-49% stake for cash. On a $35M company a 30% slice looks like $10.5M - here is what it pays after discounts.",
+      "descriptionLength": 146,
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1917,
       "date": "2026-09-08",
@@ -512,7 +512,6 @@
   "noindexed": [
     "/approach",
     "/book",
-    "/book2",
     "/ibo-exit",
     "/ibo-exit2",
     "/partnerschedule",
