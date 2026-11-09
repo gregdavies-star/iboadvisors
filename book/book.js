@@ -21,6 +21,9 @@
                the time in the visitor's time zone, then the steps before
                the call (booked, the calendar invitation with calendar
                fallbacks, and an optional note for the host).
+               After a successful booking, and only then, the visitor's
+               ibo_meeting_* attribution is posted to the "Meeting booked
+               (attribution)" form, fire-and-forget (sendMeetingAttribution).
 
    URL params: firstName, lastName, email (prefill); phone (the Learn More
    modal's cell number; answers a phone question); ebitda (the band
@@ -58,6 +61,15 @@
   // email and a task.
   var HUBSPOT_PORTAL_ID = '245308986';
   var PRECALL_NOTE_FORM_GUID = 'a86c0176-58e8-437b-9474-f38bddd0a0a0';
+
+  // Meeting-level attribution. The Scheduler API cannot carry utm_* or the
+  // ibo_meeting_* answers the old hosted page read off its URL, so after a
+  // booking the visitor's IBO Meeting * values (window.iboTracking
+  // .meetingFields(), from the stored touch) go to this form with the email
+  // and nothing else: the "Meeting booked (attribution)" HubSpot form
+  // (fields: email, ibo_meeting_source / _medium / _campaign / _content /
+  // _uuid / _landing_url, ibo_meeting_timestamp as a date). Empty skips it.
+  var MEETING_ATTRIBUTION_FORM_GUID = 'f0bfe61a-4201-4758-912c-489637fcedc6';
 
   // The round-robin hosts, keyed by lower-case email. userId is the HubSpot
   // owner/user id. Every host-specific string on the confirmation (name,
@@ -1572,6 +1584,33 @@
     forcedMissing = [];
     saveBooking(booking);
     renderConfirmation(booking, true);
+    sendMeetingAttribution(booking.email);
+  }
+
+  /* Post the meeting attribution (see MEETING_ATTRIBUTION_FORM_GUID). Called
+     only after /api/book confirmed the booking and the confirmation is on
+     screen. Fire-and-forget: never blocks or delays anything, never shows an
+     error, never throws. Sends the email and the ibo_meeting_* fields only (no
+     names, phone or booking details), with enrich:false so submitForm does not
+     add the IBO Form * fields this form does not have. Skipped when the GUID
+     is empty or the visitor has no stored attribution. */
+  function sendMeetingAttribution(email) {
+    try {
+      if (!MEETING_ATTRIBUTION_FORM_GUID || !EMAIL_RE.test(email || '')) return;
+      if (!tracking || typeof tracking.meetingFields !== 'function' || typeof tracking.submitForm !== 'function') return;
+      var fields = (tracking.meetingFields() || []).filter(function (f) {
+        return f && typeof f.name === 'string' && f.name.indexOf('ibo_meeting_') === 0 && f.value;
+      });
+      if (!fields.length) return;
+      var sending = tracking.submitForm(HUBSPOT_PORTAL_ID, MEETING_ATTRIBUTION_FORM_GUID,
+        [{ name: 'email', value: email }].concat(fields), { enrich: false });
+      if (!sending || typeof sending.then !== 'function') return;
+      sending.then(function () {
+        track('meeting_attribution_sent', { src: SRC, fields: fields.length });
+      }, function () {
+        track('meeting_attribution_failed', { src: SRC });
+      });
+    } catch (e) {}
   }
 
   /* ------------------------------------------------------------------
