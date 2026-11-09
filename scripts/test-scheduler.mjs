@@ -15,6 +15,7 @@ process.env.IBO_HUBSPOT_SERVICE_KEY = 'test-token';
 const sched = await import('../api/_scheduler.js');
 const book = await import('../api/book.js');
 const partnerBook = await import('../api/partner-book.js');
+const partnerAvailability = await import('../api/partner-availability.js');
 const availability = await import('../api/availability.js');
 const { extractSlots, linkForBand, fetchLinkDetails, findContactBand, EBITDA_BANDS, LINK_BANDS, CONTACT_BANDS, LINKS, EBITDA_PROPERTY } = sched;
 
@@ -391,7 +392,7 @@ await test('partner-book still rejects a coarse band', () => {
 
 // ---- partner endpoints unchanged ----
 const partnerBody = (extra = {}) => ({
-  startTime: base + 15 * MIN, timezone: 'America/Chicago',
+  startTime: base, timezone: 'America/Chicago',
   client: { firstName: 'Jane', lastName: 'Doe', email: 'jane@example.com', ...(extra.client || {}) },
   partner: { name: 'Pat Partner', email: 'pat@example.com', cell: '' },
   ebitdaBand: '$3M - $5M',
@@ -399,11 +400,27 @@ const partnerBody = (extra = {}) => ({
 });
 function partnerFetch() {
   useFetch([
-    [isAvailability, () => jsonResponse(200, availabilityBody([base + 15 * MIN]))],
+    [isAvailability, () => jsonResponse(200, availabilityBody([base, base + 15 * MIN]))],
     [isBookPost, () => jsonResponse(200, { postResponse: { organizer: { email: 'michael@iboadvisors.com' } } })],
   ]);
 }
-await test('partner-book books a :15 start on the partner link without client phone or industry', async () => {
+await test('partner-book refuses a :15 start with 409, like /api/book', async () => {
+  partnerFetch();
+  const res = fakeRes();
+  await partnerBook.default(fakeReq(partnerBody({ top: { startTime: base + 15 * MIN } })), res);
+  assert.equal(res.statusCode, 409, res.raw);
+  assert.equal(res.json.error, 'slot_unavailable');
+  assert.ok(!calls.some((c) => c.method === 'POST'));
+});
+await test('partner-availability drops :15/:45 slots', async () => {
+  useFetch([[isAvailability, () => jsonResponse(200, availabilityBody([base, base + 15 * MIN, base + 30 * MIN, base + 45 * MIN, base + 60 * MIN]))]]);
+  const res = fakeRes();
+  await partnerAvailability.default({ method: 'GET', url: '/api/partner-availability?timezone=America%2FChicago&monthOffset=0' }, res);
+  assert.equal(res.statusCode, 200, res.raw);
+  assert.deepEqual(res.json.slots.map((s) => s.start), [base, base + 30 * MIN, base + 60 * MIN]);
+  assert.ok(calls[0].url.includes(encodeURIComponent('michael-chasen/ibo-discussion')));
+});
+await test('partner-book books a :00 start on the partner link without client phone or industry', async () => {
   partnerFetch();
   const res = fakeRes();
   await partnerBook.default(fakeReq(partnerBody()), res);

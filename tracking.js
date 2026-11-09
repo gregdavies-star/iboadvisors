@@ -471,11 +471,16 @@
      error cannot be attributed to a specific field, all enrichment goes, on
      the principle that a lead with no attribution beats no lead. A failure
      that survives the retry is reported to the caller, so the form still
-     shows its own error message. */
+     shows its own error message.
+
+     options.enrich === false sends `fields` as given, without the IBO Form *
+     attribution: for a form that does not carry those fields (the /book
+     "Meeting booked (attribution)" form), where adding them would only earn
+     a 400 and a retry. */
   function submitForm(portalId, formGuid, fields, options) {
     var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid;
     var context = (options && options.context) || formContext();
-    var all = fields.concat(utmFields());
+    var all = options && options.enrich === false ? fields.slice() : fields.concat(utmFields());
 
     function post(body) {
       return fetch(url, {
@@ -546,7 +551,14 @@
          matching field is ignored, so this is safe either way.
 
      Stored params are used when the current URL has none, which is the normal
-     case by the time someone reaches the scheduler. */
+     case by the time someone reaches the scheduler.
+
+     Since /book stopped embedding the hosted scheduling page (it books
+     through the Scheduler API), HubSpot no longer reads these off the URL.
+     /book posts the IBO Meeting * values itself after a booking, to the
+     "Meeting booked (attribution)" form (see book/book.js). The params still
+     carry the uuid across the hand-off, which keeps the /book load from
+     being recorded as a new touch (isSchedulerHandoff above). */
   function withUtms(url) {
     var params = utmParams();
     Object.keys(params).forEach(function (key) { url.searchParams.set(key, params[key]); });

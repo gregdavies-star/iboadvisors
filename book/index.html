@@ -29,14 +29,17 @@
 <link rel="stylesheet" href="/style.css" />
 <style>
 /* ==========================================================================
-   /book - on-site meeting scheduler (page-scoped styles, bk-*).
-   Full site header and footer, but no modal.js (the visitor has already
-   qualified, and modal.js fires conversions on timers): the Contact and
-   Learn More triggers are plain links, and book.js wires the mobile menu.
-   noindex. Embeds the HubSpot scheduler (State 1) and swaps to an
-   IBO-styled confirmation (State 2) when the iframe reports a booking.
-   Behaviour lives in /book/book.js, which fills every data-host node from
-   the host the round robin booked.
+   /book - on-site meeting scheduler (page-scoped styles, bk-*). Every
+   scheduler hand-off on the site and in the nurture emails lands here;
+   noindex, nofollow. Full site header and footer, but no modal.js (the
+   visitor has already qualified, and modal.js fires conversions on timers):
+   book.js wires the mobile menu. State 1 is our own picker over
+   /api/availability (a month calendar with the time zone select under it,
+   start times beside it), shown first, with a "Your details" block under
+   the chosen time only when the name, email or a required question is
+   missing; State 2 is the IBO-styled confirmation, booked through
+   /api/book. Behaviour lives in /book/book.js, which fills every data-host
+   node from the host the booking landed on.
    ========================================================================== */
 
 .bk-col { max-width: var(--content-narrow); margin-inline: auto; }
@@ -52,15 +55,6 @@
 .bk-quiet a, .bk-link { color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; }
 .bk-quiet a:hover, .bk-link:hover { color: var(--color-gold); }
 
-/* ---- State 1: the embed. Light border, no card chrome, so HubSpot's own
-   white panel sits flush. The container reserves HubSpot's default iframe
-   height so the layout does not jump while the iframe loads. ---- */
-.bk-scheduler {
-  margin-top: var(--space-8); min-height: 756px;
-  border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;
-  background: var(--color-white);
-}
-.bk-scheduler iframe { display: block; width: 100%; }
 .bk-alert {
   margin-top: var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
   background: #fee2e2; color: #991b1b; font-size: var(--text-sm);
@@ -211,14 +205,137 @@
   .bk-cover { padding: var(--space-16) 0 var(--space-12); }
   .bk-cover__grid li { padding: var(--space-6); }
 }
-/* 16px gutters on phones so HubSpot's 312px minimum iframe width fits.
+/* 16px gutters on phones, as on /partnerschedule.
    Scoped to main so the site footer keeps its usual gutter. */
 @media (max-width: 480px) {
   .bk-page main .container { padding-inline: var(--space-4); }
 }
+
+/* ---- Inline "Your details" block: opens under the picker,
+   above the Confirm button, only when something is missing. ---- */
+.bk-col--wide { max-width: var(--content-default); }
+.bk-details {
+  margin-top: var(--space-6); max-width: 760px; padding: var(--space-6) var(--space-8) var(--space-4);
+  border: 1px solid var(--color-border); border-top: 2px solid var(--color-gold); border-radius: 2px; background: var(--color-white);
+}
+.bk-details[hidden] { display: none; }
+.bk-details__title { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: clamp(1.2rem, 1rem + 0.6vw, 1.5rem); line-height: 1.3; }
+.bk-details__slot { margin: var(--space-2) 0 var(--space-5); font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); }
+.bk-details__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-6); }
+.bk-details__full { grid-column: 1 / -1; }
+.bk-details > .ibo-field__error { margin: 0 0 var(--space-4); }
+.bk-field-error { margin: 0.5rem 0 0; padding: 0.45rem 0.75rem; font-size: var(--text-xs); line-height: 1.5; }
+.bk-field-error[hidden], .bk-details .ibo-field__error[hidden], .bk-notice[hidden], .bk-who[hidden] { display: none; }
+.ibo-field__input[aria-invalid="true"] { border-color: #b91c1c; }
+.ibo-field__input[aria-invalid="true"]:focus { box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2); }
+.bk-notice {
+  margin: 0 0 var(--space-5); padding: var(--space-3) var(--space-4); border-radius: 6px;
+  background: var(--color-cream-soft); border: 1px solid var(--color-border-cream);
+  color: var(--color-navy); font-size: var(--text-sm); line-height: 1.6;
+}
+
+/* ---- Pick a time (the /partnerschedule picker, bk-*): a month calendar
+   with the time zone select under it on the left, start times on the right.
+   Stacks calendar-above-times at <=860px. ---- */
+.bk-picker-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: var(--space-4) var(--space-8); }
+.bk-tz { margin: var(--space-5) 0 0; min-width: 0; }
+.bk-tz .ibo-field__select { width: 100%; min-width: 0; max-width: 100%; }
+.bk-tz .ibo-field__label { margin-bottom: 0.35rem; }
+.bk-who { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted); overflow-wrap: anywhere; }
+.bk-who strong { color: var(--color-navy); }
+.bk-change { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--color-navy); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.bk-change:hover { color: var(--color-gold); }
+.bk-picker {
+  display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 0;
+  margin-top: var(--space-6); border: 1px solid var(--color-border); border-radius: 2px; background: var(--color-white);
+  min-height: 380px;
+}
+.bk-picker__cal { border-right: 1px solid var(--color-border); padding: var(--space-6); min-width: 0; }
+.bk-picker__times { padding: var(--space-6) var(--space-8); min-width: 0; }
+.bk-picker__label {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-gold); margin: 0 0 var(--space-3);
+}
+
+/* Month calendar: month name between arrows, SUN..SAT, one cell per day.
+   Open days are bold navy buttons; closed days are faint and inert; the
+   chosen day is a filled navy circle; today carries a small gold dot. */
+.bk-calendar__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-3); }
+.bk-calendar__month { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem); color: var(--color-navy); margin: 0; line-height: 1.3; text-align: center; flex: 1 1 auto; }
+.bk-calendar__nav {
+  flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-white);
+  color: var(--color-navy); display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.bk-calendar__nav svg { width: 16px; height: 16px; }
+.bk-calendar__nav:hover:not(:disabled) { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-calendar__nav:disabled { opacity: 0.35; cursor: default; }
+.bk-calendar__grid { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.bk-calendar__grid th {
+  font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-faint); text-align: center; padding: 0 0 var(--space-2);
+}
+.bk-calendar__grid td { text-align: center; padding: 2px 0; height: 44px; }
+.bk-calday {
+  position: relative; width: 40px; height: 40px; margin: 0 auto; border-radius: 50%; border: 1px solid transparent;
+  display: flex; align-items: center; justify-content: center; padding: 0; background: transparent;
+  font-family: var(--font-body); font-size: var(--text-sm); font-variant-numeric: tabular-nums; line-height: 1;
+}
+button.bk-calday { color: var(--color-navy); font-weight: 700; cursor: pointer; background: #f6efe5; transition: background var(--transition-interactive), border-color var(--transition-interactive); }
+button.bk-calday:hover { border-color: var(--color-gold); background: #efe3d2; }
+button.bk-calday[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+span.bk-calday { color: #b9b4aa; font-weight: 400; }
+.bk-calday.is-today::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--color-gold);
+}
+.bk-calendar__note { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; min-height: 1.5em; }
+.bk-calendar__note:empty { min-height: 0; margin: 0; }
+
+.bk-time {
+  width: 100%; font-family: var(--font-body); color: var(--color-navy); background: var(--color-white);
+  border: 1px solid #d1d5db; border-radius: 6px; cursor: pointer;
+  transition: border-color var(--transition-interactive), background var(--transition-interactive);
+}
+.bk-time:hover { border-color: var(--color-gold); background: #fbf8f4; }
+.bk-time[aria-pressed="true"] { background: var(--color-navy); border-color: var(--color-navy); color: var(--color-white); }
+.bk-times { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; }
+.bk-time { padding: 0.7rem 0.5rem; text-align: center; font-size: var(--text-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
+.bk-times__date { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem); color: var(--color-navy); margin: 0 0 var(--space-4); line-height: 1.3; }
+.bk-status { padding: var(--space-10) var(--space-4); text-align: center; }
+.bk-status[hidden] { display: none; }
+.bk-status p { margin: 0 auto; max-width: 48ch; }
+.bk-status a, .bk-alert a { text-decoration: underline; }
+.bk-status .bk-retry { margin-top: var(--space-4); }
+.bk-spinner {
+  display: block; width: 28px; height: 28px; margin: 0 auto var(--space-4); border-radius: 50%;
+  border: 3px solid rgba(169, 128, 74, 0.25); border-top-color: var(--color-gold); animation: bk-spin 0.9s linear infinite;
+}
+.bk-spinner[hidden], .bk-retry[hidden] { display: none; }
+@keyframes bk-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .bk-spinner { animation-duration: 3s; } }
+.bk-times-panel[hidden] { display: none; }
+.bk-confirmbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-top: var(--space-6); }
+.bk-confirmbar .ibo-modal__submit { width: auto; padding: var(--space-4) var(--space-8); }
+.bk-confirmbar__note { margin: 0; font-size: var(--text-sm); color: var(--color-text-faint); }
+.bk-alert { line-height: 1.6; }
+
+@media (max-width: 860px) {
+  .bk-picker { grid-template-columns: 1fr; }
+  .bk-picker__cal { border-right: 0; border-bottom: 1px solid var(--color-border); }
+  .bk-calendar, .bk-tz { max-width: 460px; margin-inline: auto; }
+}
+@media (max-width: 560px) {
+  .bk-details { padding: var(--space-5) var(--space-5) var(--space-2); }
+  .bk-details__grid { grid-template-columns: 1fr; }
+  .bk-confirmbar .ibo-modal__submit { width: 100%; min-width: 0; }
+  .bk-picker__cal, .bk-picker__times { padding: var(--space-5); }
+  .bk-picker__cal { padding-inline: var(--space-3); }
+  .bk-times { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .bk-time { padding: 0.7rem 0.25rem; }
+}
 </style>
-<!-- HubSpot tracking code (portal 245308986, NA2). Sets the hubspotutk cookie,
-     which the meetings embed passes to the iframe as parentHubspotUtk. -->
+<!-- HubSpot tracking code (portal 245308986, NA2). Page-view analytics and
+     the hubspotutk cookie for the pre-call note's Forms API submission. -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245308986.js"></script>
 </head>
 <body class="bk-page">
@@ -244,23 +361,110 @@
 
 <main id="top">
 
-  <!-- ================= STATE 1: SCHEDULING ================= -->
+  <!-- ================= STATE 1: SCHEDULING =================
+       The picker first, always (the same flow as /book's embed), over
+       /api/availability. At Confirm, a "Your details" block opens under the
+       chosen time only when the name, email or a required booking question
+       is missing. Inputs carry no name attributes and the form opts out of
+       HubSpot's non-HubSpot forms collector: the contact reaches HubSpot
+       through the booking itself (/api/book). -->
   <div class="bk-state" id="book-state-schedule">
     <section class="bk-section">
       <div class="container">
-        <div class="bk-col">
-          <p class="eyebrow">Schedule a confidential call</p>
-          <h1 class="bk-title">Pick a time for a confidential call.</h1>
-          <p class="bk-lede">30 minutes with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
+        <div class="bk-col bk-col--wide">
+          <div class="bk-picker-head">
+            <div>
+              <p class="eyebrow">Schedule a confidential call</p>
+              <h1 class="bk-title" id="book-pick-title" tabindex="-1">Pick a time for your call</h1>
+              <p class="bk-lede" id="book-pick-lede">30 minutes on Zoom with one of our partners. Confidential. No preparation, no documents, no obligation.</p>
+            </div>
+          </div>
 
-          <div id="book-scheduler" class="meetings-iframe-container bk-scheduler" data-title="Schedule a confidential call with IBO Advisors" data-src="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo?embed=true"></div>
-          <script src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+          <p class="bk-who" id="book-who" hidden>Booking for <strong id="book-who-name"></strong> &middot; <span id="book-who-email"></span> &middot; <button type="button" class="bk-change" id="book-change">Change</button></p>
+
+          <!-- Left: month calendar, always shown so the arrows stay usable,
+               with the time zone select under it (as in HubSpot's picker).
+               Built by book.js (renderCalendar). Right: the start times for
+               the selected day, or the loading / error / empty status. -->
+          <div class="bk-picker" id="book-picker" aria-busy="false">
+            <div class="bk-picker__cal">
+              <p class="bk-picker__label" id="book-cal-label">Choose a day</p>
+              <div class="bk-calendar" id="book-calendar">
+                <div class="bk-calendar__head">
+                  <button type="button" class="bk-calendar__nav" id="book-month-prev" aria-label="Previous month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+                  </button>
+                  <p class="bk-calendar__month" id="book-cal-month" aria-live="polite"></p>
+                  <button type="button" class="bk-calendar__nav" id="book-month-next" aria-label="Next month" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+                  </button>
+                </div>
+                <table class="bk-calendar__grid" id="book-cal-grid">
+                  <thead>
+                    <tr><th scope="col" abbr="Sunday">Sun</th><th scope="col" abbr="Monday">Mon</th><th scope="col" abbr="Tuesday">Tue</th><th scope="col" abbr="Wednesday">Wed</th><th scope="col" abbr="Thursday">Thu</th><th scope="col" abbr="Friday">Fri</th><th scope="col" abbr="Saturday">Sat</th></tr>
+                  </thead>
+                  <tbody id="book-cal-body"></tbody>
+                </table>
+                <p class="bk-calendar__note" id="book-cal-note" role="status"></p>
+              </div>
+              <div class="ibo-field bk-tz">
+                <label class="ibo-field__label" for="book-tz">Times shown in</label>
+                <select class="ibo-field__input ibo-field__select" id="book-tz"></select>
+              </div>
+            </div>
+            <div class="bk-picker__times">
+              <div class="bk-status" id="book-status" role="status" aria-live="polite" hidden>
+                <span class="bk-spinner" id="book-spinner" aria-hidden="true"></span>
+                <p id="book-status-text">Loading open times&hellip;</p>
+                <button type="button" class="btn btn--outline bk-retry" id="book-retry" hidden>Try again</button>
+              </div>
+              <div class="bk-times-panel" id="book-times-wrap" hidden>
+                <p class="bk-picker__label" id="book-times-label">Choose a start time</p>
+                <p class="bk-times__date" id="book-times-date"></p>
+                <ul class="bk-times" id="book-times" aria-labelledby="book-times-label"></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Your details: opened by book.js at Confirm only when something is missing, or from "Change". -->
+          <form class="bk-details" id="book-details-form" novalidate data-hs-do-not-collect="true" aria-labelledby="book-details-title" hidden>
+            <h2 class="bk-details__title" id="book-details-title">Your details</h2>
+            <p class="bk-details__slot" id="book-details-slot" aria-live="polite"></p>
+            <p class="bk-notice" id="book-details-notice" role="status" hidden></p>
+            <div class="bk-details__grid">
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-first">First name</label>
+                <input class="ibo-field__input" type="text" id="book-first" autocomplete="given-name" maxlength="100" required aria-describedby="book-first-error" />
+                <p class="ibo-field__error bk-field-error" id="book-first-error" hidden></p>
+              </div>
+              <div class="ibo-field">
+                <label class="ibo-field__label" for="book-last">Last name</label>
+                <input class="ibo-field__input" type="text" id="book-last" autocomplete="family-name" maxlength="100" required aria-describedby="book-last-error" />
+                <p class="ibo-field__error bk-field-error" id="book-last-error" hidden></p>
+              </div>
+              <div class="ibo-field bk-details__full">
+                <label class="ibo-field__label" for="book-email">Email</label>
+                <input class="ibo-field__input" type="email" id="book-email" autocomplete="email" maxlength="254" required aria-describedby="book-email-error" />
+                <p class="ibo-field__error bk-field-error" id="book-email-error" hidden></p>
+              </div>
+            </div>
+            <!-- Required booking questions still unanswered, built by book.js. -->
+            <div class="bk-details__grid" id="book-questions"></div>
+            <p class="ibo-field__error" id="book-details-error" role="alert" hidden></p>
+            <!-- Enter in a field confirms, like the button below. -->
+            <button type="submit" class="sr-only" tabindex="-1" aria-hidden="true">Confirm booking</button>
+          </form>
+
+          <p class="bk-alert" id="book-failed" role="alert" hidden></p>
+          <div class="bk-confirmbar">
+            <button type="button" class="ibo-modal__submit" id="book-confirm" disabled>Choose a time</button>
+            <p class="bk-confirmbar__note">The call is 30 minutes. The Zoom link is in the invitation.</p>
+          </div>
+          <p class="bk-quiet">Can&rsquo;t find a time that works? Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
+
           <noscript>
-            <p class="bk-quiet">The scheduler needs JavaScript. <a href="https://meetings-na2.hubspot.com/michael-chasen/discussing-the-ibo">Open the calendar to pick a time</a>.</p>
+            <p class="bk-quiet">The scheduler needs JavaScript. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
           </noscript>
-
-          <p class="bk-alert" id="book-failed" role="alert" hidden>That booking didn&rsquo;t go through. Write to <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a> and Michael will find a time with you.</p>
-          <p class="bk-quiet">Prefer email? <a href="mailto:michael@iboadvisors.com">michael@iboadvisors.com</a></p>
         </div>
       </div>
     </section>

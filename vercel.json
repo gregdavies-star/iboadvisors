@@ -41,7 +41,12 @@
     },
     {
       "source": "/learn-more2",
-      "destination": "/?learn-more=1&book=2",
+      "destination": "/?learn-more=1",
+      "permanent": false
+    },
+    {
+      "source": "/book2",
+      "destination": "/book",
       "permanent": false
     },
     {
