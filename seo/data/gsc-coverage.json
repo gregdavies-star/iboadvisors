@@ -1,11 +1,11 @@
 {
-  "inspectedAt": "2026-11-04T18:24:58.891Z",
+  "inspectedAt": "2026-11-09T21:17:45.391Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T10:27:43Z",
+      "lastCrawlTime": "2026-11-05T18:17:39Z",
       "googleCanonical": "https://www.iboadvisors.com/",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -14,17 +14,8 @@
       "url": "https://www.iboadvisors.com/blog",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-27T21:19:23Z",
+      "lastCrawlTime": "2026-11-08T00:54:29Z",
       "googleCanonical": "https://www.iboadvisors.com/blog",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
-      "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T08:10:45Z",
-      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -34,6 +25,15 @@
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-10-07T19:35:57Z",
       "googleCanonical": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-03T08:10:45Z",
+      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -48,7 +48,7 @@
       "url": "https://www.iboadvisors.com/industries/government-contractors",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T03:19:24Z",
+      "lastCrawlTime": "2026-11-06T06:17:57Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/government-contractors",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -63,10 +63,19 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
+      "url": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-company",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-05T20:53:51Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-company",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-19T02:04:39Z",
+      "lastCrawlTime": "2026-11-06T07:12:27Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -93,7 +102,7 @@
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T09:57:38Z",
+      "lastCrawlTime": "2026-11-08T03:24:28Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -129,7 +138,7 @@
       "url": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T20:15:59Z",
+      "lastCrawlTime": "2026-11-05T22:02:47Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -156,7 +165,7 @@
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-04T03:46:03Z",
+      "lastCrawlTime": "2026-11-09T06:43:26Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -165,7 +174,7 @@
       "url": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T00:49:21Z",
+      "lastCrawlTime": "2026-11-06T00:46:44Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -192,7 +201,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-04T11:16:01Z",
+      "lastCrawlTime": "2026-11-08T08:24:28Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -201,7 +210,7 @@
       "url": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-09T03:47:39Z",
+      "lastCrawlTime": "2026-11-06T09:51:08Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -210,7 +219,7 @@
       "url": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T22:46:02Z",
+      "lastCrawlTime": "2026-11-06T14:33:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -219,7 +228,7 @@
       "url": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T18:19:21Z",
+      "lastCrawlTime": "2026-11-06T22:03:01Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -309,7 +318,7 @@
       "url": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T08:53:12Z",
+      "lastCrawlTime": "2026-11-06T19:33:03Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
