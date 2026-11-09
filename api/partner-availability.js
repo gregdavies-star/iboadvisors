@@ -19,7 +19,7 @@
    This file holds only the handler and its query parsing. The slug, the
    meeting length, the HubSpot call and the slot clean-up (Michael's busy
    blocks are dropped, never returned) live in ./_scheduler.js, shared with
-   /api/partner-book (and with the public /book2 endpoints /api/availability
+   /api/partner-book (and with the public /book endpoints /api/availability
    and /api/book). This endpoint always reads LINKS.partner, Michael's
    personal link, which no env var overrides, and offers only :00 and :30
    starts (halfHourOnly; HubSpot otherwise offers :15/:45 starts after a

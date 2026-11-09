@@ -2,7 +2,7 @@
    IBO Advisors - GET /api/availability
 
    Open 30-minute slots and the booking questions for the public booking
-   page /book2. A thin, read-only proxy over HubSpot's scheduler API, so the
+   page /book. A thin, read-only proxy over HubSpot's scheduler API, so the
    private app token never reaches the browser.
 
      GET /api/availability?timezone=America/Chicago&monthOffset=0&band=%2410M%20-%20%2420M&email=jane%40example.com

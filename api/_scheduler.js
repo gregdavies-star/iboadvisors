@@ -12,8 +12,8 @@
      /api/partner-book          books a referral partner's client (partner link,
                                 :00/:30 starts only)
      /api/availability          open :00/:30 slots + booking questions for
-                                /book2, on the link the EBITDA band routes to
-     /api/book                  books a /book2 visitor on that link
+                                /book, on the link the EBITDA band routes to
+     /api/book                  books a /book visitor on that link
 
    The scheduling-page slugs and the meeting length live here and nowhere
    else. No handler ever takes them from the client: the client can only send
@@ -29,7 +29,7 @@
               Gleeman), for every other band and for an unknown band. Default
               michael-chasen/discussing-the-ibo; env IBO_BOOK_SLUG_TEAM
               overrides it.
-   The env overrides let a preview deployment point /book2 at cloned test
+   The env overrides let a preview deployment point /book at cloned test
    scheduling pages without a code change. They are read once, at module load.
 
    HubSpot facts (verified 3 Nov 2026):
@@ -48,7 +48,7 @@
        answers 400 without it. Its customParams carry formFields (the
        booking questions) and startTimeIncrementMinutes.
      - HubSpot offers :15/:45 starts after a meeting that ends at :15. Every
-       endpoint (/book2's and the partner ones) passes halfHourOnly, so only
+       endpoint (/book's and the partner ones) passes halfHourOnly, so only
        :00 and :30 starts are offered or bookable.
 
    Token scopes (IBO_HUBSPOT_SERVICE_KEY):

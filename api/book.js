@@ -2,7 +2,7 @@
    IBO Advisors - POST /api/book
 
    Books a 30-minute call with a Managing Partner from the public booking
-   page /book2. The visitor is the booker (the HubSpot contact the meeting is
+   page /book. The visitor is the booker (the HubSpot contact the meeting is
    logged against); HubSpot then sends the calendar invitation, confirmation
    and reminders.
 

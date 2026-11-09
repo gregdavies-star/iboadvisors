@@ -48,7 +48,7 @@
    Shared code: slugs (LINKS.partner here, which no env var overrides),
    availability re-check, input cleaning, origin check and the HubSpot
    response subset live in ./_scheduler.js, shared with /api/book (the
-   public /book2 page). This endpoint always books Michael's personal link
+   public /book page). This endpoint always books Michael's personal link
    and, like /api/book, accepts only :00 and :30 starts (halfHourOnly): a
    :15/:45 start is refused with 409 slot_unavailable.
 
