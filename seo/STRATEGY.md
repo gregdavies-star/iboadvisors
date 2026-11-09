@@ -231,6 +231,20 @@ its queue position or priority", so **a third request is pointless**. If this on
 take, the next lever is an internal link from a frequently crawled page, not another
 submission.
 
+Google's own definition of the state the page is in, from the Page Indexing report
+documentation, backs the diagnosis four runs reached independently: "The page was found
+by Google, but not crawled yet. Typically, Google wanted to crawl the URL but this was
+expected to overload the site; therefore Google rescheduled the crawl. This is why the
+last crawl date is empty on the report." So the constraint is crawl scheduling at the
+site level, not anything on the page - and Google offers **no** recommended fix for this
+state, unlike "Crawled - currently not indexed", which does carry one.
+
+On timing: Google says indexing after a request "can take up to a week or two", and
+crawling "anywhere from a few days to a few weeks". **Do not report movement before
+that window has run.** Note also that the widely repeated "about ten indexing requests a
+day" limit is not in Google's documentation - the docs state a daily limit exists without
+ever quantifying it, so do not put a number on it anywhere.
+
 **The signal that matters is a `lastCrawlTime` appearing at all**, not the
 `coverageState` string, which has flipped repeatedly between "Discovered - currently not
 indexed" and "URL is unknown to Google" and whose neither state has held. Report the
