@@ -201,6 +201,70 @@ page is not asked for.
 evidence that can be checked. Check the page's own `pageQueries` rows before
 retitling on a claim about "the queries it gets".
 
+### /industries/restaurants: a second indexing request, not the merge
+
+**Decided 2026-11-10 by Greg Davies.** He is requesting reindexing himself. The
+merge-and-301 of `/blog/restaurant-ma` into the industry page, proposed on 10-24 with a
+review date of 11-07, is **not** happening for now. Do not create that redirect, and do
+not re-propose it without new evidence.
+
+The state at the moment of the request, so the next run can tell whether it worked:
+
+| | `/industries/restaurants` | `/blog/restaurant-ma` |
+|---|---|---|
+| `coverageState` | Discovered - currently not indexed | Submitted and indexed |
+| `lastCrawlTime` | **never returned, not once** | 2026-10-22T12:59:50Z |
+| Words | ~3,950 | 1,675 |
+| Inbound in-body links | 10 | 8 |
+| Impressions (28 days to 11-06) | **none - absent from the page table** | 53 at position 6.9 |
+
+**The request was submitted on 2026-11-10** and Search Console returned "Indexing
+requested - URL was added to a priority crawl queue." The URL Inspection panel at that
+moment showed every crawl field as **N/A** - Crawl allowed, Page fetch, Indexing allowed,
+User-declared canonical and Google-selected canonical - with "View crawled page" greyed
+out. That is independent confirmation of the diagnosis: there is no crawl on record at
+all, so this cannot be a `noindex`, a robots block or a canonical pointing elsewhere. The
+page has simply never been fetched.
+
+Search Console's own dialog states that "Submitting a page multiple times will not change
+its queue position or priority", so **a third request is pointless**. If this one does not
+take, the next lever is an internal link from a frequently crawled page, not another
+submission.
+
+Google's own definition of the state the page is in, from the Page Indexing report
+documentation, backs the diagnosis four runs reached independently: "The page was found
+by Google, but not crawled yet. Typically, Google wanted to crawl the URL but this was
+expected to overload the site; therefore Google rescheduled the crawl. This is why the
+last crawl date is empty on the report." So the constraint is crawl scheduling at the
+site level, not anything on the page - and Google offers **no** recommended fix for this
+state, unlike "Crawled - currently not indexed", which does carry one.
+
+On timing: Google says indexing after a request "can take up to a week or two", and
+crawling "anywhere from a few days to a few weeks". **Do not report movement before
+that window has run.** Note also that the widely repeated "about ten indexing requests a
+day" limit is not in Google's documentation - the docs state a daily limit exists without
+ever quantifying it, so do not put a number on it anywhere.
+
+**The signal that matters is a `lastCrawlTime` appearing at all**, not the
+`coverageState` string, which has flipped repeatedly between "Discovered - currently not
+indexed" and "URL is unknown to Google" and whose neither state has held. Report the
+first crawl time when it appears, and nothing before it.
+
+Two reasons the merge was not the first move. It is irreversible in practice, and it
+would retire a page that is indexed and ranks 6.9 in order to test a hypothesis about
+crawl priority. And one premise behind it has weakened since 10-24: the argument was
+partly that the site already won restaurant queries with another URL, when the hub's
+restaurants row sat at position 2.5. The hub is now at 15.4, `/blog/restaurant-ma` takes
+zero clicks from 6.9, and no restaurant query appears in the visible query table at all.
+The merge would not be rescuing existing traffic.
+
+**For a daily run:** stop writing "submit it for indexing manually" in the For a human
+section - it has now been requested twice and Greg is handling it. Do not expand the page
+again; four expansions have moved nothing, and the page has never been fetched, so
+on-page work cannot be the lever. A stronger internal link from a frequently crawled page
+is the remaining cheap option if the second request also fails, and it has not been
+authorised.
+
 ### Open: /blog/family-business-succession-planning may need splitting
 
 **Raised by the 10-27 and 10-28 runs, with Greg since 10-27, not yet decided.**
