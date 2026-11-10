@@ -203,7 +203,7 @@ retitling on a claim about "the queries it gets".
 
 ### /industries/restaurants: a second indexing request, not the merge
 
-**Decided 2026-11-10 by Greg Davies.** He is requesting reindexing himself. The
+**Decided 2026-11-09 by Greg Davies.** He is requesting reindexing himself. The
 merge-and-301 of `/blog/restaurant-ma` into the industry page, proposed on 10-24 with a
 review date of 11-07, is **not** happening for now. Do not create that redirect, and do
 not re-propose it without new evidence.
@@ -218,7 +218,8 @@ The state at the moment of the request, so the next run can tell whether it work
 | Inbound in-body links | 10 | 8 |
 | Impressions (28 days to 11-06) | **none - absent from the page table** | 53 at position 6.9 |
 
-**The request was submitted on 2026-11-10** and Search Console returned "Indexing
+**The request was submitted on 2026-11-09, shortly before 22:06 UTC** (that is when the
+record of it was committed, `e7d6622`) and Search Console returned "Indexing
 requested - URL was added to a priority crawl queue." The URL Inspection panel at that
 moment showed every crawl field as **N/A** - Crawl allowed, Page fetch, Indexing allowed,
 User-declared canonical and Google-selected canonical - with "View crawled page" greyed
@@ -257,6 +258,31 @@ partly that the site already won restaurant queries with another URL, when the h
 restaurants row sat at position 2.5. The hub is now at 15.4, `/blog/restaurant-ma` takes
 zero clicks from 6.9, and no restaurant query appears in the visible query table at all.
 The merge would not be rescuing existing traffic.
+
+### RESOLVED 2026-11-10: the page was crawled and is indexed
+
+`/industries/restaurants` returned a `lastCrawlTime` for the first time ever,
+**2026-11-09T22:07:19Z**, and `coverageState` moved from "Discovered - currently not
+indexed" to **"Submitted and indexed"**, verdict `PASS`. All 39 sitemap URLs now return
+`PASS` - the first fully clean coverage report. Verified against `seo/data/gsc-coverage.json`
+at both ends: the 11-09 pull (`inspectedAt` 2026-11-09T21:17:45Z) still shows NEUTRAL with
+no crawl time; the 11-10 pull (18:27:34Z) shows the crawl.
+
+**On what caused it, two corrections to this record.** The request was made on
+**2026-11-09**, not 11-10: the commit recording it, `e7d6622`, is timestamped
+2026-11-09T22:06:19Z, so Greg submitted it in the minutes before that. The crawl followed
+at 22:07:19Z, about a minute later. The 11-10 run read the mis-dated record and concluded
+"the crawl predates your 11-10 request, so it likely came from the earlier one" - that
+inference rests on the wrong date and should not be carried forward. The sequence is
+consistent with the 11-09 request having worked, and inconsistent with nothing having been
+requested; it is not proof of causation, and no further claim should be made.
+
+What this closes: the merge-and-301 of `/blog/restaurant-ma` is **dead**, not deferred -
+its entire premise was that the industry page could not get indexed. Do not re-propose it.
+Do not request indexing for this URL again. The open question is now the ordinary one: what
+the page ranks for. It had no impressions at all while unindexed, so the first read comes
+from a window that starts after 2026-11-09; the 28-day window in the 11-10 run ends 11-07
+and cannot show it. Do not report a ranking for it before a window that covers the crawl.
 
 **For a daily run:** stop writing "submit it for indexing manually" in the For a human
 section - it has now been requested twice and Greg is handling it. Do not expand the page
