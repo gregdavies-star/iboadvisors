@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-09T21:17:45.391Z",
+  "inspectedAt": "2026-11-10T18:27:34.189Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -39,10 +39,12 @@
     },
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
-      "verdict": "NEUTRAL",
-      "coverageState": "Discovered - currently not indexed",
-      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
-      "indexingState": "INDEXING_STATE_UNSPECIFIED"
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-09T22:07:19Z",
+      "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
     },
     {
       "url": "https://www.iboadvisors.com/industries/government-contractors",
@@ -59,6 +61,15 @@
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-11-04T00:06:42Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/private-equity-holding-period",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-10T02:03:59Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-holding-period",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -102,7 +113,7 @@
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-08T03:24:28Z",
+      "lastCrawlTime": "2026-11-09T16:49:30Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
