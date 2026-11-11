@@ -65,7 +65,7 @@ async function newCtx() {
     await route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**fp.iboadvisors.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   return { ctx, submissions };
 }
@@ -214,7 +214,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
     return route.fulfill({ status: 200, contentType: 'application/json', body: '{"inlineMessage":"ok"}' });
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**fp.iboadvisors.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);
@@ -540,7 +540,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) =>
     r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**fp.iboadvisors.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);
@@ -572,7 +572,7 @@ const UTM = 'utm_source=linkedin&utm_medium=paid_social&utm_campaign=ibo_q3&utm_
   });
   await ctx.route('**meetings-na2.hubspot.com**', (r) =>
     r.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>scheduler stub</body></html>' }));
-  for (const pat of ['**googletagmanager.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
+  for (const pat of ['**googletagmanager.com**', '**fp.iboadvisors.com**', '**hs-scripts.com**', '**hsappstatic.net**', '**vaudit.com**', '**idpixel.app**'])
     await ctx.route(pat, (r) => r.abort());
   const page = await ctx.newPage();
   await page.goto(`${BASE}/?${UTM}`);

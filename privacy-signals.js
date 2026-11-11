@@ -1,8 +1,8 @@
 /* IBO Advisors - Global Privacy Control handling.
  *
- * Loaded synchronously as the FIRST script in <head>, ahead of gtag.js, so it
- * can set Google Consent Mode defaults before the first hit fires and decide
- * whether the visitor-identification tags load at all. Do not add async or
+ * Loaded synchronously as the FIRST script in <head>, ahead of anything that
+ * touches dataLayer, so it can set Google Consent Mode defaults before the first hit fires and
+ * decide whether the visitor-identification tags load at all. Do not add async or
  * defer to the tag that loads this file, and do not move it below the Google
  * tag - either one lets the first hit escape before consent state is set.
  *
@@ -12,14 +12,16 @@
  * on its own no longer satisfies them.
  *
  * Under GPC:
+ *   Google Tag   first-party GTM container     not loaded at all (this now
+ *                carries GA4 and Google Ads, so neither runs under GPC; the
+ *                consent denials below only matter if that is ever changed)
  *   IDPixel      visitor de-anonymization      not loaded at all
  *   Happierleads visitor de-anonymization      not loaded at all
  *   Vaudit       marketing attribution pixel   not loaded at all
- *   Google Ads   ad storage / user data /
- *                personalization              denied (modeled conversions remain)
+ *   Consent Mode ad storage / user data /
+ *                personalization              denied
  *
  * Unaffected either way, because none of it is a "sale" or "share":
- *   GA4          first-party analytics
  *   HubSpot      tracking code, hubspotutk cookie, form attribution
  *   Every form on the site - a GPC visitor who submits one is still a lead,
  *   still lands in HubSpot, and can still be called, emailed and texted.
@@ -43,11 +45,14 @@
 
   /* Google Consent Mode v2.
      gtag() must push the live `arguments` object, not an array - Google's
-     library reads it by shape, and a plain array is silently ignored. The
-     page's own gtag block redefines this function later over the same
-     dataLayer, which is fine: the queue is what carries the state. */
+     library reads it by shape, and a plain array is silently ignored.
+     It is also exposed as window.gtag: pages no longer carry their own
+     gtag.js block, and modal.js, tracking.js, book.js etc. fire conversions
+     through window.gtag. Those calls land in dataLayer and are processed by
+     the Google tag inside the first-party GTM container loaded below. */
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = gtag;
 
   gtag('consent', 'default', {
     ad_storage: gpc ? 'denied' : 'granted',
@@ -72,6 +77,14 @@
     if (onload) s.onload = onload;
     document.head.appendChild(s);
   }
+
+  // First-party Google Tag Manager (served from fp.iboadvisors.com). Replaces
+  // the hard-coded gtag.js block that used to sit in every page's <head>.
+  // Gated like the other tags: it never loads for an opted-out visitor. The
+  // <noscript> iframe in each page's <body> cannot be gated and only runs
+  // with JavaScript off.
+  window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+  load('https://fp.iboadvisors.com/gtm.js?id=GTM-5QX2GKC7');
 
   // Vaudit - traffic quality and campaign measurement. The site's privacy
   // policy lists this under "Marketing and attribution" rather than security,

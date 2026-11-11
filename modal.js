@@ -30,6 +30,7 @@
     lastTouch: function () { return null; },
     withUtms: function (url) { return url; },
     formContext: formContext,
+    reportError: function () {},
     submitForm: function (portalId, formGuid, fields) {
       return fetch(
         'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid,
@@ -126,7 +127,7 @@
   });
 
   // Fires all conversion events via the Google Ads global site tag
-  // (gtag.js) already loaded in <head> on every page.
+  // (window.gtag, defined by /privacy-signals.js; the tag itself is the first-party GTM).
   // GA4 event helper (the Google Ads conversion helper below is separate).
   function track(name, params) {
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
@@ -298,8 +299,11 @@
           }
         }
       })
-      .catch(function () {
-        showError('Something went wrong submitting your details. Please try again.');
+      .catch(function (err) {
+        // submitForm has already reported this to /api/client-error.
+        showError(err && err.network
+          ? 'We couldn\u2019t reach our form service. If you use an ad blocker, VPN or strict firewall, try turning it off, or email michael@iboadvisors.com.'
+          : 'Something went wrong submitting your details. Please try again, or email michael@iboadvisors.com.');
       })
       .finally(function () {
         submitBtn.disabled = false;
