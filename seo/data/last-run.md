@@ -1,35 +1,32 @@
-# Daily SEO run — 2026-11-10
+# Daily SEO run — 2026-11-11
 
-`/industries/restaurants` has been crawled for the first time and is indexed, so **all 39 sitemap URLs return `PASS`** — the first clean coverage report. One title/meta rewrite, one internal link. Audit clean: 39 pages, 0 errors, 0 warnings.
+All 40 sitemap URLs return `PASS` for the second day running; `/industries/restaurants` keeps the crawl it got on 11-09. One new post plus three inbound links, no title or meta rewrites. Audit clean: 40 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-11-07 vs prior 28)
+## GSC totals (28 days to 2026-11-08 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 80 | 5,663 | 1.41% | 11.0 |
-| Prior | 78 | 3,974 | 1.96% | 12.2 |
+| Current | 80 | 5,830 | 1.37% | 11.0 |
+| Prior | 78 | 3,918 | 1.99% | 11.9 |
 
-Impressions +43%, position +1.2, clicks +2 — the new impressions land at 10-20, diluting CTR before they earn clicks.
+Impressions +49%, position +0.9, clicks +2 — new impressions land at 10–20 and dilute CTR before earning clicks.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/family-business-succession-planning` | title + meta | `lowCtr`: 256 impr, 1 click (0.39%) at position 4.8 vs 6.0% expected, last changed 10-13. **205 of the 256 are one query** — "liquidity planning for family business succession", position 3.8, zero clicks — which the old title did not contain. New title is that query, front-loaded, 49 chars; the meta carries the page's finding ($26M of claims against $23M of equity). |
-| `/blog/how-to-sell-a-business-to-private-equity` | link | Rule 8: `/blog/quality-of-earnings-report` held 5 inbound links, the site floor. The donor's diligence step already said "a buy-side quality-of-earnings review" and did not link it. |
+| `/blog/private-equity-replace-founder-ceo` | new post, 1,860 words | Rule 7: one post in the trailing 7 days (11-06), slot open. Highest-priority uncovered keyword was cluster-5 "private equity and founder CEO replacement". Three sources opened this run: NBER w30899 (71% of 192 $1B+ US buyouts changed CEO, >75% of replacements external), AlixPartners 2026 (turnover spikes at year two), Spencer Stuart — plus a hypothetical $60M deal showing a $9M spread between good-leaver and bad-leaver clauses. The post says only 4% of the NBER sample were unaffiliated private companies. |
+| Three donors | link | Rule 7 + 8: `what-happens-after-private-equity-buys-your-company`, `selling-to-private-equity-pros-and-cons`, `minority-pe-stake-board-control-veto-rights`, each on a sentence that already raised CEO replacement and had nowhere to send the reader. |
 
 ## Skipped
 
-**Rule 3** — 11 of 13 `lowCtr` rows in cool-down; the twelfth, `selling-to-private-equity-pros-and-cons`, already leads with its exact query and shows only 13 of 134 impressions in `pageQueries`, so a retitle is churn (STRATEGY §8). **Rule 4** — two rows rank `/blog`, not a post; "ibo finance" is homepage body copy; `majority-recapitalization-vs-sale` was edited 11-03; `types-of-buyouts` already answers both its queries under their own H2s. **Rule 5** — the loser in all three non-brand rows is the blog index, which already links the winner. **Rule 6** — none. **Rule 7** — capped, 2 posts in 7 days.
-
-## Coverage
-
-`/industries/restaurants` returned a `lastCrawlTime` for the first time, **2026-11-09T22:07:19Z**, and moved to "Submitted and indexed" — the signal STRATEGY §8 said to wait for. The crawl predates your 11-10 request, so it likely came from the earlier one. No ranking read yet; the window ends 11-07.
+**Rule 3** — 11 of 13 `lowCtr` rows are inside the 28-day cool-down. `selling-to-private-equity-pros-and-cons` already leads with its exact query, so a rewrite is churn; `family-business-succession-planning` is retitled on the open 11-10 branch and this run stayed off it; the `sell-a-business-but-keep-control` row is the URL you 301'd on 10-30. **Rule 4** — two rows rank `/blog`; "ibo finance" is homepage copy; `majority-recapitalization-vs-sale` was edited 11-03; `types-of-buyouts` already answers its query under an H2. **Rule 5** — the loser in each non-brand row is the blog index, which already links the winner. **Rule 6** — none.
 
 ## For a human
 
-`/blog` is the third-largest page by impressions (456, 1 click, position 20.7) and is the URL Google picks for "owner buyout" (11.7), "buyouts alternatives" (5.1), "buyout companies" (22.4) and "types of buyouts" (51.9). An index page winning post-level queries is weak — worth deciding whether "owner buyout" gets its own post.
+1. **Second run raising this: `/blog` absorbs generic buyout demand.** It is Google's pick for "owner buyout" (34 impressions, position 11.7), "buyout companies" (36, 22.3), "corporate buyouts" (36, 20.6) and "internal buyout services" (21, 33.6) — ~160 impressions, one click, on an index page. A dedicated post is the fix, but the term is not in `keywords.json`, so it needs your word first.
+2. **The 11-10 PR is unmerged.** It carries the family-business retitle and the only inbound link for `/blog/quality-of-earnings-report`, the site's inbound floor at 5.
 
 ## Flagged
 
-Standing rule 5 (post audit pending your approval), verified on disk today: `minority-recapitalization-explained` ("you keep majority ownership, board control, and operating authority") and `rollover-equity-second-bite-explained` ("sell and still keep control"). Two more, not previously reported: `selling-to-private-equity-pros-and-cons` (two) and `what-happens-after-private-equity-buys-your-company`, both phrased as the owner's question rather than a claim. Reported, not edited. Nothing asked for deal specifics.
+Standing rule 5 (audit pending your approval), re-verified on disk: `minority-recapitalization-explained` holds the one direct claim ("you keep majority ownership, board control, and operating authority"). New to the list, `majority-recapitalization-vs-sale` quotes "you stay in control" and then says the consent list decides whether that is true. Three more phrase it as the owner's question: `selling-to-private-equity-pros-and-cons`, `what-happens-after-private-equity-buys-your-company`, `rollover-equity-second-bite-explained`. Reported, not edited. Nothing asked for deal specifics.

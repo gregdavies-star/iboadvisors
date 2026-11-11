@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-10T18:27:34.189Z",
+  "inspectedAt": "2026-11-11T18:19:38.769Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -20,15 +20,6 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-07T19:35:57Z",
-      "googleCanonical": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
@@ -38,11 +29,11 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-09T22:07:19Z",
-      "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
+      "lastCrawlTime": "2026-10-07T19:35:57Z",
+      "googleCanonical": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -61,6 +52,15 @@
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-11-04T00:06:42Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/healthcare-services",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-09T22:07:19Z",
+      "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },

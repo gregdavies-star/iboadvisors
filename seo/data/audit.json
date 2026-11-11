@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:50:10.869Z",
+  "generatedAt": "2026-11-11T18:33:31.919Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
-      "outboundInternalLinks": 36,
+      "inboundInternalLinks": 39,
+      "outboundInternalLinks": 37,
       "issues": []
     },
     {
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2194,
+      "words": 2234,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 16,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -309,7 +309,7 @@
       "h1": "Private Equity Holding Period: Median 6 Years and Rising",
       "words": 2251,
       "date": "2026-11-06",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -324,6 +324,19 @@
       "date": "2026-11-05",
       "inboundInternalLinks": 6,
       "outboundInternalLinks": 11,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/private-equity-replace-founder-ceo",
+      "title": "Does Private Equity Replace the Founder CEO? | IBO Advisors",
+      "titleLength": 59,
+      "description": "Private equity changed the CEO at 71% of billion-dollar buyouts, and three in four replacements came from outside. What that means before you sign.",
+      "descriptionLength": 147,
+      "h1": "Does Private Equity Replace the Founder CEO?",
+      "words": 1860,
+      "date": "2026-11-11",
+      "inboundInternalLinks": 4,
+      "outboundInternalLinks": 8,
       "issues": []
     },
     {
@@ -361,7 +374,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1800,
       "date": "2026-07-06",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -398,10 +411,10 @@
       "description": "The advantages and disadvantages of selling to private equity: a worked $35M deal nets $19M after tax, against the debt, the escrow and the seven-year hold.",
       "descriptionLength": 156,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 2140,
+      "words": 2167,
       "date": "2026-09-21",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -437,10 +450,10 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2553,
+      "words": 2578,
       "date": "2026-09-12",
-      "inboundInternalLinks": 15,
-      "outboundInternalLinks": 22,
+      "inboundInternalLinks": 16,
+      "outboundInternalLinks": 23,
       "issues": []
     },
     {
@@ -452,7 +465,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 9,
       "issues": []
     },
