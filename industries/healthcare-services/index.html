@@ -21,16 +21,6 @@
      Google Consent Mode defaults and gates the Vaudit / IDPixel / Happierleads tags, which it
      injects itself when there is no opt-out signal. See /privacy section 8. -->
 <script src="/privacy-signals.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18411360561"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18411360561');
-  gtag('config', 'G-7HL0RK1PJ0');
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
@@ -141,6 +131,10 @@
 </script>
 </head>
 <body>
+<!-- FirstParty Tracking Script (noscript) -->
+<noscript><iframe src="https://fp.iboadvisors.com/ns.html?id=GTM-5QX2GKC7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End FirstParty Tracking Script (noscript) -->
 <header class="site-header">
   <div class="site-header__inner">
     <a href="/" class="logo" aria-label="IBO Advisors home">
