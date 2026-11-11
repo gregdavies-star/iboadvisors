@@ -65,6 +65,7 @@
    Every response is JSON with Cache-Control: no-store.
    ========================================================================== */
 
+import { sendAlert } from './_alert.js';
 import {
   findSlot, fetchLinkDetails, findContactBand, linkForBand, isValidTimeZone, isTimeout, hubspotSubset,
   EBITDA_BANDS, LINK_BANDS, EBITDA_PROPERTY, CONFLICT_RE, LINKS, DURATION_MS, SCHEDULER_BASE,
@@ -76,6 +77,15 @@ const BOOK_TIMEOUT_MS = 20000;
 const MAX_ANSWERS = 20;
 const MAX_ANSWER_CHARS = 500;
 const ANSWER_KEY_RE = /^[a-z0-9_]{1,100}$/;
+
+// Raise the failures the team has to act on (not user-caused ones such as a taken slot).
+async function alertFailure(error, calendar, upstreamStatus) {
+  await sendAlert({
+    title: `/api/book failed: ${error}`,
+    signature: `${error}|${upstreamStatus || ''}|${calendar || ''}`,
+    fields: { calendar, 'HubSpot status': upstreamStatus },
+  });
+}
 
 function fail(res, status, error, message, upstreamStatus) {
   const body = { ok: false, error, message };
@@ -174,6 +184,7 @@ export default async function handler(req, res) {
   const token = process.env.IBO_HUBSPOT_SERVICE_KEY;
   if (!token) {
     console.error('[book] IBO_HUBSPOT_SERVICE_KEY is not set');
+    await alertFailure('not_configured');
     return fail(res, 503, 'not_configured', 'The scheduler is not configured on this deployment.');
   }
 
@@ -201,6 +212,7 @@ export default async function handler(req, res) {
   } catch (err) {
     const timedOut = isTimeout(err);
     console.warn('[book] availability check failed', { calendar, status: err && err.upstreamStatus ? err.upstreamStatus : null, timedOut });
+    await alertFailure(timedOut ? 'upstream_timeout' : 'upstream_error', calendar, err && err.upstreamStatus);
     return fail(res, timedOut ? 504 : 502, timedOut ? 'upstream_timeout' : 'upstream_error',
       'Could not check availability with HubSpot.', err && err.upstreamStatus);
   }
@@ -246,6 +258,7 @@ export default async function handler(req, res) {
   } catch (err) {
     const timedOut = isTimeout(err);
     console.warn('[book] book request failed', { calendar, timedOut });
+    await alertFailure(timedOut ? 'upstream_timeout' : 'upstream_error', calendar);
     if (timedOut) return fail(res, 504, 'upstream_timeout', 'HubSpot did not confirm in time. The meeting may still have been booked.');
     return fail(res, 502, 'upstream_error', 'Could not reach HubSpot.');
   }
@@ -263,6 +276,7 @@ export default async function handler(req, res) {
     if (status === 409 || (status === 400 && (CONFLICT_RE.test(message) || category === 'CONFLICT'))) {
       return fail(res, 409, 'slot_unavailable', 'That time is no longer available.', status);
     }
+    await alertFailure(status === 400 ? 'hubspot_rejected_booking' : status === 429 ? 'rate_limited' : 'upstream_error', calendar, status);
     if (status === 400) return fail(res, 400, 'invalid_request', 'HubSpot rejected the booking details.', status);
     if (status === 429) return fail(res, 503, 'rate_limited', 'HubSpot is busy. Try again in a minute.', status);
     return fail(res, 502, 'upstream_error', 'HubSpot could not book the meeting.', status);

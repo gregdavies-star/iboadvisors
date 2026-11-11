@@ -1219,8 +1219,9 @@
         updateConfirm();
         if (after) after(!!found);
       })
-      .catch(function () {
+      .catch(function (err) {
         if (req !== picker.req) return;
+        reportFailure('availability_failed', 'Availability failed: ' + (err && err.message), 0);
         picker.loading = false;
         if (after) { bookingInFlight = false; updateConfirm(); }
         renderCalendar(true);
@@ -1478,6 +1479,12 @@
     book();
   }
 
+  // Tell /api/client-error (which alerts the team); never includes visitor details.
+  function reportFailure(kind, message, status, detail) {
+    if (!tracking || typeof tracking.reportError !== 'function') return;
+    tracking.reportError(kind, { message: message, status: status, detail: detail ? JSON.stringify(detail) : '' });
+  }
+
   function book() {
     var slot = picker.slot;
     var band = currentBand();
@@ -1516,6 +1523,9 @@
       }
       var code = r.data && r.data.error;
       track('meeting_book_failed', { src: SRC, reason: code || String(r.status) });
+      if (r.status !== 409 && code !== 'slot_unavailable' && code !== 'missing_answers') {
+        reportFailure('book_failed', 'Booking rejected: ' + (code || 'no error code'), r.status, r.data && r.data.details);
+      }
       if (r.status === 409 || code === 'slot_unavailable') {
         showBookError('That time was just taken. Here are the latest open times; pick another.');
         loadAvailability();
@@ -1536,6 +1546,7 @@
     }).catch(function () {
       bookingInFlight = false;
       track('meeting_book_failed', { src: SRC, reason: 'network' });
+      reportFailure('book_failed', 'Booking request did not complete (network)', 0);
       showBookError(FAILED_HTML);
       updateConfirm();
     });
