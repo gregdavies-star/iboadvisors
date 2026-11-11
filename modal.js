@@ -126,7 +126,7 @@
   });
 
   // Fires all conversion events via the Google Ads global site tag
-  // (gtag.js) already loaded in <head> on every page.
+  // (window.gtag, defined by /privacy-signals.js; the tag itself is the first-party GTM).
   // GA4 event helper (the Google Ads conversion helper below is separate).
   function track(name, params) {
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
