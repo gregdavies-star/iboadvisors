@@ -449,12 +449,63 @@
      naming one of them is a real failure the calling form should report.
      Everything else (attribution, qualification, the survey answers) is
      enrichment, and enrichment is never worth losing a lead over. */
+  /* `phone` is deliberately NOT here: every form that sends it treats it as
+     optional, and HubSpot rejects the whole submission over a number it does
+     not like ("(555) 1234", a pasted extension). A malformed optional phone
+     must never cost the lead, so it is dropped with the other enrichment. */
   var IDENTITY_FIELDS = {
-    firstname: true, lastname: true, email: true, phone: true,
+    firstname: true, lastname: true, email: true,
     company: true, message: true,
     pre_call_note: true,                 // the /book note is the whole submission
     pre_call_note_host: true             // which round-robin host the note goes to
   };
+
+  /* ---- Error reporting ----
+     Posts a small report to our own /api/client-error, which logs it and
+     alerts the team. Field NAMES only, never values; the page is the path
+     without its query string (the /book URL carries the visitor's email).
+     Best effort and capped at five reports per page view: reporting must
+     never break the page or add to the problem. */
+  var reportsSent = 0;
+  function reportError(kind, info) {
+    if (reportsSent >= 5) return;
+    reportsSent++;
+    try {
+      info = info || {};
+      var payload = JSON.stringify({
+        kind: kind,
+        message: info.message || '',
+        status: typeof info.status === 'number' ? info.status : undefined,
+        detail: info.detail || '',
+        form: info.form || '',
+        fields: info.fields || [],
+        page: window.location.pathname,
+        ua: navigator.userAgent,
+        online: navigator.onLine
+      });
+      fetch('/api/client-error', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  // Uncaught errors in OUR scripts (not browser extensions or third-party tags).
+  function ours(file) {
+    return !file || file.indexOf(window.location.origin) === 0;
+  }
+  window.addEventListener('error', function (e) {
+    if (!e || !ours(e.filename) || !e.filename) return;
+    reportError('script_error', { message: e.message, detail: e.filename + ':' + e.lineno });
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    var r = e && e.reason;
+    var stack = r && r.stack ? String(r.stack) : '';
+    if (!stack || stack.indexOf(window.location.origin) === -1) return;
+    reportError('unhandled_rejection', { message: r.message || String(r), detail: stack.split('\n').slice(0, 2).join(' ') });
+  });
 
   /* Submit to the HubSpot Forms API with the campaign fields attached.
 
@@ -516,24 +567,49 @@
        offending field, so dropping that one and stopping would still lose the
        lead whenever several fields are bad at once — which is precisely the
        state before a new batch of properties has been added to the form. */
+    function failure(status, text, body) {
+      var err = new Error('Submission failed');
+      err.status = status;
+      err.detail = text || '';
+      err.sent = body.map(function (field) { return field.name; });
+      return err;
+    }
+
     function attempt(body, triesLeft) {
       var last = triesLeft <= 1 || sameFields(body, identityOnly);
       return post(body).then(function (res) {
         if (res.ok) return res.json().catch(function () { return {}; });
-        if (res.status !== 400 || last) throw new Error('Submission failed');
         return res.text().catch(function () { return ''; }).then(function (text) {
+          if (res.status !== 400 || last) throw failure(res.status, text, body);
           var blamed = blamedBy(text);
           var next = blamed.length && triesLeft > 2
             ? body.filter(function (field) { return blamed.indexOf(field.name) === -1; })
             : identityOnly;
           // Nothing left to drop — the next try would just repeat this one.
-          if (sameFields(next, body)) throw new Error('Submission failed');
+          if (sameFields(next, body)) throw failure(res.status, text, body);
           return attempt(next, triesLeft - 1);
         });
+      }, function (netErr) {
+        // fetch itself rejected: offline, blocked by an extension/firewall/DNS.
+        var err = failure(0, String(netErr && netErr.message || netErr), body);
+        err.network = true;
+        throw err;
       });
     }
 
-    return attempt(all, 3);
+    // Every failure that reaches the caller is also reported to /api/client-error
+    // (which alerts the team), so a broken form is noticed before a prospect
+    // writes in. The caller still gets the rejection and shows its own message.
+    return attempt(all, 3).catch(function (err) {
+      reportError('hubspot_form', {
+        message: err && err.network ? 'Could not reach HubSpot' : 'HubSpot rejected the submission',
+        status: err && typeof err.status === 'number' ? err.status : 0,
+        detail: err && err.detail,
+        form: formGuid,
+        fields: err && err.sent
+      });
+      throw err;
+    });
   }
 
   /* ---- Scheduler hand-off ---- */
@@ -686,6 +762,7 @@
 
   window.iboTracking = {
     track: track,
+    reportError: reportError,
     splitName: splitName,
     fireConversion: fireConversion,
     hutk: hutk,
