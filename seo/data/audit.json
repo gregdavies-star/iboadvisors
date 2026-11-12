@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T21:51:16.799Z",
+  "generatedAt": "2026-11-12T18:56:31.920Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -122,12 +122,12 @@
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "title": "Liquidity Planning for Family Business Succession",
       "titleLength": 49,
-      "description": "Liquidity planning for a family business succession: a worked $4M-EBITDA handover where retirement and sibling equalization claim $26M of $23M of equity.",
-      "descriptionLength": 153,
+      "description": "Liquidity planning for a family business succession: the three claims on the equity, why they usually exceed it, and how to stage the cash instead.",
+      "descriptionLength": 147,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 5282,
       "date": "2026-10-29",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2194,
       "date": "2026-09-08",
-      "inboundInternalLinks": 26,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -177,10 +177,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2234,
+      "words": 2207,
       "date": "2026-09-13",
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 19,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -257,7 +257,7 @@
       "h1": "Management Buyout vs Private Equity: Price, Leadership, and When You Actually Get Paid",
       "words": 3247,
       "date": "2026-10-08",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2234,
+      "words": 2194,
       "date": "2026-09-08",
       "inboundInternalLinks": 22,
-      "outboundInternalLinks": 17,
+      "outboundInternalLinks": 16,
       "issues": []
     },
     {
@@ -283,7 +283,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1917,
       "date": "2026-09-08",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -328,15 +328,15 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/private-equity-replace-founder-ceo",
-      "title": "Does Private Equity Replace the Founder CEO? | IBO Advisors",
-      "titleLength": 59,
-      "description": "Private equity changed the CEO at 71% of billion-dollar buyouts, and three in four replacements came from outside. What that means before you sign.",
-      "descriptionLength": 147,
-      "h1": "Does Private Equity Replace the Founder CEO?",
-      "words": 1873,
-      "date": "2026-11-11",
+      "title": "Will Private Equity Replace You as CEO After the Sale?",
+      "titleLength": 54,
+      "description": "PE firms replaced the CEO at 71% of large buyouts. When founder CEOs get replaced, what triggers it, and what to negotiate before you sign.",
+      "descriptionLength": 139,
+      "h1": "Will Private Equity Replace You as CEO After the Sale?",
+      "words": 2326,
+      "date": "2026-11-12",
       "inboundInternalLinks": 4,
-      "outboundInternalLinks": 8,
+      "outboundInternalLinks": 13,
       "issues": []
     },
     {
@@ -348,7 +348,7 @@
       "h1": "Quality of Earnings Report: What Buyers Test",
       "words": 3249,
       "date": "2026-10-29",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -372,10 +372,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1800,
+      "words": 1835,
       "date": "2026-07-06",
       "inboundInternalLinks": 25,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -411,7 +411,7 @@
       "description": "The advantages and disadvantages of selling to private equity: a worked $35M deal nets $19M after tax, against the debt, the escrow and the seven-year hold.",
       "descriptionLength": 156,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 2167,
+      "words": 2165,
       "date": "2026-09-21",
       "inboundInternalLinks": 14,
       "outboundInternalLinks": 19,
@@ -450,7 +450,7 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2578,
+      "words": 2581,
       "date": "2026-09-12",
       "inboundInternalLinks": 16,
       "outboundInternalLinks": 23,

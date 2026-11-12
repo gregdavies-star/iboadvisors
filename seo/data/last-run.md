@@ -1,32 +1,37 @@
-# Daily SEO run — 2026-11-11
+# Daily SEO run — 2026-11-12
 
-All 40 sitemap URLs return `PASS` for the second day running; `/industries/restaurants` keeps the crawl it got on 11-09. One new post plus three inbound links, no title or meta rewrites. Audit clean: 40 pages, 0 errors, 0 warnings.
+Published one new post on **whether private equity replaces the founder as CEO**, the top uncovered keyword in `keywords.json`, with three inbound links. Retitled the page carrying the site's largest CTR gap. No expansion: every striking-distance row is the blog index, homepage copy, or a page in cool-down. Audit clean: 40 pages, 0 errors. (Report runs long at ~560 words; the rule-5 list and the redirect finding are both new.)
 
-## GSC totals (28 days to 2026-11-08 vs prior 28)
+## GSC totals (28 days to 2026-11-09 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 80 | 5,830 | 1.37% | 11.0 |
-| Prior | 78 | 3,918 | 1.99% | 11.9 |
+| Current | 81 | 6,090 | 1.33% | 10.9 |
+| Prior | 78 | 3,866 | 2.02% | 11.7 |
 
-Impressions +49%, position +0.9, clicks +2 — new impressions land at 10–20 and dilute CTR before earning clicks.
+Impressions +58%, position +0.8, clicks +3. The growth is long conversational queries at positions 4-20 that click at roughly zero — AI surfaces, not blue links.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/private-equity-replace-founder-ceo` | new post, 1,860 words | Rule 7: one post in the trailing 7 days (11-06), slot open. Highest-priority uncovered keyword was cluster-5 "private equity and founder CEO replacement". Three sources opened this run: NBER w30899 (71% of 192 $1B+ US buyouts changed CEO, >75% of replacements external), AlixPartners 2026 (turnover spikes at year two), Spencer Stuart — plus a hypothetical $60M deal showing a $9M spread between good-leaver and bad-leaver clauses. The post says only 4% of the NBER sample were unaffiliated private companies. |
-| Three donors | link | Rule 7 + 8: `what-happens-after-private-equity-buys-your-company`, `selling-to-private-equity-pros-and-cons`, `minority-pe-stake-board-control-veto-rights`, each on a sentence that already raised CEO replacement and had nowhere to send the reader. |
+| `/blog/private-equity-replace-founder-ceo` | **new post**, 2,326 words | Rule 7, cap open. 71% of US buyouts over $1B EV hired a new CEO (Gompers & Kaplan via Harvard Law Forum); 65% of firms report CEO turnover during the hold (AlixPartners, Mar 2026); 58% of replacements fall between a year after close and a year before exit (AlixPartners/Vardis via Consultancy.uk); 76% of 75 middle-market sellers keep a role, not the chair (NCMM, Apr 2022). All opened with WebFetch; the $45M leaver table is invented arithmetic. |
+| `/blog/family-business-succession-planning` | title + meta | lowCtr: 337 impressions, **0 clicks at position 4.7** vs 6.0% expected. 282 of them are one query — "liquidity planning for family business succession", position 3.8 — which the old title buried behind the head term and a 15-character brand suffix. The title is now that query verbatim, 49 characters. |
+| 3 posts | link | Inbound links on sentences already making the point: "the job most at risk is yours", "you probably will not run it to the finish", and the rollover post's "doesn't buy you a voice". |
 
 ## Skipped
 
-**Rule 3** — 11 of 13 `lowCtr` rows are inside the 28-day cool-down. `selling-to-private-equity-pros-and-cons` already leads with its exact query, so a rewrite is churn; `family-business-succession-planning` is retitled on the open 11-10 branch and this run stayed off it; the `sell-a-business-but-keep-control` row is the URL you 301'd on 10-30. **Rule 4** — two rows rank `/blog`; "ibo finance" is homepage copy; `majority-recapitalization-vs-sale` was edited 11-03; `types-of-buyouts` already answers its query under an H2. **Rule 5** — the loser in each non-brand row is the blog index, which already links the winner. **Rule 6** — none.
+**Rule 3** — 11 of 13 lowCtr rows are in cool-down or closed per STRATEGY §8; `/blog/selling-to-private-equity-pros-and-cons` was eligible but its title already leads with its exact head query. **Rule 4** — index and homepage rows; "types of buyouts" is the page's own topic; `majority-recapitalization-vs-sale` edited 11-03. **Rule 6** — `/blog/how-private-equity-actually-finances-a-buyout` fell 5→1 clicks, but its title and meta changed on 11-09, the window's last day, so nothing is measurable yet; its lead query "buyout financings" returns definitional guides, no gap. **Rule 7** — no Ahrefs file.
+
+## Coverage
+
+`gsc-coverage.json` was inspected 2026-11-09, before the 11-10 indexing request, so it cannot show the result. `/industries/restaurants` is still the only non-`PASS` URL and still returns no `lastCrawlTime`, the signal to watch. Nothing to report before 11-24.
 
 ## For a human
 
-1. **Second run raising this: `/blog` absorbs generic buyout demand.** It is Google's pick for "owner buyout" (34 impressions, position 11.7), "buyout companies" (36, 22.3), "corporate buyouts" (36, 20.6) and "internal buyout services" (21, 33.6) — ~160 impressions, one click, on an index page. A dedicated post is the fix, but the term is not in `keywords.json`, so it needs your word first.
-2. **The 11-10 PR is unmerged.** It carries the family-business retitle and the only inbound link for `/blog/quality-of-earnings-report`, the site's inbound floor at 5.
+- Two lowCtr/cannibalization rows are URLs that 301 to `/blog/alternatives-to-selling-to-private-equity`: `/blog/sell-a-business-but-keep-control` (229 impressions, position 6.3) and `/blog/sell-part-of-your-business-keep-control`. Not editable; Google has not consolidated them.
+- Cluster 5's last keyword, "private equity debt on acquired company", overlaps `/blog/how-private-equity-actually-finances-a-buyout`. Write it or drop it?
 
 ## Flagged
 
-Standing rule 5 (audit pending your approval), re-verified on disk: `minority-recapitalization-explained` holds the one direct claim ("you keep majority ownership, board control, and operating authority"). New to the list, `majority-recapitalization-vs-sale` quotes "you stay in control" and then says the consent list decides whether that is true. Three more phrase it as the owner's question: `selling-to-private-equity-pros-and-cons`, `what-happens-after-private-equity-buys-your-company`, `rollover-equity-second-bite-explained`. Reported, not edited. Nothing asked for deal specifics.
+Rule 5 (pending audit): five pieces of published copy imply an owner keeps control after a sale or recap, all verified on disk today. Reported before: `/blog/rollover-equity-second-bite-explained`, `/blog/minority-recapitalization-explained`. New: `/blog/family-business-succession-planning` ("selling a minority position without giving up control"), `/blog/what-happens-after-private-equity-buys-your-company` ("sell part of the business and keep control"), `/blog/selling-to-private-equity-pros-and-cons` (FAQ "Can I keep control and still take money off the table?"). Not edited. Nothing asked for deal specifics.
