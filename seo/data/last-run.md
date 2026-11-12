@@ -1,37 +1,37 @@
-# Daily SEO run — 2026-11-09
+# Daily SEO run — 2026-11-12
 
-Retitled the two `lowCtr` pages outside their cool-down; one also had a standing-rule-5 problem in its meta. Published one new post on **how long private equity actually holds a company**, the top uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 39 pages, 0 errors, 0 warnings.
+Published one new post on **whether private equity replaces the founder as CEO**, the top uncovered keyword in `keywords.json`, with three inbound links. Retitled the page carrying the site's largest CTR gap. No expansion: every striking-distance row is the blog index, homepage copy, or a page in cool-down. Audit clean: 40 pages, 0 errors. (Report runs long at ~560 words; the rule-5 list and the redirect finding are both new.)
 
-## GSC totals (28 days to 2026-11-06 vs prior 28)
+## GSC totals (28 days to 2026-11-09 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 78 | 5,499 | 1.42% | 10.9 |
-| Prior | 79 | 4,064 | 1.94% | 12.6 |
+| Current | 81 | 6,090 | 1.33% | 10.9 |
+| Prior | 78 | 3,866 | 2.02% | 11.7 |
 
-Impressions +35%, position +1.7 places, clicks flat — the new impressions land at 10-20, where CTR dilutes.
+Impressions +58%, position +0.8, clicks +3. The growth is long conversational queries at positions 4-20 that click at roughly zero — AI surfaces, not blue links.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/how-private-equity-actually-finances-a-buyout` | title + meta | lowCtr: 133 impr, 2 clicks (1.50%) at position 8.2 vs 3.0% expected; untouched since 09-08, 15 of 51 title characters on the brand suffix. Title takes the sourced 50-70% debt share, the meta the $42M worked example. |
-| `/blog/minority-recapitalization-explained` | title + meta | lowCtr: 107 impr, **0 clicks at position 5.6** vs 3.0%; last changed 10-12, outside the cool-down. Both old strings said the owner keeps the majority and the board after a recap (rule 5); new copy leads with the arithmetic. |
-| `/blog/private-equity-holding-period` | **new post**, 2,187 words | Rule 7, cap open. Median hold 6.0 years over 13,757 exits, 5.9 for 2025 exits (Private Equity Info); ~7-year average at exit (Bain via CFO.com); fund terms (Goodwin); GP-led record (Dechert). All five sources opened with WebFetch; the rollover IRR example is invented arithmetic. |
-| 2 posts + `/blog` | link, card | Donors on sentences already about hold length: `what-happens-after-private-equity-buys-your-company` (its holding-period section now points at the dedicated page instead of competing) and `rollover-equity-second-bite-explained`. Two card excerpts synced. |
+| `/blog/private-equity-replace-founder-ceo` | **new post**, 2,326 words | Rule 7, cap open. 71% of US buyouts over $1B EV hired a new CEO (Gompers & Kaplan via Harvard Law Forum); 65% of firms report CEO turnover during the hold (AlixPartners, Mar 2026); 58% of replacements fall between a year after close and a year before exit (AlixPartners/Vardis via Consultancy.uk); 76% of 75 middle-market sellers keep a role, not the chair (NCMM, Apr 2022). All opened with WebFetch; the $45M leaver table is invented arithmetic. |
+| `/blog/family-business-succession-planning` | title + meta | lowCtr: 337 impressions, **0 clicks at position 4.7** vs 6.0% expected. 282 of them are one query — "liquidity planning for family business succession", position 3.8 — which the old title buried behind the head term and a 15-character brand suffix. The title is now that query verbatim, 49 characters. |
+| 3 posts | link | Inbound links on sentences already making the point: "the job most at risk is yours", "you probably will not run it to the finish", and the rollover post's "doesn't buy you a voice". |
 
 ## Skipped
 
-**Rule 4** — two rows rank the blog index, two sit on pages edited 10-31 and 11-03, "ibo finance" is homepage body copy. **Rule 3** — nine rows in cool-down; the PE buyout primer is closed per STRATEGY.md §8. **Rule 5** — the index already links `/blog/types-of-buyouts` with both contested phrasings. **Rule 6** — the homepage drop (55 → 38 clicks) is demand, not a snippet fault: all of it is "ibo advisors", 60 → 39 impressions at an unchanged position 1.1, CTR up to 59.0%. **Rule 7** — no `ahrefs-latest.json`, so the volume/KD preference could not be applied.
+**Rule 3** — 11 of 13 lowCtr rows are in cool-down or closed per STRATEGY §8; `/blog/selling-to-private-equity-pros-and-cons` was eligible but its title already leads with its exact head query. **Rule 4** — index and homepage rows; "types of buyouts" is the page's own topic; `majority-recapitalization-vs-sale` edited 11-03. **Rule 6** — `/blog/how-private-equity-actually-finances-a-buyout` fell 5→1 clicks, but its title and meta changed on 11-09, the window's last day, so nothing is measurable yet; its lead query "buyout financings" returns definitional guides, no gap. **Rule 7** — no Ahrefs file.
 
 ## Coverage
 
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed"): 3,954 words, no `noindex`, correct canonical, 9 inbound links, expanded four times with no effect. Not expanded again — **submit it for indexing manually**, the one lever the job lacks.
+`gsc-coverage.json` was inspected 2026-11-09, before the 11-10 indexing request, so it cannot show the result. `/industries/restaurants` is still the only non-`PASS` URL and still returns no `lastCrawlTime`, the signal to watch. Nothing to report before 11-24.
 
 ## For a human
 
-"industry multiples database" (71 impr at 44.0) and "private equity accounting firm valuation(s)" (31 at 52-64) are ranking problems on untargeted terms. Add to cluster 7 if you want them written.
+- Two lowCtr/cannibalization rows are URLs that 301 to `/blog/alternatives-to-selling-to-private-equity`: `/blog/sell-a-business-but-keep-control` (229 impressions, position 6.3) and `/blog/sell-part-of-your-business-keep-control`. Not editable; Google has not consolidated them.
+- Cluster 5's last keyword, "private equity debt on acquired company", overlaps `/blog/how-private-equity-actually-finances-a-buyout`. Write it or drop it?
 
 ## Flagged
 
-Two pages carry published copy implying an owner keeps control after a sale or recap (rule 5; the existing-post audit is pending your approval), both verified on disk today: `/blog/rollover-equity-second-bite-explained` ("still keep control turns on the board composition and the consent list") and `/blog/minority-recapitalization-explained` ("you keep majority ownership, board control, and operating authority"). Reported, not edited — the second page's metas were in scope today and were fixed. Nothing asked for deal specifics.
+Rule 5 (pending audit): five pieces of published copy imply an owner keeps control after a sale or recap, all verified on disk today. Reported before: `/blog/rollover-equity-second-bite-explained`, `/blog/minority-recapitalization-explained`. New: `/blog/family-business-succession-planning` ("selling a minority position without giving up control"), `/blog/what-happens-after-private-equity-buys-your-company` ("sell part of the business and keep control"), `/blog/selling-to-private-equity-pros-and-cons` (FAQ "Can I keep control and still take money off the table?"). Not edited. Nothing asked for deal specifics.
