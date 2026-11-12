@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T18:56:31.920Z",
+  "generatedAt": "2026-11-12T21:52:31.344Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -122,8 +122,8 @@
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "title": "Liquidity Planning for Family Business Succession",
       "titleLength": 49,
-      "description": "Liquidity planning for a family business succession: the three claims on the equity, why they usually exceed it, and how to stage the cash instead.",
-      "descriptionLength": 147,
+      "description": "Liquidity planning for a family business succession: a worked $4M-EBITDA handover where retirement and sibling equalization claim $26M of $23M of equity.",
+      "descriptionLength": 153,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 5282,
       "date": "2026-10-29",
@@ -177,10 +177,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2207,
+      "words": 2234,
       "date": "2026-09-13",
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2194,
+      "words": 2234,
       "date": "2026-09-08",
       "inboundInternalLinks": 22,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -333,9 +333,9 @@
       "description": "PE firms replaced the CEO at 71% of large buyouts. When founder CEOs get replaced, what triggers it, and what to negotiate before you sign.",
       "descriptionLength": 139,
       "h1": "Will Private Equity Replace You as CEO After the Sale?",
-      "words": 2326,
+      "words": 2446,
       "date": "2026-11-12",
-      "inboundInternalLinks": 4,
+      "inboundInternalLinks": 5,
       "outboundInternalLinks": 13,
       "issues": []
     },
@@ -348,7 +348,7 @@
       "h1": "Quality of Earnings Report: What Buyers Test",
       "words": 3249,
       "date": "2026-10-29",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 10,
       "issues": []
     },
