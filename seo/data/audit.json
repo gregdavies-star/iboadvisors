@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T18:32:43.982Z",
+  "generatedAt": "2026-11-13T21:48:44.956Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,7 +10,7 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 2,
       "issues": []
     },
@@ -23,8 +23,8 @@
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
-      "outboundInternalLinks": 36,
+      "inboundInternalLinks": 39,
+      "outboundInternalLinks": 37,
       "issues": []
     },
     {
@@ -101,7 +101,7 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-      "inboundInternalLinks": 10,
+      "inboundInternalLinks": 11,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -120,14 +120,14 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-      "title": "Family Business Succession: Liquidity Options | IBO Advisors",
-      "titleLength": 60,
-      "description": "Liquidity planning for a family business succession: how to pay the exiting generation, fund the successor, and pick the advisors who run the transition.",
+      "title": "Liquidity Planning for Family Business Succession",
+      "titleLength": 49,
+      "description": "Liquidity planning for a family business succession: a worked $4M-EBITDA handover where retirement and sibling equalization claim $26M of $23M of equity.",
       "descriptionLength": 153,
       "h1": "Family Business Succession Planning: Options Beyond Selling to a Stranger",
       "words": 5282,
       "date": "2026-10-29",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -166,7 +166,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2194,
       "date": "2026-09-08",
-      "inboundInternalLinks": 26,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -177,10 +177,10 @@
       "description": "How to sell a business to private equity: the stages of the process, what signing the LOI really locks in, and the terms that decide what you keep.",
       "descriptionLength": 147,
       "h1": "How to Sell a Business to Private Equity",
-      "words": 2207,
+      "words": 2234,
       "date": "2026-09-13",
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 18,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -218,7 +218,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -257,7 +257,7 @@
       "h1": "Management Buyout vs Private Equity: Price, Leadership, and When You Actually Get Paid",
       "words": 3247,
       "date": "2026-10-08",
-      "inboundInternalLinks": 11,
+      "inboundInternalLinks": 12,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +268,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2194,
+      "words": 2234,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 16,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -283,7 +283,7 @@
       "h1": "Minority Recapitalization Explained: Sell Part of Your Business Without Letting Private Equity Take Control",
       "words": 1917,
       "date": "2026-09-08",
-      "inboundInternalLinks": 14,
+      "inboundInternalLinks": 15,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -309,7 +309,7 @@
       "h1": "Private Equity Holding Period: Median 6 Years and Rising",
       "words": 2251,
       "date": "2026-11-06",
-      "inboundInternalLinks": 8,
+      "inboundInternalLinks": 9,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -327,6 +327,19 @@
       "issues": []
     },
     {
+      "url": "https://www.iboadvisors.com/blog/private-equity-replace-founder-ceo",
+      "title": "Will Private Equity Replace You as CEO After the Sale?",
+      "titleLength": 54,
+      "description": "PE firms replaced the CEO at 71% of large buyouts. When founder CEOs get replaced, what triggers it, and what to negotiate before you sign.",
+      "descriptionLength": 139,
+      "h1": "Will Private Equity Replace You as CEO After the Sale?",
+      "words": 2446,
+      "date": "2026-11-12",
+      "inboundInternalLinks": 5,
+      "outboundInternalLinks": 13,
+      "issues": []
+    },
+    {
       "url": "https://www.iboadvisors.com/blog/quality-of-earnings-report",
       "title": "Quality of Earnings Report: What Buyers Test | IBO Advisors",
       "titleLength": 59,
@@ -335,7 +348,7 @@
       "h1": "Quality of Earnings Report: What Buyers Test",
       "words": 3249,
       "date": "2026-10-29",
-      "inboundInternalLinks": 5,
+      "inboundInternalLinks": 6,
       "outboundInternalLinks": 10,
       "issues": []
     },
@@ -359,10 +372,10 @@
       "description": "Rollover equity typically runs 10-40% of a private equity deal - and most sellers never collect what they expect from it. Here's what the data actually shows.",
       "descriptionLength": 158,
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
-      "words": 1800,
+      "words": 1835,
       "date": "2026-07-06",
-      "inboundInternalLinks": 24,
-      "outboundInternalLinks": 14,
+      "inboundInternalLinks": 25,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -398,10 +411,10 @@
       "description": "The advantages and disadvantages of selling to private equity: a worked $35M deal nets $19M after tax, against the debt, the escrow and the seven-year hold.",
       "descriptionLength": 156,
       "h1": "Selling to Private Equity: Pros and Cons",
-      "words": 2140,
+      "words": 2165,
       "date": "2026-09-21",
-      "inboundInternalLinks": 13,
-      "outboundInternalLinks": 18,
+      "inboundInternalLinks": 14,
+      "outboundInternalLinks": 19,
       "issues": []
     },
     {
@@ -437,10 +450,10 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2553,
+      "words": 2581,
       "date": "2026-09-12",
-      "inboundInternalLinks": 15,
-      "outboundInternalLinks": 22,
+      "inboundInternalLinks": 16,
+      "outboundInternalLinks": 23,
       "issues": []
     },
     {
@@ -452,7 +465,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 9,
       "issues": []
     },

@@ -277,6 +277,14 @@ inference rests on the wrong date and should not be carried forward. The sequenc
 consistent with the 11-09 request having worked, and inconsistent with nothing having been
 requested; it is not proof of causation, and no further claim should be made.
 
+**First ranking read, 2026-11-13.** The 28-day window to 11-10 is the first that covers the
+crawl, and the page appears: **27 impressions at position 11.7, zero clicks**, with no prior
+period to compare against. Its visible queries are restaurant-EBITDA-multiple variants at 9
+to 12.5, plus two long-tail rows at 59 and 81; the visible table covers 8 of the 27
+impressions, so that is a sample, not the whole picture. `/blog/restaurant-ma` holds 54
+impressions at 6.9 on different queries, so there is no sign yet that the two compete -
+which is the last premise the merge proposal rested on. Treat 11.7 as the baseline to beat.
+
 What this closes: the merge-and-301 of `/blog/restaurant-ma` is **dead**, not deferred -
 its entire premise was that the industry page could not get indexed. Do not re-propose it.
 Do not request indexing for this URL again. The open question is now the ordinary one: what
