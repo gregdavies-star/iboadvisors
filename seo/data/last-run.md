@@ -1,37 +1,41 @@
-# Daily SEO run — 2026-11-09
+# Daily SEO run — 2026-11-13
 
-Retitled the two `lowCtr` pages outside their cool-down; one also had a standing-rule-5 problem in its meta. Published one new post on **how long private equity actually holds a company**, the top uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 39 pages, 0 errors, 0 warnings.
+**`/industries/restaurants` is ranking.** Three weeks of "Discovered - currently not indexed" ended with the 11-09 crawl, and this is the first window covering it: 27 impressions at position 11.7, a first appearance. No new post (7-day cap full), no retitle (both eligible rows already handled on open PR #75). Three internal links; audit clean, 39 pages, 0 errors.
 
-## GSC totals (28 days to 2026-11-06 vs prior 28)
+## GSC totals (28 days to 2026-11-10 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 78 | 5,499 | 1.42% | 10.9 |
-| Prior | 79 | 4,064 | 1.94% | 12.6 |
+| Current | 82 | 6,331 | 1.30% | 10.7 |
+| Prior | 76 | 3,760 | 2.02% | 11.5 |
 
-Impressions +35%, position +1.7 places, clicks flat — the new impressions land at 10-20, where CTR dilutes.
+Impressions +68%, position +0.8, clicks +6. CTR falls because the new impressions are long conversational queries that click at roughly zero.
 
-## Changes
+## Changes (rule 8)
 
-| Page | Change | Data point |
-|---|---|---|
-| `/blog/how-private-equity-actually-finances-a-buyout` | title + meta | lowCtr: 133 impr, 2 clicks (1.50%) at position 8.2 vs 3.0% expected; untouched since 09-08, 15 of 51 title characters on the brand suffix. Title takes the sourced 50-70% debt share, the meta the $42M worked example. |
-| `/blog/minority-recapitalization-explained` | title + meta | lowCtr: 107 impr, **0 clicks at position 5.6** vs 3.0%; last changed 10-12, outside the cool-down. Both old strings said the owner keeps the majority and the board after a recap (rule 5); new copy leads with the arithmetic. |
-| `/blog/private-equity-holding-period` | **new post**, 2,187 words | Rule 7, cap open. Median hold 6.0 years over 13,757 exits, 5.9 for 2025 exits (Private Equity Info); ~7-year average at exit (Bain via CFO.com); fund terms (Goodwin); GP-led record (Dechert). All five sources opened with WebFetch; the rollover IRR example is invented arithmetic. |
-| 2 posts + `/blog` | link, card | Donors on sentences already about hold length: `what-happens-after-private-equity-buys-your-company` (its holding-period section now points at the dedicated page instead of competing) and `rollover-equity-second-bite-explained`. Two card excerpts synced. |
+| Page | Data point |
+|---|---|
+| `/blog/independent-buyout-explained` | `/blog/private-equity-holding-period` had 6 inbound, tied for the site floor. The donor is the category cluster's strongest page (27 in-links) and already quotes the 5.4-year median; that phrase is the anchor. |
+| `/blog/types-of-buyouts` | Second donor, same target (6 → 8). Its secondary-buyout FAQ already ended on "the holding period starts over". |
+| `/industries/restaurants` | `/blog/sde-vs-ebitda` had 6 inbound (6 → 7). The hub's FAQ prices single units on seller's discretionary earnings and never explained the term. Wording unchanged, so the FAQPage JSON-LD still matches. |
 
 ## Skipped
 
-**Rule 4** — two rows rank the blog index, two sit on pages edited 10-31 and 11-03, "ibo finance" is homepage body copy. **Rule 3** — nine rows in cool-down; the PE buyout primer is closed per STRATEGY.md §8. **Rule 5** — the index already links `/blog/types-of-buyouts` with both contested phrasings. **Rule 6** — the homepage drop (55 → 38 clicks) is demand, not a snippet fault: all of it is "ibo advisors", 60 → 39 impressions at an unchanged position 1.1, CTR up to 59.0%. **Rule 7** — no `ahrefs-latest.json`, so the volume/KD preference could not be applied.
+- **Rule 3.** 10 of 12 `lowCtr` rows are in cool-down or closed by STRATEGY §8. `/blog/family-business-succession-planning` (340 impressions, 0 clicks at 4.7) was retitled on PR #75 on 11-12; `/blog/selling-to-private-equity-pros-and-cons` (149, 7.0) already leads with its exact head query. `/blog` becomes eligible 11-14.
+- **Rule 4.** Three of six `strikingDistance` rows are the blog index or homepage; "types of buyouts" is that page's own topic; `/ebitda-multiples-by-industry` and `/blog/majority-recapitalization-vs-sale` clear their 14-day cool-down on 11-17.
+- **Rule 6.** `/blog/how-private-equity-actually-finances-a-buyout` fell 5 → 1 clicks, but its title and meta were rewritten on 11-07, 11-08 and 11-09, so nothing is measurable yet. Its lead query "buyout financings" returns generic LBO explainers on the debt split, which the page works out in more detail. No gap.
+- **Rule 7.** Two posts in the trailing 7 days: holding-period (11-09) and the founder-CEO post (11-12, PR #75).
 
 ## Coverage
 
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed"): 3,954 words, no `noindex`, correct canonical, 9 inbound links, expanded four times with no effect. Not expanded again — **submit it for indexing manually**, the one lever the job lacks.
+All 39 sitemap URLs `PASS`, second pull running. `/industries/restaurants` reports `lastCrawlTime` 2026-11-09T22:07:19Z; its first queries are restaurant-EBITDA-multiple variants at 9-12.5. `/blog/restaurant-ma` holds 54 impressions at 6.9 on different queries — no sign the two compete.
 
 ## For a human
 
-"industry multiples database" (71 impr at 44.0) and "private equity accounting firm valuation(s)" (31 at 52-64) are ranking problems on untargeted terms. Add to cluster 7 if you want them written.
+- PR #75 is still open. This branch is built on `main` and merges cleanly, but the figures above describe a site without its changes.
+- Cluster 5's last keyword, "private equity debt on acquired company", overlaps the finance post heavily: write it or drop it? (Raised 11-12.)
+- `/blog/quality-of-earnings-report` is at 5 inbound links, the floor, with no unlinked mention of the term left to use as a donor.
 
 ## Flagged
 
-Two pages carry published copy implying an owner keeps control after a sale or recap (rule 5; the existing-post audit is pending your approval), both verified on disk today: `/blog/rollover-equity-second-bite-explained` ("still keep control turns on the board composition and the consent list") and `/blog/minority-recapitalization-explained` ("you keep majority ownership, board control, and operating authority"). Reported, not edited — the second page's metas were in scope today and were fixed. Nothing asked for deal specifics.
+Nothing asked for deal specifics. The five standing-rule-5 "control" wordings listed on PR #75 are unchanged on disk; not re-enumerated, to avoid sending a reviewer over the same ground twice.

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:50:10.869Z",
+  "generatedAt": "2026-11-13T18:32:43.982Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -219,7 +219,7 @@
       "words": 2375,
       "date": "2026-10-10",
       "inboundInternalLinks": 27,
-      "outboundInternalLinks": 16,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -309,7 +309,7 @@
       "h1": "Private Equity Holding Period: Median 6 Years and Rising",
       "words": 2251,
       "date": "2026-11-06",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 8,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -374,7 +374,7 @@
       "h1": "SDE vs EBITDA: Which One Prices Your Business",
       "words": 1907,
       "date": "2026-10-28",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -424,10 +424,10 @@
       "description": "The seven types of buyouts compared - LBO, MBO, MBI, ESOP, secondary, recap and the Independent Buyout - on price, leverage and who owns the company after.",
       "descriptionLength": 155,
       "h1": "Types of Buyouts: The Seven Structures, and Who Owns the Company Afterward",
-      "words": 2648,
+      "words": 2649,
       "date": "2026-10-26",
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 17,
+      "outboundInternalLinks": 18,
       "issues": []
     },
     {
@@ -505,7 +505,7 @@
       "words": null,
       "date": null,
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 6,
+      "outboundInternalLinks": 7,
       "issues": []
     }
   ],
