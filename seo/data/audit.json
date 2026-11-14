@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:50:10.869Z",
+  "generatedAt": "2026-11-14T17:02:59.397Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -47,10 +47,10 @@
       "description": "Seven alternatives to selling to private equity at $3M+ EBITDA, with a worked $42M example showing cash at close and what you still own.",
       "descriptionLength": 136,
       "h1": "7 Alternatives to Selling to Private Equity",
-      "words": 2239,
+      "words": 2263,
       "date": "2026-09-08",
       "inboundInternalLinks": 18,
-      "outboundInternalLinks": 24,
+      "outboundInternalLinks": 25,
       "issues": []
     },
     {
@@ -102,7 +102,7 @@
       "words": 2124,
       "date": "2026-09-29",
       "inboundInternalLinks": 10,
-      "outboundInternalLinks": 14,
+      "outboundInternalLinks": 15,
       "issues": []
     },
     {
@@ -322,7 +322,7 @@
       "h1": "Private Equity Management Fees: What You Pay",
       "words": 2832,
       "date": "2026-11-05",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 11,
       "issues": []
     },
@@ -393,10 +393,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
-      "title": "Pros and Cons of Selling to Private Equity | IBO Advisors",
-      "titleLength": 57,
-      "description": "The advantages and disadvantages of selling to private equity: a worked $35M deal nets $19M after tax, against the debt, the escrow and the seven-year hold.",
-      "descriptionLength": 156,
+      "title": "Pros and Cons of Selling to Private Equity: $35M Nets $19M",
+      "titleLength": 58,
+      "description": "The pros and cons of selling to private equity, costed out: a hypothetical $35M sale leaves about $19M after tax, with $7M riding on the buyer's exit.",
+      "descriptionLength": 150,
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 2140,
       "date": "2026-09-21",
@@ -478,7 +478,7 @@
       "h1": "Government contractor valuation multiples",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 4,
       "issues": []
     },
