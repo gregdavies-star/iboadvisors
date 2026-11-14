@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "generatedAt": "2026-11-13T21:48:44.956Z",
-=======
-  "generatedAt": "2026-11-14T17:02:59.397Z",
->>>>>>> origin/claude/seo-run-2026-11-14
+  "generatedAt": "2026-11-14T21:51:08.088Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -105,13 +101,8 @@
       "h1": "Earnout in a Business Sale: What It Pays",
       "words": 2124,
       "date": "2026-09-29",
-<<<<<<< HEAD
       "inboundInternalLinks": 11,
-      "outboundInternalLinks": 14,
-=======
-      "inboundInternalLinks": 10,
       "outboundInternalLinks": 15,
->>>>>>> origin/claude/seo-run-2026-11-14
       "issues": []
     },
     {
