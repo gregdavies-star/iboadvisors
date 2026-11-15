@@ -250,6 +250,24 @@ ever quantifying it, so do not put a number on it anywhere.
 indexed" and "URL is unknown to Google" and whose neither state has held. Report the
 first crawl time when it appears, and nothing before it.
 
+**Resolved 2026-11-15: it worked.** URL Inspection now returns
+`lastCrawlTime` **2026-11-09T22:07:19Z** - the first crawl ever recorded for the URL - with
+verdict `PASS`, `coverageState` "Submitted and indexed" and the Google-selected canonical
+equal to the declared one. Every sitemap URL is now `PASS`; there is no coverage problem
+left on the site. The page entered the GSC page table in the same window at **110
+impressions, position 9.2**, on exactly the queries it was written for ("restaurant ebitda
+multiples" 10.4, "restaurant valuation ebitda multiple" 16.6, "restaurant multiples" 14.5).
+So the diagnosis four runs reached was right: the constraint was crawl scheduling, nothing
+on the page. The lever that fixed it was Greg's second indexing request on 2026-11-10 -
+submitted the day after the crawl Google had already scheduled, so strictly the crawl came
+first; either way, no on-page change moved it.
+
+**For a daily run:** this is closed. Do not expand the page, do not re-propose the merge or
+the 301, and do not treat it as a coverage problem. It is a normal indexed page now, and the
+only open question is CTR: zero clicks from position 9.2. Its title and meta already lead
+with "Restaurant EBITDA Multiples" and the 3.0x-5.0x band, so leave them alone until the
+page has a full 28-day window of settled data - the first one ends about 2026-12-07.
+
 Two reasons the merge was not the first move. It is irreversible in practice, and it
 would retire a page that is indexed and ranks 6.9 in order to test a hypothesis about
 crawl priority. And one premise behind it has weakened since 10-24: the argument was
