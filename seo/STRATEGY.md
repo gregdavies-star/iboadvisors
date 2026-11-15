@@ -251,6 +251,30 @@ ever quantifying it, so do not put a number on it anywhere.
 indexed" and "URL is unknown to Google" and whose neither state has held. Report the
 first crawl time when it appears, and nothing before it.
 
+**Second ranking read, 2026-11-15** (window to 11-12). The page is at **110 impressions,
+position 9.2**, zero clicks, up from 27 at 11.7 in the window to 11-10. Verified in the
+run's own `gsc-latest.json`. Its three best visible queries are the ones the page was
+written for - "restaurant ebitda multiples" at 10.4, "restaurant valuation ebitda multiple"
+at 16.6, "restaurant multiples" at 14.5 - but the visible query table holds ten rows
+totalling only **31 of the 110 impressions**, so that is a sample of the page, not a
+description of it. `/blog/restaurant-ma` is at 49 impressions and position 7.0, down from
+61 at 6.3, still on different queries. The diagnosis four runs reached was right: the
+constraint was crawl scheduling, not the page.
+
+**On the cause, do not repeat the 11-15 run's version.** It wrote that the request was made
+on 2026-11-10, "submitted the day after the crawl Google had already scheduled, so strictly
+the crawl came first". That reads my own mis-dated changelog entries, which carry the
+run-date convention. The request was made on **2026-11-09**: the commit recording it,
+`e7d6622`, is timestamped 2026-11-09T22:06:19Z, and the crawl followed at 22:07:19Z, about
+a minute later. The sequence fits the request having worked. A one-minute gap is not proof
+of causation either way, and no stronger claim should be made in either direction.
+
+**For a daily run:** this is closed. Do not expand the page, do not re-propose the merge or
+the 301, and do not treat it as a coverage problem. It is a normal indexed page now, and the
+only open question is CTR: zero clicks from position 9.2. Its title and meta already lead
+with "Restaurant EBITDA Multiples" and the 3.0x-5.0x band, so leave them alone until the
+page has a full 28-day window of settled data - the first one ends about 2026-12-07.
+
 Two reasons the merge was not the first move. It is irreversible in practice, and it
 would retire a page that is indexed and ranks 6.9 in order to test a hypothesis about
 crawl priority. And one premise behind it has weakened since 10-24: the argument was

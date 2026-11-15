@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-14T16:52:15.743Z",
+  "inspectedAt": "2026-11-15T17:34:20.887Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -23,7 +23,7 @@
       "url": "https://www.iboadvisors.com/business-valuation-calculator",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-03T08:10:45Z",
+      "lastCrawlTime": "2026-11-13T18:19:49Z",
       "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -113,7 +113,7 @@
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-09T16:49:30Z",
+      "lastCrawlTime": "2026-11-13T10:13:10Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -212,7 +212,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-08T08:24:28Z",
+      "lastCrawlTime": "2026-11-15T15:21:54Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -311,7 +311,7 @@
       "url": "https://www.iboadvisors.com/blog/management-buyout-financing",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-09-08T19:45:29Z",
+      "lastCrawlTime": "2026-11-15T06:33:36Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/management-buyout-financing",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
