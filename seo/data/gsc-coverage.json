@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-15T17:34:20.887Z",
+  "inspectedAt": "2026-11-16T20:49:15.600Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -176,7 +176,7 @@
       "url": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-09T06:43:26Z",
+      "lastCrawlTime": "2026-11-15T14:44:24Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
