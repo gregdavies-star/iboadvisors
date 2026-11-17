@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T15:50:10.869Z",
+  "generatedAt": "2026-11-17T19:52:39.170Z",
   "pages": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -10,21 +10,21 @@
       "h1": "A Private Equity outcome without the Private Equity.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 2,
       "issues": []
     },
     {
       "url": "https://www.iboadvisors.com/blog",
-      "title": "Buyouts, Recaps and Exit Options for Owners | IBO Advisors",
-      "titleLength": 58,
-      "description": "Guides to buyouts, recapitalizations and exit options for owners with $3M+ EBITDA - what each structure pays and who ends up controlling the company.",
-      "descriptionLength": 149,
+      "title": "Exit Planning, M&A and Valuation Guides | IBO Advisors",
+      "titleLength": 54,
+      "description": "Plain-English guides to exit planning, recapitalizations, valuation and the Independent Buyout, for owners of companies doing $3M+ in EBITDA.",
+      "descriptionLength": 141,
       "h1": "Exit planning, M&A, and the Independent Buyout - explained plainly.",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
-      "outboundInternalLinks": 36,
+      "inboundInternalLinks": 39,
+      "outboundInternalLinks": 37,
       "issues": []
     },
     {
@@ -90,6 +90,19 @@
       "date": "2026-10-18",
       "inboundInternalLinks": 7,
       "outboundInternalLinks": 11,
+      "issues": []
+    },
+    {
+      "url": "https://www.iboadvisors.com/blog/does-private-equity-replace-the-ceo",
+      "title": "Does Private Equity Replace the Founder CEO? The Numbers",
+      "titleLength": 56,
+      "description": "65% of PE firms report CEO turnover during the hold. What triggers it, what your employment agreement is really worth, and how founders keep the job.",
+      "descriptionLength": 149,
+      "h1": "Does Private Equity Replace the Founder CEO? The Numbers",
+      "words": 1754,
+      "date": "2026-11-17",
+      "inboundInternalLinks": 3,
+      "outboundInternalLinks": 9,
       "issues": []
     },
     {
@@ -166,7 +179,7 @@
       "h1": "Private Equity Doesn't Buy Your Company - It Borrows Against It. Here's How.",
       "words": 2194,
       "date": "2026-09-08",
-      "inboundInternalLinks": 26,
+      "inboundInternalLinks": 27,
       "outboundInternalLinks": 17,
       "issues": []
     },
@@ -218,7 +231,7 @@
       "h1": "What Is an Independent Buyout (IBO)?",
       "words": 2375,
       "date": "2026-10-10",
-      "inboundInternalLinks": 27,
+      "inboundInternalLinks": 28,
       "outboundInternalLinks": 16,
       "issues": []
     },
@@ -268,10 +281,10 @@
       "description": "A private equity minority stake often carries veto rights over debt, budgets, hiring and your exit. The full consent list, and five levers to negotiate.",
       "descriptionLength": 152,
       "h1": "What \"Minority Stake\" Really Means: Board Control and Veto Rights in a PE Investment",
-      "words": 2194,
+      "words": 2231,
       "date": "2026-09-08",
-      "inboundInternalLinks": 21,
-      "outboundInternalLinks": 16,
+      "inboundInternalLinks": 22,
+      "outboundInternalLinks": 17,
       "issues": []
     },
     {
@@ -309,7 +322,7 @@
       "h1": "Private Equity Holding Period: Median 6 Years and Rising",
       "words": 2251,
       "date": "2026-11-06",
-      "inboundInternalLinks": 6,
+      "inboundInternalLinks": 7,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -361,7 +374,7 @@
       "h1": "What Actually Happens to Your Rollover Equity After You Sell to Private Equity",
       "words": 1800,
       "date": "2026-07-06",
-      "inboundInternalLinks": 24,
+      "inboundInternalLinks": 25,
       "outboundInternalLinks": 14,
       "issues": []
     },
@@ -400,7 +413,7 @@
       "h1": "Selling to Private Equity: Pros and Cons",
       "words": 2140,
       "date": "2026-09-21",
-      "inboundInternalLinks": 13,
+      "inboundInternalLinks": 14,
       "outboundInternalLinks": 18,
       "issues": []
     },
@@ -437,10 +450,10 @@
       "description": "When private equity buys your company the debt moves to your balance sheet, 65% of sponsors report CEO turnover, and the median hold is 5.8 years.",
       "descriptionLength": 146,
       "h1": "What Happens After Private Equity Buys Your Company",
-      "words": 2553,
+      "words": 2580,
       "date": "2026-09-12",
-      "inboundInternalLinks": 15,
-      "outboundInternalLinks": 22,
+      "inboundInternalLinks": 16,
+      "outboundInternalLinks": 23,
       "issues": []
     },
     {
@@ -452,7 +465,7 @@
       "h1": "What is your business actually worth?",
       "words": null,
       "date": null,
-      "inboundInternalLinks": 38,
+      "inboundInternalLinks": 39,
       "outboundInternalLinks": 9,
       "issues": []
     },
@@ -497,10 +510,10 @@
     },
     {
       "url": "https://www.iboadvisors.com/industries/restaurants",
-      "title": "Restaurant EBITDA Multiples & Valuation | IBO Advisors",
-      "titleLength": 54,
-      "description": "Restaurant EBITDA multiples run 3.0x-5.0x. What moves you inside the band, the EBITDA-vs-EBITDAR lease trap, and what your franchise agreement controls.",
-      "descriptionLength": 152,
+      "title": "Restaurant EBITDA Multiples 2026: 3.0x to 5.0x",
+      "titleLength": 46,
+      "description": "Restaurant EBITDA multiples run 3.0x-5.0x at a $3-5M control sale. The add-backs that move the number, the lease trap, and where multi-unit groups price.",
+      "descriptionLength": 153,
       "h1": "Restaurant EBITDA multiples",
       "words": null,
       "date": null,

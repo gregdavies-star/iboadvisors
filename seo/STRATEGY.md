@@ -258,6 +258,15 @@ restaurants row sat at position 2.5. The hub is now at 15.4, `/blog/restaurant-m
 zero clicks from 6.9, and no restaurant query appears in the visible query table at all.
 The merge would not be rescuing existing traffic.
 
+**Resolved 2026-11-17.** `lastCrawlTime` appeared: the page was crawled
+**2026-11-09T22:07:19Z**, the inspection verdict is now PASS / "Submitted and indexed"
+with its own URL as the Google-selected canonical, and it took **174 impressions at
+position 9.7** in the 28 days to 11-14, having been absent from the page table entirely a
+fortnight earlier. Every sitemap URL is now PASS. Its queries are the ones the page was
+built for - "restaurant ebitda multiples" (11.9), "restaurant multiples" (15.4),
+"restaurant ebitda" (9.0) - so the remaining gap is position, not indexing. The merge-and-301
+of `/blog/restaurant-ma` stays off the table; this file's restaurants record is closed.
+
 **For a daily run:** stop writing "submit it for indexing manually" in the For a human
 section - it has now been requested twice and Greg is handling it. Do not expand the page
 again; four expansions have moved nothing, and the page has never been fetched, so

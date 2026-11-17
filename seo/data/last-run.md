@@ -1,37 +1,37 @@
-# Daily SEO run — 2026-11-09
+# Daily SEO run — 2026-11-17
 
-Retitled the two `lowCtr` pages outside their cool-down; one also had a standing-rule-5 problem in its meta. Published one new post on **how long private equity actually holds a company**, the top uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 39 pages, 0 errors, 0 warnings.
+`/industries/restaurants` was finally crawled and is indexed — every sitemap URL is PASS for the first time. Retitled it to its own query data, answered three year-qualified queries on the multiples page, published one new post, and stopped `/blog` competing with `/blog/types-of-buyouts`. Audit clean.
 
-## GSC totals (28 days to 2026-11-06 vs prior 28)
+## GSC totals (28 days to 2026-11-14 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 78 | 5,499 | 1.42% | 10.9 |
-| Prior | 79 | 4,064 | 1.94% | 12.6 |
+| Current | 74 | 7,237 | 1.02% | 10.5 |
+| Prior | 81 | 3,847 | 2.11% | 11.2 |
 
-Impressions +35%, position +1.7 places, clicks flat — the new impressions land at 10-20, where CTR dilutes.
+Impressions +88%, clicks −9%: the new impressions sit where nobody clicks.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/how-private-equity-actually-finances-a-buyout` | title + meta | lowCtr: 133 impr, 2 clicks (1.50%) at position 8.2 vs 3.0% expected; untouched since 09-08, 15 of 51 title characters on the brand suffix. Title takes the sourced 50-70% debt share, the meta the $42M worked example. |
-| `/blog/minority-recapitalization-explained` | title + meta | lowCtr: 107 impr, **0 clicks at position 5.6** vs 3.0%; last changed 10-12, outside the cool-down. Both old strings said the owner keeps the majority and the board after a recap (rule 5); new copy leads with the arithmetic. |
-| `/blog/private-equity-holding-period` | **new post**, 2,187 words | Rule 7, cap open. Median hold 6.0 years over 13,757 exits, 5.9 for 2025 exits (Private Equity Info); ~7-year average at exit (Bain via CFO.com); fund terms (Goodwin); GP-led record (Dechert). All five sources opened with WebFetch; the rollover IRR example is invented arithmetic. |
-| 2 posts + `/blog` | link, card | Donors on sentences already about hold length: `what-happens-after-private-equity-buys-your-company` (its holding-period section now points at the dedicated page instead of competing) and `rollover-equity-second-bite-explained`. Two card excerpts synced. |
+| `/industries/restaurants` | title + meta | lowCtr: 174 impr, **0 clicks at 9.7**, its first window with query data. Title carries the 3.0x–5.0x band, not a 20-character brand suffix. |
+| `/ebitda-multiples-by-industry` | expand, +351 words | strikingDistance: "ebitda multiples by industry **2020**" (24 impr, 7.4), **2022** (23, 8.4), **2019** (23, 8.8), no clicks, nothing on the page about an earlier year. Added a year table — 7.1x in 2019–20 (PKF O'Connor Davies), 7.6x in 2021–22 and 7.2x in 2025 (GF Data via ACG), both opened with WebFetch. |
+| `/blog/does-private-equity-replace-the-ceo` | **new post**, 1,754 words | Rule 7, cap open; top uncovered keyword. AlixPartners 2026 (65% of firms report CEO turnover in the hold) and Gompers/Kaplan/Mukharlyamov, NBER 21133 (31% before the deal, ~50% after). Termination waterfall labelled made-up. Two inbound donors. |
+| `/blog` | title + meta | Rule 5: four queries shared with `/blog/types-of-buyouts`, which takes 9 clicks on 955 impressions at 9.1 against the index's 1 on 514 at 19.3. The 10-17 run aimed this title *at* buyout terms; 31 days on, impressions rose and clicks did not. |
 
 ## Skipped
 
-**Rule 4** — two rows rank the blog index, two sit on pages edited 10-31 and 11-03, "ibo finance" is homepage body copy. **Rule 3** — nine rows in cool-down; the PE buyout primer is closed per STRATEGY.md §8. **Rule 5** — the index already links `/blog/types-of-buyouts` with both contested phrasings. **Rule 6** — the homepage drop (55 → 38 clicks) is demand, not a snippet fault: all of it is "ibo advisors", 60 → 39 impressions at an unchanged position 1.1, CTR up to 59.0%. **Rule 7** — no `ahrefs-latest.json`, so the volume/KD preference could not be applied.
-
-## Coverage
-
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed"): 3,954 words, no `noindex`, correct canonical, 9 inbound links, expanded four times with no effect. Not expanded again — **submit it for indexing manually**, the one lever the job lacks.
-
-## For a human
-
-"industry multiples database" (71 impr at 44.0) and "private equity accounting firm valuation(s)" (31 at 52-64) are ranking problems on untargeted terms. Add to cluster 7 if you want them written.
+- 12 of 15 `lowCtr` rows: in cool-down or settled in STRATEGY.md §8.
+- `/blog/sell-a-business-but-keep-control` (215 impr): deleted and 301'd on 10-30 under rule 5. A ghost row.
+- `/blog/family-business-succession-planning` (381 impr, **0 clicks at 5.0**): eligible, left alone. 309 of 337 visible impressions are one query at 3.9 with no clicks; seven October retitles took it 13.2 → 5.0 and clicks stayed nil. Not a title fault.
+- Decliner, homepage (53 → 32 clicks): "ibo advisors" fell 52 impr/31 clicks → 31/18 at an unchanged 1.1 — brand demand. Its non-brand "ibo" queries earn nothing because that SERP answers *institutional buyout* and Amway "independent business owner".
 
 ## Flagged
 
-Two pages carry published copy implying an owner keeps control after a sale or recap (rule 5; the existing-post audit is pending your approval), both verified on disk today: `/blog/rollover-equity-second-bite-explained` ("still keep control turns on the board composition and the consent list") and `/blog/minority-recapitalization-explained` ("you keep majority ownership, board control, and operating authority"). Reported, not edited — the second page's metas were in scope today and were fixed. Nothing asked for deal specifics.
+Two live sentences say an owner keeps **control** (rule 5), left pending Greg's audit: `/ebitda-multiples-by-industry` ("without handing over control... to private equity") and `/blog/what-happens-after-private-equity-buys-your-company` ("sell part of the business and keep control").
+
+## For a human
+
+- The `/independent-buyout` pillar (STRATEGY.md §2) is the answer to the "what is an IBO" mismatch above; a homepage cannot serve a definitional query.
+- Impressions are growing much faster than clicks at positions 10–20 — an argument for depth on fewer pages, not more pages.
