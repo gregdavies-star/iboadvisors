@@ -1,37 +1,36 @@
-# Daily SEO run — 2026-11-17
+# Daily SEO run — 2026-11-18
 
-`/industries/restaurants` was finally crawled and is indexed — every sitemap URL is PASS for the first time. Retitled it to its own query data, answered three year-qualified queries on the multiples page, published one new post, and stopped `/blog` competing with `/blog/types-of-buyouts`. Audit clean.
+**`/industries/restaurants` is indexed** — crawled 2026-11-09, `Submitted and indexed`, 199 impressions at position 9.5 from zero in the prior window. Greg's reindexing request worked; all 39 inspected URLs are `PASS`.
+Two title/meta rewrites, one expansion, one new post, two inbound links.
+Audit clean: 40 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-11-14 vs prior 28)
+## GSC totals (28 days to 2026-11-15 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 74 | 7,237 | 1.02% | 10.5 |
-| Prior | 81 | 3,847 | 2.11% | 11.2 |
+| Current | 76 | 7,466 | 1.02% | 10.4 |
+| Prior | 80 | 3,878 | 2.06% | 11.4 |
 
-Impressions +88%, clicks −9%: the new impressions sit where nobody clicks.
+Impressions nearly doubled and position gained a place; clicks flat. Much of the new volume is long conversational queries that look like AI-surface impressions, where position does not convert.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/industries/restaurants` | title + meta | lowCtr: 174 impr, **0 clicks at 9.7**, its first window with query data. Title carries the 3.0x–5.0x band, not a 20-character brand suffix. |
-| `/ebitda-multiples-by-industry` | expand, +351 words | strikingDistance: "ebitda multiples by industry **2020**" (24 impr, 7.4), **2022** (23, 8.4), **2019** (23, 8.8), no clicks, nothing on the page about an earlier year. Added a year table — 7.1x in 2019–20 (PKF O'Connor Davies), 7.6x in 2021–22 and 7.2x in 2025 (GF Data via ACG), both opened with WebFetch. |
-| `/blog/does-private-equity-replace-the-ceo` | **new post**, 1,754 words | Rule 7, cap open; top uncovered keyword. AlixPartners 2026 (65% of firms report CEO turnover in the hold) and Gompers/Kaplan/Mukharlyamov, NBER 21133 (31% before the deal, ~50% after). Termination waterfall labelled made-up. Two inbound donors. |
-| `/blog` | title + meta | Rule 5: four queries shared with `/blog/types-of-buyouts`, which takes 9 clicks on 955 impressions at 9.1 against the index's 1 on 514 at 19.3. The 10-17 run aimed this title *at* buyout terms; 31 days on, impressions rose and clicks did not. |
+| `/ebitda-multiples-by-industry` | expand, ~490 words | Four year-stamped queries ("ebitda multiples by industry 2019/2020/2021/2022") = 72 impressions at 7.3–8.8, **0 clicks**, no historical section on the page. Added GF Data's 7.4x (2021), 7.5x (2022), 7.2x (2025), the 7.7x→6.8x swing *inside* 2022, and the Fed's 0–0.25% → 5.25–5.50% → 3.75–4.00% path. Four sources, all WebFetched. Last edit 11-03. |
+| `/blog/family-business-succession-planning` | title + meta | lowCtr: 441 impressions, **0 clicks at 4.9** vs 6.0% expected; 369 on "liquidity planning for family business succession" at 4.0, now the title verbatim in place of the brand suffix. Last touched 10-13. |
+| `/blog/selling-to-private-equity-pros-and-cons` | title + meta | lowCtr: 178 impressions, 1 click (0.56%) at 7.2 vs 3.0%, and 267/1 before — persistent. Meta picks up the risk wording two of its four visible queries use. Last touched 10-13. |
+| `/blog/private-equity-ceo-replacement` | **new post**, 2,309 words | Rule 7, cap open; top uncovered keyword in cluster 5. NBER WP 30899 (71% hired a new CEO, 75% external), AlixPartners' 11th survey (65%; 9% "rarely"), the 2017 AlixPartners timeline, Adastrum — all WebFetched. The month-20 leaver table is invented arithmetic. |
+| 2 posts + `/blog` | link, cards | Donors on sentences already raising the question: the parent post's AlixPartners paragraph and "liquidity without a new boss". Two card excerpts synced. |
 
 ## Skipped
 
-- 12 of 15 `lowCtr` rows: in cool-down or settled in STRATEGY.md §8.
-- `/blog/sell-a-business-but-keep-control` (215 impr): deleted and 301'd on 10-30 under rule 5. A ghost row.
-- `/blog/family-business-succession-planning` (381 impr, **0 clicks at 5.0**): eligible, left alone. 309 of 337 visible impressions are one query at 3.9 with no clicks; seven October retitles took it 13.2 → 5.0 and clicks stayed nil. Not a title fault.
-- Decliner, homepage (53 → 32 clicks): "ibo advisors" fell 52 impr/31 clicks → 31/18 at an unchanged 1.1 — brand demand. Its non-brand "ibo" queries earn nothing because that SERP answers *institutional buyout* and Amway "independent business owner".
-
-## Flagged
-
-Two live sentences say an owner keeps **control** (rule 5), left pending Greg's audit: `/ebitda-multiples-by-industry` ("without handing over control... to private equity") and `/blog/what-happens-after-private-equity-buys-your-company` ("sell part of the business and keep control").
+**Rule 3** — `types-of-buyouts` (970 impressions) and the PE primer are closed in STRATEGY.md §8; four more pages are in cool-down. `/industries/restaurants` was left alone deliberately: 199 impressions is nine days of data, and retitling now would make the reindexing result unreadable. **Rule 4** — three rows rank `/blog`, an index; the 369-impression succession query is the theme STRATEGY.md says not to expand again. **Rule 5** — `/blog` already links `types-of-buyouts` with both contested phrasings (11-02). **Rule 6** — the homepage fell 52→32 clicks, but 15 of 32 are "ibo advisors" at position 1.1 and 46.9% CTR, and the rest is the generic "ibo" family at 4–10 with no clicks. Demand, not a snippet fault. **Rule 7** — no `ahrefs-latest.json`.
 
 ## For a human
 
-- The `/independent-buyout` pillar (STRATEGY.md §2) is the answer to the "what is an IBO" mismatch above; a homepage cannot serve a definitional query.
-- Impressions are growing much faster than clicks at positions 10–20 — an argument for depth on fewer pages, not more pages.
+"industry multiples database" is 56 impressions at position 44.8 — a ranking problem on an untargeted term. Cluster 5 has one open keyword left and cluster 7 has eight; worth re-ranking against Ahrefs before the job picks blind.
+
+## Flagged
+
+Four pages still imply an owner keeps control after a sale or recap (standing rule 5; the existing-post audit is pending your approval), all verified on disk today: `minority-recapitalization-explained`, `rollover-equity-second-bite-explained`, `selling-to-private-equity-pros-and-cons` and — new — `family-business-succession-planning` ("selling a minority position without giving up control"). Reported, not edited. Nothing asked for deal specifics.
