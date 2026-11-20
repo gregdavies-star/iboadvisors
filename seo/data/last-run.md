@@ -1,37 +1,36 @@
-# Daily SEO run — 2026-11-09
+# Daily SEO run — 2026-11-18
 
-Retitled the two `lowCtr` pages outside their cool-down; one also had a standing-rule-5 problem in its meta. Published one new post on **how long private equity actually holds a company**, the top uncovered keyword in `keywords.json`, with two inbound links. Audit clean: 39 pages, 0 errors, 0 warnings.
+**`/industries/restaurants` is indexed** — crawled 2026-11-09, `Submitted and indexed`, 199 impressions at position 9.5 from zero in the prior window. Greg's reindexing request worked; all 39 inspected URLs are `PASS`.
+Two title/meta rewrites, one expansion, one new post, two inbound links.
+Audit clean: 40 pages, 0 errors, 0 warnings.
 
-## GSC totals (28 days to 2026-11-06 vs prior 28)
+## GSC totals (28 days to 2026-11-15 vs prior 28)
 
 | | Clicks | Impressions | CTR | Position |
 |---|---|---|---|---|
-| Current | 78 | 5,499 | 1.42% | 10.9 |
-| Prior | 79 | 4,064 | 1.94% | 12.6 |
+| Current | 76 | 7,466 | 1.02% | 10.4 |
+| Prior | 80 | 3,878 | 2.06% | 11.4 |
 
-Impressions +35%, position +1.7 places, clicks flat — the new impressions land at 10-20, where CTR dilutes.
+Impressions nearly doubled and position gained a place; clicks flat. Much of the new volume is long conversational queries that look like AI-surface impressions, where position does not convert.
 
 ## Changes
 
 | Page | Change | Data point |
 |---|---|---|
-| `/blog/how-private-equity-actually-finances-a-buyout` | title + meta | lowCtr: 133 impr, 2 clicks (1.50%) at position 8.2 vs 3.0% expected; untouched since 09-08, 15 of 51 title characters on the brand suffix. Title takes the sourced 50-70% debt share, the meta the $42M worked example. |
-| `/blog/minority-recapitalization-explained` | title + meta | lowCtr: 107 impr, **0 clicks at position 5.6** vs 3.0%; last changed 10-12, outside the cool-down. Both old strings said the owner keeps the majority and the board after a recap (rule 5); new copy leads with the arithmetic. |
-| `/blog/private-equity-holding-period` | **new post**, 2,187 words | Rule 7, cap open. Median hold 6.0 years over 13,757 exits, 5.9 for 2025 exits (Private Equity Info); ~7-year average at exit (Bain via CFO.com); fund terms (Goodwin); GP-led record (Dechert). All five sources opened with WebFetch; the rollover IRR example is invented arithmetic. |
-| 2 posts + `/blog` | link, card | Donors on sentences already about hold length: `what-happens-after-private-equity-buys-your-company` (its holding-period section now points at the dedicated page instead of competing) and `rollover-equity-second-bite-explained`. Two card excerpts synced. |
+| `/ebitda-multiples-by-industry` | expand, ~490 words | Four year-stamped queries ("ebitda multiples by industry 2019/2020/2021/2022") = 72 impressions at 7.3–8.8, **0 clicks**, no historical section on the page. Added GF Data's 7.4x (2021), 7.5x (2022), 7.2x (2025), the 7.7x→6.8x swing *inside* 2022, and the Fed's 0–0.25% → 5.25–5.50% → 3.75–4.00% path. Four sources, all WebFetched. Last edit 11-03. |
+| `/blog/family-business-succession-planning` | title + meta | lowCtr: 441 impressions, **0 clicks at 4.9** vs 6.0% expected; 369 on "liquidity planning for family business succession" at 4.0, now the title verbatim in place of the brand suffix. Last touched 10-13. |
+| `/blog/selling-to-private-equity-pros-and-cons` | title + meta | lowCtr: 178 impressions, 1 click (0.56%) at 7.2 vs 3.0%, and 267/1 before — persistent. Meta picks up the risk wording two of its four visible queries use. Last touched 10-13. |
+| `/blog/private-equity-ceo-replacement` | **new post**, 2,309 words | Rule 7, cap open; top uncovered keyword in cluster 5. NBER WP 30899 (71% hired a new CEO, 75% external), AlixPartners' 11th survey (65%; 9% "rarely"), the 2017 AlixPartners timeline, Adastrum — all WebFetched. The month-20 leaver table is invented arithmetic. |
+| 2 posts + `/blog` | link, cards | Donors on sentences already raising the question: the parent post's AlixPartners paragraph and "liquidity without a new boss". Two card excerpts synced. |
 
 ## Skipped
 
-**Rule 4** — two rows rank the blog index, two sit on pages edited 10-31 and 11-03, "ibo finance" is homepage body copy. **Rule 3** — nine rows in cool-down; the PE buyout primer is closed per STRATEGY.md §8. **Rule 5** — the index already links `/blog/types-of-buyouts` with both contested phrasings. **Rule 6** — the homepage drop (55 → 38 clicks) is demand, not a snippet fault: all of it is "ibo advisors", 60 → 39 impressions at an unchanged position 1.1, CTR up to 59.0%. **Rule 7** — no `ahrefs-latest.json`, so the volume/KD preference could not be applied.
-
-## Coverage
-
-`/industries/restaurants` is still the only non-`PASS` URL ("Discovered - currently not indexed"): 3,954 words, no `noindex`, correct canonical, 9 inbound links, expanded four times with no effect. Not expanded again — **submit it for indexing manually**, the one lever the job lacks.
+**Rule 3** — `types-of-buyouts` (970 impressions) and the PE primer are closed in STRATEGY.md §8; four more pages are in cool-down. `/industries/restaurants` was left alone deliberately: 199 impressions is nine days of data, and retitling now would make the reindexing result unreadable. **Rule 4** — three rows rank `/blog`, an index; the 369-impression succession query is the theme STRATEGY.md says not to expand again. **Rule 5** — `/blog` already links `types-of-buyouts` with both contested phrasings (11-02). **Rule 6** — the homepage fell 52→32 clicks, but 15 of 32 are "ibo advisors" at position 1.1 and 46.9% CTR, and the rest is the generic "ibo" family at 4–10 with no clicks. Demand, not a snippet fault. **Rule 7** — no `ahrefs-latest.json`.
 
 ## For a human
 
-"industry multiples database" (71 impr at 44.0) and "private equity accounting firm valuation(s)" (31 at 52-64) are ranking problems on untargeted terms. Add to cluster 7 if you want them written.
+"industry multiples database" is 56 impressions at position 44.8 — a ranking problem on an untargeted term. Cluster 5 has one open keyword left and cluster 7 has eight; worth re-ranking against Ahrefs before the job picks blind.
 
 ## Flagged
 
-Two pages carry published copy implying an owner keeps control after a sale or recap (rule 5; the existing-post audit is pending your approval), both verified on disk today: `/blog/rollover-equity-second-bite-explained` ("still keep control turns on the board composition and the consent list") and `/blog/minority-recapitalization-explained` ("you keep majority ownership, board control, and operating authority"). Reported, not edited — the second page's metas were in scope today and were fixed. Nothing asked for deal specifics.
+Four pages still imply an owner keeps control after a sale or recap (standing rule 5; the existing-post audit is pending your approval), all verified on disk today: `minority-recapitalization-explained`, `rollover-equity-second-bite-explained`, `selling-to-private-equity-pros-and-cons` and — new — `family-business-succession-planning` ("selling a minority position without giving up control"). Reported, not edited. Nothing asked for deal specifics.

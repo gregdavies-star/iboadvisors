@@ -60,3 +60,14 @@
 {"date": "2026-11-04", "days": 28, "clicks": 72, "impressions": 5056, "ctr": 0.0142, "position": 11, "pages": 39, "queries": 270}
 {"date": "2026-11-03", "days": 28, "clicks": 70, "impressions": 4906, "ctr": 0.0143, "position": 11.2, "pages": 38, "queries": 269}
 {"date": "2026-11-02", "days": 28, "clicks": 75, "impressions": 4793, "ctr": 0.0156, "position": 11.3, "pages": 37, "queries": 273}
+{"date": "2026-11-17", "days": 28, "clicks": 83, "impressions": 8045, "ctr": 0.0103, "position": 10.8, "pages": 40, "queries": 356}
+{"date": "2026-11-16", "days": 28, "clicks": 78, "impressions": 7766, "ctr": 0.01, "position": 10.8, "pages": 41, "queries": 355}
+{"date": "2026-11-15", "days": 28, "clicks": 76, "impressions": 7466, "ctr": 0.0102, "position": 10.4, "pages": 41, "queries": 352}
+{"date": "2026-11-14", "days": 28, "clicks": 74, "impressions": 7237, "ctr": 0.0102, "position": 10.5, "pages": 42, "queries": 349}
+{"date": "2026-11-13", "days": 28, "clicks": 76, "impressions": 7060, "ctr": 0.0108, "position": 10.4, "pages": 42, "queries": 344}
+{"date": "2026-11-12", "days": 28, "clicks": 77, "impressions": 6855, "ctr": 0.0112, "position": 10.5, "pages": 42, "queries": 336}
+{"date": "2026-11-11", "days": 28, "clicks": 79, "impressions": 6634, "ctr": 0.0119, "position": 10.6, "pages": 42, "queries": 333}
+{"date": "2026-11-10", "days": 28, "clicks": 82, "impressions": 6331, "ctr": 0.013, "position": 10.7, "pages": 42, "queries": 318}
+{"date": "2026-11-09", "days": 28, "clicks": 81, "impressions": 6090, "ctr": 0.0133, "position": 10.9, "pages": 41, "queries": 305}
+{"date": "2026-11-08", "days": 28, "clicks": 80, "impressions": 5830, "ctr": 0.0137, "position": 11, "pages": 40, "queries": 296}
+{"date": "2026-11-07", "days": 28, "clicks": 80, "impressions": 5663, "ctr": 0.0141, "position": 11, "pages": 40, "queries": 294}
