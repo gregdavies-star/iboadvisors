@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-20T18:59:57.866Z",
+  "inspectedAt": "2026-11-21T17:54:36.212Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -41,7 +41,7 @@
       "url": "https://www.iboadvisors.com/industries/government-contractors",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-06T06:17:57Z",
+      "lastCrawlTime": "2026-11-20T22:05:07Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/government-contractors",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
