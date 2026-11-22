@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-21T17:54:36.212Z",
+  "inspectedAt": "2026-11-22T18:13:57.720Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -59,7 +59,7 @@
       "url": "https://www.iboadvisors.com/industries/restaurants",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-09T22:07:19Z",
+      "lastCrawlTime": "2026-11-13T17:42:41Z",
       "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -212,7 +212,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-15T15:21:54Z",
+      "lastCrawlTime": "2026-11-19T22:26:44Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
