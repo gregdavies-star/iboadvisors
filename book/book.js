@@ -1601,10 +1601,10 @@
   /* Post the meeting attribution (see MEETING_ATTRIBUTION_FORM_GUID). Called
      only after /api/book confirmed the booking and the confirmation is on
      screen. Fire-and-forget: never blocks or delays anything, never shows an
-     error, never throws. Sends the email and the ibo_meeting_* fields only (no
+     error, never throws. Sends the email and any ibo_meeting_* fields only (no
      names, phone or booking details), with enrich:false so submitForm does not
      add the IBO Form * fields this form does not have. Skipped when the GUID
-     is empty or the visitor has no stored attribution. */
+     is empty. */
   function sendMeetingAttribution(email) {
     try {
       if (!MEETING_ATTRIBUTION_FORM_GUID || !EMAIL_RE.test(email || '')) return;
@@ -1612,15 +1612,24 @@
       var fields = (tracking.meetingFields() || []).filter(function (f) {
         return f && typeof f.name === 'string' && f.name.indexOf('ibo_meeting_') === 0 && f.value;
       });
-      if (!fields.length) return;
-      var sending = tracking.submitForm(HUBSPOT_PORTAL_ID, MEETING_ATTRIBUTION_FORM_GUID,
-        [{ name: 'email', value: email }].concat(fields), { enrich: false });
-      if (!sending || typeof sending.then !== 'function') return;
-      sending.then(function () {
-        track('meeting_attribution_sent', { src: SRC, fields: fields.length });
-      }, function () {
-        track('meeting_attribution_failed', { src: SRC });
-      });
+      /* No early return when there is no stored attribution: this submission is
+         also the "this contact booked" signal that the nurture suppression list
+         and workflow goals key off (the Scheduler API never sets HubSpot's own
+         "Date of last meeting booked"). It must fire for every booking, so an
+         email-only submission is fine. One retry covers a transient failure. */
+      var payload = [{ name: 'email', value: email }].concat(fields);
+      var attempt = function (retry) {
+        var sending = tracking.submitForm(HUBSPOT_PORTAL_ID, MEETING_ATTRIBUTION_FORM_GUID,
+          payload, { enrich: false });
+        if (!sending || typeof sending.then !== 'function') return;
+        sending.then(function () {
+          track('meeting_attribution_sent', { src: SRC, fields: fields.length });
+        }, function () {
+          if (retry) { setTimeout(function () { attempt(false); }, 3000); return; }
+          track('meeting_attribution_failed', { src: SRC });
+        });
+      };
+      attempt(true);
     } catch (e) {}
   }
 
