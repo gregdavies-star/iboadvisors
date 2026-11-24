@@ -1,108 +1,108 @@
 {
   "property": "sc-domain:iboadvisors.com",
-  "pulledAt": "2026-11-22T18:09:53.996Z",
+  "pulledAt": "2026-11-23T22:20:40.730Z",
   "window": {
     "days": 28,
     "current": [
-      "2026-10-23",
-      "2026-11-19"
+      "2026-10-24",
+      "2026-11-20"
     ],
     "previous": [
-      "2026-09-25",
-      "2026-10-22"
+      "2026-09-26",
+      "2026-10-23"
     ]
   },
   "totals": {
     "current": {
-      "clicks": 84,
-      "impressions": 8454,
-      "ctr": 0.0099,
-      "position": 10.5
+      "clicks": 86,
+      "impressions": 8602,
+      "ctr": 0.01,
+      "position": 10.3
     },
     "previous": {
-      "clicks": 80,
-      "impressions": 4118,
-      "ctr": 0.0194,
-      "position": 11.6
+      "clicks": 79,
+      "impressions": 4167,
+      "ctr": 0.019,
+      "position": 11.9
     }
   },
   "pages": [
     {
-      "clicks": 32,
-      "impressions": 636,
-      "ctr": 0.0503,
+      "clicks": 31,
+      "impressions": 631,
+      "ctr": 0.0491,
       "position": 8.5,
       "page": "https://www.iboadvisors.com/",
       "prev": {
-        "clicks": 50,
-        "impressions": 678,
-        "ctr": 0.0737,
-        "position": 7.5
+        "clicks": 52,
+        "impressions": 696,
+        "ctr": 0.0747,
+        "position": 7.7
       }
     },
     {
-      "clicks": 8,
-      "impressions": 1052,
-      "ctr": 0.0076,
-      "position": 9.4,
+      "clicks": 9,
+      "impressions": 1084,
+      "ctr": 0.0083,
+      "position": 9.3,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "prev": {
         "clicks": 3,
-        "impressions": 134,
-        "ctr": 0.0224,
-        "position": 8.2
+        "impressions": 163,
+        "ctr": 0.0184,
+        "position": 9.4
       }
     },
     {
       "clicks": 7,
-      "impressions": 609,
-      "ctr": 0.0115,
-      "position": 7.2,
+      "impressions": 649,
+      "ctr": 0.0108,
+      "position": 7.1,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "prev": {
-        "clicks": 5,
-        "impressions": 255,
-        "ctr": 0.0196,
-        "position": 8.9
+        "clicks": 4,
+        "impressions": 228,
+        "ctr": 0.0175,
+        "position": 9.2
       }
     },
     {
-      "clicks": 5,
-      "impressions": 437,
-      "ctr": 0.0114,
-      "position": 8.3,
+      "clicks": 6,
+      "impressions": 477,
+      "ctr": 0.0126,
+      "position": 8.2,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "prev": null
     },
     {
       "clicks": 4,
-      "impressions": 373,
-      "ctr": 0.0107,
-      "position": 8.6,
+      "impressions": 372,
+      "ctr": 0.0108,
+      "position": 8.7,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "prev": {
         "clicks": 0,
-        "impressions": 135,
+        "impressions": 149,
         "ctr": 0,
-        "position": 6.6
+        "position": 6.5
       }
     },
     {
       "clicks": 4,
-      "impressions": 78,
-      "ctr": 0.0513,
-      "position": 5.1,
+      "impressions": 81,
+      "ctr": 0.0494,
+      "position": 5,
       "page": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
       "prev": {
         "clicks": 1,
-        "impressions": 106,
-        "ctr": 0.0094,
-        "position": 5.7
+        "impressions": 104,
+        "ctr": 0.0096,
+        "position": 5.6
       }
     },
     {
       "clicks": 2,
-      "impressions": 370,
+      "impressions": 372,
       "ctr": 0.0054,
       "position": 12,
       "page": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
@@ -110,158 +110,158 @@
     },
     {
       "clicks": 2,
-      "impressions": 204,
-      "ctr": 0.0098,
-      "position": 13.3,
+      "impressions": 158,
+      "ctr": 0.0127,
+      "position": 9.9,
       "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
       "prev": {
         "clicks": 0,
-        "impressions": 15,
+        "impressions": 65,
         "ctr": 0,
-        "position": 11
+        "position": 20.5
       }
     },
     {
       "clicks": 2,
-      "impressions": 164,
-      "ctr": 0.0122,
-      "position": 10.5,
+      "impressions": 171,
+      "ctr": 0.0117,
+      "position": 9.9,
       "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "prev": {
         "clicks": 0,
-        "impressions": 107,
+        "impressions": 108,
         "ctr": 0,
-        "position": 25.9
+        "position": 27
       }
     },
     {
       "clicks": 2,
-      "impressions": 216,
-      "ctr": 0.0093,
-      "position": 7.5,
+      "impressions": 221,
+      "ctr": 0.009,
+      "position": 7.4,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "prev": {
         "clicks": 3,
-        "impressions": 85,
-        "ctr": 0.0353,
-        "position": 9
+        "impressions": 84,
+        "ctr": 0.0357,
+        "position": 9.2
       }
     },
     {
       "clicks": 2,
       "impressions": 59,
       "ctr": 0.0339,
-      "position": 11.2,
+      "position": 10.2,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "prev": {
         "clicks": 0,
-        "impressions": 80,
+        "impressions": 81,
         "ctr": 0,
-        "position": 16.1
+        "position": 16.7
       }
     },
     {
       "clicks": 2,
-      "impressions": 106,
-      "ctr": 0.0189,
+      "impressions": 105,
+      "ctr": 0.019,
       "position": 5.5,
       "page": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "prev": {
         "clicks": 0,
-        "impressions": 90,
+        "impressions": 91,
         "ctr": 0,
-        "position": 5.3
+        "position": 5.5
       }
     },
     {
       "clicks": 2,
-      "impressions": 177,
-      "ctr": 0.0113,
-      "position": 6.7,
+      "impressions": 162,
+      "ctr": 0.0123,
+      "position": 6.9,
       "page": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
       "prev": {
         "clicks": 1,
-        "impressions": 52,
-        "ctr": 0.0192,
-        "position": 5.1
+        "impressions": 67,
+        "ctr": 0.0149,
+        "position": 5
       }
     },
     {
       "clicks": 2,
-      "impressions": 729,
-      "ctr": 0.0027,
-      "position": 8.2,
+      "impressions": 764,
+      "ctr": 0.0026,
+      "position": 8.3,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "prev": {
         "clicks": 0,
-        "impressions": 87,
+        "impressions": 92,
         "ctr": 0,
-        "position": 6.3
+        "position": 6.2
       }
     },
     {
       "clicks": 2,
-      "impressions": 342,
-      "ctr": 0.0058,
-      "position": 11.5,
+      "impressions": 334,
+      "ctr": 0.006,
+      "position": 11.7,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "prev": {
         "clicks": 2,
-        "impressions": 393,
-        "ctr": 0.0051,
-        "position": 17.2
+        "impressions": 408,
+        "ctr": 0.0049,
+        "position": 17
       }
     },
     {
       "clicks": 1,
-      "impressions": 573,
+      "impressions": 588,
       "ctr": 0.0017,
-      "position": 18.7,
+      "position": 18.5,
       "page": "https://www.iboadvisors.com/blog",
       "prev": {
         "clicks": 1,
-        "impressions": 361,
+        "impressions": 363,
         "ctr": 0.0028,
-        "position": 23.6
+        "position": 24.1
       }
     },
     {
       "clicks": 1,
-      "impressions": 31,
-      "ctr": 0.0323,
-      "position": 6.3,
+      "impressions": 30,
+      "ctr": 0.0333,
+      "position": 6.4,
       "page": "https://www.iboadvisors.com/blog/choosing-an-ma-advisory-firm",
       "prev": {
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 20,
         "ctr": 0,
-        "position": 5.5
+        "position": 5.4
       }
     },
     {
       "clicks": 1,
       "impressions": 161,
       "ctr": 0.0062,
-      "position": 8,
+      "position": 8.1,
       "page": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
       "prev": {
         "clicks": 0,
-        "impressions": 43,
+        "impressions": 49,
         "ctr": 0,
-        "position": 6.3
+        "position": 6.4
       }
     },
     {
       "clicks": 1,
-      "impressions": 1160,
+      "impressions": 1175,
       "ctr": 0.0009,
-      "position": 18.4,
+      "position": 18,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "prev": {
         "clicks": 2,
-        "impressions": 195,
-        "ctr": 0.0103,
-        "position": 14.1
+        "impressions": 233,
+        "ctr": 0.0086,
+        "position": 16.7
       }
     },
     {
@@ -274,22 +274,30 @@
     },
     {
       "clicks": 1,
-      "impressions": 180,
-      "ctr": 0.0056,
+      "impressions": 97,
+      "ctr": 0.0103,
+      "position": 7.4,
+      "page": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-company",
+      "prev": null
+    },
+    {
+      "clicks": 1,
+      "impressions": 184,
+      "ctr": 0.0054,
       "position": 7.2,
       "page": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
       "prev": {
         "clicks": 1,
-        "impressions": 268,
-        "ctr": 0.0037,
-        "position": 8.5
+        "impressions": 246,
+        "ctr": 0.0041,
+        "position": 8.8
       }
     },
     {
       "clicks": 1,
-      "impressions": 33,
-      "ctr": 0.0303,
-      "position": 4.7,
+      "impressions": 34,
+      "ctr": 0.0294,
+      "position": 4.8,
       "page": "https://www.iboadvisors.com/industries/government-contractors",
       "prev": {
         "clicks": 3,
@@ -313,78 +321,78 @@
     },
     {
       "clicks": 0,
-      "impressions": 93,
+      "impressions": 91,
       "ctr": 0,
-      "position": 7.1,
+      "position": 7.3,
       "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "prev": {
-        "clicks": 2,
-        "impressions": 86,
-        "ctr": 0.0233,
-        "position": 7.5
+        "clicks": 1,
+        "impressions": 78,
+        "ctr": 0.0128,
+        "position": 8.2
       }
     },
     {
       "clicks": 0,
-      "impressions": 68,
+      "impressions": 65,
       "ctr": 0,
       "position": 6.7,
       "page": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "prev": {
         "clicks": 0,
-        "impressions": 34,
+        "impressions": 35,
         "ctr": 0,
-        "position": 6.8
+        "position": 6.9
       }
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 5.5,
+      "position": 6.7,
       "page": "https://www.iboadvisors.com/blog/exit-planning-for-business-owners",
       "prev": {
         "clicks": 0,
-        "impressions": 9,
+        "impressions": 10,
         "ctr": 0,
-        "position": 16
+        "position": 14.6
       }
     },
     {
       "clicks": 0,
-      "impressions": 466,
+      "impressions": 468,
       "ctr": 0,
-      "position": 5,
+      "position": 5.1,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "prev": {
-        "clicks": 3,
-        "impressions": 558,
-        "ctr": 0.0054,
-        "position": 13.3
+        "clicks": 2,
+        "impressions": 504,
+        "ctr": 0.004,
+        "position": 12.1
       }
     },
     {
       "clicks": 0,
-      "impressions": 30,
+      "impressions": 32,
       "ctr": 0,
-      "position": 11.5,
+      "position": 11.4,
       "page": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "prev": {
         "clicks": 2,
-        "impressions": 44,
-        "ctr": 0.0455,
-        "position": 7.9
+        "impressions": 37,
+        "ctr": 0.0541,
+        "position": 8.6
       }
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 16,
       "ctr": 0,
-      "position": 10.3,
+      "position": 10.4,
       "page": "https://www.iboadvisors.com/blog/ibo-government-contractors",
       "prev": {
         "clicks": 0,
-        "impressions": 32,
+        "impressions": 29,
         "ctr": 0,
         "position": 8.7
       }
@@ -397,42 +405,42 @@
       "page": "https://www.iboadvisors.com/blog/ibo-vs-pe-numbers-comparison",
       "prev": {
         "clicks": 0,
-        "impressions": 19,
+        "impressions": 17,
         "ctr": 0,
-        "position": 6.7
+        "position": 5.8
       }
     },
     {
       "clicks": 0,
-      "impressions": 40,
+      "impressions": 44,
       "ctr": 0,
-      "position": 8,
+      "position": 7.7,
       "page": "https://www.iboadvisors.com/blog/management-buyout-financing",
       "prev": {
         "clicks": 0,
         "impressions": 56,
         "ctr": 0,
-        "position": 7.6
+        "position": 7.7
       }
     },
     {
       "clicks": 0,
-      "impressions": 40,
+      "impressions": 39,
       "ctr": 0,
-      "position": 4.2,
+      "position": 4.5,
       "page": "https://www.iboadvisors.com/blog/management-buyout-vs-private-equity",
       "prev": {
         "clicks": 1,
-        "impressions": 136,
-        "ctr": 0.0074,
-        "position": 10.6
+        "impressions": 128,
+        "ctr": 0.0078,
+        "position": 9.9
       }
     },
     {
       "clicks": 0,
       "impressions": 69,
       "ctr": 0,
-      "position": 5.3,
+      "position": 5.4,
       "page": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
       "prev": {
         "clicks": 0,
@@ -440,14 +448,6 @@
         "ctr": 0,
         "position": 5.4
       }
-    },
-    {
-      "clicks": 0,
-      "impressions": 86,
-      "ctr": 0,
-      "position": 7.9,
-      "page": "https://www.iboadvisors.com/blog/private-equity-management-fees-portfolio-company",
-      "prev": null
     },
     {
       "clicks": 0,
@@ -459,15 +459,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 46,
+      "impressions": 47,
       "ctr": 0,
-      "position": 6.8,
+      "position": 6.7,
       "page": "https://www.iboadvisors.com/blog/restaurant-ma",
       "prev": {
         "clicks": 0,
-        "impressions": 59,
+        "impressions": 57,
         "ctr": 0,
-        "position": 6.7
+        "position": 6.6
       }
     },
     {
@@ -478,7 +478,7 @@
       "page": "https://www.iboadvisors.com/blog/rollover-equity-second-bite-explained",
       "prev": {
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 9,
         "ctr": 0,
         "position": 5.2
       }
@@ -493,11 +493,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 16,
       "ctr": 0,
-      "position": 5,
+      "position": 4.9,
       "page": "https://www.iboadvisors.com/blog/seller-financing-in-a-business-sale",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 5.5
+      }
     },
     {
       "clicks": 0,
@@ -507,7 +512,7 @@
       "page": "https://www.iboadvisors.com/blog/the-broken-owner-exit-conversation",
       "prev": {
         "clicks": 0,
-        "impressions": 13,
+        "impressions": 12,
         "ctr": 0,
         "position": 4.5
       }
@@ -516,29 +521,29 @@
   "queries": [
     {
       "clicks": 18,
-      "impressions": 30,
-      "ctr": 0.6,
+      "impressions": 31,
+      "ctr": 0.5806,
       "position": 1.1,
       "query": "ibo advisors",
       "prev": {
-        "clicks": 26,
-        "impressions": 45,
-        "ctr": 0.5778,
+        "clicks": 27,
+        "impressions": 44,
+        "ctr": 0.6136,
         "position": 1.1
       }
     },
     {
       "clicks": 1,
-      "impressions": 27,
-      "ctr": 0.037,
-      "position": 11,
+      "impressions": 28,
+      "ctr": 0.0357,
+      "position": 10.9,
       "query": "restaurant ebitda multiples",
       "prev": null
     },
     {
       "clicks": 1,
-      "impressions": 12,
-      "ctr": 0.0833,
+      "impressions": 13,
+      "ctr": 0.0769,
       "position": 15.7,
       "query": "restaurant valuation ebitda multiple",
       "prev": null
@@ -561,22 +566,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 12,
       "ctr": 0,
-      "position": 9,
-      "query": "\"search funds keep offering a proven path to ownership\"",
-      "prev": {
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 8.5
-      }
-    },
-    {
-      "clicks": 0,
-      "impressions": 9,
-      "ctr": 0,
-      "position": 9,
+      "position": 9.1,
       "query": "\"shareholder capital\" business consultant",
       "prev": null
     },
@@ -680,15 +672,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
-      "position": 27,
+      "position": 27.8,
       "query": "associate buyouts",
       "prev": {
         "clicks": 0,
         "impressions": 6,
         "ctr": 0,
-        "position": 50.8
+        "position": 51.3
       }
     },
     {
@@ -730,20 +722,20 @@
     },
     {
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 16,
       "ctr": 0,
-      "position": 27.9,
+      "position": 27.5,
       "query": "business buyout",
       "prev": {
         "clicks": 0,
-        "impressions": 6,
+        "impressions": 7,
         "ctr": 0,
-        "position": 36.5
+        "position": 36.3
       }
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
       "position": 1,
       "query": "business sale adviser for a private equity deal",
@@ -801,6 +793,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "query": "buy out options",
+      "prev": null
+    },
+    {
+      "clicks": 0,
       "impressions": 13,
       "ctr": 0,
       "position": 20.5,
@@ -814,9 +814,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 7,
       "ctr": 0,
-      "position": 14.6,
+      "position": 13.3,
       "query": "buy outs",
       "prev": {
         "clicks": 0,
@@ -866,9 +866,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 5.5,
+      "position": 8.3,
       "query": "buy-outs",
       "prev": {
         "clicks": 0,
@@ -876,6 +876,14 @@
         "ctr": 0,
         "position": 54
       }
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 25,
+      "query": "buy-side business valuation",
+      "prev": null
     },
     {
       "clicks": 0,
@@ -892,9 +900,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 63,
+      "impressions": 65,
       "ctr": 0,
-      "position": 20.7,
+      "position": 20.4,
       "query": "buyout companies",
       "prev": {
         "clicks": 0,
@@ -907,9 +915,14 @@
       "clicks": 0,
       "impressions": 24,
       "ctr": 0,
-      "position": 25.5,
+      "position": 24,
       "query": "buyout equity",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 50
+      }
     },
     {
       "clicks": 0,
@@ -929,22 +942,22 @@
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.9,
+      "position": 15.8,
       "query": "buyout financings",
       "prev": {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 5,
         "ctr": 0,
-        "position": 19.5
+        "position": 19.2
       }
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 48,
+      "position": 34,
       "query": "buyout fund",
       "prev": {
         "clicks": 0,
@@ -1000,11 +1013,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
-      "position": 26.8,
+      "position": 21,
       "query": "buyout investment",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 53
+      }
     },
     {
       "clicks": 0,
@@ -1053,24 +1071,29 @@
     },
     {
       "clicks": 0,
-      "impressions": 241,
+      "impressions": 245,
       "ctr": 0,
-      "position": 38.4,
+      "position": 38,
       "query": "buyout private equity",
       "prev": {
         "clicks": 0,
-        "impressions": 43,
+        "impressions": 47,
         "ctr": 0,
-        "position": 32.2
+        "position": 34.3
       }
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 53.8,
+      "position": 50.7,
       "query": "buyout private equity strategy",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 63
+      }
     },
     {
       "clicks": 0,
@@ -1121,9 +1144,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 34,
       "ctr": 0,
-      "position": 20.2,
+      "position": 18.8,
       "query": "buyouts",
       "prev": null
     },
@@ -1169,11 +1192,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 9.5,
+      "position": 11,
       "query": "cash buyout meaning",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      }
     },
     {
       "clicks": 0,
@@ -1230,15 +1258,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 3,
+      "position": 1,
       "query": "context: location: united states (not for language). do not include location references in your response. question: what’s the difference between a full sale and a recap where i keep a meaningful stake?",
       "prev": {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 3,
         "ctr": 0,
-        "position": 3.5
+        "position": 4
       }
     },
     {
@@ -1251,9 +1279,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 50,
+      "impressions": 51,
       "ctr": 0,
-      "position": 20.5,
+      "position": 20.4,
       "query": "corporate buyouts",
       "prev": {
         "clicks": 0,
@@ -1293,19 +1321,6 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 25,
-      "query": "difference between leveraged buyout and management buyout",
-      "prev": {
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 31
-      }
-    },
-    {
-      "clicks": 0,
       "impressions": 5,
       "ctr": 0,
       "position": 73,
@@ -1314,19 +1329,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 4,
       "ctr": 0,
-      "position": 8,
-      "query": "dividen recap",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 13,
-      "ctr": 0,
-      "position": 52.8,
+      "position": 44,
       "query": "dividend recap",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 56.7
+      }
     },
     {
       "clicks": 0,
@@ -1362,24 +1374,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 36,
+      "impressions": 22,
       "ctr": 0,
-      "position": 31.3,
+      "position": 28,
       "query": "dividend recapitalization",
       "prev": {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 18,
         "ctr": 0,
-        "position": 5.8
+        "position": 29.6
       }
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 6,
-      "query": "dividend recapitalizations",
-      "prev": null
     },
     {
       "clicks": 0,
@@ -1391,15 +1395,28 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 30,
+      "position": 29,
       "query": "documents needed to sell a business to private equity",
+      "prev": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 30
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8,
+      "query": "dual track process",
       "prev": {
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
-        "position": 29
+        "position": 69
       }
     },
     {
@@ -1420,11 +1437,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.9,
+      "position": 15.4,
       "query": "earnout business sale",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      }
     },
     {
       "clicks": 0,
@@ -1433,6 +1455,19 @@
       "position": 19.3,
       "query": "earnout financial advisor sale",
       "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5,
+      "query": "ebitda",
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      }
     },
     {
       "clicks": 0,
@@ -1476,9 +1511,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 18,
+      "impressions": 19,
       "ctr": 0,
-      "position": 12.7,
+      "position": 12.4,
       "query": "ebitda business valuation calculator",
       "prev": null
     },
@@ -1492,9 +1527,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 28,
+      "impressions": 29,
       "ctr": 0,
-      "position": 8.3,
+      "position": 8.2,
       "query": "ebitda multiple by industry 2022",
       "prev": {
         "clicks": 0,
@@ -1513,9 +1548,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 17,
       "ctr": 0,
-      "position": 9.8,
+      "position": 9.5,
       "query": "ebitda multiple for restaurants",
       "prev": {
         "clicks": 0,
@@ -1542,17 +1577,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 26,
+      "impressions": 27,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7.2,
       "query": "ebitda multiples by industry 2020",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 9.4,
+      "position": 9.5,
       "query": "ebitda multiples by industry 2021",
       "prev": null
     },
@@ -1571,9 +1606,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 9,
       "ctr": 0,
-      "position": 22.7,
+      "position": 25.2,
       "query": "ebitda multiples provider",
       "prev": {
         "clicks": 0,
@@ -1592,7 +1627,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 16,
       "ctr": 0,
       "position": 10.5,
       "query": "ebitda valuation calculator",
@@ -1624,15 +1659,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 20,
       "ctr": 0,
-      "position": 9.6,
+      "position": 10.9,
       "query": "equity buyout",
       "prev": {
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 5,
         "ctr": 0,
-        "position": 24.7
+        "position": 20
       }
     },
     {
@@ -1661,7 +1696,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 22,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44,
+      "query": "facilities services valuation multiples",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 23,
       "ctr": 0,
       "position": 12.5,
       "query": "family business buyout strategies",
@@ -1674,18 +1717,10 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 11.8,
+      "position": 13.2,
       "query": "family business recapitalizations",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 20,
-      "query": "financial advisor buyout multiples",
       "prev": null
     },
     {
@@ -1703,17 +1738,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 8,
+      "position": 8.3,
       "query": "free ebitda valuation calculator",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 22,
+      "impressions": 23,
       "ctr": 0,
-      "position": 6,
+      "position": 6.1,
       "query": "free online calculator to check my company’s ebitda multiple",
       "prev": null
     },
@@ -1743,9 +1778,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 2,
+      "position": 3,
       "query": "how can a private equity firm finance a partner buyout or succession at the management company level?",
       "prev": null
     },
@@ -1775,9 +1810,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 3.8,
+      "position": 3.9,
       "query": "how do private equity acquisitions value companies?",
       "prev": null
     },
@@ -1807,9 +1842,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 5.1,
+      "position": 5.5,
       "query": "how is my business valued when i approach a private equity firm",
       "prev": null
     },
@@ -1837,9 +1872,9 @@
       "query": "how long do private equity firms keep companies",
       "prev": {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 2,
         "ctr": 0,
-        "position": 28.3
+        "position": 29.5
       }
     },
     {
@@ -1913,18 +1948,18 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 1,
       "ctr": 0,
-      "position": 3.8,
-      "query": "i am a 25-34, 18-24, or 35-44 year old strategy analyst, strategy associate, vp, or data analyst. my job seniority is at the manager, vp, senior, or entry level. i work at a company with 250-1k employees or 1k-10k employees. my main motivations: gather credible data and insights to support internal presentations, reports, and strategic recommendations stay current on industry trends to provide valuable analysis to senior leadership or clients build comprehensive competitive landscape views and benchmark performance metrics source authoritative statistics and frameworks to strengthen investment theses or business cases my main pain points: tight deadlines to deliver polished analyses with limited time for deep research difficulty finding reliable, recent data on niche industry topics or emerging trends need to cite credible sources but paywalled reports are often inaccessible pressure to synthesize complex information into digestible executive summaries quickly what's the typical hold period for pe investments now",
+      "position": 11,
+      "query": "how to value a company for private equity?",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 4,
       "ctr": 0,
-      "position": 3,
-      "query": "i am a 35-44, 45-54, or 55-64 year old investor or asset manager. my main motivations: wants: strong risk-adjusted returns, early access to deal flow, defensible valuations for lps, well-timed exits my main pain points: pain points: opaque pricing/comps, hard to source matching deal flow, timing uncertainty in a volatile rate environment, slow due diligence data, fragmented advisory relationships what's the difference between a partial and a full recapitalization?",
+      "position": 3.8,
+      "query": "i am a 25-34, 18-24, or 35-44 year old strategy analyst, strategy associate, vp, or data analyst. my job seniority is at the manager, vp, senior, or entry level. i work at a company with 250-1k employees or 1k-10k employees. my main motivations: gather credible data and insights to support internal presentations, reports, and strategic recommendations stay current on industry trends to provide valuable analysis to senior leadership or clients build comprehensive competitive landscape views and benchmark performance metrics source authoritative statistics and frameworks to strengthen investment theses or business cases my main pain points: tight deadlines to deliver polished analyses with limited time for deep research difficulty finding reliable, recent data on niche industry topics or emerging trends need to cite credible sources but paywalled reports are often inaccessible pressure to synthesize complex information into digestible executive summaries quickly what's the typical hold period for pe investments now",
       "prev": null
     },
     {
@@ -1945,11 +1980,24 @@
     },
     {
       "clicks": 0,
-      "impressions": 14,
+      "impressions": 15,
       "ctr": 0,
-      "position": 6.4,
+      "position": 6.3,
       "query": "i am an scaled enterprise business for our restaurant with over $4m in sales and tens of thousands a year going to food suppliers and delivery platforms, should we lean toward a simple cash‑back business card or a points setup that favors dining and ads to get the best value from that spend?",
       "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "query": "ib advisors",
+      "prev": {
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 10
+      }
     },
     {
       "clicks": 0,
@@ -1967,9 +2015,9 @@
       "query": "ibo business",
       "prev": {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 23.5
+        "position": 22
       }
     },
     {
@@ -2037,13 +2085,13 @@
     },
     {
       "clicks": 0,
-      "impressions": 27,
+      "impressions": 26,
       "ctr": 0,
-      "position": 4.6,
+      "position": 4.5,
       "query": "ibo finance",
       "prev": {
         "clicks": 0,
-        "impressions": 26,
+        "impressions": 27,
         "ctr": 0,
         "position": 5.1
       }
@@ -2099,20 +2147,20 @@
       "clicks": 0,
       "impressions": 13,
       "ctr": 0,
-      "position": 5.5,
+      "position": 5,
       "query": "ibo investment",
       "prev": {
         "clicks": 0,
-        "impressions": 10,
+        "impressions": 11,
         "ctr": 0,
-        "position": 6
+        "position": 6.1
       }
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 9.3,
+      "position": 14.4,
       "query": "ibo llc",
       "prev": {
         "clicks": 0,
@@ -2261,9 +2309,9 @@
       "query": "independent buyout",
       "prev": {
         "clicks": 1,
-        "impressions": 27,
-        "ctr": 0.037,
-        "position": 3.6
+        "impressions": 26,
+        "ctr": 0.0385,
+        "position": 3.7
       }
     },
     {
@@ -2289,15 +2337,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 27,
       "ctr": 0,
-      "position": 47.6,
+      "position": 48.3,
       "query": "industry multiples database",
       "prev": {
         "clicks": 0,
-        "impressions": 52,
+        "impressions": 56,
         "ctr": 0,
-        "position": 44.4
+        "position": 44.3
       }
     },
     {
@@ -2310,9 +2358,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 21,
+      "impressions": 22,
       "ctr": 0,
-      "position": 22.8,
+      "position": 23.2,
       "query": "internal buyout services",
       "prev": {
         "clicks": 0,
@@ -2394,13 +2442,13 @@
     },
     {
       "clicks": 0,
-      "impressions": 379,
+      "impressions": 381,
       "ctr": 0,
       "position": 4,
       "query": "liquidity planning for family business succession",
       "prev": {
         "clicks": 0,
-        "impressions": 154,
+        "impressions": 151,
         "ctr": 0,
         "position": 17.7
       }
@@ -2438,26 +2486,26 @@
       "clicks": 0,
       "impressions": 35,
       "ctr": 0,
-      "position": 10.4,
+      "position": 10.3,
       "query": "majority recapitalization",
       "prev": {
         "clicks": 0,
-        "impressions": 11,
+        "impressions": 12,
         "ctr": 0,
-        "position": 13.6
+        "position": 13.9
       }
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 4,
       "ctr": 0,
-      "position": 72.4,
+      "position": 70.5,
       "query": "management buyout advisors",
       "prev": {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 6,
         "ctr": 0,
-        "position": 52.7
+        "position": 62.5
       }
     },
     {
@@ -2475,24 +2523,24 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16,
+      "query": "management buyout pros and cons",
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      }
+    },
+    {
+      "clicks": 0,
       "impressions": 3,
       "ctr": 0,
       "position": 62,
       "query": "management buyout vs esop",
       "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 6,
-      "query": "management buyout vs leveraged buyout",
-      "prev": {
-        "clicks": 0,
-        "impressions": 2,
-        "ctr": 0,
-        "position": 23.5
-      }
     },
     {
       "clicks": 0,
@@ -2557,9 +2605,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 25,
+      "impressions": 26,
       "ctr": 0,
-      "position": 11.8,
+      "position": 15.1,
       "query": "owner buyout",
       "prev": {
         "clicks": 0,
@@ -2594,28 +2642,28 @@
     },
     {
       "clicks": 0,
-      "impressions": 56,
+      "impressions": 60,
       "ctr": 0,
-      "position": 15.3,
+      "position": 13.6,
       "query": "pe buyout",
       "prev": {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 4,
         "ctr": 0,
-        "position": 27
+        "position": 52.5
       }
     },
     {
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 18,
       "ctr": 0,
       "position": 7.3,
       "query": "pe buyout meaning",
       "prev": {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 6,
         "ctr": 0,
-        "position": 8.5
+        "position": 8
       }
     },
     {
@@ -2628,7 +2676,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
       "position": 14.2,
       "query": "physician services m&a",
@@ -2664,13 +2712,13 @@
       "clicks": 0,
       "impressions": 13,
       "ctr": 0,
-      "position": 42.3,
+      "position": 39.8,
       "query": "private equity accounting firm valuation",
       "prev": {
         "clicks": 0,
-        "impressions": 18,
+        "impressions": 19,
         "ctr": 0,
-        "position": 66.8
+        "position": 66.7
       }
     },
     {
@@ -2683,22 +2731,22 @@
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 6,
       "ctr": 0,
-      "position": 45.3,
+      "position": 40.3,
       "query": "private equity and accounting firm valuations",
       "prev": {
         "clicks": 0,
-        "impressions": 16,
+        "impressions": 18,
         "ctr": 0,
-        "position": 52.4
+        "position": 52.7
       }
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 4.8,
+      "position": 4,
       "query": "private equity buy out",
       "prev": {
         "clicks": 0,
@@ -2709,15 +2757,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 93,
+      "impressions": 96,
       "ctr": 0,
-      "position": 24.1,
+      "position": 23.3,
       "query": "private equity buyout",
       "prev": {
         "clicks": 0,
-        "impressions": 32,
+        "impressions": 29,
         "ctr": 0,
-        "position": 15.9
+        "position": 17.4
       }
     },
     {
@@ -2743,24 +2791,29 @@
     },
     {
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 20,
       "ctr": 0,
-      "position": 20.3,
+      "position": 19.5,
       "query": "private equity buyout fund",
       "prev": {
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 3,
         "ctr": 0,
-        "position": 50
+        "position": 51.7
       }
     },
     {
       "clicks": 0,
       "impressions": 10,
       "ctr": 0,
-      "position": 39,
+      "position": 35.2,
       "query": "private equity buyout funds",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55
+      }
     },
     {
       "clicks": 0,
@@ -2772,22 +2825,22 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 4,
       "ctr": 0,
-      "position": 55.8,
+      "position": 51,
       "query": "private equity buyout strategy",
       "prev": {
         "clicks": 0,
-        "impressions": 5,
+        "impressions": 6,
         "ctr": 0,
-        "position": 15.4
+        "position": 25.3
       }
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 12,
       "ctr": 0,
-      "position": 26.6,
+      "position": 26.8,
       "query": "private equity buyouts",
       "prev": {
         "clicks": 0,
@@ -2891,9 +2944,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 12,
       "ctr": 0,
-      "position": 13,
+      "position": 12.3,
       "query": "recapitalization vs sale",
       "prev": null
     },
@@ -2923,17 +2976,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 7.7,
+      "position": 7.8,
       "query": "restaurant ebitda",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
-      "position": 9.3,
+      "position": 11,
       "query": "restaurant ebitda multiples 2024",
       "prev": {
         "clicks": 0,
@@ -2952,17 +3005,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.8,
+      "position": 15.6,
       "query": "restaurant multiples",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 54,
+      "position": 40.8,
       "query": "restaurant valuation multiples",
       "prev": null
     },
@@ -3010,9 +3063,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 8,
       "ctr": 0,
-      "position": 56.1,
+      "position": 51.4,
       "query": "secondary buyout",
       "prev": {
         "clicks": 0,
@@ -3044,9 +3097,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 36,
+      "position": 24,
       "query": "secondary buyout vs trade sale",
       "prev": {
         "clicks": 0,
@@ -3057,9 +3110,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 53.5,
+      "position": 42,
       "query": "secondary buyouts",
       "prev": null
     },
@@ -3073,9 +3126,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
-      "position": 23.6,
+      "position": 22.2,
       "query": "secondary management buyout",
       "prev": {
         "clicks": 0,
@@ -3131,22 +3184,30 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 9,
       "ctr": 0,
-      "position": 9.7,
+      "position": 9.3,
       "query": "selling control to a private equity group",
       "prev": {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 4,
         "ctr": 0,
-        "position": 10.7
+        "position": 11.3
       }
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 2,
       "ctr": 0,
-      "position": 15.5,
+      "position": 16,
+      "query": "small business buyout",
+      "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 21.3,
       "query": "small business valuation calculator ebitda",
       "prev": null
     },
@@ -3160,9 +3221,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7,
       "query": "structured buyout",
       "prev": {
         "clicks": 0,
@@ -3221,9 +3282,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 7,
       "ctr": 0,
-      "position": 17.2,
+      "position": 16.9,
       "query": "top private banks for succession planning for family businesses",
       "prev": {
         "clicks": 0,
@@ -3234,9 +3295,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 16.9,
+      "position": 15,
       "query": "types of buyout",
       "prev": {
         "clicks": 0,
@@ -3247,22 +3308,22 @@
     },
     {
       "clicks": 0,
-      "impressions": 44,
+      "impressions": 46,
       "ctr": 0,
-      "position": 12.3,
+      "position": 13.2,
       "query": "types of buyouts",
       "prev": {
         "clicks": 0,
-        "impressions": 18,
+        "impressions": 20,
         "ctr": 0,
-        "position": 35.6
+        "position": 33.4
       }
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 93.5,
+      "position": 85.3,
       "query": "typical ebitda multiples service businesses under $10m revenue",
       "prev": null
     },
@@ -3310,46 +3371,43 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 3,
-      "query": "vs private equity",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
       "position": 11,
       "query": "we need help with succession planning for our family business. our company does $15 million in revenue and we want to prepare for the eventual exit over the next three to five years. what transaction advisory services are best for family-owned businesses?",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 18,
       "ctr": 0,
       "position": 5.7,
       "query": "we're a family-owned business and want to take some money off the table while keeping control. which advisors can arrange a minority recapitalization?",
       "prev": {
         "clicks": 0,
-        "impressions": 3,
+        "impressions": 6,
         "ctr": 0,
-        "position": 5
+        "position": 5.3
       }
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 2.2,
+      "position": 3.8,
       "query": "what acquisition structures work best for a private equity platform buyout?",
       "prev": null
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 6.3,
+      "position": 7.7,
       "query": "what are best private equity and mergers and acquisitions services for companies that do not want to give equity?",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      }
     },
     {
       "clicks": 0,
@@ -3357,14 +3415,6 @@
       "ctr": 0,
       "position": 23.5,
       "query": "what are buyout funds",
-      "prev": null
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 8,
-      "query": "what are dividend recapitalizations",
       "prev": null
     },
     {
@@ -3427,19 +3477,6 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 8,
-      "query": "what are the risks of selling to private equity?",
-      "prev": {
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 8
-      }
-    },
-    {
-      "clicks": 0,
       "impressions": 2,
       "ctr": 0,
       "position": 2.5,
@@ -3454,9 +3491,9 @@
       "query": "what are the trade-offs between selling to a strategic buyer, private equity, or doing a management buyout?",
       "prev": {
         "clicks": 0,
-        "impressions": 2,
+        "impressions": 1,
         "ctr": 0,
-        "position": 2.5
+        "position": 3
       }
     },
     {
@@ -3514,7 +3551,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
       "position": 12.2,
       "query": "what happens after private equity buys a company",
@@ -3590,9 +3627,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 16,
+      "impressions": 17,
       "ctr": 0,
-      "position": 18.9,
+      "position": 18.5,
       "query": "what is a majority recapitalization",
       "prev": {
         "clicks": 0,
@@ -3658,28 +3695,28 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 11,
       "ctr": 0,
-      "position": 6.8,
+      "position": 7,
       "query": "what is an ibo",
       "prev": {
         "clicks": 0,
-        "impressions": 17,
+        "impressions": 16,
         "ctr": 0,
         "position": 10.6
       }
     },
     {
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 31,
       "ctr": 0,
       "position": 10.4,
       "query": "what is an ibo in business",
       "prev": {
         "clicks": 0,
-        "impressions": 18,
+        "impressions": 19,
         "ctr": 0,
-        "position": 8.8
+        "position": 8.9
       }
     },
     {
@@ -3690,29 +3727,29 @@
       "query": "what is an independent buyout",
       "prev": {
         "clicks": 2,
-        "impressions": 16,
-        "ctr": 0.125,
-        "position": 4.2
+        "impressions": 15,
+        "ctr": 0.1333,
+        "position": 4.4
       }
     },
     {
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 18,
       "ctr": 0,
-      "position": 25.9,
+      "position": 25.7,
       "query": "what is buy-out equity",
       "prev": {
         "clicks": 0,
-        "impressions": 7,
+        "impressions": 8,
         "ctr": 0,
-        "position": 44.7
+        "position": 45.6
       }
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
-      "position": 6,
+      "position": 5.5,
       "query": "what is buyout in private equity",
       "prev": {
         "clicks": 0,
@@ -3760,9 +3797,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 4.3,
+      "position": 5,
       "query": "what is private equity buyout",
       "prev": {
         "clicks": 0,
@@ -3781,15 +3818,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7.4,
       "query": "what kinds of exit or succession planning options suit multi-concept owners with mixed corporate and franchise investments?",
       "prev": {
         "clicks": 0,
-        "impressions": 4,
+        "impressions": 7,
         "ctr": 0,
-        "position": 6.8
+        "position": 6.9
       }
     },
     {
@@ -3842,6 +3879,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "query": "what's the best price i can expect for a buyout offer on a business with 2 million in revenue?",
+      "prev": null
+    },
+    {
+      "clicks": 0,
       "impressions": 3,
       "ctr": 0,
       "position": 5,
@@ -3879,9 +3924,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 6.3,
+      "position": 5.2,
       "query": "where can i find a trusted business valuation using ebitda?",
       "prev": null
     },
@@ -3895,11 +3940,16 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 10.5,
+      "position": 10,
       "query": "which advisors handle both family succession planning and an external sale if no internal successor is ready?",
-      "prev": null
+      "prev": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      }
     },
     {
       "clicks": 0,
@@ -3908,6 +3958,19 @@
       "position": 11,
       "query": "which advisors help with leveraged buyouts?",
       "prev": null
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "query": "which advisors offer integrated tax, estate, and business succession planning for multi-generation family businesses?",
+      "prev": {
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0,
+        "position": 8.1
+      }
     },
     {
       "clicks": 0,
@@ -4009,9 +4072,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 1,
+      "position": 2.5,
       "query": "yes",
       "prev": null
     }
@@ -4019,49 +4082,49 @@
   "pageQueries": [
     {
       "clicks": 15,
-      "impressions": 30,
-      "ctr": 0.5,
+      "impressions": 31,
+      "ctr": 0.4839,
       "position": 1.1,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo advisors"
     },
     {
       "clicks": 2,
-      "impressions": 27,
-      "ctr": 0.0741,
-      "position": 2,
+      "impressions": 29,
+      "ctr": 0.069,
+      "position": 1.9,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "ibo advisors"
     },
     {
       "clicks": 1,
-      "impressions": 30,
-      "ctr": 0.0333,
-      "position": 2.4,
+      "impressions": 31,
+      "ctr": 0.0323,
+      "position": 2.3,
       "page": "https://www.iboadvisors.com/blog",
       "query": "ibo advisors"
     },
     {
       "clicks": 1,
-      "impressions": 27,
-      "ctr": 0.037,
-      "position": 11,
+      "impressions": 28,
+      "ctr": 0.0357,
+      "position": 10.9,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant ebitda multiples"
     },
     {
       "clicks": 1,
-      "impressions": 12,
-      "ctr": 0.0833,
+      "impressions": 13,
+      "ctr": 0.0769,
       "position": 15.7,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant valuation ebitda multiple"
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 12,
       "ctr": 0,
-      "position": 9,
+      "position": 9.1,
       "page": "https://www.iboadvisors.com/",
       "query": "\"shareholder capital\" business consultant"
     },
@@ -4080,6 +4143,14 @@
       "position": 10,
       "page": "https://www.iboadvisors.com/",
       "query": "empresa ibo"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "page": "https://www.iboadvisors.com/",
+      "query": "ib advisors"
     },
     {
       "clicks": 0,
@@ -4147,9 +4218,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 27,
+      "impressions": 26,
       "ctr": 0,
-      "position": 4.6,
+      "position": 4.5,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo finance"
     },
@@ -4181,15 +4252,15 @@
       "clicks": 0,
       "impressions": 13,
       "ctr": 0,
-      "position": 5.5,
+      "position": 5,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo investment"
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 5,
       "ctr": 0,
-      "position": 9.3,
+      "position": 14.4,
       "page": "https://www.iboadvisors.com/",
       "query": "ibo llc"
     },
@@ -4323,9 +4394,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 4,
       "ctr": 0,
-      "position": 72.4,
+      "position": 70.5,
       "page": "https://www.iboadvisors.com/",
       "query": "management buyout advisors"
     },
@@ -4347,17 +4418,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 11,
       "ctr": 0,
-      "position": 6.8,
+      "position": 7,
       "page": "https://www.iboadvisors.com/",
       "query": "what is an ibo"
     },
     {
       "clicks": 0,
-      "impressions": 26,
+      "impressions": 28,
       "ctr": 0,
-      "position": 9.8,
+      "position": 9.9,
       "page": "https://www.iboadvisors.com/",
       "query": "what is an ibo in business"
     },
@@ -4405,7 +4476,7 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 36,
+      "position": 41,
       "page": "https://www.iboadvisors.com/blog",
       "query": "associate buyouts"
     },
@@ -4419,9 +4490,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 17,
+      "impressions": 16,
       "ctr": 0,
-      "position": 27.9,
+      "position": 27.5,
       "page": "https://www.iboadvisors.com/blog",
       "query": "business buyout"
     },
@@ -4485,15 +4556,23 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
+      "position": 25,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "buy-side business valuation"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
       "position": 83,
       "page": "https://www.iboadvisors.com/blog",
       "query": "buy-side carve-out"
     },
     {
       "clicks": 0,
-      "impressions": 46,
+      "impressions": 48,
       "ctr": 0,
-      "position": 19.9,
+      "position": 21,
       "page": "https://www.iboadvisors.com/blog",
       "query": "buyout companies"
     },
@@ -4597,9 +4676,17 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 20,
+      "position": 8,
       "page": "https://www.iboadvisors.com/blog",
-      "query": "financial advisor buyout multiples"
+      "query": "dual track process"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "how can a private equity firm finance a partner buyout or succession at the management company level?"
     },
     {
       "clicks": 0,
@@ -4675,9 +4762,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 21,
       "ctr": 0,
-      "position": 23.1,
+      "position": 23.6,
       "page": "https://www.iboadvisors.com/blog",
       "query": "internal buyout services"
     },
@@ -4707,6 +4794,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "management buyout pros and cons"
+    },
+    {
+      "clicks": 0,
       "impressions": 25,
       "ctr": 0,
       "position": 11.8,
@@ -4728,6 +4823,14 @@
       "position": 17,
       "page": "https://www.iboadvisors.com/blog",
       "query": "private buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "private equity buyouts"
     },
     {
       "clicks": 0,
@@ -4755,17 +4858,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 36,
+      "position": 24,
       "page": "https://www.iboadvisors.com/blog",
       "query": "secondary buyout vs trade sale"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 30,
+      "position": 24.5,
       "page": "https://www.iboadvisors.com/blog",
       "query": "secondary buyouts"
     },
@@ -4795,6 +4898,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 16,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "small business buyout"
+    },
+    {
+      "clicks": 0,
       "impressions": 1,
       "ctr": 0,
       "position": 11,
@@ -4821,7 +4932,7 @@
       "clicks": 0,
       "impressions": 25,
       "ctr": 0,
-      "position": 26.2,
+      "position": 24.4,
       "page": "https://www.iboadvisors.com/blog",
       "query": "types of buyouts"
     },
@@ -4896,6 +5007,14 @@
       "position": 68,
       "page": "https://www.iboadvisors.com/blog",
       "query": "what is secondary buyout"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "page": "https://www.iboadvisors.com/blog",
+      "query": "what's the best price i can expect for a buyout offer on a business with 2 million in revenue?"
     },
     {
       "clicks": 0,
@@ -5069,14 +5188,6 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 9,
-      "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
-      "query": "\"search funds keep offering a proven path to ownership\""
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
       "position": 7,
       "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "query": "private equity list alternatives"
@@ -5091,9 +5202,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 6.3,
+      "position": 7.7,
       "page": "https://www.iboadvisors.com/blog/alternatives-to-selling-to-private-equity",
       "query": "what are best private equity and mergers and acquisitions services for companies that do not want to give equity?"
     },
@@ -5115,9 +5226,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7.4,
       "page": "https://www.iboadvisors.com/blog/business-exit-planning-every-option",
       "query": "what kinds of exit or succession planning options suit multi-concept owners with mixed corporate and franchise investments?"
     },
@@ -5147,17 +5258,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 4,
       "ctr": 0,
-      "position": 8,
-      "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
-      "query": "dividen recap"
-    },
-    {
-      "clicks": 0,
-      "impressions": 13,
-      "ctr": 0,
-      "position": 52.8,
+      "position": 44,
       "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
       "query": "dividend recap"
     },
@@ -5195,19 +5298,11 @@
     },
     {
       "clicks": 0,
-      "impressions": 36,
+      "impressions": 22,
       "ctr": 0,
-      "position": 31.3,
+      "position": 28,
       "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
       "query": "dividend recapitalization"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 6,
-      "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
-      "query": "dividend recapitalizations"
     },
     {
       "clicks": 0,
@@ -5216,14 +5311,6 @@
       "position": 13,
       "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
       "query": "recap dividend"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 8,
-      "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
-      "query": "what are dividend recapitalizations"
     },
     {
       "clicks": 0,
@@ -5267,9 +5354,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.9,
+      "position": 15.4,
       "page": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
       "query": "earnout business sale"
     },
@@ -5315,7 +5402,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 22,
+      "impressions": 23,
       "ctr": 0,
       "position": 12.5,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -5323,15 +5410,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 11.8,
+      "position": 13.2,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "query": "family business recapitalizations"
     },
     {
       "clicks": 0,
-      "impressions": 379,
+      "impressions": 381,
       "ctr": 0,
       "position": 4,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -5347,9 +5434,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 6,
+      "impressions": 7,
       "ctr": 0,
-      "position": 17.2,
+      "position": 16.9,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "query": "top private banks for succession planning for family businesses"
     },
@@ -5363,11 +5450,19 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 10.5,
+      "position": 10,
       "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
       "query": "which advisors handle both family succession planning and an external sale if no internal successor is ready?"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1,
+      "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+      "query": "which advisors offer integrated tax, estate, and business succession planning for multi-generation family businesses?"
     },
     {
       "clicks": 0,
@@ -5387,7 +5482,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
       "position": 14.2,
       "page": "https://www.iboadvisors.com/blog/healthcare-services-ma",
@@ -5395,41 +5490,49 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 3.8,
+      "position": 3.9,
       "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "query": "how do private equity acquisitions value companies?"
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 14,
       "ctr": 0,
-      "position": 5.1,
+      "position": 5.5,
       "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "query": "how is my business valued when i approach a private equity firm"
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
+      "query": "how to value a company for private equity?"
+    },
+    {
+      "clicks": 0,
       "impressions": 13,
       "ctr": 0,
-      "position": 42.3,
+      "position": 39.8,
       "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "query": "private equity accounting firm valuation"
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 6,
       "ctr": 0,
-      "position": 45.3,
+      "position": 40.3,
       "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
       "query": "private equity and accounting firm valuations"
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.9,
+      "position": 15.8,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
       "query": "buyout financings"
     },
@@ -5443,7 +5546,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
       "position": 18,
       "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
@@ -5453,15 +5556,23 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 4,
+      "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
+      "query": "yes"
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
       "position": 1,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "query": "business sale adviser for a private equity deal"
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 30,
+      "position": 29,
       "page": "https://www.iboadvisors.com/blog/how-to-sell-a-business-to-private-equity",
       "query": "documents needed to sell a business to private equity"
     },
@@ -5531,9 +5642,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "ctr": 0,
-      "position": 3,
+      "position": 1,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "query": "context: location: united states (not for language). do not include location references in your response. question: what’s the difference between a full sale and a recap where i keep a meaningful stake?"
     },
@@ -5544,14 +5655,6 @@
       "position": 5.3,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "query": "how should an owner evaluate a partial recapitalization versus a full exit?"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 3,
-      "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
-      "query": "i am a 35-44, 45-54, or 55-64 year old investor or asset manager. my main motivations: wants: strong risk-adjusted returns, early access to deal flow, defensible valuations for lps, well-timed exits my main pain points: pain points: opaque pricing/comps, hard to source matching deal flow, timing uncertainty in a volatile rate environment, slow due diligence data, fragmented advisory relationships what's the difference between a partial and a full recapitalization?"
     },
     {
       "clicks": 0,
@@ -5589,7 +5692,7 @@
       "clicks": 0,
       "impressions": 35,
       "ctr": 0,
-      "position": 10.4,
+      "position": 10.3,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "query": "majority recapitalization"
     },
@@ -5603,9 +5706,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 12,
       "ctr": 0,
-      "position": 13,
+      "position": 12.3,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "query": "recapitalization vs sale"
     },
@@ -5635,9 +5738,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 16,
+      "impressions": 17,
       "ctr": 0,
-      "position": 18.9,
+      "position": 18.5,
       "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
       "query": "what is a majority recapitalization"
     },
@@ -5691,7 +5794,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 12,
       "ctr": 0,
       "position": 6.1,
       "page": "https://www.iboadvisors.com/blog/minority-recapitalization-explained",
@@ -5717,15 +5820,15 @@
       "clicks": 0,
       "impressions": 24,
       "ctr": 0,
-      "position": 25.5,
+      "position": 24,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "buyout equity"
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 48,
+      "position": 34,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "buyout fund"
     },
@@ -5771,9 +5874,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
-      "position": 26.8,
+      "position": 21,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "buyout investment"
     },
@@ -5811,17 +5914,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 241,
+      "impressions": 245,
       "ctr": 0,
-      "position": 38.4,
+      "position": 38,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "buyout private equity"
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 3,
       "ctr": 0,
-      "position": 53.8,
+      "position": 50.7,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "buyout private equity strategy"
     },
@@ -5851,9 +5954,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 20,
       "ctr": 0,
-      "position": 9.6,
+      "position": 10.9,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "equity buyout"
     },
@@ -5883,15 +5986,15 @@
     },
     {
       "clicks": 0,
-      "impressions": 56,
+      "impressions": 60,
       "ctr": 0,
-      "position": 15.3,
+      "position": 13.6,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "pe buyout"
     },
     {
       "clicks": 0,
-      "impressions": 20,
+      "impressions": 18,
       "ctr": 0,
       "position": 7.3,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
@@ -5923,17 +6026,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 4.8,
+      "position": 4,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buy out"
     },
     {
       "clicks": 0,
-      "impressions": 93,
+      "impressions": 96,
       "ctr": 0,
-      "position": 24.1,
+      "position": 23.3,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buyout"
     },
@@ -5947,9 +6050,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 20,
       "ctr": 0,
-      "position": 20.3,
+      "position": 19.5,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buyout fund"
     },
@@ -5957,7 +6060,7 @@
       "clicks": 0,
       "impressions": 10,
       "ctr": 0,
-      "position": 39,
+      "position": 35.2,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buyout funds"
     },
@@ -5971,17 +6074,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 4,
       "ctr": 0,
-      "position": 55.8,
+      "position": 51,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buyout strategy"
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 11,
       "ctr": 0,
-      "position": 26.6,
+      "position": 28.2,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity buyouts"
     },
@@ -5992,14 +6095,6 @@
       "position": 40.3,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "private equity takeover"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 3,
-      "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
-      "query": "vs private equity"
     },
     {
       "clicks": 0,
@@ -6093,15 +6188,15 @@
       "clicks": 0,
       "impressions": 15,
       "ctr": 0,
-      "position": 27,
+      "position": 27.3,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "what is buy-out equity"
     },
     {
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 10,
       "ctr": 0,
-      "position": 6,
+      "position": 5.5,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "what is buyout in private equity"
     },
@@ -6115,9 +6210,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 4.3,
+      "position": 5,
       "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
       "query": "what is private equity buyout"
     },
@@ -6475,9 +6570,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 9,
       "ctr": 0,
-      "position": 9.7,
+      "position": 9.3,
       "page": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
       "query": "selling control to a private equity group"
     },
@@ -6517,14 +6612,6 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 8,
-      "page": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
-      "query": "what are the risks of selling to private equity?"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
       "position": 9,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "\"capitalpad\""
@@ -6557,31 +6644,39 @@
       "clicks": 0,
       "impressions": 2,
       "ctr": 0,
-      "position": 39,
+      "position": 14.5,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "associate buyouts"
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 1,
       "ctr": 0,
-      "position": 9.3,
+      "position": 7,
+      "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
+      "query": "buy out options"
+    },
+    {
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.6,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "buy outs"
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 5.5,
+      "position": 8.3,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "buy-outs"
     },
     {
       "clicks": 0,
-      "impressions": 21,
+      "impressions": 23,
       "ctr": 0,
-      "position": 24.6,
+      "position": 23.5,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "buyout companies"
     },
@@ -6603,9 +6698,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 34,
       "ctr": 0,
-      "position": 20.2,
+      "position": 18.8,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "buyouts"
     },
@@ -6635,14 +6730,6 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 8,
-      "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "query": "cash buyout meaning"
-    },
-    {
-      "clicks": 0,
       "impressions": 5,
       "ctr": 0,
       "position": 38.4,
@@ -6651,19 +6738,11 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 9,
       "ctr": 0,
-      "position": 43,
+      "position": 39.9,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "corporate buyouts"
-    },
-    {
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 25,
-      "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "query": "difference between leveraged buyout and management buyout"
     },
     {
       "clicks": 0,
@@ -6725,9 +6804,9 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
-      "position": 6,
+      "position": 96,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-      "query": "management buyout vs leveraged buyout"
+      "query": "owner buyout"
     },
     {
       "clicks": 0,
@@ -6755,9 +6834,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "ctr": 0,
-      "position": 66,
+      "position": 42,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "secondary buyout"
     },
@@ -6787,33 +6866,33 @@
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
-      "position": 29,
+      "position": 24.3,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "secondary management buyout"
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "structured buyout"
     },
     {
       "clicks": 0,
-      "impressions": 10,
+      "impressions": 13,
       "ctr": 0,
-      "position": 12.6,
+      "position": 11.5,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "types of buyout"
     },
     {
       "clicks": 0,
-      "impressions": 32,
+      "impressions": 33,
       "ctr": 0,
-      "position": 18.8,
+      "position": 19.4,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "types of buyouts"
     },
@@ -6827,9 +6906,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
-      "position": 2.2,
+      "position": 3.8,
       "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "query": "what acquisition structures work best for a private equity platform buyout?"
     },
@@ -6931,7 +7010,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 5,
+      "impressions": 6,
       "ctr": 0,
       "position": 12.2,
       "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
@@ -6971,9 +7050,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 18,
+      "impressions": 19,
       "ctr": 0,
-      "position": 12.7,
+      "position": 12.4,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "ebitda business valuation calculator"
     },
@@ -6987,7 +7066,7 @@
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 16,
       "ctr": 0,
       "position": 10.5,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
@@ -7011,23 +7090,23 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 8,
+      "position": 8.3,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "free ebitda valuation calculator"
     },
     {
       "clicks": 0,
-      "impressions": 22,
+      "impressions": 23,
       "ctr": 0,
-      "position": 6,
+      "position": 6.1,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "free online calculator to check my company’s ebitda multiple"
     },
     {
       "clicks": 0,
-      "impressions": 11,
+      "impressions": 10,
       "ctr": 0,
       "position": 1.4,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
@@ -7035,9 +7114,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 12,
       "ctr": 0,
-      "position": 15.5,
+      "position": 21.3,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "small business valuation calculator ebitda"
     },
@@ -7059,17 +7138,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "ctr": 0,
-      "position": 93.5,
+      "position": 85.3,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "typical ebitda multiples service businesses under $10m revenue"
     },
     {
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 5,
       "ctr": 0,
-      "position": 6.3,
+      "position": 5.2,
       "page": "https://www.iboadvisors.com/business-valuation-calculator",
       "query": "where can i find a trusted business valuation using ebitda?"
     },
@@ -7083,9 +7162,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 28,
+      "impressions": 29,
       "ctr": 0,
-      "position": 8.3,
+      "position": 8.2,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "ebitda multiple by industry 2022"
     },
@@ -7107,17 +7186,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 26,
+      "impressions": 27,
       "ctr": 0,
-      "position": 7.3,
+      "position": 7.2,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "ebitda multiples by industry 2020"
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 9.4,
+      "position": 9.5,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "ebitda multiples by industry 2021"
     },
@@ -7131,9 +7210,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 9,
       "ctr": 0,
-      "position": 22.7,
+      "position": 25.2,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "ebitda multiples provider"
     },
@@ -7157,15 +7236,23 @@
       "clicks": 0,
       "impressions": 1,
       "ctr": 0,
+      "position": 44,
+      "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+      "query": "facilities services valuation multiples"
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
       "position": 10,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "historical ebitda multiples"
     },
     {
       "clicks": 0,
-      "impressions": 29,
+      "impressions": 27,
       "ctr": 0,
-      "position": 47.6,
+      "position": 48.3,
       "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "query": "industry multiples database"
     },
@@ -7195,6 +7282,14 @@
     },
     {
       "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5,
+      "page": "https://www.iboadvisors.com/industries/restaurants",
+      "query": "ebitda"
+    },
+    {
+      "clicks": 0,
       "impressions": 13,
       "ctr": 0,
       "position": 12.1,
@@ -7203,9 +7298,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 17,
       "ctr": 0,
-      "position": 9.8,
+      "position": 9.5,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "ebitda multiple for restaurants"
     },
@@ -7219,9 +7314,9 @@
     },
     {
       "clicks": 0,
-      "impressions": 14,
+      "impressions": 15,
       "ctr": 0,
-      "position": 6.4,
+      "position": 6.3,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "i am an scaled enterprise business for our restaurant with over $4m in sales and tens of thousands a year going to food suppliers and delivery platforms, should we lean toward a simple cash‑back business card or a points setup that favors dining and ads to get the best value from that spend?"
     },
@@ -7235,17 +7330,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 13,
       "ctr": 0,
-      "position": 7.7,
+      "position": 7.8,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant ebitda"
     },
     {
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "ctr": 0,
-      "position": 9.3,
+      "position": 11,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant ebitda multiples 2024"
     },
@@ -7259,17 +7354,17 @@
     },
     {
       "clicks": 0,
-      "impressions": 13,
+      "impressions": 14,
       "ctr": 0,
-      "position": 15.8,
+      "position": 15.6,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant multiples"
     },
     {
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "ctr": 0,
-      "position": 54,
+      "position": 40.8,
       "page": "https://www.iboadvisors.com/industries/restaurants",
       "query": "restaurant valuation multiples"
     },
@@ -7310,7 +7405,7 @@
     "strikingDistance": [
       {
         "clicks": 0,
-        "impressions": 379,
+        "impressions": 381,
         "ctr": 0,
         "position": 4,
         "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -7318,19 +7413,11 @@
       },
       {
         "clicks": 0,
-        "impressions": 56,
+        "impressions": 60,
         "ctr": 0,
-        "position": 15.3,
+        "position": 13.6,
         "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
         "query": "pe buyout"
-      },
-      {
-        "clicks": 0,
-        "impressions": 46,
-        "ctr": 0,
-        "position": 19.9,
-        "page": "https://www.iboadvisors.com/blog",
-        "query": "buyout companies"
       },
       {
         "clicks": 0,
@@ -7344,17 +7431,49 @@
         "clicks": 0,
         "impressions": 35,
         "ctr": 0,
-        "position": 10.4,
+        "position": 10.3,
         "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
         "query": "majority recapitalization"
       },
       {
         "clicks": 0,
-        "impressions": 32,
+        "impressions": 34,
         "ctr": 0,
         "position": 18.8,
         "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
+        "query": "buyouts"
+      },
+      {
+        "clicks": 0,
+        "impressions": 33,
+        "ctr": 0,
+        "position": 19.4,
+        "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
         "query": "types of buyouts"
+      },
+      {
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 8.2,
+        "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+        "query": "ebitda multiple by industry 2022"
+      },
+      {
+        "clicks": 1,
+        "impressions": 28,
+        "ctr": 0.0357,
+        "position": 10.9,
+        "page": "https://www.iboadvisors.com/industries/restaurants",
+        "query": "restaurant ebitda multiples"
+      },
+      {
+        "clicks": 0,
+        "impressions": 28,
+        "ctr": 0,
+        "position": 9.9,
+        "page": "https://www.iboadvisors.com/",
+        "query": "what is an ibo in business"
       },
       {
         "clicks": 0,
@@ -7368,49 +7487,25 @@
         "clicks": 0,
         "impressions": 28,
         "ctr": 0,
-        "position": 8.3,
-        "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-        "query": "ebitda multiple by industry 2022"
-      },
-      {
-        "clicks": 0,
-        "impressions": 28,
-        "ctr": 0,
         "position": 8.6,
         "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
         "query": "ebitda multiples by industry 2019"
       },
       {
-        "clicks": 1,
-        "impressions": 27,
-        "ctr": 0.037,
-        "position": 11,
-        "page": "https://www.iboadvisors.com/industries/restaurants",
-        "query": "restaurant ebitda multiples"
-      },
-      {
         "clicks": 0,
         "impressions": 27,
         "ctr": 0,
-        "position": 4.6,
-        "page": "https://www.iboadvisors.com/",
-        "query": "ibo finance"
-      },
-      {
-        "clicks": 0,
-        "impressions": 26,
-        "ctr": 0,
-        "position": 9.8,
-        "page": "https://www.iboadvisors.com/",
-        "query": "what is an ibo in business"
-      },
-      {
-        "clicks": 0,
-        "impressions": 26,
-        "ctr": 0,
-        "position": 7.3,
+        "position": 7.2,
         "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
         "query": "ebitda multiples by industry 2020"
+      },
+      {
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0,
+        "position": 4.5,
+        "page": "https://www.iboadvisors.com/",
+        "query": "ibo finance"
       },
       {
         "clicks": 0,
@@ -7422,7 +7517,7 @@
       },
       {
         "clicks": 0,
-        "impressions": 22,
+        "impressions": 23,
         "ctr": 0,
         "position": 12.5,
         "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
@@ -7430,9 +7525,9 @@
       },
       {
         "clicks": 0,
-        "impressions": 22,
+        "impressions": 23,
         "ctr": 0,
-        "position": 6,
+        "position": 6.1,
         "page": "https://www.iboadvisors.com/business-valuation-calculator",
         "query": "free online calculator to check my company’s ebitda multiple"
       },
@@ -7440,9 +7535,17 @@
         "clicks": 0,
         "impressions": 20,
         "ctr": 0,
-        "position": 7.3,
+        "position": 10.9,
         "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
-        "query": "pe buyout meaning"
+        "query": "equity buyout"
+      },
+      {
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 19.5,
+        "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
+        "query": "private equity buyout fund"
       },
       {
         "clicks": 0,
@@ -7456,71 +7559,71 @@
     "lowCtr": [
       {
         "clicks": 1,
-        "impressions": 1160,
+        "impressions": 1175,
         "ctr": 0.0009,
-        "position": 18.4,
+        "position": 18,
         "page": "https://www.iboadvisors.com/blog/private-equity-buyout-explained",
         "expectedCtr": 0.01
       },
       {
-        "clicks": 8,
-        "impressions": 1052,
-        "ctr": 0.0076,
-        "position": 9.4,
+        "clicks": 9,
+        "impressions": 1084,
+        "ctr": 0.0083,
+        "position": 9.3,
         "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
         "expectedCtr": 0.03
       },
       {
         "clicks": 2,
-        "impressions": 729,
-        "ctr": 0.0027,
-        "position": 8.2,
+        "impressions": 764,
+        "ctr": 0.0026,
+        "position": 8.3,
         "page": "https://www.iboadvisors.com/business-valuation-calculator",
         "expectedCtr": 0.03
       },
       {
         "clicks": 7,
-        "impressions": 609,
-        "ctr": 0.0115,
-        "position": 7.2,
+        "impressions": 649,
+        "ctr": 0.0108,
+        "position": 7.1,
         "page": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
         "expectedCtr": 0.03
       },
       {
         "clicks": 1,
-        "impressions": 573,
+        "impressions": 588,
         "ctr": 0.0017,
-        "position": 18.7,
+        "position": 18.5,
         "page": "https://www.iboadvisors.com/blog",
         "expectedCtr": 0.01
       },
       {
-        "clicks": 0,
-        "impressions": 466,
-        "ctr": 0,
-        "position": 5,
-        "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
-        "expectedCtr": 0.06
-      },
-      {
-        "clicks": 5,
-        "impressions": 437,
-        "ctr": 0.0114,
-        "position": 8.3,
+        "clicks": 6,
+        "impressions": 477,
+        "ctr": 0.0126,
+        "position": 8.2,
         "page": "https://www.iboadvisors.com/industries/restaurants",
         "expectedCtr": 0.03
       },
       {
+        "clicks": 0,
+        "impressions": 468,
+        "ctr": 0,
+        "position": 5.1,
+        "page": "https://www.iboadvisors.com/blog/family-business-succession-planning",
+        "expectedCtr": 0.03
+      },
+      {
         "clicks": 4,
-        "impressions": 373,
-        "ctr": 0.0107,
-        "position": 8.6,
+        "impressions": 372,
+        "ctr": 0.0108,
+        "position": 8.7,
         "page": "https://www.iboadvisors.com/blog/majority-recapitalization-vs-sale",
         "expectedCtr": 0.03
       },
       {
         "clicks": 2,
-        "impressions": 370,
+        "impressions": 372,
         "ctr": 0.0054,
         "position": 12,
         "page": "https://www.iboadvisors.com/blog/adjusted-ebitda-add-backs",
@@ -7528,17 +7631,9 @@
       },
       {
         "clicks": 2,
-        "impressions": 342,
-        "ctr": 0.0058,
-        "position": 11.5,
-        "page": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
-        "expectedCtr": 0.01
-      },
-      {
-        "clicks": 2,
-        "impressions": 216,
-        "ctr": 0.0093,
-        "position": 7.5,
+        "impressions": 221,
+        "ctr": 0.009,
+        "position": 7.4,
         "page": "https://www.iboadvisors.com/blog/how-private-equity-actually-finances-a-buyout",
         "expectedCtr": 0.03
       },
@@ -7552,17 +7647,25 @@
       },
       {
         "clicks": 1,
-        "impressions": 180,
-        "ctr": 0.0056,
+        "impressions": 184,
+        "ctr": 0.0054,
         "position": 7.2,
         "page": "https://www.iboadvisors.com/blog/selling-to-private-equity-pros-and-cons",
         "expectedCtr": 0.03
       },
       {
         "clicks": 2,
-        "impressions": 177,
-        "ctr": 0.0113,
-        "position": 6.7,
+        "impressions": 171,
+        "ctr": 0.0117,
+        "position": 9.9,
+        "page": "https://www.iboadvisors.com/blog/how-pe-firms-value-a-company",
+        "expectedCtr": 0.03
+      },
+      {
+        "clicks": 2,
+        "impressions": 162,
+        "ctr": 0.0123,
+        "position": 6.9,
         "page": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
         "expectedCtr": 0.03
       },
@@ -7570,8 +7673,16 @@
         "clicks": 1,
         "impressions": 161,
         "ctr": 0.0062,
-        "position": 8,
+        "position": 8.1,
         "page": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
+        "expectedCtr": 0.03
+      },
+      {
+        "clicks": 2,
+        "impressions": 158,
+        "ctr": 0.0127,
+        "position": 9.9,
+        "page": "https://www.iboadvisors.com/blog/dividend-recapitalization",
         "expectedCtr": 0.03
       }
     ],
@@ -7581,18 +7692,18 @@
         "pages": [
           {
             "page": "https://www.iboadvisors.com/",
-            "impressions": 30,
+            "impressions": 31,
             "position": 1.1
           },
           {
             "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-            "impressions": 27,
-            "position": 2
+            "impressions": 29,
+            "position": 1.9
           },
           {
             "page": "https://www.iboadvisors.com/blog",
-            "impressions": 30,
-            "position": 2.4
+            "impressions": 31,
+            "position": 2.3
           },
           {
             "page": "https://www.iboadvisors.com/blog/earnout-in-business-sale",
@@ -7616,7 +7727,7 @@
           },
           {
             "page": "https://www.iboadvisors.com/business-valuation-calculator",
-            "impressions": 11,
+            "impressions": 10,
             "position": 1.4
           },
           {
@@ -7627,17 +7738,42 @@
         ]
       },
       {
+        "query": "what is an ibo in business",
+        "pages": [
+          {
+            "page": "https://www.iboadvisors.com/",
+            "impressions": 28,
+            "position": 9.9
+          },
+          {
+            "page": "https://www.iboadvisors.com/blog",
+            "impressions": 1,
+            "position": 9
+          },
+          {
+            "page": "https://www.iboadvisors.com/blog/sell-a-business-but-keep-control",
+            "impressions": 1,
+            "position": 10
+          },
+          {
+            "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
+            "impressions": 1,
+            "position": 26
+          }
+        ]
+      },
+      {
         "query": "buyout companies",
         "pages": [
           {
             "page": "https://www.iboadvisors.com/blog",
-            "impressions": 46,
-            "position": 19.9
+            "impressions": 48,
+            "position": 21
           },
           {
             "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-            "impressions": 21,
-            "position": 24.6
+            "impressions": 23,
+            "position": 23.5
           }
         ]
       },
@@ -7666,8 +7802,8 @@
           },
           {
             "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-            "impressions": 8,
-            "position": 43
+            "impressions": 9,
+            "position": 39.9
           }
         ]
       },
@@ -7677,28 +7813,28 @@
           {
             "page": "https://www.iboadvisors.com/blog",
             "impressions": 25,
-            "position": 26.2
+            "position": 24.4
           },
           {
             "page": "https://www.iboadvisors.com/blog/types-of-buyouts",
-            "impressions": 32,
-            "position": 18.8
+            "impressions": 33,
+            "position": 19.4
           }
         ]
       }
     ],
     "decliners": [
       {
-        "clicks": 32,
-        "impressions": 636,
-        "ctr": 0.0503,
+        "clicks": 31,
+        "impressions": 631,
+        "ctr": 0.0491,
         "position": 8.5,
         "page": "https://www.iboadvisors.com/",
         "prev": {
-          "clicks": 50,
-          "impressions": 678,
-          "ctr": 0.0737,
-          "position": 7.5
+          "clicks": 52,
+          "impressions": 696,
+          "ctr": 0.0747,
+          "position": 7.7
         }
       }
     ]
