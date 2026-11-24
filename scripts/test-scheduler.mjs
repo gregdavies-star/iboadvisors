@@ -11,6 +11,8 @@
 import assert from 'node:assert/strict';
 
 process.env.IBO_HUBSPOT_SERVICE_KEY = 'test-token';
+// These tests build slots relative to the current time; the dated blackout has its own file (test-blackout.mjs).
+process.env.IBO_BLACKOUT = 'none';
 
 const sched = await import('../api/_scheduler.js');
 const book = await import('../api/book.js');

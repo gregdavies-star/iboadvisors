@@ -42,8 +42,10 @@
                endMillisUtc }] } }, hasMore }, allUsersBusyTimes }
        allUsersBusyTimes (the hosts' busy blocks) is dropped here, so it is
        never returned to the browser.
-     - The page advertises about two weeks ahead, so monthOffset 1+ is usually
-       empty with hasMore false.
+     - The page advertises as far ahead as the scheduling page's availability
+       window (rolling weeks, a HubSpot setting; normally two, three from
+       24 Nov to 7 Dec 2026), so monthOffset 1+ is usually empty or has few
+       days, and hasMore can be false when the next month has days.
      - The link-details call (GET .../book/{slug}) needs ?timezone=; it
        answers 400 without it. Its customParams carry formFields (the
        booking questions) and startTimeIncrementMinutes.
@@ -76,6 +78,83 @@ export const EBITDA_PROPERTY = 'what_is_your_approximate_annual_ebitda_profit';
 const AVAILABILITY_TIMEOUT_MS = 10000;
 const LINK_DETAILS_TIMEOUT_MS = 10000;
 const CONTACT_SEARCH_TIMEOUT_MS = 8000;
+
+/* ---- blackout dates ----
+   Days on which nobody on the team takes calls. Slots that start inside a
+   blackout are dropped by extractSlots, so /api/availability,
+   /api/partner-availability and (through findSlot) /api/book and
+   /api/partner-book all refuse them, whatever HubSpot says. Calendar blocks in
+   HubSpot are the primary fix (they also cover old hosted-page links); this is
+   the second layer.
+
+   Format: 'YYYY-MM-DD/YYYY-MM-DD' (first and last day, both inclusive, in
+   America/New_York), several ranges separated by commas. Env IBO_BLACKOUT
+   overrides the default; set it to 'none' (or empty) for no blackout. An
+   unparsable value is logged and the default is used.
+   2026-11-30/2026-12-07: Michael and Darren unavailable. REMOVE the default
+   after 7 Dec 2026 (it has no effect once the dates have passed). */
+export const BLACKOUT_TZ = 'America/New_York';
+export const DEFAULT_BLACKOUT = '2026-11-30/2026-12-07';
+
+function tzOffsetMs(ms, timeZone) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone, hourCycle: 'h23', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric',
+  }).formatToParts(new Date(ms));
+  const get = (t) => Number(parts.find((p) => p.type === t).value);
+  const asUtc = Date.UTC(get('year'), get('month') - 1, get('day'), get('hour'), get('minute'), get('second'));
+  return asUtc - Math.floor(ms / 1000) * 1000;
+}
+
+// Epoch ms of 00:00 on y-m-d (d may overflow into the next month) in timeZone.
+function startOfDayMs(y, m, d, timeZone) {
+  const wall = Date.UTC(y, m - 1, d);
+  let guess = wall - tzOffsetMs(wall, timeZone);
+  guess = wall - tzOffsetMs(guess, timeZone);
+  return guess;
+}
+
+// -> [{ start, end }] epoch ms, end exclusive; null if the text is malformed.
+export function parseBlackouts(text, timeZone = BLACKOUT_TZ) {
+  const raw = String(text === undefined || text === null ? '' : text).trim();
+  if (!raw || raw.toLowerCase() === 'none') return [];
+  const out = [];
+  for (const part of raw.split(',')) {
+    const m = /^\s*(\d{4})-(\d{2})-(\d{2})\s*\/\s*(\d{4})-(\d{2})-(\d{2})\s*$/.exec(part);
+    if (!m) return null;
+    const [y1, m1, d1, y2, m2, d2] = m.slice(1).map(Number);
+    const start = startOfDayMs(y1, m1, d1, timeZone);
+    const end = startOfDayMs(y2, m2, d2 + 1, timeZone);
+    const real = (y, mo, d) => mo >= 1 && mo <= 12 && d >= 1 && d <= new Date(Date.UTC(y, mo, 0)).getUTCDate();
+    if (!real(y1, m1, d1) || !real(y2, m2, d2)) return null;
+    if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) return null;
+    out.push({ start, end });
+  }
+  return out;
+}
+
+function loadBlackouts() {
+  const env = process.env.IBO_BLACKOUT;
+  if (env !== undefined) {
+    const parsed = parseBlackouts(env);
+    if (parsed) return parsed;
+    console.error('[scheduler] IBO_BLACKOUT is not valid; using the default blackout');
+  }
+  return parseBlackouts(DEFAULT_BLACKOUT);
+}
+
+export const BLACKOUTS = loadBlackouts();
+
+export function inBlackout(start, blackouts = BLACKOUTS) {
+  return blackouts.some((b) => start >= b.start && start < b.end);
+}
+
+// True when a blackout that has not ended yet finishes in or after the month
+// being asked for, so a month that looks empty may still be followed by days
+// that are open. HubSpot's hasMore cannot know about a blackout we apply.
+export function blackoutImpliesMore(now, timezone, monthOffset, blackouts = BLACKOUTS) {
+  const requested = monthIndex(now, timezone) + monthOffset;
+  return blackouts.some((b) => b.end > now && monthIndex(b.end - 1, timezone) >= requested);
+}
 
 export const LINKS = {
   partner: { slug: SLUG },
@@ -127,9 +206,11 @@ export function isTimeout(err) {
 // The 30-minute entry only; every slot checked, sorted, de-duplicated and
 // limited to times that have not started yet. options.halfHourOnly keeps
 // only starts on a UTC half-hour boundary, which is :00 or :30 in every
-// whole-hour and half-hour zone.
+// whole-hour and half-hour zone. options.blackouts (default BLACKOUTS) drops
+// starts inside a blackout.
 export function extractSlots(data, now = Date.now(), options = {}) {
   const halfHourOnly = !!(options && options.halfHourOnly);
+  const blackouts = options && Array.isArray(options.blackouts) ? options.blackouts : BLACKOUTS;
   const byDuration = data && data.linkAvailability && data.linkAvailability.linkAvailabilityByDuration;
   if (!byDuration || typeof byDuration !== 'object') return [];
   let entry = byDuration[String(DURATION_MS)];
@@ -143,6 +224,7 @@ export function extractSlots(data, now = Date.now(), options = {}) {
     const end = Number(a.endMillisUtc);
     if (!isMs(start) || !isMs(end) || end <= start || start <= now || seen.has(start)) continue;
     if (halfHourOnly && start % HALF_HOUR_MS !== 0) continue;
+    if (inBlackout(start, blackouts)) continue;
     seen.add(start);
     slots.push({ start, end });
   }
@@ -169,9 +251,12 @@ export async function fetchAvailability(token, timezone, monthOffset, options = 
     throw error;
   }
   const data = await response.json();
+  const now = Date.now();
+  const blackouts = options && Array.isArray(options.blackouts) ? options.blackouts : BLACKOUTS;
   return {
-    slots: extractSlots(data, Date.now(), { halfHourOnly: !!(options && options.halfHourOnly) }),
-    hasMore: !!(data && data.linkAvailability && data.linkAvailability.hasMore),
+    slots: extractSlots(data, now, { halfHourOnly: !!(options && options.halfHourOnly), blackouts }),
+    hasMore: !!(data && data.linkAvailability && data.linkAvailability.hasMore) ||
+      blackoutImpliesMore(now, timezone, monthOffset, blackouts),
   };
 }
 

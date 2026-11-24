@@ -18,6 +18,7 @@
     "ahrefs:pull": "node scripts/ahrefs.mjs pull",
     "test:attribution": "node scripts/test-attribution.mjs",
     "test:scheduler": "node scripts/test-scheduler.mjs",
+    "test:blackout": "node scripts/test-blackout.mjs",
     "test:errors": "node scripts/test-error-reporting.mjs"
   }
 }
