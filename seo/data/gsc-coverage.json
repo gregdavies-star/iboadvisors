@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-11-22T18:13:57.720Z",
+  "inspectedAt": "2026-11-28T18:40:57.574Z",
   "results": [
     {
       "url": "https://www.iboadvisors.com/",
@@ -20,20 +20,29 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/business-valuation-calculator",
-      "verdict": "PASS",
-      "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-13T18:19:49Z",
-      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
-      "robotsTxtState": "ALLOWED",
-      "indexingState": "INDEXING_ALLOWED"
-    },
-    {
       "url": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
       "lastCrawlTime": "2026-10-07T19:35:57Z",
       "googleCanonical": "https://www.iboadvisors.com/ebitda-multiples-by-industry",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-13T17:42:41Z",
+      "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED"
+    },
+    {
+      "url": "https://www.iboadvisors.com/business-valuation-calculator",
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "lastCrawlTime": "2026-11-13T18:19:49Z",
+      "googleCanonical": "https://www.iboadvisors.com/business-valuation-calculator",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -56,11 +65,11 @@
       "indexingState": "INDEXING_ALLOWED"
     },
     {
-      "url": "https://www.iboadvisors.com/industries/restaurants",
+      "url": "https://www.iboadvisors.com/blog/private-equity-replace-founder-ceo",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-13T17:42:41Z",
-      "googleCanonical": "https://www.iboadvisors.com/industries/restaurants",
+      "lastCrawlTime": "2026-11-23T20:33:27Z",
+      "googleCanonical": "https://www.iboadvisors.com/blog/private-equity-replace-founder-ceo",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
     },
@@ -113,7 +122,7 @@
       "url": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-18T02:21:27Z",
+      "lastCrawlTime": "2026-11-24T12:37:56Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/types-of-buyouts",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -158,7 +167,7 @@
       "url": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-19T23:04:19Z",
+      "lastCrawlTime": "2026-11-24T15:37:47Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/independent-buyout-explained",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -212,7 +221,7 @@
       "url": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-19T22:26:44Z",
+      "lastCrawlTime": "2026-11-24T14:22:47Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/what-happens-after-private-equity-buys-your-company",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -248,7 +257,7 @@
       "url": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-11-19T14:39:46Z",
+      "lastCrawlTime": "2026-11-28T00:22:54Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/minority-pe-stake-board-control-veto-rights",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
@@ -293,7 +302,7 @@
       "url": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "verdict": "PASS",
       "coverageState": "Submitted and indexed",
-      "lastCrawlTime": "2026-10-28T01:24:13Z",
+      "lastCrawlTime": "2026-11-23T09:25:27Z",
       "googleCanonical": "https://www.iboadvisors.com/blog/healthcare-services-ma",
       "robotsTxtState": "ALLOWED",
       "indexingState": "INDEXING_ALLOWED"
